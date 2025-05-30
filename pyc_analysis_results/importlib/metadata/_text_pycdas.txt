@@ -1,0 +1,446 @@
+_text.pyc (Python 3.10)
+[Code]
+    File Name: importlib/metadata/_text.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        're'
+        '_functools'
+        'method_cache'
+        'str'
+        'FoldedCase'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        None
+        1
+        (
+            'method_cache'
+        )
+        [Code]
+            File Name: importlib/metadata/_text.py
+            Object Name: FoldedCase
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__lt__'
+                '__gt__'
+                '__eq__'
+                '__ne__'
+                '__hash__'
+                '__contains__'
+                'in_'
+                'method_cache'
+                'lower'
+                'index'
+                'split'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'FoldedCase'
+                '\n    A case insensitive string class; behaves just like str\n    except compares equal when the only variation is case.\n\n    >>> s = FoldedCase(\'hello world\')\n\n    >>> s == \'Hello World\'\n    True\n\n    >>> \'Hello World\' == s\n    True\n\n    >>> s != \'Hello World\'\n    False\n\n    >>> s.index(\'O\')\n    4\n\n    >>> s.split(\'O\')\n    [\'hell\', \' w\', \'rld\']\n\n    >>> sorted(map(FoldedCase, [\'GAMMA\', \'alpha\', \'Beta\']))\n    [\'alpha\', \'Beta\', \'GAMMA\']\n\n    Sequence membership is straightforward.\n\n    >>> "Hello World" in [s]\n    True\n    >>> s in ["Hello World"]\n    True\n\n    You may test for set inclusion, but candidate and elements\n    must both be folded.\n\n    >>> FoldedCase("Hello World") in {s}\n    True\n    >>> s in {FoldedCase("Hello World")}\n    True\n\n    String inclusion works as long as the FoldedCase object\n    is on the right.\n\n    >>> "hello" in FoldedCase("Hello World")\n    True\n\n    But not if the FoldedCase object is on the left:\n\n    >>> FoldedCase(\'hello\') in \'Hello World\'\n    False\n\n    In that case, use in_:\n\n    >>> FoldedCase(\'hello\').in_(\'Hello World\')\n    True\n\n    >>> FoldedCase(\'hello\') > FoldedCase(\'Hello\')\n    False\n    '
+                [Code]
+                    File Name: importlib/metadata/_text.py
+                    Object Name: __lt__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'lower'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: lower
+                        4       CALL_METHOD                     0
+                        6       LOAD_FAST                       1: other
+                        8       LOAD_METHOD                     0: lower
+                        10      CALL_METHOD                     0
+                        12      COMPARE_OP                      0 (<)
+                        14      RETURN_VALUE                    
+                'FoldedCase.__lt__'
+                [Code]
+                    File Name: importlib/metadata/_text.py
+                    Object Name: __gt__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'lower'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: lower
+                        4       CALL_METHOD                     0
+                        6       LOAD_FAST                       1: other
+                        8       LOAD_METHOD                     0: lower
+                        10      CALL_METHOD                     0
+                        12      COMPARE_OP                      4 (>)
+                        14      RETURN_VALUE                    
+                'FoldedCase.__gt__'
+                [Code]
+                    File Name: importlib/metadata/_text.py
+                    Object Name: __eq__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'lower'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: lower
+                        4       CALL_METHOD                     0
+                        6       LOAD_FAST                       1: other
+                        8       LOAD_METHOD                     0: lower
+                        10      CALL_METHOD                     0
+                        12      COMPARE_OP                      2 (==)
+                        14      RETURN_VALUE                    
+                'FoldedCase.__eq__'
+                [Code]
+                    File Name: importlib/metadata/_text.py
+                    Object Name: __ne__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'lower'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: lower
+                        4       CALL_METHOD                     0
+                        6       LOAD_FAST                       1: other
+                        8       LOAD_METHOD                     0: lower
+                        10      CALL_METHOD                     0
+                        12      COMPARE_OP                      3 (!=)
+                        14      RETURN_VALUE                    
+                'FoldedCase.__ne__'
+                [Code]
+                    File Name: importlib/metadata/_text.py
+                    Object Name: __hash__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'hash'
+                        'lower'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: hash
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_METHOD                     1: lower
+                        6       CALL_METHOD                     0
+                        8       CALL_FUNCTION                   1
+                        10      RETURN_VALUE                    
+                'FoldedCase.__hash__'
+                [Code]
+                    File Name: importlib/metadata/_text.py
+                    Object Name: __contains__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        'FoldedCase'
+                        'lower'
+                        '__contains__'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       LOAD_GLOBAL                     1: FoldedCase
+                        4       LOAD_FAST                       0: self
+                        6       CALL_FUNCTION                   2
+                        8       LOAD_METHOD                     2: lower
+                        10      CALL_METHOD                     0
+                        12      LOAD_METHOD                     3: __contains__
+                        14      LOAD_FAST                       1: other
+                        16      LOAD_METHOD                     2: lower
+                        18      CALL_METHOD                     0
+                        20      CALL_METHOD                     1
+                        22      RETURN_VALUE                    
+                'FoldedCase.__contains__'
+                [Code]
+                    File Name: importlib/metadata/_text.py
+                    Object Name: in_
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'FoldedCase'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Does self appear in other?'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_GLOBAL                     0: FoldedCase
+                        4       LOAD_FAST                       1: other
+                        6       CALL_FUNCTION                   1
+                        8       CONTAINS_OP                     0 (in)
+                        10      RETURN_VALUE                    
+                'FoldedCase.in_'
+                [Code]
+                    File Name: importlib/metadata/_text.py
+                    Object Name: lower
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        'FoldedCase'
+                        'lower'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       LOAD_GLOBAL                     1: FoldedCase
+                        4       LOAD_FAST                       0: self
+                        6       CALL_FUNCTION                   2
+                        8       LOAD_METHOD                     2: lower
+                        10      CALL_METHOD                     0
+                        12      RETURN_VALUE                    
+                'FoldedCase.lower'
+                [Code]
+                    File Name: importlib/metadata/_text.py
+                    Object Name: index
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'lower'
+                        'index'
+                    [Var Names]
+                        'self'
+                        'sub'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: lower
+                        4       CALL_METHOD                     0
+                        6       LOAD_METHOD                     1: index
+                        8       LOAD_FAST                       1: sub
+                        10      LOAD_METHOD                     0: lower
+                        12      CALL_METHOD                     0
+                        14      CALL_METHOD                     1
+                        16      RETURN_VALUE                    
+                'FoldedCase.index'
+                ' '
+                0
+                [Code]
+                    File Name: importlib/metadata/_text.py
+                    Object Name: split
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        're'
+                        'compile'
+                        'escape'
+                        'I'
+                        'split'
+                    [Var Names]
+                        'self'
+                        'splitter'
+                        'maxsplit'
+                        'pattern'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: re
+                        2       LOAD_METHOD                     1: compile
+                        4       LOAD_GLOBAL                     0: re
+                        6       LOAD_METHOD                     2: escape
+                        8       LOAD_FAST                       1: splitter
+                        10      CALL_METHOD                     1
+                        12      LOAD_GLOBAL                     0: re
+                        14      LOAD_ATTR                       3: I
+                        16      CALL_METHOD                     2
+                        18      STORE_FAST                      3: pattern
+                        20      LOAD_FAST                       3: pattern
+                        22      LOAD_METHOD                     4: split
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_FAST                       2: maxsplit
+                        28      CALL_METHOD                     2
+                        30      RETURN_VALUE                    
+                'FoldedCase.split'
+                (
+                    ' '
+                    0
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'FoldedCase'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: '\n    A case insensitive string class; behaves just like str\n    except compares equal when the only variation is case.\n\n    >>> s = FoldedCase(\'hello world\')\n\n    >>> s == \'Hello World\'\n    True\n\n    >>> \'Hello World\' == s\n    True\n\n    >>> s != \'Hello World\'\n    False\n\n    >>> s.index(\'O\')\n    4\n\n    >>> s.split(\'O\')\n    [\'hell\', \' w\', \'rld\']\n\n    >>> sorted(map(FoldedCase, [\'GAMMA\', \'alpha\', \'Beta\']))\n    [\'alpha\', \'Beta\', \'GAMMA\']\n\n    Sequence membership is straightforward.\n\n    >>> "Hello World" in [s]\n    True\n    >>> s in ["Hello World"]\n    True\n\n    You may test for set inclusion, but candidate and elements\n    must both be folded.\n\n    >>> FoldedCase("Hello World") in {s}\n    True\n    >>> s in {FoldedCase("Hello World")}\n    True\n\n    String inclusion works as long as the FoldedCase object\n    is on the right.\n\n    >>> "hello" in FoldedCase("Hello World")\n    True\n\n    But not if the FoldedCase object is on the left:\n\n    >>> FoldedCase(\'hello\') in \'Hello World\'\n    False\n\n    In that case, use in_:\n\n    >>> FoldedCase(\'hello\').in_(\'Hello World\')\n    True\n\n    >>> FoldedCase(\'hello\') > FoldedCase(\'Hello\')\n    False\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> __lt__
+                14      LOAD_CONST                      3: 'FoldedCase.__lt__'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: __lt__
+                20      LOAD_CONST                      4: <CODE> __gt__
+                22      LOAD_CONST                      5: 'FoldedCase.__gt__'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: __gt__
+                28      LOAD_CONST                      6: <CODE> __eq__
+                30      LOAD_CONST                      7: 'FoldedCase.__eq__'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      6: __eq__
+                36      LOAD_CONST                      8: <CODE> __ne__
+                38      LOAD_CONST                      9: 'FoldedCase.__ne__'
+                40      MAKE_FUNCTION                   0
+                42      STORE_NAME                      7: __ne__
+                44      LOAD_CONST                      10: <CODE> __hash__
+                46      LOAD_CONST                      11: 'FoldedCase.__hash__'
+                48      MAKE_FUNCTION                   0
+                50      STORE_NAME                      8: __hash__
+                52      LOAD_CLOSURE                    0: __class__
+                54      BUILD_TUPLE                     1
+                56      LOAD_CONST                      12: <CODE> __contains__
+                58      LOAD_CONST                      13: 'FoldedCase.__contains__'
+                60      MAKE_FUNCTION                   8
+                62      STORE_NAME                      9: __contains__
+                64      LOAD_CONST                      14: <CODE> in_
+                66      LOAD_CONST                      15: 'FoldedCase.in_'
+                68      MAKE_FUNCTION                   0
+                70      STORE_NAME                      10: in_
+                72      LOAD_NAME                       11: method_cache
+                74      LOAD_CLOSURE                    0: __class__
+                76      BUILD_TUPLE                     1
+                78      LOAD_CONST                      16: <CODE> lower
+                80      LOAD_CONST                      17: 'FoldedCase.lower'
+                82      MAKE_FUNCTION                   8
+                84      CALL_FUNCTION                   1
+                86      STORE_NAME                      12: lower
+                88      LOAD_CONST                      18: <CODE> index
+                90      LOAD_CONST                      19: 'FoldedCase.index'
+                92      MAKE_FUNCTION                   0
+                94      STORE_NAME                      13: index
+                96      LOAD_CONST                      24: (' ', 0)
+                98      LOAD_CONST                      22: <CODE> split
+                100     LOAD_CONST                      23: 'FoldedCase.split'
+                102     MAKE_FUNCTION                   1
+                104     STORE_NAME                      14: split
+                106     LOAD_CLOSURE                    0: __class__
+                108     DUP_TOP                         
+                110     STORE_NAME                      15: __classcell__
+                112     RETURN_VALUE                    
+        'FoldedCase'
+    [Disassembly]
+        0       LOAD_CONST                      0: 0
+        2       LOAD_CONST                      1: None
+        4       IMPORT_NAME                     0: re
+        6       STORE_NAME                      0: re
+        8       LOAD_CONST                      2: 1
+        10      LOAD_CONST                      3: ('method_cache',)
+        12      IMPORT_NAME                     1: _functools
+        14      IMPORT_FROM                     2: method_cache
+        16      STORE_NAME                      2: method_cache
+        18      POP_TOP                         
+        20      LOAD_BUILD_CLASS                
+        22      LOAD_CONST                      4: <CODE> FoldedCase
+        24      LOAD_CONST                      5: 'FoldedCase'
+        26      MAKE_FUNCTION                   0
+        28      LOAD_CONST                      5: 'FoldedCase'
+        30      LOAD_NAME                       3: str
+        32      CALL_FUNCTION                   3
+        34      STORE_NAME                      4: FoldedCase
+        36      LOAD_CONST                      1: None
+        38      RETURN_VALUE                    

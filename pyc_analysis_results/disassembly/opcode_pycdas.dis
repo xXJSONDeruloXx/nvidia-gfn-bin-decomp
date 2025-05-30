@@ -1,0 +1,1257 @@
+opcode.pyc (Python 3.10)
+[Code]
+    File Name: opcode.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 8
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        '_opcode'
+        'stack_effect'
+        'append'
+        'ImportError'
+        'cmp_op'
+        'hasconst'
+        'hasname'
+        'hasjrel'
+        'hasjabs'
+        'haslocal'
+        'hascompare'
+        'hasfree'
+        'hasnargs'
+        'opmap'
+        'range'
+        'opname'
+        'def_op'
+        'name_op'
+        'jrel_op'
+        'jabs_op'
+        'HAVE_ARGUMENT'
+        'EXTENDED_ARG'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        '\nopcode module - potentially shared between dis and other modules which\noperate on bytecodes (e.g. peephole optimizers).\n'
+        (
+            'cmp_op'
+            'hasconst'
+            'hasname'
+            'hasjrel'
+            'hasjabs'
+            'haslocal'
+            'hascompare'
+            'hasfree'
+            'opname'
+            'opmap'
+            'HAVE_ARGUMENT'
+            'EXTENDED_ARG'
+            'hasnargs'
+        )
+        0
+        (
+            'stack_effect'
+        )
+        'stack_effect'
+        (
+            '<'
+            '<='
+            '=='
+            '!='
+            '>'
+            '>='
+        )
+        [Code]
+            File Name: opcode.py
+            Object Name: <listcomp>
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+            [Var Names]
+                '.0'
+                'op'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '<%r>'
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       LOAD_FAST                       0: .0
+                4       FOR_ITER                        7 (to 20)
+                6       STORE_FAST                      1: op
+                8       LOAD_CONST                      0: '<%r>'
+                10      LOAD_FAST                       1: op
+                12      BUILD_TUPLE                     1
+                14      BINARY_MODULO                   
+                16      LIST_APPEND                     2
+                18      JUMP_ABSOLUTE                   2 (to 4)
+                20      RETURN_VALUE                    
+        '<listcomp>'
+        256
+        [Code]
+            File Name: opcode.py
+            Object Name: def_op
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'opname'
+                'opmap'
+            [Var Names]
+                'name'
+                'op'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: name
+                2       LOAD_GLOBAL                     0: opname
+                4       LOAD_FAST                       1: op
+                6       STORE_SUBSCR                    
+                8       LOAD_FAST                       1: op
+                10      LOAD_GLOBAL                     1: opmap
+                12      LOAD_FAST                       0: name
+                14      STORE_SUBSCR                    
+                16      LOAD_CONST                      0: None
+                18      RETURN_VALUE                    
+        'def_op'
+        [Code]
+            File Name: opcode.py
+            Object Name: name_op
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'def_op'
+                'hasname'
+                'append'
+            [Var Names]
+                'name'
+                'op'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: def_op
+                2       LOAD_FAST                       0: name
+                4       LOAD_FAST                       1: op
+                6       CALL_FUNCTION                   2
+                8       POP_TOP                         
+                10      LOAD_GLOBAL                     1: hasname
+                12      LOAD_METHOD                     2: append
+                14      LOAD_FAST                       1: op
+                16      CALL_METHOD                     1
+                18      POP_TOP                         
+                20      LOAD_CONST                      0: None
+                22      RETURN_VALUE                    
+        'name_op'
+        [Code]
+            File Name: opcode.py
+            Object Name: jrel_op
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'def_op'
+                'hasjrel'
+                'append'
+            [Var Names]
+                'name'
+                'op'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: def_op
+                2       LOAD_FAST                       0: name
+                4       LOAD_FAST                       1: op
+                6       CALL_FUNCTION                   2
+                8       POP_TOP                         
+                10      LOAD_GLOBAL                     1: hasjrel
+                12      LOAD_METHOD                     2: append
+                14      LOAD_FAST                       1: op
+                16      CALL_METHOD                     1
+                18      POP_TOP                         
+                20      LOAD_CONST                      0: None
+                22      RETURN_VALUE                    
+        'jrel_op'
+        [Code]
+            File Name: opcode.py
+            Object Name: jabs_op
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'def_op'
+                'hasjabs'
+                'append'
+            [Var Names]
+                'name'
+                'op'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: def_op
+                2       LOAD_FAST                       0: name
+                4       LOAD_FAST                       1: op
+                6       CALL_FUNCTION                   2
+                8       POP_TOP                         
+                10      LOAD_GLOBAL                     1: hasjabs
+                12      LOAD_METHOD                     2: append
+                14      LOAD_FAST                       1: op
+                16      CALL_METHOD                     1
+                18      POP_TOP                         
+                20      LOAD_CONST                      0: None
+                22      RETURN_VALUE                    
+        'jabs_op'
+        'POP_TOP'
+        1
+        'ROT_TWO'
+        2
+        'ROT_THREE'
+        3
+        'DUP_TOP'
+        4
+        'DUP_TOP_TWO'
+        5
+        'ROT_FOUR'
+        6
+        'NOP'
+        9
+        'UNARY_POSITIVE'
+        10
+        'UNARY_NEGATIVE'
+        11
+        'UNARY_NOT'
+        12
+        'UNARY_INVERT'
+        15
+        'BINARY_MATRIX_MULTIPLY'
+        16
+        'INPLACE_MATRIX_MULTIPLY'
+        17
+        'BINARY_POWER'
+        19
+        'BINARY_MULTIPLY'
+        20
+        'BINARY_MODULO'
+        22
+        'BINARY_ADD'
+        23
+        'BINARY_SUBTRACT'
+        24
+        'BINARY_SUBSCR'
+        25
+        'BINARY_FLOOR_DIVIDE'
+        26
+        'BINARY_TRUE_DIVIDE'
+        27
+        'INPLACE_FLOOR_DIVIDE'
+        28
+        'INPLACE_TRUE_DIVIDE'
+        29
+        'GET_LEN'
+        30
+        'MATCH_MAPPING'
+        31
+        'MATCH_SEQUENCE'
+        32
+        'MATCH_KEYS'
+        33
+        'COPY_DICT_WITHOUT_KEYS'
+        34
+        'WITH_EXCEPT_START'
+        49
+        'GET_AITER'
+        50
+        'GET_ANEXT'
+        51
+        'BEFORE_ASYNC_WITH'
+        52
+        'END_ASYNC_FOR'
+        54
+        'INPLACE_ADD'
+        55
+        'INPLACE_SUBTRACT'
+        56
+        'INPLACE_MULTIPLY'
+        57
+        'INPLACE_MODULO'
+        59
+        'STORE_SUBSCR'
+        60
+        'DELETE_SUBSCR'
+        61
+        'BINARY_LSHIFT'
+        62
+        'BINARY_RSHIFT'
+        63
+        'BINARY_AND'
+        64
+        'BINARY_XOR'
+        65
+        'BINARY_OR'
+        66
+        'INPLACE_POWER'
+        67
+        'GET_ITER'
+        68
+        'GET_YIELD_FROM_ITER'
+        69
+        'PRINT_EXPR'
+        70
+        'LOAD_BUILD_CLASS'
+        71
+        'YIELD_FROM'
+        72
+        'GET_AWAITABLE'
+        73
+        'LOAD_ASSERTION_ERROR'
+        74
+        'INPLACE_LSHIFT'
+        75
+        'INPLACE_RSHIFT'
+        76
+        'INPLACE_AND'
+        77
+        'INPLACE_XOR'
+        78
+        'INPLACE_OR'
+        79
+        'LIST_TO_TUPLE'
+        82
+        'RETURN_VALUE'
+        83
+        'IMPORT_STAR'
+        84
+        'SETUP_ANNOTATIONS'
+        85
+        'YIELD_VALUE'
+        86
+        'POP_BLOCK'
+        87
+        'POP_EXCEPT'
+        89
+        90
+        'STORE_NAME'
+        'DELETE_NAME'
+        91
+        'UNPACK_SEQUENCE'
+        92
+        'FOR_ITER'
+        93
+        'UNPACK_EX'
+        94
+        'STORE_ATTR'
+        95
+        'DELETE_ATTR'
+        96
+        'STORE_GLOBAL'
+        97
+        'DELETE_GLOBAL'
+        98
+        'ROT_N'
+        99
+        'LOAD_CONST'
+        100
+        'LOAD_NAME'
+        101
+        'BUILD_TUPLE'
+        102
+        'BUILD_LIST'
+        103
+        'BUILD_SET'
+        104
+        'BUILD_MAP'
+        105
+        'LOAD_ATTR'
+        106
+        'COMPARE_OP'
+        107
+        'IMPORT_NAME'
+        108
+        'IMPORT_FROM'
+        109
+        'JUMP_FORWARD'
+        110
+        'JUMP_IF_FALSE_OR_POP'
+        111
+        'JUMP_IF_TRUE_OR_POP'
+        112
+        'JUMP_ABSOLUTE'
+        113
+        'POP_JUMP_IF_FALSE'
+        114
+        'POP_JUMP_IF_TRUE'
+        115
+        'LOAD_GLOBAL'
+        116
+        'IS_OP'
+        117
+        'CONTAINS_OP'
+        118
+        'RERAISE'
+        119
+        'JUMP_IF_NOT_EXC_MATCH'
+        121
+        'SETUP_FINALLY'
+        122
+        'LOAD_FAST'
+        124
+        'STORE_FAST'
+        125
+        'DELETE_FAST'
+        126
+        'GEN_START'
+        129
+        'RAISE_VARARGS'
+        130
+        'CALL_FUNCTION'
+        131
+        'MAKE_FUNCTION'
+        132
+        'BUILD_SLICE'
+        133
+        'LOAD_CLOSURE'
+        135
+        'LOAD_DEREF'
+        136
+        'STORE_DEREF'
+        137
+        'DELETE_DEREF'
+        138
+        'CALL_FUNCTION_KW'
+        141
+        'CALL_FUNCTION_EX'
+        142
+        'SETUP_WITH'
+        143
+        'EXTENDED_ARG'
+        144
+        'LIST_APPEND'
+        145
+        'SET_ADD'
+        146
+        'MAP_ADD'
+        147
+        'LOAD_CLASSDEREF'
+        148
+        'MATCH_CLASS'
+        152
+        'SETUP_ASYNC_WITH'
+        154
+        'FORMAT_VALUE'
+        155
+        'BUILD_CONST_KEY_MAP'
+        156
+        'BUILD_STRING'
+        157
+        'LOAD_METHOD'
+        160
+        'CALL_METHOD'
+        161
+        'LIST_EXTEND'
+        162
+        'SET_UPDATE'
+        163
+        'DICT_MERGE'
+        164
+        'DICT_UPDATE'
+        165
+        None
+    [Disassembly]
+        0       LOAD_CONST                      0: '\nopcode module - potentially shared between dis and other modules which\noperate on bytecodes (e.g. peephole optimizers).\n'
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('cmp_op', 'hasconst', 'hasname', 'hasjrel', 'hasjabs', 'haslocal', 'hascompare', 'hasfree', 'opname', 'opmap', 'HAVE_ARGUMENT', 'EXTENDED_ARG', 'hasnargs')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      SETUP_FINALLY                   13 (to 40)
+        14      LOAD_CONST                      2: 0
+        16      LOAD_CONST                      3: ('stack_effect',)
+        18      IMPORT_NAME                     2: _opcode
+        20      IMPORT_FROM                     3: stack_effect
+        22      STORE_NAME                      3: stack_effect
+        24      POP_TOP                         
+        26      LOAD_NAME                       1: __all__
+        28      LOAD_METHOD                     4: append
+        30      LOAD_CONST                      4: 'stack_effect'
+        32      CALL_METHOD                     1
+        34      POP_TOP                         
+        36      POP_BLOCK                       
+        38      JUMP_FORWARD                    9 (to 58)
+        40      DUP_TOP                         
+        42      LOAD_NAME                       5: ImportError
+        44      JUMP_IF_NOT_EXC_MATCH           28 (to 56)
+        46      POP_TOP                         
+        48      POP_TOP                         
+        50      POP_TOP                         
+        52      POP_EXCEPT                      
+        54      JUMP_FORWARD                    1 (to 58)
+        56      RERAISE                         0
+        58      LOAD_CONST                      5: ('<', '<=', '==', '!=', '>', '>=')
+        60      STORE_NAME                      6: cmp_op
+        62      BUILD_LIST                      0
+        64      STORE_NAME                      7: hasconst
+        66      BUILD_LIST                      0
+        68      STORE_NAME                      8: hasname
+        70      BUILD_LIST                      0
+        72      STORE_NAME                      9: hasjrel
+        74      BUILD_LIST                      0
+        76      STORE_NAME                      10: hasjabs
+        78      BUILD_LIST                      0
+        80      STORE_NAME                      11: haslocal
+        82      BUILD_LIST                      0
+        84      STORE_NAME                      12: hascompare
+        86      BUILD_LIST                      0
+        88      STORE_NAME                      13: hasfree
+        90      BUILD_LIST                      0
+        92      STORE_NAME                      14: hasnargs
+        94      BUILD_MAP                       0
+        96      STORE_NAME                      15: opmap
+        98      LOAD_CONST                      6: <CODE> <listcomp>
+        100     LOAD_CONST                      7: '<listcomp>'
+        102     MAKE_FUNCTION                   0
+        104     LOAD_NAME                       16: range
+        106     LOAD_CONST                      8: 256
+        108     CALL_FUNCTION                   1
+        110     GET_ITER                        
+        112     CALL_FUNCTION                   1
+        114     STORE_NAME                      17: opname
+        116     LOAD_CONST                      9: <CODE> def_op
+        118     LOAD_CONST                      10: 'def_op'
+        120     MAKE_FUNCTION                   0
+        122     STORE_NAME                      18: def_op
+        124     LOAD_CONST                      11: <CODE> name_op
+        126     LOAD_CONST                      12: 'name_op'
+        128     MAKE_FUNCTION                   0
+        130     STORE_NAME                      19: name_op
+        132     LOAD_CONST                      13: <CODE> jrel_op
+        134     LOAD_CONST                      14: 'jrel_op'
+        136     MAKE_FUNCTION                   0
+        138     STORE_NAME                      20: jrel_op
+        140     LOAD_CONST                      15: <CODE> jabs_op
+        142     LOAD_CONST                      16: 'jabs_op'
+        144     MAKE_FUNCTION                   0
+        146     STORE_NAME                      21: jabs_op
+        148     LOAD_NAME                       18: def_op
+        150     LOAD_CONST                      17: 'POP_TOP'
+        152     LOAD_CONST                      18: 1
+        154     CALL_FUNCTION                   2
+        156     POP_TOP                         
+        158     LOAD_NAME                       18: def_op
+        160     LOAD_CONST                      19: 'ROT_TWO'
+        162     LOAD_CONST                      20: 2
+        164     CALL_FUNCTION                   2
+        166     POP_TOP                         
+        168     LOAD_NAME                       18: def_op
+        170     LOAD_CONST                      21: 'ROT_THREE'
+        172     LOAD_CONST                      22: 3
+        174     CALL_FUNCTION                   2
+        176     POP_TOP                         
+        178     LOAD_NAME                       18: def_op
+        180     LOAD_CONST                      23: 'DUP_TOP'
+        182     LOAD_CONST                      24: 4
+        184     CALL_FUNCTION                   2
+        186     POP_TOP                         
+        188     LOAD_NAME                       18: def_op
+        190     LOAD_CONST                      25: 'DUP_TOP_TWO'
+        192     LOAD_CONST                      26: 5
+        194     CALL_FUNCTION                   2
+        196     POP_TOP                         
+        198     LOAD_NAME                       18: def_op
+        200     LOAD_CONST                      27: 'ROT_FOUR'
+        202     LOAD_CONST                      28: 6
+        204     CALL_FUNCTION                   2
+        206     POP_TOP                         
+        208     LOAD_NAME                       18: def_op
+        210     LOAD_CONST                      29: 'NOP'
+        212     LOAD_CONST                      30: 9
+        214     CALL_FUNCTION                   2
+        216     POP_TOP                         
+        218     LOAD_NAME                       18: def_op
+        220     LOAD_CONST                      31: 'UNARY_POSITIVE'
+        222     LOAD_CONST                      32: 10
+        224     CALL_FUNCTION                   2
+        226     POP_TOP                         
+        228     LOAD_NAME                       18: def_op
+        230     LOAD_CONST                      33: 'UNARY_NEGATIVE'
+        232     LOAD_CONST                      34: 11
+        234     CALL_FUNCTION                   2
+        236     POP_TOP                         
+        238     LOAD_NAME                       18: def_op
+        240     LOAD_CONST                      35: 'UNARY_NOT'
+        242     LOAD_CONST                      36: 12
+        244     CALL_FUNCTION                   2
+        246     POP_TOP                         
+        248     LOAD_NAME                       18: def_op
+        250     LOAD_CONST                      37: 'UNARY_INVERT'
+        252     LOAD_CONST                      38: 15
+        254     CALL_FUNCTION                   2
+        256     POP_TOP                         
+        258     LOAD_NAME                       18: def_op
+        260     LOAD_CONST                      39: 'BINARY_MATRIX_MULTIPLY'
+        262     LOAD_CONST                      40: 16
+        264     CALL_FUNCTION                   2
+        266     POP_TOP                         
+        268     LOAD_NAME                       18: def_op
+        270     LOAD_CONST                      41: 'INPLACE_MATRIX_MULTIPLY'
+        272     LOAD_CONST                      42: 17
+        274     CALL_FUNCTION                   2
+        276     POP_TOP                         
+        278     LOAD_NAME                       18: def_op
+        280     LOAD_CONST                      43: 'BINARY_POWER'
+        282     LOAD_CONST                      44: 19
+        284     CALL_FUNCTION                   2
+        286     POP_TOP                         
+        288     LOAD_NAME                       18: def_op
+        290     LOAD_CONST                      45: 'BINARY_MULTIPLY'
+        292     LOAD_CONST                      46: 20
+        294     CALL_FUNCTION                   2
+        296     POP_TOP                         
+        298     LOAD_NAME                       18: def_op
+        300     LOAD_CONST                      47: 'BINARY_MODULO'
+        302     LOAD_CONST                      48: 22
+        304     CALL_FUNCTION                   2
+        306     POP_TOP                         
+        308     LOAD_NAME                       18: def_op
+        310     LOAD_CONST                      49: 'BINARY_ADD'
+        312     LOAD_CONST                      50: 23
+        314     CALL_FUNCTION                   2
+        316     POP_TOP                         
+        318     LOAD_NAME                       18: def_op
+        320     LOAD_CONST                      51: 'BINARY_SUBTRACT'
+        322     LOAD_CONST                      52: 24
+        324     CALL_FUNCTION                   2
+        326     POP_TOP                         
+        328     LOAD_NAME                       18: def_op
+        330     LOAD_CONST                      53: 'BINARY_SUBSCR'
+        332     LOAD_CONST                      54: 25
+        334     CALL_FUNCTION                   2
+        336     POP_TOP                         
+        338     LOAD_NAME                       18: def_op
+        340     LOAD_CONST                      55: 'BINARY_FLOOR_DIVIDE'
+        342     LOAD_CONST                      56: 26
+        344     CALL_FUNCTION                   2
+        346     POP_TOP                         
+        348     LOAD_NAME                       18: def_op
+        350     LOAD_CONST                      57: 'BINARY_TRUE_DIVIDE'
+        352     LOAD_CONST                      58: 27
+        354     CALL_FUNCTION                   2
+        356     POP_TOP                         
+        358     LOAD_NAME                       18: def_op
+        360     LOAD_CONST                      59: 'INPLACE_FLOOR_DIVIDE'
+        362     LOAD_CONST                      60: 28
+        364     CALL_FUNCTION                   2
+        366     POP_TOP                         
+        368     LOAD_NAME                       18: def_op
+        370     LOAD_CONST                      61: 'INPLACE_TRUE_DIVIDE'
+        372     LOAD_CONST                      62: 29
+        374     CALL_FUNCTION                   2
+        376     POP_TOP                         
+        378     LOAD_NAME                       18: def_op
+        380     LOAD_CONST                      63: 'GET_LEN'
+        382     LOAD_CONST                      64: 30
+        384     CALL_FUNCTION                   2
+        386     POP_TOP                         
+        388     LOAD_NAME                       18: def_op
+        390     LOAD_CONST                      65: 'MATCH_MAPPING'
+        392     LOAD_CONST                      66: 31
+        394     CALL_FUNCTION                   2
+        396     POP_TOP                         
+        398     LOAD_NAME                       18: def_op
+        400     LOAD_CONST                      67: 'MATCH_SEQUENCE'
+        402     LOAD_CONST                      68: 32
+        404     CALL_FUNCTION                   2
+        406     POP_TOP                         
+        408     LOAD_NAME                       18: def_op
+        410     LOAD_CONST                      69: 'MATCH_KEYS'
+        412     LOAD_CONST                      70: 33
+        414     CALL_FUNCTION                   2
+        416     POP_TOP                         
+        418     LOAD_NAME                       18: def_op
+        420     LOAD_CONST                      71: 'COPY_DICT_WITHOUT_KEYS'
+        422     LOAD_CONST                      72: 34
+        424     CALL_FUNCTION                   2
+        426     POP_TOP                         
+        428     LOAD_NAME                       18: def_op
+        430     LOAD_CONST                      73: 'WITH_EXCEPT_START'
+        432     LOAD_CONST                      74: 49
+        434     CALL_FUNCTION                   2
+        436     POP_TOP                         
+        438     LOAD_NAME                       18: def_op
+        440     LOAD_CONST                      75: 'GET_AITER'
+        442     LOAD_CONST                      76: 50
+        444     CALL_FUNCTION                   2
+        446     POP_TOP                         
+        448     LOAD_NAME                       18: def_op
+        450     LOAD_CONST                      77: 'GET_ANEXT'
+        452     LOAD_CONST                      78: 51
+        454     CALL_FUNCTION                   2
+        456     POP_TOP                         
+        458     LOAD_NAME                       18: def_op
+        460     LOAD_CONST                      79: 'BEFORE_ASYNC_WITH'
+        462     LOAD_CONST                      80: 52
+        464     CALL_FUNCTION                   2
+        466     POP_TOP                         
+        468     LOAD_NAME                       18: def_op
+        470     LOAD_CONST                      81: 'END_ASYNC_FOR'
+        472     LOAD_CONST                      82: 54
+        474     CALL_FUNCTION                   2
+        476     POP_TOP                         
+        478     LOAD_NAME                       18: def_op
+        480     LOAD_CONST                      83: 'INPLACE_ADD'
+        482     LOAD_CONST                      84: 55
+        484     CALL_FUNCTION                   2
+        486     POP_TOP                         
+        488     LOAD_NAME                       18: def_op
+        490     LOAD_CONST                      85: 'INPLACE_SUBTRACT'
+        492     LOAD_CONST                      86: 56
+        494     CALL_FUNCTION                   2
+        496     POP_TOP                         
+        498     LOAD_NAME                       18: def_op
+        500     LOAD_CONST                      87: 'INPLACE_MULTIPLY'
+        502     LOAD_CONST                      88: 57
+        504     CALL_FUNCTION                   2
+        506     POP_TOP                         
+        508     LOAD_NAME                       18: def_op
+        510     LOAD_CONST                      89: 'INPLACE_MODULO'
+        512     LOAD_CONST                      90: 59
+        514     CALL_FUNCTION                   2
+        516     POP_TOP                         
+        518     LOAD_NAME                       18: def_op
+        520     LOAD_CONST                      91: 'STORE_SUBSCR'
+        522     LOAD_CONST                      92: 60
+        524     CALL_FUNCTION                   2
+        526     POP_TOP                         
+        528     LOAD_NAME                       18: def_op
+        530     LOAD_CONST                      93: 'DELETE_SUBSCR'
+        532     LOAD_CONST                      94: 61
+        534     CALL_FUNCTION                   2
+        536     POP_TOP                         
+        538     LOAD_NAME                       18: def_op
+        540     LOAD_CONST                      95: 'BINARY_LSHIFT'
+        542     LOAD_CONST                      96: 62
+        544     CALL_FUNCTION                   2
+        546     POP_TOP                         
+        548     LOAD_NAME                       18: def_op
+        550     LOAD_CONST                      97: 'BINARY_RSHIFT'
+        552     LOAD_CONST                      98: 63
+        554     CALL_FUNCTION                   2
+        556     POP_TOP                         
+        558     LOAD_NAME                       18: def_op
+        560     LOAD_CONST                      99: 'BINARY_AND'
+        562     LOAD_CONST                      100: 64
+        564     CALL_FUNCTION                   2
+        566     POP_TOP                         
+        568     LOAD_NAME                       18: def_op
+        570     LOAD_CONST                      101: 'BINARY_XOR'
+        572     LOAD_CONST                      102: 65
+        574     CALL_FUNCTION                   2
+        576     POP_TOP                         
+        578     LOAD_NAME                       18: def_op
+        580     LOAD_CONST                      103: 'BINARY_OR'
+        582     LOAD_CONST                      104: 66
+        584     CALL_FUNCTION                   2
+        586     POP_TOP                         
+        588     LOAD_NAME                       18: def_op
+        590     LOAD_CONST                      105: 'INPLACE_POWER'
+        592     LOAD_CONST                      106: 67
+        594     CALL_FUNCTION                   2
+        596     POP_TOP                         
+        598     LOAD_NAME                       18: def_op
+        600     LOAD_CONST                      107: 'GET_ITER'
+        602     LOAD_CONST                      108: 68
+        604     CALL_FUNCTION                   2
+        606     POP_TOP                         
+        608     LOAD_NAME                       18: def_op
+        610     LOAD_CONST                      109: 'GET_YIELD_FROM_ITER'
+        612     LOAD_CONST                      110: 69
+        614     CALL_FUNCTION                   2
+        616     POP_TOP                         
+        618     LOAD_NAME                       18: def_op
+        620     LOAD_CONST                      111: 'PRINT_EXPR'
+        622     LOAD_CONST                      112: 70
+        624     CALL_FUNCTION                   2
+        626     POP_TOP                         
+        628     LOAD_NAME                       18: def_op
+        630     LOAD_CONST                      113: 'LOAD_BUILD_CLASS'
+        632     LOAD_CONST                      114: 71
+        634     CALL_FUNCTION                   2
+        636     POP_TOP                         
+        638     LOAD_NAME                       18: def_op
+        640     LOAD_CONST                      115: 'YIELD_FROM'
+        642     LOAD_CONST                      116: 72
+        644     CALL_FUNCTION                   2
+        646     POP_TOP                         
+        648     LOAD_NAME                       18: def_op
+        650     LOAD_CONST                      117: 'GET_AWAITABLE'
+        652     LOAD_CONST                      118: 73
+        654     CALL_FUNCTION                   2
+        656     POP_TOP                         
+        658     LOAD_NAME                       18: def_op
+        660     LOAD_CONST                      119: 'LOAD_ASSERTION_ERROR'
+        662     LOAD_CONST                      120: 74
+        664     CALL_FUNCTION                   2
+        666     POP_TOP                         
+        668     LOAD_NAME                       18: def_op
+        670     LOAD_CONST                      121: 'INPLACE_LSHIFT'
+        672     LOAD_CONST                      122: 75
+        674     CALL_FUNCTION                   2
+        676     POP_TOP                         
+        678     LOAD_NAME                       18: def_op
+        680     LOAD_CONST                      123: 'INPLACE_RSHIFT'
+        682     LOAD_CONST                      124: 76
+        684     CALL_FUNCTION                   2
+        686     POP_TOP                         
+        688     LOAD_NAME                       18: def_op
+        690     LOAD_CONST                      125: 'INPLACE_AND'
+        692     LOAD_CONST                      126: 77
+        694     CALL_FUNCTION                   2
+        696     POP_TOP                         
+        698     LOAD_NAME                       18: def_op
+        700     LOAD_CONST                      127: 'INPLACE_XOR'
+        702     LOAD_CONST                      128: 78
+        704     CALL_FUNCTION                   2
+        706     POP_TOP                         
+        708     LOAD_NAME                       18: def_op
+        710     LOAD_CONST                      129: 'INPLACE_OR'
+        712     LOAD_CONST                      130: 79
+        714     CALL_FUNCTION                   2
+        716     POP_TOP                         
+        718     LOAD_NAME                       18: def_op
+        720     LOAD_CONST                      131: 'LIST_TO_TUPLE'
+        722     LOAD_CONST                      132: 82
+        724     CALL_FUNCTION                   2
+        726     POP_TOP                         
+        728     LOAD_NAME                       18: def_op
+        730     LOAD_CONST                      133: 'RETURN_VALUE'
+        732     LOAD_CONST                      134: 83
+        734     CALL_FUNCTION                   2
+        736     POP_TOP                         
+        738     LOAD_NAME                       18: def_op
+        740     LOAD_CONST                      135: 'IMPORT_STAR'
+        742     LOAD_CONST                      136: 84
+        744     CALL_FUNCTION                   2
+        746     POP_TOP                         
+        748     LOAD_NAME                       18: def_op
+        750     LOAD_CONST                      137: 'SETUP_ANNOTATIONS'
+        752     LOAD_CONST                      138: 85
+        754     CALL_FUNCTION                   2
+        756     POP_TOP                         
+        758     LOAD_NAME                       18: def_op
+        760     LOAD_CONST                      139: 'YIELD_VALUE'
+        762     LOAD_CONST                      140: 86
+        764     CALL_FUNCTION                   2
+        766     POP_TOP                         
+        768     LOAD_NAME                       18: def_op
+        770     LOAD_CONST                      141: 'POP_BLOCK'
+        772     LOAD_CONST                      142: 87
+        774     CALL_FUNCTION                   2
+        776     POP_TOP                         
+        778     LOAD_NAME                       18: def_op
+        780     LOAD_CONST                      143: 'POP_EXCEPT'
+        782     LOAD_CONST                      144: 89
+        784     CALL_FUNCTION                   2
+        786     POP_TOP                         
+        788     LOAD_CONST                      145: 90
+        790     STORE_NAME                      22: HAVE_ARGUMENT
+        792     LOAD_NAME                       19: name_op
+        794     LOAD_CONST                      146: 'STORE_NAME'
+        796     LOAD_CONST                      145: 90
+        798     CALL_FUNCTION                   2
+        800     POP_TOP                         
+        802     LOAD_NAME                       19: name_op
+        804     LOAD_CONST                      147: 'DELETE_NAME'
+        806     LOAD_CONST                      148: 91
+        808     CALL_FUNCTION                   2
+        810     POP_TOP                         
+        812     LOAD_NAME                       18: def_op
+        814     LOAD_CONST                      149: 'UNPACK_SEQUENCE'
+        816     LOAD_CONST                      150: 92
+        818     CALL_FUNCTION                   2
+        820     POP_TOP                         
+        822     LOAD_NAME                       20: jrel_op
+        824     LOAD_CONST                      151: 'FOR_ITER'
+        826     LOAD_CONST                      152: 93
+        828     CALL_FUNCTION                   2
+        830     POP_TOP                         
+        832     LOAD_NAME                       18: def_op
+        834     LOAD_CONST                      153: 'UNPACK_EX'
+        836     LOAD_CONST                      154: 94
+        838     CALL_FUNCTION                   2
+        840     POP_TOP                         
+        842     LOAD_NAME                       19: name_op
+        844     LOAD_CONST                      155: 'STORE_ATTR'
+        846     LOAD_CONST                      156: 95
+        848     CALL_FUNCTION                   2
+        850     POP_TOP                         
+        852     LOAD_NAME                       19: name_op
+        854     LOAD_CONST                      157: 'DELETE_ATTR'
+        856     LOAD_CONST                      158: 96
+        858     CALL_FUNCTION                   2
+        860     POP_TOP                         
+        862     LOAD_NAME                       19: name_op
+        864     LOAD_CONST                      159: 'STORE_GLOBAL'
+        866     LOAD_CONST                      160: 97
+        868     CALL_FUNCTION                   2
+        870     POP_TOP                         
+        872     LOAD_NAME                       19: name_op
+        874     LOAD_CONST                      161: 'DELETE_GLOBAL'
+        876     LOAD_CONST                      162: 98
+        878     CALL_FUNCTION                   2
+        880     POP_TOP                         
+        882     LOAD_NAME                       18: def_op
+        884     LOAD_CONST                      163: 'ROT_N'
+        886     LOAD_CONST                      164: 99
+        888     CALL_FUNCTION                   2
+        890     POP_TOP                         
+        892     LOAD_NAME                       18: def_op
+        894     LOAD_CONST                      165: 'LOAD_CONST'
+        896     LOAD_CONST                      166: 100
+        898     CALL_FUNCTION                   2
+        900     POP_TOP                         
+        902     LOAD_NAME                       7: hasconst
+        904     LOAD_METHOD                     4: append
+        906     LOAD_CONST                      166: 100
+        908     CALL_METHOD                     1
+        910     POP_TOP                         
+        912     LOAD_NAME                       19: name_op
+        914     LOAD_CONST                      167: 'LOAD_NAME'
+        916     LOAD_CONST                      168: 101
+        918     CALL_FUNCTION                   2
+        920     POP_TOP                         
+        922     LOAD_NAME                       18: def_op
+        924     LOAD_CONST                      169: 'BUILD_TUPLE'
+        926     LOAD_CONST                      170: 102
+        928     CALL_FUNCTION                   2
+        930     POP_TOP                         
+        932     LOAD_NAME                       18: def_op
+        934     LOAD_CONST                      171: 'BUILD_LIST'
+        936     LOAD_CONST                      172: 103
+        938     CALL_FUNCTION                   2
+        940     POP_TOP                         
+        942     LOAD_NAME                       18: def_op
+        944     LOAD_CONST                      173: 'BUILD_SET'
+        946     LOAD_CONST                      174: 104
+        948     CALL_FUNCTION                   2
+        950     POP_TOP                         
+        952     LOAD_NAME                       18: def_op
+        954     LOAD_CONST                      175: 'BUILD_MAP'
+        956     LOAD_CONST                      176: 105
+        958     CALL_FUNCTION                   2
+        960     POP_TOP                         
+        962     LOAD_NAME                       19: name_op
+        964     LOAD_CONST                      177: 'LOAD_ATTR'
+        966     LOAD_CONST                      178: 106
+        968     CALL_FUNCTION                   2
+        970     POP_TOP                         
+        972     LOAD_NAME                       18: def_op
+        974     LOAD_CONST                      179: 'COMPARE_OP'
+        976     LOAD_CONST                      180: 107
+        978     CALL_FUNCTION                   2
+        980     POP_TOP                         
+        982     LOAD_NAME                       12: hascompare
+        984     LOAD_METHOD                     4: append
+        986     LOAD_CONST                      180: 107
+        988     CALL_METHOD                     1
+        990     POP_TOP                         
+        992     LOAD_NAME                       19: name_op
+        994     LOAD_CONST                      181: 'IMPORT_NAME'
+        996     LOAD_CONST                      182: 108
+        998     CALL_FUNCTION                   2
+        1000    POP_TOP                         
+        1002    LOAD_NAME                       19: name_op
+        1004    LOAD_CONST                      183: 'IMPORT_FROM'
+        1006    LOAD_CONST                      184: 109
+        1008    CALL_FUNCTION                   2
+        1010    POP_TOP                         
+        1012    LOAD_NAME                       20: jrel_op
+        1014    LOAD_CONST                      185: 'JUMP_FORWARD'
+        1016    LOAD_CONST                      186: 110
+        1018    CALL_FUNCTION                   2
+        1020    POP_TOP                         
+        1022    LOAD_NAME                       21: jabs_op
+        1024    LOAD_CONST                      187: 'JUMP_IF_FALSE_OR_POP'
+        1026    LOAD_CONST                      188: 111
+        1028    CALL_FUNCTION                   2
+        1030    POP_TOP                         
+        1032    LOAD_NAME                       21: jabs_op
+        1034    LOAD_CONST                      189: 'JUMP_IF_TRUE_OR_POP'
+        1036    LOAD_CONST                      190: 112
+        1038    CALL_FUNCTION                   2
+        1040    POP_TOP                         
+        1042    LOAD_NAME                       21: jabs_op
+        1044    LOAD_CONST                      191: 'JUMP_ABSOLUTE'
+        1046    LOAD_CONST                      192: 113
+        1048    CALL_FUNCTION                   2
+        1050    POP_TOP                         
+        1052    LOAD_NAME                       21: jabs_op
+        1054    LOAD_CONST                      193: 'POP_JUMP_IF_FALSE'
+        1056    LOAD_CONST                      194: 114
+        1058    CALL_FUNCTION                   2
+        1060    POP_TOP                         
+        1062    LOAD_NAME                       21: jabs_op
+        1064    LOAD_CONST                      195: 'POP_JUMP_IF_TRUE'
+        1066    LOAD_CONST                      196: 115
+        1068    CALL_FUNCTION                   2
+        1070    POP_TOP                         
+        1072    LOAD_NAME                       19: name_op
+        1074    LOAD_CONST                      197: 'LOAD_GLOBAL'
+        1076    LOAD_CONST                      198: 116
+        1078    CALL_FUNCTION                   2
+        1080    POP_TOP                         
+        1082    LOAD_NAME                       18: def_op
+        1084    LOAD_CONST                      199: 'IS_OP'
+        1086    LOAD_CONST                      200: 117
+        1088    CALL_FUNCTION                   2
+        1090    POP_TOP                         
+        1092    LOAD_NAME                       18: def_op
+        1094    LOAD_CONST                      201: 'CONTAINS_OP'
+        1096    LOAD_CONST                      202: 118
+        1098    CALL_FUNCTION                   2
+        1100    POP_TOP                         
+        1102    LOAD_NAME                       18: def_op
+        1104    LOAD_CONST                      203: 'RERAISE'
+        1106    LOAD_CONST                      204: 119
+        1108    CALL_FUNCTION                   2
+        1110    POP_TOP                         
+        1112    LOAD_NAME                       21: jabs_op
+        1114    LOAD_CONST                      205: 'JUMP_IF_NOT_EXC_MATCH'
+        1116    LOAD_CONST                      206: 121
+        1118    CALL_FUNCTION                   2
+        1120    POP_TOP                         
+        1122    LOAD_NAME                       20: jrel_op
+        1124    LOAD_CONST                      207: 'SETUP_FINALLY'
+        1126    LOAD_CONST                      208: 122
+        1128    CALL_FUNCTION                   2
+        1130    POP_TOP                         
+        1132    LOAD_NAME                       18: def_op
+        1134    LOAD_CONST                      209: 'LOAD_FAST'
+        1136    LOAD_CONST                      210: 124
+        1138    CALL_FUNCTION                   2
+        1140    POP_TOP                         
+        1142    LOAD_NAME                       11: haslocal
+        1144    LOAD_METHOD                     4: append
+        1146    LOAD_CONST                      210: 124
+        1148    CALL_METHOD                     1
+        1150    POP_TOP                         
+        1152    LOAD_NAME                       18: def_op
+        1154    LOAD_CONST                      211: 'STORE_FAST'
+        1156    LOAD_CONST                      212: 125
+        1158    CALL_FUNCTION                   2
+        1160    POP_TOP                         
+        1162    LOAD_NAME                       11: haslocal
+        1164    LOAD_METHOD                     4: append
+        1166    LOAD_CONST                      212: 125
+        1168    CALL_METHOD                     1
+        1170    POP_TOP                         
+        1172    LOAD_NAME                       18: def_op
+        1174    LOAD_CONST                      213: 'DELETE_FAST'
+        1176    LOAD_CONST                      214: 126
+        1178    CALL_FUNCTION                   2
+        1180    POP_TOP                         
+        1182    LOAD_NAME                       11: haslocal
+        1184    LOAD_METHOD                     4: append
+        1186    LOAD_CONST                      214: 126
+        1188    CALL_METHOD                     1
+        1190    POP_TOP                         
+        1192    LOAD_NAME                       18: def_op
+        1194    LOAD_CONST                      215: 'GEN_START'
+        1196    LOAD_CONST                      216: 129
+        1198    CALL_FUNCTION                   2
+        1200    POP_TOP                         
+        1202    LOAD_NAME                       18: def_op
+        1204    LOAD_CONST                      217: 'RAISE_VARARGS'
+        1206    LOAD_CONST                      218: 130
+        1208    CALL_FUNCTION                   2
+        1210    POP_TOP                         
+        1212    LOAD_NAME                       18: def_op
+        1214    LOAD_CONST                      219: 'CALL_FUNCTION'
+        1216    LOAD_CONST                      220: 131
+        1218    CALL_FUNCTION                   2
+        1220    POP_TOP                         
+        1222    LOAD_NAME                       18: def_op
+        1224    LOAD_CONST                      221: 'MAKE_FUNCTION'
+        1226    LOAD_CONST                      222: 132
+        1228    CALL_FUNCTION                   2
+        1230    POP_TOP                         
+        1232    LOAD_NAME                       18: def_op
+        1234    LOAD_CONST                      223: 'BUILD_SLICE'
+        1236    LOAD_CONST                      224: 133
+        1238    CALL_FUNCTION                   2
+        1240    POP_TOP                         
+        1242    LOAD_NAME                       18: def_op
+        1244    LOAD_CONST                      225: 'LOAD_CLOSURE'
+        1246    LOAD_CONST                      226: 135
+        1248    CALL_FUNCTION                   2
+        1250    POP_TOP                         
+        1252    LOAD_NAME                       13: hasfree
+        1254    LOAD_METHOD                     4: append
+        1256    LOAD_CONST                      226: 135
+        1258    CALL_METHOD                     1
+        1260    POP_TOP                         
+        1262    LOAD_NAME                       18: def_op
+        1264    LOAD_CONST                      227: 'LOAD_DEREF'
+        1266    LOAD_CONST                      228: 136
+        1268    CALL_FUNCTION                   2
+        1270    POP_TOP                         
+        1272    LOAD_NAME                       13: hasfree
+        1274    LOAD_METHOD                     4: append
+        1276    LOAD_CONST                      228: 136
+        1278    CALL_METHOD                     1
+        1280    POP_TOP                         
+        1282    LOAD_NAME                       18: def_op
+        1284    LOAD_CONST                      229: 'STORE_DEREF'
+        1286    LOAD_CONST                      230: 137
+        1288    CALL_FUNCTION                   2
+        1290    POP_TOP                         
+        1292    LOAD_NAME                       13: hasfree
+        1294    LOAD_METHOD                     4: append
+        1296    LOAD_CONST                      230: 137
+        1298    CALL_METHOD                     1
+        1300    POP_TOP                         
+        1302    LOAD_NAME                       18: def_op
+        1304    LOAD_CONST                      231: 'DELETE_DEREF'
+        1306    LOAD_CONST                      232: 138
+        1308    CALL_FUNCTION                   2
+        1310    POP_TOP                         
+        1312    LOAD_NAME                       13: hasfree
+        1314    LOAD_METHOD                     4: append
+        1316    LOAD_CONST                      232: 138
+        1318    CALL_METHOD                     1
+        1320    POP_TOP                         
+        1322    LOAD_NAME                       18: def_op
+        1324    LOAD_CONST                      233: 'CALL_FUNCTION_KW'
+        1326    LOAD_CONST                      234: 141
+        1328    CALL_FUNCTION                   2
+        1330    POP_TOP                         
+        1332    LOAD_NAME                       18: def_op
+        1334    LOAD_CONST                      235: 'CALL_FUNCTION_EX'
+        1336    LOAD_CONST                      236: 142
+        1338    CALL_FUNCTION                   2
+        1340    POP_TOP                         
+        1342    LOAD_NAME                       20: jrel_op
+        1344    LOAD_CONST                      237: 'SETUP_WITH'
+        1346    LOAD_CONST                      238: 143
+        1348    CALL_FUNCTION                   2
+        1350    POP_TOP                         
+        1352    LOAD_NAME                       18: def_op
+        1354    LOAD_CONST                      239: 'EXTENDED_ARG'
+        1356    LOAD_CONST                      240: 144
+        1358    CALL_FUNCTION                   2
+        1360    POP_TOP                         
+        1362    LOAD_CONST                      240: 144
+        1364    STORE_NAME                      23: EXTENDED_ARG
+        1366    LOAD_NAME                       18: def_op
+        1368    LOAD_CONST                      241: 'LIST_APPEND'
+        1370    LOAD_CONST                      242: 145
+        1372    CALL_FUNCTION                   2
+        1374    POP_TOP                         
+        1376    LOAD_NAME                       18: def_op
+        1378    LOAD_CONST                      243: 'SET_ADD'
+        1380    LOAD_CONST                      244: 146
+        1382    CALL_FUNCTION                   2
+        1384    POP_TOP                         
+        1386    LOAD_NAME                       18: def_op
+        1388    LOAD_CONST                      245: 'MAP_ADD'
+        1390    LOAD_CONST                      246: 147
+        1392    CALL_FUNCTION                   2
+        1394    POP_TOP                         
+        1396    LOAD_NAME                       18: def_op
+        1398    LOAD_CONST                      247: 'LOAD_CLASSDEREF'
+        1400    LOAD_CONST                      248: 148
+        1402    CALL_FUNCTION                   2
+        1404    POP_TOP                         
+        1406    LOAD_NAME                       13: hasfree
+        1408    LOAD_METHOD                     4: append
+        1410    LOAD_CONST                      248: 148
+        1412    CALL_METHOD                     1
+        1414    POP_TOP                         
+        1416    LOAD_NAME                       18: def_op
+        1418    LOAD_CONST                      249: 'MATCH_CLASS'
+        1420    LOAD_CONST                      250: 152
+        1422    CALL_FUNCTION                   2
+        1424    POP_TOP                         
+        1426    LOAD_NAME                       20: jrel_op
+        1428    LOAD_CONST                      251: 'SETUP_ASYNC_WITH'
+        1430    LOAD_CONST                      252: 154
+        1432    CALL_FUNCTION                   2
+        1434    POP_TOP                         
+        1436    LOAD_NAME                       18: def_op
+        1438    LOAD_CONST                      253: 'FORMAT_VALUE'
+        1440    LOAD_CONST                      254: 155
+        1442    CALL_FUNCTION                   2
+        1444    POP_TOP                         
+        1446    LOAD_NAME                       18: def_op
+        1448    LOAD_CONST                      255: 'BUILD_CONST_KEY_MAP'
+        1450    LOAD_CONST                      256: 156
+        1454    CALL_FUNCTION                   2
+        1456    POP_TOP                         
+        1458    LOAD_NAME                       18: def_op
+        1460    LOAD_CONST                      257: 'BUILD_STRING'
+        1464    LOAD_CONST                      258: 157
+        1468    CALL_FUNCTION                   2
+        1470    POP_TOP                         
+        1472    LOAD_NAME                       19: name_op
+        1474    LOAD_CONST                      259: 'LOAD_METHOD'
+        1478    LOAD_CONST                      260: 160
+        1482    CALL_FUNCTION                   2
+        1484    POP_TOP                         
+        1486    LOAD_NAME                       18: def_op
+        1488    LOAD_CONST                      261: 'CALL_METHOD'
+        1492    LOAD_CONST                      262: 161
+        1496    CALL_FUNCTION                   2
+        1498    POP_TOP                         
+        1500    LOAD_NAME                       18: def_op
+        1502    LOAD_CONST                      263: 'LIST_EXTEND'
+        1506    LOAD_CONST                      264: 162
+        1510    CALL_FUNCTION                   2
+        1512    POP_TOP                         
+        1514    LOAD_NAME                       18: def_op
+        1516    LOAD_CONST                      265: 'SET_UPDATE'
+        1520    LOAD_CONST                      266: 163
+        1524    CALL_FUNCTION                   2
+        1526    POP_TOP                         
+        1528    LOAD_NAME                       18: def_op
+        1530    LOAD_CONST                      267: 'DICT_MERGE'
+        1534    LOAD_CONST                      268: 164
+        1538    CALL_FUNCTION                   2
+        1540    POP_TOP                         
+        1542    LOAD_NAME                       18: def_op
+        1544    LOAD_CONST                      269: 'DICT_UPDATE'
+        1548    LOAD_CONST                      270: 165
+        1552    CALL_FUNCTION                   2
+        1554    POP_TOP                         
+        1556    DELETE_NAME                     18: def_op
+        1558    DELETE_NAME                     19: name_op
+        1560    DELETE_NAME                     20: jrel_op
+        1562    DELETE_NAME                     21: jabs_op
+        1564    LOAD_CONST                      271: None
+        1568    RETURN_VALUE                    

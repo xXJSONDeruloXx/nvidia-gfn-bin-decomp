@@ -1,0 +1,929 @@
+py_compile.pyc (Python 3.10)
+[Code]
+    File Name: py_compile.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'enum'
+        'importlib._bootstrap_external'
+        'importlib'
+        'importlib.machinery'
+        'importlib.util'
+        'os'
+        'os.path'
+        'sys'
+        'traceback'
+        '__all__'
+        'Exception'
+        'PyCompileError'
+        'Enum'
+        'PycInvalidationMode'
+        '_get_default_invalidation_mode'
+        'compile'
+        'main'
+        '__name__'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Routine to "compile" a .py file to a .pyc file.\n\nThis module has intimate knowledge of the format of .pyc files.\n'
+        0
+        None
+        (
+            'compile'
+            'main'
+            'PyCompileError'
+            'PycInvalidationMode'
+        )
+        [Code]
+            File Name: py_compile.py
+            Object Name: PyCompileError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                '__str__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'PyCompileError'
+                "Exception raised when an error occurs while attempting to\n    compile the file.\n\n    To raise this exception, use\n\n        raise PyCompileError(exc_type,exc_value,file[,msg])\n\n    where\n\n        exc_type:   exception type to be used in error message\n                    type name can be accesses as class variable\n                    'exc_type_name'\n\n        exc_value:  exception value to be used in error message\n                    can be accesses as class variable 'exc_value'\n\n        file:       name of file being compiled to be used in error message\n                    can be accesses as class variable 'file'\n\n        msg:        string message to be written as error message\n                    If no value is given, a default exception message will be\n                    given, consistent with 'standard' py_compile output.\n                    message (or default) can be accesses as class variable\n                    'msg'\n\n    "
+                ''
+                [Code]
+                    File Name: py_compile.py
+                    Object Name: __init__
+                    Arg Count: 5
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 8
+                    Stack Size: 7
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '__name__'
+                        'SyntaxError'
+                        'join'
+                        'traceback'
+                        'format_exception_only'
+                        'replace'
+                        'Exception'
+                        '__init__'
+                        'exc_type_name'
+                        'exc_value'
+                        'file'
+                        'msg'
+                    [Var Names]
+                        'self'
+                        'exc_type'
+                        'exc_value'
+                        'file'
+                        'msg'
+                        'exc_type_name'
+                        'tbtext'
+                        'errmsg'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        ''
+                        'File "<string>"'
+                        'File "%s"'
+                        'Sorry: %s: %s'
+                    [Disassembly]
+                        0       LOAD_FAST                       1: exc_type
+                        2       LOAD_ATTR                       0: __name__
+                        4       STORE_FAST                      5: exc_type_name
+                        6       LOAD_FAST                       1: exc_type
+                        8       LOAD_GLOBAL                     1: SyntaxError
+                        10      IS_OP                           0 (is)
+                        12      POP_JUMP_IF_FALSE               25 (to 50)
+                        14      LOAD_CONST                      1: ''
+                        16      LOAD_METHOD                     2: join
+                        18      LOAD_GLOBAL                     3: traceback
+                        20      LOAD_METHOD                     4: format_exception_only
+                        22      LOAD_FAST                       1: exc_type
+                        24      LOAD_FAST                       2: exc_value
+                        26      CALL_METHOD                     2
+                        28      CALL_METHOD                     1
+                        30      STORE_FAST                      6: tbtext
+                        32      LOAD_FAST                       6: tbtext
+                        34      LOAD_METHOD                     5: replace
+                        36      LOAD_CONST                      2: 'File "<string>"'
+                        38      LOAD_CONST                      3: 'File "%s"'
+                        40      LOAD_FAST                       3: file
+                        42      BINARY_MODULO                   
+                        44      CALL_METHOD                     2
+                        46      STORE_FAST                      7: errmsg
+                        48      JUMP_FORWARD                    6 (to 62)
+                        50      LOAD_CONST                      4: 'Sorry: %s: %s'
+                        52      LOAD_FAST                       5: exc_type_name
+                        54      LOAD_FAST                       2: exc_value
+                        56      BUILD_TUPLE                     2
+                        58      BINARY_MODULO                   
+                        60      STORE_FAST                      7: errmsg
+                        62      LOAD_GLOBAL                     6: Exception
+                        64      LOAD_METHOD                     7: __init__
+                        66      LOAD_FAST                       0: self
+                        68      LOAD_FAST                       4: msg
+                        70      JUMP_IF_TRUE_OR_POP             37 (to 74)
+                        72      LOAD_FAST                       7: errmsg
+                        74      LOAD_FAST                       5: exc_type_name
+                        76      LOAD_FAST                       2: exc_value
+                        78      LOAD_FAST                       3: file
+                        80      CALL_METHOD                     5
+                        82      POP_TOP                         
+                        84      LOAD_FAST                       5: exc_type_name
+                        86      LOAD_FAST                       0: self
+                        88      STORE_ATTR                      8: exc_type_name
+                        90      LOAD_FAST                       2: exc_value
+                        92      LOAD_FAST                       0: self
+                        94      STORE_ATTR                      9: exc_value
+                        96      LOAD_FAST                       3: file
+                        98      LOAD_FAST                       0: self
+                        100     STORE_ATTR                      10: file
+                        102     LOAD_FAST                       4: msg
+                        104     JUMP_IF_TRUE_OR_POP             54 (to 108)
+                        106     LOAD_FAST                       7: errmsg
+                        108     LOAD_FAST                       0: self
+                        110     STORE_ATTR                      11: msg
+                        112     LOAD_CONST                      0: None
+                        114     RETURN_VALUE                    
+                'PyCompileError.__init__'
+                [Code]
+                    File Name: py_compile.py
+                    Object Name: __str__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'msg'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: msg
+                        4       RETURN_VALUE                    
+                'PyCompileError.__str__'
+                None
+                (
+                    ''
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'PyCompileError'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: "Exception raised when an error occurs while attempting to\n    compile the file.\n\n    To raise this exception, use\n\n        raise PyCompileError(exc_type,exc_value,file[,msg])\n\n    where\n\n        exc_type:   exception type to be used in error message\n                    type name can be accesses as class variable\n                    'exc_type_name'\n\n        exc_value:  exception value to be used in error message\n                    can be accesses as class variable 'exc_value'\n\n        file:       name of file being compiled to be used in error message\n                    can be accesses as class variable 'file'\n\n        msg:        string message to be written as error message\n                    If no value is given, a default exception message will be\n                    given, consistent with 'standard' py_compile output.\n                    message (or default) can be accesses as class variable\n                    'msg'\n\n    "
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      8: ('',)
+                14      LOAD_CONST                      3: <CODE> __init__
+                16      LOAD_CONST                      4: 'PyCompileError.__init__'
+                18      MAKE_FUNCTION                   1
+                20      STORE_NAME                      4: __init__
+                22      LOAD_CONST                      5: <CODE> __str__
+                24      LOAD_CONST                      6: 'PyCompileError.__str__'
+                26      MAKE_FUNCTION                   0
+                28      STORE_NAME                      5: __str__
+                30      LOAD_CONST                      7: None
+                32      RETURN_VALUE                    
+        'PyCompileError'
+        [Code]
+            File Name: py_compile.py
+            Object Name: PycInvalidationMode
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                'TIMESTAMP'
+                'CHECKED_HASH'
+                'UNCHECKED_HASH'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'PycInvalidationMode'
+                1
+                2
+                3
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'PycInvalidationMode'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 1
+                10      STORE_NAME                      3: TIMESTAMP
+                12      LOAD_CONST                      2: 2
+                14      STORE_NAME                      4: CHECKED_HASH
+                16      LOAD_CONST                      3: 3
+                18      STORE_NAME                      5: UNCHECKED_HASH
+                20      LOAD_CONST                      4: None
+                22      RETURN_VALUE                    
+        'PycInvalidationMode'
+        [Code]
+            File Name: py_compile.py
+            Object Name: _get_default_invalidation_mode
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'os'
+                'environ'
+                'get'
+                'PycInvalidationMode'
+                'CHECKED_HASH'
+                'TIMESTAMP'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'SOURCE_DATE_EPOCH'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: os
+                2       LOAD_ATTR                       1: environ
+                4       LOAD_METHOD                     2: get
+                6       LOAD_CONST                      1: 'SOURCE_DATE_EPOCH'
+                8       CALL_METHOD                     1
+                10      POP_JUMP_IF_FALSE               9 (to 18)
+                12      LOAD_GLOBAL                     3: PycInvalidationMode
+                14      LOAD_ATTR                       4: CHECKED_HASH
+                16      RETURN_VALUE                    
+                18      LOAD_GLOBAL                     3: PycInvalidationMode
+                20      LOAD_ATTR                       5: TIMESTAMP
+                22      RETURN_VALUE                    
+        '_get_default_invalidation_mode'
+        False
+        -1
+        [Code]
+            File Name: py_compile.py
+            Object Name: compile
+            Arg Count: 7
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 19
+            Stack Size: 10
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_get_default_invalidation_mode'
+                'importlib'
+                'util'
+                'cache_from_source'
+                'os'
+                'path'
+                'islink'
+                'FileExistsError'
+                'format'
+                'exists'
+                'isfile'
+                'machinery'
+                'SourceFileLoader'
+                'get_data'
+                'source_to_code'
+                'Exception'
+                'PyCompileError'
+                '__class__'
+                'sys'
+                'stderr'
+                'write'
+                'msg'
+                'dirname'
+                'makedirs'
+                'PycInvalidationMode'
+                'TIMESTAMP'
+                'path_stats'
+                '_bootstrap_external'
+                '_code_to_timestamp_pyc'
+                'source_hash'
+                '_code_to_hash_pyc'
+                'CHECKED_HASH'
+                '_calc_mode'
+                '_write_atomic'
+            [Var Names]
+                'file'
+                'cfile'
+                'dfile'
+                'doraise'
+                'optimize'
+                'invalidation_mode'
+                'quiet'
+                'optimization'
+                'msg'
+                'loader'
+                'source_bytes'
+                'code'
+                'err'
+                'py_exc'
+                'dirname'
+                'source_stats'
+                'bytecode'
+                'source_hash'
+                'mode'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Byte-compile one Python source file to Python bytecode.\n\n    :param file: The source file name.\n    :param cfile: The target byte compiled file name.  When not given, this\n        defaults to the PEP 3147/PEP 488 location.\n    :param dfile: Purported file name, i.e. the file name that shows up in\n        error messages.  Defaults to the source file name.\n    :param doraise: Flag indicating whether or not an exception should be\n        raised when a compile error is found.  If an exception occurs and this\n        flag is set to False, a string indicating the nature of the exception\n        will be printed, and the function will return to the caller. If an\n        exception occurs and this flag is set to True, a PyCompileError\n        exception will be raised.\n    :param optimize: The optimization level for the compiler.  Valid values\n        are -1, 0, 1 and 2.  A value of -1 means to use the optimization\n        level of the current interpreter, as given by -O command line options.\n    :param invalidation_mode:\n    :param quiet: Return full output with False or 0, errors only with 1,\n        and no output with 2.\n\n    :return: Path to the resulting byte compiled file.\n\n    Note that it isn't necessary to byte-compile Python modules for\n    execution efficiency -- Python itself byte-compiles a module when\n    it is loaded, and if it can, writes out the bytecode to the\n    corresponding .pyc file.\n\n    However, if a Python installation is shared between users, it is a\n    good idea to byte-compile all modules upon installation, since\n    other users may not be able to write in the source directories,\n    and thus they won't be able to write the .pyc file, and then\n    they would be byte-compiling every module each time it is loaded.\n    This can slow down program start-up considerably.\n\n    See compileall.py for a script/module that uses this module to\n    byte-compile all installed files (or all files in selected\n    directories).\n\n    Do note that FileExistsError is raised if cfile ends up pointing at a\n    non-regular file or symlink. Because the compilation uses a file renaming,\n    the resulting file would be regular and thus not the same type of file as\n    it was previously.\n    "
+                None
+                0
+                1
+                ''
+                (
+                    'optimization'
+                )
+                '{} is a symlink and will be changed into a regular file if import writes a byte-compiled file to it'
+                '{} is a non-regular file and will be changed into a regular one if import writes a byte-compiled file to it'
+                '<py_compile>'
+                (
+                    '_optimize'
+                )
+                2
+                '\n'
+                'mtime'
+                'size'
+            [Disassembly]
+                0       LOAD_FAST                       5: invalidation_mode
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               7 (to 14)
+                8       LOAD_GLOBAL                     0: _get_default_invalidation_mode
+                10      CALL_FUNCTION                   0
+                12      STORE_FAST                      5: invalidation_mode
+                14      LOAD_FAST                       1: cfile
+                16      LOAD_CONST                      1: None
+                18      IS_OP                           0 (is)
+                20      POP_JUMP_IF_FALSE               38 (to 76)
+                22      LOAD_FAST                       4: optimize
+                24      LOAD_CONST                      2: 0
+                26      COMPARE_OP                      5 (>=)
+                28      POP_JUMP_IF_FALSE               32 (to 64)
+                30      LOAD_FAST                       4: optimize
+                32      LOAD_CONST                      3: 1
+                34      COMPARE_OP                      5 (>=)
+                36      POP_JUMP_IF_FALSE               21 (to 42)
+                38      LOAD_FAST                       4: optimize
+                40      JUMP_FORWARD                    1 (to 44)
+                42      LOAD_CONST                      4: ''
+                44      STORE_FAST                      7: optimization
+                46      LOAD_GLOBAL                     1: importlib
+                48      LOAD_ATTR                       2: util
+                50      LOAD_ATTR                       3: cache_from_source
+                52      LOAD_FAST                       0: file
+                54      LOAD_FAST                       7: optimization
+                56      LOAD_CONST                      5: ('optimization',)
+                58      CALL_FUNCTION_KW                2
+                60      STORE_FAST                      1: cfile
+                62      JUMP_FORWARD                    6 (to 76)
+                64      LOAD_GLOBAL                     1: importlib
+                66      LOAD_ATTR                       2: util
+                68      LOAD_METHOD                     3: cache_from_source
+                70      LOAD_FAST                       0: file
+                72      CALL_METHOD                     1
+                74      STORE_FAST                      1: cfile
+                76      LOAD_GLOBAL                     4: os
+                78      LOAD_ATTR                       5: path
+                80      LOAD_METHOD                     6: islink
+                82      LOAD_FAST                       1: cfile
+                84      CALL_METHOD                     1
+                86      POP_JUMP_IF_FALSE               53 (to 106)
+                88      LOAD_CONST                      6: '{} is a symlink and will be changed into a regular file if import writes a byte-compiled file to it'
+                90      STORE_FAST                      8: msg
+                92      LOAD_GLOBAL                     7: FileExistsError
+                94      LOAD_FAST                       8: msg
+                96      LOAD_METHOD                     8: format
+                98      LOAD_FAST                       1: cfile
+                100     CALL_METHOD                     1
+                102     CALL_FUNCTION                   1
+                104     RAISE_VARARGS                   1
+                106     LOAD_GLOBAL                     4: os
+                108     LOAD_ATTR                       5: path
+                110     LOAD_METHOD                     9: exists
+                112     LOAD_FAST                       1: cfile
+                114     CALL_METHOD                     1
+                116     POP_JUMP_IF_FALSE               74 (to 148)
+                118     LOAD_GLOBAL                     4: os
+                120     LOAD_ATTR                       5: path
+                122     LOAD_METHOD                     10: isfile
+                124     LOAD_FAST                       1: cfile
+                126     CALL_METHOD                     1
+                128     POP_JUMP_IF_TRUE                74 (to 148)
+                130     LOAD_CONST                      7: '{} is a non-regular file and will be changed into a regular one if import writes a byte-compiled file to it'
+                132     STORE_FAST                      8: msg
+                134     LOAD_GLOBAL                     7: FileExistsError
+                136     LOAD_FAST                       8: msg
+                138     LOAD_METHOD                     8: format
+                140     LOAD_FAST                       1: cfile
+                142     CALL_METHOD                     1
+                144     CALL_FUNCTION                   1
+                146     RAISE_VARARGS                   1
+                148     LOAD_GLOBAL                     1: importlib
+                150     LOAD_ATTR                       11: machinery
+                152     LOAD_METHOD                     12: SourceFileLoader
+                154     LOAD_CONST                      8: '<py_compile>'
+                156     LOAD_FAST                       0: file
+                158     CALL_METHOD                     2
+                160     STORE_FAST                      9: loader
+                162     LOAD_FAST                       9: loader
+                164     LOAD_METHOD                     13: get_data
+                166     LOAD_FAST                       0: file
+                168     CALL_METHOD                     1
+                170     STORE_FAST                      10: source_bytes
+                172     SETUP_FINALLY                   12 (to 198)
+                174     LOAD_FAST                       9: loader
+                176     LOAD_ATTR                       14: source_to_code
+                178     LOAD_FAST                       10: source_bytes
+                180     LOAD_FAST                       2: dfile
+                182     JUMP_IF_TRUE_OR_POP             93 (to 186)
+                184     LOAD_FAST                       0: file
+                186     LOAD_FAST                       4: optimize
+                188     LOAD_CONST                      9: ('_optimize',)
+                190     CALL_FUNCTION_KW                3
+                192     STORE_FAST                      11: code
+                194     POP_BLOCK                       
+                196     JUMP_FORWARD                    45 (to 288)
+                198     DUP_TOP                         
+                200     LOAD_GLOBAL                     15: Exception
+                202     JUMP_IF_NOT_EXC_MATCH           143 (to 286)
+                204     POP_TOP                         
+                206     STORE_FAST                      12: err
+                208     POP_TOP                         
+                210     SETUP_FINALLY                   33 (to 278)
+                212     LOAD_GLOBAL                     16: PyCompileError
+                214     LOAD_FAST                       12: err
+                216     LOAD_ATTR                       17: __class__
+                218     LOAD_FAST                       12: err
+                220     LOAD_FAST                       2: dfile
+                222     JUMP_IF_TRUE_OR_POP             113 (to 226)
+                224     LOAD_FAST                       0: file
+                226     CALL_FUNCTION                   3
+                228     STORE_FAST                      13: py_exc
+                230     LOAD_FAST                       6: quiet
+                232     LOAD_CONST                      10: 2
+                234     COMPARE_OP                      0 (<)
+                236     POP_JUMP_IF_FALSE               132 (to 264)
+                238     LOAD_FAST                       3: doraise
+                240     POP_JUMP_IF_FALSE               123 (to 246)
+                242     LOAD_FAST                       13: py_exc
+                244     RAISE_VARARGS                   1
+                246     LOAD_GLOBAL                     18: sys
+                248     LOAD_ATTR                       19: stderr
+                250     LOAD_METHOD                     20: write
+                252     LOAD_FAST                       13: py_exc
+                254     LOAD_ATTR                       21: msg
+                256     LOAD_CONST                      11: '\n'
+                258     BINARY_ADD                      
+                260     CALL_METHOD                     1
+                262     POP_TOP                         
+                264     POP_BLOCK                       
+                266     POP_EXCEPT                      
+                268     LOAD_CONST                      1: None
+                270     STORE_FAST                      12: err
+                272     DELETE_FAST                     12: err
+                274     LOAD_CONST                      1: None
+                276     RETURN_VALUE                    
+                278     LOAD_CONST                      1: None
+                280     STORE_FAST                      12: err
+                282     DELETE_FAST                     12: err
+                284     RERAISE                         1
+                286     RERAISE                         0
+                288     SETUP_FINALLY                   15 (to 320)
+                290     LOAD_GLOBAL                     4: os
+                292     LOAD_ATTR                       5: path
+                294     LOAD_METHOD                     22: dirname
+                296     LOAD_FAST                       1: cfile
+                298     CALL_METHOD                     1
+                300     STORE_FAST                      14: dirname
+                302     LOAD_FAST                       14: dirname
+                304     POP_JUMP_IF_FALSE               158 (to 316)
+                306     LOAD_GLOBAL                     4: os
+                308     LOAD_METHOD                     23: makedirs
+                310     LOAD_FAST                       14: dirname
+                312     CALL_METHOD                     1
+                314     POP_TOP                         
+                316     POP_BLOCK                       
+                318     JUMP_FORWARD                    9 (to 338)
+                320     DUP_TOP                         
+                322     LOAD_GLOBAL                     7: FileExistsError
+                324     JUMP_IF_NOT_EXC_MATCH           168 (to 336)
+                326     POP_TOP                         
+                328     POP_TOP                         
+                330     POP_TOP                         
+                332     POP_EXCEPT                      
+                334     JUMP_FORWARD                    1 (to 338)
+                336     RERAISE                         0
+                338     LOAD_FAST                       5: invalidation_mode
+                340     LOAD_GLOBAL                     24: PycInvalidationMode
+                342     LOAD_ATTR                       25: TIMESTAMP
+                344     COMPARE_OP                      2 (==)
+                346     POP_JUMP_IF_FALSE               192 (to 384)
+                348     LOAD_FAST                       9: loader
+                350     LOAD_METHOD                     26: path_stats
+                352     LOAD_FAST                       0: file
+                354     CALL_METHOD                     1
+                356     STORE_FAST                      15: source_stats
+                358     LOAD_GLOBAL                     1: importlib
+                360     LOAD_ATTR                       27: _bootstrap_external
+                362     LOAD_METHOD                     28: _code_to_timestamp_pyc
+                364     LOAD_FAST                       11: code
+                366     LOAD_FAST                       15: source_stats
+                368     LOAD_CONST                      12: 'mtime'
+                370     BINARY_SUBSCR                   
+                372     LOAD_FAST                       15: source_stats
+                374     LOAD_CONST                      13: 'size'
+                376     BINARY_SUBSCR                   
+                378     CALL_METHOD                     3
+                380     STORE_FAST                      16: bytecode
+                382     JUMP_FORWARD                    17 (to 418)
+                384     LOAD_GLOBAL                     1: importlib
+                386     LOAD_ATTR                       2: util
+                388     LOAD_METHOD                     29: source_hash
+                390     LOAD_FAST                       10: source_bytes
+                392     CALL_METHOD                     1
+                394     STORE_FAST                      17: source_hash
+                396     LOAD_GLOBAL                     1: importlib
+                398     LOAD_ATTR                       27: _bootstrap_external
+                400     LOAD_METHOD                     30: _code_to_hash_pyc
+                402     LOAD_FAST                       11: code
+                404     LOAD_FAST                       17: source_hash
+                406     LOAD_FAST                       5: invalidation_mode
+                408     LOAD_GLOBAL                     24: PycInvalidationMode
+                410     LOAD_ATTR                       31: CHECKED_HASH
+                412     COMPARE_OP                      2 (==)
+                414     CALL_METHOD                     3
+                416     STORE_FAST                      16: bytecode
+                418     LOAD_GLOBAL                     1: importlib
+                420     LOAD_ATTR                       27: _bootstrap_external
+                422     LOAD_METHOD                     32: _calc_mode
+                424     LOAD_FAST                       0: file
+                426     CALL_METHOD                     1
+                428     STORE_FAST                      18: mode
+                430     LOAD_GLOBAL                     1: importlib
+                432     LOAD_ATTR                       27: _bootstrap_external
+                434     LOAD_METHOD                     33: _write_atomic
+                436     LOAD_FAST                       1: cfile
+                438     LOAD_FAST                       16: bytecode
+                440     LOAD_FAST                       18: mode
+                442     CALL_METHOD                     3
+                444     POP_TOP                         
+                446     LOAD_FAST                       1: cfile
+                448     RETURN_VALUE                    
+        'compile'
+        [Code]
+            File Name: py_compile.py
+            Object Name: main
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 7
+            Stack Size: 11
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'argparse'
+                'ArgumentParser'
+                'add_argument'
+                'parse_args'
+                'filenames'
+                'sys'
+                'stdin'
+                'readlines'
+                'rstrip'
+                'compile'
+                'PyCompileError'
+                'quiet'
+                'exit'
+                'msg'
+                'OSError'
+                'str'
+            [Var Names]
+                'argparse'
+                'description'
+                'parser'
+                'args'
+                'filenames'
+                'filename'
+                'error'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                0
+                'A simple command-line interface for py_compile module.'
+                (
+                    'description'
+                )
+                '-q'
+                '--quiet'
+                'store_true'
+                'Suppress error output'
+                (
+                    'action'
+                    'help'
+                )
+                'filenames'
+                '+'
+                'Files to compile'
+                (
+                    'nargs'
+                    'help'
+                )
+                '-'
+                [Code]
+                    File Name: py_compile.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        'rstrip'
+                    [Var Names]
+                        '.0'
+                        'filename'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '\n'
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        7 (to 20)
+                        6       STORE_FAST                      1: filename
+                        8       LOAD_FAST                       1: filename
+                        10      LOAD_METHOD                     0: rstrip
+                        12      LOAD_CONST                      0: '\n'
+                        14      CALL_METHOD                     1
+                        16      LIST_APPEND                     2
+                        18      JUMP_ABSOLUTE                   2 (to 4)
+                        20      RETURN_VALUE                    
+                'main.<locals>.<listcomp>'
+                '\n'
+                True
+                (
+                    'doraise'
+                )
+                1
+            [Disassembly]
+                0       LOAD_CONST                      1: 0
+                2       LOAD_CONST                      0: None
+                4       IMPORT_NAME                     0: argparse
+                6       STORE_FAST                      0: argparse
+                8       LOAD_CONST                      2: 'A simple command-line interface for py_compile module.'
+                10      STORE_FAST                      1: description
+                12      LOAD_FAST                       0: argparse
+                14      LOAD_ATTR                       1: ArgumentParser
+                16      LOAD_FAST                       1: description
+                18      LOAD_CONST                      3: ('description',)
+                20      CALL_FUNCTION_KW                1
+                22      STORE_FAST                      2: parser
+                24      LOAD_FAST                       2: parser
+                26      LOAD_ATTR                       2: add_argument
+                28      LOAD_CONST                      4: '-q'
+                30      LOAD_CONST                      5: '--quiet'
+                32      LOAD_CONST                      6: 'store_true'
+                34      LOAD_CONST                      7: 'Suppress error output'
+                36      LOAD_CONST                      8: ('action', 'help')
+                38      CALL_FUNCTION_KW                4
+                40      POP_TOP                         
+                42      LOAD_FAST                       2: parser
+                44      LOAD_ATTR                       2: add_argument
+                46      LOAD_CONST                      9: 'filenames'
+                48      LOAD_CONST                      10: '+'
+                50      LOAD_CONST                      11: 'Files to compile'
+                52      LOAD_CONST                      12: ('nargs', 'help')
+                54      CALL_FUNCTION_KW                3
+                56      POP_TOP                         
+                58      LOAD_FAST                       2: parser
+                60      LOAD_METHOD                     3: parse_args
+                62      CALL_METHOD                     0
+                64      STORE_FAST                      3: args
+                66      LOAD_FAST                       3: args
+                68      LOAD_ATTR                       4: filenames
+                70      LOAD_CONST                      13: '-'
+                72      BUILD_LIST                      1
+                74      COMPARE_OP                      2 (==)
+                76      POP_JUMP_IF_FALSE               50 (to 100)
+                78      LOAD_CONST                      14: <CODE> <listcomp>
+                80      LOAD_CONST                      15: 'main.<locals>.<listcomp>'
+                82      MAKE_FUNCTION                   0
+                84      LOAD_GLOBAL                     5: sys
+                86      LOAD_ATTR                       6: stdin
+                88      LOAD_METHOD                     7: readlines
+                90      CALL_METHOD                     0
+                92      GET_ITER                        
+                94      CALL_FUNCTION                   1
+                96      STORE_FAST                      4: filenames
+                98      JUMP_FORWARD                    3 (to 106)
+                100     LOAD_FAST                       3: args
+                102     LOAD_ATTR                       4: filenames
+                104     STORE_FAST                      4: filenames
+                106     LOAD_FAST                       4: filenames
+                108     GET_ITER                        
+                110     FOR_ITER                        83 (to 278)
+                112     STORE_FAST                      5: filename
+                114     LOAD_FAST                       5: filename
+                116     LOAD_METHOD                     8: rstrip
+                118     LOAD_CONST                      16: '\n'
+                120     CALL_METHOD                     1
+                122     STORE_FAST                      5: filename
+                124     SETUP_FINALLY                   8 (to 142)
+                126     LOAD_GLOBAL                     9: compile
+                128     LOAD_FAST                       5: filename
+                130     LOAD_CONST                      17: True
+                132     LOAD_CONST                      18: ('doraise',)
+                134     CALL_FUNCTION_KW                2
+                136     POP_TOP                         
+                138     POP_BLOCK                       
+                140     JUMP_ABSOLUTE                   55 (to 110)
+                142     DUP_TOP                         
+                144     LOAD_GLOBAL                     10: PyCompileError
+                146     JUMP_IF_NOT_EXC_MATCH           104 (to 208)
+                148     POP_TOP                         
+                150     STORE_FAST                      6: error
+                152     POP_TOP                         
+                154     SETUP_FINALLY                   22 (to 200)
+                156     LOAD_FAST                       3: args
+                158     LOAD_ATTR                       11: quiet
+                160     POP_JUMP_IF_FALSE               87 (to 174)
+                162     LOAD_FAST                       2: parser
+                164     LOAD_METHOD                     12: exit
+                166     LOAD_CONST                      19: 1
+                168     CALL_METHOD                     1
+                170     POP_TOP                         
+                172     JUMP_FORWARD                    7 (to 188)
+                174     LOAD_FAST                       2: parser
+                176     LOAD_METHOD                     12: exit
+                178     LOAD_CONST                      19: 1
+                180     LOAD_FAST                       6: error
+                182     LOAD_ATTR                       13: msg
+                184     CALL_METHOD                     2
+                186     POP_TOP                         
+                188     POP_BLOCK                       
+                190     POP_EXCEPT                      
+                192     LOAD_CONST                      0: None
+                194     STORE_FAST                      6: error
+                196     DELETE_FAST                     6: error
+                198     JUMP_ABSOLUTE                   55 (to 110)
+                200     LOAD_CONST                      0: None
+                202     STORE_FAST                      6: error
+                204     DELETE_FAST                     6: error
+                206     RERAISE                         1
+                208     DUP_TOP                         
+                210     LOAD_GLOBAL                     14: OSError
+                212     JUMP_IF_NOT_EXC_MATCH           138 (to 276)
+                214     POP_TOP                         
+                216     STORE_FAST                      6: error
+                218     POP_TOP                         
+                220     SETUP_FINALLY                   23 (to 268)
+                222     LOAD_FAST                       3: args
+                224     LOAD_ATTR                       11: quiet
+                226     POP_JUMP_IF_FALSE               120 (to 240)
+                228     LOAD_FAST                       2: parser
+                230     LOAD_METHOD                     12: exit
+                232     LOAD_CONST                      19: 1
+                234     CALL_METHOD                     1
+                236     POP_TOP                         
+                238     JUMP_FORWARD                    8 (to 256)
+                240     LOAD_FAST                       2: parser
+                242     LOAD_METHOD                     12: exit
+                244     LOAD_CONST                      19: 1
+                246     LOAD_GLOBAL                     15: str
+                248     LOAD_FAST                       6: error
+                250     CALL_FUNCTION                   1
+                252     CALL_METHOD                     2
+                254     POP_TOP                         
+                256     POP_BLOCK                       
+                258     POP_EXCEPT                      
+                260     LOAD_CONST                      0: None
+                262     STORE_FAST                      6: error
+                264     DELETE_FAST                     6: error
+                266     JUMP_ABSOLUTE                   55 (to 110)
+                268     LOAD_CONST                      0: None
+                270     STORE_FAST                      6: error
+                272     DELETE_FAST                     6: error
+                274     RERAISE                         1
+                276     RERAISE                         0
+                278     LOAD_CONST                      0: None
+                280     RETURN_VALUE                    
+        'main'
+        '__main__'
+        (
+            None
+            None
+            False
+            -1
+            None
+            0
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Routine to "compile" a .py file to a .pyc file.\n\nThis module has intimate knowledge of the format of .pyc files.\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: enum
+        10      STORE_NAME                      1: enum
+        12      LOAD_CONST                      1: 0
+        14      LOAD_CONST                      2: None
+        16      IMPORT_NAME                     2: importlib._bootstrap_external
+        18      STORE_NAME                      3: importlib
+        20      LOAD_CONST                      1: 0
+        22      LOAD_CONST                      2: None
+        24      IMPORT_NAME                     4: importlib.machinery
+        26      STORE_NAME                      3: importlib
+        28      LOAD_CONST                      1: 0
+        30      LOAD_CONST                      2: None
+        32      IMPORT_NAME                     5: importlib.util
+        34      STORE_NAME                      3: importlib
+        36      LOAD_CONST                      1: 0
+        38      LOAD_CONST                      2: None
+        40      IMPORT_NAME                     6: os
+        42      STORE_NAME                      6: os
+        44      LOAD_CONST                      1: 0
+        46      LOAD_CONST                      2: None
+        48      IMPORT_NAME                     7: os.path
+        50      STORE_NAME                      6: os
+        52      LOAD_CONST                      1: 0
+        54      LOAD_CONST                      2: None
+        56      IMPORT_NAME                     8: sys
+        58      STORE_NAME                      8: sys
+        60      LOAD_CONST                      1: 0
+        62      LOAD_CONST                      2: None
+        64      IMPORT_NAME                     9: traceback
+        66      STORE_NAME                      9: traceback
+        68      BUILD_LIST                      0
+        70      LOAD_CONST                      3: ('compile', 'main', 'PyCompileError', 'PycInvalidationMode')
+        72      LIST_EXTEND                     1
+        74      STORE_NAME                      10: __all__
+        76      LOAD_BUILD_CLASS                
+        78      LOAD_CONST                      4: <CODE> PyCompileError
+        80      LOAD_CONST                      5: 'PyCompileError'
+        82      MAKE_FUNCTION                   0
+        84      LOAD_CONST                      5: 'PyCompileError'
+        86      LOAD_NAME                       11: Exception
+        88      CALL_FUNCTION                   3
+        90      STORE_NAME                      12: PyCompileError
+        92      LOAD_BUILD_CLASS                
+        94      LOAD_CONST                      6: <CODE> PycInvalidationMode
+        96      LOAD_CONST                      7: 'PycInvalidationMode'
+        98      MAKE_FUNCTION                   0
+        100     LOAD_CONST                      7: 'PycInvalidationMode'
+        102     LOAD_NAME                       1: enum
+        104     LOAD_ATTR                       13: Enum
+        106     CALL_FUNCTION                   3
+        108     STORE_NAME                      14: PycInvalidationMode
+        110     LOAD_CONST                      8: <CODE> _get_default_invalidation_mode
+        112     LOAD_CONST                      9: '_get_default_invalidation_mode'
+        114     MAKE_FUNCTION                   0
+        116     STORE_NAME                      15: _get_default_invalidation_mode
+        118     NOP                             
+        120     NOP                             
+        122     LOAD_CONST                      17: (None, None, False, -1, None, 0)
+        124     LOAD_CONST                      12: <CODE> compile
+        126     LOAD_CONST                      13: 'compile'
+        128     MAKE_FUNCTION                   1
+        130     STORE_NAME                      16: compile
+        132     LOAD_CONST                      14: <CODE> main
+        134     LOAD_CONST                      15: 'main'
+        136     MAKE_FUNCTION                   0
+        138     STORE_NAME                      17: main
+        140     LOAD_NAME                       18: __name__
+        142     LOAD_CONST                      16: '__main__'
+        144     COMPARE_OP                      2 (==)
+        146     POP_JUMP_IF_FALSE               79 (to 158)
+        148     LOAD_NAME                       17: main
+        150     CALL_FUNCTION                   0
+        152     POP_TOP                         
+        154     LOAD_CONST                      2: None
+        156     RETURN_VALUE                    
+        158     LOAD_CONST                      2: None
+        160     RETURN_VALUE                    

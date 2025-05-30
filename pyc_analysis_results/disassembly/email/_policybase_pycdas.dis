@@ -1,0 +1,1459 @@
+_policybase.pyc (Python 3.10)
+[Code]
+    File Name: email/_policybase.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 6
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'abc'
+        'email'
+        'header'
+        'charset'
+        '_charset'
+        'email.utils'
+        '_has_surrogates'
+        '__all__'
+        '_PolicyBase'
+        '_append_doc'
+        '_extend_docstrings'
+        'ABCMeta'
+        'Policy'
+        'Compat32'
+        'compat32'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Policy framework for the email package.\n\nAllows fine grained feature control of how the package parses and emits data.\n'
+        0
+        None
+        (
+            'header'
+        )
+        (
+            'charset'
+        )
+        (
+            '_has_surrogates'
+        )
+        (
+            'Policy'
+            'Compat32'
+            'compat32'
+        )
+        [Code]
+            File Name: email/_policybase.py
+            Object Name: _PolicyBase
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                '__repr__'
+                'clone'
+                '__setattr__'
+                '__add__'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                '_PolicyBase'
+                'Policy Object basic framework.\n\n    This class is useless unless subclassed.  A subclass should define\n    class attributes with defaults for any values that are to be\n    managed by the Policy object.  The constructor will then allow\n    non-default values to be set for these attributes at instance\n    creation time.  The instance will be callable, taking these same\n    attributes keyword arguments, and returning a new instance\n    identical to the called instance except for those values changed\n    by the keyword arguments.  Instances may be added, yielding new\n    instances with any non-default values from the right hand\n    operand overriding those in the left hand operand.  That is,\n\n        A + B == A(<non-default values of B>)\n\n    The repr of an instance can be used to reconstruct the object\n    if and only if the repr of the values can be used to reconstruct\n    those values.\n\n    '
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 6
+                    Flags: 0x0000000B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS)
+                    [Names]
+                        'items'
+                        'hasattr'
+                        'super'
+                        '_PolicyBase'
+                        '__setattr__'
+                        'TypeError'
+                        'format'
+                        '__class__'
+                        '__name__'
+                    [Var Names]
+                        'self'
+                        'kw'
+                        'name'
+                        'value'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        'Create new Policy, possibly overriding some defaults.\n\n        See class docstring for a list of overridable attributes.\n\n        '
+                        '{!r} is an invalid keyword argument for {}'
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: kw
+                        2       LOAD_METHOD                     0: items
+                        4       CALL_METHOD                     0
+                        6       GET_ITER                        
+                        8       FOR_ITER                        28 (to 66)
+                        10      UNPACK_SEQUENCE                 2
+                        12      STORE_FAST                      2: name
+                        14      STORE_FAST                      3: value
+                        16      LOAD_GLOBAL                     1: hasattr
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_FAST                       2: name
+                        22      CALL_FUNCTION                   2
+                        24      POP_JUMP_IF_FALSE               23 (to 46)
+                        26      LOAD_GLOBAL                     2: super
+                        28      LOAD_GLOBAL                     3: _PolicyBase
+                        30      LOAD_FAST                       0: self
+                        32      CALL_FUNCTION                   2
+                        34      LOAD_METHOD                     4: __setattr__
+                        36      LOAD_FAST                       2: name
+                        38      LOAD_FAST                       3: value
+                        40      CALL_METHOD                     2
+                        42      POP_TOP                         
+                        44      JUMP_ABSOLUTE                   4 (to 8)
+                        46      LOAD_GLOBAL                     5: TypeError
+                        48      LOAD_CONST                      1: '{!r} is an invalid keyword argument for {}'
+                        50      LOAD_METHOD                     6: format
+                        52      LOAD_FAST                       2: name
+                        54      LOAD_FAST                       0: self
+                        56      LOAD_ATTR                       7: __class__
+                        58      LOAD_ATTR                       8: __name__
+                        60      CALL_METHOD                     2
+                        62      CALL_FUNCTION                   1
+                        64      RAISE_VARARGS                   1
+                        66      LOAD_CONST                      2: None
+                        68      RETURN_VALUE                    
+                '_PolicyBase.__init__'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: __repr__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '__dict__'
+                        'items'
+                        'format'
+                        '__class__'
+                        '__name__'
+                        'join'
+                    [Var Names]
+                        'self'
+                        'args'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        [Code]
+                            File Name: email/_policybase.py
+                            Object Name: <listcomp>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 3
+                            Stack Size: 6
+                            Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                            [Names]
+                                'format'
+                            [Var Names]
+                                '.0'
+                                'name'
+                                'value'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                '{}={!r}'
+                            [Disassembly]
+                                0       BUILD_LIST                      0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        10 (to 26)
+                                6       UNPACK_SEQUENCE                 2
+                                8       STORE_FAST                      1: name
+                                10      STORE_FAST                      2: value
+                                12      LOAD_CONST                      0: '{}={!r}'
+                                14      LOAD_METHOD                     0: format
+                                16      LOAD_FAST                       1: name
+                                18      LOAD_FAST                       2: value
+                                20      CALL_METHOD                     2
+                                22      LIST_APPEND                     2
+                                24      JUMP_ABSOLUTE                   2 (to 4)
+                                26      RETURN_VALUE                    
+                        '_PolicyBase.__repr__.<locals>.<listcomp>'
+                        '{}({})'
+                        ', '
+                    [Disassembly]
+                        0       LOAD_CONST                      1: <CODE> <listcomp>
+                        2       LOAD_CONST                      2: '_PolicyBase.__repr__.<locals>.<listcomp>'
+                        4       MAKE_FUNCTION                   0
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_ATTR                       0: __dict__
+                        10      LOAD_METHOD                     1: items
+                        12      CALL_METHOD                     0
+                        14      GET_ITER                        
+                        16      CALL_FUNCTION                   1
+                        18      STORE_FAST                      1: args
+                        20      LOAD_CONST                      3: '{}({})'
+                        22      LOAD_METHOD                     2: format
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       3: __class__
+                        28      LOAD_ATTR                       4: __name__
+                        30      LOAD_CONST                      4: ', '
+                        32      LOAD_METHOD                     5: join
+                        34      LOAD_FAST                       1: args
+                        36      CALL_METHOD                     1
+                        38      CALL_METHOD                     2
+                        40      RETURN_VALUE                    
+                '_PolicyBase.__repr__'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: clone
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 6
+                    Flags: 0x0000004B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS | CO_NOFREE)
+                    [Names]
+                        '__class__'
+                        '__new__'
+                        '__dict__'
+                        'items'
+                        'object'
+                        '__setattr__'
+                        'hasattr'
+                        'TypeError'
+                        'format'
+                        '__name__'
+                    [Var Names]
+                        'self'
+                        'kw'
+                        'newpolicy'
+                        'attr'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return a new instance with specified attributes changed.\n\n        The new instance has the same attribute values as the current object,\n        except for the changes passed in as keyword arguments.\n\n        '
+                        '{!r} is an invalid keyword argument for {}'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: __class__
+                        4       LOAD_METHOD                     1: __new__
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_ATTR                       0: __class__
+                        10      CALL_METHOD                     1
+                        12      STORE_FAST                      2: newpolicy
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_ATTR                       2: __dict__
+                        18      LOAD_METHOD                     3: items
+                        20      CALL_METHOD                     0
+                        22      GET_ITER                        
+                        24      FOR_ITER                        11 (to 48)
+                        26      UNPACK_SEQUENCE                 2
+                        28      STORE_FAST                      3: attr
+                        30      STORE_FAST                      4: value
+                        32      LOAD_GLOBAL                     4: object
+                        34      LOAD_METHOD                     5: __setattr__
+                        36      LOAD_FAST                       2: newpolicy
+                        38      LOAD_FAST                       3: attr
+                        40      LOAD_FAST                       4: value
+                        42      CALL_METHOD                     3
+                        44      POP_TOP                         
+                        46      JUMP_ABSOLUTE                   12 (to 24)
+                        48      LOAD_FAST                       1: kw
+                        50      LOAD_METHOD                     3: items
+                        52      CALL_METHOD                     0
+                        54      GET_ITER                        
+                        56      FOR_ITER                        26 (to 110)
+                        58      UNPACK_SEQUENCE                 2
+                        60      STORE_FAST                      3: attr
+                        62      STORE_FAST                      4: value
+                        64      LOAD_GLOBAL                     6: hasattr
+                        66      LOAD_FAST                       0: self
+                        68      LOAD_FAST                       3: attr
+                        70      CALL_FUNCTION                   2
+                        72      POP_JUMP_IF_TRUE                47 (to 94)
+                        74      LOAD_GLOBAL                     7: TypeError
+                        76      LOAD_CONST                      1: '{!r} is an invalid keyword argument for {}'
+                        78      LOAD_METHOD                     8: format
+                        80      LOAD_FAST                       3: attr
+                        82      LOAD_FAST                       0: self
+                        84      LOAD_ATTR                       0: __class__
+                        86      LOAD_ATTR                       9: __name__
+                        88      CALL_METHOD                     2
+                        90      CALL_FUNCTION                   1
+                        92      RAISE_VARARGS                   1
+                        94      LOAD_GLOBAL                     4: object
+                        96      LOAD_METHOD                     5: __setattr__
+                        98      LOAD_FAST                       2: newpolicy
+                        100     LOAD_FAST                       3: attr
+                        102     LOAD_FAST                       4: value
+                        104     CALL_METHOD                     3
+                        106     POP_TOP                         
+                        108     JUMP_ABSOLUTE                   28 (to 56)
+                        110     LOAD_FAST                       2: newpolicy
+                        112     RETURN_VALUE                    
+                '_PolicyBase.clone'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: __setattr__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'hasattr'
+                        'AttributeError'
+                        'format'
+                        '__class__'
+                        '__name__'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                        'msg'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '{!r} object attribute {!r} is read-only'
+                        '{!r} object has no attribute {!r}'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: hasattr
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_FAST                       1: name
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_FALSE               8 (to 16)
+                        10      LOAD_CONST                      1: '{!r} object attribute {!r} is read-only'
+                        12      STORE_FAST                      3: msg
+                        14      JUMP_FORWARD                    2 (to 20)
+                        16      LOAD_CONST                      2: '{!r} object has no attribute {!r}'
+                        18      STORE_FAST                      3: msg
+                        20      LOAD_GLOBAL                     1: AttributeError
+                        22      LOAD_FAST                       3: msg
+                        24      LOAD_METHOD                     2: format
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_ATTR                       3: __class__
+                        30      LOAD_ATTR                       4: __name__
+                        32      LOAD_FAST                       1: name
+                        34      CALL_METHOD                     2
+                        36      CALL_FUNCTION                   1
+                        38      RAISE_VARARGS                   1
+                '_PolicyBase.__setattr__'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: __add__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'clone'
+                        '__dict__'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Non-default values from right operand override those from left.\n\n        The object returned is a new instance of the subclass.\n\n        '
+                        None
+                        (
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: clone
+                        4       LOAD_CONST                      2: ()
+                        6       BUILD_MAP                       0
+                        8       LOAD_FAST                       1: other
+                        10      LOAD_ATTR                       1: __dict__
+                        12      DICT_MERGE                      1
+                        14      CALL_FUNCTION_EX                1
+                        16      RETURN_VALUE                    
+                '_PolicyBase.__add__'
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: '_PolicyBase'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Policy Object basic framework.\n\n    This class is useless unless subclassed.  A subclass should define\n    class attributes with defaults for any values that are to be\n    managed by the Policy object.  The constructor will then allow\n    non-default values to be set for these attributes at instance\n    creation time.  The instance will be callable, taking these same\n    attributes keyword arguments, and returning a new instance\n    identical to the called instance except for those values changed\n    by the keyword arguments.  Instances may be added, yielding new\n    instances with any non-default values from the right hand\n    operand overriding those in the left hand operand.  That is,\n\n        A + B == A(<non-default values of B>)\n\n    The repr of an instance can be used to reconstruct the object\n    if and only if the repr of the values can be used to reconstruct\n    those values.\n\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CLOSURE                    0: __class__
+                14      BUILD_TUPLE                     1
+                16      LOAD_CONST                      2: <CODE> __init__
+                18      LOAD_CONST                      3: '_PolicyBase.__init__'
+                20      MAKE_FUNCTION                   8
+                22      STORE_NAME                      4: __init__
+                24      LOAD_CONST                      4: <CODE> __repr__
+                26      LOAD_CONST                      5: '_PolicyBase.__repr__'
+                28      MAKE_FUNCTION                   0
+                30      STORE_NAME                      5: __repr__
+                32      LOAD_CONST                      6: <CODE> clone
+                34      LOAD_CONST                      7: '_PolicyBase.clone'
+                36      MAKE_FUNCTION                   0
+                38      STORE_NAME                      6: clone
+                40      LOAD_CONST                      8: <CODE> __setattr__
+                42      LOAD_CONST                      9: '_PolicyBase.__setattr__'
+                44      MAKE_FUNCTION                   0
+                46      STORE_NAME                      7: __setattr__
+                48      LOAD_CONST                      10: <CODE> __add__
+                50      LOAD_CONST                      11: '_PolicyBase.__add__'
+                52      MAKE_FUNCTION                   0
+                54      STORE_NAME                      8: __add__
+                56      LOAD_CLOSURE                    0: __class__
+                58      DUP_TOP                         
+                60      STORE_NAME                      9: __classcell__
+                62      RETURN_VALUE                    
+        '_PolicyBase'
+        [Code]
+            File Name: email/_policybase.py
+            Object Name: _append_doc
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'rsplit'
+                'split'
+            [Var Names]
+                'doc'
+                'added_doc'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                '\n'
+                1
+                0
+            [Disassembly]
+                0       LOAD_FAST                       0: doc
+                2       LOAD_METHOD                     0: rsplit
+                4       LOAD_CONST                      1: '\n'
+                6       LOAD_CONST                      2: 1
+                8       CALL_METHOD                     2
+                10      LOAD_CONST                      3: 0
+                12      BINARY_SUBSCR                   
+                14      STORE_FAST                      0: doc
+                16      LOAD_FAST                       1: added_doc
+                18      LOAD_METHOD                     1: split
+                20      LOAD_CONST                      1: '\n'
+                22      LOAD_CONST                      2: 1
+                24      CALL_METHOD                     2
+                26      LOAD_CONST                      2: 1
+                28      BINARY_SUBSCR                   
+                30      STORE_FAST                      1: added_doc
+                32      LOAD_FAST                       0: doc
+                34      LOAD_CONST                      1: '\n'
+                36      BINARY_ADD                      
+                38      LOAD_FAST                       1: added_doc
+                40      BINARY_ADD                      
+                42      RETURN_VALUE                    
+        '_append_doc'
+        [Code]
+            File Name: email/_policybase.py
+            Object Name: _extend_docstrings
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '__doc__'
+                'startswith'
+                '_append_doc'
+                '__bases__'
+                '__dict__'
+                'items'
+                'getattr'
+            [Var Names]
+                'cls'
+                'name'
+                'attr'
+                'c'
+                'doc'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                '+'
+                0
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: <genexpr>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                    [Names]
+                        'mro'
+                    [Var Names]
+                        '.0'
+                        'base'
+                        'c'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        12 (to 30)
+                        6       STORE_FAST                      1: base
+                        8       LOAD_FAST                       1: base
+                        10      LOAD_METHOD                     0: mro
+                        12      CALL_METHOD                     0
+                        14      GET_ITER                        
+                        16      FOR_ITER                        5 (to 28)
+                        18      STORE_FAST                      2: c
+                        20      LOAD_FAST                       2: c
+                        22      YIELD_VALUE                     
+                        24      POP_TOP                         
+                        26      JUMP_ABSOLUTE                   8 (to 16)
+                        28      JUMP_ABSOLUTE                   2 (to 4)
+                        30      LOAD_CONST                      0: None
+                        32      RETURN_VALUE                    
+                '_extend_docstrings.<locals>.<genexpr>'
+                '__doc__'
+            [Disassembly]
+                0       LOAD_FAST                       0: cls
+                2       LOAD_ATTR                       0: __doc__
+                4       POP_JUMP_IF_FALSE               20 (to 40)
+                6       LOAD_FAST                       0: cls
+                8       LOAD_ATTR                       0: __doc__
+                10      LOAD_METHOD                     1: startswith
+                12      LOAD_CONST                      1: '+'
+                14      CALL_METHOD                     1
+                16      POP_JUMP_IF_FALSE               20 (to 40)
+                18      LOAD_GLOBAL                     2: _append_doc
+                20      LOAD_FAST                       0: cls
+                22      LOAD_ATTR                       3: __bases__
+                24      LOAD_CONST                      2: 0
+                26      BINARY_SUBSCR                   
+                28      LOAD_ATTR                       0: __doc__
+                30      LOAD_FAST                       0: cls
+                32      LOAD_ATTR                       0: __doc__
+                34      CALL_FUNCTION                   2
+                36      LOAD_FAST                       0: cls
+                38      STORE_ATTR                      0: __doc__
+                40      LOAD_FAST                       0: cls
+                42      LOAD_ATTR                       4: __dict__
+                44      LOAD_METHOD                     5: items
+                46      CALL_METHOD                     0
+                48      GET_ITER                        
+                50      FOR_ITER                        43 (to 138)
+                52      UNPACK_SEQUENCE                 2
+                54      STORE_FAST                      1: name
+                56      STORE_FAST                      2: attr
+                58      LOAD_FAST                       2: attr
+                60      LOAD_ATTR                       0: __doc__
+                62      POP_JUMP_IF_FALSE               68 (to 136)
+                64      LOAD_FAST                       2: attr
+                66      LOAD_ATTR                       0: __doc__
+                68      LOAD_METHOD                     1: startswith
+                70      LOAD_CONST                      1: '+'
+                72      CALL_METHOD                     1
+                74      POP_JUMP_IF_FALSE               68 (to 136)
+                76      LOAD_CONST                      3: <CODE> <genexpr>
+                78      LOAD_CONST                      4: '_extend_docstrings.<locals>.<genexpr>'
+                80      MAKE_FUNCTION                   0
+                82      LOAD_FAST                       0: cls
+                84      LOAD_ATTR                       3: __bases__
+                86      GET_ITER                        
+                88      CALL_FUNCTION                   1
+                90      GET_ITER                        
+                92      FOR_ITER                        21 (to 136)
+                94      STORE_FAST                      3: c
+                96      LOAD_GLOBAL                     6: getattr
+                98      LOAD_GLOBAL                     6: getattr
+                100     LOAD_FAST                       3: c
+                102     LOAD_FAST                       1: name
+                104     CALL_FUNCTION                   2
+                106     LOAD_CONST                      5: '__doc__'
+                108     CALL_FUNCTION                   2
+                110     STORE_FAST                      4: doc
+                112     LOAD_FAST                       4: doc
+                114     POP_JUMP_IF_FALSE               67 (to 134)
+                116     LOAD_GLOBAL                     2: _append_doc
+                118     LOAD_FAST                       4: doc
+                120     LOAD_FAST                       2: attr
+                122     LOAD_ATTR                       0: __doc__
+                124     CALL_FUNCTION                   2
+                126     LOAD_FAST                       2: attr
+                128     STORE_ATTR                      0: __doc__
+                130     POP_TOP                         
+                132     JUMP_FORWARD                    1 (to 136)
+                134     JUMP_ABSOLUTE                   46 (to 92)
+                136     JUMP_ABSOLUTE                   25 (to 50)
+                138     LOAD_FAST                       0: cls
+                140     RETURN_VALUE                    
+        '_extend_docstrings'
+        [Code]
+            File Name: email/_policybase.py
+            Object Name: Policy
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'raise_on_defect'
+                'linesep'
+                'cte_type'
+                'max_line_length'
+                'mangle_from_'
+                'message_factory'
+                'verify_generated_headers'
+                'handle_defect'
+                'register_defect'
+                'header_max_count'
+                'abc'
+                'abstractmethod'
+                'header_source_parse'
+                'header_store_parse'
+                'header_fetch_parse'
+                'fold'
+                'fold_binary'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Policy'
+                "Controls for how messages are interpreted and formatted.\n\n    Most of the classes and many of the methods in the email package accept\n    Policy objects as parameters.  A Policy object contains a set of values and\n    functions that control how input is interpreted and how output is rendered.\n    For example, the parameter 'raise_on_defect' controls whether or not an RFC\n    violation results in an error being raised or not, while 'max_line_length'\n    controls the maximum length of output lines when a Message is serialized.\n\n    Any valid attribute may be overridden when a Policy is created by passing\n    it as a keyword argument to the constructor.  Policy objects are immutable,\n    but a new Policy object can be created with only certain values changed by\n    calling the Policy instance with keyword arguments.  Policy objects can\n    also be added, producing a new Policy object in which the non-default\n    attributes set in the right hand operand overwrite those specified in the\n    left operand.\n\n    Settable attributes:\n\n    raise_on_defect     -- If true, then defects should be raised as errors.\n                           Default: False.\n\n    linesep             -- string containing the value to use as separation\n                           between output lines.  Default '\\n'.\n\n    cte_type            -- Type of allowed content transfer encodings\n\n                           7bit  -- ASCII only\n                           8bit  -- Content-Transfer-Encoding: 8bit is allowed\n\n                           Default: 8bit.  Also controls the disposition of\n                           (RFC invalid) binary data in headers; see the\n                           documentation of the binary_fold method.\n\n    max_line_length     -- maximum length of lines, excluding 'linesep',\n                           during serialization.  None or 0 means no line\n                           wrapping is done.  Default is 78.\n\n    mangle_from_        -- a flag that, when True escapes From_ lines in the\n                           body of the message by putting a `>' in front of\n                           them. This is used when the message is being\n                           serialized by a generator. Default: True.\n\n    message_factory     -- the class to use to create new message objects.\n                           If the value is None, the default is Message.\n\n    verify_generated_headers\n                        -- if true, the generator verifies that each header\n                           they are properly folded, so that a parser won't\n                           treat it as multiple headers, start-of-body, or\n                           part of another header.\n                           This is a check against custom Header & fold()\n                           implementations.\n    "
+                False
+                '\n'
+                '8bit'
+                78
+                None
+                True
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: handle_defect
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'raise_on_defect'
+                        'register_defect'
+                    [Var Names]
+                        'self'
+                        'obj'
+                        'defect'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Based on policy, either raise defect or call register_defect.\n\n            handle_defect(obj, defect)\n\n        defect should be a Defect subclass, but in any case must be an\n        Exception subclass.  obj is the object on which the defect should be\n        registered if it is not raised.  If the raise_on_defect is True, the\n        defect is raised as an error, otherwise the object and the defect are\n        passed to register_defect.\n\n        This method is intended to be called by parsers that discover defects.\n        The email package parsers always call it with Defect instances.\n\n        '
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: raise_on_defect
+                        4       POP_JUMP_IF_FALSE               5 (to 10)
+                        6       LOAD_FAST                       2: defect
+                        8       RAISE_VARARGS                   1
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_METHOD                     1: register_defect
+                        14      LOAD_FAST                       1: obj
+                        16      LOAD_FAST                       2: defect
+                        18      CALL_METHOD                     2
+                        20      POP_TOP                         
+                        22      LOAD_CONST                      1: None
+                        24      RETURN_VALUE                    
+                'Policy.handle_defect'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: register_defect
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'defects'
+                        'append'
+                    [Var Names]
+                        'self'
+                        'obj'
+                        'defect'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Record 'defect' on 'obj'.\n\n        Called by handle_defect if raise_on_defect is False.  This method is\n        part of the Policy API so that Policy subclasses can implement custom\n        defect handling.  The default implementation calls the append method of\n        the defects attribute of obj.  The objects used by the email package by\n        default that get passed to this method will always have a defects\n        attribute with an append method.\n\n        "
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: obj
+                        2       LOAD_ATTR                       0: defects
+                        4       LOAD_METHOD                     1: append
+                        6       LOAD_FAST                       2: defect
+                        8       CALL_METHOD                     1
+                        10      POP_TOP                         
+                        12      LOAD_CONST                      1: None
+                        14      RETURN_VALUE                    
+                'Policy.register_defect'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: header_max_count
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        'name'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Return the maximum allowed number of headers named 'name'.\n\n        Called when a header is added to a Message object.  If the returned\n        value is not 0 or None, and there are already a number of headers with\n        the name 'name' equal to the value returned, a ValueError is raised.\n\n        Because the default behavior of Message's __setitem__ is to append the\n        value to the list of headers, it is easy to create duplicate headers\n        without realizing it.  This method allows certain headers to be limited\n        in the number of instances of that header that may be added to a\n        Message programmatically.  (The limit is not observed by the parser,\n        which will faithfully produce as many headers as exist in the message\n        being parsed.)\n\n        The default implementation returns None for all header names.\n        "
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'Policy.header_max_count'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: header_source_parse
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'sourcelines'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Given a list of linesep terminated strings constituting the lines of\n        a single header, return the (name, value) tuple that should be stored\n        in the model.  The input lines should retain their terminating linesep\n        characters.  The lines passed in by the email package may contain\n        surrogateescaped binary data.\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Policy.header_source_parse'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: header_store_parse
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Given the header name and the value provided by the application\n        program, return the (name, value) that should be stored in the model.\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Policy.header_store_parse'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: header_fetch_parse
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Given the header name and the value from the model, return the value\n        to be returned to the application program that is requesting that\n        header.  The value passed in by the email package may contain\n        surrogateescaped binary data if the lines were parsed by a BytesParser.\n        The returned value should not contain any surrogateescaped data.\n\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Policy.header_fetch_parse'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: fold
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Given the header name and the value from the model, return a string\n        containing linesep characters that implement the folding of the header\n        according to the policy controls.  The value passed in by the email\n        package may contain surrogateescaped binary data if the lines were\n        parsed by a BytesParser.  The returned value should not contain any\n        surrogateescaped data.\n\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Policy.fold'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: fold_binary
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Given the header name and the value from the model, return binary\n        data containing linesep characters that implement the folding of the\n        header according to the policy controls.  The value passed in by the\n        email package may contain surrogateescaped binary data.\n\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Policy.fold_binary'
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Policy'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: "Controls for how messages are interpreted and formatted.\n\n    Most of the classes and many of the methods in the email package accept\n    Policy objects as parameters.  A Policy object contains a set of values and\n    functions that control how input is interpreted and how output is rendered.\n    For example, the parameter 'raise_on_defect' controls whether or not an RFC\n    violation results in an error being raised or not, while 'max_line_length'\n    controls the maximum length of output lines when a Message is serialized.\n\n    Any valid attribute may be overridden when a Policy is created by passing\n    it as a keyword argument to the constructor.  Policy objects are immutable,\n    but a new Policy object can be created with only certain values changed by\n    calling the Policy instance with keyword arguments.  Policy objects can\n    also be added, producing a new Policy object in which the non-default\n    attributes set in the right hand operand overwrite those specified in the\n    left operand.\n\n    Settable attributes:\n\n    raise_on_defect     -- If true, then defects should be raised as errors.\n                           Default: False.\n\n    linesep             -- string containing the value to use as separation\n                           between output lines.  Default '\\n'.\n\n    cte_type            -- Type of allowed content transfer encodings\n\n                           7bit  -- ASCII only\n                           8bit  -- Content-Transfer-Encoding: 8bit is allowed\n\n                           Default: 8bit.  Also controls the disposition of\n                           (RFC invalid) binary data in headers; see the\n                           documentation of the binary_fold method.\n\n    max_line_length     -- maximum length of lines, excluding 'linesep',\n                           during serialization.  None or 0 means no line\n                           wrapping is done.  Default is 78.\n\n    mangle_from_        -- a flag that, when True escapes From_ lines in the\n                           body of the message by putting a `>' in front of\n                           them. This is used when the message is being\n                           serialized by a generator. Default: True.\n\n    message_factory     -- the class to use to create new message objects.\n                           If the value is None, the default is Message.\n\n    verify_generated_headers\n                        -- if true, the generator verifies that each header\n                           they are properly folded, so that a parser won't\n                           treat it as multiple headers, start-of-body, or\n                           part of another header.\n                           This is a check against custom Header & fold()\n                           implementations.\n    "
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: False
+                14      STORE_NAME                      4: raise_on_defect
+                16      LOAD_CONST                      3: '\n'
+                18      STORE_NAME                      5: linesep
+                20      LOAD_CONST                      4: '8bit'
+                22      STORE_NAME                      6: cte_type
+                24      LOAD_CONST                      5: 78
+                26      STORE_NAME                      7: max_line_length
+                28      LOAD_CONST                      2: False
+                30      STORE_NAME                      8: mangle_from_
+                32      LOAD_CONST                      6: None
+                34      STORE_NAME                      9: message_factory
+                36      LOAD_CONST                      7: True
+                38      STORE_NAME                      10: verify_generated_headers
+                40      LOAD_CONST                      8: <CODE> handle_defect
+                42      LOAD_CONST                      9: 'Policy.handle_defect'
+                44      MAKE_FUNCTION                   0
+                46      STORE_NAME                      11: handle_defect
+                48      LOAD_CONST                      10: <CODE> register_defect
+                50      LOAD_CONST                      11: 'Policy.register_defect'
+                52      MAKE_FUNCTION                   0
+                54      STORE_NAME                      12: register_defect
+                56      LOAD_CONST                      12: <CODE> header_max_count
+                58      LOAD_CONST                      13: 'Policy.header_max_count'
+                60      MAKE_FUNCTION                   0
+                62      STORE_NAME                      13: header_max_count
+                64      LOAD_NAME                       14: abc
+                66      LOAD_ATTR                       15: abstractmethod
+                68      LOAD_CONST                      14: <CODE> header_source_parse
+                70      LOAD_CONST                      15: 'Policy.header_source_parse'
+                72      MAKE_FUNCTION                   0
+                74      CALL_FUNCTION                   1
+                76      STORE_NAME                      16: header_source_parse
+                78      LOAD_NAME                       14: abc
+                80      LOAD_ATTR                       15: abstractmethod
+                82      LOAD_CONST                      16: <CODE> header_store_parse
+                84      LOAD_CONST                      17: 'Policy.header_store_parse'
+                86      MAKE_FUNCTION                   0
+                88      CALL_FUNCTION                   1
+                90      STORE_NAME                      17: header_store_parse
+                92      LOAD_NAME                       14: abc
+                94      LOAD_ATTR                       15: abstractmethod
+                96      LOAD_CONST                      18: <CODE> header_fetch_parse
+                98      LOAD_CONST                      19: 'Policy.header_fetch_parse'
+                100     MAKE_FUNCTION                   0
+                102     CALL_FUNCTION                   1
+                104     STORE_NAME                      18: header_fetch_parse
+                106     LOAD_NAME                       14: abc
+                108     LOAD_ATTR                       15: abstractmethod
+                110     LOAD_CONST                      20: <CODE> fold
+                112     LOAD_CONST                      21: 'Policy.fold'
+                114     MAKE_FUNCTION                   0
+                116     CALL_FUNCTION                   1
+                118     STORE_NAME                      19: fold
+                120     LOAD_NAME                       14: abc
+                122     LOAD_ATTR                       15: abstractmethod
+                124     LOAD_CONST                      22: <CODE> fold_binary
+                126     LOAD_CONST                      23: 'Policy.fold_binary'
+                128     MAKE_FUNCTION                   0
+                130     CALL_FUNCTION                   1
+                132     STORE_NAME                      20: fold_binary
+                134     LOAD_CONST                      6: None
+                136     RETURN_VALUE                    
+        'Policy'
+        (
+            'metaclass'
+        )
+        [Code]
+            File Name: email/_policybase.py
+            Object Name: Compat32
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'mangle_from_'
+                '_sanitize_header'
+                'header_source_parse'
+                'header_store_parse'
+                'header_fetch_parse'
+                'fold'
+                'fold_binary'
+                '_fold'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Compat32'
+                '+\n    This particular policy is the backward compatibility Policy.  It\n    replicates the behavior of the email package version 5.1.\n    '
+                True
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: _sanitize_header
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        'str'
+                        '_has_surrogates'
+                        'header'
+                        'Header'
+                        '_charset'
+                        'UNKNOWN8BIT'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        (
+                            'charset'
+                            'header_name'
+                        )
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_FAST                       2: value
+                        4       LOAD_GLOBAL                     1: str
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_TRUE                7 (to 14)
+                        10      LOAD_FAST                       2: value
+                        12      RETURN_VALUE                    
+                        14      LOAD_GLOBAL                     2: _has_surrogates
+                        16      LOAD_FAST                       2: value
+                        18      CALL_FUNCTION                   1
+                        20      POP_JUMP_IF_FALSE               20 (to 40)
+                        22      LOAD_GLOBAL                     3: header
+                        24      LOAD_ATTR                       4: Header
+                        26      LOAD_FAST                       2: value
+                        28      LOAD_GLOBAL                     5: _charset
+                        30      LOAD_ATTR                       6: UNKNOWN8BIT
+                        32      LOAD_FAST                       1: name
+                        34      LOAD_CONST                      1: ('charset', 'header_name')
+                        36      CALL_FUNCTION_KW                3
+                        38      RETURN_VALUE                    
+                        40      LOAD_FAST                       2: value
+                        42      RETURN_VALUE                    
+                'Compat32._sanitize_header'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: header_source_parse
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'split'
+                        'lstrip'
+                        'join'
+                        'rstrip'
+                    [Var Names]
+                        'self'
+                        'sourcelines'
+                        'name'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "+\n        The name is parsed as everything up to the ':' and returned unmodified.\n        The value is determined by stripping leading whitespace off the\n        remainder of the first line, joining all subsequent lines together, and\n        stripping any trailing carriage return or linefeed characters.\n\n        "
+                        0
+                        ':'
+                        1
+                        ' \t'
+                        ''
+                        None
+                        '\r\n'
+                    [Disassembly]
+                        0       LOAD_FAST                       1: sourcelines
+                        2       LOAD_CONST                      1: 0
+                        4       BINARY_SUBSCR                   
+                        6       LOAD_METHOD                     0: split
+                        8       LOAD_CONST                      2: ':'
+                        10      LOAD_CONST                      3: 1
+                        12      CALL_METHOD                     2
+                        14      UNPACK_SEQUENCE                 2
+                        16      STORE_FAST                      2: name
+                        18      STORE_FAST                      3: value
+                        20      LOAD_FAST                       3: value
+                        22      LOAD_METHOD                     1: lstrip
+                        24      LOAD_CONST                      4: ' \t'
+                        26      CALL_METHOD                     1
+                        28      LOAD_CONST                      5: ''
+                        30      LOAD_METHOD                     2: join
+                        32      LOAD_FAST                       1: sourcelines
+                        34      LOAD_CONST                      3: 1
+                        36      LOAD_CONST                      6: None
+                        38      BUILD_SLICE                     2
+                        40      BINARY_SUBSCR                   
+                        42      CALL_METHOD                     1
+                        44      BINARY_ADD                      
+                        46      STORE_FAST                      3: value
+                        48      LOAD_FAST                       2: name
+                        50      LOAD_FAST                       3: value
+                        52      LOAD_METHOD                     3: rstrip
+                        54      LOAD_CONST                      7: '\r\n'
+                        56      CALL_METHOD                     1
+                        58      BUILD_TUPLE                     2
+                        60      RETURN_VALUE                    
+                'Compat32.header_source_parse'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: header_store_parse
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '+\n        The name and value are returned unmodified.\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       1: name
+                        2       LOAD_FAST                       2: value
+                        4       BUILD_TUPLE                     2
+                        6       RETURN_VALUE                    
+                'Compat32.header_store_parse'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: header_fetch_parse
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_sanitize_header'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '+\n        If the value contains binary data, it is converted into a Header object\n        using the unknown-8bit charset.  Otherwise it is returned unmodified.\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _sanitize_header
+                        4       LOAD_FAST                       1: name
+                        6       LOAD_FAST                       2: value
+                        8       CALL_METHOD                     2
+                        10      RETURN_VALUE                    
+                'Compat32.header_fetch_parse'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: fold
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fold'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '+\n        Headers are folded using the Header folding algorithm, which preserves\n        existing line breaks in the value, and wraps each resulting line to the\n        max_line_length.  Non-ASCII binary data are CTE encoded using the\n        unknown-8bit charset.\n\n        '
+                        True
+                        (
+                            'sanitize'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _fold
+                        4       LOAD_FAST                       1: name
+                        6       LOAD_FAST                       2: value
+                        8       LOAD_CONST                      1: True
+                        10      LOAD_CONST                      2: ('sanitize',)
+                        12      CALL_FUNCTION_KW                3
+                        14      RETURN_VALUE                    
+                'Compat32.fold'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: fold_binary
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fold'
+                        'cte_type'
+                        'encode'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                        'folded'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '+\n        Headers are folded using the Header folding algorithm, which preserves\n        existing line breaks in the value, and wraps each resulting line to the\n        max_line_length.  If cte_type is 7bit, non-ascii binary data is CTE\n        encoded using the unknown-8bit charset.  Otherwise the original source\n        header is used, with its existing line breaks and/or binary data.\n\n        '
+                        '7bit'
+                        (
+                            'sanitize'
+                        )
+                        'ascii'
+                        'surrogateescape'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _fold
+                        4       LOAD_FAST                       1: name
+                        6       LOAD_FAST                       2: value
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: cte_type
+                        12      LOAD_CONST                      1: '7bit'
+                        14      COMPARE_OP                      2 (==)
+                        16      LOAD_CONST                      2: ('sanitize',)
+                        18      CALL_FUNCTION_KW                3
+                        20      STORE_FAST                      3: folded
+                        22      LOAD_FAST                       3: folded
+                        24      LOAD_METHOD                     2: encode
+                        26      LOAD_CONST                      3: 'ascii'
+                        28      LOAD_CONST                      4: 'surrogateescape'
+                        30      CALL_METHOD                     2
+                        32      RETURN_VALUE                    
+                'Compat32.fold_binary'
+                [Code]
+                    File Name: email/_policybase.py
+                    Object Name: _fold
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 7
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'append'
+                        'isinstance'
+                        'str'
+                        '_has_surrogates'
+                        'header'
+                        'Header'
+                        '_charset'
+                        'UNKNOWN8BIT'
+                        'max_line_length'
+                        'encode'
+                        'linesep'
+                        'join'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                        'sanitize'
+                        'parts'
+                        'h'
+                        'maxlinelen'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '%s: '
+                        (
+                            'charset'
+                            'header_name'
+                        )
+                        (
+                            'header_name'
+                        )
+                        0
+                        (
+                            'linesep'
+                            'maxlinelen'
+                        )
+                        ''
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       STORE_FAST                      4: parts
+                        4       LOAD_FAST                       4: parts
+                        6       LOAD_METHOD                     0: append
+                        8       LOAD_CONST                      1: '%s: '
+                        10      LOAD_FAST                       1: name
+                        12      BINARY_MODULO                   
+                        14      CALL_METHOD                     1
+                        16      POP_TOP                         
+                        18      LOAD_GLOBAL                     1: isinstance
+                        20      LOAD_FAST                       2: value
+                        22      LOAD_GLOBAL                     2: str
+                        24      CALL_FUNCTION                   2
+                        26      POP_JUMP_IF_FALSE               46 (to 92)
+                        28      LOAD_GLOBAL                     3: _has_surrogates
+                        30      LOAD_FAST                       2: value
+                        32      CALL_FUNCTION                   1
+                        34      POP_JUMP_IF_FALSE               38 (to 76)
+                        36      LOAD_FAST                       3: sanitize
+                        38      POP_JUMP_IF_FALSE               30 (to 60)
+                        40      LOAD_GLOBAL                     4: header
+                        42      LOAD_ATTR                       5: Header
+                        44      LOAD_FAST                       2: value
+                        46      LOAD_GLOBAL                     6: _charset
+                        48      LOAD_ATTR                       7: UNKNOWN8BIT
+                        50      LOAD_FAST                       1: name
+                        52      LOAD_CONST                      2: ('charset', 'header_name')
+                        54      CALL_FUNCTION_KW                3
+                        56      STORE_FAST                      5: h
+                        58      JUMP_FORWARD                    18 (to 96)
+                        60      LOAD_FAST                       4: parts
+                        62      LOAD_METHOD                     0: append
+                        64      LOAD_FAST                       2: value
+                        66      CALL_METHOD                     1
+                        68      POP_TOP                         
+                        70      LOAD_CONST                      0: None
+                        72      STORE_FAST                      5: h
+                        74      JUMP_FORWARD                    10 (to 96)
+                        76      LOAD_GLOBAL                     4: header
+                        78      LOAD_ATTR                       5: Header
+                        80      LOAD_FAST                       2: value
+                        82      LOAD_FAST                       1: name
+                        84      LOAD_CONST                      3: ('header_name',)
+                        86      CALL_FUNCTION_KW                2
+                        88      STORE_FAST                      5: h
+                        90      JUMP_FORWARD                    2 (to 96)
+                        92      LOAD_FAST                       2: value
+                        94      STORE_FAST                      5: h
+                        96      LOAD_FAST                       5: h
+                        98      LOAD_CONST                      0: None
+                        100     IS_OP                           1 (is not)
+                        102     POP_JUMP_IF_FALSE               73 (to 146)
+                        104     LOAD_CONST                      4: 0
+                        106     STORE_FAST                      6: maxlinelen
+                        108     LOAD_FAST                       0: self
+                        110     LOAD_ATTR                       8: max_line_length
+                        112     LOAD_CONST                      0: None
+                        114     IS_OP                           1 (is not)
+                        116     POP_JUMP_IF_FALSE               62 (to 124)
+                        118     LOAD_FAST                       0: self
+                        120     LOAD_ATTR                       8: max_line_length
+                        122     STORE_FAST                      6: maxlinelen
+                        124     LOAD_FAST                       4: parts
+                        126     LOAD_METHOD                     0: append
+                        128     LOAD_FAST                       5: h
+                        130     LOAD_ATTR                       9: encode
+                        132     LOAD_FAST                       0: self
+                        134     LOAD_ATTR                       10: linesep
+                        136     LOAD_FAST                       6: maxlinelen
+                        138     LOAD_CONST                      5: ('linesep', 'maxlinelen')
+                        140     CALL_FUNCTION_KW                2
+                        142     CALL_METHOD                     1
+                        144     POP_TOP                         
+                        146     LOAD_FAST                       4: parts
+                        148     LOAD_METHOD                     0: append
+                        150     LOAD_FAST                       0: self
+                        152     LOAD_ATTR                       10: linesep
+                        154     CALL_METHOD                     1
+                        156     POP_TOP                         
+                        158     LOAD_CONST                      6: ''
+                        160     LOAD_METHOD                     11: join
+                        162     LOAD_FAST                       4: parts
+                        164     CALL_METHOD                     1
+                        166     RETURN_VALUE                    
+                'Compat32._fold'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Compat32'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: '+\n    This particular policy is the backward compatibility Policy.  It\n    replicates the behavior of the email package version 5.1.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: True
+                14      STORE_NAME                      4: mangle_from_
+                16      LOAD_CONST                      3: <CODE> _sanitize_header
+                18      LOAD_CONST                      4: 'Compat32._sanitize_header'
+                20      MAKE_FUNCTION                   0
+                22      STORE_NAME                      5: _sanitize_header
+                24      LOAD_CONST                      5: <CODE> header_source_parse
+                26      LOAD_CONST                      6: 'Compat32.header_source_parse'
+                28      MAKE_FUNCTION                   0
+                30      STORE_NAME                      6: header_source_parse
+                32      LOAD_CONST                      7: <CODE> header_store_parse
+                34      LOAD_CONST                      8: 'Compat32.header_store_parse'
+                36      MAKE_FUNCTION                   0
+                38      STORE_NAME                      7: header_store_parse
+                40      LOAD_CONST                      9: <CODE> header_fetch_parse
+                42      LOAD_CONST                      10: 'Compat32.header_fetch_parse'
+                44      MAKE_FUNCTION                   0
+                46      STORE_NAME                      8: header_fetch_parse
+                48      LOAD_CONST                      11: <CODE> fold
+                50      LOAD_CONST                      12: 'Compat32.fold'
+                52      MAKE_FUNCTION                   0
+                54      STORE_NAME                      9: fold
+                56      LOAD_CONST                      13: <CODE> fold_binary
+                58      LOAD_CONST                      14: 'Compat32.fold_binary'
+                60      MAKE_FUNCTION                   0
+                62      STORE_NAME                      10: fold_binary
+                64      LOAD_CONST                      15: <CODE> _fold
+                66      LOAD_CONST                      16: 'Compat32._fold'
+                68      MAKE_FUNCTION                   0
+                70      STORE_NAME                      11: _fold
+                72      LOAD_CONST                      17: None
+                74      RETURN_VALUE                    
+        'Compat32'
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Policy framework for the email package.\n\nAllows fine grained feature control of how the package parses and emits data.\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: abc
+        10      STORE_NAME                      1: abc
+        12      LOAD_CONST                      1: 0
+        14      LOAD_CONST                      3: ('header',)
+        16      IMPORT_NAME                     2: email
+        18      IMPORT_FROM                     3: header
+        20      STORE_NAME                      3: header
+        22      POP_TOP                         
+        24      LOAD_CONST                      1: 0
+        26      LOAD_CONST                      4: ('charset',)
+        28      IMPORT_NAME                     2: email
+        30      IMPORT_FROM                     4: charset
+        32      STORE_NAME                      5: _charset
+        34      POP_TOP                         
+        36      LOAD_CONST                      1: 0
+        38      LOAD_CONST                      5: ('_has_surrogates',)
+        40      IMPORT_NAME                     6: email.utils
+        42      IMPORT_FROM                     7: _has_surrogates
+        44      STORE_NAME                      7: _has_surrogates
+        46      POP_TOP                         
+        48      BUILD_LIST                      0
+        50      LOAD_CONST                      6: ('Policy', 'Compat32', 'compat32')
+        52      LIST_EXTEND                     1
+        54      STORE_NAME                      8: __all__
+        56      LOAD_BUILD_CLASS                
+        58      LOAD_CONST                      7: <CODE> _PolicyBase
+        60      LOAD_CONST                      8: '_PolicyBase'
+        62      MAKE_FUNCTION                   0
+        64      LOAD_CONST                      8: '_PolicyBase'
+        66      CALL_FUNCTION                   2
+        68      STORE_NAME                      9: _PolicyBase
+        70      LOAD_CONST                      9: <CODE> _append_doc
+        72      LOAD_CONST                      10: '_append_doc'
+        74      MAKE_FUNCTION                   0
+        76      STORE_NAME                      10: _append_doc
+        78      LOAD_CONST                      11: <CODE> _extend_docstrings
+        80      LOAD_CONST                      12: '_extend_docstrings'
+        82      MAKE_FUNCTION                   0
+        84      STORE_NAME                      11: _extend_docstrings
+        86      LOAD_BUILD_CLASS                
+        88      LOAD_CONST                      13: <CODE> Policy
+        90      LOAD_CONST                      14: 'Policy'
+        92      MAKE_FUNCTION                   0
+        94      LOAD_CONST                      14: 'Policy'
+        96      LOAD_NAME                       9: _PolicyBase
+        98      LOAD_NAME                       1: abc
+        100     LOAD_ATTR                       12: ABCMeta
+        102     LOAD_CONST                      15: ('metaclass',)
+        104     CALL_FUNCTION_KW                4
+        106     STORE_NAME                      13: Policy
+        108     LOAD_NAME                       11: _extend_docstrings
+        110     LOAD_BUILD_CLASS                
+        112     LOAD_CONST                      16: <CODE> Compat32
+        114     LOAD_CONST                      17: 'Compat32'
+        116     MAKE_FUNCTION                   0
+        118     LOAD_CONST                      17: 'Compat32'
+        120     LOAD_NAME                       13: Policy
+        122     CALL_FUNCTION                   3
+        124     CALL_FUNCTION                   1
+        126     STORE_NAME                      14: Compat32
+        128     LOAD_NAME                       14: Compat32
+        130     CALL_FUNCTION                   0
+        132     STORE_NAME                      15: compat32
+        134     LOAD_CONST                      2: None
+        136     RETURN_VALUE                    

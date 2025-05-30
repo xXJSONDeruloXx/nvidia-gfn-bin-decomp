@@ -1,0 +1,841 @@
+_py_abc.pyc (Python 3.10)
+[Code]
+    File Name: _py_abc.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '_weakrefset'
+        'WeakSet'
+        'get_cache_token'
+        'type'
+        'ABCMeta'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        (
+            'WeakSet'
+        )
+        [Code]
+            File Name: _py_abc.py
+            Object Name: get_cache_token
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ABCMeta'
+                '_abc_invalidation_counter'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Returns the current ABC cache token.\n\n    The token is an opaque object (supporting equality testing) identifying the\n    current version of the ABC cache for virtual subclasses. The token changes\n    with every call to ``register()`` on any ABC.\n    '
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: ABCMeta
+                2       LOAD_ATTR                       1: _abc_invalidation_counter
+                4       RETURN_VALUE                    
+        'get_cache_token'
+        [Code]
+            File Name: _py_abc.py
+            Object Name: ABCMeta
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '_abc_invalidation_counter'
+                '__new__'
+                'register'
+                '_dump_registry'
+                '_abc_registry_clear'
+                '_abc_caches_clear'
+                '__instancecheck__'
+                '__subclasscheck__'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'ABCMeta'
+                "Metaclass for defining Abstract Base Classes (ABCs).\n\n    Use this metaclass to create an ABC.  An ABC can be subclassed\n    directly, and then acts as a mix-in class.  You can also register\n    unrelated concrete classes (even built-in classes) and unrelated\n    ABCs as 'virtual subclasses' -- these and their descendants will\n    be considered subclasses of the registering ABC by the built-in\n    issubclass() function, but the registering ABC won't show up in\n    their MRO (Method Resolution Order) nor will method\n    implementations defined by the registering ABC be callable (not\n    even via super()).\n    "
+                0
+                [Code]
+                    File Name: _py_abc.py
+                    Object Name: __new__
+                    Arg Count: 4
+                    Pos Only Arg Count: 4
+                    KW Only Arg Count: 0
+                    Locals: 9
+                    Stack Size: 6
+                    Flags: 0x0000000B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS)
+                    [Names]
+                        'super'
+                        '__new__'
+                        'items'
+                        'getattr'
+                        'set'
+                        'add'
+                        'frozenset'
+                        '__abstractmethods__'
+                        'WeakSet'
+                        '_abc_registry'
+                        '_abc_cache'
+                        '_abc_negative_cache'
+                        'ABCMeta'
+                        '_abc_invalidation_counter'
+                        '_abc_negative_cache_version'
+                    [Var Names]
+                        'mcls'
+                        'name'
+                        'bases'
+                        'namespace'
+                        'kwargs'
+                        'cls'
+                        'abstracts'
+                        'base'
+                        'value'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        [Code]
+                            File Name: _py_abc.py
+                            Object Name: <setcomp>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 3
+                            Stack Size: 6
+                            Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                            [Names]
+                                'getattr'
+                            [Var Names]
+                                '.0'
+                                'name'
+                                'value'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                '__isabstractmethod__'
+                                False
+                            [Disassembly]
+                                0       BUILD_SET                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        12 (to 30)
+                                6       UNPACK_SEQUENCE                 2
+                                8       STORE_FAST                      1: name
+                                10      STORE_FAST                      2: value
+                                12      LOAD_GLOBAL                     0: getattr
+                                14      LOAD_FAST                       2: value
+                                16      LOAD_CONST                      0: '__isabstractmethod__'
+                                18      LOAD_CONST                      1: False
+                                20      CALL_FUNCTION                   3
+                                22      POP_JUMP_IF_FALSE               2 (to 4)
+                                24      LOAD_FAST                       1: name
+                                26      SET_ADD                         2
+                                28      JUMP_ABSOLUTE                   2 (to 4)
+                                30      RETURN_VALUE                    
+                        'ABCMeta.__new__.<locals>.<setcomp>'
+                        '__abstractmethods__'
+                        '__isabstractmethod__'
+                        False
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_ATTR                       1: __new__
+                        6       LOAD_FAST                       0: mcls
+                        8       LOAD_FAST                       1: name
+                        10      LOAD_FAST                       2: bases
+                        12      LOAD_FAST                       3: namespace
+                        14      BUILD_TUPLE                     4
+                        16      BUILD_MAP                       0
+                        18      LOAD_FAST                       4: kwargs
+                        20      DICT_MERGE                      1
+                        22      CALL_FUNCTION_EX                1
+                        24      STORE_FAST                      5: cls
+                        26      LOAD_CONST                      1: <CODE> <setcomp>
+                        28      LOAD_CONST                      2: 'ABCMeta.__new__.<locals>.<setcomp>'
+                        30      MAKE_FUNCTION                   0
+                        32      LOAD_FAST                       3: namespace
+                        34      LOAD_METHOD                     2: items
+                        36      CALL_METHOD                     0
+                        38      GET_ITER                        
+                        40      CALL_FUNCTION                   1
+                        42      STORE_FAST                      6: abstracts
+                        44      LOAD_FAST                       2: bases
+                        46      GET_ITER                        
+                        48      FOR_ITER                        29 (to 108)
+                        50      STORE_FAST                      7: base
+                        52      LOAD_GLOBAL                     3: getattr
+                        54      LOAD_FAST                       7: base
+                        56      LOAD_CONST                      3: '__abstractmethods__'
+                        58      LOAD_GLOBAL                     4: set
+                        60      CALL_FUNCTION                   0
+                        62      CALL_FUNCTION                   3
+                        64      GET_ITER                        
+                        66      FOR_ITER                        19 (to 106)
+                        68      STORE_FAST                      1: name
+                        70      LOAD_GLOBAL                     3: getattr
+                        72      LOAD_FAST                       5: cls
+                        74      LOAD_FAST                       1: name
+                        76      LOAD_CONST                      0: None
+                        78      CALL_FUNCTION                   3
+                        80      STORE_FAST                      8: value
+                        82      LOAD_GLOBAL                     3: getattr
+                        84      LOAD_FAST                       8: value
+                        86      LOAD_CONST                      4: '__isabstractmethod__'
+                        88      LOAD_CONST                      5: False
+                        90      CALL_FUNCTION                   3
+                        92      POP_JUMP_IF_FALSE               52 (to 104)
+                        94      LOAD_FAST                       6: abstracts
+                        96      LOAD_METHOD                     5: add
+                        98      LOAD_FAST                       1: name
+                        100     CALL_METHOD                     1
+                        102     POP_TOP                         
+                        104     JUMP_ABSOLUTE                   33 (to 66)
+                        106     JUMP_ABSOLUTE                   24 (to 48)
+                        108     LOAD_GLOBAL                     6: frozenset
+                        110     LOAD_FAST                       6: abstracts
+                        112     CALL_FUNCTION                   1
+                        114     LOAD_FAST                       5: cls
+                        116     STORE_ATTR                      7: __abstractmethods__
+                        118     LOAD_GLOBAL                     8: WeakSet
+                        120     CALL_FUNCTION                   0
+                        122     LOAD_FAST                       5: cls
+                        124     STORE_ATTR                      9: _abc_registry
+                        126     LOAD_GLOBAL                     8: WeakSet
+                        128     CALL_FUNCTION                   0
+                        130     LOAD_FAST                       5: cls
+                        132     STORE_ATTR                      10: _abc_cache
+                        134     LOAD_GLOBAL                     8: WeakSet
+                        136     CALL_FUNCTION                   0
+                        138     LOAD_FAST                       5: cls
+                        140     STORE_ATTR                      11: _abc_negative_cache
+                        142     LOAD_GLOBAL                     12: ABCMeta
+                        144     LOAD_ATTR                       13: _abc_invalidation_counter
+                        146     LOAD_FAST                       5: cls
+                        148     STORE_ATTR                      14: _abc_negative_cache_version
+                        150     LOAD_FAST                       5: cls
+                        152     RETURN_VALUE                    
+                'ABCMeta.__new__'
+                [Code]
+                    File Name: _py_abc.py
+                    Object Name: register
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        'type'
+                        'TypeError'
+                        'issubclass'
+                        'RuntimeError'
+                        '_abc_registry'
+                        'add'
+                        'ABCMeta'
+                        '_abc_invalidation_counter'
+                    [Var Names]
+                        'cls'
+                        'subclass'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Register a virtual subclass of an ABC.\n\n        Returns the subclass, to allow usage as a class decorator.\n        '
+                        'Can only register classes'
+                        'Refusing to create an inheritance cycle'
+                        1
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_FAST                       1: subclass
+                        4       LOAD_GLOBAL                     1: type
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_TRUE                9 (to 18)
+                        10      LOAD_GLOBAL                     2: TypeError
+                        12      LOAD_CONST                      1: 'Can only register classes'
+                        14      CALL_FUNCTION                   1
+                        16      RAISE_VARARGS                   1
+                        18      LOAD_GLOBAL                     3: issubclass
+                        20      LOAD_FAST                       1: subclass
+                        22      LOAD_FAST                       0: cls
+                        24      CALL_FUNCTION                   2
+                        26      POP_JUMP_IF_FALSE               16 (to 32)
+                        28      LOAD_FAST                       1: subclass
+                        30      RETURN_VALUE                    
+                        32      LOAD_GLOBAL                     3: issubclass
+                        34      LOAD_FAST                       0: cls
+                        36      LOAD_FAST                       1: subclass
+                        38      CALL_FUNCTION                   2
+                        40      POP_JUMP_IF_FALSE               25 (to 50)
+                        42      LOAD_GLOBAL                     4: RuntimeError
+                        44      LOAD_CONST                      2: 'Refusing to create an inheritance cycle'
+                        46      CALL_FUNCTION                   1
+                        48      RAISE_VARARGS                   1
+                        50      LOAD_FAST                       0: cls
+                        52      LOAD_ATTR                       5: _abc_registry
+                        54      LOAD_METHOD                     6: add
+                        56      LOAD_FAST                       1: subclass
+                        58      CALL_METHOD                     1
+                        60      POP_TOP                         
+                        62      LOAD_GLOBAL                     7: ABCMeta
+                        64      DUP_TOP                         
+                        66      LOAD_ATTR                       8: _abc_invalidation_counter
+                        68      LOAD_CONST                      3: 1
+                        70      INPLACE_ADD                     
+                        72      ROT_TWO                         
+                        74      STORE_ATTR                      8: _abc_invalidation_counter
+                        76      LOAD_FAST                       1: subclass
+                        78      RETURN_VALUE                    
+                'ABCMeta.register'
+                None
+                [Code]
+                    File Name: _py_abc.py
+                    Object Name: _dump_registry
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'print'
+                        '__module__'
+                        '__qualname__'
+                        'get_cache_token'
+                        '__dict__'
+                        'startswith'
+                        'getattr'
+                        'isinstance'
+                        'WeakSet'
+                        'set'
+                    [Var Names]
+                        'cls'
+                        'file'
+                        'name'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Debug helper to print the ABC registry.'
+                        'Class: '
+                        '.'
+                        (
+                            'file'
+                        )
+                        'Inv. counter: '
+                        '_abc_'
+                        ': '
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: print
+                        2       LOAD_CONST                      1: 'Class: '
+                        4       LOAD_FAST                       0: cls
+                        6       LOAD_ATTR                       1: __module__
+                        8       FORMAT_VALUE                    0 (FVC_NONE)
+                        10      LOAD_CONST                      2: '.'
+                        12      LOAD_FAST                       0: cls
+                        14      LOAD_ATTR                       2: __qualname__
+                        16      FORMAT_VALUE                    0 (FVC_NONE)
+                        18      BUILD_STRING                    4
+                        20      LOAD_FAST                       1: file
+                        22      LOAD_CONST                      3: ('file',)
+                        24      CALL_FUNCTION_KW                2
+                        26      POP_TOP                         
+                        28      LOAD_GLOBAL                     0: print
+                        30      LOAD_CONST                      4: 'Inv. counter: '
+                        32      LOAD_GLOBAL                     3: get_cache_token
+                        34      CALL_FUNCTION                   0
+                        36      FORMAT_VALUE                    0 (FVC_NONE)
+                        38      BUILD_STRING                    2
+                        40      LOAD_FAST                       1: file
+                        42      LOAD_CONST                      3: ('file',)
+                        44      CALL_FUNCTION_KW                2
+                        46      POP_TOP                         
+                        48      LOAD_FAST                       0: cls
+                        50      LOAD_ATTR                       4: __dict__
+                        52      GET_ITER                        
+                        54      FOR_ITER                        32 (to 120)
+                        56      STORE_FAST                      2: name
+                        58      LOAD_FAST                       2: name
+                        60      LOAD_METHOD                     5: startswith
+                        62      LOAD_CONST                      5: '_abc_'
+                        64      CALL_METHOD                     1
+                        66      POP_JUMP_IF_FALSE               59 (to 118)
+                        68      LOAD_GLOBAL                     6: getattr
+                        70      LOAD_FAST                       0: cls
+                        72      LOAD_FAST                       2: name
+                        74      CALL_FUNCTION                   2
+                        76      STORE_FAST                      3: value
+                        78      LOAD_GLOBAL                     7: isinstance
+                        80      LOAD_FAST                       3: value
+                        82      LOAD_GLOBAL                     8: WeakSet
+                        84      CALL_FUNCTION                   2
+                        86      POP_JUMP_IF_FALSE               48 (to 96)
+                        88      LOAD_GLOBAL                     9: set
+                        90      LOAD_FAST                       3: value
+                        92      CALL_FUNCTION                   1
+                        94      STORE_FAST                      3: value
+                        96      LOAD_GLOBAL                     0: print
+                        98      LOAD_FAST                       2: name
+                        100     FORMAT_VALUE                    0 (FVC_NONE)
+                        102     LOAD_CONST                      6: ': '
+                        104     LOAD_FAST                       3: value
+                        106     FORMAT_VALUE                    2 (FVC_REPR)
+                        108     BUILD_STRING                    3
+                        110     LOAD_FAST                       1: file
+                        112     LOAD_CONST                      3: ('file',)
+                        114     CALL_FUNCTION_KW                2
+                        116     POP_TOP                         
+                        118     JUMP_ABSOLUTE                   27 (to 54)
+                        120     LOAD_CONST                      7: None
+                        122     RETURN_VALUE                    
+                'ABCMeta._dump_registry'
+                [Code]
+                    File Name: _py_abc.py
+                    Object Name: _abc_registry_clear
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_abc_registry'
+                        'clear'
+                    [Var Names]
+                        'cls'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Clear the registry (for debugging or testing).'
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: cls
+                        2       LOAD_ATTR                       0: _abc_registry
+                        4       LOAD_METHOD                     1: clear
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      LOAD_CONST                      1: None
+                        12      RETURN_VALUE                    
+                'ABCMeta._abc_registry_clear'
+                [Code]
+                    File Name: _py_abc.py
+                    Object Name: _abc_caches_clear
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_abc_cache'
+                        'clear'
+                        '_abc_negative_cache'
+                    [Var Names]
+                        'cls'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Clear the caches (for debugging or testing).'
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: cls
+                        2       LOAD_ATTR                       0: _abc_cache
+                        4       LOAD_METHOD                     1: clear
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      LOAD_FAST                       0: cls
+                        12      LOAD_ATTR                       2: _abc_negative_cache
+                        14      LOAD_METHOD                     1: clear
+                        16      CALL_METHOD                     0
+                        18      POP_TOP                         
+                        20      LOAD_CONST                      1: None
+                        22      RETURN_VALUE                    
+                'ABCMeta._abc_caches_clear'
+                [Code]
+                    File Name: _py_abc.py
+                    Object Name: __instancecheck__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 4
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        '__class__'
+                        '_abc_cache'
+                        'type'
+                        '_abc_negative_cache_version'
+                        'ABCMeta'
+                        '_abc_invalidation_counter'
+                        '_abc_negative_cache'
+                        '__subclasscheck__'
+                        'any'
+                    [Var Names]
+                        'cls'
+                        'instance'
+                        'subclass'
+                        'subtype'
+                    [Free Vars]
+                    [Cell Vars]
+                        'cls'
+                    [Constants]
+                        'Override for isinstance(instance, cls).'
+                        True
+                        False
+                        [Code]
+                            File Name: _py_abc.py
+                            Object Name: <genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 4
+                            Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                            [Names]
+                                '__subclasscheck__'
+                            [Var Names]
+                                '.0'
+                                'c'
+                            [Free Vars]
+                                'cls'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       GEN_START                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        8 (to 22)
+                                6       STORE_FAST                      1: c
+                                8       LOAD_DEREF                      0: cls
+                                10      LOAD_METHOD                     0: __subclasscheck__
+                                12      LOAD_FAST                       1: c
+                                14      CALL_METHOD                     1
+                                16      YIELD_VALUE                     
+                                18      POP_TOP                         
+                                20      JUMP_ABSOLUTE                   2 (to 4)
+                                22      LOAD_CONST                      0: None
+                                24      RETURN_VALUE                    
+                        'ABCMeta.__instancecheck__.<locals>.<genexpr>'
+                    [Disassembly]
+                        0       LOAD_FAST                       1: instance
+                        2       LOAD_ATTR                       0: __class__
+                        4       STORE_FAST                      2: subclass
+                        6       LOAD_FAST                       2: subclass
+                        8       LOAD_DEREF                      0: cls
+                        10      LOAD_ATTR                       1: _abc_cache
+                        12      CONTAINS_OP                     0 (in)
+                        14      POP_JUMP_IF_FALSE               10 (to 20)
+                        16      LOAD_CONST                      1: True
+                        18      RETURN_VALUE                    
+                        20      LOAD_GLOBAL                     2: type
+                        22      LOAD_FAST                       1: instance
+                        24      CALL_FUNCTION                   1
+                        26      STORE_FAST                      3: subtype
+                        28      LOAD_FAST                       3: subtype
+                        30      LOAD_FAST                       2: subclass
+                        32      IS_OP                           0 (is)
+                        34      POP_JUMP_IF_FALSE               36 (to 72)
+                        36      LOAD_DEREF                      0: cls
+                        38      LOAD_ATTR                       3: _abc_negative_cache_version
+                        40      LOAD_GLOBAL                     4: ABCMeta
+                        42      LOAD_ATTR                       5: _abc_invalidation_counter
+                        44      COMPARE_OP                      2 (==)
+                        46      POP_JUMP_IF_FALSE               31 (to 62)
+                        48      LOAD_FAST                       2: subclass
+                        50      LOAD_DEREF                      0: cls
+                        52      LOAD_ATTR                       6: _abc_negative_cache
+                        54      CONTAINS_OP                     0 (in)
+                        56      POP_JUMP_IF_FALSE               31 (to 62)
+                        58      LOAD_CONST                      2: False
+                        60      RETURN_VALUE                    
+                        62      LOAD_DEREF                      0: cls
+                        64      LOAD_METHOD                     7: __subclasscheck__
+                        66      LOAD_FAST                       2: subclass
+                        68      CALL_METHOD                     1
+                        70      RETURN_VALUE                    
+                        72      LOAD_GLOBAL                     8: any
+                        74      LOAD_CLOSURE                    0: cls
+                        76      BUILD_TUPLE                     1
+                        78      LOAD_CONST                      3: <CODE> <genexpr>
+                        80      LOAD_CONST                      4: 'ABCMeta.__instancecheck__.<locals>.<genexpr>'
+                        82      MAKE_FUNCTION                   8
+                        84      LOAD_FAST                       2: subclass
+                        86      LOAD_FAST                       3: subtype
+                        88      BUILD_TUPLE                     2
+                        90      GET_ITER                        
+                        92      CALL_FUNCTION                   1
+                        94      CALL_FUNCTION                   1
+                        96      RETURN_VALUE                    
+                'ABCMeta.__instancecheck__'
+                [Code]
+                    File Name: _py_abc.py
+                    Object Name: __subclasscheck__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        'type'
+                        'TypeError'
+                        '_abc_cache'
+                        '_abc_negative_cache_version'
+                        'ABCMeta'
+                        '_abc_invalidation_counter'
+                        'WeakSet'
+                        '_abc_negative_cache'
+                        '__subclasshook__'
+                        'NotImplemented'
+                        'bool'
+                        'add'
+                        'getattr'
+                        '_abc_registry'
+                        'issubclass'
+                        '__subclasses__'
+                    [Var Names]
+                        'cls'
+                        'subclass'
+                        'ok'
+                        'rcls'
+                        'scls'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Override for issubclass(subclass, cls).'
+                        'issubclass() arg 1 must be a class'
+                        True
+                        False
+                        '__mro__'
+                        (
+                        )
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_FAST                       1: subclass
+                        4       LOAD_GLOBAL                     1: type
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_TRUE                9 (to 18)
+                        10      LOAD_GLOBAL                     2: TypeError
+                        12      LOAD_CONST                      1: 'issubclass() arg 1 must be a class'
+                        14      CALL_FUNCTION                   1
+                        16      RAISE_VARARGS                   1
+                        18      LOAD_FAST                       1: subclass
+                        20      LOAD_FAST                       0: cls
+                        22      LOAD_ATTR                       3: _abc_cache
+                        24      CONTAINS_OP                     0 (in)
+                        26      POP_JUMP_IF_FALSE               16 (to 32)
+                        28      LOAD_CONST                      2: True
+                        30      RETURN_VALUE                    
+                        32      LOAD_FAST                       0: cls
+                        34      LOAD_ATTR                       4: _abc_negative_cache_version
+                        36      LOAD_GLOBAL                     5: ABCMeta
+                        38      LOAD_ATTR                       6: _abc_invalidation_counter
+                        40      COMPARE_OP                      0 (<)
+                        42      POP_JUMP_IF_FALSE               31 (to 62)
+                        44      LOAD_GLOBAL                     7: WeakSet
+                        46      CALL_FUNCTION                   0
+                        48      LOAD_FAST                       0: cls
+                        50      STORE_ATTR                      8: _abc_negative_cache
+                        52      LOAD_GLOBAL                     5: ABCMeta
+                        54      LOAD_ATTR                       6: _abc_invalidation_counter
+                        56      LOAD_FAST                       0: cls
+                        58      STORE_ATTR                      4: _abc_negative_cache_version
+                        60      JUMP_FORWARD                    7 (to 76)
+                        62      LOAD_FAST                       1: subclass
+                        64      LOAD_FAST                       0: cls
+                        66      LOAD_ATTR                       8: _abc_negative_cache
+                        68      CONTAINS_OP                     0 (in)
+                        70      POP_JUMP_IF_FALSE               38 (to 76)
+                        72      LOAD_CONST                      3: False
+                        74      RETURN_VALUE                    
+                        76      LOAD_FAST                       0: cls
+                        78      LOAD_METHOD                     9: __subclasshook__
+                        80      LOAD_FAST                       1: subclass
+                        82      CALL_METHOD                     1
+                        84      STORE_FAST                      2: ok
+                        86      LOAD_FAST                       2: ok
+                        88      LOAD_GLOBAL                     10: NotImplemented
+                        90      IS_OP                           1 (is not)
+                        92      POP_JUMP_IF_FALSE               72 (to 144)
+                        94      LOAD_GLOBAL                     0: isinstance
+                        96      LOAD_FAST                       2: ok
+                        98      LOAD_GLOBAL                     11: bool
+                        100     CALL_FUNCTION                   2
+                        102     POP_JUMP_IF_TRUE                54 (to 108)
+                        104     LOAD_ASSERTION_ERROR            
+                        106     RAISE_VARARGS                   1
+                        108     LOAD_FAST                       2: ok
+                        110     POP_JUMP_IF_FALSE               64 (to 128)
+                        112     LOAD_FAST                       0: cls
+                        114     LOAD_ATTR                       3: _abc_cache
+                        116     LOAD_METHOD                     12: add
+                        118     LOAD_FAST                       1: subclass
+                        120     CALL_METHOD                     1
+                        122     POP_TOP                         
+                        124     LOAD_FAST                       2: ok
+                        126     RETURN_VALUE                    
+                        128     LOAD_FAST                       0: cls
+                        130     LOAD_ATTR                       8: _abc_negative_cache
+                        132     LOAD_METHOD                     12: add
+                        134     LOAD_FAST                       1: subclass
+                        136     CALL_METHOD                     1
+                        138     POP_TOP                         
+                        140     LOAD_FAST                       2: ok
+                        142     RETURN_VALUE                    
+                        144     LOAD_FAST                       0: cls
+                        146     LOAD_GLOBAL                     13: getattr
+                        148     LOAD_FAST                       1: subclass
+                        150     LOAD_CONST                      4: '__mro__'
+                        152     LOAD_CONST                      5: ()
+                        154     CALL_FUNCTION                   3
+                        156     CONTAINS_OP                     0 (in)
+                        158     POP_JUMP_IF_FALSE               88 (to 176)
+                        160     LOAD_FAST                       0: cls
+                        162     LOAD_ATTR                       3: _abc_cache
+                        164     LOAD_METHOD                     12: add
+                        166     LOAD_FAST                       1: subclass
+                        168     CALL_METHOD                     1
+                        170     POP_TOP                         
+                        172     LOAD_CONST                      2: True
+                        174     RETURN_VALUE                    
+                        176     LOAD_FAST                       0: cls
+                        178     LOAD_ATTR                       14: _abc_registry
+                        180     GET_ITER                        
+                        182     FOR_ITER                        16 (to 216)
+                        184     STORE_FAST                      3: rcls
+                        186     LOAD_GLOBAL                     15: issubclass
+                        188     LOAD_FAST                       1: subclass
+                        190     LOAD_FAST                       3: rcls
+                        192     CALL_FUNCTION                   2
+                        194     POP_JUMP_IF_FALSE               107 (to 214)
+                        196     LOAD_FAST                       0: cls
+                        198     LOAD_ATTR                       3: _abc_cache
+                        200     LOAD_METHOD                     12: add
+                        202     LOAD_FAST                       1: subclass
+                        204     CALL_METHOD                     1
+                        206     POP_TOP                         
+                        208     POP_TOP                         
+                        210     LOAD_CONST                      2: True
+                        212     RETURN_VALUE                    
+                        214     JUMP_ABSOLUTE                   91 (to 182)
+                        216     LOAD_FAST                       0: cls
+                        218     LOAD_METHOD                     16: __subclasses__
+                        220     CALL_METHOD                     0
+                        222     GET_ITER                        
+                        224     FOR_ITER                        16 (to 258)
+                        226     STORE_FAST                      4: scls
+                        228     LOAD_GLOBAL                     15: issubclass
+                        230     LOAD_FAST                       1: subclass
+                        232     LOAD_FAST                       4: scls
+                        234     CALL_FUNCTION                   2
+                        236     POP_JUMP_IF_FALSE               128 (to 256)
+                        238     LOAD_FAST                       0: cls
+                        240     LOAD_ATTR                       3: _abc_cache
+                        242     LOAD_METHOD                     12: add
+                        244     LOAD_FAST                       1: subclass
+                        246     CALL_METHOD                     1
+                        248     POP_TOP                         
+                        250     POP_TOP                         
+                        252     LOAD_CONST                      2: True
+                        254     RETURN_VALUE                    
+                        256     JUMP_ABSOLUTE                   112 (to 224)
+                        258     LOAD_FAST                       0: cls
+                        260     LOAD_ATTR                       8: _abc_negative_cache
+                        262     LOAD_METHOD                     12: add
+                        264     LOAD_FAST                       1: subclass
+                        266     CALL_METHOD                     1
+                        268     POP_TOP                         
+                        270     LOAD_CONST                      3: False
+                        272     RETURN_VALUE                    
+                'ABCMeta.__subclasscheck__'
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'ABCMeta'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: "Metaclass for defining Abstract Base Classes (ABCs).\n\n    Use this metaclass to create an ABC.  An ABC can be subclassed\n    directly, and then acts as a mix-in class.  You can also register\n    unrelated concrete classes (even built-in classes) and unrelated\n    ABCs as 'virtual subclasses' -- these and their descendants will\n    be considered subclasses of the registering ABC by the built-in\n    issubclass() function, but the registering ABC won't show up in\n    their MRO (Method Resolution Order) nor will method\n    implementations defined by the registering ABC be callable (not\n    even via super()).\n    "
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: 0
+                14      STORE_NAME                      4: _abc_invalidation_counter
+                16      LOAD_CLOSURE                    0: __class__
+                18      BUILD_TUPLE                     1
+                20      LOAD_CONST                      3: <CODE> __new__
+                22      LOAD_CONST                      4: 'ABCMeta.__new__'
+                24      MAKE_FUNCTION                   8
+                26      STORE_NAME                      5: __new__
+                28      LOAD_CONST                      5: <CODE> register
+                30      LOAD_CONST                      6: 'ABCMeta.register'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      6: register
+                36      LOAD_CONST                      18: (None,)
+                38      LOAD_CONST                      8: <CODE> _dump_registry
+                40      LOAD_CONST                      9: 'ABCMeta._dump_registry'
+                42      MAKE_FUNCTION                   1
+                44      STORE_NAME                      7: _dump_registry
+                46      LOAD_CONST                      10: <CODE> _abc_registry_clear
+                48      LOAD_CONST                      11: 'ABCMeta._abc_registry_clear'
+                50      MAKE_FUNCTION                   0
+                52      STORE_NAME                      8: _abc_registry_clear
+                54      LOAD_CONST                      12: <CODE> _abc_caches_clear
+                56      LOAD_CONST                      13: 'ABCMeta._abc_caches_clear'
+                58      MAKE_FUNCTION                   0
+                60      STORE_NAME                      9: _abc_caches_clear
+                62      LOAD_CONST                      14: <CODE> __instancecheck__
+                64      LOAD_CONST                      15: 'ABCMeta.__instancecheck__'
+                66      MAKE_FUNCTION                   0
+                68      STORE_NAME                      10: __instancecheck__
+                70      LOAD_CONST                      16: <CODE> __subclasscheck__
+                72      LOAD_CONST                      17: 'ABCMeta.__subclasscheck__'
+                74      MAKE_FUNCTION                   0
+                76      STORE_NAME                      11: __subclasscheck__
+                78      LOAD_CLOSURE                    0: __class__
+                80      DUP_TOP                         
+                82      STORE_NAME                      12: __classcell__
+                84      RETURN_VALUE                    
+        'ABCMeta'
+        None
+    [Disassembly]
+        0       LOAD_CONST                      0: 0
+        2       LOAD_CONST                      1: ('WeakSet',)
+        4       IMPORT_NAME                     0: _weakrefset
+        6       IMPORT_FROM                     1: WeakSet
+        8       STORE_NAME                      1: WeakSet
+        10      POP_TOP                         
+        12      LOAD_CONST                      2: <CODE> get_cache_token
+        14      LOAD_CONST                      3: 'get_cache_token'
+        16      MAKE_FUNCTION                   0
+        18      STORE_NAME                      2: get_cache_token
+        20      LOAD_BUILD_CLASS                
+        22      LOAD_CONST                      4: <CODE> ABCMeta
+        24      LOAD_CONST                      5: 'ABCMeta'
+        26      MAKE_FUNCTION                   0
+        28      LOAD_CONST                      5: 'ABCMeta'
+        30      LOAD_NAME                       3: type
+        32      CALL_FUNCTION                   3
+        34      STORE_NAME                      4: ABCMeta
+        36      LOAD_CONST                      6: None
+        38      RETURN_VALUE                    

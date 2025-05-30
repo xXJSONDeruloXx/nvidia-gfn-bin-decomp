@@ -1,0 +1,528 @@
+scanner.pyc (Python 3.10)
+[Code]
+    File Name: json/scanner.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 8
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        're'
+        '_json'
+        'make_scanner'
+        'c_make_scanner'
+        'ImportError'
+        '__all__'
+        'compile'
+        'VERBOSE'
+        'MULTILINE'
+        'DOTALL'
+        'NUMBER_RE'
+        'py_make_scanner'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'JSON token scanner\n'
+        0
+        None
+        (
+            'make_scanner'
+        )
+        'make_scanner'
+        '(-?(?:0|[1-9]\\d*))(\\.\\d+)?([eE][-+]?\\d+)?'
+        [Code]
+            File Name: json/scanner.py
+            Object Name: py_make_scanner
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 12
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'parse_object'
+                'parse_array'
+                'parse_string'
+                'NUMBER_RE'
+                'match'
+                'strict'
+                'parse_float'
+                'parse_int'
+                'parse_constant'
+                'object_hook'
+                'object_pairs_hook'
+                'memo'
+            [Var Names]
+                'context'
+                'scan_once'
+            [Free Vars]
+            [Cell Vars]
+                '_scan_once'
+                'match_number'
+                'memo'
+                'object_hook'
+                'object_pairs_hook'
+                'parse_array'
+                'parse_constant'
+                'parse_float'
+                'parse_int'
+                'parse_object'
+                'parse_string'
+                'strict'
+            [Constants]
+                None
+                [Code]
+                    File Name: json/scanner.py
+                    Object Name: _scan_once
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 8
+                    Stack Size: 8
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                        'IndexError'
+                        'StopIteration'
+                        'groups'
+                        'end'
+                    [Var Names]
+                        'string'
+                        'idx'
+                        'nextchar'
+                        'm'
+                        'integer'
+                        'frac'
+                        'exp'
+                        'res'
+                    [Free Vars]
+                        '_scan_once'
+                        'match_number'
+                        'memo'
+                        'object_hook'
+                        'object_pairs_hook'
+                        'parse_array'
+                        'parse_constant'
+                        'parse_float'
+                        'parse_int'
+                        'parse_object'
+                        'parse_string'
+                        'strict'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '"'
+                        1
+                        '{'
+                        '['
+                        'n'
+                        4
+                        'null'
+                        't'
+                        'true'
+                        True
+                        'f'
+                        5
+                        'false'
+                        False
+                        ''
+                        'N'
+                        3
+                        'NaN'
+                        'I'
+                        8
+                        'Infinity'
+                        '-'
+                        9
+                        '-Infinity'
+                    [Disassembly]
+                        0       SETUP_FINALLY                   6 (to 14)
+                        2       LOAD_FAST                       0: string
+                        4       LOAD_FAST                       1: idx
+                        6       BINARY_SUBSCR                   
+                        8       STORE_FAST                      2: nextchar
+                        10      POP_BLOCK                       
+                        12      JUMP_FORWARD                    12 (to 38)
+                        14      DUP_TOP                         
+                        16      LOAD_GLOBAL                     0: IndexError
+                        18      JUMP_IF_NOT_EXC_MATCH           18 (to 36)
+                        20      POP_TOP                         
+                        22      POP_TOP                         
+                        24      POP_TOP                         
+                        26      LOAD_GLOBAL                     1: StopIteration
+                        28      LOAD_FAST                       1: idx
+                        30      CALL_FUNCTION                   1
+                        32      LOAD_CONST                      0: None
+                        34      RAISE_VARARGS                   2
+                        36      RERAISE                         0
+                        38      LOAD_FAST                       2: nextchar
+                        40      LOAD_CONST                      1: '"'
+                        42      COMPARE_OP                      2 (==)
+                        44      POP_JUMP_IF_FALSE               31 (to 62)
+                        46      LOAD_DEREF                      10: parse_string
+                        48      LOAD_FAST                       0: string
+                        50      LOAD_FAST                       1: idx
+                        52      LOAD_CONST                      2: 1
+                        54      BINARY_ADD                      
+                        56      LOAD_DEREF                      11: strict
+                        58      CALL_FUNCTION                   3
+                        60      RETURN_VALUE                    
+                        62      LOAD_FAST                       2: nextchar
+                        64      LOAD_CONST                      3: '{'
+                        66      COMPARE_OP                      2 (==)
+                        68      POP_JUMP_IF_FALSE               48 (to 96)
+                        70      LOAD_DEREF                      9: parse_object
+                        72      LOAD_FAST                       0: string
+                        74      LOAD_FAST                       1: idx
+                        76      LOAD_CONST                      2: 1
+                        78      BINARY_ADD                      
+                        80      BUILD_TUPLE                     2
+                        82      LOAD_DEREF                      11: strict
+                        84      LOAD_DEREF                      0: _scan_once
+                        86      LOAD_DEREF                      3: object_hook
+                        88      LOAD_DEREF                      4: object_pairs_hook
+                        90      LOAD_DEREF                      2: memo
+                        92      CALL_FUNCTION                   6
+                        94      RETURN_VALUE                    
+                        96      LOAD_FAST                       2: nextchar
+                        98      LOAD_CONST                      4: '['
+                        100     COMPARE_OP                      2 (==)
+                        102     POP_JUMP_IF_FALSE               61 (to 122)
+                        104     LOAD_DEREF                      5: parse_array
+                        106     LOAD_FAST                       0: string
+                        108     LOAD_FAST                       1: idx
+                        110     LOAD_CONST                      2: 1
+                        112     BINARY_ADD                      
+                        114     BUILD_TUPLE                     2
+                        116     LOAD_DEREF                      0: _scan_once
+                        118     CALL_FUNCTION                   2
+                        120     RETURN_VALUE                    
+                        122     LOAD_FAST                       2: nextchar
+                        124     LOAD_CONST                      5: 'n'
+                        126     COMPARE_OP                      2 (==)
+                        128     POP_JUMP_IF_FALSE               81 (to 162)
+                        130     LOAD_FAST                       0: string
+                        132     LOAD_FAST                       1: idx
+                        134     LOAD_FAST                       1: idx
+                        136     LOAD_CONST                      6: 4
+                        138     BINARY_ADD                      
+                        140     BUILD_SLICE                     2
+                        142     BINARY_SUBSCR                   
+                        144     LOAD_CONST                      7: 'null'
+                        146     COMPARE_OP                      2 (==)
+                        148     POP_JUMP_IF_FALSE               81 (to 162)
+                        150     LOAD_CONST                      0: None
+                        152     LOAD_FAST                       1: idx
+                        154     LOAD_CONST                      6: 4
+                        156     BINARY_ADD                      
+                        158     BUILD_TUPLE                     2
+                        160     RETURN_VALUE                    
+                        162     LOAD_FAST                       2: nextchar
+                        164     LOAD_CONST                      8: 't'
+                        166     COMPARE_OP                      2 (==)
+                        168     POP_JUMP_IF_FALSE               101 (to 202)
+                        170     LOAD_FAST                       0: string
+                        172     LOAD_FAST                       1: idx
+                        174     LOAD_FAST                       1: idx
+                        176     LOAD_CONST                      6: 4
+                        178     BINARY_ADD                      
+                        180     BUILD_SLICE                     2
+                        182     BINARY_SUBSCR                   
+                        184     LOAD_CONST                      9: 'true'
+                        186     COMPARE_OP                      2 (==)
+                        188     POP_JUMP_IF_FALSE               101 (to 202)
+                        190     LOAD_CONST                      10: True
+                        192     LOAD_FAST                       1: idx
+                        194     LOAD_CONST                      6: 4
+                        196     BINARY_ADD                      
+                        198     BUILD_TUPLE                     2
+                        200     RETURN_VALUE                    
+                        202     LOAD_FAST                       2: nextchar
+                        204     LOAD_CONST                      11: 'f'
+                        206     COMPARE_OP                      2 (==)
+                        208     POP_JUMP_IF_FALSE               121 (to 242)
+                        210     LOAD_FAST                       0: string
+                        212     LOAD_FAST                       1: idx
+                        214     LOAD_FAST                       1: idx
+                        216     LOAD_CONST                      12: 5
+                        218     BINARY_ADD                      
+                        220     BUILD_SLICE                     2
+                        222     BINARY_SUBSCR                   
+                        224     LOAD_CONST                      13: 'false'
+                        226     COMPARE_OP                      2 (==)
+                        228     POP_JUMP_IF_FALSE               121 (to 242)
+                        230     LOAD_CONST                      14: False
+                        232     LOAD_FAST                       1: idx
+                        234     LOAD_CONST                      12: 5
+                        236     BINARY_ADD                      
+                        238     BUILD_TUPLE                     2
+                        240     RETURN_VALUE                    
+                        242     LOAD_DEREF                      1: match_number
+                        244     LOAD_FAST                       0: string
+                        246     LOAD_FAST                       1: idx
+                        248     CALL_FUNCTION                   2
+                        250     STORE_FAST                      3: m
+                        252     LOAD_FAST                       3: m
+                        254     LOAD_CONST                      0: None
+                        256     IS_OP                           1 (is not)
+                        258     POP_JUMP_IF_FALSE               164 (to 328)
+                        260     LOAD_FAST                       3: m
+                        262     LOAD_METHOD                     2: groups
+                        264     CALL_METHOD                     0
+                        266     UNPACK_SEQUENCE                 3
+                        268     STORE_FAST                      4: integer
+                        270     STORE_FAST                      5: frac
+                        272     STORE_FAST                      6: exp
+                        274     LOAD_FAST                       5: frac
+                        276     POP_JUMP_IF_TRUE                141 (to 282)
+                        278     LOAD_FAST                       6: exp
+                        280     POP_JUMP_IF_FALSE               154 (to 308)
+                        282     LOAD_DEREF                      7: parse_float
+                        284     LOAD_FAST                       4: integer
+                        286     LOAD_FAST                       5: frac
+                        288     JUMP_IF_TRUE_OR_POP             146 (to 292)
+                        290     LOAD_CONST                      15: ''
+                        292     BINARY_ADD                      
+                        294     LOAD_FAST                       6: exp
+                        296     JUMP_IF_TRUE_OR_POP             150 (to 300)
+                        298     LOAD_CONST                      15: ''
+                        300     BINARY_ADD                      
+                        302     CALL_FUNCTION                   1
+                        304     STORE_FAST                      7: res
+                        306     JUMP_FORWARD                    4 (to 316)
+                        308     LOAD_DEREF                      8: parse_int
+                        310     LOAD_FAST                       4: integer
+                        312     CALL_FUNCTION                   1
+                        314     STORE_FAST                      7: res
+                        316     LOAD_FAST                       7: res
+                        318     LOAD_FAST                       3: m
+                        320     LOAD_METHOD                     3: end
+                        322     CALL_METHOD                     0
+                        324     BUILD_TUPLE                     2
+                        326     RETURN_VALUE                    
+                        328     LOAD_FAST                       2: nextchar
+                        330     LOAD_CONST                      16: 'N'
+                        332     COMPARE_OP                      2 (==)
+                        334     POP_JUMP_IF_FALSE               186 (to 372)
+                        336     LOAD_FAST                       0: string
+                        338     LOAD_FAST                       1: idx
+                        340     LOAD_FAST                       1: idx
+                        342     LOAD_CONST                      17: 3
+                        344     BINARY_ADD                      
+                        346     BUILD_SLICE                     2
+                        348     BINARY_SUBSCR                   
+                        350     LOAD_CONST                      18: 'NaN'
+                        352     COMPARE_OP                      2 (==)
+                        354     POP_JUMP_IF_FALSE               186 (to 372)
+                        356     LOAD_DEREF                      6: parse_constant
+                        358     LOAD_CONST                      18: 'NaN'
+                        360     CALL_FUNCTION                   1
+                        362     LOAD_FAST                       1: idx
+                        364     LOAD_CONST                      17: 3
+                        366     BINARY_ADD                      
+                        368     BUILD_TUPLE                     2
+                        370     RETURN_VALUE                    
+                        372     LOAD_FAST                       2: nextchar
+                        374     LOAD_CONST                      19: 'I'
+                        376     COMPARE_OP                      2 (==)
+                        378     POP_JUMP_IF_FALSE               208 (to 416)
+                        380     LOAD_FAST                       0: string
+                        382     LOAD_FAST                       1: idx
+                        384     LOAD_FAST                       1: idx
+                        386     LOAD_CONST                      20: 8
+                        388     BINARY_ADD                      
+                        390     BUILD_SLICE                     2
+                        392     BINARY_SUBSCR                   
+                        394     LOAD_CONST                      21: 'Infinity'
+                        396     COMPARE_OP                      2 (==)
+                        398     POP_JUMP_IF_FALSE               208 (to 416)
+                        400     LOAD_DEREF                      6: parse_constant
+                        402     LOAD_CONST                      21: 'Infinity'
+                        404     CALL_FUNCTION                   1
+                        406     LOAD_FAST                       1: idx
+                        408     LOAD_CONST                      20: 8
+                        410     BINARY_ADD                      
+                        412     BUILD_TUPLE                     2
+                        414     RETURN_VALUE                    
+                        416     LOAD_FAST                       2: nextchar
+                        418     LOAD_CONST                      22: '-'
+                        420     COMPARE_OP                      2 (==)
+                        422     POP_JUMP_IF_FALSE               230 (to 460)
+                        424     LOAD_FAST                       0: string
+                        426     LOAD_FAST                       1: idx
+                        428     LOAD_FAST                       1: idx
+                        430     LOAD_CONST                      23: 9
+                        432     BINARY_ADD                      
+                        434     BUILD_SLICE                     2
+                        436     BINARY_SUBSCR                   
+                        438     LOAD_CONST                      24: '-Infinity'
+                        440     COMPARE_OP                      2 (==)
+                        442     POP_JUMP_IF_FALSE               230 (to 460)
+                        444     LOAD_DEREF                      6: parse_constant
+                        446     LOAD_CONST                      24: '-Infinity'
+                        448     CALL_FUNCTION                   1
+                        450     LOAD_FAST                       1: idx
+                        452     LOAD_CONST                      23: 9
+                        454     BINARY_ADD                      
+                        456     BUILD_TUPLE                     2
+                        458     RETURN_VALUE                    
+                        460     LOAD_GLOBAL                     1: StopIteration
+                        462     LOAD_FAST                       1: idx
+                        464     CALL_FUNCTION                   1
+                        466     RAISE_VARARGS                   1
+                'py_make_scanner.<locals>._scan_once'
+                [Code]
+                    File Name: json/scanner.py
+                    Object Name: scan_once
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 8
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                        'clear'
+                    [Var Names]
+                        'string'
+                        'idx'
+                    [Free Vars]
+                        '_scan_once'
+                        'memo'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       SETUP_FINALLY                   10 (to 22)
+                        2       LOAD_DEREF                      0: _scan_once
+                        4       LOAD_FAST                       0: string
+                        6       LOAD_FAST                       1: idx
+                        8       CALL_FUNCTION                   2
+                        10      POP_BLOCK                       
+                        12      LOAD_DEREF                      1: memo
+                        14      LOAD_METHOD                     0: clear
+                        16      CALL_METHOD                     0
+                        18      POP_TOP                         
+                        20      RETURN_VALUE                    
+                        22      LOAD_DEREF                      1: memo
+                        24      LOAD_METHOD                     0: clear
+                        26      CALL_METHOD                     0
+                        28      POP_TOP                         
+                        30      RERAISE                         0
+                'py_make_scanner.<locals>.scan_once'
+            [Disassembly]
+                0       LOAD_FAST                       0: context
+                2       LOAD_ATTR                       0: parse_object
+                4       STORE_DEREF                     9: parse_object
+                6       LOAD_FAST                       0: context
+                8       LOAD_ATTR                       1: parse_array
+                10      STORE_DEREF                     5: parse_array
+                12      LOAD_FAST                       0: context
+                14      LOAD_ATTR                       2: parse_string
+                16      STORE_DEREF                     10: parse_string
+                18      LOAD_GLOBAL                     3: NUMBER_RE
+                20      LOAD_ATTR                       4: match
+                22      STORE_DEREF                     1: match_number
+                24      LOAD_FAST                       0: context
+                26      LOAD_ATTR                       5: strict
+                28      STORE_DEREF                     11: strict
+                30      LOAD_FAST                       0: context
+                32      LOAD_ATTR                       6: parse_float
+                34      STORE_DEREF                     7: parse_float
+                36      LOAD_FAST                       0: context
+                38      LOAD_ATTR                       7: parse_int
+                40      STORE_DEREF                     8: parse_int
+                42      LOAD_FAST                       0: context
+                44      LOAD_ATTR                       8: parse_constant
+                46      STORE_DEREF                     6: parse_constant
+                48      LOAD_FAST                       0: context
+                50      LOAD_ATTR                       9: object_hook
+                52      STORE_DEREF                     3: object_hook
+                54      LOAD_FAST                       0: context
+                56      LOAD_ATTR                       10: object_pairs_hook
+                58      STORE_DEREF                     4: object_pairs_hook
+                60      LOAD_FAST                       0: context
+                62      LOAD_ATTR                       11: memo
+                64      STORE_DEREF                     2: memo
+                66      LOAD_CLOSURE                    0: _scan_once
+                68      LOAD_CLOSURE                    1: match_number
+                70      LOAD_CLOSURE                    2: memo
+                72      LOAD_CLOSURE                    3: object_hook
+                74      LOAD_CLOSURE                    4: object_pairs_hook
+                76      LOAD_CLOSURE                    5: parse_array
+                78      LOAD_CLOSURE                    6: parse_constant
+                80      LOAD_CLOSURE                    7: parse_float
+                82      LOAD_CLOSURE                    8: parse_int
+                84      LOAD_CLOSURE                    9: parse_object
+                86      LOAD_CLOSURE                    10: parse_string
+                88      LOAD_CLOSURE                    11: strict
+                90      BUILD_TUPLE                     12
+                92      LOAD_CONST                      1: <CODE> _scan_once
+                94      LOAD_CONST                      2: 'py_make_scanner.<locals>._scan_once'
+                96      MAKE_FUNCTION                   8
+                98      STORE_DEREF                     0: _scan_once
+                100     LOAD_CLOSURE                    0: _scan_once
+                102     LOAD_CLOSURE                    2: memo
+                104     BUILD_TUPLE                     2
+                106     LOAD_CONST                      3: <CODE> scan_once
+                108     LOAD_CONST                      4: 'py_make_scanner.<locals>.scan_once'
+                110     MAKE_FUNCTION                   8
+                112     STORE_FAST                      1: scan_once
+                114     LOAD_FAST                       1: scan_once
+                116     RETURN_VALUE                    
+        'py_make_scanner'
+    [Disassembly]
+        0       LOAD_CONST                      0: 'JSON token scanner\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: re
+        10      STORE_NAME                      1: re
+        12      SETUP_FINALLY                   8 (to 30)
+        14      LOAD_CONST                      1: 0
+        16      LOAD_CONST                      3: ('make_scanner',)
+        18      IMPORT_NAME                     2: _json
+        20      IMPORT_FROM                     3: make_scanner
+        22      STORE_NAME                      4: c_make_scanner
+        24      POP_TOP                         
+        26      POP_BLOCK                       
+        28      JUMP_FORWARD                    11 (to 52)
+        30      DUP_TOP                         
+        32      LOAD_NAME                       5: ImportError
+        34      JUMP_IF_NOT_EXC_MATCH           25 (to 50)
+        36      POP_TOP                         
+        38      POP_TOP                         
+        40      POP_TOP                         
+        42      LOAD_CONST                      2: None
+        44      STORE_NAME                      4: c_make_scanner
+        46      POP_EXCEPT                      
+        48      JUMP_FORWARD                    1 (to 52)
+        50      RERAISE                         0
+        52      LOAD_CONST                      4: 'make_scanner'
+        54      BUILD_LIST                      1
+        56      STORE_NAME                      6: __all__
+        58      LOAD_NAME                       1: re
+        60      LOAD_METHOD                     7: compile
+        62      LOAD_CONST                      5: '(-?(?:0|[1-9]\\d*))(\\.\\d+)?([eE][-+]?\\d+)?'
+        64      LOAD_NAME                       1: re
+        66      LOAD_ATTR                       8: VERBOSE
+        68      LOAD_NAME                       1: re
+        70      LOAD_ATTR                       9: MULTILINE
+        72      BINARY_OR                       
+        74      LOAD_NAME                       1: re
+        76      LOAD_ATTR                       10: DOTALL
+        78      BINARY_OR                       
+        80      CALL_METHOD                     2
+        82      STORE_NAME                      11: NUMBER_RE
+        84      LOAD_CONST                      6: <CODE> py_make_scanner
+        86      LOAD_CONST                      7: 'py_make_scanner'
+        88      MAKE_FUNCTION                   0
+        90      STORE_NAME                      12: py_make_scanner
+        92      LOAD_NAME                       4: c_make_scanner
+        94      JUMP_IF_TRUE_OR_POP             49 (to 98)
+        96      LOAD_NAME                       12: py_make_scanner
+        98      STORE_NAME                      3: make_scanner
+        100     LOAD_CONST                      2: None
+        102     RETURN_VALUE                    

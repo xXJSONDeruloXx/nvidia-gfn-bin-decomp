@@ -1,0 +1,3393 @@
+selectors.pyc (Python 3.10)
+[Code]
+    File Name: selectors.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 5
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'abc'
+        'ABCMeta'
+        'abstractmethod'
+        'collections'
+        'namedtuple'
+        'collections.abc'
+        'Mapping'
+        'math'
+        'select'
+        'sys'
+        'EVENT_READ'
+        'EVENT_WRITE'
+        '_fileobj_to_fd'
+        'SelectorKey'
+        'version_info'
+        'fileobj'
+        'fd'
+        'events'
+        'data'
+        '_SelectorMapping'
+        'BaseSelector'
+        '_BaseSelectorImpl'
+        'SelectSelector'
+        '_PollLikeSelector'
+        'hasattr'
+        'PollSelector'
+        'EpollSelector'
+        'DevpollSelector'
+        'KqueueSelector'
+        '_can_use'
+        'DefaultSelector'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Selectors module.\n\nThis module allows high-level and efficient I/O multiplexing, built upon the\n`select` module primitives.\n'
+        0
+        (
+            'ABCMeta'
+            'abstractmethod'
+        )
+        (
+            'namedtuple'
+        )
+        (
+            'Mapping'
+        )
+        None
+        1
+        2
+        [Code]
+            File Name: selectors.py
+            Object Name: _fileobj_to_fd
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 10
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'int'
+                'fileno'
+                'AttributeError'
+                'TypeError'
+                'ValueError'
+                'format'
+            [Var Names]
+                'fileobj'
+                'fd'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return a file descriptor from a file object.\n\n    Parameters:\n    fileobj -- file object or file descriptor\n\n    Returns:\n    corresponding file descriptor\n\n    Raises:\n    ValueError if the object is invalid\n    '
+                'Invalid file object: {!r}'
+                None
+                0
+                'Invalid file descriptor: {}'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: fileobj
+                4       LOAD_GLOBAL                     1: int
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_FALSE               8 (to 16)
+                10      LOAD_FAST                       0: fileobj
+                12      STORE_FAST                      1: fd
+                14      JUMP_FORWARD                    27 (to 70)
+                16      SETUP_FINALLY                   8 (to 34)
+                18      LOAD_GLOBAL                     1: int
+                20      LOAD_FAST                       0: fileobj
+                22      LOAD_METHOD                     2: fileno
+                24      CALL_METHOD                     0
+                26      CALL_FUNCTION                   1
+                28      STORE_FAST                      1: fd
+                30      POP_BLOCK                       
+                32      JUMP_FORWARD                    18 (to 70)
+                34      DUP_TOP                         
+                36      LOAD_GLOBAL                     3: AttributeError
+                38      LOAD_GLOBAL                     4: TypeError
+                40      LOAD_GLOBAL                     5: ValueError
+                42      BUILD_TUPLE                     3
+                44      JUMP_IF_NOT_EXC_MATCH           34 (to 68)
+                46      POP_TOP                         
+                48      POP_TOP                         
+                50      POP_TOP                         
+                52      LOAD_GLOBAL                     5: ValueError
+                54      LOAD_CONST                      1: 'Invalid file object: {!r}'
+                56      LOAD_METHOD                     6: format
+                58      LOAD_FAST                       0: fileobj
+                60      CALL_METHOD                     1
+                62      CALL_FUNCTION                   1
+                64      LOAD_CONST                      2: None
+                66      RAISE_VARARGS                   2
+                68      RERAISE                         0
+                70      LOAD_FAST                       1: fd
+                72      LOAD_CONST                      3: 0
+                74      COMPARE_OP                      0 (<)
+                76      POP_JUMP_IF_FALSE               46 (to 92)
+                78      LOAD_GLOBAL                     5: ValueError
+                80      LOAD_CONST                      4: 'Invalid file descriptor: {}'
+                82      LOAD_METHOD                     6: format
+                84      LOAD_FAST                       1: fd
+                86      CALL_METHOD                     1
+                88      CALL_FUNCTION                   1
+                90      RAISE_VARARGS                   1
+                92      LOAD_FAST                       1: fd
+                94      RETURN_VALUE                    
+        '_fileobj_to_fd'
+        'SelectorKey'
+        (
+            'fileobj'
+            'fd'
+            'events'
+            'data'
+        )
+        'SelectorKey(fileobj, fd, events, data)\n\n    Object used to associate a file object to its backing\n    file descriptor, selected event mask, and attached data.\n'
+        (
+            3
+            5
+        )
+        'File object registered.'
+        'Underlying file descriptor.'
+        'Events that must be waited for on this file object.'
+        'Optional opaque data associated to this file object.\n    For example, this could be used to store a per-client session ID.'
+        [Code]
+            File Name: selectors.py
+            Object Name: _SelectorMapping
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                '__len__'
+                '__getitem__'
+                '__iter__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '_SelectorMapping'
+                'Mapping of file objects to selector keys.'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_selector'
+                    [Var Names]
+                        'self'
+                        'selector'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: selector
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: _selector
+                        6       LOAD_CONST                      0: None
+                        8       RETURN_VALUE                    
+                '_SelectorMapping.__init__'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: __len__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'len'
+                        '_selector'
+                        '_fd_to_key'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: len
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       1: _selector
+                        6       LOAD_ATTR                       2: _fd_to_key
+                        8       CALL_FUNCTION                   1
+                        10      RETURN_VALUE                    
+                '_SelectorMapping.__len__'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: __getitem__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_selector'
+                        '_fileobj_lookup'
+                        '_fd_to_key'
+                        'KeyError'
+                        'format'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                        'fd'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '{!r} is not registered'
+                    [Disassembly]
+                        0       SETUP_FINALLY                   13 (to 28)
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       0: _selector
+                        6       LOAD_METHOD                     1: _fileobj_lookup
+                        8       LOAD_FAST                       1: fileobj
+                        10      CALL_METHOD                     1
+                        12      STORE_FAST                      2: fd
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_ATTR                       0: _selector
+                        18      LOAD_ATTR                       2: _fd_to_key
+                        20      LOAD_FAST                       2: fd
+                        22      BINARY_SUBSCR                   
+                        24      POP_BLOCK                       
+                        26      RETURN_VALUE                    
+                        28      DUP_TOP                         
+                        30      LOAD_GLOBAL                     3: KeyError
+                        32      JUMP_IF_NOT_EXC_MATCH           28 (to 56)
+                        34      POP_TOP                         
+                        36      POP_TOP                         
+                        38      POP_TOP                         
+                        40      LOAD_GLOBAL                     3: KeyError
+                        42      LOAD_CONST                      1: '{!r} is not registered'
+                        44      LOAD_METHOD                     4: format
+                        46      LOAD_FAST                       1: fileobj
+                        48      CALL_METHOD                     1
+                        50      CALL_FUNCTION                   1
+                        52      LOAD_CONST                      0: None
+                        54      RAISE_VARARGS                   2
+                        56      RERAISE                         0
+                '_SelectorMapping.__getitem__'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: __iter__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'iter'
+                        '_selector'
+                        '_fd_to_key'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: iter
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       1: _selector
+                        6       LOAD_ATTR                       2: _fd_to_key
+                        8       CALL_FUNCTION                   1
+                        10      RETURN_VALUE                    
+                '_SelectorMapping.__iter__'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: '_SelectorMapping'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Mapping of file objects to selector keys.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> __init__
+                14      LOAD_CONST                      3: '_SelectorMapping.__init__'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: __init__
+                20      LOAD_CONST                      4: <CODE> __len__
+                22      LOAD_CONST                      5: '_SelectorMapping.__len__'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: __len__
+                28      LOAD_CONST                      6: <CODE> __getitem__
+                30      LOAD_CONST                      7: '_SelectorMapping.__getitem__'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      6: __getitem__
+                36      LOAD_CONST                      8: <CODE> __iter__
+                38      LOAD_CONST                      9: '_SelectorMapping.__iter__'
+                40      MAKE_FUNCTION                   0
+                42      STORE_NAME                      7: __iter__
+                44      LOAD_CONST                      10: None
+                46      RETURN_VALUE                    
+        '_SelectorMapping'
+        [Code]
+            File Name: selectors.py
+            Object Name: BaseSelector
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'abstractmethod'
+                'register'
+                'unregister'
+                'modify'
+                'select'
+                'close'
+                'get_key'
+                'get_map'
+                '__enter__'
+                '__exit__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'BaseSelector'
+                'Selector abstract base class.\n\n    A selector supports registering file objects to be monitored for specific\n    I/O events.\n\n    A file object is a file descriptor or any object with a `fileno()` method.\n    An arbitrary object can be attached to the file object, which can be used\n    for example to store context information, a callback, etc.\n\n    A selector can use various implementations (select(), poll(), epoll()...)\n    depending on the platform. The default `Selector` class uses the most\n    efficient implementation on the current platform.\n    '
+                None
+                [Code]
+                    File Name: selectors.py
+                    Object Name: register
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                        'events'
+                        'data'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Register a file object.\n\n        Parameters:\n        fileobj -- file object or file descriptor\n        events  -- events to monitor (bitwise mask of EVENT_READ|EVENT_WRITE)\n        data    -- attached data\n\n        Returns:\n        SelectorKey instance\n\n        Raises:\n        ValueError if events is invalid\n        KeyError if fileobj is already registered\n        OSError if fileobj is closed or otherwise is unacceptable to\n                the underlying system call (if a system call is made)\n\n        Note:\n        OSError may or may not be raised\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'BaseSelector.register'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: unregister
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Unregister a file object.\n\n        Parameters:\n        fileobj -- file object or file descriptor\n\n        Returns:\n        SelectorKey instance\n\n        Raises:\n        KeyError if fileobj is not registered\n\n        Note:\n        If fileobj is registered but has since been closed this does\n        *not* raise OSError (even if the wrapped syscall does)\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'BaseSelector.unregister'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: modify
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'unregister'
+                        'register'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                        'events'
+                        'data'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Change a registered file object monitored events or attached data.\n\n        Parameters:\n        fileobj -- file object or file descriptor\n        events  -- events to monitor (bitwise mask of EVENT_READ|EVENT_WRITE)\n        data    -- attached data\n\n        Returns:\n        SelectorKey instance\n\n        Raises:\n        Anything that unregister() or register() raises\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: unregister
+                        4       LOAD_FAST                       1: fileobj
+                        6       CALL_METHOD                     1
+                        8       POP_TOP                         
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_METHOD                     1: register
+                        14      LOAD_FAST                       1: fileobj
+                        16      LOAD_FAST                       2: events
+                        18      LOAD_FAST                       3: data
+                        20      CALL_METHOD                     3
+                        22      RETURN_VALUE                    
+                'BaseSelector.modify'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: select
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'timeout'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Perform the actual selection, until some monitored file objects are\n        ready or a timeout expires.\n\n        Parameters:\n        timeout -- if timeout > 0, this specifies the maximum wait time, in\n                   seconds\n                   if timeout <= 0, the select() call won't block, and will\n                   report the currently ready file objects\n                   if timeout is None, select() will block until a monitored\n                   file object becomes ready\n\n        Returns:\n        list of (key, events) for ready file objects\n        `events` is a bitwise mask of EVENT_READ|EVENT_WRITE\n        "
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'BaseSelector.select'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: close
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Close the selector.\n\n        This must be called to make sure that any underlying resource is freed.\n        '
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'BaseSelector.close'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: get_key
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'get_map'
+                        'RuntimeError'
+                        'KeyError'
+                        'format'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                        'mapping'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return the key associated to a registered file object.\n\n        Returns:\n        SelectorKey for this file object\n        '
+                        None
+                        'Selector is closed'
+                        '{!r} is not registered'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: get_map
+                        4       CALL_METHOD                     0
+                        6       STORE_FAST                      2: mapping
+                        8       LOAD_FAST                       2: mapping
+                        10      LOAD_CONST                      1: None
+                        12      IS_OP                           0 (is)
+                        14      POP_JUMP_IF_FALSE               12 (to 24)
+                        16      LOAD_GLOBAL                     1: RuntimeError
+                        18      LOAD_CONST                      2: 'Selector is closed'
+                        20      CALL_FUNCTION                   1
+                        22      RAISE_VARARGS                   1
+                        24      SETUP_FINALLY                   5 (to 36)
+                        26      LOAD_FAST                       2: mapping
+                        28      LOAD_FAST                       1: fileobj
+                        30      BINARY_SUBSCR                   
+                        32      POP_BLOCK                       
+                        34      RETURN_VALUE                    
+                        36      DUP_TOP                         
+                        38      LOAD_GLOBAL                     2: KeyError
+                        40      JUMP_IF_NOT_EXC_MATCH           32 (to 64)
+                        42      POP_TOP                         
+                        44      POP_TOP                         
+                        46      POP_TOP                         
+                        48      LOAD_GLOBAL                     2: KeyError
+                        50      LOAD_CONST                      3: '{!r} is not registered'
+                        52      LOAD_METHOD                     3: format
+                        54      LOAD_FAST                       1: fileobj
+                        56      CALL_METHOD                     1
+                        58      CALL_FUNCTION                   1
+                        60      LOAD_CONST                      1: None
+                        62      RAISE_VARARGS                   2
+                        64      RERAISE                         0
+                'BaseSelector.get_key'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: get_map
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return a mapping of file objects to selector keys.'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'BaseSelector.get_map'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: __enter__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       RETURN_VALUE                    
+                'BaseSelector.__enter__'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: __exit__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 2
+                    Flags: 0x00000047 (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_NOFREE)
+                    [Names]
+                        'close'
+                    [Var Names]
+                        'self'
+                        'args'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: close
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_CONST                      0: None
+                        10      RETURN_VALUE                    
+                'BaseSelector.__exit__'
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'BaseSelector'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Selector abstract base class.\n\n    A selector supports registering file objects to be monitored for specific\n    I/O events.\n\n    A file object is a file descriptor or any object with a `fileno()` method.\n    An arbitrary object can be attached to the file object, which can be used\n    for example to store context information, a callback, etc.\n\n    A selector can use various implementations (select(), poll(), epoll()...)\n    depending on the platform. The default `Selector` class uses the most\n    efficient implementation on the current platform.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_NAME                       4: abstractmethod
+                14      LOAD_CONST                      21: (None,)
+                16      LOAD_CONST                      3: <CODE> register
+                18      LOAD_CONST                      4: 'BaseSelector.register'
+                20      MAKE_FUNCTION                   1
+                22      CALL_FUNCTION                   1
+                24      STORE_NAME                      5: register
+                26      LOAD_NAME                       4: abstractmethod
+                28      LOAD_CONST                      5: <CODE> unregister
+                30      LOAD_CONST                      6: 'BaseSelector.unregister'
+                32      MAKE_FUNCTION                   0
+                34      CALL_FUNCTION                   1
+                36      STORE_NAME                      6: unregister
+                38      LOAD_CONST                      21: (None,)
+                40      LOAD_CONST                      7: <CODE> modify
+                42      LOAD_CONST                      8: 'BaseSelector.modify'
+                44      MAKE_FUNCTION                   1
+                46      STORE_NAME                      7: modify
+                48      LOAD_NAME                       4: abstractmethod
+                50      LOAD_CONST                      21: (None,)
+                52      LOAD_CONST                      9: <CODE> select
+                54      LOAD_CONST                      10: 'BaseSelector.select'
+                56      MAKE_FUNCTION                   1
+                58      CALL_FUNCTION                   1
+                60      STORE_NAME                      8: select
+                62      LOAD_CONST                      11: <CODE> close
+                64      LOAD_CONST                      12: 'BaseSelector.close'
+                66      MAKE_FUNCTION                   0
+                68      STORE_NAME                      9: close
+                70      LOAD_CONST                      13: <CODE> get_key
+                72      LOAD_CONST                      14: 'BaseSelector.get_key'
+                74      MAKE_FUNCTION                   0
+                76      STORE_NAME                      10: get_key
+                78      LOAD_NAME                       4: abstractmethod
+                80      LOAD_CONST                      15: <CODE> get_map
+                82      LOAD_CONST                      16: 'BaseSelector.get_map'
+                84      MAKE_FUNCTION                   0
+                86      CALL_FUNCTION                   1
+                88      STORE_NAME                      11: get_map
+                90      LOAD_CONST                      17: <CODE> __enter__
+                92      LOAD_CONST                      18: 'BaseSelector.__enter__'
+                94      MAKE_FUNCTION                   0
+                96      STORE_NAME                      12: __enter__
+                98      LOAD_CONST                      19: <CODE> __exit__
+                100     LOAD_CONST                      20: 'BaseSelector.__exit__'
+                102     MAKE_FUNCTION                   0
+                104     STORE_NAME                      13: __exit__
+                106     LOAD_CONST                      2: None
+                108     RETURN_VALUE                    
+        'BaseSelector'
+        (
+            'metaclass'
+        )
+        [Code]
+            File Name: selectors.py
+            Object Name: _BaseSelectorImpl
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                '_fileobj_lookup'
+                'register'
+                'unregister'
+                'modify'
+                'close'
+                'get_map'
+                '_key_from_fd'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '_BaseSelectorImpl'
+                'Base selector implementation.'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fd_to_key'
+                        '_SelectorMapping'
+                        '_map'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       BUILD_MAP                       0
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: _fd_to_key
+                        6       LOAD_GLOBAL                     1: _SelectorMapping
+                        8       LOAD_FAST                       0: self
+                        10      CALL_FUNCTION                   1
+                        12      LOAD_FAST                       0: self
+                        14      STORE_ATTR                      2: _map
+                        16      LOAD_CONST                      0: None
+                        18      RETURN_VALUE                    
+                '_BaseSelectorImpl.__init__'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: _fileobj_lookup
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fileobj_to_fd'
+                        'ValueError'
+                        '_fd_to_key'
+                        'values'
+                        'fileobj'
+                        'fd'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                        'key'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return a file descriptor from a file object.\n\n        This wraps _fileobj_to_fd() to do an exhaustive search in case\n        the object is invalid but we still have it in our map.  This\n        is used by unregister() so we can unregister an object that\n        was previously registered even if it is closed.  It is also\n        used by _SelectorMapping.\n        '
+                    [Disassembly]
+                        0       SETUP_FINALLY                   5 (to 12)
+                        2       LOAD_GLOBAL                     0: _fileobj_to_fd
+                        4       LOAD_FAST                       1: fileobj
+                        6       CALL_FUNCTION                   1
+                        8       POP_BLOCK                       
+                        10      RETURN_VALUE                    
+                        12      DUP_TOP                         
+                        14      LOAD_GLOBAL                     1: ValueError
+                        16      JUMP_IF_NOT_EXC_MATCH           33 (to 66)
+                        18      POP_TOP                         
+                        20      POP_TOP                         
+                        22      POP_TOP                         
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       2: _fd_to_key
+                        28      LOAD_METHOD                     3: values
+                        30      CALL_METHOD                     0
+                        32      GET_ITER                        
+                        34      FOR_ITER                        14 (to 64)
+                        36      STORE_FAST                      2: key
+                        38      LOAD_FAST                       2: key
+                        40      LOAD_ATTR                       4: fileobj
+                        42      LOAD_FAST                       1: fileobj
+                        44      IS_OP                           0 (is)
+                        46      POP_JUMP_IF_FALSE               31 (to 62)
+                        48      LOAD_FAST                       2: key
+                        50      LOAD_ATTR                       5: fd
+                        52      ROT_TWO                         
+                        54      POP_TOP                         
+                        56      ROT_FOUR                        
+                        58      POP_EXCEPT                      
+                        60      RETURN_VALUE                    
+                        62      JUMP_ABSOLUTE                   17 (to 34)
+                        64      RAISE_VARARGS                   0
+                        66      RERAISE                         0
+                '_BaseSelectorImpl._fileobj_lookup'
+                None
+                [Code]
+                    File Name: selectors.py
+                    Object Name: register
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'EVENT_READ'
+                        'EVENT_WRITE'
+                        'ValueError'
+                        'format'
+                        'SelectorKey'
+                        '_fileobj_lookup'
+                        'fd'
+                        '_fd_to_key'
+                        'KeyError'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                        'events'
+                        'data'
+                        'key'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'Invalid events: {!r}'
+                        '{!r} (FD {}) is already registered'
+                    [Disassembly]
+                        0       LOAD_FAST                       2: events
+                        2       POP_JUMP_IF_FALSE               9 (to 18)
+                        4       LOAD_FAST                       2: events
+                        6       LOAD_GLOBAL                     0: EVENT_READ
+                        8       LOAD_GLOBAL                     1: EVENT_WRITE
+                        10      BINARY_OR                       
+                        12      UNARY_INVERT                    
+                        14      BINARY_AND                      
+                        16      POP_JUMP_IF_FALSE               16 (to 32)
+                        18      LOAD_GLOBAL                     2: ValueError
+                        20      LOAD_CONST                      1: 'Invalid events: {!r}'
+                        22      LOAD_METHOD                     3: format
+                        24      LOAD_FAST                       2: events
+                        26      CALL_METHOD                     1
+                        28      CALL_FUNCTION                   1
+                        30      RAISE_VARARGS                   1
+                        32      LOAD_GLOBAL                     4: SelectorKey
+                        34      LOAD_FAST                       1: fileobj
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_METHOD                     5: _fileobj_lookup
+                        40      LOAD_FAST                       1: fileobj
+                        42      CALL_METHOD                     1
+                        44      LOAD_FAST                       2: events
+                        46      LOAD_FAST                       3: data
+                        48      CALL_FUNCTION                   4
+                        50      STORE_FAST                      4: key
+                        52      LOAD_FAST                       4: key
+                        54      LOAD_ATTR                       6: fd
+                        56      LOAD_FAST                       0: self
+                        58      LOAD_ATTR                       7: _fd_to_key
+                        60      CONTAINS_OP                     0 (in)
+                        62      POP_JUMP_IF_FALSE               41 (to 82)
+                        64      LOAD_GLOBAL                     8: KeyError
+                        66      LOAD_CONST                      2: '{!r} (FD {}) is already registered'
+                        68      LOAD_METHOD                     3: format
+                        70      LOAD_FAST                       1: fileobj
+                        72      LOAD_FAST                       4: key
+                        74      LOAD_ATTR                       6: fd
+                        76      CALL_METHOD                     2
+                        78      CALL_FUNCTION                   1
+                        80      RAISE_VARARGS                   1
+                        82      LOAD_FAST                       4: key
+                        84      LOAD_FAST                       0: self
+                        86      LOAD_ATTR                       7: _fd_to_key
+                        88      LOAD_FAST                       4: key
+                        90      LOAD_ATTR                       6: fd
+                        92      STORE_SUBSCR                    
+                        94      LOAD_FAST                       4: key
+                        96      RETURN_VALUE                    
+                '_BaseSelectorImpl.register'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: unregister
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fd_to_key'
+                        'pop'
+                        '_fileobj_lookup'
+                        'KeyError'
+                        'format'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                        'key'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '{!r} is not registered'
+                    [Disassembly]
+                        0       SETUP_FINALLY                   12 (to 26)
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       0: _fd_to_key
+                        6       LOAD_METHOD                     1: pop
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_METHOD                     2: _fileobj_lookup
+                        12      LOAD_FAST                       1: fileobj
+                        14      CALL_METHOD                     1
+                        16      CALL_METHOD                     1
+                        18      STORE_FAST                      2: key
+                        20      POP_BLOCK                       
+                        22      LOAD_FAST                       2: key
+                        24      RETURN_VALUE                    
+                        26      DUP_TOP                         
+                        28      LOAD_GLOBAL                     3: KeyError
+                        30      JUMP_IF_NOT_EXC_MATCH           27 (to 54)
+                        32      POP_TOP                         
+                        34      POP_TOP                         
+                        36      POP_TOP                         
+                        38      LOAD_GLOBAL                     3: KeyError
+                        40      LOAD_CONST                      1: '{!r} is not registered'
+                        42      LOAD_METHOD                     4: format
+                        44      LOAD_FAST                       1: fileobj
+                        46      CALL_METHOD                     1
+                        48      CALL_FUNCTION                   1
+                        50      LOAD_CONST                      0: None
+                        52      RAISE_VARARGS                   2
+                        54      RERAISE                         0
+                '_BaseSelectorImpl.unregister'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: modify
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fd_to_key'
+                        '_fileobj_lookup'
+                        'KeyError'
+                        'format'
+                        'events'
+                        'unregister'
+                        'register'
+                        'data'
+                        '_replace'
+                        'fd'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                        'events'
+                        'data'
+                        'key'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '{!r} is not registered'
+                        (
+                            'data'
+                        )
+                    [Disassembly]
+                        0       SETUP_FINALLY                   10 (to 22)
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       0: _fd_to_key
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_METHOD                     1: _fileobj_lookup
+                        10      LOAD_FAST                       1: fileobj
+                        12      CALL_METHOD                     1
+                        14      BINARY_SUBSCR                   
+                        16      STORE_FAST                      4: key
+                        18      POP_BLOCK                       
+                        20      JUMP_FORWARD                    15 (to 52)
+                        22      DUP_TOP                         
+                        24      LOAD_GLOBAL                     2: KeyError
+                        26      JUMP_IF_NOT_EXC_MATCH           25 (to 50)
+                        28      POP_TOP                         
+                        30      POP_TOP                         
+                        32      POP_TOP                         
+                        34      LOAD_GLOBAL                     2: KeyError
+                        36      LOAD_CONST                      1: '{!r} is not registered'
+                        38      LOAD_METHOD                     3: format
+                        40      LOAD_FAST                       1: fileobj
+                        42      CALL_METHOD                     1
+                        44      CALL_FUNCTION                   1
+                        46      LOAD_CONST                      0: None
+                        48      RAISE_VARARGS                   2
+                        50      RERAISE                         0
+                        52      LOAD_FAST                       2: events
+                        54      LOAD_FAST                       4: key
+                        56      LOAD_ATTR                       4: events
+                        58      COMPARE_OP                      3 (!=)
+                        60      POP_JUMP_IF_FALSE               45 (to 90)
+                        62      LOAD_FAST                       0: self
+                        64      LOAD_METHOD                     5: unregister
+                        66      LOAD_FAST                       1: fileobj
+                        68      CALL_METHOD                     1
+                        70      POP_TOP                         
+                        72      LOAD_FAST                       0: self
+                        74      LOAD_METHOD                     6: register
+                        76      LOAD_FAST                       1: fileobj
+                        78      LOAD_FAST                       2: events
+                        80      LOAD_FAST                       3: data
+                        82      CALL_METHOD                     3
+                        84      STORE_FAST                      4: key
+                        86      LOAD_FAST                       4: key
+                        88      RETURN_VALUE                    
+                        90      LOAD_FAST                       3: data
+                        92      LOAD_FAST                       4: key
+                        94      LOAD_ATTR                       7: data
+                        96      COMPARE_OP                      3 (!=)
+                        98      POP_JUMP_IF_FALSE               62 (to 124)
+                        100     LOAD_FAST                       4: key
+                        102     LOAD_ATTR                       8: _replace
+                        104     LOAD_FAST                       3: data
+                        106     LOAD_CONST                      2: ('data',)
+                        108     CALL_FUNCTION_KW                1
+                        110     STORE_FAST                      4: key
+                        112     LOAD_FAST                       4: key
+                        114     LOAD_FAST                       0: self
+                        116     LOAD_ATTR                       0: _fd_to_key
+                        118     LOAD_FAST                       4: key
+                        120     LOAD_ATTR                       9: fd
+                        122     STORE_SUBSCR                    
+                        124     LOAD_FAST                       4: key
+                        126     RETURN_VALUE                    
+                '_BaseSelectorImpl.modify'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: close
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fd_to_key'
+                        'clear'
+                        '_map'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _fd_to_key
+                        4       LOAD_METHOD                     1: clear
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      LOAD_CONST                      0: None
+                        12      LOAD_FAST                       0: self
+                        14      STORE_ATTR                      2: _map
+                        16      LOAD_CONST                      0: None
+                        18      RETURN_VALUE                    
+                '_BaseSelectorImpl.close'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: get_map
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_map'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _map
+                        4       RETURN_VALUE                    
+                '_BaseSelectorImpl.get_map'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: _key_from_fd
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fd_to_key'
+                        'KeyError'
+                    [Var Names]
+                        'self'
+                        'fd'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return the key associated to a given file descriptor.\n\n        Parameters:\n        fd -- file descriptor\n\n        Returns:\n        corresponding key, or None if not found\n        '
+                        None
+                    [Disassembly]
+                        0       SETUP_FINALLY                   6 (to 14)
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       0: _fd_to_key
+                        6       LOAD_FAST                       1: fd
+                        8       BINARY_SUBSCR                   
+                        10      POP_BLOCK                       
+                        12      RETURN_VALUE                    
+                        14      DUP_TOP                         
+                        16      LOAD_GLOBAL                     1: KeyError
+                        18      JUMP_IF_NOT_EXC_MATCH           16 (to 32)
+                        20      POP_TOP                         
+                        22      POP_TOP                         
+                        24      POP_TOP                         
+                        26      POP_EXCEPT                      
+                        28      LOAD_CONST                      1: None
+                        30      RETURN_VALUE                    
+                        32      RERAISE                         0
+                '_BaseSelectorImpl._key_from_fd'
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: '_BaseSelectorImpl'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Base selector implementation.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> __init__
+                14      LOAD_CONST                      3: '_BaseSelectorImpl.__init__'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: __init__
+                20      LOAD_CONST                      4: <CODE> _fileobj_lookup
+                22      LOAD_CONST                      5: '_BaseSelectorImpl._fileobj_lookup'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: _fileobj_lookup
+                28      LOAD_CONST                      19: (None,)
+                30      LOAD_CONST                      7: <CODE> register
+                32      LOAD_CONST                      8: '_BaseSelectorImpl.register'
+                34      MAKE_FUNCTION                   1
+                36      STORE_NAME                      6: register
+                38      LOAD_CONST                      9: <CODE> unregister
+                40      LOAD_CONST                      10: '_BaseSelectorImpl.unregister'
+                42      MAKE_FUNCTION                   0
+                44      STORE_NAME                      7: unregister
+                46      LOAD_CONST                      19: (None,)
+                48      LOAD_CONST                      11: <CODE> modify
+                50      LOAD_CONST                      12: '_BaseSelectorImpl.modify'
+                52      MAKE_FUNCTION                   1
+                54      STORE_NAME                      8: modify
+                56      LOAD_CONST                      13: <CODE> close
+                58      LOAD_CONST                      14: '_BaseSelectorImpl.close'
+                60      MAKE_FUNCTION                   0
+                62      STORE_NAME                      9: close
+                64      LOAD_CONST                      15: <CODE> get_map
+                66      LOAD_CONST                      16: '_BaseSelectorImpl.get_map'
+                68      MAKE_FUNCTION                   0
+                70      STORE_NAME                      10: get_map
+                72      LOAD_CONST                      17: <CODE> _key_from_fd
+                74      LOAD_CONST                      18: '_BaseSelectorImpl._key_from_fd'
+                76      MAKE_FUNCTION                   0
+                78      STORE_NAME                      11: _key_from_fd
+                80      LOAD_CONST                      6: None
+                82      RETURN_VALUE                    
+        '_BaseSelectorImpl'
+        [Code]
+            File Name: selectors.py
+            Object Name: SelectSelector
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                'register'
+                'unregister'
+                'sys'
+                'platform'
+                '_select'
+                'select'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'SelectSelector'
+                'Select-based selector.'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        '__init__'
+                        'set'
+                        '_readers'
+                        '_writers'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_METHOD                     1: __init__
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      LOAD_GLOBAL                     2: set
+                        12      CALL_FUNCTION                   0
+                        14      LOAD_FAST                       0: self
+                        16      STORE_ATTR                      3: _readers
+                        18      LOAD_GLOBAL                     2: set
+                        20      CALL_FUNCTION                   0
+                        22      LOAD_FAST                       0: self
+                        24      STORE_ATTR                      4: _writers
+                        26      LOAD_CONST                      0: None
+                        28      RETURN_VALUE                    
+                'SelectSelector.__init__'
+                None
+                [Code]
+                    File Name: selectors.py
+                    Object Name: register
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 5
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        'register'
+                        'EVENT_READ'
+                        '_readers'
+                        'add'
+                        'fd'
+                        'EVENT_WRITE'
+                        '_writers'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                        'events'
+                        'data'
+                        'key'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_METHOD                     1: register
+                        6       LOAD_FAST                       1: fileobj
+                        8       LOAD_FAST                       2: events
+                        10      LOAD_FAST                       3: data
+                        12      CALL_METHOD                     3
+                        14      STORE_FAST                      4: key
+                        16      LOAD_FAST                       2: events
+                        18      LOAD_GLOBAL                     2: EVENT_READ
+                        20      BINARY_AND                      
+                        22      POP_JUMP_IF_FALSE               19 (to 38)
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       3: _readers
+                        28      LOAD_METHOD                     4: add
+                        30      LOAD_FAST                       4: key
+                        32      LOAD_ATTR                       5: fd
+                        34      CALL_METHOD                     1
+                        36      POP_TOP                         
+                        38      LOAD_FAST                       2: events
+                        40      LOAD_GLOBAL                     6: EVENT_WRITE
+                        42      BINARY_AND                      
+                        44      POP_JUMP_IF_FALSE               30 (to 60)
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_ATTR                       7: _writers
+                        50      LOAD_METHOD                     4: add
+                        52      LOAD_FAST                       4: key
+                        54      LOAD_ATTR                       5: fd
+                        56      CALL_METHOD                     1
+                        58      POP_TOP                         
+                        60      LOAD_FAST                       4: key
+                        62      RETURN_VALUE                    
+                'SelectSelector.register'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: unregister
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        'unregister'
+                        '_readers'
+                        'discard'
+                        'fd'
+                        '_writers'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                        'key'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_METHOD                     1: unregister
+                        6       LOAD_FAST                       1: fileobj
+                        8       CALL_METHOD                     1
+                        10      STORE_FAST                      2: key
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_ATTR                       2: _readers
+                        16      LOAD_METHOD                     3: discard
+                        18      LOAD_FAST                       2: key
+                        20      LOAD_ATTR                       4: fd
+                        22      CALL_METHOD                     1
+                        24      POP_TOP                         
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_ATTR                       5: _writers
+                        30      LOAD_METHOD                     3: discard
+                        32      LOAD_FAST                       2: key
+                        34      LOAD_ATTR                       4: fd
+                        36      CALL_METHOD                     1
+                        38      POP_TOP                         
+                        40      LOAD_FAST                       2: key
+                        42      RETURN_VALUE                    
+                'SelectSelector.unregister'
+                'win32'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: _select
+                    Arg Count: 5
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'select'
+                    [Var Names]
+                        'self'
+                        'r'
+                        'w'
+                        '_'
+                        'timeout'
+                        'x'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: select
+                        2       LOAD_METHOD                     0: select
+                        4       LOAD_FAST                       1: r
+                        6       LOAD_FAST                       2: w
+                        8       LOAD_FAST                       2: w
+                        10      LOAD_FAST                       4: timeout
+                        12      CALL_METHOD                     4
+                        14      UNPACK_SEQUENCE                 3
+                        16      STORE_FAST                      1: r
+                        18      STORE_FAST                      2: w
+                        20      STORE_FAST                      5: x
+                        22      LOAD_FAST                       1: r
+                        24      LOAD_FAST                       2: w
+                        26      LOAD_FAST                       5: x
+                        28      BINARY_ADD                      
+                        30      BUILD_LIST                      0
+                        32      BUILD_TUPLE                     3
+                        34      RETURN_VALUE                    
+                'SelectSelector._select'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: select
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 9
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'max'
+                        '_select'
+                        '_readers'
+                        '_writers'
+                        'InterruptedError'
+                        'set'
+                        'EVENT_READ'
+                        'EVENT_WRITE'
+                        '_key_from_fd'
+                        'append'
+                        'events'
+                    [Var Names]
+                        'self'
+                        'timeout'
+                        'ready'
+                        'r'
+                        'w'
+                        '_'
+                        'fd'
+                        'events'
+                        'key'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                    [Disassembly]
+                        0       LOAD_FAST                       1: timeout
+                        2       LOAD_CONST                      0: None
+                        4       IS_OP                           0 (is)
+                        6       POP_JUMP_IF_FALSE               6 (to 12)
+                        8       LOAD_CONST                      0: None
+                        10      JUMP_FORWARD                    4 (to 20)
+                        12      LOAD_GLOBAL                     0: max
+                        14      LOAD_FAST                       1: timeout
+                        16      LOAD_CONST                      1: 0
+                        18      CALL_FUNCTION                   2
+                        20      STORE_FAST                      1: timeout
+                        22      BUILD_LIST                      0
+                        24      STORE_FAST                      2: ready
+                        26      SETUP_FINALLY                   15 (to 58)
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_METHOD                     1: _select
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       2: _readers
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_ATTR                       3: _writers
+                        40      BUILD_LIST                      0
+                        42      LOAD_FAST                       1: timeout
+                        44      CALL_METHOD                     4
+                        46      UNPACK_SEQUENCE                 3
+                        48      STORE_FAST                      3: r
+                        50      STORE_FAST                      4: w
+                        52      STORE_FAST                      5: _
+                        54      POP_BLOCK                       
+                        56      JUMP_FORWARD                    11 (to 80)
+                        58      DUP_TOP                         
+                        60      LOAD_GLOBAL                     4: InterruptedError
+                        62      JUMP_IF_NOT_EXC_MATCH           39 (to 78)
+                        64      POP_TOP                         
+                        66      POP_TOP                         
+                        68      POP_TOP                         
+                        70      LOAD_FAST                       2: ready
+                        72      ROT_FOUR                        
+                        74      POP_EXCEPT                      
+                        76      RETURN_VALUE                    
+                        78      RERAISE                         0
+                        80      LOAD_GLOBAL                     5: set
+                        82      LOAD_FAST                       3: r
+                        84      CALL_FUNCTION                   1
+                        86      STORE_FAST                      3: r
+                        88      LOAD_GLOBAL                     5: set
+                        90      LOAD_FAST                       4: w
+                        92      CALL_FUNCTION                   1
+                        94      STORE_FAST                      4: w
+                        96      LOAD_FAST                       3: r
+                        98      LOAD_FAST                       4: w
+                        100     BINARY_OR                       
+                        102     GET_ITER                        
+                        104     FOR_ITER                        37 (to 180)
+                        106     STORE_FAST                      6: fd
+                        108     LOAD_CONST                      1: 0
+                        110     STORE_FAST                      7: events
+                        112     LOAD_FAST                       6: fd
+                        114     LOAD_FAST                       3: r
+                        116     CONTAINS_OP                     0 (in)
+                        118     POP_JUMP_IF_FALSE               64 (to 128)
+                        120     LOAD_FAST                       7: events
+                        122     LOAD_GLOBAL                     6: EVENT_READ
+                        124     INPLACE_OR                      
+                        126     STORE_FAST                      7: events
+                        128     LOAD_FAST                       6: fd
+                        130     LOAD_FAST                       4: w
+                        132     CONTAINS_OP                     0 (in)
+                        134     POP_JUMP_IF_FALSE               72 (to 144)
+                        136     LOAD_FAST                       7: events
+                        138     LOAD_GLOBAL                     7: EVENT_WRITE
+                        140     INPLACE_OR                      
+                        142     STORE_FAST                      7: events
+                        144     LOAD_FAST                       0: self
+                        146     LOAD_METHOD                     8: _key_from_fd
+                        148     LOAD_FAST                       6: fd
+                        150     CALL_METHOD                     1
+                        152     STORE_FAST                      8: key
+                        154     LOAD_FAST                       8: key
+                        156     POP_JUMP_IF_FALSE               89 (to 178)
+                        158     LOAD_FAST                       2: ready
+                        160     LOAD_METHOD                     9: append
+                        162     LOAD_FAST                       8: key
+                        164     LOAD_FAST                       7: events
+                        166     LOAD_FAST                       8: key
+                        168     LOAD_ATTR                       10: events
+                        170     BINARY_AND                      
+                        172     BUILD_TUPLE                     2
+                        174     CALL_METHOD                     1
+                        176     POP_TOP                         
+                        178     JUMP_ABSOLUTE                   52 (to 104)
+                        180     LOAD_FAST                       2: ready
+                        182     RETURN_VALUE                    
+                'SelectSelector.select'
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'SelectSelector'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Select-based selector.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CLOSURE                    0: __class__
+                14      BUILD_TUPLE                     1
+                16      LOAD_CONST                      2: <CODE> __init__
+                18      LOAD_CONST                      3: 'SelectSelector.__init__'
+                20      MAKE_FUNCTION                   8
+                22      STORE_NAME                      4: __init__
+                24      LOAD_CONST                      14: (None,)
+                26      LOAD_CLOSURE                    0: __class__
+                28      BUILD_TUPLE                     1
+                30      LOAD_CONST                      5: <CODE> register
+                32      LOAD_CONST                      6: 'SelectSelector.register'
+                34      MAKE_FUNCTION                   9
+                36      STORE_NAME                      5: register
+                38      LOAD_CLOSURE                    0: __class__
+                40      BUILD_TUPLE                     1
+                42      LOAD_CONST                      7: <CODE> unregister
+                44      LOAD_CONST                      8: 'SelectSelector.unregister'
+                46      MAKE_FUNCTION                   8
+                48      STORE_NAME                      6: unregister
+                50      LOAD_NAME                       7: sys
+                52      LOAD_ATTR                       8: platform
+                54      LOAD_CONST                      9: 'win32'
+                56      COMPARE_OP                      2 (==)
+                58      POP_JUMP_IF_FALSE               36 (to 72)
+                60      LOAD_CONST                      14: (None,)
+                62      LOAD_CONST                      10: <CODE> _select
+                64      LOAD_CONST                      11: 'SelectSelector._select'
+                66      MAKE_FUNCTION                   1
+                68      STORE_NAME                      9: _select
+                70      JUMP_FORWARD                    3 (to 78)
+                72      LOAD_NAME                       10: select
+                74      LOAD_ATTR                       10: select
+                76      STORE_NAME                      9: _select
+                78      LOAD_CONST                      14: (None,)
+                80      LOAD_CONST                      12: <CODE> select
+                82      LOAD_CONST                      13: 'SelectSelector.select'
+                84      MAKE_FUNCTION                   1
+                86      STORE_NAME                      10: select
+                88      LOAD_CLOSURE                    0: __class__
+                90      DUP_TOP                         
+                92      STORE_NAME                      11: __classcell__
+                94      RETURN_VALUE                    
+        'SelectSelector'
+        [Code]
+            File Name: selectors.py
+            Object Name: _PollLikeSelector
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '_selector_cls'
+                '_EVENT_READ'
+                '_EVENT_WRITE'
+                '__init__'
+                'register'
+                'unregister'
+                'modify'
+                'select'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                '_PollLikeSelector'
+                'Base class shared between poll, epoll and devpoll selectors.'
+                None
+                [Code]
+                    File Name: selectors.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        '__init__'
+                        '_selector_cls'
+                        '_selector'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_METHOD                     1: __init__
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_METHOD                     2: _selector_cls
+                        14      CALL_METHOD                     0
+                        16      LOAD_FAST                       0: self
+                        18      STORE_ATTR                      3: _selector
+                        20      LOAD_CONST                      0: None
+                        22      RETURN_VALUE                    
+                '_PollLikeSelector.__init__'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: register
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 6
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        'register'
+                        'EVENT_READ'
+                        '_EVENT_READ'
+                        'EVENT_WRITE'
+                        '_EVENT_WRITE'
+                        '_selector'
+                        'fd'
+                        'unregister'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                        'events'
+                        'data'
+                        'key'
+                        'poller_events'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_METHOD                     1: register
+                        6       LOAD_FAST                       1: fileobj
+                        8       LOAD_FAST                       2: events
+                        10      LOAD_FAST                       3: data
+                        12      CALL_METHOD                     3
+                        14      STORE_FAST                      4: key
+                        16      LOAD_CONST                      1: 0
+                        18      STORE_FAST                      5: poller_events
+                        20      LOAD_FAST                       2: events
+                        22      LOAD_GLOBAL                     2: EVENT_READ
+                        24      BINARY_AND                      
+                        26      POP_JUMP_IF_FALSE               19 (to 38)
+                        28      LOAD_FAST                       5: poller_events
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_ATTR                       3: _EVENT_READ
+                        34      INPLACE_OR                      
+                        36      STORE_FAST                      5: poller_events
+                        38      LOAD_FAST                       2: events
+                        40      LOAD_GLOBAL                     4: EVENT_WRITE
+                        42      BINARY_AND                      
+                        44      POP_JUMP_IF_FALSE               28 (to 56)
+                        46      LOAD_FAST                       5: poller_events
+                        48      LOAD_FAST                       0: self
+                        50      LOAD_ATTR                       5: _EVENT_WRITE
+                        52      INPLACE_OR                      
+                        54      STORE_FAST                      5: poller_events
+                        56      SETUP_FINALLY                   11 (to 80)
+                        58      LOAD_FAST                       0: self
+                        60      LOAD_ATTR                       6: _selector
+                        62      LOAD_METHOD                     1: register
+                        64      LOAD_FAST                       4: key
+                        66      LOAD_ATTR                       7: fd
+                        68      LOAD_FAST                       5: poller_events
+                        70      CALL_METHOD                     2
+                        72      POP_TOP                         
+                        74      POP_BLOCK                       
+                        76      LOAD_FAST                       4: key
+                        78      RETURN_VALUE                    
+                        80      POP_TOP                         
+                        82      POP_TOP                         
+                        84      POP_TOP                         
+                        86      LOAD_GLOBAL                     0: super
+                        88      CALL_FUNCTION                   0
+                        90      LOAD_METHOD                     8: unregister
+                        92      LOAD_FAST                       1: fileobj
+                        94      CALL_METHOD                     1
+                        96      POP_TOP                         
+                        98      RAISE_VARARGS                   0
+                '_PollLikeSelector.register'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: unregister
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 8
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        'unregister'
+                        '_selector'
+                        'fd'
+                        'OSError'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                        'key'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_METHOD                     1: unregister
+                        6       LOAD_FAST                       1: fileobj
+                        8       CALL_METHOD                     1
+                        10      STORE_FAST                      2: key
+                        12      SETUP_FINALLY                   10 (to 34)
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_ATTR                       2: _selector
+                        18      LOAD_METHOD                     1: unregister
+                        20      LOAD_FAST                       2: key
+                        22      LOAD_ATTR                       3: fd
+                        24      CALL_METHOD                     1
+                        26      POP_TOP                         
+                        28      POP_BLOCK                       
+                        30      LOAD_FAST                       2: key
+                        32      RETURN_VALUE                    
+                        34      DUP_TOP                         
+                        36      LOAD_GLOBAL                     4: OSError
+                        38      JUMP_IF_NOT_EXC_MATCH           26 (to 52)
+                        40      POP_TOP                         
+                        42      POP_TOP                         
+                        44      POP_TOP                         
+                        46      POP_EXCEPT                      
+                        48      LOAD_FAST                       2: key
+                        50      RETURN_VALUE                    
+                        52      RERAISE                         0
+                '_PollLikeSelector.unregister'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: modify
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 7
+                    Stack Size: 8
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        '_fd_to_key'
+                        '_fileobj_lookup'
+                        'KeyError'
+                        'events'
+                        'EVENT_READ'
+                        '_EVENT_READ'
+                        'EVENT_WRITE'
+                        '_EVENT_WRITE'
+                        '_selector'
+                        'modify'
+                        'fd'
+                        'super'
+                        'unregister'
+                        'data'
+                        '_replace'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                        'events'
+                        'data'
+                        'key'
+                        'changed'
+                        'selector_events'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        ' is not registered'
+                        False
+                        0
+                        True
+                        (
+                            'events'
+                            'data'
+                        )
+                    [Disassembly]
+                        0       SETUP_FINALLY                   10 (to 22)
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       0: _fd_to_key
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_METHOD                     1: _fileobj_lookup
+                        10      LOAD_FAST                       1: fileobj
+                        12      CALL_METHOD                     1
+                        14      BINARY_SUBSCR                   
+                        16      STORE_FAST                      4: key
+                        18      POP_BLOCK                       
+                        20      JUMP_FORWARD                    15 (to 52)
+                        22      DUP_TOP                         
+                        24      LOAD_GLOBAL                     2: KeyError
+                        26      JUMP_IF_NOT_EXC_MATCH           25 (to 50)
+                        28      POP_TOP                         
+                        30      POP_TOP                         
+                        32      POP_TOP                         
+                        34      LOAD_GLOBAL                     2: KeyError
+                        36      LOAD_FAST                       1: fileobj
+                        38      FORMAT_VALUE                    2 (FVC_REPR)
+                        40      LOAD_CONST                      1: ' is not registered'
+                        42      BUILD_STRING                    2
+                        44      CALL_FUNCTION                   1
+                        46      LOAD_CONST                      0: None
+                        48      RAISE_VARARGS                   2
+                        50      RERAISE                         0
+                        52      LOAD_CONST                      2: False
+                        54      STORE_FAST                      5: changed
+                        56      LOAD_FAST                       2: events
+                        58      LOAD_FAST                       4: key
+                        60      LOAD_ATTR                       3: events
+                        62      COMPARE_OP                      3 (!=)
+                        64      POP_JUMP_IF_FALSE               76 (to 152)
+                        66      LOAD_CONST                      3: 0
+                        68      STORE_FAST                      6: selector_events
+                        70      LOAD_FAST                       2: events
+                        72      LOAD_GLOBAL                     4: EVENT_READ
+                        74      BINARY_AND                      
+                        76      POP_JUMP_IF_FALSE               44 (to 88)
+                        78      LOAD_FAST                       6: selector_events
+                        80      LOAD_FAST                       0: self
+                        82      LOAD_ATTR                       5: _EVENT_READ
+                        84      INPLACE_OR                      
+                        86      STORE_FAST                      6: selector_events
+                        88      LOAD_FAST                       2: events
+                        90      LOAD_GLOBAL                     6: EVENT_WRITE
+                        92      BINARY_AND                      
+                        94      POP_JUMP_IF_FALSE               53 (to 106)
+                        96      LOAD_FAST                       6: selector_events
+                        98      LOAD_FAST                       0: self
+                        100     LOAD_ATTR                       7: _EVENT_WRITE
+                        102     INPLACE_OR                      
+                        104     STORE_FAST                      6: selector_events
+                        106     SETUP_FINALLY                   10 (to 128)
+                        108     LOAD_FAST                       0: self
+                        110     LOAD_ATTR                       8: _selector
+                        112     LOAD_METHOD                     9: modify
+                        114     LOAD_FAST                       4: key
+                        116     LOAD_ATTR                       10: fd
+                        118     LOAD_FAST                       6: selector_events
+                        120     CALL_METHOD                     2
+                        122     POP_TOP                         
+                        124     POP_BLOCK                       
+                        126     JUMP_FORWARD                    10 (to 148)
+                        128     POP_TOP                         
+                        130     POP_TOP                         
+                        132     POP_TOP                         
+                        134     LOAD_GLOBAL                     11: super
+                        136     CALL_FUNCTION                   0
+                        138     LOAD_METHOD                     12: unregister
+                        140     LOAD_FAST                       1: fileobj
+                        142     CALL_METHOD                     1
+                        144     POP_TOP                         
+                        146     RAISE_VARARGS                   0
+                        148     LOAD_CONST                      4: True
+                        150     STORE_FAST                      5: changed
+                        152     LOAD_FAST                       3: data
+                        154     LOAD_FAST                       4: key
+                        156     LOAD_ATTR                       13: data
+                        158     COMPARE_OP                      3 (!=)
+                        160     POP_JUMP_IF_FALSE               83 (to 166)
+                        162     LOAD_CONST                      4: True
+                        164     STORE_FAST                      5: changed
+                        166     LOAD_FAST                       5: changed
+                        168     POP_JUMP_IF_FALSE               98 (to 196)
+                        170     LOAD_FAST                       4: key
+                        172     LOAD_ATTR                       14: _replace
+                        174     LOAD_FAST                       2: events
+                        176     LOAD_FAST                       3: data
+                        178     LOAD_CONST                      5: ('events', 'data')
+                        180     CALL_FUNCTION_KW                2
+                        182     STORE_FAST                      4: key
+                        184     LOAD_FAST                       4: key
+                        186     LOAD_FAST                       0: self
+                        188     LOAD_ATTR                       0: _fd_to_key
+                        190     LOAD_FAST                       4: key
+                        192     LOAD_ATTR                       10: fd
+                        194     STORE_SUBSCR                    
+                        196     LOAD_FAST                       4: key
+                        198     RETURN_VALUE                    
+                '_PollLikeSelector.modify'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: select
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 8
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'math'
+                        'ceil'
+                        '_selector'
+                        'poll'
+                        'InterruptedError'
+                        '_EVENT_READ'
+                        'EVENT_WRITE'
+                        '_EVENT_WRITE'
+                        'EVENT_READ'
+                        '_key_from_fd'
+                        'append'
+                        'events'
+                    [Var Names]
+                        'self'
+                        'timeout'
+                        'ready'
+                        'fd_event_list'
+                        'fd'
+                        'event'
+                        'events'
+                        'key'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                        1000
+                    [Disassembly]
+                        0       LOAD_FAST                       1: timeout
+                        2       LOAD_CONST                      0: None
+                        4       IS_OP                           0 (is)
+                        6       POP_JUMP_IF_FALSE               7 (to 14)
+                        8       LOAD_CONST                      0: None
+                        10      STORE_FAST                      1: timeout
+                        12      JUMP_FORWARD                    14 (to 42)
+                        14      LOAD_FAST                       1: timeout
+                        16      LOAD_CONST                      1: 0
+                        18      COMPARE_OP                      1 (<=)
+                        20      POP_JUMP_IF_FALSE               14 (to 28)
+                        22      LOAD_CONST                      1: 0
+                        24      STORE_FAST                      1: timeout
+                        26      JUMP_FORWARD                    7 (to 42)
+                        28      LOAD_GLOBAL                     0: math
+                        30      LOAD_METHOD                     1: ceil
+                        32      LOAD_FAST                       1: timeout
+                        34      LOAD_CONST                      2: 1000
+                        36      BINARY_MULTIPLY                 
+                        38      CALL_METHOD                     1
+                        40      STORE_FAST                      1: timeout
+                        42      BUILD_LIST                      0
+                        44      STORE_FAST                      2: ready
+                        46      SETUP_FINALLY                   8 (to 64)
+                        48      LOAD_FAST                       0: self
+                        50      LOAD_ATTR                       2: _selector
+                        52      LOAD_METHOD                     3: poll
+                        54      LOAD_FAST                       1: timeout
+                        56      CALL_METHOD                     1
+                        58      STORE_FAST                      3: fd_event_list
+                        60      POP_BLOCK                       
+                        62      JUMP_FORWARD                    11 (to 86)
+                        64      DUP_TOP                         
+                        66      LOAD_GLOBAL                     4: InterruptedError
+                        68      JUMP_IF_NOT_EXC_MATCH           42 (to 84)
+                        70      POP_TOP                         
+                        72      POP_TOP                         
+                        74      POP_TOP                         
+                        76      LOAD_FAST                       2: ready
+                        78      ROT_FOUR                        
+                        80      POP_EXCEPT                      
+                        82      RETURN_VALUE                    
+                        84      RERAISE                         0
+                        86      LOAD_FAST                       3: fd_event_list
+                        88      GET_ITER                        
+                        90      FOR_ITER                        43 (to 178)
+                        92      UNPACK_SEQUENCE                 2
+                        94      STORE_FAST                      4: fd
+                        96      STORE_FAST                      5: event
+                        98      LOAD_CONST                      1: 0
+                        100     STORE_FAST                      6: events
+                        102     LOAD_FAST                       5: event
+                        104     LOAD_FAST                       0: self
+                        106     LOAD_ATTR                       5: _EVENT_READ
+                        108     UNARY_INVERT                    
+                        110     BINARY_AND                      
+                        112     POP_JUMP_IF_FALSE               61 (to 122)
+                        114     LOAD_FAST                       6: events
+                        116     LOAD_GLOBAL                     6: EVENT_WRITE
+                        118     INPLACE_OR                      
+                        120     STORE_FAST                      6: events
+                        122     LOAD_FAST                       5: event
+                        124     LOAD_FAST                       0: self
+                        126     LOAD_ATTR                       7: _EVENT_WRITE
+                        128     UNARY_INVERT                    
+                        130     BINARY_AND                      
+                        132     POP_JUMP_IF_FALSE               71 (to 142)
+                        134     LOAD_FAST                       6: events
+                        136     LOAD_GLOBAL                     8: EVENT_READ
+                        138     INPLACE_OR                      
+                        140     STORE_FAST                      6: events
+                        142     LOAD_FAST                       0: self
+                        144     LOAD_METHOD                     9: _key_from_fd
+                        146     LOAD_FAST                       4: fd
+                        148     CALL_METHOD                     1
+                        150     STORE_FAST                      7: key
+                        152     LOAD_FAST                       7: key
+                        154     POP_JUMP_IF_FALSE               88 (to 176)
+                        156     LOAD_FAST                       2: ready
+                        158     LOAD_METHOD                     10: append
+                        160     LOAD_FAST                       7: key
+                        162     LOAD_FAST                       6: events
+                        164     LOAD_FAST                       7: key
+                        166     LOAD_ATTR                       11: events
+                        168     BINARY_AND                      
+                        170     BUILD_TUPLE                     2
+                        172     CALL_METHOD                     1
+                        174     POP_TOP                         
+                        176     JUMP_ABSOLUTE                   45 (to 90)
+                        178     LOAD_FAST                       2: ready
+                        180     RETURN_VALUE                    
+                '_PollLikeSelector.select'
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: '_PollLikeSelector'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Base class shared between poll, epoll and devpoll selectors.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      STORE_NAME                      4: _selector_cls
+                16      LOAD_CONST                      2: None
+                18      STORE_NAME                      5: _EVENT_READ
+                20      LOAD_CONST                      2: None
+                22      STORE_NAME                      6: _EVENT_WRITE
+                24      LOAD_CLOSURE                    0: __class__
+                26      BUILD_TUPLE                     1
+                28      LOAD_CONST                      3: <CODE> __init__
+                30      LOAD_CONST                      4: '_PollLikeSelector.__init__'
+                32      MAKE_FUNCTION                   8
+                34      STORE_NAME                      7: __init__
+                36      LOAD_CONST                      13: (None,)
+                38      LOAD_CLOSURE                    0: __class__
+                40      BUILD_TUPLE                     1
+                42      LOAD_CONST                      5: <CODE> register
+                44      LOAD_CONST                      6: '_PollLikeSelector.register'
+                46      MAKE_FUNCTION                   9
+                48      STORE_NAME                      8: register
+                50      LOAD_CLOSURE                    0: __class__
+                52      BUILD_TUPLE                     1
+                54      LOAD_CONST                      7: <CODE> unregister
+                56      LOAD_CONST                      8: '_PollLikeSelector.unregister'
+                58      MAKE_FUNCTION                   8
+                60      STORE_NAME                      9: unregister
+                62      LOAD_CONST                      13: (None,)
+                64      LOAD_CLOSURE                    0: __class__
+                66      BUILD_TUPLE                     1
+                68      LOAD_CONST                      9: <CODE> modify
+                70      LOAD_CONST                      10: '_PollLikeSelector.modify'
+                72      MAKE_FUNCTION                   9
+                74      STORE_NAME                      10: modify
+                76      LOAD_CONST                      13: (None,)
+                78      LOAD_CONST                      11: <CODE> select
+                80      LOAD_CONST                      12: '_PollLikeSelector.select'
+                82      MAKE_FUNCTION                   1
+                84      STORE_NAME                      11: select
+                86      LOAD_CLOSURE                    0: __class__
+                88      DUP_TOP                         
+                90      STORE_NAME                      12: __classcell__
+                92      RETURN_VALUE                    
+        '_PollLikeSelector'
+        'poll'
+        [Code]
+            File Name: selectors.py
+            Object Name: PollSelector
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'select'
+                'poll'
+                '_selector_cls'
+                'POLLIN'
+                '_EVENT_READ'
+                'POLLOUT'
+                '_EVENT_WRITE'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'PollSelector'
+                'Poll-based selector.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'PollSelector'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Poll-based selector.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_NAME                       4: select
+                14      LOAD_ATTR                       5: poll
+                16      STORE_NAME                      6: _selector_cls
+                18      LOAD_NAME                       4: select
+                20      LOAD_ATTR                       7: POLLIN
+                22      STORE_NAME                      8: _EVENT_READ
+                24      LOAD_NAME                       4: select
+                26      LOAD_ATTR                       9: POLLOUT
+                28      STORE_NAME                      10: _EVENT_WRITE
+                30      LOAD_CONST                      2: None
+                32      RETURN_VALUE                    
+        'PollSelector'
+        'epoll'
+        [Code]
+            File Name: selectors.py
+            Object Name: EpollSelector
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'select'
+                'epoll'
+                '_selector_cls'
+                'EPOLLIN'
+                '_EVENT_READ'
+                'EPOLLOUT'
+                '_EVENT_WRITE'
+                'fileno'
+                'close'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'EpollSelector'
+                'Epoll-based selector.'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: fileno
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_selector'
+                        'fileno'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _selector
+                        4       LOAD_METHOD                     1: fileno
+                        6       CALL_METHOD                     0
+                        8       RETURN_VALUE                    
+                'EpollSelector.fileno'
+                None
+                [Code]
+                    File Name: selectors.py
+                    Object Name: select
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 9
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'math'
+                        'ceil'
+                        'max'
+                        'len'
+                        '_fd_to_key'
+                        '_selector'
+                        'poll'
+                        'InterruptedError'
+                        'select'
+                        'EPOLLIN'
+                        'EVENT_WRITE'
+                        'EPOLLOUT'
+                        'EVENT_READ'
+                        '_key_from_fd'
+                        'append'
+                        'events'
+                    [Var Names]
+                        'self'
+                        'timeout'
+                        'max_ev'
+                        'ready'
+                        'fd_event_list'
+                        'fd'
+                        'event'
+                        'events'
+                        'key'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        -1
+                        0
+                        1000
+                        0.001
+                        1
+                    [Disassembly]
+                        0       LOAD_FAST                       1: timeout
+                        2       LOAD_CONST                      0: None
+                        4       IS_OP                           0 (is)
+                        6       POP_JUMP_IF_FALSE               7 (to 14)
+                        8       LOAD_CONST                      1: -1
+                        10      STORE_FAST                      1: timeout
+                        12      JUMP_FORWARD                    16 (to 46)
+                        14      LOAD_FAST                       1: timeout
+                        16      LOAD_CONST                      2: 0
+                        18      COMPARE_OP                      1 (<=)
+                        20      POP_JUMP_IF_FALSE               14 (to 28)
+                        22      LOAD_CONST                      2: 0
+                        24      STORE_FAST                      1: timeout
+                        26      JUMP_FORWARD                    9 (to 46)
+                        28      LOAD_GLOBAL                     0: math
+                        30      LOAD_METHOD                     1: ceil
+                        32      LOAD_FAST                       1: timeout
+                        34      LOAD_CONST                      3: 1000
+                        36      BINARY_MULTIPLY                 
+                        38      CALL_METHOD                     1
+                        40      LOAD_CONST                      4: 0.001
+                        42      BINARY_MULTIPLY                 
+                        44      STORE_FAST                      1: timeout
+                        46      LOAD_GLOBAL                     2: max
+                        48      LOAD_GLOBAL                     3: len
+                        50      LOAD_FAST                       0: self
+                        52      LOAD_ATTR                       4: _fd_to_key
+                        54      CALL_FUNCTION                   1
+                        56      LOAD_CONST                      5: 1
+                        58      CALL_FUNCTION                   2
+                        60      STORE_FAST                      2: max_ev
+                        62      BUILD_LIST                      0
+                        64      STORE_FAST                      3: ready
+                        66      SETUP_FINALLY                   9 (to 86)
+                        68      LOAD_FAST                       0: self
+                        70      LOAD_ATTR                       5: _selector
+                        72      LOAD_METHOD                     6: poll
+                        74      LOAD_FAST                       1: timeout
+                        76      LOAD_FAST                       2: max_ev
+                        78      CALL_METHOD                     2
+                        80      STORE_FAST                      4: fd_event_list
+                        82      POP_BLOCK                       
+                        84      JUMP_FORWARD                    11 (to 108)
+                        86      DUP_TOP                         
+                        88      LOAD_GLOBAL                     7: InterruptedError
+                        90      JUMP_IF_NOT_EXC_MATCH           53 (to 106)
+                        92      POP_TOP                         
+                        94      POP_TOP                         
+                        96      POP_TOP                         
+                        98      LOAD_FAST                       3: ready
+                        100     ROT_FOUR                        
+                        102     POP_EXCEPT                      
+                        104     RETURN_VALUE                    
+                        106     RERAISE                         0
+                        108     LOAD_FAST                       4: fd_event_list
+                        110     GET_ITER                        
+                        112     FOR_ITER                        43 (to 200)
+                        114     UNPACK_SEQUENCE                 2
+                        116     STORE_FAST                      5: fd
+                        118     STORE_FAST                      6: event
+                        120     LOAD_CONST                      2: 0
+                        122     STORE_FAST                      7: events
+                        124     LOAD_FAST                       6: event
+                        126     LOAD_GLOBAL                     8: select
+                        128     LOAD_ATTR                       9: EPOLLIN
+                        130     UNARY_INVERT                    
+                        132     BINARY_AND                      
+                        134     POP_JUMP_IF_FALSE               72 (to 144)
+                        136     LOAD_FAST                       7: events
+                        138     LOAD_GLOBAL                     10: EVENT_WRITE
+                        140     INPLACE_OR                      
+                        142     STORE_FAST                      7: events
+                        144     LOAD_FAST                       6: event
+                        146     LOAD_GLOBAL                     8: select
+                        148     LOAD_ATTR                       11: EPOLLOUT
+                        150     UNARY_INVERT                    
+                        152     BINARY_AND                      
+                        154     POP_JUMP_IF_FALSE               82 (to 164)
+                        156     LOAD_FAST                       7: events
+                        158     LOAD_GLOBAL                     12: EVENT_READ
+                        160     INPLACE_OR                      
+                        162     STORE_FAST                      7: events
+                        164     LOAD_FAST                       0: self
+                        166     LOAD_METHOD                     13: _key_from_fd
+                        168     LOAD_FAST                       5: fd
+                        170     CALL_METHOD                     1
+                        172     STORE_FAST                      8: key
+                        174     LOAD_FAST                       8: key
+                        176     POP_JUMP_IF_FALSE               99 (to 198)
+                        178     LOAD_FAST                       3: ready
+                        180     LOAD_METHOD                     14: append
+                        182     LOAD_FAST                       8: key
+                        184     LOAD_FAST                       7: events
+                        186     LOAD_FAST                       8: key
+                        188     LOAD_ATTR                       15: events
+                        190     BINARY_AND                      
+                        192     BUILD_TUPLE                     2
+                        194     CALL_METHOD                     1
+                        196     POP_TOP                         
+                        198     JUMP_ABSOLUTE                   56 (to 112)
+                        200     LOAD_FAST                       3: ready
+                        202     RETURN_VALUE                    
+                'EpollSelector.select'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: close
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        '_selector'
+                        'close'
+                        'super'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _selector
+                        4       LOAD_METHOD                     1: close
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      LOAD_GLOBAL                     2: super
+                        12      CALL_FUNCTION                   0
+                        14      LOAD_METHOD                     1: close
+                        16      CALL_METHOD                     0
+                        18      POP_TOP                         
+                        20      LOAD_CONST                      0: None
+                        22      RETURN_VALUE                    
+                'EpollSelector.close'
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'EpollSelector'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Epoll-based selector.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_NAME                       4: select
+                14      LOAD_ATTR                       5: epoll
+                16      STORE_NAME                      6: _selector_cls
+                18      LOAD_NAME                       4: select
+                20      LOAD_ATTR                       7: EPOLLIN
+                22      STORE_NAME                      8: _EVENT_READ
+                24      LOAD_NAME                       4: select
+                26      LOAD_ATTR                       9: EPOLLOUT
+                28      STORE_NAME                      10: _EVENT_WRITE
+                30      LOAD_CONST                      2: <CODE> fileno
+                32      LOAD_CONST                      3: 'EpollSelector.fileno'
+                34      MAKE_FUNCTION                   0
+                36      STORE_NAME                      11: fileno
+                38      LOAD_CONST                      9: (None,)
+                40      LOAD_CONST                      5: <CODE> select
+                42      LOAD_CONST                      6: 'EpollSelector.select'
+                44      MAKE_FUNCTION                   1
+                46      STORE_NAME                      4: select
+                48      LOAD_CLOSURE                    0: __class__
+                50      BUILD_TUPLE                     1
+                52      LOAD_CONST                      7: <CODE> close
+                54      LOAD_CONST                      8: 'EpollSelector.close'
+                56      MAKE_FUNCTION                   8
+                58      STORE_NAME                      12: close
+                60      LOAD_CLOSURE                    0: __class__
+                62      DUP_TOP                         
+                64      STORE_NAME                      13: __classcell__
+                66      RETURN_VALUE                    
+        'EpollSelector'
+        'devpoll'
+        [Code]
+            File Name: selectors.py
+            Object Name: DevpollSelector
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'select'
+                'devpoll'
+                '_selector_cls'
+                'POLLIN'
+                '_EVENT_READ'
+                'POLLOUT'
+                '_EVENT_WRITE'
+                'fileno'
+                'close'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'DevpollSelector'
+                'Solaris /dev/poll selector.'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: fileno
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_selector'
+                        'fileno'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _selector
+                        4       LOAD_METHOD                     1: fileno
+                        6       CALL_METHOD                     0
+                        8       RETURN_VALUE                    
+                'DevpollSelector.fileno'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: close
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        '_selector'
+                        'close'
+                        'super'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _selector
+                        4       LOAD_METHOD                     1: close
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      LOAD_GLOBAL                     2: super
+                        12      CALL_FUNCTION                   0
+                        14      LOAD_METHOD                     1: close
+                        16      CALL_METHOD                     0
+                        18      POP_TOP                         
+                        20      LOAD_CONST                      0: None
+                        22      RETURN_VALUE                    
+                'DevpollSelector.close'
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'DevpollSelector'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Solaris /dev/poll selector.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_NAME                       4: select
+                14      LOAD_ATTR                       5: devpoll
+                16      STORE_NAME                      6: _selector_cls
+                18      LOAD_NAME                       4: select
+                20      LOAD_ATTR                       7: POLLIN
+                22      STORE_NAME                      8: _EVENT_READ
+                24      LOAD_NAME                       4: select
+                26      LOAD_ATTR                       9: POLLOUT
+                28      STORE_NAME                      10: _EVENT_WRITE
+                30      LOAD_CONST                      2: <CODE> fileno
+                32      LOAD_CONST                      3: 'DevpollSelector.fileno'
+                34      MAKE_FUNCTION                   0
+                36      STORE_NAME                      11: fileno
+                38      LOAD_CLOSURE                    0: __class__
+                40      BUILD_TUPLE                     1
+                42      LOAD_CONST                      4: <CODE> close
+                44      LOAD_CONST                      5: 'DevpollSelector.close'
+                46      MAKE_FUNCTION                   8
+                48      STORE_NAME                      12: close
+                50      LOAD_CLOSURE                    0: __class__
+                52      DUP_TOP                         
+                54      STORE_NAME                      13: __classcell__
+                56      RETURN_VALUE                    
+        'DevpollSelector'
+        'kqueue'
+        [Code]
+            File Name: selectors.py
+            Object Name: KqueueSelector
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                'fileno'
+                'register'
+                'unregister'
+                'select'
+                'close'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'KqueueSelector'
+                'Kqueue-based selector.'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        '__init__'
+                        'select'
+                        'kqueue'
+                        '_selector'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_METHOD                     1: __init__
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      LOAD_GLOBAL                     2: select
+                        12      LOAD_METHOD                     3: kqueue
+                        14      CALL_METHOD                     0
+                        16      LOAD_FAST                       0: self
+                        18      STORE_ATTR                      4: _selector
+                        20      LOAD_CONST                      0: None
+                        22      RETURN_VALUE                    
+                'KqueueSelector.__init__'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: fileno
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_selector'
+                        'fileno'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _selector
+                        4       LOAD_METHOD                     1: fileno
+                        6       CALL_METHOD                     0
+                        8       RETURN_VALUE                    
+                'KqueueSelector.fileno'
+                None
+                [Code]
+                    File Name: selectors.py
+                    Object Name: register
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 6
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        'register'
+                        'EVENT_READ'
+                        'select'
+                        'kevent'
+                        'fd'
+                        'KQ_FILTER_READ'
+                        'KQ_EV_ADD'
+                        '_selector'
+                        'control'
+                        'EVENT_WRITE'
+                        'KQ_FILTER_WRITE'
+                        'unregister'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                        'events'
+                        'data'
+                        'key'
+                        'kev'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_METHOD                     1: register
+                        6       LOAD_FAST                       1: fileobj
+                        8       LOAD_FAST                       2: events
+                        10      LOAD_FAST                       3: data
+                        12      CALL_METHOD                     3
+                        14      STORE_FAST                      4: key
+                        16      SETUP_FINALLY                   52 (to 122)
+                        18      LOAD_FAST                       2: events
+                        20      LOAD_GLOBAL                     2: EVENT_READ
+                        22      BINARY_AND                      
+                        24      POP_JUMP_IF_FALSE               32 (to 64)
+                        26      LOAD_GLOBAL                     3: select
+                        28      LOAD_METHOD                     4: kevent
+                        30      LOAD_FAST                       4: key
+                        32      LOAD_ATTR                       5: fd
+                        34      LOAD_GLOBAL                     3: select
+                        36      LOAD_ATTR                       6: KQ_FILTER_READ
+                        38      LOAD_GLOBAL                     3: select
+                        40      LOAD_ATTR                       7: KQ_EV_ADD
+                        42      CALL_METHOD                     3
+                        44      STORE_FAST                      5: kev
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_ATTR                       8: _selector
+                        50      LOAD_METHOD                     9: control
+                        52      LOAD_FAST                       5: kev
+                        54      BUILD_LIST                      1
+                        56      LOAD_CONST                      1: 0
+                        58      LOAD_CONST                      1: 0
+                        60      CALL_METHOD                     3
+                        62      POP_TOP                         
+                        64      LOAD_FAST                       2: events
+                        66      LOAD_GLOBAL                     10: EVENT_WRITE
+                        68      BINARY_AND                      
+                        70      POP_JUMP_IF_FALSE               58 (to 116)
+                        72      LOAD_GLOBAL                     3: select
+                        74      LOAD_METHOD                     4: kevent
+                        76      LOAD_FAST                       4: key
+                        78      LOAD_ATTR                       5: fd
+                        80      LOAD_GLOBAL                     3: select
+                        82      LOAD_ATTR                       11: KQ_FILTER_WRITE
+                        84      LOAD_GLOBAL                     3: select
+                        86      LOAD_ATTR                       7: KQ_EV_ADD
+                        88      CALL_METHOD                     3
+                        90      STORE_FAST                      5: kev
+                        92      LOAD_FAST                       0: self
+                        94      LOAD_ATTR                       8: _selector
+                        96      LOAD_METHOD                     9: control
+                        98      LOAD_FAST                       5: kev
+                        100     BUILD_LIST                      1
+                        102     LOAD_CONST                      1: 0
+                        104     LOAD_CONST                      1: 0
+                        106     CALL_METHOD                     3
+                        108     POP_TOP                         
+                        110     POP_BLOCK                       
+                        112     LOAD_FAST                       4: key
+                        114     RETURN_VALUE                    
+                        116     POP_BLOCK                       
+                        118     LOAD_FAST                       4: key
+                        120     RETURN_VALUE                    
+                        122     POP_TOP                         
+                        124     POP_TOP                         
+                        126     POP_TOP                         
+                        128     LOAD_GLOBAL                     0: super
+                        130     CALL_FUNCTION                   0
+                        132     LOAD_METHOD                     12: unregister
+                        134     LOAD_FAST                       1: fileobj
+                        136     CALL_METHOD                     1
+                        138     POP_TOP                         
+                        140     RAISE_VARARGS                   0
+                'KqueueSelector.register'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: unregister
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 8
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        'unregister'
+                        'events'
+                        'EVENT_READ'
+                        'select'
+                        'kevent'
+                        'fd'
+                        'KQ_FILTER_READ'
+                        'KQ_EV_DELETE'
+                        '_selector'
+                        'control'
+                        'OSError'
+                        'EVENT_WRITE'
+                        'KQ_FILTER_WRITE'
+                    [Var Names]
+                        'self'
+                        'fileobj'
+                        'key'
+                        'kev'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_METHOD                     1: unregister
+                        6       LOAD_FAST                       1: fileobj
+                        8       CALL_METHOD                     1
+                        10      STORE_FAST                      2: key
+                        12      LOAD_FAST                       2: key
+                        14      LOAD_ATTR                       2: events
+                        16      LOAD_GLOBAL                     3: EVENT_READ
+                        18      BINARY_AND                      
+                        20      POP_JUMP_IF_FALSE               42 (to 84)
+                        22      LOAD_GLOBAL                     4: select
+                        24      LOAD_METHOD                     5: kevent
+                        26      LOAD_FAST                       2: key
+                        28      LOAD_ATTR                       6: fd
+                        30      LOAD_GLOBAL                     4: select
+                        32      LOAD_ATTR                       7: KQ_FILTER_READ
+                        34      LOAD_GLOBAL                     4: select
+                        36      LOAD_ATTR                       8: KQ_EV_DELETE
+                        38      CALL_METHOD                     3
+                        40      STORE_FAST                      3: kev
+                        42      SETUP_FINALLY                   11 (to 66)
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_ATTR                       9: _selector
+                        48      LOAD_METHOD                     10: control
+                        50      LOAD_FAST                       3: kev
+                        52      BUILD_LIST                      1
+                        54      LOAD_CONST                      1: 0
+                        56      LOAD_CONST                      1: 0
+                        58      CALL_METHOD                     3
+                        60      POP_TOP                         
+                        62      POP_BLOCK                       
+                        64      JUMP_FORWARD                    9 (to 84)
+                        66      DUP_TOP                         
+                        68      LOAD_GLOBAL                     11: OSError
+                        70      JUMP_IF_NOT_EXC_MATCH           41 (to 82)
+                        72      POP_TOP                         
+                        74      POP_TOP                         
+                        76      POP_TOP                         
+                        78      POP_EXCEPT                      
+                        80      JUMP_FORWARD                    1 (to 84)
+                        82      RERAISE                         0
+                        84      LOAD_FAST                       2: key
+                        86      LOAD_ATTR                       2: events
+                        88      LOAD_GLOBAL                     12: EVENT_WRITE
+                        90      BINARY_AND                      
+                        92      POP_JUMP_IF_FALSE               80 (to 160)
+                        94      LOAD_GLOBAL                     4: select
+                        96      LOAD_METHOD                     5: kevent
+                        98      LOAD_FAST                       2: key
+                        100     LOAD_ATTR                       6: fd
+                        102     LOAD_GLOBAL                     4: select
+                        104     LOAD_ATTR                       13: KQ_FILTER_WRITE
+                        106     LOAD_GLOBAL                     4: select
+                        108     LOAD_ATTR                       8: KQ_EV_DELETE
+                        110     CALL_METHOD                     3
+                        112     STORE_FAST                      3: kev
+                        114     SETUP_FINALLY                   12 (to 140)
+                        116     LOAD_FAST                       0: self
+                        118     LOAD_ATTR                       9: _selector
+                        120     LOAD_METHOD                     10: control
+                        122     LOAD_FAST                       3: kev
+                        124     BUILD_LIST                      1
+                        126     LOAD_CONST                      1: 0
+                        128     LOAD_CONST                      1: 0
+                        130     CALL_METHOD                     3
+                        132     POP_TOP                         
+                        134     POP_BLOCK                       
+                        136     LOAD_FAST                       2: key
+                        138     RETURN_VALUE                    
+                        140     DUP_TOP                         
+                        142     LOAD_GLOBAL                     11: OSError
+                        144     JUMP_IF_NOT_EXC_MATCH           79 (to 158)
+                        146     POP_TOP                         
+                        148     POP_TOP                         
+                        150     POP_TOP                         
+                        152     POP_EXCEPT                      
+                        154     LOAD_FAST                       2: key
+                        156     RETURN_VALUE                    
+                        158     RERAISE                         0
+                        160     LOAD_FAST                       2: key
+                        162     RETURN_VALUE                    
+                'KqueueSelector.unregister'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: select
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 10
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'max'
+                        'len'
+                        '_fd_to_key'
+                        '_selector'
+                        'control'
+                        'InterruptedError'
+                        'ident'
+                        'filter'
+                        'select'
+                        'KQ_FILTER_READ'
+                        'EVENT_READ'
+                        'KQ_FILTER_WRITE'
+                        'EVENT_WRITE'
+                        '_key_from_fd'
+                        'append'
+                        'events'
+                    [Var Names]
+                        'self'
+                        'timeout'
+                        'max_ev'
+                        'ready'
+                        'kev_list'
+                        'kev'
+                        'fd'
+                        'flag'
+                        'events'
+                        'key'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                        1
+                    [Disassembly]
+                        0       LOAD_FAST                       1: timeout
+                        2       LOAD_CONST                      0: None
+                        4       IS_OP                           0 (is)
+                        6       POP_JUMP_IF_FALSE               6 (to 12)
+                        8       LOAD_CONST                      0: None
+                        10      JUMP_FORWARD                    4 (to 20)
+                        12      LOAD_GLOBAL                     0: max
+                        14      LOAD_FAST                       1: timeout
+                        16      LOAD_CONST                      1: 0
+                        18      CALL_FUNCTION                   2
+                        20      STORE_FAST                      1: timeout
+                        22      LOAD_GLOBAL                     0: max
+                        24      LOAD_GLOBAL                     1: len
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_ATTR                       2: _fd_to_key
+                        30      CALL_FUNCTION                   1
+                        32      LOAD_CONST                      2: 1
+                        34      CALL_FUNCTION                   2
+                        36      STORE_FAST                      2: max_ev
+                        38      BUILD_LIST                      0
+                        40      STORE_FAST                      3: ready
+                        42      SETUP_FINALLY                   10 (to 64)
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_ATTR                       3: _selector
+                        48      LOAD_METHOD                     4: control
+                        50      LOAD_CONST                      0: None
+                        52      LOAD_FAST                       2: max_ev
+                        54      LOAD_FAST                       1: timeout
+                        56      CALL_METHOD                     3
+                        58      STORE_FAST                      4: kev_list
+                        60      POP_BLOCK                       
+                        62      JUMP_FORWARD                    11 (to 86)
+                        64      DUP_TOP                         
+                        66      LOAD_GLOBAL                     5: InterruptedError
+                        68      JUMP_IF_NOT_EXC_MATCH           42 (to 84)
+                        70      POP_TOP                         
+                        72      POP_TOP                         
+                        74      POP_TOP                         
+                        76      LOAD_FAST                       3: ready
+                        78      ROT_FOUR                        
+                        80      POP_EXCEPT                      
+                        82      RETURN_VALUE                    
+                        84      RERAISE                         0
+                        86      LOAD_FAST                       4: kev_list
+                        88      GET_ITER                        
+                        90      FOR_ITER                        45 (to 182)
+                        92      STORE_FAST                      5: kev
+                        94      LOAD_FAST                       5: kev
+                        96      LOAD_ATTR                       6: ident
+                        98      STORE_FAST                      6: fd
+                        100     LOAD_FAST                       5: kev
+                        102     LOAD_ATTR                       7: filter
+                        104     STORE_FAST                      7: flag
+                        106     LOAD_CONST                      1: 0
+                        108     STORE_FAST                      8: events
+                        110     LOAD_FAST                       7: flag
+                        112     LOAD_GLOBAL                     8: select
+                        114     LOAD_ATTR                       9: KQ_FILTER_READ
+                        116     COMPARE_OP                      2 (==)
+                        118     POP_JUMP_IF_FALSE               64 (to 128)
+                        120     LOAD_FAST                       8: events
+                        122     LOAD_GLOBAL                     10: EVENT_READ
+                        124     INPLACE_OR                      
+                        126     STORE_FAST                      8: events
+                        128     LOAD_FAST                       7: flag
+                        130     LOAD_GLOBAL                     8: select
+                        132     LOAD_ATTR                       11: KQ_FILTER_WRITE
+                        134     COMPARE_OP                      2 (==)
+                        136     POP_JUMP_IF_FALSE               73 (to 146)
+                        138     LOAD_FAST                       8: events
+                        140     LOAD_GLOBAL                     12: EVENT_WRITE
+                        142     INPLACE_OR                      
+                        144     STORE_FAST                      8: events
+                        146     LOAD_FAST                       0: self
+                        148     LOAD_METHOD                     13: _key_from_fd
+                        150     LOAD_FAST                       6: fd
+                        152     CALL_METHOD                     1
+                        154     STORE_FAST                      9: key
+                        156     LOAD_FAST                       9: key
+                        158     POP_JUMP_IF_FALSE               90 (to 180)
+                        160     LOAD_FAST                       3: ready
+                        162     LOAD_METHOD                     14: append
+                        164     LOAD_FAST                       9: key
+                        166     LOAD_FAST                       8: events
+                        168     LOAD_FAST                       9: key
+                        170     LOAD_ATTR                       15: events
+                        172     BINARY_AND                      
+                        174     BUILD_TUPLE                     2
+                        176     CALL_METHOD                     1
+                        178     POP_TOP                         
+                        180     JUMP_ABSOLUTE                   45 (to 90)
+                        182     LOAD_FAST                       3: ready
+                        184     RETURN_VALUE                    
+                'KqueueSelector.select'
+                [Code]
+                    File Name: selectors.py
+                    Object Name: close
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        '_selector'
+                        'close'
+                        'super'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _selector
+                        4       LOAD_METHOD                     1: close
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      LOAD_GLOBAL                     2: super
+                        12      CALL_FUNCTION                   0
+                        14      LOAD_METHOD                     1: close
+                        16      CALL_METHOD                     0
+                        18      POP_TOP                         
+                        20      LOAD_CONST                      0: None
+                        22      RETURN_VALUE                    
+                'KqueueSelector.close'
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'KqueueSelector'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Kqueue-based selector.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CLOSURE                    0: __class__
+                14      BUILD_TUPLE                     1
+                16      LOAD_CONST                      2: <CODE> __init__
+                18      LOAD_CONST                      3: 'KqueueSelector.__init__'
+                20      MAKE_FUNCTION                   8
+                22      STORE_NAME                      4: __init__
+                24      LOAD_CONST                      4: <CODE> fileno
+                26      LOAD_CONST                      5: 'KqueueSelector.fileno'
+                28      MAKE_FUNCTION                   0
+                30      STORE_NAME                      5: fileno
+                32      LOAD_CONST                      15: (None,)
+                34      LOAD_CLOSURE                    0: __class__
+                36      BUILD_TUPLE                     1
+                38      LOAD_CONST                      7: <CODE> register
+                40      LOAD_CONST                      8: 'KqueueSelector.register'
+                42      MAKE_FUNCTION                   9
+                44      STORE_NAME                      6: register
+                46      LOAD_CLOSURE                    0: __class__
+                48      BUILD_TUPLE                     1
+                50      LOAD_CONST                      9: <CODE> unregister
+                52      LOAD_CONST                      10: 'KqueueSelector.unregister'
+                54      MAKE_FUNCTION                   8
+                56      STORE_NAME                      7: unregister
+                58      LOAD_CONST                      15: (None,)
+                60      LOAD_CONST                      11: <CODE> select
+                62      LOAD_CONST                      12: 'KqueueSelector.select'
+                64      MAKE_FUNCTION                   1
+                66      STORE_NAME                      8: select
+                68      LOAD_CLOSURE                    0: __class__
+                70      BUILD_TUPLE                     1
+                72      LOAD_CONST                      13: <CODE> close
+                74      LOAD_CONST                      14: 'KqueueSelector.close'
+                76      MAKE_FUNCTION                   8
+                78      STORE_NAME                      9: close
+                80      LOAD_CLOSURE                    0: __class__
+                82      DUP_TOP                         
+                84      STORE_NAME                      10: __classcell__
+                86      RETURN_VALUE                    
+        'KqueueSelector'
+        [Code]
+            File Name: selectors.py
+            Object Name: _can_use
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'getattr'
+                'select'
+                'poll'
+                'close'
+                'OSError'
+            [Var Names]
+                'method'
+                'selector'
+                'selector_obj'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Check if we can use the selector depending upon the\n    operating system. '
+                None
+                False
+                'poll'
+                0
+                True
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: getattr
+                2       LOAD_GLOBAL                     1: select
+                4       LOAD_FAST                       0: method
+                6       LOAD_CONST                      1: None
+                8       CALL_FUNCTION                   3
+                10      STORE_FAST                      1: selector
+                12      LOAD_FAST                       1: selector
+                14      LOAD_CONST                      1: None
+                16      IS_OP                           0 (is)
+                18      POP_JUMP_IF_FALSE               12 (to 24)
+                20      LOAD_CONST                      2: False
+                22      RETURN_VALUE                    
+                24      SETUP_FINALLY                   22 (to 70)
+                26      LOAD_FAST                       1: selector
+                28      CALL_FUNCTION                   0
+                30      STORE_FAST                      2: selector_obj
+                32      LOAD_FAST                       0: method
+                34      LOAD_CONST                      3: 'poll'
+                36      COMPARE_OP                      2 (==)
+                38      POP_JUMP_IF_FALSE               28 (to 56)
+                40      LOAD_FAST                       2: selector_obj
+                42      LOAD_METHOD                     2: poll
+                44      LOAD_CONST                      4: 0
+                46      CALL_METHOD                     1
+                48      POP_TOP                         
+                50      POP_BLOCK                       
+                52      LOAD_CONST                      5: True
+                54      RETURN_VALUE                    
+                56      LOAD_FAST                       2: selector_obj
+                58      LOAD_METHOD                     3: close
+                60      CALL_METHOD                     0
+                62      POP_TOP                         
+                64      POP_BLOCK                       
+                66      LOAD_CONST                      5: True
+                68      RETURN_VALUE                    
+                70      DUP_TOP                         
+                72      LOAD_GLOBAL                     4: OSError
+                74      JUMP_IF_NOT_EXC_MATCH           44 (to 88)
+                76      POP_TOP                         
+                78      POP_TOP                         
+                80      POP_TOP                         
+                82      POP_EXCEPT                      
+                84      LOAD_CONST                      2: False
+                86      RETURN_VALUE                    
+                88      RERAISE                         0
+        '_can_use'
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Selectors module.\n\nThis module allows high-level and efficient I/O multiplexing, built upon the\n`select` module primitives.\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: ('ABCMeta', 'abstractmethod')
+        8       IMPORT_NAME                     1: abc
+        10      IMPORT_FROM                     2: ABCMeta
+        12      STORE_NAME                      2: ABCMeta
+        14      IMPORT_FROM                     3: abstractmethod
+        16      STORE_NAME                      3: abstractmethod
+        18      POP_TOP                         
+        20      LOAD_CONST                      1: 0
+        22      LOAD_CONST                      3: ('namedtuple',)
+        24      IMPORT_NAME                     4: collections
+        26      IMPORT_FROM                     5: namedtuple
+        28      STORE_NAME                      5: namedtuple
+        30      POP_TOP                         
+        32      LOAD_CONST                      1: 0
+        34      LOAD_CONST                      4: ('Mapping',)
+        36      IMPORT_NAME                     6: collections.abc
+        38      IMPORT_FROM                     7: Mapping
+        40      STORE_NAME                      7: Mapping
+        42      POP_TOP                         
+        44      LOAD_CONST                      1: 0
+        46      LOAD_CONST                      5: None
+        48      IMPORT_NAME                     8: math
+        50      STORE_NAME                      8: math
+        52      LOAD_CONST                      1: 0
+        54      LOAD_CONST                      5: None
+        56      IMPORT_NAME                     9: select
+        58      STORE_NAME                      9: select
+        60      LOAD_CONST                      1: 0
+        62      LOAD_CONST                      5: None
+        64      IMPORT_NAME                     10: sys
+        66      STORE_NAME                      10: sys
+        68      LOAD_CONST                      6: 1
+        70      STORE_NAME                      11: EVENT_READ
+        72      LOAD_CONST                      7: 2
+        74      STORE_NAME                      12: EVENT_WRITE
+        76      LOAD_CONST                      8: <CODE> _fileobj_to_fd
+        78      LOAD_CONST                      9: '_fileobj_to_fd'
+        80      MAKE_FUNCTION                   0
+        82      STORE_NAME                      13: _fileobj_to_fd
+        84      LOAD_NAME                       5: namedtuple
+        86      LOAD_CONST                      10: 'SelectorKey'
+        88      BUILD_LIST                      0
+        90      LOAD_CONST                      11: ('fileobj', 'fd', 'events', 'data')
+        92      LIST_EXTEND                     1
+        94      CALL_FUNCTION                   2
+        96      STORE_NAME                      14: SelectorKey
+        98      LOAD_CONST                      12: 'SelectorKey(fileobj, fd, events, data)\n\n    Object used to associate a file object to its backing\n    file descriptor, selected event mask, and attached data.\n'
+        100     LOAD_NAME                       14: SelectorKey
+        102     STORE_ATTR                      0: __doc__
+        104     LOAD_NAME                       10: sys
+        106     LOAD_ATTR                       15: version_info
+        108     LOAD_CONST                      13: (3, 5)
+        110     COMPARE_OP                      5 (>=)
+        112     POP_JUMP_IF_FALSE               73 (to 146)
+        114     LOAD_CONST                      14: 'File object registered.'
+        116     LOAD_NAME                       14: SelectorKey
+        118     LOAD_ATTR                       16: fileobj
+        120     STORE_ATTR                      0: __doc__
+        122     LOAD_CONST                      15: 'Underlying file descriptor.'
+        124     LOAD_NAME                       14: SelectorKey
+        126     LOAD_ATTR                       17: fd
+        128     STORE_ATTR                      0: __doc__
+        130     LOAD_CONST                      16: 'Events that must be waited for on this file object.'
+        132     LOAD_NAME                       14: SelectorKey
+        134     LOAD_ATTR                       18: events
+        136     STORE_ATTR                      0: __doc__
+        138     LOAD_CONST                      17: 'Optional opaque data associated to this file object.\n    For example, this could be used to store a per-client session ID.'
+        140     LOAD_NAME                       14: SelectorKey
+        142     LOAD_ATTR                       19: data
+        144     STORE_ATTR                      0: __doc__
+        146     LOAD_BUILD_CLASS                
+        148     LOAD_CONST                      18: <CODE> _SelectorMapping
+        150     LOAD_CONST                      19: '_SelectorMapping'
+        152     MAKE_FUNCTION                   0
+        154     LOAD_CONST                      19: '_SelectorMapping'
+        156     LOAD_NAME                       7: Mapping
+        158     CALL_FUNCTION                   3
+        160     STORE_NAME                      20: _SelectorMapping
+        162     LOAD_BUILD_CLASS                
+        164     LOAD_CONST                      20: <CODE> BaseSelector
+        166     LOAD_CONST                      21: 'BaseSelector'
+        168     MAKE_FUNCTION                   0
+        170     LOAD_CONST                      21: 'BaseSelector'
+        172     LOAD_NAME                       2: ABCMeta
+        174     LOAD_CONST                      22: ('metaclass',)
+        176     CALL_FUNCTION_KW                3
+        178     STORE_NAME                      21: BaseSelector
+        180     LOAD_BUILD_CLASS                
+        182     LOAD_CONST                      23: <CODE> _BaseSelectorImpl
+        184     LOAD_CONST                      24: '_BaseSelectorImpl'
+        186     MAKE_FUNCTION                   0
+        188     LOAD_CONST                      24: '_BaseSelectorImpl'
+        190     LOAD_NAME                       21: BaseSelector
+        192     CALL_FUNCTION                   3
+        194     STORE_NAME                      22: _BaseSelectorImpl
+        196     LOAD_BUILD_CLASS                
+        198     LOAD_CONST                      25: <CODE> SelectSelector
+        200     LOAD_CONST                      26: 'SelectSelector'
+        202     MAKE_FUNCTION                   0
+        204     LOAD_CONST                      26: 'SelectSelector'
+        206     LOAD_NAME                       22: _BaseSelectorImpl
+        208     CALL_FUNCTION                   3
+        210     STORE_NAME                      23: SelectSelector
+        212     LOAD_BUILD_CLASS                
+        214     LOAD_CONST                      27: <CODE> _PollLikeSelector
+        216     LOAD_CONST                      28: '_PollLikeSelector'
+        218     MAKE_FUNCTION                   0
+        220     LOAD_CONST                      28: '_PollLikeSelector'
+        222     LOAD_NAME                       22: _BaseSelectorImpl
+        224     CALL_FUNCTION                   3
+        226     STORE_NAME                      24: _PollLikeSelector
+        228     LOAD_NAME                       25: hasattr
+        230     LOAD_NAME                       9: select
+        232     LOAD_CONST                      29: 'poll'
+        234     CALL_FUNCTION                   2
+        236     POP_JUMP_IF_FALSE               127 (to 254)
+        238     LOAD_BUILD_CLASS                
+        240     LOAD_CONST                      30: <CODE> PollSelector
+        242     LOAD_CONST                      31: 'PollSelector'
+        244     MAKE_FUNCTION                   0
+        246     LOAD_CONST                      31: 'PollSelector'
+        248     LOAD_NAME                       24: _PollLikeSelector
+        250     CALL_FUNCTION                   3
+        252     STORE_NAME                      26: PollSelector
+        254     LOAD_NAME                       25: hasattr
+        256     LOAD_NAME                       9: select
+        258     LOAD_CONST                      32: 'epoll'
+        260     CALL_FUNCTION                   2
+        262     POP_JUMP_IF_FALSE               140 (to 280)
+        264     LOAD_BUILD_CLASS                
+        266     LOAD_CONST                      33: <CODE> EpollSelector
+        268     LOAD_CONST                      34: 'EpollSelector'
+        270     MAKE_FUNCTION                   0
+        272     LOAD_CONST                      34: 'EpollSelector'
+        274     LOAD_NAME                       24: _PollLikeSelector
+        276     CALL_FUNCTION                   3
+        278     STORE_NAME                      27: EpollSelector
+        280     LOAD_NAME                       25: hasattr
+        282     LOAD_NAME                       9: select
+        284     LOAD_CONST                      35: 'devpoll'
+        286     CALL_FUNCTION                   2
+        288     POP_JUMP_IF_FALSE               153 (to 306)
+        290     LOAD_BUILD_CLASS                
+        292     LOAD_CONST                      36: <CODE> DevpollSelector
+        294     LOAD_CONST                      37: 'DevpollSelector'
+        296     MAKE_FUNCTION                   0
+        298     LOAD_CONST                      37: 'DevpollSelector'
+        300     LOAD_NAME                       24: _PollLikeSelector
+        302     CALL_FUNCTION                   3
+        304     STORE_NAME                      28: DevpollSelector
+        306     LOAD_NAME                       25: hasattr
+        308     LOAD_NAME                       9: select
+        310     LOAD_CONST                      38: 'kqueue'
+        312     CALL_FUNCTION                   2
+        314     POP_JUMP_IF_FALSE               166 (to 332)
+        316     LOAD_BUILD_CLASS                
+        318     LOAD_CONST                      39: <CODE> KqueueSelector
+        320     LOAD_CONST                      40: 'KqueueSelector'
+        322     MAKE_FUNCTION                   0
+        324     LOAD_CONST                      40: 'KqueueSelector'
+        326     LOAD_NAME                       22: _BaseSelectorImpl
+        328     CALL_FUNCTION                   3
+        330     STORE_NAME                      29: KqueueSelector
+        332     LOAD_CONST                      41: <CODE> _can_use
+        334     LOAD_CONST                      42: '_can_use'
+        336     MAKE_FUNCTION                   0
+        338     STORE_NAME                      30: _can_use
+        340     LOAD_NAME                       30: _can_use
+        342     LOAD_CONST                      38: 'kqueue'
+        344     CALL_FUNCTION                   1
+        346     POP_JUMP_IF_FALSE               178 (to 356)
+        348     LOAD_NAME                       29: KqueueSelector
+        350     STORE_NAME                      31: DefaultSelector
+        352     LOAD_CONST                      5: None
+        354     RETURN_VALUE                    
+        356     LOAD_NAME                       30: _can_use
+        358     LOAD_CONST                      32: 'epoll'
+        360     CALL_FUNCTION                   1
+        362     POP_JUMP_IF_FALSE               186 (to 372)
+        364     LOAD_NAME                       27: EpollSelector
+        366     STORE_NAME                      31: DefaultSelector
+        368     LOAD_CONST                      5: None
+        370     RETURN_VALUE                    
+        372     LOAD_NAME                       30: _can_use
+        374     LOAD_CONST                      35: 'devpoll'
+        376     CALL_FUNCTION                   1
+        378     POP_JUMP_IF_FALSE               194 (to 388)
+        380     LOAD_NAME                       28: DevpollSelector
+        382     STORE_NAME                      31: DefaultSelector
+        384     LOAD_CONST                      5: None
+        386     RETURN_VALUE                    
+        388     LOAD_NAME                       30: _can_use
+        390     LOAD_CONST                      29: 'poll'
+        392     CALL_FUNCTION                   1
+        394     POP_JUMP_IF_FALSE               202 (to 404)
+        396     LOAD_NAME                       26: PollSelector
+        398     STORE_NAME                      31: DefaultSelector
+        400     LOAD_CONST                      5: None
+        402     RETURN_VALUE                    
+        404     LOAD_NAME                       23: SelectSelector
+        406     STORE_NAME                      31: DefaultSelector
+        408     LOAD_CONST                      5: None
+        410     RETURN_VALUE                    

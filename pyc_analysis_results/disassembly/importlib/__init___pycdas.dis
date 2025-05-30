@@ -1,0 +1,725 @@
+__init__.pyc (Python 3.10)
+[Code]
+    File Name: importlib/__init__.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 8
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        '_imp'
+        'sys'
+        '_frozen_importlib'
+        '_bootstrap'
+        'ImportError'
+        ''
+        '_setup'
+        '__name__'
+        '__package__'
+        '__file__'
+        'replace'
+        'NameError'
+        'modules'
+        '_frozen_importlib_external'
+        '_bootstrap_external'
+        '_set_bootstrap_module'
+        '_pack_uint32'
+        '_unpack_uint32'
+        'warnings'
+        '__import__'
+        'invalidate_caches'
+        'find_loader'
+        'import_module'
+        '_RELOADING'
+        'reload'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'A pure Python implementation of import.'
+        (
+            '__import__'
+            'import_module'
+            'invalidate_caches'
+            'reload'
+        )
+        0
+        None
+        1
+        (
+            '_bootstrap'
+        )
+        'importlib._bootstrap'
+        'importlib'
+        '__init__.py'
+        '_bootstrap.py'
+        (
+            '_bootstrap_external'
+        )
+        'importlib._bootstrap_external'
+        '_bootstrap_external.py'
+        (
+            '__import__'
+        )
+        [Code]
+            File Name: importlib/__init__.py
+            Object Name: invalidate_caches
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'sys'
+                'meta_path'
+                'hasattr'
+                'invalidate_caches'
+            [Var Names]
+                'finder'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Call the invalidate_caches() method on all meta path finders stored in\n    sys.meta_path (where implemented).'
+                'invalidate_caches'
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: sys
+                2       LOAD_ATTR                       1: meta_path
+                4       GET_ITER                        
+                6       FOR_ITER                        11 (to 30)
+                8       STORE_FAST                      0: finder
+                10      LOAD_GLOBAL                     2: hasattr
+                12      LOAD_FAST                       0: finder
+                14      LOAD_CONST                      1: 'invalidate_caches'
+                16      CALL_FUNCTION                   2
+                18      POP_JUMP_IF_FALSE               14 (to 28)
+                20      LOAD_FAST                       0: finder
+                22      LOAD_METHOD                     3: invalidate_caches
+                24      CALL_METHOD                     0
+                26      POP_TOP                         
+                28      JUMP_ABSOLUTE                   3 (to 6)
+                30      LOAD_CONST                      2: None
+                32      RETURN_VALUE                    
+        'invalidate_caches'
+        [Code]
+            File Name: importlib/__init__.py
+            Object Name: find_loader
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'warnings'
+                'warn'
+                'DeprecationWarning'
+                'sys'
+                'modules'
+                '__loader__'
+                'ValueError'
+                'format'
+                'KeyError'
+                'AttributeError'
+                '_bootstrap'
+                '_find_spec'
+                'loader'
+                'submodule_search_locations'
+                'ImportError'
+            [Var Names]
+                'name'
+                'path'
+                'loader'
+                'spec'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return the loader for the specified module.\n\n    This is a backward-compatible wrapper around find_spec().\n\n    This function is deprecated in favor of importlib.util.find_spec().\n\n    '
+                'Deprecated since Python 3.4 and slated for removal in Python 3.12; use importlib.util.find_spec() instead'
+                2
+                (
+                    'stacklevel'
+                )
+                None
+                '{}.__loader__ is None'
+                '{}.__loader__ is not set'
+                'spec for {} missing loader'
+                (
+                    'name'
+                )
+                'namespace packages do not have loaders'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: warnings
+                2       LOAD_ATTR                       1: warn
+                4       LOAD_CONST                      1: 'Deprecated since Python 3.4 and slated for removal in Python 3.12; use importlib.util.find_spec() instead'
+                6       LOAD_GLOBAL                     2: DeprecationWarning
+                8       LOAD_CONST                      2: 2
+                10      LOAD_CONST                      3: ('stacklevel',)
+                12      CALL_FUNCTION_KW                3
+                14      POP_TOP                         
+                16      SETUP_FINALLY                   20 (to 58)
+                18      LOAD_GLOBAL                     3: sys
+                20      LOAD_ATTR                       4: modules
+                22      LOAD_FAST                       0: name
+                24      BINARY_SUBSCR                   
+                26      LOAD_ATTR                       5: __loader__
+                28      STORE_FAST                      2: loader
+                30      LOAD_FAST                       2: loader
+                32      LOAD_CONST                      4: None
+                34      IS_OP                           0 (is)
+                36      POP_JUMP_IF_FALSE               26 (to 52)
+                38      LOAD_GLOBAL                     6: ValueError
+                40      LOAD_CONST                      5: '{}.__loader__ is None'
+                42      LOAD_METHOD                     7: format
+                44      LOAD_FAST                       0: name
+                46      CALL_METHOD                     1
+                48      CALL_FUNCTION                   1
+                50      RAISE_VARARGS                   1
+                52      LOAD_FAST                       2: loader
+                54      POP_BLOCK                       
+                56      RETURN_VALUE                    
+                58      DUP_TOP                         
+                60      LOAD_GLOBAL                     8: KeyError
+                62      JUMP_IF_NOT_EXC_MATCH           37 (to 74)
+                64      POP_TOP                         
+                66      POP_TOP                         
+                68      POP_TOP                         
+                70      POP_EXCEPT                      
+                72      JUMP_FORWARD                    15 (to 104)
+                74      DUP_TOP                         
+                76      LOAD_GLOBAL                     9: AttributeError
+                78      JUMP_IF_NOT_EXC_MATCH           51 (to 102)
+                80      POP_TOP                         
+                82      POP_TOP                         
+                84      POP_TOP                         
+                86      LOAD_GLOBAL                     6: ValueError
+                88      LOAD_CONST                      6: '{}.__loader__ is not set'
+                90      LOAD_METHOD                     7: format
+                92      LOAD_FAST                       0: name
+                94      CALL_METHOD                     1
+                96      CALL_FUNCTION                   1
+                98      LOAD_CONST                      4: None
+                100     RAISE_VARARGS                   2
+                102     RERAISE                         0
+                104     LOAD_GLOBAL                     10: _bootstrap
+                106     LOAD_METHOD                     11: _find_spec
+                108     LOAD_FAST                       0: name
+                110     LOAD_FAST                       1: path
+                112     CALL_METHOD                     2
+                114     STORE_FAST                      3: spec
+                116     LOAD_FAST                       3: spec
+                118     LOAD_CONST                      4: None
+                120     IS_OP                           0 (is)
+                122     POP_JUMP_IF_FALSE               64 (to 128)
+                124     LOAD_CONST                      4: None
+                126     RETURN_VALUE                    
+                128     LOAD_FAST                       3: spec
+                130     LOAD_ATTR                       12: loader
+                132     LOAD_CONST                      4: None
+                134     IS_OP                           0 (is)
+                136     POP_JUMP_IF_FALSE               89 (to 178)
+                138     LOAD_FAST                       3: spec
+                140     LOAD_ATTR                       13: submodule_search_locations
+                142     LOAD_CONST                      4: None
+                144     IS_OP                           0 (is)
+                146     POP_JUMP_IF_FALSE               83 (to 166)
+                148     LOAD_GLOBAL                     14: ImportError
+                150     LOAD_CONST                      7: 'spec for {} missing loader'
+                152     LOAD_METHOD                     7: format
+                154     LOAD_FAST                       0: name
+                156     CALL_METHOD                     1
+                158     LOAD_FAST                       0: name
+                160     LOAD_CONST                      8: ('name',)
+                162     CALL_FUNCTION_KW                2
+                164     RAISE_VARARGS                   1
+                166     LOAD_GLOBAL                     14: ImportError
+                168     LOAD_CONST                      9: 'namespace packages do not have loaders'
+                170     LOAD_FAST                       0: name
+                172     LOAD_CONST                      8: ('name',)
+                174     CALL_FUNCTION_KW                2
+                176     RAISE_VARARGS                   1
+                178     LOAD_FAST                       3: spec
+                180     LOAD_ATTR                       12: loader
+                182     RETURN_VALUE                    
+        'find_loader'
+        [Code]
+            File Name: importlib/__init__.py
+            Object Name: import_module
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'startswith'
+                'TypeError'
+                'format'
+                '_bootstrap'
+                '_gcd_import'
+            [Var Names]
+                'name'
+                'package'
+                'level'
+                'msg'
+                'character'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Import a module.\n\n    The 'package' argument is required when performing a relative import. It\n    specifies the package to use as the anchor point from which to resolve the\n    relative import to an absolute import.\n\n    "
+                0
+                '.'
+                "the 'package' argument is required to perform a relative import for {!r}"
+                1
+                None
+            [Disassembly]
+                0       LOAD_CONST                      1: 0
+                2       STORE_FAST                      2: level
+                4       LOAD_FAST                       0: name
+                6       LOAD_METHOD                     0: startswith
+                8       LOAD_CONST                      2: '.'
+                10      CALL_METHOD                     1
+                12      POP_JUMP_IF_FALSE               33 (to 66)
+                14      LOAD_FAST                       1: package
+                16      POP_JUMP_IF_TRUE                18 (to 36)
+                18      LOAD_CONST                      3: "the 'package' argument is required to perform a relative import for {!r}"
+                20      STORE_FAST                      3: msg
+                22      LOAD_GLOBAL                     1: TypeError
+                24      LOAD_FAST                       3: msg
+                26      LOAD_METHOD                     2: format
+                28      LOAD_FAST                       0: name
+                30      CALL_METHOD                     1
+                32      CALL_FUNCTION                   1
+                34      RAISE_VARARGS                   1
+                36      LOAD_FAST                       0: name
+                38      GET_ITER                        
+                40      FOR_ITER                        12 (to 66)
+                42      STORE_FAST                      4: character
+                44      LOAD_FAST                       4: character
+                46      LOAD_CONST                      2: '.'
+                48      COMPARE_OP                      3 (!=)
+                50      POP_JUMP_IF_FALSE               28 (to 56)
+                52      POP_TOP                         
+                54      JUMP_FORWARD                    5 (to 66)
+                56      LOAD_FAST                       2: level
+                58      LOAD_CONST                      4: 1
+                60      INPLACE_ADD                     
+                62      STORE_FAST                      2: level
+                64      JUMP_ABSOLUTE                   20 (to 40)
+                66      LOAD_GLOBAL                     3: _bootstrap
+                68      LOAD_METHOD                     4: _gcd_import
+                70      LOAD_FAST                       0: name
+                72      LOAD_FAST                       2: level
+                74      LOAD_CONST                      5: None
+                76      BUILD_SLICE                     2
+                78      BINARY_SUBSCR                   
+                80      LOAD_FAST                       1: package
+                82      LOAD_FAST                       2: level
+                84      CALL_METHOD                     3
+                86      RETURN_VALUE                    
+        'import_module'
+        [Code]
+            File Name: importlib/__init__.py
+            Object Name: reload
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 8
+            Stack Size: 14
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '__spec__'
+                'name'
+                'AttributeError'
+                '__name__'
+                'TypeError'
+                'sys'
+                'modules'
+                'get'
+                'ImportError'
+                'format'
+                '_RELOADING'
+                'rpartition'
+                'KeyError'
+                '__path__'
+                '_bootstrap'
+                '_find_spec'
+                'ModuleNotFoundError'
+                '_exec'
+            [Var Names]
+                'module'
+                'name'
+                'msg'
+                'parent_name'
+                'parent'
+                'pkgpath'
+                'target'
+                'spec'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Reload the module and return it.\n\n    The module must have been successfully imported before.\n\n    '
+                'reload() argument must be a module'
+                'module {} not in sys.modules'
+                (
+                    'name'
+                )
+                '.'
+                0
+                'parent {!r} not in sys.modules'
+                None
+                'spec not found for the module '
+            [Disassembly]
+                0       SETUP_FINALLY                   6 (to 14)
+                2       LOAD_FAST                       0: module
+                4       LOAD_ATTR                       0: __spec__
+                6       LOAD_ATTR                       1: name
+                8       STORE_FAST                      1: name
+                10      POP_BLOCK                       
+                12      JUMP_FORWARD                    26 (to 66)
+                14      DUP_TOP                         
+                16      LOAD_GLOBAL                     2: AttributeError
+                18      JUMP_IF_NOT_EXC_MATCH           32 (to 64)
+                20      POP_TOP                         
+                22      POP_TOP                         
+                24      POP_TOP                         
+                26      SETUP_FINALLY                   5 (to 38)
+                28      LOAD_FAST                       0: module
+                30      LOAD_ATTR                       3: __name__
+                32      STORE_FAST                      1: name
+                34      POP_BLOCK                       
+                36      JUMP_FORWARD                    11 (to 60)
+                38      DUP_TOP                         
+                40      LOAD_GLOBAL                     2: AttributeError
+                42      JUMP_IF_NOT_EXC_MATCH           29 (to 58)
+                44      POP_TOP                         
+                46      POP_TOP                         
+                48      POP_TOP                         
+                50      LOAD_GLOBAL                     4: TypeError
+                52      LOAD_CONST                      1: 'reload() argument must be a module'
+                54      CALL_FUNCTION                   1
+                56      RAISE_VARARGS                   1
+                58      RERAISE                         0
+                60      POP_EXCEPT                      
+                62      JUMP_FORWARD                    1 (to 66)
+                64      RERAISE                         0
+                66      LOAD_GLOBAL                     5: sys
+                68      LOAD_ATTR                       6: modules
+                70      LOAD_METHOD                     7: get
+                72      LOAD_FAST                       1: name
+                74      CALL_METHOD                     1
+                76      LOAD_FAST                       0: module
+                78      IS_OP                           1 (is not)
+                80      POP_JUMP_IF_FALSE               52 (to 104)
+                82      LOAD_CONST                      2: 'module {} not in sys.modules'
+                84      STORE_FAST                      2: msg
+                86      LOAD_GLOBAL                     8: ImportError
+                88      LOAD_FAST                       2: msg
+                90      LOAD_METHOD                     9: format
+                92      LOAD_FAST                       1: name
+                94      CALL_METHOD                     1
+                96      LOAD_FAST                       1: name
+                98      LOAD_CONST                      3: ('name',)
+                100     CALL_FUNCTION_KW                2
+                102     RAISE_VARARGS                   1
+                104     LOAD_FAST                       1: name
+                106     LOAD_GLOBAL                     10: _RELOADING
+                108     CONTAINS_OP                     0 (in)
+                110     POP_JUMP_IF_FALSE               60 (to 120)
+                112     LOAD_GLOBAL                     10: _RELOADING
+                114     LOAD_FAST                       1: name
+                116     BINARY_SUBSCR                   
+                118     RETURN_VALUE                    
+                120     LOAD_FAST                       0: module
+                122     LOAD_GLOBAL                     10: _RELOADING
+                124     LOAD_FAST                       1: name
+                126     STORE_SUBSCR                    
+                128     SETUP_FINALLY                   93 (to 316)
+                130     LOAD_FAST                       1: name
+                132     LOAD_METHOD                     11: rpartition
+                134     LOAD_CONST                      4: '.'
+                136     CALL_METHOD                     1
+                138     LOAD_CONST                      5: 0
+                140     BINARY_SUBSCR                   
+                142     STORE_FAST                      3: parent_name
+                144     LOAD_FAST                       3: parent_name
+                146     POP_JUMP_IF_FALSE               105 (to 210)
+                148     SETUP_FINALLY                   7 (to 164)
+                150     LOAD_GLOBAL                     5: sys
+                152     LOAD_ATTR                       6: modules
+                154     LOAD_FAST                       3: parent_name
+                156     BINARY_SUBSCR                   
+                158     STORE_FAST                      4: parent
+                160     POP_BLOCK                       
+                162     JUMP_FORWARD                    19 (to 202)
+                164     DUP_TOP                         
+                166     LOAD_GLOBAL                     12: KeyError
+                168     JUMP_IF_NOT_EXC_MATCH           100 (to 200)
+                170     POP_TOP                         
+                172     POP_TOP                         
+                174     POP_TOP                         
+                176     LOAD_CONST                      6: 'parent {!r} not in sys.modules'
+                178     STORE_FAST                      2: msg
+                180     LOAD_GLOBAL                     8: ImportError
+                182     LOAD_FAST                       2: msg
+                184     LOAD_METHOD                     9: format
+                186     LOAD_FAST                       3: parent_name
+                188     CALL_METHOD                     1
+                190     LOAD_FAST                       3: parent_name
+                192     LOAD_CONST                      3: ('name',)
+                194     CALL_FUNCTION_KW                2
+                196     LOAD_CONST                      7: None
+                198     RAISE_VARARGS                   2
+                200     RERAISE                         0
+                202     LOAD_FAST                       4: parent
+                204     LOAD_ATTR                       13: __path__
+                206     STORE_FAST                      5: pkgpath
+                208     JUMP_FORWARD                    2 (to 214)
+                210     LOAD_CONST                      7: None
+                212     STORE_FAST                      5: pkgpath
+                214     LOAD_FAST                       0: module
+                216     STORE_FAST                      6: target
+                218     LOAD_GLOBAL                     14: _bootstrap
+                220     LOAD_METHOD                     15: _find_spec
+                222     LOAD_FAST                       1: name
+                224     LOAD_FAST                       5: pkgpath
+                226     LOAD_FAST                       6: target
+                228     CALL_METHOD                     3
+                230     DUP_TOP                         
+                232     STORE_FAST                      7: spec
+                234     LOAD_FAST                       0: module
+                236     STORE_ATTR                      0: __spec__
+                238     LOAD_FAST                       7: spec
+                240     LOAD_CONST                      7: None
+                242     IS_OP                           0 (is)
+                244     POP_JUMP_IF_FALSE               132 (to 264)
+                246     LOAD_GLOBAL                     16: ModuleNotFoundError
+                248     LOAD_CONST                      8: 'spec not found for the module '
+                250     LOAD_FAST                       1: name
+                252     FORMAT_VALUE                    2 (FVC_REPR)
+                254     BUILD_STRING                    2
+                256     LOAD_FAST                       1: name
+                258     LOAD_CONST                      3: ('name',)
+                260     CALL_FUNCTION_KW                2
+                262     RAISE_VARARGS                   1
+                264     LOAD_GLOBAL                     14: _bootstrap
+                266     LOAD_METHOD                     17: _exec
+                268     LOAD_FAST                       7: spec
+                270     LOAD_FAST                       0: module
+                272     CALL_METHOD                     2
+                274     POP_TOP                         
+                276     LOAD_GLOBAL                     5: sys
+                278     LOAD_ATTR                       6: modules
+                280     LOAD_FAST                       1: name
+                282     BINARY_SUBSCR                   
+                284     POP_BLOCK                       
+                286     SETUP_FINALLY                   5 (to 298)
+                288     LOAD_GLOBAL                     10: _RELOADING
+                290     LOAD_FAST                       1: name
+                292     DELETE_SUBSCR                   
+                294     POP_BLOCK                       
+                296     RETURN_VALUE                    
+                298     DUP_TOP                         
+                300     LOAD_GLOBAL                     12: KeyError
+                302     JUMP_IF_NOT_EXC_MATCH           157 (to 314)
+                304     POP_TOP                         
+                306     POP_TOP                         
+                308     POP_TOP                         
+                310     POP_EXCEPT                      
+                312     RETURN_VALUE                    
+                314     RERAISE                         0
+                316     SETUP_FINALLY                   5 (to 328)
+                318     LOAD_GLOBAL                     10: _RELOADING
+                320     LOAD_FAST                       1: name
+                322     DELETE_SUBSCR                   
+                324     POP_BLOCK                       
+                326     RERAISE                         0
+                328     DUP_TOP                         
+                330     LOAD_GLOBAL                     12: KeyError
+                332     JUMP_IF_NOT_EXC_MATCH           172 (to 344)
+                334     POP_TOP                         
+                336     POP_TOP                         
+                338     POP_TOP                         
+                340     POP_EXCEPT                      
+                342     RERAISE                         0
+                344     RERAISE                         0
+        'reload'
+        (
+            None
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'A pure Python implementation of import.'
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('__import__', 'import_module', 'invalidate_caches', 'reload')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: 0
+        14      LOAD_CONST                      3: None
+        16      IMPORT_NAME                     2: _imp
+        18      STORE_NAME                      2: _imp
+        20      LOAD_CONST                      2: 0
+        22      LOAD_CONST                      3: None
+        24      IMPORT_NAME                     3: sys
+        26      STORE_NAME                      3: sys
+        28      SETUP_FINALLY                   6 (to 42)
+        30      LOAD_CONST                      2: 0
+        32      LOAD_CONST                      3: None
+        34      IMPORT_NAME                     4: _frozen_importlib
+        36      STORE_NAME                      5: _bootstrap
+        38      POP_BLOCK                       
+        40      JUMP_FORWARD                    21 (to 84)
+        42      DUP_TOP                         
+        44      LOAD_NAME                       6: ImportError
+        46      JUMP_IF_NOT_EXC_MATCH           41 (to 82)
+        48      POP_TOP                         
+        50      POP_TOP                         
+        52      POP_TOP                         
+        54      LOAD_CONST                      4: 1
+        56      LOAD_CONST                      5: ('_bootstrap',)
+        58      IMPORT_NAME                     7: 
+        60      IMPORT_FROM                     5: _bootstrap
+        62      STORE_NAME                      5: _bootstrap
+        64      POP_TOP                         
+        66      LOAD_NAME                       5: _bootstrap
+        68      LOAD_METHOD                     8: _setup
+        70      LOAD_NAME                       3: sys
+        72      LOAD_NAME                       2: _imp
+        74      CALL_METHOD                     2
+        76      POP_TOP                         
+        78      POP_EXCEPT                      
+        80      JUMP_FORWARD                    31 (to 144)
+        82      RERAISE                         0
+        84      LOAD_CONST                      6: 'importlib._bootstrap'
+        86      LOAD_NAME                       5: _bootstrap
+        88      STORE_ATTR                      9: __name__
+        90      LOAD_CONST                      7: 'importlib'
+        92      LOAD_NAME                       5: _bootstrap
+        94      STORE_ATTR                      10: __package__
+        96      SETUP_FINALLY                   9 (to 116)
+        98      LOAD_NAME                       11: __file__
+        100     LOAD_METHOD                     12: replace
+        102     LOAD_CONST                      8: '__init__.py'
+        104     LOAD_CONST                      9: '_bootstrap.py'
+        106     CALL_METHOD                     2
+        108     LOAD_NAME                       5: _bootstrap
+        110     STORE_ATTR                      11: __file__
+        112     POP_BLOCK                       
+        114     JUMP_FORWARD                    9 (to 134)
+        116     DUP_TOP                         
+        118     LOAD_NAME                       13: NameError
+        120     JUMP_IF_NOT_EXC_MATCH           66 (to 132)
+        122     POP_TOP                         
+        124     POP_TOP                         
+        126     POP_TOP                         
+        128     POP_EXCEPT                      
+        130     JUMP_FORWARD                    1 (to 134)
+        132     RERAISE                         0
+        134     LOAD_NAME                       5: _bootstrap
+        136     LOAD_NAME                       3: sys
+        138     LOAD_ATTR                       14: modules
+        140     LOAD_CONST                      6: 'importlib._bootstrap'
+        142     STORE_SUBSCR                    
+        144     SETUP_FINALLY                   6 (to 158)
+        146     LOAD_CONST                      2: 0
+        148     LOAD_CONST                      3: None
+        150     IMPORT_NAME                     15: _frozen_importlib_external
+        152     STORE_NAME                      16: _bootstrap_external
+        154     POP_BLOCK                       
+        156     JUMP_FORWARD                    23 (to 204)
+        158     DUP_TOP                         
+        160     LOAD_NAME                       6: ImportError
+        162     JUMP_IF_NOT_EXC_MATCH           101 (to 202)
+        164     POP_TOP                         
+        166     POP_TOP                         
+        168     POP_TOP                         
+        170     LOAD_CONST                      4: 1
+        172     LOAD_CONST                      10: ('_bootstrap_external',)
+        174     IMPORT_NAME                     7: 
+        176     IMPORT_FROM                     16: _bootstrap_external
+        178     STORE_NAME                      16: _bootstrap_external
+        180     POP_TOP                         
+        182     LOAD_NAME                       16: _bootstrap_external
+        184     LOAD_METHOD                     17: _set_bootstrap_module
+        186     LOAD_NAME                       5: _bootstrap
+        188     CALL_METHOD                     1
+        190     POP_TOP                         
+        192     LOAD_NAME                       16: _bootstrap_external
+        194     LOAD_NAME                       5: _bootstrap
+        196     STORE_ATTR                      16: _bootstrap_external
+        198     POP_EXCEPT                      
+        200     JUMP_FORWARD                    31 (to 264)
+        202     RERAISE                         0
+        204     LOAD_CONST                      11: 'importlib._bootstrap_external'
+        206     LOAD_NAME                       16: _bootstrap_external
+        208     STORE_ATTR                      9: __name__
+        210     LOAD_CONST                      7: 'importlib'
+        212     LOAD_NAME                       16: _bootstrap_external
+        214     STORE_ATTR                      10: __package__
+        216     SETUP_FINALLY                   9 (to 236)
+        218     LOAD_NAME                       11: __file__
+        220     LOAD_METHOD                     12: replace
+        222     LOAD_CONST                      8: '__init__.py'
+        224     LOAD_CONST                      12: '_bootstrap_external.py'
+        226     CALL_METHOD                     2
+        228     LOAD_NAME                       16: _bootstrap_external
+        230     STORE_ATTR                      11: __file__
+        232     POP_BLOCK                       
+        234     JUMP_FORWARD                    9 (to 254)
+        236     DUP_TOP                         
+        238     LOAD_NAME                       13: NameError
+        240     JUMP_IF_NOT_EXC_MATCH           126 (to 252)
+        242     POP_TOP                         
+        244     POP_TOP                         
+        246     POP_TOP                         
+        248     POP_EXCEPT                      
+        250     JUMP_FORWARD                    1 (to 254)
+        252     RERAISE                         0
+        254     LOAD_NAME                       16: _bootstrap_external
+        256     LOAD_NAME                       3: sys
+        258     LOAD_ATTR                       14: modules
+        260     LOAD_CONST                      11: 'importlib._bootstrap_external'
+        262     STORE_SUBSCR                    
+        264     LOAD_NAME                       16: _bootstrap_external
+        266     LOAD_ATTR                       18: _pack_uint32
+        268     STORE_NAME                      18: _pack_uint32
+        270     LOAD_NAME                       16: _bootstrap_external
+        272     LOAD_ATTR                       19: _unpack_uint32
+        274     STORE_NAME                      19: _unpack_uint32
+        276     LOAD_CONST                      2: 0
+        278     LOAD_CONST                      3: None
+        280     IMPORT_NAME                     20: warnings
+        282     STORE_NAME                      20: warnings
+        284     LOAD_CONST                      4: 1
+        286     LOAD_CONST                      13: ('__import__',)
+        288     IMPORT_NAME                     5: _bootstrap
+        290     IMPORT_FROM                     21: __import__
+        292     STORE_NAME                      21: __import__
+        294     POP_TOP                         
+        296     LOAD_CONST                      14: <CODE> invalidate_caches
+        298     LOAD_CONST                      15: 'invalidate_caches'
+        300     MAKE_FUNCTION                   0
+        302     STORE_NAME                      22: invalidate_caches
+        304     LOAD_CONST                      22: (None,)
+        306     LOAD_CONST                      16: <CODE> find_loader
+        308     LOAD_CONST                      17: 'find_loader'
+        310     MAKE_FUNCTION                   1
+        312     STORE_NAME                      23: find_loader
+        314     LOAD_CONST                      22: (None,)
+        316     LOAD_CONST                      18: <CODE> import_module
+        318     LOAD_CONST                      19: 'import_module'
+        320     MAKE_FUNCTION                   1
+        322     STORE_NAME                      24: import_module
+        324     BUILD_MAP                       0
+        326     STORE_NAME                      25: _RELOADING
+        328     LOAD_CONST                      20: <CODE> reload
+        330     LOAD_CONST                      21: 'reload'
+        332     MAKE_FUNCTION                   0
+        334     STORE_NAME                      26: reload
+        336     LOAD_CONST                      3: None
+        338     RETURN_VALUE                    

@@ -1,0 +1,2064 @@
+install_ui.pyc (Python 3.10)
+[Code]
+    File Name: install_ui.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 3
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        'tkinter'
+        'tk'
+        'ttk'
+        'time'
+        'os'
+        'sys'
+        'webbrowser'
+        'translate'
+        'Translate'
+        'KBA_LINK'
+        'Style'
+        'UI'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        None
+        (
+            'ttk'
+        )
+        (
+            'Translate'
+        )
+        'https://nvidia.custhelp.com/app/answers/detail/a_id/5337/~/how-do-i-install-geforce-now-on-steam-deck'
+        [Code]
+            File Name: install_ui.py
+            Object Name: Style
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                'fg'
+                'title_fg'
+                'link_fg'
+                'bg'
+                'font'
+                'font_size'
+                'title_font_size'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Style'
+                '#b2b2b2'
+                '#ffffff'
+                '#86B637'
+                '#292929'
+                'Sans-serif'
+                11
+                12
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Style'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: '#b2b2b2'
+                10      STORE_NAME                      3: fg
+                12      LOAD_CONST                      2: '#ffffff'
+                14      STORE_NAME                      4: title_fg
+                16      LOAD_CONST                      3: '#86B637'
+                18      STORE_NAME                      5: link_fg
+                20      LOAD_CONST                      4: '#292929'
+                22      STORE_NAME                      6: bg
+                24      LOAD_CONST                      5: 'Sans-serif'
+                26      STORE_NAME                      7: font
+                28      LOAD_CONST                      6: 11
+                30      STORE_NAME                      8: font_size
+                32      LOAD_CONST                      7: 12
+                34      STORE_NAME                      9: title_font_size
+                36      LOAD_CONST                      8: None
+                38      RETURN_VALUE                    
+        'Style'
+        [Code]
+            File Name: install_ui.py
+            Object Name: UI
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__init__'
+                '_on_manage'
+                '_on_accept'
+                '_on_decline'
+                '_on_open_link'
+                'wait_for_state'
+                '_add_label'
+                'show'
+                'add_progress'
+                'update_progress_text'
+                '_clean_dialog'
+                'display_error'
+                'add_success_message'
+                'ask_install'
+                'ask_uninstall'
+                'start_move'
+                'stop_move'
+                'on_drag'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'UI'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 10
+                    Stack Size: 9
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'root'
+                        'content_frame'
+                        'state'
+                        'ts'
+                        'tk'
+                        'Tk'
+                        'title'
+                        'geometry'
+                        'overrideredirect'
+                        'configure'
+                        'Style'
+                        'bg'
+                        'winfo_screenwidth'
+                        'winfo_screenheight'
+                        'Frame'
+                        'pack'
+                        'BOTH'
+                        'icon_frame'
+                        'getattr'
+                        'sys'
+                        'os'
+                        'path'
+                        'join'
+                        '_MEIPASS'
+                        'dirname'
+                        'abspath'
+                        '__file__'
+                        'PhotoImage'
+                        'icon_image'
+                        'scaled_icon'
+                        'Label'
+                        'icon_label'
+                        'x'
+                        'y'
+                        'bind'
+                        'start_move'
+                        'on_drag'
+                        'stop_move'
+                    [Var Names]
+                        'self'
+                        'translate_service'
+                        'window_width'
+                        'window_height'
+                        'screen_width'
+                        'screen_height'
+                        'x'
+                        'y'
+                        'gfn_logo'
+                        'script_dir'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'GeForceNOW - Installer'
+                        '600x360'
+                        1
+                        (
+                            'bg'
+                        )
+                        600
+                        360
+                        2
+                        'x'
+                        '+'
+                        20
+                        (
+                            'bg'
+                            'padx'
+                            'pady'
+                        )
+                        True
+                        (
+                            'expand'
+                            'fill'
+                        )
+                        'top'
+                        'w'
+                        (
+                            'side'
+                            'anchor'
+                        )
+                        'frozen'
+                        False
+                        'assets/icons/NVIDIA_GeForceNOW_Logo.png'
+                        (
+                            'file'
+                        )
+                        (
+                            'image'
+                            'bg'
+                        )
+                        'left'
+                        (
+                            20
+                            20
+                        )
+                        (
+                            52
+                            0
+                        )
+                        (
+                            'side'
+                            'padx'
+                            'pady'
+                        )
+                        '<Button-1>'
+                        '<B1-Motion>'
+                        '<ButtonRelease-1>'
+                    [Disassembly]
+                        0       LOAD_CONST                      0: None
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: root
+                        6       LOAD_CONST                      0: None
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: content_frame
+                        12      LOAD_CONST                      0: None
+                        14      LOAD_FAST                       0: self
+                        16      STORE_ATTR                      2: state
+                        18      LOAD_FAST                       1: translate_service
+                        20      LOAD_FAST                       0: self
+                        22      STORE_ATTR                      3: ts
+                        24      LOAD_GLOBAL                     4: tk
+                        26      LOAD_METHOD                     5: Tk
+                        28      CALL_METHOD                     0
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: root
+                        34      LOAD_FAST                       0: self
+                        36      LOAD_ATTR                       0: root
+                        38      LOAD_METHOD                     6: title
+                        40      LOAD_CONST                      1: 'GeForceNOW - Installer'
+                        42      CALL_METHOD                     1
+                        44      POP_TOP                         
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_ATTR                       0: root
+                        50      LOAD_METHOD                     7: geometry
+                        52      LOAD_CONST                      2: '600x360'
+                        54      CALL_METHOD                     1
+                        56      POP_TOP                         
+                        58      LOAD_FAST                       0: self
+                        60      LOAD_ATTR                       0: root
+                        62      LOAD_METHOD                     8: overrideredirect
+                        64      LOAD_CONST                      3: 1
+                        66      CALL_METHOD                     1
+                        68      POP_TOP                         
+                        70      LOAD_FAST                       0: self
+                        72      LOAD_ATTR                       0: root
+                        74      LOAD_ATTR                       9: configure
+                        76      LOAD_GLOBAL                     10: Style
+                        78      LOAD_ATTR                       11: bg
+                        80      LOAD_CONST                      4: ('bg',)
+                        82      CALL_FUNCTION_KW                1
+                        84      POP_TOP                         
+                        86      LOAD_CONST                      5: 600
+                        88      STORE_FAST                      2: window_width
+                        90      LOAD_CONST                      6: 360
+                        92      STORE_FAST                      3: window_height
+                        94      LOAD_FAST                       0: self
+                        96      LOAD_ATTR                       0: root
+                        98      LOAD_METHOD                     12: winfo_screenwidth
+                        100     CALL_METHOD                     0
+                        102     STORE_FAST                      4: screen_width
+                        104     LOAD_FAST                       0: self
+                        106     LOAD_ATTR                       0: root
+                        108     LOAD_METHOD                     13: winfo_screenheight
+                        110     CALL_METHOD                     0
+                        112     STORE_FAST                      5: screen_height
+                        114     LOAD_FAST                       4: screen_width
+                        116     LOAD_CONST                      7: 2
+                        118     BINARY_FLOOR_DIVIDE             
+                        120     LOAD_FAST                       2: window_width
+                        122     LOAD_CONST                      7: 2
+                        124     BINARY_FLOOR_DIVIDE             
+                        126     BINARY_SUBTRACT                 
+                        128     STORE_FAST                      6: x
+                        130     LOAD_FAST                       5: screen_height
+                        132     LOAD_CONST                      7: 2
+                        134     BINARY_FLOOR_DIVIDE             
+                        136     LOAD_FAST                       3: window_height
+                        138     LOAD_CONST                      7: 2
+                        140     BINARY_FLOOR_DIVIDE             
+                        142     BINARY_SUBTRACT                 
+                        144     STORE_FAST                      7: y
+                        146     LOAD_FAST                       0: self
+                        148     LOAD_ATTR                       0: root
+                        150     LOAD_METHOD                     7: geometry
+                        152     LOAD_FAST                       2: window_width
+                        154     FORMAT_VALUE                    0 (FVC_NONE)
+                        156     LOAD_CONST                      8: 'x'
+                        158     LOAD_FAST                       3: window_height
+                        160     FORMAT_VALUE                    0 (FVC_NONE)
+                        162     LOAD_CONST                      9: '+'
+                        164     LOAD_FAST                       6: x
+                        166     FORMAT_VALUE                    0 (FVC_NONE)
+                        168     LOAD_CONST                      9: '+'
+                        170     LOAD_FAST                       7: y
+                        172     FORMAT_VALUE                    0 (FVC_NONE)
+                        174     BUILD_STRING                    7
+                        176     CALL_METHOD                     1
+                        178     POP_TOP                         
+                        180     LOAD_GLOBAL                     4: tk
+                        182     LOAD_ATTR                       14: Frame
+                        184     LOAD_FAST                       0: self
+                        186     LOAD_ATTR                       0: root
+                        188     LOAD_GLOBAL                     10: Style
+                        190     LOAD_ATTR                       11: bg
+                        192     LOAD_CONST                      10: 20
+                        194     LOAD_CONST                      10: 20
+                        196     LOAD_CONST                      11: ('bg', 'padx', 'pady')
+                        198     CALL_FUNCTION_KW                4
+                        200     LOAD_FAST                       0: self
+                        202     STORE_ATTR                      1: content_frame
+                        204     LOAD_FAST                       0: self
+                        206     LOAD_ATTR                       1: content_frame
+                        208     LOAD_ATTR                       15: pack
+                        210     LOAD_CONST                      12: True
+                        212     LOAD_GLOBAL                     4: tk
+                        214     LOAD_ATTR                       16: BOTH
+                        216     LOAD_CONST                      13: ('expand', 'fill')
+                        218     CALL_FUNCTION_KW                2
+                        220     POP_TOP                         
+                        222     LOAD_GLOBAL                     4: tk
+                        224     LOAD_ATTR                       14: Frame
+                        226     LOAD_FAST                       0: self
+                        228     LOAD_ATTR                       1: content_frame
+                        230     LOAD_GLOBAL                     10: Style
+                        232     LOAD_ATTR                       11: bg
+                        234     LOAD_CONST                      4: ('bg',)
+                        236     CALL_FUNCTION_KW                2
+                        238     LOAD_FAST                       0: self
+                        240     STORE_ATTR                      17: icon_frame
+                        242     LOAD_FAST                       0: self
+                        244     LOAD_ATTR                       17: icon_frame
+                        246     LOAD_ATTR                       15: pack
+                        248     LOAD_CONST                      14: 'top'
+                        250     LOAD_CONST                      15: 'w'
+                        252     LOAD_CONST                      16: ('side', 'anchor')
+                        254     CALL_FUNCTION_KW                2
+                        256     POP_TOP                         
+                        258     LOAD_GLOBAL                     18: getattr
+                        260     LOAD_GLOBAL                     19: sys
+                        262     LOAD_CONST                      17: 'frozen'
+                        264     LOAD_CONST                      18: False
+                        266     CALL_FUNCTION                   3
+                        268     POP_JUMP_IF_FALSE               144 (to 288)
+                        270     LOAD_GLOBAL                     20: os
+                        272     LOAD_ATTR                       21: path
+                        274     LOAD_METHOD                     22: join
+                        276     LOAD_GLOBAL                     19: sys
+                        278     LOAD_ATTR                       23: _MEIPASS
+                        280     LOAD_CONST                      19: 'assets/icons/NVIDIA_GeForceNOW_Logo.png'
+                        282     CALL_METHOD                     2
+                        284     STORE_FAST                      8: gfn_logo
+                        286     JUMP_FORWARD                    17 (to 322)
+                        288     LOAD_GLOBAL                     20: os
+                        290     LOAD_ATTR                       21: path
+                        292     LOAD_METHOD                     24: dirname
+                        294     LOAD_GLOBAL                     20: os
+                        296     LOAD_ATTR                       21: path
+                        298     LOAD_METHOD                     25: abspath
+                        300     LOAD_GLOBAL                     26: __file__
+                        302     CALL_METHOD                     1
+                        304     CALL_METHOD                     1
+                        306     STORE_FAST                      9: script_dir
+                        308     LOAD_GLOBAL                     20: os
+                        310     LOAD_ATTR                       21: path
+                        312     LOAD_METHOD                     22: join
+                        314     LOAD_FAST                       9: script_dir
+                        316     LOAD_CONST                      19: 'assets/icons/NVIDIA_GeForceNOW_Logo.png'
+                        318     CALL_METHOD                     2
+                        320     STORE_FAST                      8: gfn_logo
+                        322     LOAD_GLOBAL                     4: tk
+                        324     LOAD_ATTR                       27: PhotoImage
+                        326     LOAD_FAST                       8: gfn_logo
+                        328     LOAD_CONST                      20: ('file',)
+                        330     CALL_FUNCTION_KW                1
+                        332     LOAD_FAST                       0: self
+                        334     STORE_ATTR                      28: icon_image
+                        336     LOAD_FAST                       0: self
+                        338     LOAD_ATTR                       28: icon_image
+                        340     LOAD_FAST                       0: self
+                        342     STORE_ATTR                      29: scaled_icon
+                        344     LOAD_GLOBAL                     4: tk
+                        346     LOAD_ATTR                       30: Label
+                        348     LOAD_FAST                       0: self
+                        350     LOAD_ATTR                       17: icon_frame
+                        352     LOAD_FAST                       0: self
+                        354     LOAD_ATTR                       29: scaled_icon
+                        356     LOAD_GLOBAL                     10: Style
+                        358     LOAD_ATTR                       11: bg
+                        360     LOAD_CONST                      21: ('image', 'bg')
+                        362     CALL_FUNCTION_KW                3
+                        364     LOAD_FAST                       0: self
+                        366     STORE_ATTR                      31: icon_label
+                        368     LOAD_FAST                       0: self
+                        370     LOAD_ATTR                       31: icon_label
+                        372     LOAD_ATTR                       15: pack
+                        374     LOAD_CONST                      22: 'left'
+                        376     LOAD_CONST                      23: (20, 20)
+                        378     LOAD_CONST                      24: (52, 0)
+                        380     LOAD_CONST                      25: ('side', 'padx', 'pady')
+                        382     CALL_FUNCTION_KW                3
+                        384     POP_TOP                         
+                        386     LOAD_CONST                      0: None
+                        388     LOAD_FAST                       0: self
+                        390     STORE_ATTR                      32: x
+                        392     LOAD_CONST                      0: None
+                        394     LOAD_FAST                       0: self
+                        396     STORE_ATTR                      33: y
+                        398     LOAD_FAST                       0: self
+                        400     LOAD_ATTR                       0: root
+                        402     LOAD_METHOD                     34: bind
+                        404     LOAD_CONST                      26: '<Button-1>'
+                        406     LOAD_FAST                       0: self
+                        408     LOAD_ATTR                       35: start_move
+                        410     CALL_METHOD                     2
+                        412     POP_TOP                         
+                        414     LOAD_FAST                       0: self
+                        416     LOAD_ATTR                       0: root
+                        418     LOAD_METHOD                     34: bind
+                        420     LOAD_CONST                      27: '<B1-Motion>'
+                        422     LOAD_FAST                       0: self
+                        424     LOAD_ATTR                       36: on_drag
+                        426     CALL_METHOD                     2
+                        428     POP_TOP                         
+                        430     LOAD_FAST                       0: self
+                        432     LOAD_ATTR                       0: root
+                        434     LOAD_METHOD                     34: bind
+                        436     LOAD_CONST                      28: '<ButtonRelease-1>'
+                        438     LOAD_FAST                       0: self
+                        440     LOAD_ATTR                       37: stop_move
+                        442     CALL_METHOD                     2
+                        444     POP_TOP                         
+                        446     LOAD_CONST                      0: None
+                        448     RETURN_VALUE                    
+                'UI.__init__'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: _on_manage
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'state'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'MANAGE'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: 'MANAGE'
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: state
+                        6       LOAD_CONST                      0: None
+                        8       RETURN_VALUE                    
+                'UI._on_manage'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: _on_accept
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'state'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'OK'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: 'OK'
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: state
+                        6       LOAD_CONST                      0: None
+                        8       RETURN_VALUE                    
+                'UI._on_accept'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: _on_decline
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'state'
+                        'root'
+                        'destroy'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'CANCEL'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: 'CANCEL'
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: state
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_ATTR                       1: root
+                        10      LOAD_METHOD                     2: destroy
+                        12      CALL_METHOD                     0
+                        14      POP_TOP                         
+                        16      LOAD_CONST                      0: None
+                        18      RETURN_VALUE                    
+                'UI._on_decline'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: _on_open_link
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'webbrowser'
+                        'open'
+                    [Var Names]
+                        'self'
+                        'url'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: webbrowser
+                        2       LOAD_METHOD                     1: open
+                        4       LOAD_FAST                       1: url
+                        6       CALL_METHOD                     1
+                        8       POP_TOP                         
+                        10      LOAD_CONST                      0: None
+                        12      RETURN_VALUE                    
+                'UI._on_open_link'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: wait_for_state
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'state'
+                        'time'
+                        'sleep'
+                    [Var Names]
+                        'self'
+                        'r_state'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0.5
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: state
+                        4       POP_JUMP_IF_TRUE                11 (to 22)
+                        6       LOAD_GLOBAL                     1: time
+                        8       LOAD_METHOD                     2: sleep
+                        10      LOAD_CONST                      1: 0.5
+                        12      CALL_METHOD                     1
+                        14      POP_TOP                         
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       0: state
+                        20      POP_JUMP_IF_FALSE               3 (to 6)
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       0: state
+                        26      STORE_FAST                      1: r_state
+                        28      LOAD_CONST                      0: None
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: state
+                        34      LOAD_FAST                       1: r_state
+                        36      RETURN_VALUE                    
+                'UI.wait_for_state'
+                False
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: _add_label
+                    Arg Count: 5
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 12
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'tk'
+                        'Label'
+                        'content_frame'
+                        'Style'
+                        'font'
+                        'title_font_size'
+                        'bg'
+                        'title_fg'
+                        'message_label_title'
+                        'pack'
+                        'font_size'
+                        'fg'
+                        'message_label_sub_title'
+                        'message_label_msg'
+                        'ts'
+                        'text'
+                        'link_fg'
+                        'message_label_learn'
+                        'bind'
+                    [Var Names]
+                        'self'
+                        'title'
+                        'sub_title'
+                        'msg'
+                        'learn_more'
+                    [Free Vars]
+                    [Cell Vars]
+                        'self'
+                    [Constants]
+                        None
+                        'left'
+                        520
+                        'w'
+                        '520'
+                        20
+                        (
+                            'text'
+                            'font'
+                            'bg'
+                            'fg'
+                            'justify'
+                            'wraplength'
+                            'anchor'
+                            'width'
+                            'padx'
+                        )
+                        (
+                            40
+                            10
+                        )
+                        (
+                            'pady'
+                            'anchor'
+                        )
+                        500
+                        '500'
+                        (
+                            0
+                            0
+                        )
+                        30
+                        'button'
+                        'text'
+                        'learn_more'
+                        'hand2'
+                        (
+                            'text'
+                            'font'
+                            'bg'
+                            'fg'
+                            'justify'
+                            'anchor'
+                            'padx'
+                            'cursor'
+                        )
+                        '<Button-1>'
+                        [Code]
+                            File Name: install_ui.py
+                            Object Name: <lambda>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 1
+                            Stack Size: 3
+                            Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                            [Names]
+                                '_on_open_link'
+                                'KBA_LINK'
+                            [Var Names]
+                                'e'
+                            [Free Vars]
+                                'self'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       LOAD_DEREF                      0: self
+                                2       LOAD_METHOD                     0: _on_open_link
+                                4       LOAD_GLOBAL                     1: KBA_LINK
+                                6       CALL_METHOD                     1
+                                8       RETURN_VALUE                    
+                        'UI._add_label.<locals>.<lambda>'
+                    [Disassembly]
+                        0       LOAD_FAST                       1: title
+                        2       POP_JUMP_IF_FALSE               33 (to 66)
+                        4       LOAD_GLOBAL                     0: tk
+                        6       LOAD_ATTR                       1: Label
+                        8       LOAD_DEREF                      0: self
+                        10      LOAD_ATTR                       2: content_frame
+                        12      LOAD_FAST                       1: title
+                        14      LOAD_GLOBAL                     3: Style
+                        16      LOAD_ATTR                       4: font
+                        18      LOAD_GLOBAL                     3: Style
+                        20      LOAD_ATTR                       5: title_font_size
+                        22      BUILD_TUPLE                     2
+                        24      LOAD_GLOBAL                     3: Style
+                        26      LOAD_ATTR                       6: bg
+                        28      LOAD_GLOBAL                     3: Style
+                        30      LOAD_ATTR                       7: title_fg
+                        32      LOAD_CONST                      1: 'left'
+                        34      LOAD_CONST                      2: 520
+                        36      LOAD_CONST                      3: 'w'
+                        38      LOAD_CONST                      4: '520'
+                        40      LOAD_CONST                      5: 20
+                        42      LOAD_CONST                      6: ('text', 'font', 'bg', 'fg', 'justify', 'wraplength', 'anchor', 'width', 'padx')
+                        44      CALL_FUNCTION_KW                10
+                        46      LOAD_DEREF                      0: self
+                        48      STORE_ATTR                      8: message_label_title
+                        50      LOAD_DEREF                      0: self
+                        52      LOAD_ATTR                       8: message_label_title
+                        54      LOAD_ATTR                       9: pack
+                        56      LOAD_CONST                      7: (40, 10)
+                        58      LOAD_CONST                      3: 'w'
+                        60      LOAD_CONST                      8: ('pady', 'anchor')
+                        62      CALL_FUNCTION_KW                2
+                        64      POP_TOP                         
+                        66      LOAD_FAST                       2: sub_title
+                        68      POP_JUMP_IF_FALSE               66 (to 132)
+                        70      LOAD_GLOBAL                     0: tk
+                        72      LOAD_ATTR                       1: Label
+                        74      LOAD_DEREF                      0: self
+                        76      LOAD_ATTR                       2: content_frame
+                        78      LOAD_FAST                       2: sub_title
+                        80      LOAD_GLOBAL                     3: Style
+                        82      LOAD_ATTR                       4: font
+                        84      LOAD_GLOBAL                     3: Style
+                        86      LOAD_ATTR                       10: font_size
+                        88      BUILD_TUPLE                     2
+                        90      LOAD_GLOBAL                     3: Style
+                        92      LOAD_ATTR                       6: bg
+                        94      LOAD_GLOBAL                     3: Style
+                        96      LOAD_ATTR                       11: fg
+                        98      LOAD_CONST                      1: 'left'
+                        100     LOAD_CONST                      9: 500
+                        102     LOAD_CONST                      3: 'w'
+                        104     LOAD_CONST                      10: '500'
+                        106     LOAD_CONST                      5: 20
+                        108     LOAD_CONST                      6: ('text', 'font', 'bg', 'fg', 'justify', 'wraplength', 'anchor', 'width', 'padx')
+                        110     CALL_FUNCTION_KW                10
+                        112     LOAD_DEREF                      0: self
+                        114     STORE_ATTR                      12: message_label_sub_title
+                        116     LOAD_DEREF                      0: self
+                        118     LOAD_ATTR                       12: message_label_sub_title
+                        120     LOAD_ATTR                       9: pack
+                        122     LOAD_CONST                      11: (0, 0)
+                        124     LOAD_CONST                      3: 'w'
+                        126     LOAD_CONST                      8: ('pady', 'anchor')
+                        128     CALL_FUNCTION_KW                2
+                        130     POP_TOP                         
+                        132     LOAD_FAST                       3: msg
+                        134     POP_JUMP_IF_FALSE               103 (to 206)
+                        136     LOAD_GLOBAL                     0: tk
+                        138     LOAD_ATTR                       1: Label
+                        140     LOAD_DEREF                      0: self
+                        142     LOAD_ATTR                       2: content_frame
+                        144     LOAD_FAST                       3: msg
+                        146     LOAD_GLOBAL                     3: Style
+                        148     LOAD_ATTR                       4: font
+                        150     LOAD_GLOBAL                     3: Style
+                        152     LOAD_ATTR                       10: font_size
+                        154     BUILD_TUPLE                     2
+                        156     LOAD_GLOBAL                     3: Style
+                        158     LOAD_ATTR                       6: bg
+                        160     LOAD_GLOBAL                     3: Style
+                        162     LOAD_ATTR                       11: fg
+                        164     LOAD_CONST                      1: 'left'
+                        166     LOAD_CONST                      9: 500
+                        168     LOAD_CONST                      3: 'w'
+                        170     LOAD_CONST                      10: '500'
+                        172     LOAD_FAST                       1: title
+                        174     POP_JUMP_IF_FALSE               90 (to 180)
+                        176     LOAD_CONST                      12: 30
+                        178     JUMP_FORWARD                    1 (to 182)
+                        180     LOAD_CONST                      5: 20
+                        182     LOAD_CONST                      6: ('text', 'font', 'bg', 'fg', 'justify', 'wraplength', 'anchor', 'width', 'padx')
+                        184     CALL_FUNCTION_KW                10
+                        186     LOAD_DEREF                      0: self
+                        188     STORE_ATTR                      13: message_label_msg
+                        190     LOAD_DEREF                      0: self
+                        192     LOAD_ATTR                       13: message_label_msg
+                        194     LOAD_ATTR                       9: pack
+                        196     LOAD_CONST                      11: (0, 0)
+                        198     LOAD_CONST                      3: 'w'
+                        200     LOAD_CONST                      8: ('pady', 'anchor')
+                        202     CALL_FUNCTION_KW                2
+                        204     POP_TOP                         
+                        206     LOAD_FAST                       4: learn_more
+                        208     POP_JUMP_IF_FALSE               154 (to 308)
+                        210     LOAD_GLOBAL                     0: tk
+                        212     LOAD_ATTR                       1: Label
+                        214     LOAD_DEREF                      0: self
+                        216     LOAD_ATTR                       2: content_frame
+                        218     LOAD_DEREF                      0: self
+                        220     LOAD_ATTR                       14: ts
+                        222     LOAD_METHOD                     15: text
+                        224     LOAD_CONST                      13: 'button'
+                        226     LOAD_CONST                      14: 'text'
+                        228     LOAD_CONST                      15: 'learn_more'
+                        230     CALL_METHOD                     3
+                        232     LOAD_GLOBAL                     3: Style
+                        234     LOAD_ATTR                       4: font
+                        236     LOAD_GLOBAL                     3: Style
+                        238     LOAD_ATTR                       10: font_size
+                        240     BUILD_TUPLE                     2
+                        242     LOAD_GLOBAL                     3: Style
+                        244     LOAD_ATTR                       6: bg
+                        246     LOAD_GLOBAL                     3: Style
+                        248     LOAD_ATTR                       16: link_fg
+                        250     LOAD_CONST                      1: 'left'
+                        252     LOAD_CONST                      3: 'w'
+                        254     LOAD_CONST                      5: 20
+                        256     LOAD_CONST                      16: 'hand2'
+                        258     LOAD_CONST                      17: ('text', 'font', 'bg', 'fg', 'justify', 'anchor', 'padx', 'cursor')
+                        260     CALL_FUNCTION_KW                9
+                        262     LOAD_DEREF                      0: self
+                        264     STORE_ATTR                      17: message_label_learn
+                        266     LOAD_DEREF                      0: self
+                        268     LOAD_ATTR                       17: message_label_learn
+                        270     LOAD_ATTR                       9: pack
+                        272     LOAD_CONST                      11: (0, 0)
+                        274     LOAD_CONST                      3: 'w'
+                        276     LOAD_CONST                      8: ('pady', 'anchor')
+                        278     CALL_FUNCTION_KW                2
+                        280     POP_TOP                         
+                        282     LOAD_DEREF                      0: self
+                        284     LOAD_ATTR                       17: message_label_learn
+                        286     LOAD_METHOD                     18: bind
+                        288     LOAD_CONST                      18: '<Button-1>'
+                        290     LOAD_CLOSURE                    0: self
+                        292     BUILD_TUPLE                     1
+                        294     LOAD_CONST                      19: <CODE> <lambda>
+                        296     LOAD_CONST                      20: 'UI._add_label.<locals>.<lambda>'
+                        298     MAKE_FUNCTION                   8
+                        300     CALL_METHOD                     2
+                        302     POP_TOP                         
+                        304     LOAD_CONST                      0: None
+                        306     RETURN_VALUE                    
+                        308     LOAD_CONST                      0: None
+                        310     RETURN_VALUE                    
+                'UI._add_label'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: show
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'root'
+                        'mainloop'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: root
+                        4       LOAD_METHOD                     1: mainloop
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      LOAD_CONST                      0: None
+                        12      RETURN_VALUE                    
+                'UI.show'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: add_progress
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 11
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_clean_dialog'
+                        'ttk'
+                        'Style'
+                        'root'
+                        'theme_use'
+                        'configure'
+                        'bg'
+                        'Progressbar'
+                        'content_frame'
+                        'progress_bar'
+                        'pack'
+                        'start'
+                        'tk'
+                        'Label'
+                        'font'
+                        'font_size'
+                        'fg'
+                        'progress_label'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        'style'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'default'
+                        'green.Horizontal.TProgressbar'
+                        0
+                        0.5
+                        '#76b900'
+                        (
+                            'troughcolor'
+                            'thickness'
+                            'borderwidth'
+                            'background'
+                        )
+                        'progress'
+                        'indeterminate'
+                        520
+                        (
+                            'name'
+                            'style'
+                            'mode'
+                            'length'
+                        )
+                        (
+                            20
+                            20
+                        )
+                        (
+                            40
+                            0
+                        )
+                        (
+                            'padx'
+                            'pady'
+                        )
+                        'progress_label'
+                        'w'
+                        (
+                            'name'
+                            'text'
+                            'font'
+                            'bg'
+                            'fg'
+                            'anchor'
+                            'width'
+                            'padx'
+                        )
+                        (
+                            10
+                            0
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _clean_dialog
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_GLOBAL                     1: ttk
+                        10      LOAD_METHOD                     2: Style
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_ATTR                       3: root
+                        16      CALL_METHOD                     1
+                        18      STORE_FAST                      2: style
+                        20      LOAD_FAST                       2: style
+                        22      LOAD_METHOD                     4: theme_use
+                        24      LOAD_CONST                      1: 'default'
+                        26      CALL_METHOD                     1
+                        28      POP_TOP                         
+                        30      LOAD_FAST                       2: style
+                        32      LOAD_ATTR                       5: configure
+                        34      LOAD_CONST                      2: 'green.Horizontal.TProgressbar'
+                        36      LOAD_GLOBAL                     2: Style
+                        38      LOAD_ATTR                       6: bg
+                        40      LOAD_CONST                      3: 0
+                        42      LOAD_CONST                      4: 0.5
+                        44      LOAD_CONST                      5: '#76b900'
+                        46      LOAD_CONST                      6: ('troughcolor', 'thickness', 'borderwidth', 'background')
+                        48      CALL_FUNCTION_KW                5
+                        50      POP_TOP                         
+                        52      LOAD_GLOBAL                     1: ttk
+                        54      LOAD_ATTR                       7: Progressbar
+                        56      LOAD_FAST                       0: self
+                        58      LOAD_ATTR                       8: content_frame
+                        60      LOAD_CONST                      7: 'progress'
+                        62      LOAD_CONST                      2: 'green.Horizontal.TProgressbar'
+                        64      LOAD_CONST                      8: 'indeterminate'
+                        66      LOAD_CONST                      9: 520
+                        68      LOAD_CONST                      10: ('name', 'style', 'mode', 'length')
+                        70      CALL_FUNCTION_KW                5
+                        72      LOAD_FAST                       0: self
+                        74      STORE_ATTR                      9: progress_bar
+                        76      LOAD_FAST                       0: self
+                        78      LOAD_ATTR                       9: progress_bar
+                        80      LOAD_ATTR                       10: pack
+                        82      LOAD_CONST                      11: (20, 20)
+                        84      LOAD_CONST                      12: (40, 0)
+                        86      LOAD_CONST                      13: ('padx', 'pady')
+                        88      CALL_FUNCTION_KW                2
+                        90      POP_TOP                         
+                        92      LOAD_FAST                       0: self
+                        94      LOAD_ATTR                       9: progress_bar
+                        96      LOAD_METHOD                     11: start
+                        98      CALL_METHOD                     0
+                        100     POP_TOP                         
+                        102     LOAD_GLOBAL                     12: tk
+                        104     LOAD_ATTR                       13: Label
+                        106     LOAD_FAST                       0: self
+                        108     LOAD_ATTR                       8: content_frame
+                        110     LOAD_CONST                      14: 'progress_label'
+                        112     LOAD_FAST                       1: msg
+                        114     LOAD_GLOBAL                     2: Style
+                        116     LOAD_ATTR                       14: font
+                        118     LOAD_GLOBAL                     2: Style
+                        120     LOAD_ATTR                       15: font_size
+                        122     BUILD_TUPLE                     2
+                        124     LOAD_GLOBAL                     2: Style
+                        126     LOAD_ATTR                       6: bg
+                        128     LOAD_GLOBAL                     2: Style
+                        130     LOAD_ATTR                       16: fg
+                        132     LOAD_CONST                      15: 'w'
+                        134     LOAD_CONST                      9: 520
+                        136     LOAD_CONST                      3: 0
+                        138     LOAD_CONST                      16: ('name', 'text', 'font', 'bg', 'fg', 'anchor', 'width', 'padx')
+                        140     CALL_FUNCTION_KW                9
+                        142     LOAD_FAST                       0: self
+                        144     STORE_ATTR                      17: progress_label
+                        146     LOAD_FAST                       0: self
+                        148     LOAD_ATTR                       17: progress_label
+                        150     LOAD_ATTR                       10: pack
+                        152     LOAD_CONST                      11: (20, 20)
+                        154     LOAD_CONST                      17: (10, 0)
+                        156     LOAD_CONST                      13: ('padx', 'pady')
+                        158     CALL_FUNCTION_KW                2
+                        160     POP_TOP                         
+                        162     LOAD_CONST                      0: None
+                        164     RETURN_VALUE                    
+                'UI.add_progress'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: update_progress_text
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 6
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'root'
+                        'after'
+                    [Var Names]
+                        'self'
+                        'msg'
+                    [Free Vars]
+                    [Cell Vars]
+                        'msg'
+                        'self'
+                    [Constants]
+                        None
+                        100
+                        [Code]
+                            File Name: install_ui.py
+                            Object Name: <lambda>
+                            Arg Count: 0
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 0
+                            Stack Size: 3
+                            Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                            [Names]
+                                'progress_label'
+                                'config'
+                            [Var Names]
+                            [Free Vars]
+                                'msg'
+                                'self'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                                (
+                                    'text'
+                                )
+                            [Disassembly]
+                                0       LOAD_DEREF                      1: self
+                                2       LOAD_ATTR                       0: progress_label
+                                4       LOAD_ATTR                       1: config
+                                6       LOAD_DEREF                      0: msg
+                                8       LOAD_CONST                      1: ('text',)
+                                10      CALL_FUNCTION_KW                1
+                                12      RETURN_VALUE                    
+                        'UI.update_progress_text.<locals>.<lambda>'
+                    [Disassembly]
+                        0       LOAD_DEREF                      1: self
+                        2       LOAD_ATTR                       0: root
+                        4       LOAD_METHOD                     1: after
+                        6       LOAD_CONST                      1: 100
+                        8       LOAD_CLOSURE                    0: msg
+                        10      LOAD_CLOSURE                    1: self
+                        12      BUILD_TUPLE                     2
+                        14      LOAD_CONST                      2: <CODE> <lambda>
+                        16      LOAD_CONST                      3: 'UI.update_progress_text.<locals>.<lambda>'
+                        18      MAKE_FUNCTION                   8
+                        20      CALL_METHOD                     2
+                        22      POP_TOP                         
+                        24      LOAD_CONST                      0: None
+                        26      RETURN_VALUE                    
+                'UI.update_progress_text'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: _clean_dialog
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'content_frame'
+                        'winfo_children'
+                        'winfo_id'
+                        'icon_frame'
+                        'destroy'
+                    [Var Names]
+                        'self'
+                        'widget'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: content_frame
+                        4       LOAD_METHOD                     1: winfo_children
+                        6       CALL_METHOD                     0
+                        8       GET_ITER                        
+                        10      FOR_ITER                        16 (to 44)
+                        12      STORE_FAST                      1: widget
+                        14      LOAD_FAST                       1: widget
+                        16      LOAD_METHOD                     2: winfo_id
+                        18      CALL_METHOD                     0
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       3: icon_frame
+                        24      LOAD_METHOD                     2: winfo_id
+                        26      CALL_METHOD                     0
+                        28      COMPARE_OP                      2 (==)
+                        30      POP_JUMP_IF_FALSE               17 (to 34)
+                        32      JUMP_ABSOLUTE                   5 (to 10)
+                        34      LOAD_FAST                       1: widget
+                        36      LOAD_METHOD                     4: destroy
+                        38      CALL_METHOD                     0
+                        40      POP_TOP                         
+                        42      JUMP_ABSOLUTE                   5 (to 10)
+                        44      LOAD_CONST                      0: None
+                        46      RETURN_VALUE                    
+                'UI._clean_dialog'
+                True
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: display_error
+                    Arg Count: 5
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 9
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_clean_dialog'
+                        '_add_label'
+                        'tk'
+                        'Button'
+                        'content_frame'
+                        'ts'
+                        'text'
+                        'root'
+                        'destroy'
+                        'Style'
+                        'font'
+                        'font_size'
+                        'bg'
+                        'fg'
+                        'ok_button'
+                        'pack'
+                    [Var Names]
+                        'self'
+                        'title'
+                        'sub_title'
+                        'msg'
+                        'learn_more'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'button'
+                        'text'
+                        'close'
+                        0
+                        (
+                            'text'
+                            'command'
+                            'font'
+                            'bg'
+                            'fg'
+                            'highlightthickness'
+                        )
+                        'bottom'
+                        'e'
+                        (
+                            10
+                            0
+                        )
+                        (
+                            'side'
+                            'anchor'
+                            'pady'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _clean_dialog
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_METHOD                     1: _add_label
+                        12      LOAD_FAST                       1: title
+                        14      LOAD_FAST                       2: sub_title
+                        16      LOAD_FAST                       3: msg
+                        18      LOAD_FAST                       4: learn_more
+                        20      CALL_METHOD                     4
+                        22      POP_TOP                         
+                        24      LOAD_GLOBAL                     2: tk
+                        26      LOAD_ATTR                       3: Button
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       4: content_frame
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       5: ts
+                        36      LOAD_METHOD                     6: text
+                        38      LOAD_CONST                      1: 'button'
+                        40      LOAD_CONST                      2: 'text'
+                        42      LOAD_CONST                      3: 'close'
+                        44      CALL_METHOD                     3
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_ATTR                       7: root
+                        50      LOAD_ATTR                       8: destroy
+                        52      LOAD_GLOBAL                     9: Style
+                        54      LOAD_ATTR                       10: font
+                        56      LOAD_GLOBAL                     9: Style
+                        58      LOAD_ATTR                       11: font_size
+                        60      BUILD_TUPLE                     2
+                        62      LOAD_GLOBAL                     9: Style
+                        64      LOAD_ATTR                       12: bg
+                        66      LOAD_GLOBAL                     9: Style
+                        68      LOAD_ATTR                       13: fg
+                        70      LOAD_CONST                      4: 0
+                        72      LOAD_CONST                      5: ('text', 'command', 'font', 'bg', 'fg', 'highlightthickness')
+                        74      CALL_FUNCTION_KW                7
+                        76      LOAD_FAST                       0: self
+                        78      STORE_ATTR                      14: ok_button
+                        80      LOAD_FAST                       0: self
+                        82      LOAD_ATTR                       14: ok_button
+                        84      LOAD_ATTR                       15: pack
+                        86      LOAD_CONST                      6: 'bottom'
+                        88      LOAD_CONST                      7: 'e'
+                        90      LOAD_CONST                      8: (10, 0)
+                        92      LOAD_CONST                      9: ('side', 'anchor', 'pady')
+                        94      CALL_FUNCTION_KW                3
+                        96      POP_TOP                         
+                        98      LOAD_CONST                      0: None
+                        100     RETURN_VALUE                    
+                'UI.display_error'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: add_success_message
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 9
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_clean_dialog'
+                        '_add_label'
+                        'tk'
+                        'Button'
+                        'content_frame'
+                        'ts'
+                        'text'
+                        'root'
+                        'destroy'
+                        'Style'
+                        'font'
+                        'font_size'
+                        'bg'
+                        'fg'
+                        'ok_button'
+                        'pack'
+                    [Var Names]
+                        'self'
+                        'title'
+                        'sub_title'
+                        'msg'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'button'
+                        'text'
+                        'close'
+                        0
+                        (
+                            'text'
+                            'command'
+                            'font'
+                            'bg'
+                            'fg'
+                            'highlightthickness'
+                        )
+                        'bottom'
+                        'e'
+                        (
+                            10
+                            0
+                        )
+                        (
+                            'side'
+                            'anchor'
+                            'pady'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _clean_dialog
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_METHOD                     1: _add_label
+                        12      LOAD_FAST                       1: title
+                        14      LOAD_FAST                       2: sub_title
+                        16      LOAD_FAST                       3: msg
+                        18      CALL_METHOD                     3
+                        20      POP_TOP                         
+                        22      LOAD_GLOBAL                     2: tk
+                        24      LOAD_ATTR                       3: Button
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_ATTR                       4: content_frame
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_ATTR                       5: ts
+                        34      LOAD_METHOD                     6: text
+                        36      LOAD_CONST                      1: 'button'
+                        38      LOAD_CONST                      2: 'text'
+                        40      LOAD_CONST                      3: 'close'
+                        42      CALL_METHOD                     3
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_ATTR                       7: root
+                        48      LOAD_ATTR                       8: destroy
+                        50      LOAD_GLOBAL                     9: Style
+                        52      LOAD_ATTR                       10: font
+                        54      LOAD_GLOBAL                     9: Style
+                        56      LOAD_ATTR                       11: font_size
+                        58      BUILD_TUPLE                     2
+                        60      LOAD_GLOBAL                     9: Style
+                        62      LOAD_ATTR                       12: bg
+                        64      LOAD_GLOBAL                     9: Style
+                        66      LOAD_ATTR                       13: fg
+                        68      LOAD_CONST                      4: 0
+                        70      LOAD_CONST                      5: ('text', 'command', 'font', 'bg', 'fg', 'highlightthickness')
+                        72      CALL_FUNCTION_KW                7
+                        74      LOAD_FAST                       0: self
+                        76      STORE_ATTR                      14: ok_button
+                        78      LOAD_FAST                       0: self
+                        80      LOAD_ATTR                       14: ok_button
+                        82      LOAD_ATTR                       15: pack
+                        84      LOAD_CONST                      6: 'bottom'
+                        86      LOAD_CONST                      7: 'e'
+                        88      LOAD_CONST                      8: (10, 0)
+                        90      LOAD_CONST                      9: ('side', 'anchor', 'pady')
+                        92      CALL_FUNCTION_KW                3
+                        94      POP_TOP                         
+                        96      LOAD_CONST                      0: None
+                        98      RETURN_VALUE                    
+                'UI.add_success_message'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: ask_install
+                    Arg Count: 5
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 8
+                    Stack Size: 9
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_clean_dialog'
+                        '_add_label'
+                        'tk'
+                        'Frame'
+                        'content_frame'
+                        'Style'
+                        'bg'
+                        'pack'
+                        'Button'
+                        'ts'
+                        'text'
+                        '_on_manage'
+                        'font'
+                        'font_size'
+                        'fg'
+                        'grid'
+                        '_on_accept'
+                    [Var Names]
+                        'self'
+                        'title'
+                        'sub_title'
+                        'msg'
+                        'learn_more'
+                        'button_frame'
+                        'decline_button'
+                        'accept_button'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        (
+                            'bg'
+                        )
+                        'bottom'
+                        'e'
+                        (
+                            'side'
+                            'anchor'
+                        )
+                        'button'
+                        'text'
+                        'manage'
+                        0
+                        (
+                            'text'
+                            'command'
+                            'font'
+                            'bg'
+                            'fg'
+                            'highlightthickness'
+                        )
+                        (
+                            10
+                            10
+                        )
+                        (
+                            'row'
+                            'column'
+                            'padx'
+                        )
+                        'reinstall'
+                        1
+                        (
+                            10
+                            0
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _clean_dialog
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_METHOD                     1: _add_label
+                        12      LOAD_FAST                       1: title
+                        14      LOAD_FAST                       2: sub_title
+                        16      LOAD_FAST                       3: msg
+                        18      LOAD_FAST                       4: learn_more
+                        20      CALL_METHOD                     4
+                        22      POP_TOP                         
+                        24      LOAD_GLOBAL                     2: tk
+                        26      LOAD_ATTR                       3: Frame
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       4: content_frame
+                        32      LOAD_GLOBAL                     5: Style
+                        34      LOAD_ATTR                       6: bg
+                        36      LOAD_CONST                      1: ('bg',)
+                        38      CALL_FUNCTION_KW                2
+                        40      STORE_FAST                      5: button_frame
+                        42      LOAD_FAST                       5: button_frame
+                        44      LOAD_ATTR                       7: pack
+                        46      LOAD_CONST                      2: 'bottom'
+                        48      LOAD_CONST                      3: 'e'
+                        50      LOAD_CONST                      4: ('side', 'anchor')
+                        52      CALL_FUNCTION_KW                2
+                        54      POP_TOP                         
+                        56      LOAD_GLOBAL                     2: tk
+                        58      LOAD_ATTR                       8: Button
+                        60      LOAD_FAST                       5: button_frame
+                        62      LOAD_FAST                       0: self
+                        64      LOAD_ATTR                       9: ts
+                        66      LOAD_METHOD                     10: text
+                        68      LOAD_CONST                      5: 'button'
+                        70      LOAD_CONST                      6: 'text'
+                        72      LOAD_CONST                      7: 'manage'
+                        74      CALL_METHOD                     3
+                        76      LOAD_FAST                       0: self
+                        78      LOAD_ATTR                       11: _on_manage
+                        80      LOAD_GLOBAL                     5: Style
+                        82      LOAD_ATTR                       12: font
+                        84      LOAD_GLOBAL                     5: Style
+                        86      LOAD_ATTR                       13: font_size
+                        88      BUILD_TUPLE                     2
+                        90      LOAD_GLOBAL                     5: Style
+                        92      LOAD_ATTR                       6: bg
+                        94      LOAD_GLOBAL                     5: Style
+                        96      LOAD_ATTR                       14: fg
+                        98      LOAD_CONST                      8: 0
+                        100     LOAD_CONST                      9: ('text', 'command', 'font', 'bg', 'fg', 'highlightthickness')
+                        102     CALL_FUNCTION_KW                7
+                        104     STORE_FAST                      6: decline_button
+                        106     LOAD_FAST                       6: decline_button
+                        108     LOAD_ATTR                       15: grid
+                        110     LOAD_CONST                      8: 0
+                        112     LOAD_CONST                      8: 0
+                        114     LOAD_CONST                      10: (10, 10)
+                        116     LOAD_CONST                      11: ('row', 'column', 'padx')
+                        118     CALL_FUNCTION_KW                3
+                        120     POP_TOP                         
+                        122     LOAD_GLOBAL                     2: tk
+                        124     LOAD_ATTR                       8: Button
+                        126     LOAD_FAST                       5: button_frame
+                        128     LOAD_FAST                       0: self
+                        130     LOAD_ATTR                       9: ts
+                        132     LOAD_METHOD                     10: text
+                        134     LOAD_CONST                      5: 'button'
+                        136     LOAD_CONST                      6: 'text'
+                        138     LOAD_CONST                      12: 'reinstall'
+                        140     CALL_METHOD                     3
+                        142     LOAD_FAST                       0: self
+                        144     LOAD_ATTR                       16: _on_accept
+                        146     LOAD_GLOBAL                     5: Style
+                        148     LOAD_ATTR                       12: font
+                        150     LOAD_GLOBAL                     5: Style
+                        152     LOAD_ATTR                       13: font_size
+                        154     BUILD_TUPLE                     2
+                        156     LOAD_GLOBAL                     5: Style
+                        158     LOAD_ATTR                       6: bg
+                        160     LOAD_GLOBAL                     5: Style
+                        162     LOAD_ATTR                       14: fg
+                        164     LOAD_CONST                      8: 0
+                        166     LOAD_CONST                      9: ('text', 'command', 'font', 'bg', 'fg', 'highlightthickness')
+                        168     CALL_FUNCTION_KW                7
+                        170     STORE_FAST                      7: accept_button
+                        172     LOAD_FAST                       7: accept_button
+                        174     LOAD_ATTR                       15: grid
+                        176     LOAD_CONST                      8: 0
+                        178     LOAD_CONST                      13: 1
+                        180     LOAD_CONST                      14: (10, 0)
+                        182     LOAD_CONST                      11: ('row', 'column', 'padx')
+                        184     CALL_FUNCTION_KW                3
+                        186     POP_TOP                         
+                        188     LOAD_CONST                      0: None
+                        190     RETURN_VALUE                    
+                'UI.ask_install'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: ask_uninstall
+                    Arg Count: 5
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 8
+                    Stack Size: 9
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_clean_dialog'
+                        '_add_label'
+                        'tk'
+                        'Frame'
+                        'content_frame'
+                        'Style'
+                        'bg'
+                        'pack'
+                        'Button'
+                        'ts'
+                        'text'
+                        '_on_decline'
+                        'font'
+                        'font_size'
+                        'fg'
+                        'grid'
+                        '_on_accept'
+                    [Var Names]
+                        'self'
+                        'title'
+                        'sub_title'
+                        'msg'
+                        'learn_more'
+                        'button_frame'
+                        'decline_button'
+                        'accept_button'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        (
+                            'bg'
+                        )
+                        'bottom'
+                        'e'
+                        (
+                            'side'
+                            'anchor'
+                        )
+                        'button'
+                        'text'
+                        'cancel'
+                        0
+                        (
+                            'text'
+                            'command'
+                            'font'
+                            'bg'
+                            'fg'
+                            'highlightthickness'
+                        )
+                        (
+                            10
+                            10
+                        )
+                        (
+                            'row'
+                            'column'
+                            'padx'
+                        )
+                        'uninstall'
+                        1
+                        (
+                            10
+                            0
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _clean_dialog
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_METHOD                     1: _add_label
+                        12      LOAD_FAST                       1: title
+                        14      LOAD_FAST                       2: sub_title
+                        16      LOAD_FAST                       3: msg
+                        18      LOAD_FAST                       4: learn_more
+                        20      CALL_METHOD                     4
+                        22      POP_TOP                         
+                        24      LOAD_GLOBAL                     2: tk
+                        26      LOAD_ATTR                       3: Frame
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       4: content_frame
+                        32      LOAD_GLOBAL                     5: Style
+                        34      LOAD_ATTR                       6: bg
+                        36      LOAD_CONST                      1: ('bg',)
+                        38      CALL_FUNCTION_KW                2
+                        40      STORE_FAST                      5: button_frame
+                        42      LOAD_FAST                       5: button_frame
+                        44      LOAD_ATTR                       7: pack
+                        46      LOAD_CONST                      2: 'bottom'
+                        48      LOAD_CONST                      3: 'e'
+                        50      LOAD_CONST                      4: ('side', 'anchor')
+                        52      CALL_FUNCTION_KW                2
+                        54      POP_TOP                         
+                        56      LOAD_GLOBAL                     2: tk
+                        58      LOAD_ATTR                       8: Button
+                        60      LOAD_FAST                       5: button_frame
+                        62      LOAD_FAST                       0: self
+                        64      LOAD_ATTR                       9: ts
+                        66      LOAD_METHOD                     10: text
+                        68      LOAD_CONST                      5: 'button'
+                        70      LOAD_CONST                      6: 'text'
+                        72      LOAD_CONST                      7: 'cancel'
+                        74      CALL_METHOD                     3
+                        76      LOAD_FAST                       0: self
+                        78      LOAD_ATTR                       11: _on_decline
+                        80      LOAD_GLOBAL                     5: Style
+                        82      LOAD_ATTR                       12: font
+                        84      LOAD_GLOBAL                     5: Style
+                        86      LOAD_ATTR                       13: font_size
+                        88      BUILD_TUPLE                     2
+                        90      LOAD_GLOBAL                     5: Style
+                        92      LOAD_ATTR                       6: bg
+                        94      LOAD_GLOBAL                     5: Style
+                        96      LOAD_ATTR                       14: fg
+                        98      LOAD_CONST                      8: 0
+                        100     LOAD_CONST                      9: ('text', 'command', 'font', 'bg', 'fg', 'highlightthickness')
+                        102     CALL_FUNCTION_KW                7
+                        104     STORE_FAST                      6: decline_button
+                        106     LOAD_FAST                       6: decline_button
+                        108     LOAD_ATTR                       15: grid
+                        110     LOAD_CONST                      8: 0
+                        112     LOAD_CONST                      8: 0
+                        114     LOAD_CONST                      10: (10, 10)
+                        116     LOAD_CONST                      11: ('row', 'column', 'padx')
+                        118     CALL_FUNCTION_KW                3
+                        120     POP_TOP                         
+                        122     LOAD_GLOBAL                     2: tk
+                        124     LOAD_ATTR                       8: Button
+                        126     LOAD_FAST                       5: button_frame
+                        128     LOAD_FAST                       0: self
+                        130     LOAD_ATTR                       9: ts
+                        132     LOAD_METHOD                     10: text
+                        134     LOAD_CONST                      5: 'button'
+                        136     LOAD_CONST                      6: 'text'
+                        138     LOAD_CONST                      12: 'uninstall'
+                        140     CALL_METHOD                     3
+                        142     LOAD_FAST                       0: self
+                        144     LOAD_ATTR                       16: _on_accept
+                        146     LOAD_GLOBAL                     5: Style
+                        148     LOAD_ATTR                       12: font
+                        150     LOAD_GLOBAL                     5: Style
+                        152     LOAD_ATTR                       13: font_size
+                        154     BUILD_TUPLE                     2
+                        156     LOAD_GLOBAL                     5: Style
+                        158     LOAD_ATTR                       6: bg
+                        160     LOAD_GLOBAL                     5: Style
+                        162     LOAD_ATTR                       14: fg
+                        164     LOAD_CONST                      8: 0
+                        166     LOAD_CONST                      9: ('text', 'command', 'font', 'bg', 'fg', 'highlightthickness')
+                        168     CALL_FUNCTION_KW                7
+                        170     STORE_FAST                      7: accept_button
+                        172     LOAD_FAST                       7: accept_button
+                        174     LOAD_ATTR                       15: grid
+                        176     LOAD_CONST                      8: 0
+                        178     LOAD_CONST                      13: 1
+                        180     LOAD_CONST                      14: (10, 0)
+                        182     LOAD_CONST                      11: ('row', 'column', 'padx')
+                        184     CALL_FUNCTION_KW                3
+                        186     POP_TOP                         
+                        188     LOAD_CONST                      0: None
+                        190     RETURN_VALUE                    
+                'UI.ask_uninstall'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: start_move
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'x_root'
+                        'root'
+                        'winfo_x'
+                        'x'
+                        'y_root'
+                        'winfo_y'
+                        'y'
+                    [Var Names]
+                        'self'
+                        'event'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: event
+                        2       LOAD_ATTR                       0: x_root
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       1: root
+                        8       LOAD_METHOD                     2: winfo_x
+                        10      CALL_METHOD                     0
+                        12      BINARY_SUBTRACT                 
+                        14      LOAD_FAST                       0: self
+                        16      STORE_ATTR                      3: x
+                        18      LOAD_FAST                       1: event
+                        20      LOAD_ATTR                       4: y_root
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       1: root
+                        26      LOAD_METHOD                     5: winfo_y
+                        28      CALL_METHOD                     0
+                        30      BINARY_SUBTRACT                 
+                        32      LOAD_FAST                       0: self
+                        34      STORE_ATTR                      6: y
+                        36      LOAD_CONST                      0: None
+                        38      RETURN_VALUE                    
+                'UI.start_move'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: stop_move
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'x'
+                        'y'
+                    [Var Names]
+                        'self'
+                        'event'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      0: None
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: x
+                        6       LOAD_CONST                      0: None
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: y
+                        12      LOAD_CONST                      0: None
+                        14      RETURN_VALUE                    
+                'UI.stop_move'
+                [Code]
+                    File Name: install_ui.py
+                    Object Name: on_drag
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'x'
+                        'y'
+                        'x_root'
+                        'y_root'
+                        'root'
+                        'geometry'
+                    [Var Names]
+                        'self'
+                        'event'
+                        'x'
+                        'y'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '+'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: x
+                        4       LOAD_CONST                      0: None
+                        6       IS_OP                           1 (is not)
+                        8       POP_JUMP_IF_FALSE               36 (to 72)
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       1: y
+                        14      LOAD_CONST                      0: None
+                        16      IS_OP                           1 (is not)
+                        18      POP_JUMP_IF_FALSE               38 (to 76)
+                        20      LOAD_FAST                       1: event
+                        22      LOAD_ATTR                       2: x_root
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       0: x
+                        28      BINARY_SUBTRACT                 
+                        30      STORE_FAST                      2: x
+                        32      LOAD_FAST                       1: event
+                        34      LOAD_ATTR                       3: y_root
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_ATTR                       1: y
+                        40      BINARY_SUBTRACT                 
+                        42      STORE_FAST                      3: y
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_ATTR                       4: root
+                        48      LOAD_METHOD                     5: geometry
+                        50      LOAD_CONST                      1: '+'
+                        52      LOAD_FAST                       2: x
+                        54      FORMAT_VALUE                    0 (FVC_NONE)
+                        56      LOAD_CONST                      1: '+'
+                        58      LOAD_FAST                       3: y
+                        60      FORMAT_VALUE                    0 (FVC_NONE)
+                        62      BUILD_STRING                    4
+                        64      CALL_METHOD                     1
+                        66      POP_TOP                         
+                        68      LOAD_CONST                      0: None
+                        70      RETURN_VALUE                    
+                        72      LOAD_CONST                      0: None
+                        74      RETURN_VALUE                    
+                        76      LOAD_CONST                      0: None
+                        78      RETURN_VALUE                    
+                'UI.on_drag'
+                None
+                (
+                    False
+                )
+                (
+                    True
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'UI'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: <CODE> __init__
+                10      LOAD_CONST                      2: 'UI.__init__'
+                12      MAKE_FUNCTION                   0
+                14      STORE_NAME                      3: __init__
+                16      LOAD_CONST                      3: <CODE> _on_manage
+                18      LOAD_CONST                      4: 'UI._on_manage'
+                20      MAKE_FUNCTION                   0
+                22      STORE_NAME                      4: _on_manage
+                24      LOAD_CONST                      5: <CODE> _on_accept
+                26      LOAD_CONST                      6: 'UI._on_accept'
+                28      MAKE_FUNCTION                   0
+                30      STORE_NAME                      5: _on_accept
+                32      LOAD_CONST                      7: <CODE> _on_decline
+                34      LOAD_CONST                      8: 'UI._on_decline'
+                36      MAKE_FUNCTION                   0
+                38      STORE_NAME                      6: _on_decline
+                40      LOAD_CONST                      9: <CODE> _on_open_link
+                42      LOAD_CONST                      10: 'UI._on_open_link'
+                44      MAKE_FUNCTION                   0
+                46      STORE_NAME                      7: _on_open_link
+                48      LOAD_CONST                      11: <CODE> wait_for_state
+                50      LOAD_CONST                      12: 'UI.wait_for_state'
+                52      MAKE_FUNCTION                   0
+                54      STORE_NAME                      8: wait_for_state
+                56      LOAD_CONST                      40: (False,)
+                58      LOAD_CONST                      14: <CODE> _add_label
+                60      LOAD_CONST                      15: 'UI._add_label'
+                62      MAKE_FUNCTION                   1
+                64      STORE_NAME                      9: _add_label
+                66      LOAD_CONST                      16: <CODE> show
+                68      LOAD_CONST                      17: 'UI.show'
+                70      MAKE_FUNCTION                   0
+                72      STORE_NAME                      10: show
+                74      LOAD_CONST                      18: <CODE> add_progress
+                76      LOAD_CONST                      19: 'UI.add_progress'
+                78      MAKE_FUNCTION                   0
+                80      STORE_NAME                      11: add_progress
+                82      LOAD_CONST                      20: <CODE> update_progress_text
+                84      LOAD_CONST                      21: 'UI.update_progress_text'
+                86      MAKE_FUNCTION                   0
+                88      STORE_NAME                      12: update_progress_text
+                90      LOAD_CONST                      22: <CODE> _clean_dialog
+                92      LOAD_CONST                      23: 'UI._clean_dialog'
+                94      MAKE_FUNCTION                   0
+                96      STORE_NAME                      13: _clean_dialog
+                98      LOAD_CONST                      41: (True,)
+                100     LOAD_CONST                      25: <CODE> display_error
+                102     LOAD_CONST                      26: 'UI.display_error'
+                104     MAKE_FUNCTION                   1
+                106     STORE_NAME                      14: display_error
+                108     LOAD_CONST                      27: <CODE> add_success_message
+                110     LOAD_CONST                      28: 'UI.add_success_message'
+                112     MAKE_FUNCTION                   0
+                114     STORE_NAME                      15: add_success_message
+                116     LOAD_CONST                      41: (True,)
+                118     LOAD_CONST                      29: <CODE> ask_install
+                120     LOAD_CONST                      30: 'UI.ask_install'
+                122     MAKE_FUNCTION                   1
+                124     STORE_NAME                      16: ask_install
+                126     LOAD_CONST                      41: (True,)
+                128     LOAD_CONST                      31: <CODE> ask_uninstall
+                130     LOAD_CONST                      32: 'UI.ask_uninstall'
+                132     MAKE_FUNCTION                   1
+                134     STORE_NAME                      17: ask_uninstall
+                136     LOAD_CONST                      33: <CODE> start_move
+                138     LOAD_CONST                      34: 'UI.start_move'
+                140     MAKE_FUNCTION                   0
+                142     STORE_NAME                      18: start_move
+                144     LOAD_CONST                      35: <CODE> stop_move
+                146     LOAD_CONST                      36: 'UI.stop_move'
+                148     MAKE_FUNCTION                   0
+                150     STORE_NAME                      19: stop_move
+                152     LOAD_CONST                      37: <CODE> on_drag
+                154     LOAD_CONST                      38: 'UI.on_drag'
+                156     MAKE_FUNCTION                   0
+                158     STORE_NAME                      20: on_drag
+                160     LOAD_CONST                      39: None
+                162     RETURN_VALUE                    
+        'UI'
+    [Disassembly]
+        0       LOAD_CONST                      0: 0
+        2       LOAD_CONST                      1: None
+        4       IMPORT_NAME                     0: tkinter
+        6       STORE_NAME                      1: tk
+        8       LOAD_CONST                      0: 0
+        10      LOAD_CONST                      2: ('ttk',)
+        12      IMPORT_NAME                     0: tkinter
+        14      IMPORT_FROM                     2: ttk
+        16      STORE_NAME                      2: ttk
+        18      POP_TOP                         
+        20      LOAD_CONST                      0: 0
+        22      LOAD_CONST                      1: None
+        24      IMPORT_NAME                     3: time
+        26      STORE_NAME                      3: time
+        28      LOAD_CONST                      0: 0
+        30      LOAD_CONST                      1: None
+        32      IMPORT_NAME                     4: os
+        34      STORE_NAME                      4: os
+        36      LOAD_CONST                      0: 0
+        38      LOAD_CONST                      1: None
+        40      IMPORT_NAME                     5: sys
+        42      STORE_NAME                      5: sys
+        44      LOAD_CONST                      0: 0
+        46      LOAD_CONST                      1: None
+        48      IMPORT_NAME                     6: webbrowser
+        50      STORE_NAME                      6: webbrowser
+        52      LOAD_CONST                      0: 0
+        54      LOAD_CONST                      3: ('Translate',)
+        56      IMPORT_NAME                     7: translate
+        58      IMPORT_FROM                     8: Translate
+        60      STORE_NAME                      8: Translate
+        62      POP_TOP                         
+        64      LOAD_CONST                      4: 'https://nvidia.custhelp.com/app/answers/detail/a_id/5337/~/how-do-i-install-geforce-now-on-steam-deck'
+        66      STORE_NAME                      9: KBA_LINK
+        68      LOAD_BUILD_CLASS                
+        70      LOAD_CONST                      5: <CODE> Style
+        72      LOAD_CONST                      6: 'Style'
+        74      MAKE_FUNCTION                   0
+        76      LOAD_CONST                      6: 'Style'
+        78      CALL_FUNCTION                   2
+        80      STORE_NAME                      10: Style
+        82      LOAD_BUILD_CLASS                
+        84      LOAD_CONST                      7: <CODE> UI
+        86      LOAD_CONST                      8: 'UI'
+        88      MAKE_FUNCTION                   0
+        90      LOAD_CONST                      8: 'UI'
+        92      CALL_FUNCTION                   2
+        94      STORE_NAME                      11: UI
+        96      LOAD_CONST                      1: None
+        98      RETURN_VALUE                    

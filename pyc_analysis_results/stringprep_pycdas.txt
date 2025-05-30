@@ -1,0 +1,3841 @@
+stringprep.pyc (Python 3.10)
+[Code]
+    File Name: stringprep.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 6
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'unicodedata'
+        'ucd_3_2_0'
+        'unidata_version'
+        'in_table_a1'
+        'set'
+        'list'
+        'range'
+        'b1_set'
+        'in_table_b1'
+        'b3_exceptions'
+        'map_table_b3'
+        'map_table_b2'
+        'in_table_c11'
+        'in_table_c12'
+        'in_table_c11_c12'
+        'in_table_c21'
+        'c22_specials'
+        'in_table_c22'
+        'in_table_c21_c22'
+        'in_table_c3'
+        'in_table_c4'
+        'in_table_c5'
+        'c6_set'
+        'in_table_c6'
+        'c7_set'
+        'in_table_c7'
+        'c8_set'
+        'in_table_c8'
+        'c9_set'
+        'in_table_c9'
+        'in_table_d1'
+        'in_table_d2'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Library that exposes various tables found in the StringPrep RFC 3454.\n\nThere are two kinds of tables: sets, for which a member test is provided,\nand mappings, for which a mapping function is provided.\n'
+        0
+        (
+            'ucd_3_2_0'
+        )
+        '3.2.0'
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_a1
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'unicodedata'
+                'category'
+                'ord'
+            [Var Names]
+                'code'
+                'c'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'Cn'
+                False
+                64976
+                65008
+                65535
+                (
+                    65534
+                    65535
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: unicodedata
+                2       LOAD_METHOD                     1: category
+                4       LOAD_FAST                       0: code
+                6       CALL_METHOD                     1
+                8       LOAD_CONST                      1: 'Cn'
+                10      COMPARE_OP                      3 (!=)
+                12      POP_JUMP_IF_FALSE               9 (to 18)
+                14      LOAD_CONST                      2: False
+                16      RETURN_VALUE                    
+                18      LOAD_GLOBAL                     2: ord
+                20      LOAD_FAST                       0: code
+                22      CALL_FUNCTION                   1
+                24      STORE_FAST                      1: c
+                26      LOAD_CONST                      3: 64976
+                28      LOAD_FAST                       1: c
+                30      DUP_TOP                         
+                32      ROT_THREE                       
+                34      COMPARE_OP                      1 (<=)
+                36      POP_JUMP_IF_FALSE               24 (to 48)
+                38      LOAD_CONST                      4: 65008
+                40      COMPARE_OP                      0 (<)
+                42      POP_JUMP_IF_FALSE               25 (to 50)
+                44      LOAD_CONST                      2: False
+                46      RETURN_VALUE                    
+                48      POP_TOP                         
+                50      LOAD_FAST                       1: c
+                52      LOAD_CONST                      5: 65535
+                54      BINARY_AND                      
+                56      LOAD_CONST                      6: (65534, 65535)
+                58      CONTAINS_OP                     1 (not in)
+                60      RETURN_VALUE                    
+        'in_table_a1'
+        (
+            173
+            847
+            6150
+            6155
+            6156
+            6157
+            8203
+            8204
+            8205
+            8288
+            65279
+        )
+        65024
+        65040
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_b1
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ord'
+                'b1_set'
+            [Var Names]
+                'code'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: ord
+                2       LOAD_FAST                       0: code
+                4       CALL_FUNCTION                   1
+                6       LOAD_GLOBAL                     1: b1_set
+                8       CONTAINS_OP                     0 (in)
+                10      RETURN_VALUE                    
+        'in_table_b1'
+        181
+        'μ'
+        223
+        'ss'
+        304
+        'i̇'
+        329
+        'ʼn'
+        383
+        's'
+        496
+        'ǰ'
+        837
+        'ι'
+        890
+        ' ι'
+        912
+        'ΐ'
+        944
+        'ΰ'
+        962
+        'σ'
+        976
+        'β'
+        977
+        'θ'
+        978
+        'υ'
+        979
+        'ύ'
+        980
+        'ϋ'
+        981
+        'φ'
+        982
+        'π'
+        1008
+        'κ'
+        1009
+        'ρ'
+        1010
+        1013
+        'ε'
+        1415
+        'եւ'
+        7830
+        'ẖ'
+        7831
+        'ẗ'
+        7832
+        'ẘ'
+        7833
+        'ẙ'
+        7834
+        'aʾ'
+        7835
+        'ṡ'
+        8016
+        'ὐ'
+        8018
+        'ὒ'
+        8020
+        'ὔ'
+        8022
+        'ὖ'
+        8064
+        'ἀι'
+        8065
+        'ἁι'
+        8066
+        'ἂι'
+        8067
+        'ἃι'
+        8068
+        'ἄι'
+        8069
+        'ἅι'
+        8070
+        'ἆι'
+        8071
+        'ἇι'
+        8072
+        8073
+        8074
+        8075
+        8076
+        8077
+        8078
+        8079
+        8080
+        'ἠι'
+        8081
+        'ἡι'
+        8082
+        'ἢι'
+        8083
+        'ἣι'
+        8084
+        'ἤι'
+        8085
+        'ἥι'
+        8086
+        'ἦι'
+        8087
+        'ἧι'
+        8088
+        8089
+        8090
+        8091
+        8092
+        8093
+        8094
+        8095
+        8096
+        'ὠι'
+        8097
+        'ὡι'
+        8098
+        'ὢι'
+        8099
+        'ὣι'
+        8100
+        'ὤι'
+        8101
+        'ὥι'
+        8102
+        'ὦι'
+        8103
+        'ὧι'
+        8104
+        8105
+        8106
+        8107
+        8108
+        8109
+        8110
+        8111
+        8114
+        'ὰι'
+        8115
+        'αι'
+        8116
+        'άι'
+        8118
+        'ᾶ'
+        8119
+        'ᾶι'
+        8124
+        8126
+        8130
+        'ὴι'
+        8131
+        'ηι'
+        8132
+        'ήι'
+        8134
+        'ῆ'
+        8135
+        'ῆι'
+        8140
+        8146
+        'ῒ'
+        8147
+        8150
+        'ῖ'
+        8151
+        'ῗ'
+        8162
+        'ῢ'
+        8163
+        8164
+        'ῤ'
+        8166
+        'ῦ'
+        8167
+        'ῧ'
+        8178
+        'ὼι'
+        8179
+        'ωι'
+        8180
+        'ώι'
+        8182
+        'ῶ'
+        8183
+        'ῶι'
+        8188
+        8360
+        'rs'
+        8450
+        'c'
+        8451
+        '°c'
+        8455
+        'ɛ'
+        8457
+        '°f'
+        8459
+        'h'
+        8460
+        8461
+        8464
+        'i'
+        8465
+        8466
+        'l'
+        8469
+        'n'
+        8470
+        'no'
+        8473
+        'p'
+        8474
+        'q'
+        8475
+        'r'
+        8476
+        8477
+        8480
+        'sm'
+        8481
+        'tel'
+        8482
+        'tm'
+        8484
+        'z'
+        8488
+        8492
+        'b'
+        8493
+        8496
+        'e'
+        8497
+        'f'
+        8499
+        'm'
+        8510
+        'γ'
+        8511
+        8517
+        'd'
+        13169
+        'hpa'
+        13171
+        'au'
+        13173
+        'ov'
+        13184
+        'pa'
+        13185
+        'na'
+        13186
+        'μa'
+        13187
+        'ma'
+        13188
+        'ka'
+        13189
+        'kb'
+        13190
+        'mb'
+        13191
+        'gb'
+        13194
+        'pf'
+        13195
+        'nf'
+        13196
+        'μf'
+        13200
+        'hz'
+        13201
+        'khz'
+        13202
+        'mhz'
+        13203
+        'ghz'
+        13204
+        'thz'
+        13225
+        13226
+        'kpa'
+        13227
+        'mpa'
+        13228
+        'gpa'
+        13236
+        'pv'
+        13237
+        'nv'
+        13238
+        'μv'
+        13239
+        'mv'
+        13240
+        'kv'
+        13241
+        13242
+        'pw'
+        13243
+        'nw'
+        13244
+        'μw'
+        13245
+        'mw'
+        13246
+        'kw'
+        13247
+        13248
+        'kω'
+        13249
+        'mω'
+        13251
+        'bq'
+        13254
+        'c∕kg'
+        13255
+        'co.'
+        13256
+        'db'
+        13257
+        'gy'
+        13259
+        'hp'
+        13261
+        'kk'
+        13262
+        'km'
+        13271
+        'ph'
+        13273
+        'ppm'
+        13274
+        'pr'
+        13276
+        'sv'
+        13277
+        'wb'
+        64256
+        'ff'
+        64257
+        'fi'
+        64258
+        'fl'
+        64259
+        'ffi'
+        64260
+        'ffl'
+        64261
+        'st'
+        64262
+        64275
+        'մն'
+        64276
+        'մե'
+        64277
+        'մի'
+        64278
+        'վն'
+        64279
+        'մխ'
+        119808
+        'a'
+        119809
+        119810
+        119811
+        119812
+        119813
+        119814
+        'g'
+        119815
+        119816
+        119817
+        'j'
+        119818
+        'k'
+        119819
+        119820
+        119821
+        119822
+        'o'
+        119823
+        119824
+        119825
+        119826
+        119827
+        't'
+        119828
+        'u'
+        119829
+        'v'
+        119830
+        'w'
+        119831
+        'x'
+        119832
+        'y'
+        119833
+        119860
+        119861
+        119862
+        119863
+        119864
+        119865
+        119866
+        119867
+        119868
+        119869
+        119870
+        119871
+        119872
+        119873
+        119874
+        119875
+        119876
+        119877
+        119878
+        119879
+        119880
+        119881
+        119882
+        119883
+        119884
+        119885
+        119912
+        119913
+        119914
+        119915
+        119916
+        119917
+        119918
+        119919
+        119920
+        119921
+        119922
+        119923
+        119924
+        119925
+        119926
+        119927
+        119928
+        119929
+        119930
+        119931
+        119932
+        119933
+        119934
+        119935
+        119936
+        119937
+        119964
+        119966
+        119967
+        119970
+        119973
+        119974
+        119977
+        119978
+        119979
+        119980
+        119982
+        119983
+        119984
+        119985
+        119986
+        119987
+        119988
+        119989
+        120016
+        120017
+        120018
+        120019
+        120020
+        120021
+        120022
+        120023
+        120024
+        120025
+        120026
+        120027
+        120028
+        120029
+        120030
+        120031
+        120032
+        120033
+        120034
+        120035
+        120036
+        120037
+        120038
+        120039
+        120040
+        120041
+        120068
+        120069
+        120071
+        120072
+        120073
+        120074
+        120077
+        120078
+        120079
+        120080
+        120081
+        120082
+        120083
+        120084
+        120086
+        120087
+        120088
+        120089
+        120090
+        120091
+        120092
+        120120
+        120121
+        120123
+        120124
+        120125
+        120126
+        120128
+        120129
+        120130
+        120131
+        120132
+        120134
+        120138
+        120139
+        120140
+        120141
+        120142
+        120143
+        120144
+        120172
+        120173
+        120174
+        120175
+        120176
+        120177
+        120178
+        120179
+        120180
+        120181
+        120182
+        120183
+        120184
+        120185
+        120186
+        120187
+        120188
+        120189
+        120190
+        120191
+        120192
+        120193
+        120194
+        120195
+        120196
+        120197
+        120224
+        120225
+        120226
+        120227
+        120228
+        120229
+        120230
+        120231
+        120232
+        120233
+        120234
+        120235
+        120236
+        120237
+        120238
+        120239
+        120240
+        120241
+        120242
+        120243
+        120244
+        120245
+        120246
+        120247
+        120248
+        120249
+        120276
+        120277
+        120278
+        120279
+        120280
+        120281
+        120282
+        120283
+        120284
+        120285
+        120286
+        120287
+        120288
+        120289
+        120290
+        120291
+        120292
+        120293
+        120294
+        120295
+        120296
+        120297
+        120298
+        120299
+        120300
+        120301
+        120328
+        120329
+        120330
+        120331
+        120332
+        120333
+        120334
+        120335
+        120336
+        120337
+        120338
+        120339
+        120340
+        120341
+        120342
+        120343
+        120344
+        120345
+        120346
+        120347
+        120348
+        120349
+        120350
+        120351
+        120352
+        120353
+        120380
+        120381
+        120382
+        120383
+        120384
+        120385
+        120386
+        120387
+        120388
+        120389
+        120390
+        120391
+        120392
+        120393
+        120394
+        120395
+        120396
+        120397
+        120398
+        120399
+        120400
+        120401
+        120402
+        120403
+        120404
+        120405
+        120432
+        120433
+        120434
+        120435
+        120436
+        120437
+        120438
+        120439
+        120440
+        120441
+        120442
+        120443
+        120444
+        120445
+        120446
+        120447
+        120448
+        120449
+        120450
+        120451
+        120452
+        120453
+        120454
+        120455
+        120456
+        120457
+        120488
+        'α'
+        120489
+        120490
+        120491
+        'δ'
+        120492
+        120493
+        'ζ'
+        120494
+        'η'
+        120495
+        120496
+        120497
+        120498
+        'λ'
+        120499
+        120500
+        'ν'
+        120501
+        'ξ'
+        120502
+        'ο'
+        120503
+        120504
+        120505
+        120506
+        120507
+        'τ'
+        120508
+        120509
+        120510
+        'χ'
+        120511
+        'ψ'
+        120512
+        'ω'
+        120531
+        120546
+        120547
+        120548
+        120549
+        120550
+        120551
+        120552
+        120553
+        120554
+        120555
+        120556
+        120557
+        120558
+        120559
+        120560
+        120561
+        120562
+        120563
+        120564
+        120565
+        120566
+        120567
+        120568
+        120569
+        120570
+        120589
+        120604
+        120605
+        120606
+        120607
+        120608
+        120609
+        120610
+        120611
+        120612
+        120613
+        120614
+        120615
+        120616
+        120617
+        120618
+        120619
+        120620
+        120621
+        120622
+        120623
+        120624
+        120625
+        120626
+        120627
+        120628
+        120647
+        120662
+        120663
+        120664
+        120665
+        120666
+        120667
+        120668
+        120669
+        120670
+        120671
+        120672
+        120673
+        120674
+        120675
+        120676
+        120677
+        120678
+        120679
+        120680
+        120681
+        120682
+        120683
+        120684
+        120685
+        120686
+        120705
+        120720
+        120721
+        120722
+        120723
+        120724
+        120725
+        120726
+        120727
+        120728
+        120729
+        120730
+        120731
+        120732
+        120733
+        120734
+        120735
+        120736
+        120737
+        120738
+        120739
+        120740
+        120741
+        (
+            120742
+            120743
+            120744
+            120763
+        )
+        [Code]
+            File Name: stringprep.py
+            Object Name: map_table_b3
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'b3_exceptions'
+                'get'
+                'ord'
+                'lower'
+            [Var Names]
+                'code'
+                'r'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: b3_exceptions
+                2       LOAD_METHOD                     1: get
+                4       LOAD_GLOBAL                     2: ord
+                6       LOAD_FAST                       0: code
+                8       CALL_FUNCTION                   1
+                10      CALL_METHOD                     1
+                12      STORE_FAST                      1: r
+                14      LOAD_FAST                       1: r
+                16      LOAD_CONST                      0: None
+                18      IS_OP                           1 (is not)
+                20      POP_JUMP_IF_FALSE               13 (to 26)
+                22      LOAD_FAST                       1: r
+                24      RETURN_VALUE                    
+                26      LOAD_FAST                       0: code
+                28      LOAD_METHOD                     3: lower
+                30      CALL_METHOD                     0
+                32      RETURN_VALUE                    
+        'map_table_b3'
+        [Code]
+            File Name: stringprep.py
+            Object Name: map_table_b2
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'map_table_b3'
+                'unicodedata'
+                'normalize'
+                'join'
+            [Var Names]
+                'a'
+                'al'
+                'b'
+                'bl'
+                'c'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'NFKC'
+                ''
+                [Code]
+                    File Name: stringprep.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        'map_table_b3'
+                    [Var Names]
+                        '.0'
+                        'ch'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        6 (to 18)
+                        6       STORE_FAST                      1: ch
+                        8       LOAD_GLOBAL                     0: map_table_b3
+                        10      LOAD_FAST                       1: ch
+                        12      CALL_FUNCTION                   1
+                        14      LIST_APPEND                     2
+                        16      JUMP_ABSOLUTE                   2 (to 4)
+                        18      RETURN_VALUE                    
+                'map_table_b2.<locals>.<listcomp>'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: map_table_b3
+                2       LOAD_FAST                       0: a
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      1: al
+                8       LOAD_GLOBAL                     1: unicodedata
+                10      LOAD_METHOD                     2: normalize
+                12      LOAD_CONST                      1: 'NFKC'
+                14      LOAD_FAST                       1: al
+                16      CALL_METHOD                     2
+                18      STORE_FAST                      2: b
+                20      LOAD_CONST                      2: ''
+                22      LOAD_METHOD                     3: join
+                24      LOAD_CONST                      3: <CODE> <listcomp>
+                26      LOAD_CONST                      4: 'map_table_b2.<locals>.<listcomp>'
+                28      MAKE_FUNCTION                   0
+                30      LOAD_FAST                       2: b
+                32      GET_ITER                        
+                34      CALL_FUNCTION                   1
+                36      CALL_METHOD                     1
+                38      STORE_FAST                      3: bl
+                40      LOAD_GLOBAL                     1: unicodedata
+                42      LOAD_METHOD                     2: normalize
+                44      LOAD_CONST                      1: 'NFKC'
+                46      LOAD_FAST                       3: bl
+                48      CALL_METHOD                     2
+                50      STORE_FAST                      4: c
+                52      LOAD_FAST                       2: b
+                54      LOAD_FAST                       4: c
+                56      COMPARE_OP                      3 (!=)
+                58      POP_JUMP_IF_FALSE               32 (to 64)
+                60      LOAD_FAST                       4: c
+                62      RETURN_VALUE                    
+                64      LOAD_FAST                       1: al
+                66      RETURN_VALUE                    
+        'map_table_b2'
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_c11
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+            [Var Names]
+                'code'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                ' '
+            [Disassembly]
+                0       LOAD_FAST                       0: code
+                2       LOAD_CONST                      1: ' '
+                4       COMPARE_OP                      2 (==)
+                6       RETURN_VALUE                    
+        'in_table_c11'
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_c12
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'unicodedata'
+                'category'
+            [Var Names]
+                'code'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'Zs'
+                ' '
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: unicodedata
+                2       LOAD_METHOD                     1: category
+                4       LOAD_FAST                       0: code
+                6       CALL_METHOD                     1
+                8       LOAD_CONST                      1: 'Zs'
+                10      COMPARE_OP                      2 (==)
+                12      JUMP_IF_FALSE_OR_POP            10 (to 20)
+                14      LOAD_FAST                       0: code
+                16      LOAD_CONST                      2: ' '
+                18      COMPARE_OP                      3 (!=)
+                20      RETURN_VALUE                    
+        'in_table_c12'
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_c11_c12
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'unicodedata'
+                'category'
+            [Var Names]
+                'code'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'Zs'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: unicodedata
+                2       LOAD_METHOD                     1: category
+                4       LOAD_FAST                       0: code
+                6       CALL_METHOD                     1
+                8       LOAD_CONST                      1: 'Zs'
+                10      COMPARE_OP                      2 (==)
+                12      RETURN_VALUE                    
+        'in_table_c11_c12'
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_c21
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ord'
+                'unicodedata'
+                'category'
+            [Var Names]
+                'code'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                128
+                'Cc'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: ord
+                2       LOAD_FAST                       0: code
+                4       CALL_FUNCTION                   1
+                6       LOAD_CONST                      1: 128
+                8       COMPARE_OP                      0 (<)
+                10      JUMP_IF_FALSE_OR_POP            12 (to 24)
+                12      LOAD_GLOBAL                     1: unicodedata
+                14      LOAD_METHOD                     2: category
+                16      LOAD_FAST                       0: code
+                18      CALL_METHOD                     1
+                20      LOAD_CONST                      2: 'Cc'
+                22      COMPARE_OP                      2 (==)
+                24      RETURN_VALUE                    
+        'in_table_c21'
+        (
+            1757
+            1807
+            6158
+            8204
+            8205
+            8232
+            8233
+            65279
+        )
+        8288
+        8292
+        8298
+        8304
+        65529
+        65533
+        119155
+        119163
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_c22
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ord'
+                'unicodedata'
+                'category'
+                'c22_specials'
+            [Var Names]
+                'code'
+                'c'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                128
+                False
+                'Cc'
+                True
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: ord
+                2       LOAD_FAST                       0: code
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      1: c
+                8       LOAD_FAST                       1: c
+                10      LOAD_CONST                      1: 128
+                12      COMPARE_OP                      0 (<)
+                14      POP_JUMP_IF_FALSE               10 (to 20)
+                16      LOAD_CONST                      2: False
+                18      RETURN_VALUE                    
+                20      LOAD_GLOBAL                     1: unicodedata
+                22      LOAD_METHOD                     2: category
+                24      LOAD_FAST                       0: code
+                26      CALL_METHOD                     1
+                28      LOAD_CONST                      3: 'Cc'
+                30      COMPARE_OP                      2 (==)
+                32      POP_JUMP_IF_FALSE               19 (to 38)
+                34      LOAD_CONST                      4: True
+                36      RETURN_VALUE                    
+                38      LOAD_FAST                       1: c
+                40      LOAD_GLOBAL                     3: c22_specials
+                42      CONTAINS_OP                     0 (in)
+                44      RETURN_VALUE                    
+        'in_table_c22'
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_c21_c22
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'unicodedata'
+                'category'
+                'ord'
+                'c22_specials'
+            [Var Names]
+                'code'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'Cc'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: unicodedata
+                2       LOAD_METHOD                     1: category
+                4       LOAD_FAST                       0: code
+                6       CALL_METHOD                     1
+                8       LOAD_CONST                      1: 'Cc'
+                10      COMPARE_OP                      2 (==)
+                12      JUMP_IF_TRUE_OR_POP             12 (to 24)
+                14      LOAD_GLOBAL                     2: ord
+                16      LOAD_FAST                       0: code
+                18      CALL_FUNCTION                   1
+                20      LOAD_GLOBAL                     3: c22_specials
+                22      CONTAINS_OP                     0 (in)
+                24      RETURN_VALUE                    
+        'in_table_c21_c22'
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_c3
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'unicodedata'
+                'category'
+            [Var Names]
+                'code'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'Co'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: unicodedata
+                2       LOAD_METHOD                     1: category
+                4       LOAD_FAST                       0: code
+                6       CALL_METHOD                     1
+                8       LOAD_CONST                      1: 'Co'
+                10      COMPARE_OP                      2 (==)
+                12      RETURN_VALUE                    
+        'in_table_c3'
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_c4
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ord'
+            [Var Names]
+                'code'
+                'c'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                64976
+                False
+                65008
+                True
+                65535
+                (
+                    65534
+                    65535
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: ord
+                2       LOAD_FAST                       0: code
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      1: c
+                8       LOAD_FAST                       1: c
+                10      LOAD_CONST                      1: 64976
+                12      COMPARE_OP                      0 (<)
+                14      POP_JUMP_IF_FALSE               10 (to 20)
+                16      LOAD_CONST                      2: False
+                18      RETURN_VALUE                    
+                20      LOAD_FAST                       1: c
+                22      LOAD_CONST                      3: 65008
+                24      COMPARE_OP                      0 (<)
+                26      POP_JUMP_IF_FALSE               16 (to 32)
+                28      LOAD_CONST                      4: True
+                30      RETURN_VALUE                    
+                32      LOAD_GLOBAL                     0: ord
+                34      LOAD_FAST                       0: code
+                36      CALL_FUNCTION                   1
+                38      LOAD_CONST                      5: 65535
+                40      BINARY_AND                      
+                42      LOAD_CONST                      6: (65534, 65535)
+                44      CONTAINS_OP                     0 (in)
+                46      RETURN_VALUE                    
+        'in_table_c4'
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_c5
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'unicodedata'
+                'category'
+            [Var Names]
+                'code'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'Cs'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: unicodedata
+                2       LOAD_METHOD                     1: category
+                4       LOAD_FAST                       0: code
+                6       CALL_METHOD                     1
+                8       LOAD_CONST                      1: 'Cs'
+                10      COMPARE_OP                      2 (==)
+                12      RETURN_VALUE                    
+        'in_table_c5'
+        65534
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_c6
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ord'
+                'c6_set'
+            [Var Names]
+                'code'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: ord
+                2       LOAD_FAST                       0: code
+                4       CALL_FUNCTION                   1
+                6       LOAD_GLOBAL                     1: c6_set
+                8       CONTAINS_OP                     0 (in)
+                10      RETURN_VALUE                    
+        'in_table_c6'
+        12272
+        12284
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_c7
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ord'
+                'c7_set'
+            [Var Names]
+                'code'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: ord
+                2       LOAD_FAST                       0: code
+                4       CALL_FUNCTION                   1
+                6       LOAD_GLOBAL                     1: c7_set
+                8       CONTAINS_OP                     0 (in)
+                10      RETURN_VALUE                    
+        'in_table_c7'
+        (
+            832
+            833
+            8206
+            8207
+        )
+        8234
+        8239
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_c8
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ord'
+                'c8_set'
+            [Var Names]
+                'code'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: ord
+                2       LOAD_FAST                       0: code
+                4       CALL_FUNCTION                   1
+                6       LOAD_GLOBAL                     1: c8_set
+                8       CONTAINS_OP                     0 (in)
+                10      RETURN_VALUE                    
+        'in_table_c8'
+        917505
+        917536
+        917632
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_c9
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ord'
+                'c9_set'
+            [Var Names]
+                'code'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: ord
+                2       LOAD_FAST                       0: code
+                4       CALL_FUNCTION                   1
+                6       LOAD_GLOBAL                     1: c9_set
+                8       CONTAINS_OP                     0 (in)
+                10      RETURN_VALUE                    
+        'in_table_c9'
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_d1
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'unicodedata'
+                'bidirectional'
+            [Var Names]
+                'code'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                (
+                    'R'
+                    'AL'
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: unicodedata
+                2       LOAD_METHOD                     1: bidirectional
+                4       LOAD_FAST                       0: code
+                6       CALL_METHOD                     1
+                8       LOAD_CONST                      1: ('R', 'AL')
+                10      CONTAINS_OP                     0 (in)
+                12      RETURN_VALUE                    
+        'in_table_d1'
+        [Code]
+            File Name: stringprep.py
+            Object Name: in_table_d2
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'unicodedata'
+                'bidirectional'
+            [Var Names]
+                'code'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'L'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: unicodedata
+                2       LOAD_METHOD                     1: bidirectional
+                4       LOAD_FAST                       0: code
+                6       CALL_METHOD                     1
+                8       LOAD_CONST                      1: 'L'
+                10      COMPARE_OP                      2 (==)
+                12      RETURN_VALUE                    
+        'in_table_d2'
+        None
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Library that exposes various tables found in the StringPrep RFC 3454.\n\nThere are two kinds of tables: sets, for which a member test is provided,\nand mappings, for which a mapping function is provided.\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: ('ucd_3_2_0',)
+        8       IMPORT_NAME                     1: unicodedata
+        10      IMPORT_FROM                     2: ucd_3_2_0
+        12      STORE_NAME                      1: unicodedata
+        14      POP_TOP                         
+        16      LOAD_NAME                       1: unicodedata
+        18      LOAD_ATTR                       3: unidata_version
+        20      LOAD_CONST                      3: '3.2.0'
+        22      COMPARE_OP                      2 (==)
+        24      POP_JUMP_IF_TRUE                15 (to 30)
+        26      LOAD_ASSERTION_ERROR            
+        28      RAISE_VARARGS                   1
+        30      LOAD_CONST                      4: <CODE> in_table_a1
+        32      LOAD_CONST                      5: 'in_table_a1'
+        34      MAKE_FUNCTION                   0
+        36      STORE_NAME                      4: in_table_a1
+        38      LOAD_NAME                       5: set
+        40      BUILD_LIST                      0
+        42      LOAD_CONST                      6: (173, 847, 6150, 6155, 6156, 6157, 8203, 8204, 8205, 8288, 65279)
+        44      LIST_EXTEND                     1
+        46      LOAD_NAME                       6: list
+        48      LOAD_NAME                       7: range
+        50      LOAD_CONST                      7: 65024
+        52      LOAD_CONST                      8: 65040
+        54      CALL_FUNCTION                   2
+        56      CALL_FUNCTION                   1
+        58      BINARY_ADD                      
+        60      CALL_FUNCTION                   1
+        62      STORE_NAME                      8: b1_set
+        64      LOAD_CONST                      9: <CODE> in_table_b1
+        66      LOAD_CONST                      10: 'in_table_b1'
+        68      MAKE_FUNCTION                   0
+        70      STORE_NAME                      9: in_table_b1
+        72      BUILD_MAP                       0
+        74      LOAD_CONST                      11: 181
+        76      LOAD_CONST                      12: 'μ'
+        78      MAP_ADD                         1
+        80      LOAD_CONST                      13: 223
+        82      LOAD_CONST                      14: 'ss'
+        84      MAP_ADD                         1
+        86      LOAD_CONST                      15: 304
+        88      LOAD_CONST                      16: 'i̇'
+        90      MAP_ADD                         1
+        92      LOAD_CONST                      17: 329
+        94      LOAD_CONST                      18: 'ʼn'
+        96      MAP_ADD                         1
+        98      LOAD_CONST                      19: 383
+        100     LOAD_CONST                      20: 's'
+        102     MAP_ADD                         1
+        104     LOAD_CONST                      21: 496
+        106     LOAD_CONST                      22: 'ǰ'
+        108     MAP_ADD                         1
+        110     LOAD_CONST                      23: 837
+        112     LOAD_CONST                      24: 'ι'
+        114     MAP_ADD                         1
+        116     LOAD_CONST                      25: 890
+        118     LOAD_CONST                      26: ' ι'
+        120     MAP_ADD                         1
+        122     LOAD_CONST                      27: 912
+        124     LOAD_CONST                      28: 'ΐ'
+        126     MAP_ADD                         1
+        128     LOAD_CONST                      29: 944
+        130     LOAD_CONST                      30: 'ΰ'
+        132     MAP_ADD                         1
+        134     LOAD_CONST                      31: 962
+        136     LOAD_CONST                      32: 'σ'
+        138     MAP_ADD                         1
+        140     LOAD_CONST                      33: 976
+        142     LOAD_CONST                      34: 'β'
+        144     MAP_ADD                         1
+        146     LOAD_CONST                      35: 977
+        148     LOAD_CONST                      36: 'θ'
+        150     MAP_ADD                         1
+        152     LOAD_CONST                      37: 978
+        154     LOAD_CONST                      38: 'υ'
+        156     MAP_ADD                         1
+        158     LOAD_CONST                      39: 979
+        160     LOAD_CONST                      40: 'ύ'
+        162     MAP_ADD                         1
+        164     LOAD_CONST                      41: 980
+        166     LOAD_CONST                      42: 'ϋ'
+        168     MAP_ADD                         1
+        170     LOAD_CONST                      43: 981
+        172     LOAD_CONST                      44: 'φ'
+        174     MAP_ADD                         1
+        176     BUILD_MAP                       0
+        178     LOAD_CONST                      45: 982
+        180     LOAD_CONST                      46: 'π'
+        182     MAP_ADD                         1
+        184     LOAD_CONST                      47: 1008
+        186     LOAD_CONST                      48: 'κ'
+        188     MAP_ADD                         1
+        190     LOAD_CONST                      49: 1009
+        192     LOAD_CONST                      50: 'ρ'
+        194     MAP_ADD                         1
+        196     LOAD_CONST                      51: 1010
+        198     LOAD_CONST                      32: 'σ'
+        200     MAP_ADD                         1
+        202     LOAD_CONST                      52: 1013
+        204     LOAD_CONST                      53: 'ε'
+        206     MAP_ADD                         1
+        208     LOAD_CONST                      54: 1415
+        210     LOAD_CONST                      55: 'եւ'
+        212     MAP_ADD                         1
+        214     LOAD_CONST                      56: 7830
+        216     LOAD_CONST                      57: 'ẖ'
+        218     MAP_ADD                         1
+        220     LOAD_CONST                      58: 7831
+        222     LOAD_CONST                      59: 'ẗ'
+        224     MAP_ADD                         1
+        226     LOAD_CONST                      60: 7832
+        228     LOAD_CONST                      61: 'ẘ'
+        230     MAP_ADD                         1
+        232     LOAD_CONST                      62: 7833
+        234     LOAD_CONST                      63: 'ẙ'
+        236     MAP_ADD                         1
+        238     LOAD_CONST                      64: 7834
+        240     LOAD_CONST                      65: 'aʾ'
+        242     MAP_ADD                         1
+        244     LOAD_CONST                      66: 7835
+        246     LOAD_CONST                      67: 'ṡ'
+        248     MAP_ADD                         1
+        250     LOAD_CONST                      68: 8016
+        252     LOAD_CONST                      69: 'ὐ'
+        254     MAP_ADD                         1
+        256     LOAD_CONST                      70: 8018
+        258     LOAD_CONST                      71: 'ὒ'
+        260     MAP_ADD                         1
+        262     LOAD_CONST                      72: 8020
+        264     LOAD_CONST                      73: 'ὔ'
+        266     MAP_ADD                         1
+        268     LOAD_CONST                      74: 8022
+        270     LOAD_CONST                      75: 'ὖ'
+        272     MAP_ADD                         1
+        274     LOAD_CONST                      76: 8064
+        276     LOAD_CONST                      77: 'ἀι'
+        278     MAP_ADD                         1
+        280     DICT_UPDATE                     1
+        282     BUILD_MAP                       0
+        284     LOAD_CONST                      78: 8065
+        286     LOAD_CONST                      79: 'ἁι'
+        288     MAP_ADD                         1
+        290     LOAD_CONST                      80: 8066
+        292     LOAD_CONST                      81: 'ἂι'
+        294     MAP_ADD                         1
+        296     LOAD_CONST                      82: 8067
+        298     LOAD_CONST                      83: 'ἃι'
+        300     MAP_ADD                         1
+        302     LOAD_CONST                      84: 8068
+        304     LOAD_CONST                      85: 'ἄι'
+        306     MAP_ADD                         1
+        308     LOAD_CONST                      86: 8069
+        310     LOAD_CONST                      87: 'ἅι'
+        312     MAP_ADD                         1
+        314     LOAD_CONST                      88: 8070
+        316     LOAD_CONST                      89: 'ἆι'
+        318     MAP_ADD                         1
+        320     LOAD_CONST                      90: 8071
+        322     LOAD_CONST                      91: 'ἇι'
+        324     MAP_ADD                         1
+        326     LOAD_CONST                      92: 8072
+        328     LOAD_CONST                      77: 'ἀι'
+        330     MAP_ADD                         1
+        332     LOAD_CONST                      93: 8073
+        334     LOAD_CONST                      79: 'ἁι'
+        336     MAP_ADD                         1
+        338     LOAD_CONST                      94: 8074
+        340     LOAD_CONST                      81: 'ἂι'
+        342     MAP_ADD                         1
+        344     LOAD_CONST                      95: 8075
+        346     LOAD_CONST                      83: 'ἃι'
+        348     MAP_ADD                         1
+        350     LOAD_CONST                      96: 8076
+        352     LOAD_CONST                      85: 'ἄι'
+        354     MAP_ADD                         1
+        356     LOAD_CONST                      97: 8077
+        358     LOAD_CONST                      87: 'ἅι'
+        360     MAP_ADD                         1
+        362     LOAD_CONST                      98: 8078
+        364     LOAD_CONST                      89: 'ἆι'
+        366     MAP_ADD                         1
+        368     LOAD_CONST                      99: 8079
+        370     LOAD_CONST                      91: 'ἇι'
+        372     MAP_ADD                         1
+        374     LOAD_CONST                      100: 8080
+        376     LOAD_CONST                      101: 'ἠι'
+        378     MAP_ADD                         1
+        380     LOAD_CONST                      102: 8081
+        382     LOAD_CONST                      103: 'ἡι'
+        384     MAP_ADD                         1
+        386     DICT_UPDATE                     1
+        388     BUILD_MAP                       0
+        390     LOAD_CONST                      104: 8082
+        392     LOAD_CONST                      105: 'ἢι'
+        394     MAP_ADD                         1
+        396     LOAD_CONST                      106: 8083
+        398     LOAD_CONST                      107: 'ἣι'
+        400     MAP_ADD                         1
+        402     LOAD_CONST                      108: 8084
+        404     LOAD_CONST                      109: 'ἤι'
+        406     MAP_ADD                         1
+        408     LOAD_CONST                      110: 8085
+        410     LOAD_CONST                      111: 'ἥι'
+        412     MAP_ADD                         1
+        414     LOAD_CONST                      112: 8086
+        416     LOAD_CONST                      113: 'ἦι'
+        418     MAP_ADD                         1
+        420     LOAD_CONST                      114: 8087
+        422     LOAD_CONST                      115: 'ἧι'
+        424     MAP_ADD                         1
+        426     LOAD_CONST                      116: 8088
+        428     LOAD_CONST                      101: 'ἠι'
+        430     MAP_ADD                         1
+        432     LOAD_CONST                      117: 8089
+        434     LOAD_CONST                      103: 'ἡι'
+        436     MAP_ADD                         1
+        438     LOAD_CONST                      118: 8090
+        440     LOAD_CONST                      105: 'ἢι'
+        442     MAP_ADD                         1
+        444     LOAD_CONST                      119: 8091
+        446     LOAD_CONST                      107: 'ἣι'
+        448     MAP_ADD                         1
+        450     LOAD_CONST                      120: 8092
+        452     LOAD_CONST                      109: 'ἤι'
+        454     MAP_ADD                         1
+        456     LOAD_CONST                      121: 8093
+        458     LOAD_CONST                      111: 'ἥι'
+        460     MAP_ADD                         1
+        462     LOAD_CONST                      122: 8094
+        464     LOAD_CONST                      113: 'ἦι'
+        466     MAP_ADD                         1
+        468     LOAD_CONST                      123: 8095
+        470     LOAD_CONST                      115: 'ἧι'
+        472     MAP_ADD                         1
+        474     LOAD_CONST                      124: 8096
+        476     LOAD_CONST                      125: 'ὠι'
+        478     MAP_ADD                         1
+        480     LOAD_CONST                      126: 8097
+        482     LOAD_CONST                      127: 'ὡι'
+        484     MAP_ADD                         1
+        486     LOAD_CONST                      128: 8098
+        488     LOAD_CONST                      129: 'ὢι'
+        490     MAP_ADD                         1
+        492     DICT_UPDATE                     1
+        494     BUILD_MAP                       0
+        496     LOAD_CONST                      130: 8099
+        498     LOAD_CONST                      131: 'ὣι'
+        500     MAP_ADD                         1
+        502     LOAD_CONST                      132: 8100
+        504     LOAD_CONST                      133: 'ὤι'
+        506     MAP_ADD                         1
+        508     LOAD_CONST                      134: 8101
+        510     LOAD_CONST                      135: 'ὥι'
+        512     MAP_ADD                         1
+        514     LOAD_CONST                      136: 8102
+        516     LOAD_CONST                      137: 'ὦι'
+        518     MAP_ADD                         1
+        520     LOAD_CONST                      138: 8103
+        522     LOAD_CONST                      139: 'ὧι'
+        524     MAP_ADD                         1
+        526     LOAD_CONST                      140: 8104
+        528     LOAD_CONST                      125: 'ὠι'
+        530     MAP_ADD                         1
+        532     LOAD_CONST                      141: 8105
+        534     LOAD_CONST                      127: 'ὡι'
+        536     MAP_ADD                         1
+        538     LOAD_CONST                      142: 8106
+        540     LOAD_CONST                      129: 'ὢι'
+        542     MAP_ADD                         1
+        544     LOAD_CONST                      143: 8107
+        546     LOAD_CONST                      131: 'ὣι'
+        548     MAP_ADD                         1
+        550     LOAD_CONST                      144: 8108
+        552     LOAD_CONST                      133: 'ὤι'
+        554     MAP_ADD                         1
+        556     LOAD_CONST                      145: 8109
+        558     LOAD_CONST                      135: 'ὥι'
+        560     MAP_ADD                         1
+        562     LOAD_CONST                      146: 8110
+        564     LOAD_CONST                      137: 'ὦι'
+        566     MAP_ADD                         1
+        568     LOAD_CONST                      147: 8111
+        570     LOAD_CONST                      139: 'ὧι'
+        572     MAP_ADD                         1
+        574     LOAD_CONST                      148: 8114
+        576     LOAD_CONST                      149: 'ὰι'
+        578     MAP_ADD                         1
+        580     LOAD_CONST                      150: 8115
+        582     LOAD_CONST                      151: 'αι'
+        584     MAP_ADD                         1
+        586     LOAD_CONST                      152: 8116
+        588     LOAD_CONST                      153: 'άι'
+        590     MAP_ADD                         1
+        592     LOAD_CONST                      154: 8118
+        594     LOAD_CONST                      155: 'ᾶ'
+        596     MAP_ADD                         1
+        598     DICT_UPDATE                     1
+        600     BUILD_MAP                       0
+        602     LOAD_CONST                      156: 8119
+        604     LOAD_CONST                      157: 'ᾶι'
+        606     MAP_ADD                         1
+        608     LOAD_CONST                      158: 8124
+        610     LOAD_CONST                      151: 'αι'
+        612     MAP_ADD                         1
+        614     LOAD_CONST                      159: 8126
+        616     LOAD_CONST                      24: 'ι'
+        618     MAP_ADD                         1
+        620     LOAD_CONST                      160: 8130
+        622     LOAD_CONST                      161: 'ὴι'
+        624     MAP_ADD                         1
+        626     LOAD_CONST                      162: 8131
+        628     LOAD_CONST                      163: 'ηι'
+        630     MAP_ADD                         1
+        632     LOAD_CONST                      164: 8132
+        634     LOAD_CONST                      165: 'ήι'
+        636     MAP_ADD                         1
+        638     LOAD_CONST                      166: 8134
+        640     LOAD_CONST                      167: 'ῆ'
+        642     MAP_ADD                         1
+        644     LOAD_CONST                      168: 8135
+        646     LOAD_CONST                      169: 'ῆι'
+        648     MAP_ADD                         1
+        650     LOAD_CONST                      170: 8140
+        652     LOAD_CONST                      163: 'ηι'
+        654     MAP_ADD                         1
+        656     LOAD_CONST                      171: 8146
+        658     LOAD_CONST                      172: 'ῒ'
+        660     MAP_ADD                         1
+        662     LOAD_CONST                      173: 8147
+        664     LOAD_CONST                      28: 'ΐ'
+        666     MAP_ADD                         1
+        668     LOAD_CONST                      174: 8150
+        670     LOAD_CONST                      175: 'ῖ'
+        672     MAP_ADD                         1
+        674     LOAD_CONST                      176: 8151
+        676     LOAD_CONST                      177: 'ῗ'
+        678     MAP_ADD                         1
+        680     LOAD_CONST                      178: 8162
+        682     LOAD_CONST                      179: 'ῢ'
+        684     MAP_ADD                         1
+        686     LOAD_CONST                      180: 8163
+        688     LOAD_CONST                      30: 'ΰ'
+        690     MAP_ADD                         1
+        692     LOAD_CONST                      181: 8164
+        694     LOAD_CONST                      182: 'ῤ'
+        696     MAP_ADD                         1
+        698     LOAD_CONST                      183: 8166
+        700     LOAD_CONST                      184: 'ῦ'
+        702     MAP_ADD                         1
+        704     DICT_UPDATE                     1
+        706     BUILD_MAP                       0
+        708     LOAD_CONST                      185: 8167
+        710     LOAD_CONST                      186: 'ῧ'
+        712     MAP_ADD                         1
+        714     LOAD_CONST                      187: 8178
+        716     LOAD_CONST                      188: 'ὼι'
+        718     MAP_ADD                         1
+        720     LOAD_CONST                      189: 8179
+        722     LOAD_CONST                      190: 'ωι'
+        724     MAP_ADD                         1
+        726     LOAD_CONST                      191: 8180
+        728     LOAD_CONST                      192: 'ώι'
+        730     MAP_ADD                         1
+        732     LOAD_CONST                      193: 8182
+        734     LOAD_CONST                      194: 'ῶ'
+        736     MAP_ADD                         1
+        738     LOAD_CONST                      195: 8183
+        740     LOAD_CONST                      196: 'ῶι'
+        742     MAP_ADD                         1
+        744     LOAD_CONST                      197: 8188
+        746     LOAD_CONST                      190: 'ωι'
+        748     MAP_ADD                         1
+        750     LOAD_CONST                      198: 8360
+        752     LOAD_CONST                      199: 'rs'
+        754     MAP_ADD                         1
+        756     LOAD_CONST                      200: 8450
+        758     LOAD_CONST                      201: 'c'
+        760     MAP_ADD                         1
+        762     LOAD_CONST                      202: 8451
+        764     LOAD_CONST                      203: '°c'
+        766     MAP_ADD                         1
+        768     LOAD_CONST                      204: 8455
+        770     LOAD_CONST                      205: 'ɛ'
+        772     MAP_ADD                         1
+        774     LOAD_CONST                      206: 8457
+        776     LOAD_CONST                      207: '°f'
+        778     MAP_ADD                         1
+        780     LOAD_CONST                      208: 8459
+        782     LOAD_CONST                      209: 'h'
+        784     MAP_ADD                         1
+        786     LOAD_CONST                      210: 8460
+        788     LOAD_CONST                      209: 'h'
+        790     MAP_ADD                         1
+        792     LOAD_CONST                      211: 8461
+        794     LOAD_CONST                      209: 'h'
+        796     MAP_ADD                         1
+        798     LOAD_CONST                      212: 8464
+        800     LOAD_CONST                      213: 'i'
+        802     MAP_ADD                         1
+        804     LOAD_CONST                      214: 8465
+        806     LOAD_CONST                      213: 'i'
+        808     MAP_ADD                         1
+        810     DICT_UPDATE                     1
+        812     BUILD_MAP                       0
+        814     LOAD_CONST                      215: 8466
+        816     LOAD_CONST                      216: 'l'
+        818     MAP_ADD                         1
+        820     LOAD_CONST                      217: 8469
+        822     LOAD_CONST                      218: 'n'
+        824     MAP_ADD                         1
+        826     LOAD_CONST                      219: 8470
+        828     LOAD_CONST                      220: 'no'
+        830     MAP_ADD                         1
+        832     LOAD_CONST                      221: 8473
+        834     LOAD_CONST                      222: 'p'
+        836     MAP_ADD                         1
+        838     LOAD_CONST                      223: 8474
+        840     LOAD_CONST                      224: 'q'
+        842     MAP_ADD                         1
+        844     LOAD_CONST                      225: 8475
+        846     LOAD_CONST                      226: 'r'
+        848     MAP_ADD                         1
+        850     LOAD_CONST                      227: 8476
+        852     LOAD_CONST                      226: 'r'
+        854     MAP_ADD                         1
+        856     LOAD_CONST                      228: 8477
+        858     LOAD_CONST                      226: 'r'
+        860     MAP_ADD                         1
+        862     LOAD_CONST                      229: 8480
+        864     LOAD_CONST                      230: 'sm'
+        866     MAP_ADD                         1
+        868     LOAD_CONST                      231: 8481
+        870     LOAD_CONST                      232: 'tel'
+        872     MAP_ADD                         1
+        874     LOAD_CONST                      233: 8482
+        876     LOAD_CONST                      234: 'tm'
+        878     MAP_ADD                         1
+        880     LOAD_CONST                      235: 8484
+        882     LOAD_CONST                      236: 'z'
+        884     MAP_ADD                         1
+        886     LOAD_CONST                      237: 8488
+        888     LOAD_CONST                      236: 'z'
+        890     MAP_ADD                         1
+        892     LOAD_CONST                      238: 8492
+        894     LOAD_CONST                      239: 'b'
+        896     MAP_ADD                         1
+        898     LOAD_CONST                      240: 8493
+        900     LOAD_CONST                      201: 'c'
+        902     MAP_ADD                         1
+        904     LOAD_CONST                      241: 8496
+        906     LOAD_CONST                      242: 'e'
+        908     MAP_ADD                         1
+        910     LOAD_CONST                      243: 8497
+        912     LOAD_CONST                      244: 'f'
+        914     MAP_ADD                         1
+        916     DICT_UPDATE                     1
+        918     BUILD_MAP                       0
+        920     LOAD_CONST                      245: 8499
+        922     LOAD_CONST                      246: 'm'
+        924     MAP_ADD                         1
+        926     LOAD_CONST                      247: 8510
+        928     LOAD_CONST                      248: 'γ'
+        930     MAP_ADD                         1
+        932     LOAD_CONST                      249: 8511
+        934     LOAD_CONST                      46: 'π'
+        936     MAP_ADD                         1
+        938     LOAD_CONST                      250: 8517
+        940     LOAD_CONST                      251: 'd'
+        942     MAP_ADD                         1
+        944     LOAD_CONST                      252: 13169
+        946     LOAD_CONST                      253: 'hpa'
+        948     MAP_ADD                         1
+        950     LOAD_CONST                      254: 13171
+        952     LOAD_CONST                      255: 'au'
+        954     MAP_ADD                         1
+        956     LOAD_CONST                      256: 13173
+        960     LOAD_CONST                      257: 'ov'
+        964     MAP_ADD                         1
+        966     LOAD_CONST                      258: 13184
+        970     LOAD_CONST                      259: 'pa'
+        974     MAP_ADD                         1
+        976     LOAD_CONST                      260: 13185
+        980     LOAD_CONST                      261: 'na'
+        984     MAP_ADD                         1
+        986     LOAD_CONST                      262: 13186
+        990     LOAD_CONST                      263: 'μa'
+        994     MAP_ADD                         1
+        996     LOAD_CONST                      264: 13187
+        1000    LOAD_CONST                      265: 'ma'
+        1004    MAP_ADD                         1
+        1006    LOAD_CONST                      266: 13188
+        1010    LOAD_CONST                      267: 'ka'
+        1014    MAP_ADD                         1
+        1016    LOAD_CONST                      268: 13189
+        1020    LOAD_CONST                      269: 'kb'
+        1024    MAP_ADD                         1
+        1026    LOAD_CONST                      270: 13190
+        1030    LOAD_CONST                      271: 'mb'
+        1034    MAP_ADD                         1
+        1036    LOAD_CONST                      272: 13191
+        1040    LOAD_CONST                      273: 'gb'
+        1044    MAP_ADD                         1
+        1046    LOAD_CONST                      274: 13194
+        1050    LOAD_CONST                      275: 'pf'
+        1054    MAP_ADD                         1
+        1056    LOAD_CONST                      276: 13195
+        1060    LOAD_CONST                      277: 'nf'
+        1064    MAP_ADD                         1
+        1066    DICT_UPDATE                     1
+        1068    BUILD_MAP                       0
+        1070    LOAD_CONST                      278: 13196
+        1074    LOAD_CONST                      279: 'μf'
+        1078    MAP_ADD                         1
+        1080    LOAD_CONST                      280: 13200
+        1084    LOAD_CONST                      281: 'hz'
+        1088    MAP_ADD                         1
+        1090    LOAD_CONST                      282: 13201
+        1094    LOAD_CONST                      283: 'khz'
+        1098    MAP_ADD                         1
+        1100    LOAD_CONST                      284: 13202
+        1104    LOAD_CONST                      285: 'mhz'
+        1108    MAP_ADD                         1
+        1110    LOAD_CONST                      286: 13203
+        1114    LOAD_CONST                      287: 'ghz'
+        1118    MAP_ADD                         1
+        1120    LOAD_CONST                      288: 13204
+        1124    LOAD_CONST                      289: 'thz'
+        1128    MAP_ADD                         1
+        1130    LOAD_CONST                      290: 13225
+        1134    LOAD_CONST                      259: 'pa'
+        1138    MAP_ADD                         1
+        1140    LOAD_CONST                      291: 13226
+        1144    LOAD_CONST                      292: 'kpa'
+        1148    MAP_ADD                         1
+        1150    LOAD_CONST                      293: 13227
+        1154    LOAD_CONST                      294: 'mpa'
+        1158    MAP_ADD                         1
+        1160    LOAD_CONST                      295: 13228
+        1164    LOAD_CONST                      296: 'gpa'
+        1168    MAP_ADD                         1
+        1170    LOAD_CONST                      297: 13236
+        1174    LOAD_CONST                      298: 'pv'
+        1178    MAP_ADD                         1
+        1180    LOAD_CONST                      299: 13237
+        1184    LOAD_CONST                      300: 'nv'
+        1188    MAP_ADD                         1
+        1190    LOAD_CONST                      301: 13238
+        1194    LOAD_CONST                      302: 'μv'
+        1198    MAP_ADD                         1
+        1200    LOAD_CONST                      303: 13239
+        1204    LOAD_CONST                      304: 'mv'
+        1208    MAP_ADD                         1
+        1210    LOAD_CONST                      305: 13240
+        1214    LOAD_CONST                      306: 'kv'
+        1218    MAP_ADD                         1
+        1220    LOAD_CONST                      307: 13241
+        1224    LOAD_CONST                      304: 'mv'
+        1228    MAP_ADD                         1
+        1230    LOAD_CONST                      308: 13242
+        1234    LOAD_CONST                      309: 'pw'
+        1238    MAP_ADD                         1
+        1240    DICT_UPDATE                     1
+        1242    BUILD_MAP                       0
+        1244    LOAD_CONST                      310: 13243
+        1248    LOAD_CONST                      311: 'nw'
+        1252    MAP_ADD                         1
+        1254    LOAD_CONST                      312: 13244
+        1258    LOAD_CONST                      313: 'μw'
+        1262    MAP_ADD                         1
+        1264    LOAD_CONST                      314: 13245
+        1268    LOAD_CONST                      315: 'mw'
+        1272    MAP_ADD                         1
+        1274    LOAD_CONST                      316: 13246
+        1278    LOAD_CONST                      317: 'kw'
+        1282    MAP_ADD                         1
+        1284    LOAD_CONST                      318: 13247
+        1288    LOAD_CONST                      315: 'mw'
+        1292    MAP_ADD                         1
+        1294    LOAD_CONST                      319: 13248
+        1298    LOAD_CONST                      320: 'kω'
+        1302    MAP_ADD                         1
+        1304    LOAD_CONST                      321: 13249
+        1308    LOAD_CONST                      322: 'mω'
+        1312    MAP_ADD                         1
+        1314    LOAD_CONST                      323: 13251
+        1318    LOAD_CONST                      324: 'bq'
+        1322    MAP_ADD                         1
+        1324    LOAD_CONST                      325: 13254
+        1328    LOAD_CONST                      326: 'c∕kg'
+        1332    MAP_ADD                         1
+        1334    LOAD_CONST                      327: 13255
+        1338    LOAD_CONST                      328: 'co.'
+        1342    MAP_ADD                         1
+        1344    LOAD_CONST                      329: 13256
+        1348    LOAD_CONST                      330: 'db'
+        1352    MAP_ADD                         1
+        1354    LOAD_CONST                      331: 13257
+        1358    LOAD_CONST                      332: 'gy'
+        1362    MAP_ADD                         1
+        1364    LOAD_CONST                      333: 13259
+        1368    LOAD_CONST                      334: 'hp'
+        1372    MAP_ADD                         1
+        1374    LOAD_CONST                      335: 13261
+        1378    LOAD_CONST                      336: 'kk'
+        1382    MAP_ADD                         1
+        1384    LOAD_CONST                      337: 13262
+        1388    LOAD_CONST                      338: 'km'
+        1392    MAP_ADD                         1
+        1394    LOAD_CONST                      339: 13271
+        1398    LOAD_CONST                      340: 'ph'
+        1402    MAP_ADD                         1
+        1404    LOAD_CONST                      341: 13273
+        1408    LOAD_CONST                      342: 'ppm'
+        1412    MAP_ADD                         1
+        1414    DICT_UPDATE                     1
+        1416    BUILD_MAP                       0
+        1418    LOAD_CONST                      343: 13274
+        1422    LOAD_CONST                      344: 'pr'
+        1426    MAP_ADD                         1
+        1428    LOAD_CONST                      345: 13276
+        1432    LOAD_CONST                      346: 'sv'
+        1436    MAP_ADD                         1
+        1438    LOAD_CONST                      347: 13277
+        1442    LOAD_CONST                      348: 'wb'
+        1446    MAP_ADD                         1
+        1448    LOAD_CONST                      349: 64256
+        1452    LOAD_CONST                      350: 'ff'
+        1456    MAP_ADD                         1
+        1458    LOAD_CONST                      351: 64257
+        1462    LOAD_CONST                      352: 'fi'
+        1466    MAP_ADD                         1
+        1468    LOAD_CONST                      353: 64258
+        1472    LOAD_CONST                      354: 'fl'
+        1476    MAP_ADD                         1
+        1478    LOAD_CONST                      355: 64259
+        1482    LOAD_CONST                      356: 'ffi'
+        1486    MAP_ADD                         1
+        1488    LOAD_CONST                      357: 64260
+        1492    LOAD_CONST                      358: 'ffl'
+        1496    MAP_ADD                         1
+        1498    LOAD_CONST                      359: 64261
+        1502    LOAD_CONST                      360: 'st'
+        1506    MAP_ADD                         1
+        1508    LOAD_CONST                      361: 64262
+        1512    LOAD_CONST                      360: 'st'
+        1516    MAP_ADD                         1
+        1518    LOAD_CONST                      362: 64275
+        1522    LOAD_CONST                      363: 'մն'
+        1526    MAP_ADD                         1
+        1528    LOAD_CONST                      364: 64276
+        1532    LOAD_CONST                      365: 'մե'
+        1536    MAP_ADD                         1
+        1538    LOAD_CONST                      366: 64277
+        1542    LOAD_CONST                      367: 'մի'
+        1546    MAP_ADD                         1
+        1548    LOAD_CONST                      368: 64278
+        1552    LOAD_CONST                      369: 'վն'
+        1556    MAP_ADD                         1
+        1558    LOAD_CONST                      370: 64279
+        1562    LOAD_CONST                      371: 'մխ'
+        1566    MAP_ADD                         1
+        1568    LOAD_CONST                      372: 119808
+        1572    LOAD_CONST                      373: 'a'
+        1576    MAP_ADD                         1
+        1578    LOAD_CONST                      374: 119809
+        1582    LOAD_CONST                      239: 'b'
+        1584    MAP_ADD                         1
+        1586    DICT_UPDATE                     1
+        1588    BUILD_MAP                       0
+        1590    LOAD_CONST                      375: 119810
+        1594    LOAD_CONST                      201: 'c'
+        1596    MAP_ADD                         1
+        1598    LOAD_CONST                      376: 119811
+        1602    LOAD_CONST                      251: 'd'
+        1604    MAP_ADD                         1
+        1606    LOAD_CONST                      377: 119812
+        1610    LOAD_CONST                      242: 'e'
+        1612    MAP_ADD                         1
+        1614    LOAD_CONST                      378: 119813
+        1618    LOAD_CONST                      244: 'f'
+        1620    MAP_ADD                         1
+        1622    LOAD_CONST                      379: 119814
+        1626    LOAD_CONST                      380: 'g'
+        1630    MAP_ADD                         1
+        1632    LOAD_CONST                      381: 119815
+        1636    LOAD_CONST                      209: 'h'
+        1638    MAP_ADD                         1
+        1640    LOAD_CONST                      382: 119816
+        1644    LOAD_CONST                      213: 'i'
+        1646    MAP_ADD                         1
+        1648    LOAD_CONST                      383: 119817
+        1652    LOAD_CONST                      384: 'j'
+        1656    MAP_ADD                         1
+        1658    LOAD_CONST                      385: 119818
+        1662    LOAD_CONST                      386: 'k'
+        1666    MAP_ADD                         1
+        1668    LOAD_CONST                      387: 119819
+        1672    LOAD_CONST                      216: 'l'
+        1674    MAP_ADD                         1
+        1676    LOAD_CONST                      388: 119820
+        1680    LOAD_CONST                      246: 'm'
+        1682    MAP_ADD                         1
+        1684    LOAD_CONST                      389: 119821
+        1688    LOAD_CONST                      218: 'n'
+        1690    MAP_ADD                         1
+        1692    LOAD_CONST                      390: 119822
+        1696    LOAD_CONST                      391: 'o'
+        1700    MAP_ADD                         1
+        1702    LOAD_CONST                      392: 119823
+        1706    LOAD_CONST                      222: 'p'
+        1708    MAP_ADD                         1
+        1710    LOAD_CONST                      393: 119824
+        1714    LOAD_CONST                      224: 'q'
+        1716    MAP_ADD                         1
+        1718    LOAD_CONST                      394: 119825
+        1722    LOAD_CONST                      226: 'r'
+        1724    MAP_ADD                         1
+        1726    LOAD_CONST                      395: 119826
+        1730    LOAD_CONST                      20: 's'
+        1732    MAP_ADD                         1
+        1734    DICT_UPDATE                     1
+        1736    BUILD_MAP                       0
+        1738    LOAD_CONST                      396: 119827
+        1742    LOAD_CONST                      397: 't'
+        1746    MAP_ADD                         1
+        1748    LOAD_CONST                      398: 119828
+        1752    LOAD_CONST                      399: 'u'
+        1756    MAP_ADD                         1
+        1758    LOAD_CONST                      400: 119829
+        1762    LOAD_CONST                      401: 'v'
+        1766    MAP_ADD                         1
+        1768    LOAD_CONST                      402: 119830
+        1772    LOAD_CONST                      403: 'w'
+        1776    MAP_ADD                         1
+        1778    LOAD_CONST                      404: 119831
+        1782    LOAD_CONST                      405: 'x'
+        1786    MAP_ADD                         1
+        1788    LOAD_CONST                      406: 119832
+        1792    LOAD_CONST                      407: 'y'
+        1796    MAP_ADD                         1
+        1798    LOAD_CONST                      408: 119833
+        1802    LOAD_CONST                      236: 'z'
+        1804    MAP_ADD                         1
+        1806    LOAD_CONST                      409: 119860
+        1810    LOAD_CONST                      373: 'a'
+        1814    MAP_ADD                         1
+        1816    LOAD_CONST                      410: 119861
+        1820    LOAD_CONST                      239: 'b'
+        1822    MAP_ADD                         1
+        1824    LOAD_CONST                      411: 119862
+        1828    LOAD_CONST                      201: 'c'
+        1830    MAP_ADD                         1
+        1832    LOAD_CONST                      412: 119863
+        1836    LOAD_CONST                      251: 'd'
+        1838    MAP_ADD                         1
+        1840    LOAD_CONST                      413: 119864
+        1844    LOAD_CONST                      242: 'e'
+        1846    MAP_ADD                         1
+        1848    LOAD_CONST                      414: 119865
+        1852    LOAD_CONST                      244: 'f'
+        1854    MAP_ADD                         1
+        1856    LOAD_CONST                      415: 119866
+        1860    LOAD_CONST                      380: 'g'
+        1864    MAP_ADD                         1
+        1866    LOAD_CONST                      416: 119867
+        1870    LOAD_CONST                      209: 'h'
+        1872    MAP_ADD                         1
+        1874    LOAD_CONST                      417: 119868
+        1878    LOAD_CONST                      213: 'i'
+        1880    MAP_ADD                         1
+        1882    LOAD_CONST                      418: 119869
+        1886    LOAD_CONST                      384: 'j'
+        1890    MAP_ADD                         1
+        1892    DICT_UPDATE                     1
+        1894    BUILD_MAP                       0
+        1896    LOAD_CONST                      419: 119870
+        1900    LOAD_CONST                      386: 'k'
+        1904    MAP_ADD                         1
+        1906    LOAD_CONST                      420: 119871
+        1910    LOAD_CONST                      216: 'l'
+        1912    MAP_ADD                         1
+        1914    LOAD_CONST                      421: 119872
+        1918    LOAD_CONST                      246: 'm'
+        1920    MAP_ADD                         1
+        1922    LOAD_CONST                      422: 119873
+        1926    LOAD_CONST                      218: 'n'
+        1928    MAP_ADD                         1
+        1930    LOAD_CONST                      423: 119874
+        1934    LOAD_CONST                      391: 'o'
+        1938    MAP_ADD                         1
+        1940    LOAD_CONST                      424: 119875
+        1944    LOAD_CONST                      222: 'p'
+        1946    MAP_ADD                         1
+        1948    LOAD_CONST                      425: 119876
+        1952    LOAD_CONST                      224: 'q'
+        1954    MAP_ADD                         1
+        1956    LOAD_CONST                      426: 119877
+        1960    LOAD_CONST                      226: 'r'
+        1962    MAP_ADD                         1
+        1964    LOAD_CONST                      427: 119878
+        1968    LOAD_CONST                      20: 's'
+        1970    MAP_ADD                         1
+        1972    LOAD_CONST                      428: 119879
+        1976    LOAD_CONST                      397: 't'
+        1980    MAP_ADD                         1
+        1982    LOAD_CONST                      429: 119880
+        1986    LOAD_CONST                      399: 'u'
+        1990    MAP_ADD                         1
+        1992    LOAD_CONST                      430: 119881
+        1996    LOAD_CONST                      401: 'v'
+        2000    MAP_ADD                         1
+        2002    LOAD_CONST                      431: 119882
+        2006    LOAD_CONST                      403: 'w'
+        2010    MAP_ADD                         1
+        2012    LOAD_CONST                      432: 119883
+        2016    LOAD_CONST                      405: 'x'
+        2020    MAP_ADD                         1
+        2022    LOAD_CONST                      433: 119884
+        2026    LOAD_CONST                      407: 'y'
+        2030    MAP_ADD                         1
+        2032    LOAD_CONST                      434: 119885
+        2036    LOAD_CONST                      236: 'z'
+        2038    MAP_ADD                         1
+        2040    LOAD_CONST                      435: 119912
+        2044    LOAD_CONST                      373: 'a'
+        2048    MAP_ADD                         1
+        2050    DICT_UPDATE                     1
+        2052    BUILD_MAP                       0
+        2054    LOAD_CONST                      436: 119913
+        2058    LOAD_CONST                      239: 'b'
+        2060    MAP_ADD                         1
+        2062    LOAD_CONST                      437: 119914
+        2066    LOAD_CONST                      201: 'c'
+        2068    MAP_ADD                         1
+        2070    LOAD_CONST                      438: 119915
+        2074    LOAD_CONST                      251: 'd'
+        2076    MAP_ADD                         1
+        2078    LOAD_CONST                      439: 119916
+        2082    LOAD_CONST                      242: 'e'
+        2084    MAP_ADD                         1
+        2086    LOAD_CONST                      440: 119917
+        2090    LOAD_CONST                      244: 'f'
+        2092    MAP_ADD                         1
+        2094    LOAD_CONST                      441: 119918
+        2098    LOAD_CONST                      380: 'g'
+        2102    MAP_ADD                         1
+        2104    LOAD_CONST                      442: 119919
+        2108    LOAD_CONST                      209: 'h'
+        2110    MAP_ADD                         1
+        2112    LOAD_CONST                      443: 119920
+        2116    LOAD_CONST                      213: 'i'
+        2118    MAP_ADD                         1
+        2120    LOAD_CONST                      444: 119921
+        2124    LOAD_CONST                      384: 'j'
+        2128    MAP_ADD                         1
+        2130    LOAD_CONST                      445: 119922
+        2134    LOAD_CONST                      386: 'k'
+        2138    MAP_ADD                         1
+        2140    LOAD_CONST                      446: 119923
+        2144    LOAD_CONST                      216: 'l'
+        2146    MAP_ADD                         1
+        2148    LOAD_CONST                      447: 119924
+        2152    LOAD_CONST                      246: 'm'
+        2154    MAP_ADD                         1
+        2156    LOAD_CONST                      448: 119925
+        2160    LOAD_CONST                      218: 'n'
+        2162    MAP_ADD                         1
+        2164    LOAD_CONST                      449: 119926
+        2168    LOAD_CONST                      391: 'o'
+        2172    MAP_ADD                         1
+        2174    LOAD_CONST                      450: 119927
+        2178    LOAD_CONST                      222: 'p'
+        2180    MAP_ADD                         1
+        2182    LOAD_CONST                      451: 119928
+        2186    LOAD_CONST                      224: 'q'
+        2188    MAP_ADD                         1
+        2190    LOAD_CONST                      452: 119929
+        2194    LOAD_CONST                      226: 'r'
+        2196    MAP_ADD                         1
+        2198    DICT_UPDATE                     1
+        2200    BUILD_MAP                       0
+        2202    LOAD_CONST                      453: 119930
+        2206    LOAD_CONST                      20: 's'
+        2208    MAP_ADD                         1
+        2210    LOAD_CONST                      454: 119931
+        2214    LOAD_CONST                      397: 't'
+        2218    MAP_ADD                         1
+        2220    LOAD_CONST                      455: 119932
+        2224    LOAD_CONST                      399: 'u'
+        2228    MAP_ADD                         1
+        2230    LOAD_CONST                      456: 119933
+        2234    LOAD_CONST                      401: 'v'
+        2238    MAP_ADD                         1
+        2240    LOAD_CONST                      457: 119934
+        2244    LOAD_CONST                      403: 'w'
+        2248    MAP_ADD                         1
+        2250    LOAD_CONST                      458: 119935
+        2254    LOAD_CONST                      405: 'x'
+        2258    MAP_ADD                         1
+        2260    LOAD_CONST                      459: 119936
+        2264    LOAD_CONST                      407: 'y'
+        2268    MAP_ADD                         1
+        2270    LOAD_CONST                      460: 119937
+        2274    LOAD_CONST                      236: 'z'
+        2276    MAP_ADD                         1
+        2278    LOAD_CONST                      461: 119964
+        2282    LOAD_CONST                      373: 'a'
+        2286    MAP_ADD                         1
+        2288    LOAD_CONST                      462: 119966
+        2292    LOAD_CONST                      201: 'c'
+        2294    MAP_ADD                         1
+        2296    LOAD_CONST                      463: 119967
+        2300    LOAD_CONST                      251: 'd'
+        2302    MAP_ADD                         1
+        2304    LOAD_CONST                      464: 119970
+        2308    LOAD_CONST                      380: 'g'
+        2312    MAP_ADD                         1
+        2314    LOAD_CONST                      465: 119973
+        2318    LOAD_CONST                      384: 'j'
+        2322    MAP_ADD                         1
+        2324    LOAD_CONST                      466: 119974
+        2328    LOAD_CONST                      386: 'k'
+        2332    MAP_ADD                         1
+        2334    LOAD_CONST                      467: 119977
+        2338    LOAD_CONST                      218: 'n'
+        2340    MAP_ADD                         1
+        2342    LOAD_CONST                      468: 119978
+        2346    LOAD_CONST                      391: 'o'
+        2350    MAP_ADD                         1
+        2352    LOAD_CONST                      469: 119979
+        2356    LOAD_CONST                      222: 'p'
+        2358    MAP_ADD                         1
+        2360    DICT_UPDATE                     1
+        2362    BUILD_MAP                       0
+        2364    LOAD_CONST                      470: 119980
+        2368    LOAD_CONST                      224: 'q'
+        2370    MAP_ADD                         1
+        2372    LOAD_CONST                      471: 119982
+        2376    LOAD_CONST                      20: 's'
+        2378    MAP_ADD                         1
+        2380    LOAD_CONST                      472: 119983
+        2384    LOAD_CONST                      397: 't'
+        2388    MAP_ADD                         1
+        2390    LOAD_CONST                      473: 119984
+        2394    LOAD_CONST                      399: 'u'
+        2398    MAP_ADD                         1
+        2400    LOAD_CONST                      474: 119985
+        2404    LOAD_CONST                      401: 'v'
+        2408    MAP_ADD                         1
+        2410    LOAD_CONST                      475: 119986
+        2414    LOAD_CONST                      403: 'w'
+        2418    MAP_ADD                         1
+        2420    LOAD_CONST                      476: 119987
+        2424    LOAD_CONST                      405: 'x'
+        2428    MAP_ADD                         1
+        2430    LOAD_CONST                      477: 119988
+        2434    LOAD_CONST                      407: 'y'
+        2438    MAP_ADD                         1
+        2440    LOAD_CONST                      478: 119989
+        2444    LOAD_CONST                      236: 'z'
+        2446    MAP_ADD                         1
+        2448    LOAD_CONST                      479: 120016
+        2452    LOAD_CONST                      373: 'a'
+        2456    MAP_ADD                         1
+        2458    LOAD_CONST                      480: 120017
+        2462    LOAD_CONST                      239: 'b'
+        2464    MAP_ADD                         1
+        2466    LOAD_CONST                      481: 120018
+        2470    LOAD_CONST                      201: 'c'
+        2472    MAP_ADD                         1
+        2474    LOAD_CONST                      482: 120019
+        2478    LOAD_CONST                      251: 'd'
+        2480    MAP_ADD                         1
+        2482    LOAD_CONST                      483: 120020
+        2486    LOAD_CONST                      242: 'e'
+        2488    MAP_ADD                         1
+        2490    LOAD_CONST                      484: 120021
+        2494    LOAD_CONST                      244: 'f'
+        2496    MAP_ADD                         1
+        2498    LOAD_CONST                      485: 120022
+        2502    LOAD_CONST                      380: 'g'
+        2506    MAP_ADD                         1
+        2508    LOAD_CONST                      486: 120023
+        2512    LOAD_CONST                      209: 'h'
+        2514    MAP_ADD                         1
+        2516    DICT_UPDATE                     1
+        2518    BUILD_MAP                       0
+        2520    LOAD_CONST                      487: 120024
+        2524    LOAD_CONST                      213: 'i'
+        2526    MAP_ADD                         1
+        2528    LOAD_CONST                      488: 120025
+        2532    LOAD_CONST                      384: 'j'
+        2536    MAP_ADD                         1
+        2538    LOAD_CONST                      489: 120026
+        2542    LOAD_CONST                      386: 'k'
+        2546    MAP_ADD                         1
+        2548    LOAD_CONST                      490: 120027
+        2552    LOAD_CONST                      216: 'l'
+        2554    MAP_ADD                         1
+        2556    LOAD_CONST                      491: 120028
+        2560    LOAD_CONST                      246: 'm'
+        2562    MAP_ADD                         1
+        2564    LOAD_CONST                      492: 120029
+        2568    LOAD_CONST                      218: 'n'
+        2570    MAP_ADD                         1
+        2572    LOAD_CONST                      493: 120030
+        2576    LOAD_CONST                      391: 'o'
+        2580    MAP_ADD                         1
+        2582    LOAD_CONST                      494: 120031
+        2586    LOAD_CONST                      222: 'p'
+        2588    MAP_ADD                         1
+        2590    LOAD_CONST                      495: 120032
+        2594    LOAD_CONST                      224: 'q'
+        2596    MAP_ADD                         1
+        2598    LOAD_CONST                      496: 120033
+        2602    LOAD_CONST                      226: 'r'
+        2604    MAP_ADD                         1
+        2606    LOAD_CONST                      497: 120034
+        2610    LOAD_CONST                      20: 's'
+        2612    MAP_ADD                         1
+        2614    LOAD_CONST                      498: 120035
+        2618    LOAD_CONST                      397: 't'
+        2622    MAP_ADD                         1
+        2624    LOAD_CONST                      499: 120036
+        2628    LOAD_CONST                      399: 'u'
+        2632    MAP_ADD                         1
+        2634    LOAD_CONST                      500: 120037
+        2638    LOAD_CONST                      401: 'v'
+        2642    MAP_ADD                         1
+        2644    LOAD_CONST                      501: 120038
+        2648    LOAD_CONST                      403: 'w'
+        2652    MAP_ADD                         1
+        2654    LOAD_CONST                      502: 120039
+        2658    LOAD_CONST                      405: 'x'
+        2662    MAP_ADD                         1
+        2664    LOAD_CONST                      503: 120040
+        2668    LOAD_CONST                      407: 'y'
+        2672    MAP_ADD                         1
+        2674    DICT_UPDATE                     1
+        2676    BUILD_MAP                       0
+        2678    LOAD_CONST                      504: 120041
+        2682    LOAD_CONST                      236: 'z'
+        2684    MAP_ADD                         1
+        2686    LOAD_CONST                      505: 120068
+        2690    LOAD_CONST                      373: 'a'
+        2694    MAP_ADD                         1
+        2696    LOAD_CONST                      506: 120069
+        2700    LOAD_CONST                      239: 'b'
+        2702    MAP_ADD                         1
+        2704    LOAD_CONST                      507: 120071
+        2708    LOAD_CONST                      251: 'd'
+        2710    MAP_ADD                         1
+        2712    LOAD_CONST                      508: 120072
+        2716    LOAD_CONST                      242: 'e'
+        2718    MAP_ADD                         1
+        2720    LOAD_CONST                      509: 120073
+        2724    LOAD_CONST                      244: 'f'
+        2726    MAP_ADD                         1
+        2728    LOAD_CONST                      510: 120074
+        2732    LOAD_CONST                      380: 'g'
+        2736    MAP_ADD                         1
+        2738    LOAD_CONST                      511: 120077
+        2742    LOAD_CONST                      384: 'j'
+        2746    MAP_ADD                         1
+        2748    LOAD_CONST                      512: 120078
+        2752    LOAD_CONST                      386: 'k'
+        2756    MAP_ADD                         1
+        2758    LOAD_CONST                      513: 120079
+        2762    LOAD_CONST                      216: 'l'
+        2764    MAP_ADD                         1
+        2766    LOAD_CONST                      514: 120080
+        2770    LOAD_CONST                      246: 'm'
+        2772    MAP_ADD                         1
+        2774    LOAD_CONST                      515: 120081
+        2778    LOAD_CONST                      218: 'n'
+        2780    MAP_ADD                         1
+        2782    LOAD_CONST                      516: 120082
+        2786    LOAD_CONST                      391: 'o'
+        2790    MAP_ADD                         1
+        2792    LOAD_CONST                      517: 120083
+        2796    LOAD_CONST                      222: 'p'
+        2798    MAP_ADD                         1
+        2800    LOAD_CONST                      518: 120084
+        2804    LOAD_CONST                      224: 'q'
+        2806    MAP_ADD                         1
+        2808    LOAD_CONST                      519: 120086
+        2812    LOAD_CONST                      20: 's'
+        2814    MAP_ADD                         1
+        2816    LOAD_CONST                      520: 120087
+        2820    LOAD_CONST                      397: 't'
+        2824    MAP_ADD                         1
+        2826    DICT_UPDATE                     1
+        2828    BUILD_MAP                       0
+        2830    LOAD_CONST                      521: 120088
+        2834    LOAD_CONST                      399: 'u'
+        2838    MAP_ADD                         1
+        2840    LOAD_CONST                      522: 120089
+        2844    LOAD_CONST                      401: 'v'
+        2848    MAP_ADD                         1
+        2850    LOAD_CONST                      523: 120090
+        2854    LOAD_CONST                      403: 'w'
+        2858    MAP_ADD                         1
+        2860    LOAD_CONST                      524: 120091
+        2864    LOAD_CONST                      405: 'x'
+        2868    MAP_ADD                         1
+        2870    LOAD_CONST                      525: 120092
+        2874    LOAD_CONST                      407: 'y'
+        2878    MAP_ADD                         1
+        2880    LOAD_CONST                      526: 120120
+        2884    LOAD_CONST                      373: 'a'
+        2888    MAP_ADD                         1
+        2890    LOAD_CONST                      527: 120121
+        2894    LOAD_CONST                      239: 'b'
+        2896    MAP_ADD                         1
+        2898    LOAD_CONST                      528: 120123
+        2902    LOAD_CONST                      251: 'd'
+        2904    MAP_ADD                         1
+        2906    LOAD_CONST                      529: 120124
+        2910    LOAD_CONST                      242: 'e'
+        2912    MAP_ADD                         1
+        2914    LOAD_CONST                      530: 120125
+        2918    LOAD_CONST                      244: 'f'
+        2920    MAP_ADD                         1
+        2922    LOAD_CONST                      531: 120126
+        2926    LOAD_CONST                      380: 'g'
+        2930    MAP_ADD                         1
+        2932    LOAD_CONST                      532: 120128
+        2936    LOAD_CONST                      213: 'i'
+        2938    MAP_ADD                         1
+        2940    LOAD_CONST                      533: 120129
+        2944    LOAD_CONST                      384: 'j'
+        2948    MAP_ADD                         1
+        2950    LOAD_CONST                      534: 120130
+        2954    LOAD_CONST                      386: 'k'
+        2958    MAP_ADD                         1
+        2960    LOAD_CONST                      535: 120131
+        2964    LOAD_CONST                      216: 'l'
+        2966    MAP_ADD                         1
+        2968    LOAD_CONST                      536: 120132
+        2972    LOAD_CONST                      246: 'm'
+        2974    MAP_ADD                         1
+        2976    LOAD_CONST                      537: 120134
+        2980    LOAD_CONST                      391: 'o'
+        2984    MAP_ADD                         1
+        2986    DICT_UPDATE                     1
+        2988    BUILD_MAP                       0
+        2990    LOAD_CONST                      538: 120138
+        2994    LOAD_CONST                      20: 's'
+        2996    MAP_ADD                         1
+        2998    LOAD_CONST                      539: 120139
+        3002    LOAD_CONST                      397: 't'
+        3006    MAP_ADD                         1
+        3008    LOAD_CONST                      540: 120140
+        3012    LOAD_CONST                      399: 'u'
+        3016    MAP_ADD                         1
+        3018    LOAD_CONST                      541: 120141
+        3022    LOAD_CONST                      401: 'v'
+        3026    MAP_ADD                         1
+        3028    LOAD_CONST                      542: 120142
+        3032    LOAD_CONST                      403: 'w'
+        3036    MAP_ADD                         1
+        3038    LOAD_CONST                      543: 120143
+        3042    LOAD_CONST                      405: 'x'
+        3046    MAP_ADD                         1
+        3048    LOAD_CONST                      544: 120144
+        3052    LOAD_CONST                      407: 'y'
+        3056    MAP_ADD                         1
+        3058    LOAD_CONST                      545: 120172
+        3062    LOAD_CONST                      373: 'a'
+        3066    MAP_ADD                         1
+        3068    LOAD_CONST                      546: 120173
+        3072    LOAD_CONST                      239: 'b'
+        3074    MAP_ADD                         1
+        3076    LOAD_CONST                      547: 120174
+        3080    LOAD_CONST                      201: 'c'
+        3082    MAP_ADD                         1
+        3084    LOAD_CONST                      548: 120175
+        3088    LOAD_CONST                      251: 'd'
+        3090    MAP_ADD                         1
+        3092    LOAD_CONST                      549: 120176
+        3096    LOAD_CONST                      242: 'e'
+        3098    MAP_ADD                         1
+        3100    LOAD_CONST                      550: 120177
+        3104    LOAD_CONST                      244: 'f'
+        3106    MAP_ADD                         1
+        3108    LOAD_CONST                      551: 120178
+        3112    LOAD_CONST                      380: 'g'
+        3116    MAP_ADD                         1
+        3118    LOAD_CONST                      552: 120179
+        3122    LOAD_CONST                      209: 'h'
+        3124    MAP_ADD                         1
+        3126    LOAD_CONST                      553: 120180
+        3130    LOAD_CONST                      213: 'i'
+        3132    MAP_ADD                         1
+        3134    LOAD_CONST                      554: 120181
+        3138    LOAD_CONST                      384: 'j'
+        3142    MAP_ADD                         1
+        3144    DICT_UPDATE                     1
+        3146    BUILD_MAP                       0
+        3148    LOAD_CONST                      555: 120182
+        3152    LOAD_CONST                      386: 'k'
+        3156    MAP_ADD                         1
+        3158    LOAD_CONST                      556: 120183
+        3162    LOAD_CONST                      216: 'l'
+        3164    MAP_ADD                         1
+        3166    LOAD_CONST                      557: 120184
+        3170    LOAD_CONST                      246: 'm'
+        3172    MAP_ADD                         1
+        3174    LOAD_CONST                      558: 120185
+        3178    LOAD_CONST                      218: 'n'
+        3180    MAP_ADD                         1
+        3182    LOAD_CONST                      559: 120186
+        3186    LOAD_CONST                      391: 'o'
+        3190    MAP_ADD                         1
+        3192    LOAD_CONST                      560: 120187
+        3196    LOAD_CONST                      222: 'p'
+        3198    MAP_ADD                         1
+        3200    LOAD_CONST                      561: 120188
+        3204    LOAD_CONST                      224: 'q'
+        3206    MAP_ADD                         1
+        3208    LOAD_CONST                      562: 120189
+        3212    LOAD_CONST                      226: 'r'
+        3214    MAP_ADD                         1
+        3216    LOAD_CONST                      563: 120190
+        3220    LOAD_CONST                      20: 's'
+        3222    MAP_ADD                         1
+        3224    LOAD_CONST                      564: 120191
+        3228    LOAD_CONST                      397: 't'
+        3232    MAP_ADD                         1
+        3234    LOAD_CONST                      565: 120192
+        3238    LOAD_CONST                      399: 'u'
+        3242    MAP_ADD                         1
+        3244    LOAD_CONST                      566: 120193
+        3248    LOAD_CONST                      401: 'v'
+        3252    MAP_ADD                         1
+        3254    LOAD_CONST                      567: 120194
+        3258    LOAD_CONST                      403: 'w'
+        3262    MAP_ADD                         1
+        3264    LOAD_CONST                      568: 120195
+        3268    LOAD_CONST                      405: 'x'
+        3272    MAP_ADD                         1
+        3274    LOAD_CONST                      569: 120196
+        3278    LOAD_CONST                      407: 'y'
+        3282    MAP_ADD                         1
+        3284    LOAD_CONST                      570: 120197
+        3288    LOAD_CONST                      236: 'z'
+        3290    MAP_ADD                         1
+        3292    LOAD_CONST                      571: 120224
+        3296    LOAD_CONST                      373: 'a'
+        3300    MAP_ADD                         1
+        3302    DICT_UPDATE                     1
+        3304    BUILD_MAP                       0
+        3306    LOAD_CONST                      572: 120225
+        3310    LOAD_CONST                      239: 'b'
+        3312    MAP_ADD                         1
+        3314    LOAD_CONST                      573: 120226
+        3318    LOAD_CONST                      201: 'c'
+        3320    MAP_ADD                         1
+        3322    LOAD_CONST                      574: 120227
+        3326    LOAD_CONST                      251: 'd'
+        3328    MAP_ADD                         1
+        3330    LOAD_CONST                      575: 120228
+        3334    LOAD_CONST                      242: 'e'
+        3336    MAP_ADD                         1
+        3338    LOAD_CONST                      576: 120229
+        3342    LOAD_CONST                      244: 'f'
+        3344    MAP_ADD                         1
+        3346    LOAD_CONST                      577: 120230
+        3350    LOAD_CONST                      380: 'g'
+        3354    MAP_ADD                         1
+        3356    LOAD_CONST                      578: 120231
+        3360    LOAD_CONST                      209: 'h'
+        3362    MAP_ADD                         1
+        3364    LOAD_CONST                      579: 120232
+        3368    LOAD_CONST                      213: 'i'
+        3370    MAP_ADD                         1
+        3372    LOAD_CONST                      580: 120233
+        3376    LOAD_CONST                      384: 'j'
+        3380    MAP_ADD                         1
+        3382    LOAD_CONST                      581: 120234
+        3386    LOAD_CONST                      386: 'k'
+        3390    MAP_ADD                         1
+        3392    LOAD_CONST                      582: 120235
+        3396    LOAD_CONST                      216: 'l'
+        3398    MAP_ADD                         1
+        3400    LOAD_CONST                      583: 120236
+        3404    LOAD_CONST                      246: 'm'
+        3406    MAP_ADD                         1
+        3408    LOAD_CONST                      584: 120237
+        3412    LOAD_CONST                      218: 'n'
+        3414    MAP_ADD                         1
+        3416    LOAD_CONST                      585: 120238
+        3420    LOAD_CONST                      391: 'o'
+        3424    MAP_ADD                         1
+        3426    LOAD_CONST                      586: 120239
+        3430    LOAD_CONST                      222: 'p'
+        3432    MAP_ADD                         1
+        3434    LOAD_CONST                      587: 120240
+        3438    LOAD_CONST                      224: 'q'
+        3440    MAP_ADD                         1
+        3442    LOAD_CONST                      588: 120241
+        3446    LOAD_CONST                      226: 'r'
+        3448    MAP_ADD                         1
+        3450    DICT_UPDATE                     1
+        3452    BUILD_MAP                       0
+        3454    LOAD_CONST                      589: 120242
+        3458    LOAD_CONST                      20: 's'
+        3460    MAP_ADD                         1
+        3462    LOAD_CONST                      590: 120243
+        3466    LOAD_CONST                      397: 't'
+        3470    MAP_ADD                         1
+        3472    LOAD_CONST                      591: 120244
+        3476    LOAD_CONST                      399: 'u'
+        3480    MAP_ADD                         1
+        3482    LOAD_CONST                      592: 120245
+        3486    LOAD_CONST                      401: 'v'
+        3490    MAP_ADD                         1
+        3492    LOAD_CONST                      593: 120246
+        3496    LOAD_CONST                      403: 'w'
+        3500    MAP_ADD                         1
+        3502    LOAD_CONST                      594: 120247
+        3506    LOAD_CONST                      405: 'x'
+        3510    MAP_ADD                         1
+        3512    LOAD_CONST                      595: 120248
+        3516    LOAD_CONST                      407: 'y'
+        3520    MAP_ADD                         1
+        3522    LOAD_CONST                      596: 120249
+        3526    LOAD_CONST                      236: 'z'
+        3528    MAP_ADD                         1
+        3530    LOAD_CONST                      597: 120276
+        3534    LOAD_CONST                      373: 'a'
+        3538    MAP_ADD                         1
+        3540    LOAD_CONST                      598: 120277
+        3544    LOAD_CONST                      239: 'b'
+        3546    MAP_ADD                         1
+        3548    LOAD_CONST                      599: 120278
+        3552    LOAD_CONST                      201: 'c'
+        3554    MAP_ADD                         1
+        3556    LOAD_CONST                      600: 120279
+        3560    LOAD_CONST                      251: 'd'
+        3562    MAP_ADD                         1
+        3564    LOAD_CONST                      601: 120280
+        3568    LOAD_CONST                      242: 'e'
+        3570    MAP_ADD                         1
+        3572    LOAD_CONST                      602: 120281
+        3576    LOAD_CONST                      244: 'f'
+        3578    MAP_ADD                         1
+        3580    LOAD_CONST                      603: 120282
+        3584    LOAD_CONST                      380: 'g'
+        3588    MAP_ADD                         1
+        3590    LOAD_CONST                      604: 120283
+        3594    LOAD_CONST                      209: 'h'
+        3596    MAP_ADD                         1
+        3598    LOAD_CONST                      605: 120284
+        3602    LOAD_CONST                      213: 'i'
+        3604    MAP_ADD                         1
+        3606    DICT_UPDATE                     1
+        3608    BUILD_MAP                       0
+        3610    LOAD_CONST                      606: 120285
+        3614    LOAD_CONST                      384: 'j'
+        3618    MAP_ADD                         1
+        3620    LOAD_CONST                      607: 120286
+        3624    LOAD_CONST                      386: 'k'
+        3628    MAP_ADD                         1
+        3630    LOAD_CONST                      608: 120287
+        3634    LOAD_CONST                      216: 'l'
+        3636    MAP_ADD                         1
+        3638    LOAD_CONST                      609: 120288
+        3642    LOAD_CONST                      246: 'm'
+        3644    MAP_ADD                         1
+        3646    LOAD_CONST                      610: 120289
+        3650    LOAD_CONST                      218: 'n'
+        3652    MAP_ADD                         1
+        3654    LOAD_CONST                      611: 120290
+        3658    LOAD_CONST                      391: 'o'
+        3662    MAP_ADD                         1
+        3664    LOAD_CONST                      612: 120291
+        3668    LOAD_CONST                      222: 'p'
+        3670    MAP_ADD                         1
+        3672    LOAD_CONST                      613: 120292
+        3676    LOAD_CONST                      224: 'q'
+        3678    MAP_ADD                         1
+        3680    LOAD_CONST                      614: 120293
+        3684    LOAD_CONST                      226: 'r'
+        3686    MAP_ADD                         1
+        3688    LOAD_CONST                      615: 120294
+        3692    LOAD_CONST                      20: 's'
+        3694    MAP_ADD                         1
+        3696    LOAD_CONST                      616: 120295
+        3700    LOAD_CONST                      397: 't'
+        3704    MAP_ADD                         1
+        3706    LOAD_CONST                      617: 120296
+        3710    LOAD_CONST                      399: 'u'
+        3714    MAP_ADD                         1
+        3716    LOAD_CONST                      618: 120297
+        3720    LOAD_CONST                      401: 'v'
+        3724    MAP_ADD                         1
+        3726    LOAD_CONST                      619: 120298
+        3730    LOAD_CONST                      403: 'w'
+        3734    MAP_ADD                         1
+        3736    LOAD_CONST                      620: 120299
+        3740    LOAD_CONST                      405: 'x'
+        3744    MAP_ADD                         1
+        3746    LOAD_CONST                      621: 120300
+        3750    LOAD_CONST                      407: 'y'
+        3754    MAP_ADD                         1
+        3756    LOAD_CONST                      622: 120301
+        3760    LOAD_CONST                      236: 'z'
+        3762    MAP_ADD                         1
+        3764    DICT_UPDATE                     1
+        3766    BUILD_MAP                       0
+        3768    LOAD_CONST                      623: 120328
+        3772    LOAD_CONST                      373: 'a'
+        3776    MAP_ADD                         1
+        3778    LOAD_CONST                      624: 120329
+        3782    LOAD_CONST                      239: 'b'
+        3784    MAP_ADD                         1
+        3786    LOAD_CONST                      625: 120330
+        3790    LOAD_CONST                      201: 'c'
+        3792    MAP_ADD                         1
+        3794    LOAD_CONST                      626: 120331
+        3798    LOAD_CONST                      251: 'd'
+        3800    MAP_ADD                         1
+        3802    LOAD_CONST                      627: 120332
+        3806    LOAD_CONST                      242: 'e'
+        3808    MAP_ADD                         1
+        3810    LOAD_CONST                      628: 120333
+        3814    LOAD_CONST                      244: 'f'
+        3816    MAP_ADD                         1
+        3818    LOAD_CONST                      629: 120334
+        3822    LOAD_CONST                      380: 'g'
+        3826    MAP_ADD                         1
+        3828    LOAD_CONST                      630: 120335
+        3832    LOAD_CONST                      209: 'h'
+        3834    MAP_ADD                         1
+        3836    LOAD_CONST                      631: 120336
+        3840    LOAD_CONST                      213: 'i'
+        3842    MAP_ADD                         1
+        3844    LOAD_CONST                      632: 120337
+        3848    LOAD_CONST                      384: 'j'
+        3852    MAP_ADD                         1
+        3854    LOAD_CONST                      633: 120338
+        3858    LOAD_CONST                      386: 'k'
+        3862    MAP_ADD                         1
+        3864    LOAD_CONST                      634: 120339
+        3868    LOAD_CONST                      216: 'l'
+        3870    MAP_ADD                         1
+        3872    LOAD_CONST                      635: 120340
+        3876    LOAD_CONST                      246: 'm'
+        3878    MAP_ADD                         1
+        3880    LOAD_CONST                      636: 120341
+        3884    LOAD_CONST                      218: 'n'
+        3886    MAP_ADD                         1
+        3888    LOAD_CONST                      637: 120342
+        3892    LOAD_CONST                      391: 'o'
+        3896    MAP_ADD                         1
+        3898    LOAD_CONST                      638: 120343
+        3902    LOAD_CONST                      222: 'p'
+        3904    MAP_ADD                         1
+        3906    LOAD_CONST                      639: 120344
+        3910    LOAD_CONST                      224: 'q'
+        3912    MAP_ADD                         1
+        3914    DICT_UPDATE                     1
+        3916    BUILD_MAP                       0
+        3918    LOAD_CONST                      640: 120345
+        3922    LOAD_CONST                      226: 'r'
+        3924    MAP_ADD                         1
+        3926    LOAD_CONST                      641: 120346
+        3930    LOAD_CONST                      20: 's'
+        3932    MAP_ADD                         1
+        3934    LOAD_CONST                      642: 120347
+        3938    LOAD_CONST                      397: 't'
+        3942    MAP_ADD                         1
+        3944    LOAD_CONST                      643: 120348
+        3948    LOAD_CONST                      399: 'u'
+        3952    MAP_ADD                         1
+        3954    LOAD_CONST                      644: 120349
+        3958    LOAD_CONST                      401: 'v'
+        3962    MAP_ADD                         1
+        3964    LOAD_CONST                      645: 120350
+        3968    LOAD_CONST                      403: 'w'
+        3972    MAP_ADD                         1
+        3974    LOAD_CONST                      646: 120351
+        3978    LOAD_CONST                      405: 'x'
+        3982    MAP_ADD                         1
+        3984    LOAD_CONST                      647: 120352
+        3988    LOAD_CONST                      407: 'y'
+        3992    MAP_ADD                         1
+        3994    LOAD_CONST                      648: 120353
+        3998    LOAD_CONST                      236: 'z'
+        4000    MAP_ADD                         1
+        4002    LOAD_CONST                      649: 120380
+        4006    LOAD_CONST                      373: 'a'
+        4010    MAP_ADD                         1
+        4012    LOAD_CONST                      650: 120381
+        4016    LOAD_CONST                      239: 'b'
+        4018    MAP_ADD                         1
+        4020    LOAD_CONST                      651: 120382
+        4024    LOAD_CONST                      201: 'c'
+        4026    MAP_ADD                         1
+        4028    LOAD_CONST                      652: 120383
+        4032    LOAD_CONST                      251: 'd'
+        4034    MAP_ADD                         1
+        4036    LOAD_CONST                      653: 120384
+        4040    LOAD_CONST                      242: 'e'
+        4042    MAP_ADD                         1
+        4044    LOAD_CONST                      654: 120385
+        4048    LOAD_CONST                      244: 'f'
+        4050    MAP_ADD                         1
+        4052    LOAD_CONST                      655: 120386
+        4056    LOAD_CONST                      380: 'g'
+        4060    MAP_ADD                         1
+        4062    LOAD_CONST                      656: 120387
+        4066    LOAD_CONST                      209: 'h'
+        4068    MAP_ADD                         1
+        4070    DICT_UPDATE                     1
+        4072    BUILD_MAP                       0
+        4074    LOAD_CONST                      657: 120388
+        4078    LOAD_CONST                      213: 'i'
+        4080    MAP_ADD                         1
+        4082    LOAD_CONST                      658: 120389
+        4086    LOAD_CONST                      384: 'j'
+        4090    MAP_ADD                         1
+        4092    LOAD_CONST                      659: 120390
+        4096    LOAD_CONST                      386: 'k'
+        4100    MAP_ADD                         1
+        4102    LOAD_CONST                      660: 120391
+        4106    LOAD_CONST                      216: 'l'
+        4108    MAP_ADD                         1
+        4110    LOAD_CONST                      661: 120392
+        4114    LOAD_CONST                      246: 'm'
+        4116    MAP_ADD                         1
+        4118    LOAD_CONST                      662: 120393
+        4122    LOAD_CONST                      218: 'n'
+        4124    MAP_ADD                         1
+        4126    LOAD_CONST                      663: 120394
+        4130    LOAD_CONST                      391: 'o'
+        4134    MAP_ADD                         1
+        4136    LOAD_CONST                      664: 120395
+        4140    LOAD_CONST                      222: 'p'
+        4142    MAP_ADD                         1
+        4144    LOAD_CONST                      665: 120396
+        4148    LOAD_CONST                      224: 'q'
+        4150    MAP_ADD                         1
+        4152    LOAD_CONST                      666: 120397
+        4156    LOAD_CONST                      226: 'r'
+        4158    MAP_ADD                         1
+        4160    LOAD_CONST                      667: 120398
+        4164    LOAD_CONST                      20: 's'
+        4166    MAP_ADD                         1
+        4168    LOAD_CONST                      668: 120399
+        4172    LOAD_CONST                      397: 't'
+        4176    MAP_ADD                         1
+        4178    LOAD_CONST                      669: 120400
+        4182    LOAD_CONST                      399: 'u'
+        4186    MAP_ADD                         1
+        4188    LOAD_CONST                      670: 120401
+        4192    LOAD_CONST                      401: 'v'
+        4196    MAP_ADD                         1
+        4198    LOAD_CONST                      671: 120402
+        4202    LOAD_CONST                      403: 'w'
+        4206    MAP_ADD                         1
+        4208    LOAD_CONST                      672: 120403
+        4212    LOAD_CONST                      405: 'x'
+        4216    MAP_ADD                         1
+        4218    LOAD_CONST                      673: 120404
+        4222    LOAD_CONST                      407: 'y'
+        4226    MAP_ADD                         1
+        4228    DICT_UPDATE                     1
+        4230    BUILD_MAP                       0
+        4232    LOAD_CONST                      674: 120405
+        4236    LOAD_CONST                      236: 'z'
+        4238    MAP_ADD                         1
+        4240    LOAD_CONST                      675: 120432
+        4244    LOAD_CONST                      373: 'a'
+        4248    MAP_ADD                         1
+        4250    LOAD_CONST                      676: 120433
+        4254    LOAD_CONST                      239: 'b'
+        4256    MAP_ADD                         1
+        4258    LOAD_CONST                      677: 120434
+        4262    LOAD_CONST                      201: 'c'
+        4264    MAP_ADD                         1
+        4266    LOAD_CONST                      678: 120435
+        4270    LOAD_CONST                      251: 'd'
+        4272    MAP_ADD                         1
+        4274    LOAD_CONST                      679: 120436
+        4278    LOAD_CONST                      242: 'e'
+        4280    MAP_ADD                         1
+        4282    LOAD_CONST                      680: 120437
+        4286    LOAD_CONST                      244: 'f'
+        4288    MAP_ADD                         1
+        4290    LOAD_CONST                      681: 120438
+        4294    LOAD_CONST                      380: 'g'
+        4298    MAP_ADD                         1
+        4300    LOAD_CONST                      682: 120439
+        4304    LOAD_CONST                      209: 'h'
+        4306    MAP_ADD                         1
+        4308    LOAD_CONST                      683: 120440
+        4312    LOAD_CONST                      213: 'i'
+        4314    MAP_ADD                         1
+        4316    LOAD_CONST                      684: 120441
+        4320    LOAD_CONST                      384: 'j'
+        4324    MAP_ADD                         1
+        4326    LOAD_CONST                      685: 120442
+        4330    LOAD_CONST                      386: 'k'
+        4334    MAP_ADD                         1
+        4336    LOAD_CONST                      686: 120443
+        4340    LOAD_CONST                      216: 'l'
+        4342    MAP_ADD                         1
+        4344    LOAD_CONST                      687: 120444
+        4348    LOAD_CONST                      246: 'm'
+        4350    MAP_ADD                         1
+        4352    LOAD_CONST                      688: 120445
+        4356    LOAD_CONST                      218: 'n'
+        4358    MAP_ADD                         1
+        4360    LOAD_CONST                      689: 120446
+        4364    LOAD_CONST                      391: 'o'
+        4368    MAP_ADD                         1
+        4370    LOAD_CONST                      690: 120447
+        4374    LOAD_CONST                      222: 'p'
+        4376    MAP_ADD                         1
+        4378    DICT_UPDATE                     1
+        4380    BUILD_MAP                       0
+        4382    LOAD_CONST                      691: 120448
+        4386    LOAD_CONST                      224: 'q'
+        4388    MAP_ADD                         1
+        4390    LOAD_CONST                      692: 120449
+        4394    LOAD_CONST                      226: 'r'
+        4396    MAP_ADD                         1
+        4398    LOAD_CONST                      693: 120450
+        4402    LOAD_CONST                      20: 's'
+        4404    MAP_ADD                         1
+        4406    LOAD_CONST                      694: 120451
+        4410    LOAD_CONST                      397: 't'
+        4414    MAP_ADD                         1
+        4416    LOAD_CONST                      695: 120452
+        4420    LOAD_CONST                      399: 'u'
+        4424    MAP_ADD                         1
+        4426    LOAD_CONST                      696: 120453
+        4430    LOAD_CONST                      401: 'v'
+        4434    MAP_ADD                         1
+        4436    LOAD_CONST                      697: 120454
+        4440    LOAD_CONST                      403: 'w'
+        4444    MAP_ADD                         1
+        4446    LOAD_CONST                      698: 120455
+        4450    LOAD_CONST                      405: 'x'
+        4454    MAP_ADD                         1
+        4456    LOAD_CONST                      699: 120456
+        4460    LOAD_CONST                      407: 'y'
+        4464    MAP_ADD                         1
+        4466    LOAD_CONST                      700: 120457
+        4470    LOAD_CONST                      236: 'z'
+        4472    MAP_ADD                         1
+        4474    LOAD_CONST                      701: 120488
+        4478    LOAD_CONST                      702: 'α'
+        4482    MAP_ADD                         1
+        4484    LOAD_CONST                      703: 120489
+        4488    LOAD_CONST                      34: 'β'
+        4490    MAP_ADD                         1
+        4492    LOAD_CONST                      704: 120490
+        4496    LOAD_CONST                      248: 'γ'
+        4498    MAP_ADD                         1
+        4500    LOAD_CONST                      705: 120491
+        4504    LOAD_CONST                      706: 'δ'
+        4508    MAP_ADD                         1
+        4510    LOAD_CONST                      707: 120492
+        4514    LOAD_CONST                      53: 'ε'
+        4516    MAP_ADD                         1
+        4518    LOAD_CONST                      708: 120493
+        4522    LOAD_CONST                      709: 'ζ'
+        4526    MAP_ADD                         1
+        4528    LOAD_CONST                      710: 120494
+        4532    LOAD_CONST                      711: 'η'
+        4536    MAP_ADD                         1
+        4538    DICT_UPDATE                     1
+        4540    BUILD_MAP                       0
+        4542    LOAD_CONST                      712: 120495
+        4546    LOAD_CONST                      36: 'θ'
+        4548    MAP_ADD                         1
+        4550    LOAD_CONST                      713: 120496
+        4554    LOAD_CONST                      24: 'ι'
+        4556    MAP_ADD                         1
+        4558    LOAD_CONST                      714: 120497
+        4562    LOAD_CONST                      48: 'κ'
+        4564    MAP_ADD                         1
+        4566    LOAD_CONST                      715: 120498
+        4570    LOAD_CONST                      716: 'λ'
+        4574    MAP_ADD                         1
+        4576    LOAD_CONST                      717: 120499
+        4580    LOAD_CONST                      12: 'μ'
+        4582    MAP_ADD                         1
+        4584    LOAD_CONST                      718: 120500
+        4588    LOAD_CONST                      719: 'ν'
+        4592    MAP_ADD                         1
+        4594    LOAD_CONST                      720: 120501
+        4598    LOAD_CONST                      721: 'ξ'
+        4602    MAP_ADD                         1
+        4604    LOAD_CONST                      722: 120502
+        4608    LOAD_CONST                      723: 'ο'
+        4612    MAP_ADD                         1
+        4614    LOAD_CONST                      724: 120503
+        4618    LOAD_CONST                      46: 'π'
+        4620    MAP_ADD                         1
+        4622    LOAD_CONST                      725: 120504
+        4626    LOAD_CONST                      50: 'ρ'
+        4628    MAP_ADD                         1
+        4630    LOAD_CONST                      726: 120505
+        4634    LOAD_CONST                      36: 'θ'
+        4636    MAP_ADD                         1
+        4638    LOAD_CONST                      727: 120506
+        4642    LOAD_CONST                      32: 'σ'
+        4644    MAP_ADD                         1
+        4646    LOAD_CONST                      728: 120507
+        4650    LOAD_CONST                      729: 'τ'
+        4654    MAP_ADD                         1
+        4656    LOAD_CONST                      730: 120508
+        4660    LOAD_CONST                      38: 'υ'
+        4662    MAP_ADD                         1
+        4664    LOAD_CONST                      731: 120509
+        4668    LOAD_CONST                      44: 'φ'
+        4670    MAP_ADD                         1
+        4672    LOAD_CONST                      732: 120510
+        4676    LOAD_CONST                      733: 'χ'
+        4680    MAP_ADD                         1
+        4682    LOAD_CONST                      734: 120511
+        4686    LOAD_CONST                      735: 'ψ'
+        4690    MAP_ADD                         1
+        4692    DICT_UPDATE                     1
+        4694    BUILD_MAP                       0
+        4696    LOAD_CONST                      736: 120512
+        4700    LOAD_CONST                      737: 'ω'
+        4704    MAP_ADD                         1
+        4706    LOAD_CONST                      738: 120531
+        4710    LOAD_CONST                      32: 'σ'
+        4712    MAP_ADD                         1
+        4714    LOAD_CONST                      739: 120546
+        4718    LOAD_CONST                      702: 'α'
+        4722    MAP_ADD                         1
+        4724    LOAD_CONST                      740: 120547
+        4728    LOAD_CONST                      34: 'β'
+        4730    MAP_ADD                         1
+        4732    LOAD_CONST                      741: 120548
+        4736    LOAD_CONST                      248: 'γ'
+        4738    MAP_ADD                         1
+        4740    LOAD_CONST                      742: 120549
+        4744    LOAD_CONST                      706: 'δ'
+        4748    MAP_ADD                         1
+        4750    LOAD_CONST                      743: 120550
+        4754    LOAD_CONST                      53: 'ε'
+        4756    MAP_ADD                         1
+        4758    LOAD_CONST                      744: 120551
+        4762    LOAD_CONST                      709: 'ζ'
+        4766    MAP_ADD                         1
+        4768    LOAD_CONST                      745: 120552
+        4772    LOAD_CONST                      711: 'η'
+        4776    MAP_ADD                         1
+        4778    LOAD_CONST                      746: 120553
+        4782    LOAD_CONST                      36: 'θ'
+        4784    MAP_ADD                         1
+        4786    LOAD_CONST                      747: 120554
+        4790    LOAD_CONST                      24: 'ι'
+        4792    MAP_ADD                         1
+        4794    LOAD_CONST                      748: 120555
+        4798    LOAD_CONST                      48: 'κ'
+        4800    MAP_ADD                         1
+        4802    LOAD_CONST                      749: 120556
+        4806    LOAD_CONST                      716: 'λ'
+        4810    MAP_ADD                         1
+        4812    LOAD_CONST                      750: 120557
+        4816    LOAD_CONST                      12: 'μ'
+        4818    MAP_ADD                         1
+        4820    LOAD_CONST                      751: 120558
+        4824    LOAD_CONST                      719: 'ν'
+        4828    MAP_ADD                         1
+        4830    LOAD_CONST                      752: 120559
+        4834    LOAD_CONST                      721: 'ξ'
+        4838    MAP_ADD                         1
+        4840    LOAD_CONST                      753: 120560
+        4844    LOAD_CONST                      723: 'ο'
+        4848    MAP_ADD                         1
+        4850    DICT_UPDATE                     1
+        4852    BUILD_MAP                       0
+        4854    LOAD_CONST                      754: 120561
+        4858    LOAD_CONST                      46: 'π'
+        4860    MAP_ADD                         1
+        4862    LOAD_CONST                      755: 120562
+        4866    LOAD_CONST                      50: 'ρ'
+        4868    MAP_ADD                         1
+        4870    LOAD_CONST                      756: 120563
+        4874    LOAD_CONST                      36: 'θ'
+        4876    MAP_ADD                         1
+        4878    LOAD_CONST                      757: 120564
+        4882    LOAD_CONST                      32: 'σ'
+        4884    MAP_ADD                         1
+        4886    LOAD_CONST                      758: 120565
+        4890    LOAD_CONST                      729: 'τ'
+        4894    MAP_ADD                         1
+        4896    LOAD_CONST                      759: 120566
+        4900    LOAD_CONST                      38: 'υ'
+        4902    MAP_ADD                         1
+        4904    LOAD_CONST                      760: 120567
+        4908    LOAD_CONST                      44: 'φ'
+        4910    MAP_ADD                         1
+        4912    LOAD_CONST                      761: 120568
+        4916    LOAD_CONST                      733: 'χ'
+        4920    MAP_ADD                         1
+        4922    LOAD_CONST                      762: 120569
+        4926    LOAD_CONST                      735: 'ψ'
+        4930    MAP_ADD                         1
+        4932    LOAD_CONST                      763: 120570
+        4936    LOAD_CONST                      737: 'ω'
+        4940    MAP_ADD                         1
+        4942    LOAD_CONST                      764: 120589
+        4946    LOAD_CONST                      32: 'σ'
+        4948    MAP_ADD                         1
+        4950    LOAD_CONST                      765: 120604
+        4954    LOAD_CONST                      702: 'α'
+        4958    MAP_ADD                         1
+        4960    LOAD_CONST                      766: 120605
+        4964    LOAD_CONST                      34: 'β'
+        4966    MAP_ADD                         1
+        4968    LOAD_CONST                      767: 120606
+        4972    LOAD_CONST                      248: 'γ'
+        4974    MAP_ADD                         1
+        4976    LOAD_CONST                      768: 120607
+        4980    LOAD_CONST                      706: 'δ'
+        4984    MAP_ADD                         1
+        4986    LOAD_CONST                      769: 120608
+        4990    LOAD_CONST                      53: 'ε'
+        4992    MAP_ADD                         1
+        4994    LOAD_CONST                      770: 120609
+        4998    LOAD_CONST                      709: 'ζ'
+        5002    MAP_ADD                         1
+        5004    DICT_UPDATE                     1
+        5006    BUILD_MAP                       0
+        5008    LOAD_CONST                      771: 120610
+        5012    LOAD_CONST                      711: 'η'
+        5016    MAP_ADD                         1
+        5018    LOAD_CONST                      772: 120611
+        5022    LOAD_CONST                      36: 'θ'
+        5024    MAP_ADD                         1
+        5026    LOAD_CONST                      773: 120612
+        5030    LOAD_CONST                      24: 'ι'
+        5032    MAP_ADD                         1
+        5034    LOAD_CONST                      774: 120613
+        5038    LOAD_CONST                      48: 'κ'
+        5040    MAP_ADD                         1
+        5042    LOAD_CONST                      775: 120614
+        5046    LOAD_CONST                      716: 'λ'
+        5050    MAP_ADD                         1
+        5052    LOAD_CONST                      776: 120615
+        5056    LOAD_CONST                      12: 'μ'
+        5058    MAP_ADD                         1
+        5060    LOAD_CONST                      777: 120616
+        5064    LOAD_CONST                      719: 'ν'
+        5068    MAP_ADD                         1
+        5070    LOAD_CONST                      778: 120617
+        5074    LOAD_CONST                      721: 'ξ'
+        5078    MAP_ADD                         1
+        5080    LOAD_CONST                      779: 120618
+        5084    LOAD_CONST                      723: 'ο'
+        5088    MAP_ADD                         1
+        5090    LOAD_CONST                      780: 120619
+        5094    LOAD_CONST                      46: 'π'
+        5096    MAP_ADD                         1
+        5098    LOAD_CONST                      781: 120620
+        5102    LOAD_CONST                      50: 'ρ'
+        5104    MAP_ADD                         1
+        5106    LOAD_CONST                      782: 120621
+        5110    LOAD_CONST                      36: 'θ'
+        5112    MAP_ADD                         1
+        5114    LOAD_CONST                      783: 120622
+        5118    LOAD_CONST                      32: 'σ'
+        5120    MAP_ADD                         1
+        5122    LOAD_CONST                      784: 120623
+        5126    LOAD_CONST                      729: 'τ'
+        5130    MAP_ADD                         1
+        5132    LOAD_CONST                      785: 120624
+        5136    LOAD_CONST                      38: 'υ'
+        5138    MAP_ADD                         1
+        5140    LOAD_CONST                      786: 120625
+        5144    LOAD_CONST                      44: 'φ'
+        5146    MAP_ADD                         1
+        5148    LOAD_CONST                      787: 120626
+        5152    LOAD_CONST                      733: 'χ'
+        5156    MAP_ADD                         1
+        5158    DICT_UPDATE                     1
+        5160    BUILD_MAP                       0
+        5162    LOAD_CONST                      788: 120627
+        5166    LOAD_CONST                      735: 'ψ'
+        5170    MAP_ADD                         1
+        5172    LOAD_CONST                      789: 120628
+        5176    LOAD_CONST                      737: 'ω'
+        5180    MAP_ADD                         1
+        5182    LOAD_CONST                      790: 120647
+        5186    LOAD_CONST                      32: 'σ'
+        5188    MAP_ADD                         1
+        5190    LOAD_CONST                      791: 120662
+        5194    LOAD_CONST                      702: 'α'
+        5198    MAP_ADD                         1
+        5200    LOAD_CONST                      792: 120663
+        5204    LOAD_CONST                      34: 'β'
+        5206    MAP_ADD                         1
+        5208    LOAD_CONST                      793: 120664
+        5212    LOAD_CONST                      248: 'γ'
+        5214    MAP_ADD                         1
+        5216    LOAD_CONST                      794: 120665
+        5220    LOAD_CONST                      706: 'δ'
+        5224    MAP_ADD                         1
+        5226    LOAD_CONST                      795: 120666
+        5230    LOAD_CONST                      53: 'ε'
+        5232    MAP_ADD                         1
+        5234    LOAD_CONST                      796: 120667
+        5238    LOAD_CONST                      709: 'ζ'
+        5242    MAP_ADD                         1
+        5244    LOAD_CONST                      797: 120668
+        5248    LOAD_CONST                      711: 'η'
+        5252    MAP_ADD                         1
+        5254    LOAD_CONST                      798: 120669
+        5258    LOAD_CONST                      36: 'θ'
+        5260    MAP_ADD                         1
+        5262    LOAD_CONST                      799: 120670
+        5266    LOAD_CONST                      24: 'ι'
+        5268    MAP_ADD                         1
+        5270    LOAD_CONST                      800: 120671
+        5274    LOAD_CONST                      48: 'κ'
+        5276    MAP_ADD                         1
+        5278    LOAD_CONST                      801: 120672
+        5282    LOAD_CONST                      716: 'λ'
+        5286    MAP_ADD                         1
+        5288    LOAD_CONST                      802: 120673
+        5292    LOAD_CONST                      12: 'μ'
+        5294    MAP_ADD                         1
+        5296    LOAD_CONST                      803: 120674
+        5300    LOAD_CONST                      719: 'ν'
+        5304    MAP_ADD                         1
+        5306    LOAD_CONST                      804: 120675
+        5310    LOAD_CONST                      721: 'ξ'
+        5314    MAP_ADD                         1
+        5316    DICT_UPDATE                     1
+        5318    BUILD_MAP                       0
+        5320    LOAD_CONST                      805: 120676
+        5324    LOAD_CONST                      723: 'ο'
+        5328    MAP_ADD                         1
+        5330    LOAD_CONST                      806: 120677
+        5334    LOAD_CONST                      46: 'π'
+        5336    MAP_ADD                         1
+        5338    LOAD_CONST                      807: 120678
+        5342    LOAD_CONST                      50: 'ρ'
+        5344    MAP_ADD                         1
+        5346    LOAD_CONST                      808: 120679
+        5350    LOAD_CONST                      36: 'θ'
+        5352    MAP_ADD                         1
+        5354    LOAD_CONST                      809: 120680
+        5358    LOAD_CONST                      32: 'σ'
+        5360    MAP_ADD                         1
+        5362    LOAD_CONST                      810: 120681
+        5366    LOAD_CONST                      729: 'τ'
+        5370    MAP_ADD                         1
+        5372    LOAD_CONST                      811: 120682
+        5376    LOAD_CONST                      38: 'υ'
+        5378    MAP_ADD                         1
+        5380    LOAD_CONST                      812: 120683
+        5384    LOAD_CONST                      44: 'φ'
+        5386    MAP_ADD                         1
+        5388    LOAD_CONST                      813: 120684
+        5392    LOAD_CONST                      733: 'χ'
+        5396    MAP_ADD                         1
+        5398    LOAD_CONST                      814: 120685
+        5402    LOAD_CONST                      735: 'ψ'
+        5406    MAP_ADD                         1
+        5408    LOAD_CONST                      815: 120686
+        5412    LOAD_CONST                      737: 'ω'
+        5416    MAP_ADD                         1
+        5418    LOAD_CONST                      816: 120705
+        5422    LOAD_CONST                      32: 'σ'
+        5424    MAP_ADD                         1
+        5426    LOAD_CONST                      817: 120720
+        5430    LOAD_CONST                      702: 'α'
+        5434    MAP_ADD                         1
+        5436    LOAD_CONST                      818: 120721
+        5440    LOAD_CONST                      34: 'β'
+        5442    MAP_ADD                         1
+        5444    LOAD_CONST                      819: 120722
+        5448    LOAD_CONST                      248: 'γ'
+        5450    MAP_ADD                         1
+        5452    LOAD_CONST                      820: 120723
+        5456    LOAD_CONST                      706: 'δ'
+        5460    MAP_ADD                         1
+        5462    LOAD_CONST                      821: 120724
+        5466    LOAD_CONST                      53: 'ε'
+        5468    MAP_ADD                         1
+        5470    DICT_UPDATE                     1
+        5472    BUILD_MAP                       0
+        5474    LOAD_CONST                      822: 120725
+        5478    LOAD_CONST                      709: 'ζ'
+        5482    MAP_ADD                         1
+        5484    LOAD_CONST                      823: 120726
+        5488    LOAD_CONST                      711: 'η'
+        5492    MAP_ADD                         1
+        5494    LOAD_CONST                      824: 120727
+        5498    LOAD_CONST                      36: 'θ'
+        5500    MAP_ADD                         1
+        5502    LOAD_CONST                      825: 120728
+        5506    LOAD_CONST                      24: 'ι'
+        5508    MAP_ADD                         1
+        5510    LOAD_CONST                      826: 120729
+        5514    LOAD_CONST                      48: 'κ'
+        5516    MAP_ADD                         1
+        5518    LOAD_CONST                      827: 120730
+        5522    LOAD_CONST                      716: 'λ'
+        5526    MAP_ADD                         1
+        5528    LOAD_CONST                      828: 120731
+        5532    LOAD_CONST                      12: 'μ'
+        5534    MAP_ADD                         1
+        5536    LOAD_CONST                      829: 120732
+        5540    LOAD_CONST                      719: 'ν'
+        5544    MAP_ADD                         1
+        5546    LOAD_CONST                      830: 120733
+        5550    LOAD_CONST                      721: 'ξ'
+        5554    MAP_ADD                         1
+        5556    LOAD_CONST                      831: 120734
+        5560    LOAD_CONST                      723: 'ο'
+        5564    MAP_ADD                         1
+        5566    LOAD_CONST                      832: 120735
+        5570    LOAD_CONST                      46: 'π'
+        5572    MAP_ADD                         1
+        5574    LOAD_CONST                      833: 120736
+        5578    LOAD_CONST                      50: 'ρ'
+        5580    MAP_ADD                         1
+        5582    LOAD_CONST                      834: 120737
+        5586    LOAD_CONST                      36: 'θ'
+        5588    MAP_ADD                         1
+        5590    LOAD_CONST                      835: 120738
+        5594    LOAD_CONST                      32: 'σ'
+        5596    MAP_ADD                         1
+        5598    LOAD_CONST                      836: 120739
+        5602    LOAD_CONST                      729: 'τ'
+        5606    MAP_ADD                         1
+        5608    LOAD_CONST                      837: 120740
+        5612    LOAD_CONST                      38: 'υ'
+        5614    MAP_ADD                         1
+        5616    LOAD_CONST                      838: 120741
+        5620    LOAD_CONST                      44: 'φ'
+        5622    MAP_ADD                         1
+        5624    DICT_UPDATE                     1
+        5626    LOAD_CONST                      733: 'χ'
+        5630    LOAD_CONST                      735: 'ψ'
+        5634    LOAD_CONST                      737: 'ω'
+        5638    LOAD_CONST                      32: 'σ'
+        5640    LOAD_CONST                      839: (120742, 120743, 120744, 120763)
+        5644    BUILD_CONST_KEY_MAP             4
+        5646    DICT_UPDATE                     1
+        5648    STORE_NAME                      10: b3_exceptions
+        5650    LOAD_CONST                      840: <CODE> map_table_b3
+        5654    LOAD_CONST                      841: 'map_table_b3'
+        5658    MAKE_FUNCTION                   0
+        5660    STORE_NAME                      11: map_table_b3
+        5662    LOAD_CONST                      842: <CODE> map_table_b2
+        5666    LOAD_CONST                      843: 'map_table_b2'
+        5670    MAKE_FUNCTION                   0
+        5672    STORE_NAME                      12: map_table_b2
+        5674    LOAD_CONST                      844: <CODE> in_table_c11
+        5678    LOAD_CONST                      845: 'in_table_c11'
+        5682    MAKE_FUNCTION                   0
+        5684    STORE_NAME                      13: in_table_c11
+        5686    LOAD_CONST                      846: <CODE> in_table_c12
+        5690    LOAD_CONST                      847: 'in_table_c12'
+        5694    MAKE_FUNCTION                   0
+        5696    STORE_NAME                      14: in_table_c12
+        5698    LOAD_CONST                      848: <CODE> in_table_c11_c12
+        5702    LOAD_CONST                      849: 'in_table_c11_c12'
+        5706    MAKE_FUNCTION                   0
+        5708    STORE_NAME                      15: in_table_c11_c12
+        5710    LOAD_CONST                      850: <CODE> in_table_c21
+        5714    LOAD_CONST                      851: 'in_table_c21'
+        5718    MAKE_FUNCTION                   0
+        5720    STORE_NAME                      16: in_table_c21
+        5722    LOAD_NAME                       5: set
+        5724    BUILD_LIST                      0
+        5726    LOAD_CONST                      852: (1757, 1807, 6158, 8204, 8205, 8232, 8233, 65279)
+        5730    LIST_EXTEND                     1
+        5732    LOAD_NAME                       6: list
+        5734    LOAD_NAME                       7: range
+        5736    LOAD_CONST                      853: 8288
+        5740    LOAD_CONST                      854: 8292
+        5744    CALL_FUNCTION                   2
+        5746    CALL_FUNCTION                   1
+        5748    BINARY_ADD                      
+        5750    LOAD_NAME                       6: list
+        5752    LOAD_NAME                       7: range
+        5754    LOAD_CONST                      855: 8298
+        5758    LOAD_CONST                      856: 8304
+        5762    CALL_FUNCTION                   2
+        5764    CALL_FUNCTION                   1
+        5766    BINARY_ADD                      
+        5768    LOAD_NAME                       6: list
+        5770    LOAD_NAME                       7: range
+        5772    LOAD_CONST                      857: 65529
+        5776    LOAD_CONST                      858: 65533
+        5780    CALL_FUNCTION                   2
+        5782    CALL_FUNCTION                   1
+        5784    BINARY_ADD                      
+        5786    LOAD_NAME                       6: list
+        5788    LOAD_NAME                       7: range
+        5790    LOAD_CONST                      859: 119155
+        5794    LOAD_CONST                      860: 119163
+        5798    CALL_FUNCTION                   2
+        5800    CALL_FUNCTION                   1
+        5802    BINARY_ADD                      
+        5804    CALL_FUNCTION                   1
+        5806    STORE_NAME                      17: c22_specials
+        5808    LOAD_CONST                      861: <CODE> in_table_c22
+        5812    LOAD_CONST                      862: 'in_table_c22'
+        5816    MAKE_FUNCTION                   0
+        5818    STORE_NAME                      18: in_table_c22
+        5820    LOAD_CONST                      863: <CODE> in_table_c21_c22
+        5824    LOAD_CONST                      864: 'in_table_c21_c22'
+        5828    MAKE_FUNCTION                   0
+        5830    STORE_NAME                      19: in_table_c21_c22
+        5832    LOAD_CONST                      865: <CODE> in_table_c3
+        5836    LOAD_CONST                      866: 'in_table_c3'
+        5840    MAKE_FUNCTION                   0
+        5842    STORE_NAME                      20: in_table_c3
+        5844    LOAD_CONST                      867: <CODE> in_table_c4
+        5848    LOAD_CONST                      868: 'in_table_c4'
+        5852    MAKE_FUNCTION                   0
+        5854    STORE_NAME                      21: in_table_c4
+        5856    LOAD_CONST                      869: <CODE> in_table_c5
+        5860    LOAD_CONST                      870: 'in_table_c5'
+        5864    MAKE_FUNCTION                   0
+        5866    STORE_NAME                      22: in_table_c5
+        5868    LOAD_NAME                       5: set
+        5870    LOAD_NAME                       7: range
+        5872    LOAD_CONST                      857: 65529
+        5876    LOAD_CONST                      871: 65534
+        5880    CALL_FUNCTION                   2
+        5882    CALL_FUNCTION                   1
+        5884    STORE_NAME                      23: c6_set
+        5886    LOAD_CONST                      872: <CODE> in_table_c6
+        5890    LOAD_CONST                      873: 'in_table_c6'
+        5894    MAKE_FUNCTION                   0
+        5896    STORE_NAME                      24: in_table_c6
+        5898    LOAD_NAME                       5: set
+        5900    LOAD_NAME                       7: range
+        5902    LOAD_CONST                      874: 12272
+        5906    LOAD_CONST                      875: 12284
+        5910    CALL_FUNCTION                   2
+        5912    CALL_FUNCTION                   1
+        5914    STORE_NAME                      25: c7_set
+        5916    LOAD_CONST                      876: <CODE> in_table_c7
+        5920    LOAD_CONST                      877: 'in_table_c7'
+        5924    MAKE_FUNCTION                   0
+        5926    STORE_NAME                      26: in_table_c7
+        5928    LOAD_NAME                       5: set
+        5930    BUILD_LIST                      0
+        5932    LOAD_CONST                      878: (832, 833, 8206, 8207)
+        5936    LIST_EXTEND                     1
+        5938    LOAD_NAME                       6: list
+        5940    LOAD_NAME                       7: range
+        5942    LOAD_CONST                      879: 8234
+        5946    LOAD_CONST                      880: 8239
+        5950    CALL_FUNCTION                   2
+        5952    CALL_FUNCTION                   1
+        5954    BINARY_ADD                      
+        5956    LOAD_NAME                       6: list
+        5958    LOAD_NAME                       7: range
+        5960    LOAD_CONST                      855: 8298
+        5964    LOAD_CONST                      856: 8304
+        5968    CALL_FUNCTION                   2
+        5970    CALL_FUNCTION                   1
+        5972    BINARY_ADD                      
+        5974    CALL_FUNCTION                   1
+        5976    STORE_NAME                      27: c8_set
+        5978    LOAD_CONST                      881: <CODE> in_table_c8
+        5982    LOAD_CONST                      882: 'in_table_c8'
+        5986    MAKE_FUNCTION                   0
+        5988    STORE_NAME                      28: in_table_c8
+        5990    LOAD_NAME                       5: set
+        5992    LOAD_CONST                      883: 917505
+        5996    BUILD_LIST                      1
+        5998    LOAD_NAME                       6: list
+        6000    LOAD_NAME                       7: range
+        6002    LOAD_CONST                      884: 917536
+        6006    LOAD_CONST                      885: 917632
+        6010    CALL_FUNCTION                   2
+        6012    CALL_FUNCTION                   1
+        6014    BINARY_ADD                      
+        6016    CALL_FUNCTION                   1
+        6018    STORE_NAME                      29: c9_set
+        6020    LOAD_CONST                      886: <CODE> in_table_c9
+        6024    LOAD_CONST                      887: 'in_table_c9'
+        6028    MAKE_FUNCTION                   0
+        6030    STORE_NAME                      30: in_table_c9
+        6032    LOAD_CONST                      888: <CODE> in_table_d1
+        6036    LOAD_CONST                      889: 'in_table_d1'
+        6040    MAKE_FUNCTION                   0
+        6042    STORE_NAME                      31: in_table_d1
+        6044    LOAD_CONST                      890: <CODE> in_table_d2
+        6048    LOAD_CONST                      891: 'in_table_d2'
+        6052    MAKE_FUNCTION                   0
+        6054    STORE_NAME                      32: in_table_d2
+        6056    LOAD_CONST                      892: None
+        6060    RETURN_VALUE                    

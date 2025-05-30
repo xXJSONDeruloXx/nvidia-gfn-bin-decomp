@@ -1,0 +1,3542 @@
+tokenize.pyc (Python 3.10)
+[Code]
+    File Name: tokenize.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 7
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__author__'
+        '__credits__'
+        'builtins'
+        'open'
+        '_builtin_open'
+        'codecs'
+        'lookup'
+        'BOM_UTF8'
+        'collections'
+        'functools'
+        'io'
+        'TextIOWrapper'
+        'itertools'
+        '_itertools'
+        're'
+        'sys'
+        'token'
+        'EXACT_TOKEN_TYPES'
+        'compile'
+        'ASCII'
+        'cookie_re'
+        'blank_re'
+        '__all__'
+        'namedtuple'
+        'TokenInfo'
+        'group'
+        'any'
+        'maybe'
+        'Whitespace'
+        'Comment'
+        'Ignore'
+        'Name'
+        'Hexnumber'
+        'Binnumber'
+        'Octnumber'
+        'Decnumber'
+        'Intnumber'
+        'Exponent'
+        'Pointfloat'
+        'Expfloat'
+        'Floatnumber'
+        'Imagnumber'
+        'Number'
+        '_all_string_prefixes'
+        'lru_cache'
+        '_compile'
+        'StringPrefix'
+        'Single'
+        'Double'
+        'Single3'
+        'Double3'
+        'Triple'
+        'String'
+        'map'
+        'escape'
+        'sorted'
+        'Special'
+        'Funny'
+        'PlainToken'
+        'Token'
+        'ContStr'
+        'PseudoExtras'
+        'PseudoToken'
+        'endpats'
+        '_prefix'
+        'set'
+        'single_quoted'
+        'triple_quoted'
+        't'
+        'u'
+        'add'
+        'tabsize'
+        'Exception'
+        'TokenError'
+        'StopTokenizing'
+        'Untokenizer'
+        'untokenize'
+        '_get_normal_name'
+        'detect_encoding'
+        'tokenize'
+        '_tokenize'
+        'generate_tokens'
+        'main'
+        '__name__'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Tokenization help for Python programs.\n\ntokenize(readline) is a generator that breaks a stream of bytes into\nPython tokens.  It decodes the bytes according to PEP-0263 for\ndetermining source file encoding.\n\nIt accepts a readline-like method which is called repeatedly to get the\nnext line of input (or b"" for EOF).  It generates 5-tuples with these\nmembers:\n\n    the token type (see token.py)\n    the token (a string)\n    the starting (row, column) indices of the token (a 2-tuple of ints)\n    the ending (row, column) indices of the token (a 2-tuple of ints)\n    the original line (string)\n\nIt is designed to match the working of the Python tokenizer exactly, except\nthat it produces COMMENT tokens for comments and gives type OP for all\noperators.  Additionally, all token lists start with an ENCODING token\nwhich tells you which encoding was used to decode the bytes stream.\n'
+        'Ka-Ping Yee <ping@lfw.org>'
+        'GvR, ESR, Tim Peters, Thomas Wouters, Fred Drake, Skip Montanaro, Raymond Hettinger, Trent Nelson, Michael Foord'
+        0
+        (
+            'open'
+        )
+        (
+            'lookup'
+            'BOM_UTF8'
+        )
+        None
+        (
+            'TextIOWrapper'
+        )
+        (
+            '*'
+        )
+        (
+            'EXACT_TOKEN_TYPES'
+        )
+        '^[ \\t\\f]*#.*?coding[:=][ \\t]*([-\\w.]+)'
+        b'^[ \\t\\f]*(?:[#\\r\\n]|$)'
+        (
+            'tokenize'
+            'generate_tokens'
+            'detect_encoding'
+            'untokenize'
+            'TokenInfo'
+        )
+        [Code]
+            File Name: tokenize.py
+            Object Name: TokenInfo
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__repr__'
+                'property'
+                'exact_type'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'TokenInfo'
+                [Code]
+                    File Name: tokenize.py
+                    Object Name: __repr__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'type'
+                        'tok_name'
+                        '_replace'
+                    [Var Names]
+                        'self'
+                        'annotated_type'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '%d (%s)'
+                        'TokenInfo(type=%s, string=%r, start=%r, end=%r, line=%r)'
+                        (
+                            'type'
+                        )
+                    [Disassembly]
+                        0       LOAD_CONST                      1: '%d (%s)'
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       0: type
+                        6       LOAD_GLOBAL                     1: tok_name
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       0: type
+                        12      BINARY_SUBSCR                   
+                        14      BUILD_TUPLE                     2
+                        16      BINARY_MODULO                   
+                        18      STORE_FAST                      1: annotated_type
+                        20      LOAD_CONST                      2: 'TokenInfo(type=%s, string=%r, start=%r, end=%r, line=%r)'
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       2: _replace
+                        26      LOAD_FAST                       1: annotated_type
+                        28      LOAD_CONST                      3: ('type',)
+                        30      CALL_FUNCTION_KW                1
+                        32      BINARY_MODULO                   
+                        34      RETURN_VALUE                    
+                'TokenInfo.__repr__'
+                [Code]
+                    File Name: tokenize.py
+                    Object Name: exact_type
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'type'
+                        'OP'
+                        'string'
+                        'EXACT_TOKEN_TYPES'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: type
+                        4       LOAD_GLOBAL                     1: OP
+                        6       COMPARE_OP                      2 (==)
+                        8       POP_JUMP_IF_FALSE               15 (to 30)
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       2: string
+                        14      LOAD_GLOBAL                     3: EXACT_TOKEN_TYPES
+                        16      CONTAINS_OP                     0 (in)
+                        18      POP_JUMP_IF_FALSE               15 (to 30)
+                        20      LOAD_GLOBAL                     3: EXACT_TOKEN_TYPES
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       2: string
+                        26      BINARY_SUBSCR                   
+                        28      RETURN_VALUE                    
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_ATTR                       0: type
+                        34      RETURN_VALUE                    
+                'TokenInfo.exact_type'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'TokenInfo'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: <CODE> __repr__
+                10      LOAD_CONST                      2: 'TokenInfo.__repr__'
+                12      MAKE_FUNCTION                   0
+                14      STORE_NAME                      3: __repr__
+                16      LOAD_NAME                       4: property
+                18      LOAD_CONST                      3: <CODE> exact_type
+                20      LOAD_CONST                      4: 'TokenInfo.exact_type'
+                22      MAKE_FUNCTION                   0
+                24      CALL_FUNCTION                   1
+                26      STORE_NAME                      5: exact_type
+                28      LOAD_CONST                      5: None
+                30      RETURN_VALUE                    
+        'TokenInfo'
+        'type string start end line'
+        [Code]
+            File Name: tokenize.py
+            Object Name: group
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 4
+            Flags: 0x00000047 (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_NOFREE)
+            [Names]
+                'join'
+            [Var Names]
+                'choices'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                '('
+                '|'
+                ')'
+            [Disassembly]
+                0       LOAD_CONST                      1: '('
+                2       LOAD_CONST                      2: '|'
+                4       LOAD_METHOD                     0: join
+                6       LOAD_FAST                       0: choices
+                8       CALL_METHOD                     1
+                10      BINARY_ADD                      
+                12      LOAD_CONST                      3: ')'
+                14      BINARY_ADD                      
+                16      RETURN_VALUE                    
+        'group'
+        [Code]
+            File Name: tokenize.py
+            Object Name: any
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000047 (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_NOFREE)
+            [Names]
+                'group'
+            [Var Names]
+                'choices'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                '*'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: group
+                2       LOAD_FAST                       0: choices
+                4       CALL_FUNCTION_EX                0
+                6       LOAD_CONST                      1: '*'
+                8       BINARY_ADD                      
+                10      RETURN_VALUE                    
+        'any'
+        [Code]
+            File Name: tokenize.py
+            Object Name: maybe
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000047 (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_NOFREE)
+            [Names]
+                'group'
+            [Var Names]
+                'choices'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                '?'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: group
+                2       LOAD_FAST                       0: choices
+                4       CALL_FUNCTION_EX                0
+                6       LOAD_CONST                      1: '?'
+                8       BINARY_ADD                      
+                10      RETURN_VALUE                    
+        'maybe'
+        '[ \\f\\t]*'
+        '#[^\\r\\n]*'
+        '\\\\\\r?\\n'
+        '\\w+'
+        '0[xX](?:_?[0-9a-fA-F])+'
+        '0[bB](?:_?[01])+'
+        '0[oO](?:_?[0-7])+'
+        '(?:0(?:_?0)*|[1-9](?:_?[0-9])*)'
+        '[eE][-+]?[0-9](?:_?[0-9])*'
+        '[0-9](?:_?[0-9])*\\.(?:[0-9](?:_?[0-9])*)?'
+        '\\.[0-9](?:_?[0-9])*'
+        '[0-9](?:_?[0-9])*'
+        '[0-9](?:_?[0-9])*[jJ]'
+        '[jJ]'
+        [Code]
+            File Name: tokenize.py
+            Object Name: _all_string_prefixes
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_itertools'
+                'permutations'
+                'product'
+                'add'
+                'join'
+            [Var Names]
+                '_valid_string_prefixes'
+                'result'
+                'prefix'
+                't'
+                'u'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                (
+                    'b'
+                    'r'
+                    'u'
+                    'f'
+                    'br'
+                    'fr'
+                )
+                ''
+                [Code]
+                    File Name: tokenize.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        'upper'
+                    [Var Names]
+                        '.0'
+                        'c'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        8 (to 22)
+                        6       STORE_FAST                      1: c
+                        8       LOAD_FAST                       1: c
+                        10      LOAD_FAST                       1: c
+                        12      LOAD_METHOD                     0: upper
+                        14      CALL_METHOD                     0
+                        16      BUILD_TUPLE                     2
+                        18      LIST_APPEND                     2
+                        20      JUMP_ABSOLUTE                   2 (to 4)
+                        22      RETURN_VALUE                    
+                '_all_string_prefixes.<locals>.<listcomp>'
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       LOAD_CONST                      1: ('b', 'r', 'u', 'f', 'br', 'fr')
+                4       LIST_EXTEND                     1
+                6       STORE_FAST                      0: _valid_string_prefixes
+                8       LOAD_CONST                      2: ''
+                10      BUILD_SET                       1
+                12      STORE_FAST                      1: result
+                14      LOAD_FAST                       0: _valid_string_prefixes
+                16      GET_ITER                        
+                18      FOR_ITER                        31 (to 82)
+                20      STORE_FAST                      2: prefix
+                22      LOAD_GLOBAL                     0: _itertools
+                24      LOAD_METHOD                     1: permutations
+                26      LOAD_FAST                       2: prefix
+                28      CALL_METHOD                     1
+                30      GET_ITER                        
+                32      FOR_ITER                        23 (to 80)
+                34      STORE_FAST                      3: t
+                36      LOAD_GLOBAL                     0: _itertools
+                38      LOAD_ATTR                       2: product
+                40      LOAD_CONST                      3: <CODE> <listcomp>
+                42      LOAD_CONST                      4: '_all_string_prefixes.<locals>.<listcomp>'
+                44      MAKE_FUNCTION                   0
+                46      LOAD_FAST                       3: t
+                48      GET_ITER                        
+                50      CALL_FUNCTION                   1
+                52      CALL_FUNCTION_EX                0
+                54      GET_ITER                        
+                56      FOR_ITER                        10 (to 78)
+                58      STORE_FAST                      4: u
+                60      LOAD_FAST                       1: result
+                62      LOAD_METHOD                     3: add
+                64      LOAD_CONST                      2: ''
+                66      LOAD_METHOD                     4: join
+                68      LOAD_FAST                       4: u
+                70      CALL_METHOD                     1
+                72      CALL_METHOD                     1
+                74      POP_TOP                         
+                76      JUMP_ABSOLUTE                   28 (to 56)
+                78      JUMP_ABSOLUTE                   16 (to 32)
+                80      JUMP_ABSOLUTE                   9 (to 18)
+                82      LOAD_FAST                       1: result
+                84      RETURN_VALUE                    
+        '_all_string_prefixes'
+        [Code]
+            File Name: tokenize.py
+            Object Name: _compile
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                're'
+                'compile'
+                'UNICODE'
+            [Var Names]
+                'expr'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: re
+                2       LOAD_METHOD                     1: compile
+                4       LOAD_FAST                       0: expr
+                6       LOAD_GLOBAL                     0: re
+                8       LOAD_ATTR                       2: UNICODE
+                10      CALL_METHOD                     2
+                12      RETURN_VALUE                    
+        '_compile'
+        "[^'\\\\]*(?:\\\\.[^'\\\\]*)*'"
+        '[^"\\\\]*(?:\\\\.[^"\\\\]*)*"'
+        "[^'\\\\]*(?:(?:\\\\.|'(?!''))[^'\\\\]*)*'''"
+        '[^"\\\\]*(?:(?:\\\\.|"(?!""))[^"\\\\]*)*"""'
+        "'''"
+        '"""'
+        "'[^\\n'\\\\]*(?:\\\\.[^\\n'\\\\]*)*'"
+        '"[^\\n"\\\\]*(?:\\\\.[^\\n"\\\\]*)*"'
+        True
+        (
+            'reverse'
+        )
+        '\\r?\\n'
+        "'[^\\n'\\\\]*(?:\\\\.[^\\n'\\\\]*)*"
+        "'"
+        '"[^\\n"\\\\]*(?:\\\\.[^\\n"\\\\]*)*'
+        '"'
+        '\\\\\\r?\\n|\\Z'
+        8
+        [Code]
+            File Name: tokenize.py
+            Object Name: TokenError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'TokenError'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'TokenError'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: None
+                10      RETURN_VALUE                    
+        'TokenError'
+        [Code]
+            File Name: tokenize.py
+            Object Name: StopTokenizing
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'StopTokenizing'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'StopTokenizing'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: None
+                10      RETURN_VALUE                    
+        'StopTokenizing'
+        [Code]
+            File Name: tokenize.py
+            Object Name: Untokenizer
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__init__'
+                'add_whitespace'
+                'untokenize'
+                'compat'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Untokenizer'
+                [Code]
+                    File Name: tokenize.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'tokens'
+                        'prev_row'
+                        'prev_col'
+                        'encoding'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        1
+                        0
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: tokens
+                        6       LOAD_CONST                      1: 1
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: prev_row
+                        12      LOAD_CONST                      2: 0
+                        14      LOAD_FAST                       0: self
+                        16      STORE_ATTR                      2: prev_col
+                        18      LOAD_CONST                      0: None
+                        20      LOAD_FAST                       0: self
+                        22      STORE_ATTR                      3: encoding
+                        24      LOAD_CONST                      0: None
+                        26      RETURN_VALUE                    
+                'Untokenizer.__init__'
+                [Code]
+                    File Name: tokenize.py
+                    Object Name: add_whitespace
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 7
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'prev_row'
+                        'prev_col'
+                        'ValueError'
+                        'format'
+                        'tokens'
+                        'append'
+                    [Var Names]
+                        'self'
+                        'start'
+                        'row'
+                        'col'
+                        'row_offset'
+                        'col_offset'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'start ({},{}) precedes previous end ({},{})'
+                        '\\\n'
+                        0
+                        ' '
+                    [Disassembly]
+                        0       LOAD_FAST                       1: start
+                        2       UNPACK_SEQUENCE                 2
+                        4       STORE_FAST                      2: row
+                        6       STORE_FAST                      3: col
+                        8       LOAD_FAST                       2: row
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       0: prev_row
+                        14      COMPARE_OP                      0 (<)
+                        16      POP_JUMP_IF_TRUE                19 (to 38)
+                        18      LOAD_FAST                       2: row
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       0: prev_row
+                        24      COMPARE_OP                      2 (==)
+                        26      POP_JUMP_IF_FALSE               31 (to 62)
+                        28      LOAD_FAST                       3: col
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_ATTR                       1: prev_col
+                        34      COMPARE_OP                      0 (<)
+                        36      POP_JUMP_IF_FALSE               31 (to 62)
+                        38      LOAD_GLOBAL                     2: ValueError
+                        40      LOAD_CONST                      1: 'start ({},{}) precedes previous end ({},{})'
+                        42      LOAD_METHOD                     3: format
+                        44      LOAD_FAST                       2: row
+                        46      LOAD_FAST                       3: col
+                        48      LOAD_FAST                       0: self
+                        50      LOAD_ATTR                       0: prev_row
+                        52      LOAD_FAST                       0: self
+                        54      LOAD_ATTR                       1: prev_col
+                        56      CALL_METHOD                     4
+                        58      CALL_FUNCTION                   1
+                        60      RAISE_VARARGS                   1
+                        62      LOAD_FAST                       2: row
+                        64      LOAD_FAST                       0: self
+                        66      LOAD_ATTR                       0: prev_row
+                        68      BINARY_SUBTRACT                 
+                        70      STORE_FAST                      4: row_offset
+                        72      LOAD_FAST                       4: row_offset
+                        74      POP_JUMP_IF_FALSE               49 (to 98)
+                        76      LOAD_FAST                       0: self
+                        78      LOAD_ATTR                       4: tokens
+                        80      LOAD_METHOD                     5: append
+                        82      LOAD_CONST                      2: '\\\n'
+                        84      LOAD_FAST                       4: row_offset
+                        86      BINARY_MULTIPLY                 
+                        88      CALL_METHOD                     1
+                        90      POP_TOP                         
+                        92      LOAD_CONST                      3: 0
+                        94      LOAD_FAST                       0: self
+                        96      STORE_ATTR                      1: prev_col
+                        98      LOAD_FAST                       3: col
+                        100     LOAD_FAST                       0: self
+                        102     LOAD_ATTR                       1: prev_col
+                        104     BINARY_SUBTRACT                 
+                        106     STORE_FAST                      5: col_offset
+                        108     LOAD_FAST                       5: col_offset
+                        110     POP_JUMP_IF_FALSE               66 (to 132)
+                        112     LOAD_FAST                       0: self
+                        114     LOAD_ATTR                       4: tokens
+                        116     LOAD_METHOD                     5: append
+                        118     LOAD_CONST                      4: ' '
+                        120     LOAD_FAST                       5: col_offset
+                        122     BINARY_MULTIPLY                 
+                        124     CALL_METHOD                     1
+                        126     POP_TOP                         
+                        128     LOAD_CONST                      0: None
+                        130     RETURN_VALUE                    
+                        132     LOAD_CONST                      0: None
+                        134     RETURN_VALUE                    
+                'Untokenizer.add_whitespace'
+                [Code]
+                    File Name: tokenize.py
+                    Object Name: untokenize
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 12
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'iter'
+                        'len'
+                        'compat'
+                        'ENCODING'
+                        'encoding'
+                        'ENDMARKER'
+                        'INDENT'
+                        'append'
+                        'DEDENT'
+                        'pop'
+                        'prev_row'
+                        'prev_col'
+                        'NEWLINE'
+                        'NL'
+                        'tokens'
+                        'add_whitespace'
+                        'join'
+                    [Var Names]
+                        'self'
+                        'iterable'
+                        'it'
+                        'indents'
+                        'startline'
+                        't'
+                        'tok_type'
+                        'token'
+                        'start'
+                        'end'
+                        'line'
+                        'indent'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        False
+                        2
+                        True
+                        -1
+                        1
+                        0
+                        ''
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: iter
+                        2       LOAD_FAST                       1: iterable
+                        4       CALL_FUNCTION                   1
+                        6       STORE_FAST                      2: it
+                        8       BUILD_LIST                      0
+                        10      STORE_FAST                      3: indents
+                        12      LOAD_CONST                      1: False
+                        14      STORE_FAST                      4: startline
+                        16      LOAD_FAST                       2: it
+                        18      GET_ITER                        
+                        20      FOR_ITER                        133 (to 288)
+                        22      STORE_FAST                      5: t
+                        24      LOAD_GLOBAL                     1: len
+                        26      LOAD_FAST                       5: t
+                        28      CALL_FUNCTION                   1
+                        30      LOAD_CONST                      2: 2
+                        32      COMPARE_OP                      2 (==)
+                        34      POP_JUMP_IF_FALSE               26 (to 52)
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_METHOD                     2: compat
+                        40      LOAD_FAST                       5: t
+                        42      LOAD_FAST                       2: it
+                        44      CALL_METHOD                     2
+                        46      POP_TOP                         
+                        48      POP_TOP                         
+                        50      JUMP_FORWARD                    118 (to 288)
+                        52      LOAD_FAST                       5: t
+                        54      UNPACK_SEQUENCE                 5
+                        56      STORE_FAST                      6: tok_type
+                        58      STORE_FAST                      7: token
+                        60      STORE_FAST                      8: start
+                        62      STORE_FAST                      9: end
+                        64      STORE_FAST                      10: line
+                        66      LOAD_FAST                       6: tok_type
+                        68      LOAD_GLOBAL                     3: ENCODING
+                        70      COMPARE_OP                      2 (==)
+                        72      POP_JUMP_IF_FALSE               41 (to 82)
+                        74      LOAD_FAST                       7: token
+                        76      LOAD_FAST                       0: self
+                        78      STORE_ATTR                      4: encoding
+                        80      JUMP_ABSOLUTE                   10 (to 20)
+                        82      LOAD_FAST                       6: tok_type
+                        84      LOAD_GLOBAL                     5: ENDMARKER
+                        86      COMPARE_OP                      2 (==)
+                        88      POP_JUMP_IF_FALSE               47 (to 94)
+                        90      POP_TOP                         
+                        92      JUMP_FORWARD                    97 (to 288)
+                        94      LOAD_FAST                       6: tok_type
+                        96      LOAD_GLOBAL                     6: INDENT
+                        98      COMPARE_OP                      2 (==)
+                        100     POP_JUMP_IF_FALSE               57 (to 114)
+                        102     LOAD_FAST                       3: indents
+                        104     LOAD_METHOD                     7: append
+                        106     LOAD_FAST                       7: token
+                        108     CALL_METHOD                     1
+                        110     POP_TOP                         
+                        112     JUMP_ABSOLUTE                   10 (to 20)
+                        114     LOAD_FAST                       6: tok_type
+                        116     LOAD_GLOBAL                     8: DEDENT
+                        118     COMPARE_OP                      2 (==)
+                        120     POP_JUMP_IF_FALSE               72 (to 144)
+                        122     LOAD_FAST                       3: indents
+                        124     LOAD_METHOD                     9: pop
+                        126     CALL_METHOD                     0
+                        128     POP_TOP                         
+                        130     LOAD_FAST                       9: end
+                        132     UNPACK_SEQUENCE                 2
+                        134     LOAD_FAST                       0: self
+                        136     STORE_ATTR                      10: prev_row
+                        138     LOAD_FAST                       0: self
+                        140     STORE_ATTR                      11: prev_col
+                        142     JUMP_ABSOLUTE                   10 (to 20)
+                        144     LOAD_FAST                       6: tok_type
+                        146     LOAD_GLOBAL                     12: NEWLINE
+                        148     LOAD_GLOBAL                     13: NL
+                        150     BUILD_TUPLE                     2
+                        152     CONTAINS_OP                     0 (in)
+                        154     POP_JUMP_IF_FALSE               81 (to 162)
+                        156     LOAD_CONST                      3: True
+                        158     STORE_FAST                      4: startline
+                        160     JUMP_FORWARD                    29 (to 220)
+                        162     LOAD_FAST                       4: startline
+                        164     POP_JUMP_IF_FALSE               110 (to 220)
+                        166     LOAD_FAST                       3: indents
+                        168     POP_JUMP_IF_FALSE               110 (to 220)
+                        170     LOAD_FAST                       3: indents
+                        172     LOAD_CONST                      4: -1
+                        174     BINARY_SUBSCR                   
+                        176     STORE_FAST                      11: indent
+                        178     LOAD_FAST                       8: start
+                        180     LOAD_CONST                      5: 1
+                        182     BINARY_SUBSCR                   
+                        184     LOAD_GLOBAL                     1: len
+                        186     LOAD_FAST                       11: indent
+                        188     CALL_FUNCTION                   1
+                        190     COMPARE_OP                      5 (>=)
+                        192     POP_JUMP_IF_FALSE               108 (to 216)
+                        194     LOAD_FAST                       0: self
+                        196     LOAD_ATTR                       14: tokens
+                        198     LOAD_METHOD                     7: append
+                        200     LOAD_FAST                       11: indent
+                        202     CALL_METHOD                     1
+                        204     POP_TOP                         
+                        206     LOAD_GLOBAL                     1: len
+                        208     LOAD_FAST                       11: indent
+                        210     CALL_FUNCTION                   1
+                        212     LOAD_FAST                       0: self
+                        214     STORE_ATTR                      11: prev_col
+                        216     LOAD_CONST                      1: False
+                        218     STORE_FAST                      4: startline
+                        220     LOAD_FAST                       0: self
+                        222     LOAD_METHOD                     15: add_whitespace
+                        224     LOAD_FAST                       8: start
+                        226     CALL_METHOD                     1
+                        228     POP_TOP                         
+                        230     LOAD_FAST                       0: self
+                        232     LOAD_ATTR                       14: tokens
+                        234     LOAD_METHOD                     7: append
+                        236     LOAD_FAST                       7: token
+                        238     CALL_METHOD                     1
+                        240     POP_TOP                         
+                        242     LOAD_FAST                       9: end
+                        244     UNPACK_SEQUENCE                 2
+                        246     LOAD_FAST                       0: self
+                        248     STORE_ATTR                      10: prev_row
+                        250     LOAD_FAST                       0: self
+                        252     STORE_ATTR                      11: prev_col
+                        254     LOAD_FAST                       6: tok_type
+                        256     LOAD_GLOBAL                     12: NEWLINE
+                        258     LOAD_GLOBAL                     13: NL
+                        260     BUILD_TUPLE                     2
+                        262     CONTAINS_OP                     0 (in)
+                        264     POP_JUMP_IF_FALSE               143 (to 286)
+                        266     LOAD_FAST                       0: self
+                        268     DUP_TOP                         
+                        270     LOAD_ATTR                       10: prev_row
+                        272     LOAD_CONST                      5: 1
+                        274     INPLACE_ADD                     
+                        276     ROT_TWO                         
+                        278     STORE_ATTR                      10: prev_row
+                        280     LOAD_CONST                      6: 0
+                        282     LOAD_FAST                       0: self
+                        284     STORE_ATTR                      11: prev_col
+                        286     JUMP_ABSOLUTE                   10 (to 20)
+                        288     LOAD_CONST                      7: ''
+                        290     LOAD_METHOD                     16: join
+                        292     LOAD_FAST                       0: self
+                        294     LOAD_ATTR                       14: tokens
+                        296     CALL_METHOD                     1
+                        298     RETURN_VALUE                    
+                'Untokenizer.untokenize'
+                [Code]
+                    File Name: tokenize.py
+                    Object Name: compat
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 10
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'tokens'
+                        'append'
+                        'NEWLINE'
+                        'NL'
+                        '_itertools'
+                        'chain'
+                        'ENCODING'
+                        'encoding'
+                        'NAME'
+                        'NUMBER'
+                        'STRING'
+                        'INDENT'
+                        'DEDENT'
+                        'pop'
+                    [Var Names]
+                        'self'
+                        'token'
+                        'iterable'
+                        'indents'
+                        'toks_append'
+                        'startline'
+                        'prevstring'
+                        'tok'
+                        'toknum'
+                        'tokval'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                        False
+                        2
+                        ' '
+                        True
+                        -1
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       STORE_FAST                      3: indents
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       0: tokens
+                        8       LOAD_ATTR                       1: append
+                        10      STORE_FAST                      4: toks_append
+                        12      LOAD_FAST                       1: token
+                        14      LOAD_CONST                      1: 0
+                        16      BINARY_SUBSCR                   
+                        18      LOAD_GLOBAL                     2: NEWLINE
+                        20      LOAD_GLOBAL                     3: NL
+                        22      BUILD_TUPLE                     2
+                        24      CONTAINS_OP                     0 (in)
+                        26      STORE_FAST                      5: startline
+                        28      LOAD_CONST                      2: False
+                        30      STORE_FAST                      6: prevstring
+                        32      LOAD_GLOBAL                     4: _itertools
+                        34      LOAD_METHOD                     5: chain
+                        36      LOAD_FAST                       1: token
+                        38      BUILD_LIST                      1
+                        40      LOAD_FAST                       2: iterable
+                        42      CALL_METHOD                     2
+                        44      GET_ITER                        
+                        46      FOR_ITER                        87 (to 222)
+                        48      STORE_FAST                      7: tok
+                        50      LOAD_FAST                       7: tok
+                        52      LOAD_CONST                      0: None
+                        54      LOAD_CONST                      3: 2
+                        56      BUILD_SLICE                     2
+                        58      BINARY_SUBSCR                   
+                        60      UNPACK_SEQUENCE                 2
+                        62      STORE_FAST                      8: toknum
+                        64      STORE_FAST                      9: tokval
+                        66      LOAD_FAST                       8: toknum
+                        68      LOAD_GLOBAL                     6: ENCODING
+                        70      COMPARE_OP                      2 (==)
+                        72      POP_JUMP_IF_FALSE               41 (to 82)
+                        74      LOAD_FAST                       9: tokval
+                        76      LOAD_FAST                       0: self
+                        78      STORE_ATTR                      7: encoding
+                        80      JUMP_ABSOLUTE                   23 (to 46)
+                        82      LOAD_FAST                       8: toknum
+                        84      LOAD_GLOBAL                     8: NAME
+                        86      LOAD_GLOBAL                     9: NUMBER
+                        88      BUILD_TUPLE                     2
+                        90      CONTAINS_OP                     0 (in)
+                        92      POP_JUMP_IF_FALSE               51 (to 102)
+                        94      LOAD_FAST                       9: tokval
+                        96      LOAD_CONST                      4: ' '
+                        98      INPLACE_ADD                     
+                        100     STORE_FAST                      9: tokval
+                        102     LOAD_FAST                       8: toknum
+                        104     LOAD_GLOBAL                     10: STRING
+                        106     COMPARE_OP                      2 (==)
+                        108     POP_JUMP_IF_FALSE               64 (to 128)
+                        110     LOAD_FAST                       6: prevstring
+                        112     POP_JUMP_IF_FALSE               61 (to 122)
+                        114     LOAD_CONST                      4: ' '
+                        116     LOAD_FAST                       9: tokval
+                        118     BINARY_ADD                      
+                        120     STORE_FAST                      9: tokval
+                        122     LOAD_CONST                      5: True
+                        124     STORE_FAST                      6: prevstring
+                        126     JUMP_FORWARD                    2 (to 132)
+                        128     LOAD_CONST                      2: False
+                        130     STORE_FAST                      6: prevstring
+                        132     LOAD_FAST                       8: toknum
+                        134     LOAD_GLOBAL                     11: INDENT
+                        136     COMPARE_OP                      2 (==)
+                        138     POP_JUMP_IF_FALSE               76 (to 152)
+                        140     LOAD_FAST                       3: indents
+                        142     LOAD_METHOD                     1: append
+                        144     LOAD_FAST                       9: tokval
+                        146     CALL_METHOD                     1
+                        148     POP_TOP                         
+                        150     JUMP_ABSOLUTE                   23 (to 46)
+                        152     LOAD_FAST                       8: toknum
+                        154     LOAD_GLOBAL                     12: DEDENT
+                        156     COMPARE_OP                      2 (==)
+                        158     POP_JUMP_IF_FALSE               85 (to 170)
+                        160     LOAD_FAST                       3: indents
+                        162     LOAD_METHOD                     13: pop
+                        164     CALL_METHOD                     0
+                        166     POP_TOP                         
+                        168     JUMP_ABSOLUTE                   23 (to 46)
+                        170     LOAD_FAST                       8: toknum
+                        172     LOAD_GLOBAL                     2: NEWLINE
+                        174     LOAD_GLOBAL                     3: NL
+                        176     BUILD_TUPLE                     2
+                        178     CONTAINS_OP                     0 (in)
+                        180     POP_JUMP_IF_FALSE               94 (to 188)
+                        182     LOAD_CONST                      5: True
+                        184     STORE_FAST                      5: startline
+                        186     JUMP_FORWARD                    12 (to 212)
+                        188     LOAD_FAST                       5: startline
+                        190     POP_JUMP_IF_FALSE               106 (to 212)
+                        192     LOAD_FAST                       3: indents
+                        194     POP_JUMP_IF_FALSE               106 (to 212)
+                        196     LOAD_FAST                       4: toks_append
+                        198     LOAD_FAST                       3: indents
+                        200     LOAD_CONST                      6: -1
+                        202     BINARY_SUBSCR                   
+                        204     CALL_FUNCTION                   1
+                        206     POP_TOP                         
+                        208     LOAD_CONST                      2: False
+                        210     STORE_FAST                      5: startline
+                        212     LOAD_FAST                       4: toks_append
+                        214     LOAD_FAST                       9: tokval
+                        216     CALL_FUNCTION                   1
+                        218     POP_TOP                         
+                        220     JUMP_ABSOLUTE                   23 (to 46)
+                        222     LOAD_CONST                      0: None
+                        224     RETURN_VALUE                    
+                'Untokenizer.compat'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Untokenizer'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: <CODE> __init__
+                10      LOAD_CONST                      2: 'Untokenizer.__init__'
+                12      MAKE_FUNCTION                   0
+                14      STORE_NAME                      3: __init__
+                16      LOAD_CONST                      3: <CODE> add_whitespace
+                18      LOAD_CONST                      4: 'Untokenizer.add_whitespace'
+                20      MAKE_FUNCTION                   0
+                22      STORE_NAME                      4: add_whitespace
+                24      LOAD_CONST                      5: <CODE> untokenize
+                26      LOAD_CONST                      6: 'Untokenizer.untokenize'
+                28      MAKE_FUNCTION                   0
+                30      STORE_NAME                      5: untokenize
+                32      LOAD_CONST                      7: <CODE> compat
+                34      LOAD_CONST                      8: 'Untokenizer.compat'
+                36      MAKE_FUNCTION                   0
+                38      STORE_NAME                      6: compat
+                40      LOAD_CONST                      9: None
+                42      RETURN_VALUE                    
+        'Untokenizer'
+        [Code]
+            File Name: tokenize.py
+            Object Name: untokenize
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'Untokenizer'
+                'untokenize'
+                'encoding'
+                'encode'
+            [Var Names]
+                'iterable'
+                'ut'
+                'out'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Transform tokens back into Python source code.\n    It returns a bytes object, encoded using the ENCODING\n    token, which is the first token sequence output by tokenize.\n\n    Each element returned by the iterable must be a token sequence\n    with at least two elements, a token number and token value.  If\n    only two tokens are passed, the resulting output is poor.\n\n    Round-trip invariant for full input:\n        Untokenized source will match input source exactly\n\n    Round-trip invariant for limited input:\n        # Output bytes will tokenize back to the input\n        t1 = [tok[:2] for tok in tokenize(f.readline)]\n        newcode = untokenize(t1)\n        readline = BytesIO(newcode).readline\n        t2 = [tok[:2] for tok in tokenize(readline)]\n        assert t1 == t2\n    '
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: Untokenizer
+                2       CALL_FUNCTION                   0
+                4       STORE_FAST                      1: ut
+                6       LOAD_FAST                       1: ut
+                8       LOAD_METHOD                     1: untokenize
+                10      LOAD_FAST                       0: iterable
+                12      CALL_METHOD                     1
+                14      STORE_FAST                      2: out
+                16      LOAD_FAST                       1: ut
+                18      LOAD_ATTR                       2: encoding
+                20      LOAD_CONST                      1: None
+                22      IS_OP                           1 (is not)
+                24      POP_JUMP_IF_FALSE               19 (to 38)
+                26      LOAD_FAST                       2: out
+                28      LOAD_METHOD                     3: encode
+                30      LOAD_FAST                       1: ut
+                32      LOAD_ATTR                       2: encoding
+                34      CALL_METHOD                     1
+                36      STORE_FAST                      2: out
+                38      LOAD_FAST                       2: out
+                40      RETURN_VALUE                    
+        'untokenize'
+        [Code]
+            File Name: tokenize.py
+            Object Name: _get_normal_name
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'lower'
+                'replace'
+                'startswith'
+            [Var Names]
+                'orig_enc'
+                'enc'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Imitates get_normal_name in tokenizer.c.'
+                None
+                12
+                '_'
+                '-'
+                'utf-8'
+                'utf-8-'
+                (
+                    'latin-1'
+                    'iso-8859-1'
+                    'iso-latin-1'
+                )
+                (
+                    'latin-1-'
+                    'iso-8859-1-'
+                    'iso-latin-1-'
+                )
+                'iso-8859-1'
+            [Disassembly]
+                0       LOAD_FAST                       0: orig_enc
+                2       LOAD_CONST                      1: None
+                4       LOAD_CONST                      2: 12
+                6       BUILD_SLICE                     2
+                8       BINARY_SUBSCR                   
+                10      LOAD_METHOD                     0: lower
+                12      CALL_METHOD                     0
+                14      LOAD_METHOD                     1: replace
+                16      LOAD_CONST                      3: '_'
+                18      LOAD_CONST                      4: '-'
+                20      CALL_METHOD                     2
+                22      STORE_FAST                      1: enc
+                24      LOAD_FAST                       1: enc
+                26      LOAD_CONST                      5: 'utf-8'
+                28      COMPARE_OP                      2 (==)
+                30      POP_JUMP_IF_TRUE                21 (to 42)
+                32      LOAD_FAST                       1: enc
+                34      LOAD_METHOD                     2: startswith
+                36      LOAD_CONST                      6: 'utf-8-'
+                38      CALL_METHOD                     1
+                40      POP_JUMP_IF_FALSE               23 (to 46)
+                42      LOAD_CONST                      5: 'utf-8'
+                44      RETURN_VALUE                    
+                46      LOAD_FAST                       1: enc
+                48      LOAD_CONST                      7: ('latin-1', 'iso-8859-1', 'iso-latin-1')
+                50      CONTAINS_OP                     0 (in)
+                52      POP_JUMP_IF_TRUE                32 (to 64)
+                54      LOAD_FAST                       1: enc
+                56      LOAD_METHOD                     2: startswith
+                58      LOAD_CONST                      8: ('latin-1-', 'iso-8859-1-', 'iso-latin-1-')
+                60      CALL_METHOD                     1
+                62      POP_JUMP_IF_FALSE               34 (to 68)
+                64      LOAD_CONST                      9: 'iso-8859-1'
+                66      RETURN_VALUE                    
+                68      LOAD_FAST                       0: orig_enc
+                70      RETURN_VALUE                    
+        '_get_normal_name'
+        [Code]
+            File Name: tokenize.py
+            Object Name: detect_encoding
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 7
+            Stack Size: 8
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                '__self__'
+                'name'
+                'AttributeError'
+                'startswith'
+                'BOM_UTF8'
+                'blank_re'
+                'match'
+            [Var Names]
+                'readline'
+                'encoding'
+                'default'
+                'read_or_stop'
+                'find_cookie'
+                'first'
+                'second'
+            [Free Vars]
+            [Cell Vars]
+                'bom_found'
+                'filename'
+                'readline'
+            [Constants]
+                "\n    The detect_encoding() function is used to detect the encoding that should\n    be used to decode a Python source file.  It requires one argument, readline,\n    in the same way as the tokenize() generator.\n\n    It will call readline a maximum of twice, and return the encoding used\n    (as a string) and a list of any lines (left as bytes) it has read in.\n\n    It detects the encoding from the presence of a utf-8 bom or an encoding\n    cookie as specified in pep-0263.  If both a bom and a cookie are present,\n    but disagree, a SyntaxError will be raised.  If the encoding cookie is an\n    invalid charset, raise a SyntaxError.  Note that if a utf-8 bom is found,\n    'utf-8-sig' is returned.\n\n    If no encoding is specified, then the default of 'utf-8' will be returned.\n    "
+                None
+                False
+                'utf-8'
+                [Code]
+                    File Name: tokenize.py
+                    Object Name: read_or_stop
+                    Arg Count: 0
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 0
+                    Stack Size: 8
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                        'StopIteration'
+                    [Var Names]
+                    [Free Vars]
+                        'readline'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        b''
+                    [Disassembly]
+                        0       SETUP_FINALLY                   4 (to 10)
+                        2       LOAD_DEREF                      0: readline
+                        4       CALL_FUNCTION                   0
+                        6       POP_BLOCK                       
+                        8       RETURN_VALUE                    
+                        10      DUP_TOP                         
+                        12      LOAD_GLOBAL                     0: StopIteration
+                        14      JUMP_IF_NOT_EXC_MATCH           14 (to 28)
+                        16      POP_TOP                         
+                        18      POP_TOP                         
+                        20      POP_TOP                         
+                        22      POP_EXCEPT                      
+                        24      LOAD_CONST                      1: b''
+                        26      RETURN_VALUE                    
+                        28      RERAISE                         0
+                'detect_encoding.<locals>.read_or_stop'
+                [Code]
+                    File Name: tokenize.py
+                    Object Name: find_cookie
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 8
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                        'decode'
+                        'UnicodeDecodeError'
+                        'format'
+                        'SyntaxError'
+                        'cookie_re'
+                        'match'
+                        '_get_normal_name'
+                        'group'
+                        'lookup'
+                        'LookupError'
+                    [Var Names]
+                        'line'
+                        'line_string'
+                        'msg'
+                        'match'
+                        'encoding'
+                        'codec'
+                    [Free Vars]
+                        'bom_found'
+                        'filename'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'utf-8'
+                        'invalid or missing encoding declaration'
+                        '{} for {!r}'
+                        1
+                        'unknown encoding: '
+                        'unknown encoding for {!r}: {}'
+                        'encoding problem: utf-8'
+                        'encoding problem for {!r}: utf-8'
+                        '-sig'
+                    [Disassembly]
+                        0       SETUP_FINALLY                   7 (to 16)
+                        2       LOAD_FAST                       0: line
+                        4       LOAD_METHOD                     0: decode
+                        6       LOAD_CONST                      1: 'utf-8'
+                        8       CALL_METHOD                     1
+                        10      STORE_FAST                      1: line_string
+                        12      POP_BLOCK                       
+                        14      JUMP_FORWARD                    23 (to 62)
+                        16      DUP_TOP                         
+                        18      LOAD_GLOBAL                     1: UnicodeDecodeError
+                        20      JUMP_IF_NOT_EXC_MATCH           30 (to 60)
+                        22      POP_TOP                         
+                        24      POP_TOP                         
+                        26      POP_TOP                         
+                        28      LOAD_CONST                      2: 'invalid or missing encoding declaration'
+                        30      STORE_FAST                      2: msg
+                        32      LOAD_DEREF                      1: filename
+                        34      LOAD_CONST                      0: None
+                        36      IS_OP                           1 (is not)
+                        38      POP_JUMP_IF_FALSE               26 (to 52)
+                        40      LOAD_CONST                      3: '{} for {!r}'
+                        42      LOAD_METHOD                     2: format
+                        44      LOAD_FAST                       2: msg
+                        46      LOAD_DEREF                      1: filename
+                        48      CALL_METHOD                     2
+                        50      STORE_FAST                      2: msg
+                        52      LOAD_GLOBAL                     3: SyntaxError
+                        54      LOAD_FAST                       2: msg
+                        56      CALL_FUNCTION                   1
+                        58      RAISE_VARARGS                   1
+                        60      RERAISE                         0
+                        62      LOAD_GLOBAL                     4: cookie_re
+                        64      LOAD_METHOD                     5: match
+                        66      LOAD_FAST                       1: line_string
+                        68      CALL_METHOD                     1
+                        70      STORE_FAST                      3: match
+                        72      LOAD_FAST                       3: match
+                        74      POP_JUMP_IF_TRUE                40 (to 80)
+                        76      LOAD_CONST                      0: None
+                        78      RETURN_VALUE                    
+                        80      LOAD_GLOBAL                     6: _get_normal_name
+                        82      LOAD_FAST                       3: match
+                        84      LOAD_METHOD                     7: group
+                        86      LOAD_CONST                      4: 1
+                        88      CALL_METHOD                     1
+                        90      CALL_FUNCTION                   1
+                        92      STORE_FAST                      4: encoding
+                        94      SETUP_FINALLY                   6 (to 108)
+                        96      LOAD_GLOBAL                     8: lookup
+                        98      LOAD_FAST                       4: encoding
+                        100     CALL_FUNCTION                   1
+                        102     STORE_FAST                      5: codec
+                        104     POP_BLOCK                       
+                        106     JUMP_FORWARD                    29 (to 166)
+                        108     DUP_TOP                         
+                        110     LOAD_GLOBAL                     9: LookupError
+                        112     JUMP_IF_NOT_EXC_MATCH           82 (to 164)
+                        114     POP_TOP                         
+                        116     POP_TOP                         
+                        118     POP_TOP                         
+                        120     LOAD_DEREF                      1: filename
+                        122     LOAD_CONST                      0: None
+                        124     IS_OP                           0 (is)
+                        126     POP_JUMP_IF_FALSE               72 (to 144)
+                        128     LOAD_CONST                      5: 'unknown encoding: '
+                        130     LOAD_FAST                       4: encoding
+                        132     BINARY_ADD                      
+                        134     STORE_FAST                      2: msg
+                        136     LOAD_GLOBAL                     3: SyntaxError
+                        138     LOAD_FAST                       2: msg
+                        140     CALL_FUNCTION                   1
+                        142     RAISE_VARARGS                   1
+                        144     LOAD_CONST                      6: 'unknown encoding for {!r}: {}'
+                        146     LOAD_METHOD                     2: format
+                        148     LOAD_DEREF                      1: filename
+                        150     LOAD_FAST                       4: encoding
+                        152     CALL_METHOD                     2
+                        154     STORE_FAST                      2: msg
+                        156     LOAD_GLOBAL                     3: SyntaxError
+                        158     LOAD_FAST                       2: msg
+                        160     CALL_FUNCTION                   1
+                        162     RAISE_VARARGS                   1
+                        164     RERAISE                         0
+                        166     LOAD_DEREF                      0: bom_found
+                        168     POP_JUMP_IF_FALSE               112 (to 224)
+                        170     LOAD_FAST                       4: encoding
+                        172     LOAD_CONST                      1: 'utf-8'
+                        174     COMPARE_OP                      3 (!=)
+                        176     POP_JUMP_IF_FALSE               108 (to 216)
+                        178     LOAD_DEREF                      1: filename
+                        180     LOAD_CONST                      0: None
+                        182     IS_OP                           0 (is)
+                        184     POP_JUMP_IF_FALSE               99 (to 198)
+                        186     LOAD_CONST                      7: 'encoding problem: utf-8'
+                        188     STORE_FAST                      2: msg
+                        190     LOAD_GLOBAL                     3: SyntaxError
+                        192     LOAD_FAST                       2: msg
+                        194     CALL_FUNCTION                   1
+                        196     RAISE_VARARGS                   1
+                        198     LOAD_CONST                      8: 'encoding problem for {!r}: utf-8'
+                        200     LOAD_METHOD                     2: format
+                        202     LOAD_DEREF                      1: filename
+                        204     CALL_METHOD                     1
+                        206     STORE_FAST                      2: msg
+                        208     LOAD_GLOBAL                     3: SyntaxError
+                        210     LOAD_FAST                       2: msg
+                        212     CALL_FUNCTION                   1
+                        214     RAISE_VARARGS                   1
+                        216     LOAD_FAST                       4: encoding
+                        218     LOAD_CONST                      9: '-sig'
+                        220     INPLACE_ADD                     
+                        222     STORE_FAST                      4: encoding
+                        224     LOAD_FAST                       4: encoding
+                        226     RETURN_VALUE                    
+                'detect_encoding.<locals>.find_cookie'
+                True
+                3
+                'utf-8-sig'
+            [Disassembly]
+                0       SETUP_FINALLY                   6 (to 14)
+                2       LOAD_DEREF                      2: readline
+                4       LOAD_ATTR                       0: __self__
+                6       LOAD_ATTR                       1: name
+                8       STORE_DEREF                     1: filename
+                10      POP_BLOCK                       
+                12      JUMP_FORWARD                    11 (to 36)
+                14      DUP_TOP                         
+                16      LOAD_GLOBAL                     2: AttributeError
+                18      JUMP_IF_NOT_EXC_MATCH           17 (to 34)
+                20      POP_TOP                         
+                22      POP_TOP                         
+                24      POP_TOP                         
+                26      LOAD_CONST                      1: None
+                28      STORE_DEREF                     1: filename
+                30      POP_EXCEPT                      
+                32      JUMP_FORWARD                    1 (to 36)
+                34      RERAISE                         0
+                36      LOAD_CONST                      2: False
+                38      STORE_DEREF                     0: bom_found
+                40      LOAD_CONST                      1: None
+                42      STORE_FAST                      1: encoding
+                44      LOAD_CONST                      3: 'utf-8'
+                46      STORE_FAST                      2: default
+                48      LOAD_CLOSURE                    2: readline
+                50      BUILD_TUPLE                     1
+                52      LOAD_CONST                      4: <CODE> read_or_stop
+                54      LOAD_CONST                      5: 'detect_encoding.<locals>.read_or_stop'
+                56      MAKE_FUNCTION                   8
+                58      STORE_FAST                      3: read_or_stop
+                60      LOAD_CLOSURE                    0: bom_found
+                62      LOAD_CLOSURE                    1: filename
+                64      BUILD_TUPLE                     2
+                66      LOAD_CONST                      6: <CODE> find_cookie
+                68      LOAD_CONST                      7: 'detect_encoding.<locals>.find_cookie'
+                70      MAKE_FUNCTION                   8
+                72      STORE_FAST                      4: find_cookie
+                74      LOAD_FAST                       3: read_or_stop
+                76      CALL_FUNCTION                   0
+                78      STORE_FAST                      5: first
+                80      LOAD_FAST                       5: first
+                82      LOAD_METHOD                     3: startswith
+                84      LOAD_GLOBAL                     4: BOM_UTF8
+                86      CALL_METHOD                     1
+                88      POP_JUMP_IF_FALSE               55 (to 110)
+                90      LOAD_CONST                      8: True
+                92      STORE_DEREF                     0: bom_found
+                94      LOAD_FAST                       5: first
+                96      LOAD_CONST                      9: 3
+                98      LOAD_CONST                      1: None
+                100     BUILD_SLICE                     2
+                102     BINARY_SUBSCR                   
+                104     STORE_FAST                      5: first
+                106     LOAD_CONST                      10: 'utf-8-sig'
+                108     STORE_FAST                      2: default
+                110     LOAD_FAST                       5: first
+                112     POP_JUMP_IF_TRUE                61 (to 122)
+                114     LOAD_FAST                       2: default
+                116     BUILD_LIST                      0
+                118     BUILD_TUPLE                     2
+                120     RETURN_VALUE                    
+                122     LOAD_FAST                       4: find_cookie
+                124     LOAD_FAST                       5: first
+                126     CALL_FUNCTION                   1
+                128     STORE_FAST                      1: encoding
+                130     LOAD_FAST                       1: encoding
+                132     POP_JUMP_IF_FALSE               72 (to 144)
+                134     LOAD_FAST                       1: encoding
+                136     LOAD_FAST                       5: first
+                138     BUILD_LIST                      1
+                140     BUILD_TUPLE                     2
+                142     RETURN_VALUE                    
+                144     LOAD_GLOBAL                     5: blank_re
+                146     LOAD_METHOD                     6: match
+                148     LOAD_FAST                       5: first
+                150     CALL_METHOD                     1
+                152     POP_JUMP_IF_TRUE                82 (to 164)
+                154     LOAD_FAST                       2: default
+                156     LOAD_FAST                       5: first
+                158     BUILD_LIST                      1
+                160     BUILD_TUPLE                     2
+                162     RETURN_VALUE                    
+                164     LOAD_FAST                       3: read_or_stop
+                166     CALL_FUNCTION                   0
+                168     STORE_FAST                      6: second
+                170     LOAD_FAST                       6: second
+                172     POP_JUMP_IF_TRUE                92 (to 184)
+                174     LOAD_FAST                       2: default
+                176     LOAD_FAST                       5: first
+                178     BUILD_LIST                      1
+                180     BUILD_TUPLE                     2
+                182     RETURN_VALUE                    
+                184     LOAD_FAST                       4: find_cookie
+                186     LOAD_FAST                       6: second
+                188     CALL_FUNCTION                   1
+                190     STORE_FAST                      1: encoding
+                192     LOAD_FAST                       1: encoding
+                194     POP_JUMP_IF_FALSE               104 (to 208)
+                196     LOAD_FAST                       1: encoding
+                198     LOAD_FAST                       5: first
+                200     LOAD_FAST                       6: second
+                202     BUILD_LIST                      2
+                204     BUILD_TUPLE                     2
+                206     RETURN_VALUE                    
+                208     LOAD_FAST                       2: default
+                210     LOAD_FAST                       5: first
+                212     LOAD_FAST                       6: second
+                214     BUILD_LIST                      2
+                216     BUILD_TUPLE                     2
+                218     RETURN_VALUE                    
+        'detect_encoding'
+        [Code]
+            File Name: tokenize.py
+            Object Name: open
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_builtin_open'
+                'detect_encoding'
+                'readline'
+                'seek'
+                'TextIOWrapper'
+                'mode'
+                'close'
+            [Var Names]
+                'filename'
+                'buffer'
+                'encoding'
+                'lines'
+                'text'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Open a file in read only mode using the encoding detected by\n    detect_encoding().\n    '
+                'rb'
+                0
+                True
+                (
+                    'line_buffering'
+                )
+                'r'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _builtin_open
+                2       LOAD_FAST                       0: filename
+                4       LOAD_CONST                      1: 'rb'
+                6       CALL_FUNCTION                   2
+                8       STORE_FAST                      1: buffer
+                10      SETUP_FINALLY                   25 (to 62)
+                12      LOAD_GLOBAL                     1: detect_encoding
+                14      LOAD_FAST                       1: buffer
+                16      LOAD_ATTR                       2: readline
+                18      CALL_FUNCTION                   1
+                20      UNPACK_SEQUENCE                 2
+                22      STORE_FAST                      2: encoding
+                24      STORE_FAST                      3: lines
+                26      LOAD_FAST                       1: buffer
+                28      LOAD_METHOD                     3: seek
+                30      LOAD_CONST                      2: 0
+                32      CALL_METHOD                     1
+                34      POP_TOP                         
+                36      LOAD_GLOBAL                     4: TextIOWrapper
+                38      LOAD_FAST                       1: buffer
+                40      LOAD_FAST                       2: encoding
+                42      LOAD_CONST                      3: True
+                44      LOAD_CONST                      4: ('line_buffering',)
+                46      CALL_FUNCTION_KW                3
+                48      STORE_FAST                      4: text
+                50      LOAD_CONST                      5: 'r'
+                52      LOAD_FAST                       4: text
+                54      STORE_ATTR                      5: mode
+                56      LOAD_FAST                       4: text
+                58      POP_BLOCK                       
+                60      RETURN_VALUE                    
+                62      POP_TOP                         
+                64      POP_TOP                         
+                66      POP_TOP                         
+                68      LOAD_FAST                       1: buffer
+                70      LOAD_METHOD                     6: close
+                72      CALL_METHOD                     0
+                74      POP_TOP                         
+                76      RAISE_VARARGS                   0
+        'open'
+        [Code]
+            File Name: tokenize.py
+            Object Name: tokenize
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'detect_encoding'
+                '_itertools'
+                'repeat'
+                'chain'
+                'iter'
+                '_tokenize'
+                '__next__'
+            [Var Names]
+                'readline'
+                'encoding'
+                'consumed'
+                'empty'
+                'rl_gen'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "\n    The tokenize() generator requires one argument, readline, which\n    must be a callable object which provides the same interface as the\n    readline() method of built-in file objects.  Each call to the function\n    should return one line of input as bytes.  Alternatively, readline\n    can be a callable function terminating with StopIteration:\n        readline = open(myfile, 'rb').__next__  # Example of alternate readline\n\n    The generator produces 5-tuples with these members: the token type; the\n    token string; a 2-tuple (srow, scol) of ints specifying the row and\n    column where the token begins in the source; a 2-tuple (erow, ecol) of\n    ints specifying the row and column where the token ends in the source;\n    and the line on which the token was found.  The line passed is the\n    physical line.\n\n    The first token sequence will always be an ENCODING token\n    which tells you which encoding was used to decode the bytes stream.\n    "
+                b''
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: detect_encoding
+                2       LOAD_FAST                       0: readline
+                4       CALL_FUNCTION                   1
+                6       UNPACK_SEQUENCE                 2
+                8       STORE_FAST                      1: encoding
+                10      STORE_FAST                      2: consumed
+                12      LOAD_GLOBAL                     1: _itertools
+                14      LOAD_METHOD                     2: repeat
+                16      LOAD_CONST                      1: b''
+                18      CALL_METHOD                     1
+                20      STORE_FAST                      3: empty
+                22      LOAD_GLOBAL                     1: _itertools
+                24      LOAD_METHOD                     3: chain
+                26      LOAD_FAST                       2: consumed
+                28      LOAD_GLOBAL                     4: iter
+                30      LOAD_FAST                       0: readline
+                32      LOAD_CONST                      1: b''
+                34      CALL_FUNCTION                   2
+                36      LOAD_FAST                       3: empty
+                38      CALL_METHOD                     3
+                40      STORE_FAST                      4: rl_gen
+                42      LOAD_GLOBAL                     5: _tokenize
+                44      LOAD_FAST                       4: rl_gen
+                46      LOAD_ATTR                       6: __next__
+                48      LOAD_FAST                       1: encoding
+                50      CALL_FUNCTION                   2
+                52      RETURN_VALUE                    
+        'tokenize'
+        [Code]
+            File Name: tokenize.py
+            Object Name: _tokenize
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 27
+            Stack Size: 8
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                'TokenInfo'
+                'ENCODING'
+                'StopIteration'
+                'decode'
+                'len'
+                'TokenError'
+                'match'
+                'end'
+                'STRING'
+                'ERRORTOKEN'
+                'tabsize'
+                'rstrip'
+                'COMMENT'
+                'NL'
+                'append'
+                'INDENT'
+                'IndentationError'
+                'DEDENT'
+                '_compile'
+                'PseudoToken'
+                'span'
+                'NUMBER'
+                'NEWLINE'
+                'endswith'
+                'triple_quoted'
+                'endpats'
+                'single_quoted'
+                'get'
+                'isidentifier'
+                'NAME'
+                'OP'
+                'strip'
+                'startswith'
+                'ENDMARKER'
+            [Var Names]
+                'readline'
+                'encoding'
+                'lnum'
+                'parenlev'
+                'continued'
+                'numchars'
+                'contstr'
+                'needcont'
+                'contline'
+                'indents'
+                'last_line'
+                'line'
+                'pos'
+                'max'
+                'strstart'
+                'endprog'
+                'endmatch'
+                'end'
+                'column'
+                'comment_token'
+                'pseudomatch'
+                'start'
+                'spos'
+                'epos'
+                'token'
+                'initial'
+                'indent'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                0
+                '0123456789'
+                (
+                    ''
+                    0
+                )
+                'utf-8-sig'
+                'utf-8'
+                (
+                    0
+                    0
+                )
+                ''
+                b''
+                True
+                1
+                'EOF in multi-line string'
+                -2
+                '\\\n'
+                -3
+                '\\\r\n'
+                ' '
+                '\t'
+                '\x0c'
+                '#\r\n'
+                '#'
+                '\r\n'
+                -1
+                'unindent does not match any outer indentation level'
+                '<tokenize>'
+                'EOF in multi-line statement'
+                '.'
+                '...'
+                '\n'
+                2
+                3
+                '\\'
+                '([{'
+                ')]}'
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_CONST                      1: 0
+                4       DUP_TOP                         
+                6       STORE_FAST                      2: lnum
+                8       DUP_TOP                         
+                10      STORE_FAST                      3: parenlev
+                12      STORE_FAST                      4: continued
+                14      LOAD_CONST                      2: '0123456789'
+                16      STORE_FAST                      5: numchars
+                18      LOAD_CONST                      3: ('', 0)
+                20      UNPACK_SEQUENCE                 2
+                22      STORE_FAST                      6: contstr
+                24      STORE_FAST                      7: needcont
+                26      LOAD_CONST                      0: None
+                28      STORE_FAST                      8: contline
+                30      LOAD_CONST                      1: 0
+                32      BUILD_LIST                      1
+                34      STORE_FAST                      9: indents
+                36      LOAD_FAST                       1: encoding
+                38      LOAD_CONST                      0: None
+                40      IS_OP                           1 (is not)
+                42      POP_JUMP_IF_FALSE               37 (to 74)
+                44      LOAD_FAST                       1: encoding
+                46      LOAD_CONST                      4: 'utf-8-sig'
+                48      COMPARE_OP                      2 (==)
+                50      POP_JUMP_IF_FALSE               28 (to 56)
+                52      LOAD_CONST                      5: 'utf-8'
+                54      STORE_FAST                      1: encoding
+                56      LOAD_GLOBAL                     0: TokenInfo
+                58      LOAD_GLOBAL                     1: ENCODING
+                60      LOAD_FAST                       1: encoding
+                62      LOAD_CONST                      6: (0, 0)
+                64      LOAD_CONST                      6: (0, 0)
+                66      LOAD_CONST                      7: ''
+                68      CALL_FUNCTION                   5
+                70      YIELD_VALUE                     
+                72      POP_TOP                         
+                74      LOAD_CONST                      8: b''
+                76      STORE_FAST                      10: last_line
+                78      LOAD_CONST                      8: b''
+                80      STORE_FAST                      11: line
+                82      NOP                             
+                84      SETUP_FINALLY                   7 (to 100)
+                86      LOAD_FAST                       11: line
+                88      STORE_FAST                      10: last_line
+                90      LOAD_FAST                       0: readline
+                92      CALL_FUNCTION                   0
+                94      STORE_FAST                      11: line
+                96      POP_BLOCK                       
+                98      JUMP_FORWARD                    11 (to 122)
+                100     DUP_TOP                         
+                102     LOAD_GLOBAL                     2: StopIteration
+                104     JUMP_IF_NOT_EXC_MATCH           60 (to 120)
+                106     POP_TOP                         
+                108     POP_TOP                         
+                110     POP_TOP                         
+                112     LOAD_CONST                      8: b''
+                114     STORE_FAST                      11: line
+                116     POP_EXCEPT                      
+                118     JUMP_FORWARD                    1 (to 122)
+                120     RERAISE                         0
+                122     LOAD_FAST                       1: encoding
+                124     LOAD_CONST                      0: None
+                126     IS_OP                           1 (is not)
+                128     POP_JUMP_IF_FALSE               70 (to 140)
+                130     LOAD_FAST                       11: line
+                132     LOAD_METHOD                     3: decode
+                134     LOAD_FAST                       1: encoding
+                136     CALL_METHOD                     1
+                138     STORE_FAST                      11: line
+                140     LOAD_FAST                       2: lnum
+                142     LOAD_CONST                      10: 1
+                144     INPLACE_ADD                     
+                146     STORE_FAST                      2: lnum
+                148     LOAD_CONST                      1: 0
+                150     LOAD_GLOBAL                     4: len
+                152     LOAD_FAST                       11: line
+                154     CALL_FUNCTION                   1
+                156     ROT_TWO                         
+                158     STORE_FAST                      12: pos
+                160     STORE_FAST                      13: max
+                162     LOAD_FAST                       6: contstr
+                164     POP_JUMP_IF_FALSE               178 (to 356)
+                166     LOAD_FAST                       11: line
+                168     POP_JUMP_IF_TRUE                90 (to 180)
+                170     LOAD_GLOBAL                     5: TokenError
+                172     LOAD_CONST                      11: 'EOF in multi-line string'
+                174     LOAD_FAST                       14: strstart
+                176     CALL_FUNCTION                   2
+                178     RAISE_VARARGS                   1
+                180     LOAD_FAST                       15: endprog
+                182     LOAD_METHOD                     6: match
+                184     LOAD_FAST                       11: line
+                186     CALL_METHOD                     1
+                188     STORE_FAST                      16: endmatch
+                190     LOAD_FAST                       16: endmatch
+                192     POP_JUMP_IF_FALSE               131 (to 262)
+                194     LOAD_FAST                       16: endmatch
+                196     LOAD_METHOD                     7: end
+                198     LOAD_CONST                      1: 0
+                200     CALL_METHOD                     1
+                202     DUP_TOP                         
+                204     STORE_FAST                      12: pos
+                206     STORE_FAST                      17: end
+                208     LOAD_GLOBAL                     0: TokenInfo
+                210     LOAD_GLOBAL                     8: STRING
+                212     LOAD_FAST                       6: contstr
+                214     LOAD_FAST                       11: line
+                216     LOAD_CONST                      0: None
+                218     LOAD_FAST                       17: end
+                220     BUILD_SLICE                     2
+                222     BINARY_SUBSCR                   
+                224     BINARY_ADD                      
+                226     LOAD_FAST                       14: strstart
+                228     LOAD_FAST                       2: lnum
+                230     LOAD_FAST                       17: end
+                232     BUILD_TUPLE                     2
+                234     LOAD_FAST                       8: contline
+                236     LOAD_FAST                       11: line
+                238     BINARY_ADD                      
+                240     CALL_FUNCTION                   5
+                242     YIELD_VALUE                     
+                244     POP_TOP                         
+                246     LOAD_CONST                      3: ('', 0)
+                248     UNPACK_SEQUENCE                 2
+                250     STORE_FAST                      6: contstr
+                252     STORE_FAST                      7: needcont
+                254     LOAD_CONST                      0: None
+                256     STORE_FAST                      8: contline
+                258     JUMP_FORWARD                    270 (to 802)
+                262     LOAD_FAST                       7: needcont
+                264     POP_JUMP_IF_FALSE               169 (to 338)
+                266     LOAD_FAST                       11: line
+                268     LOAD_CONST                      12: -2
+                270     LOAD_CONST                      0: None
+                272     BUILD_SLICE                     2
+                274     BINARY_SUBSCR                   
+                276     LOAD_CONST                      13: '\\\n'
+                278     COMPARE_OP                      3 (!=)
+                280     POP_JUMP_IF_FALSE               169 (to 338)
+                282     LOAD_FAST                       11: line
+                284     LOAD_CONST                      14: -3
+                286     LOAD_CONST                      0: None
+                288     BUILD_SLICE                     2
+                290     BINARY_SUBSCR                   
+                292     LOAD_CONST                      15: '\\\r\n'
+                294     COMPARE_OP                      3 (!=)
+                296     POP_JUMP_IF_FALSE               169 (to 338)
+                298     LOAD_GLOBAL                     0: TokenInfo
+                300     LOAD_GLOBAL                     9: ERRORTOKEN
+                302     LOAD_FAST                       6: contstr
+                304     LOAD_FAST                       11: line
+                306     BINARY_ADD                      
+                308     LOAD_FAST                       14: strstart
+                310     LOAD_FAST                       2: lnum
+                312     LOAD_GLOBAL                     4: len
+                314     LOAD_FAST                       11: line
+                316     CALL_FUNCTION                   1
+                318     BUILD_TUPLE                     2
+                320     LOAD_FAST                       8: contline
+                322     CALL_FUNCTION                   5
+                324     YIELD_VALUE                     
+                326     POP_TOP                         
+                328     LOAD_CONST                      7: ''
+                330     STORE_FAST                      6: contstr
+                332     LOAD_CONST                      0: None
+                334     STORE_FAST                      8: contline
+                336     JUMP_ABSOLUTE                   41 (to 82)
+                338     LOAD_FAST                       6: contstr
+                340     LOAD_FAST                       11: line
+                342     BINARY_ADD                      
+                344     STORE_FAST                      6: contstr
+                346     LOAD_FAST                       8: contline
+                348     LOAD_FAST                       11: line
+                350     BINARY_ADD                      
+                352     STORE_FAST                      8: contline
+                354     JUMP_ABSOLUTE                   41 (to 82)
+                356     LOAD_FAST                       3: parenlev
+                358     LOAD_CONST                      1: 0
+                360     COMPARE_OP                      2 (==)
+                362     POP_JUMP_IF_FALSE               389 (to 778)
+                366     LOAD_FAST                       4: continued
+                368     POP_JUMP_IF_TRUE                389 (to 778)
+                372     LOAD_FAST                       11: line
+                374     POP_JUMP_IF_TRUE                190 (to 380)
+                376     JUMP_FORWARD                    562 (to 1504)
+                380     LOAD_CONST                      1: 0
+                382     STORE_FAST                      18: column
+                384     LOAD_FAST                       12: pos
+                386     LOAD_FAST                       13: max
+                388     COMPARE_OP                      0 (<)
+                390     POP_JUMP_IF_FALSE               240 (to 480)
+                392     LOAD_FAST                       11: line
+                394     LOAD_FAST                       12: pos
+                396     BINARY_SUBSCR                   
+                398     LOAD_CONST                      16: ' '
+                400     COMPARE_OP                      2 (==)
+                402     POP_JUMP_IF_FALSE               207 (to 414)
+                404     LOAD_FAST                       18: column
+                406     LOAD_CONST                      10: 1
+                408     INPLACE_ADD                     
+                410     STORE_FAST                      18: column
+                412     JUMP_FORWARD                    25 (to 464)
+                414     LOAD_FAST                       11: line
+                416     LOAD_FAST                       12: pos
+                418     BINARY_SUBSCR                   
+                420     LOAD_CONST                      17: '\t'
+                422     COMPARE_OP                      2 (==)
+                424     POP_JUMP_IF_FALSE               222 (to 444)
+                426     LOAD_FAST                       18: column
+                428     LOAD_GLOBAL                     10: tabsize
+                430     BINARY_FLOOR_DIVIDE             
+                432     LOAD_CONST                      10: 1
+                434     BINARY_ADD                      
+                436     LOAD_GLOBAL                     10: tabsize
+                438     BINARY_MULTIPLY                 
+                440     STORE_FAST                      18: column
+                442     JUMP_FORWARD                    10 (to 464)
+                444     LOAD_FAST                       11: line
+                446     LOAD_FAST                       12: pos
+                448     BINARY_SUBSCR                   
+                450     LOAD_CONST                      18: '\x0c'
+                452     COMPARE_OP                      2 (==)
+                454     POP_JUMP_IF_FALSE               231 (to 462)
+                456     LOAD_CONST                      1: 0
+                458     STORE_FAST                      18: column
+                460     JUMP_FORWARD                    1 (to 464)
+                462     JUMP_FORWARD                    8 (to 480)
+                464     LOAD_FAST                       12: pos
+                466     LOAD_CONST                      10: 1
+                468     INPLACE_ADD                     
+                470     STORE_FAST                      12: pos
+                472     LOAD_FAST                       12: pos
+                474     LOAD_FAST                       13: max
+                476     COMPARE_OP                      0 (<)
+                478     POP_JUMP_IF_TRUE                196 (to 392)
+                480     LOAD_FAST                       12: pos
+                482     LOAD_FAST                       13: max
+                484     COMPARE_OP                      2 (==)
+                486     POP_JUMP_IF_FALSE               246 (to 492)
+                488     JUMP_FORWARD                    506 (to 1504)
+                492     LOAD_FAST                       11: line
+                494     LOAD_FAST                       12: pos
+                496     BINARY_SUBSCR                   
+                498     LOAD_CONST                      19: '#\r\n'
+                500     CONTAINS_OP                     0 (in)
+                502     POP_JUMP_IF_FALSE               312 (to 624)
+                506     LOAD_FAST                       11: line
+                508     LOAD_FAST                       12: pos
+                510     BINARY_SUBSCR                   
+                512     LOAD_CONST                      20: '#'
+                514     COMPARE_OP                      2 (==)
+                516     POP_JUMP_IF_FALSE               292 (to 584)
+                520     LOAD_FAST                       11: line
+                522     LOAD_FAST                       12: pos
+                524     LOAD_CONST                      0: None
+                526     BUILD_SLICE                     2
+                528     BINARY_SUBSCR                   
+                530     LOAD_METHOD                     11: rstrip
+                532     LOAD_CONST                      21: '\r\n'
+                534     CALL_METHOD                     1
+                536     STORE_FAST                      19: comment_token
+                538     LOAD_GLOBAL                     0: TokenInfo
+                540     LOAD_GLOBAL                     12: COMMENT
+                542     LOAD_FAST                       19: comment_token
+                544     LOAD_FAST                       2: lnum
+                546     LOAD_FAST                       12: pos
+                548     BUILD_TUPLE                     2
+                550     LOAD_FAST                       2: lnum
+                552     LOAD_FAST                       12: pos
+                554     LOAD_GLOBAL                     4: len
+                556     LOAD_FAST                       19: comment_token
+                558     CALL_FUNCTION                   1
+                560     BINARY_ADD                      
+                562     BUILD_TUPLE                     2
+                564     LOAD_FAST                       11: line
+                566     CALL_FUNCTION                   5
+                568     YIELD_VALUE                     
+                570     POP_TOP                         
+                572     LOAD_FAST                       12: pos
+                574     LOAD_GLOBAL                     4: len
+                576     LOAD_FAST                       19: comment_token
+                578     CALL_FUNCTION                   1
+                580     INPLACE_ADD                     
+                582     STORE_FAST                      12: pos
+                584     LOAD_GLOBAL                     0: TokenInfo
+                586     LOAD_GLOBAL                     13: NL
+                588     LOAD_FAST                       11: line
+                590     LOAD_FAST                       12: pos
+                592     LOAD_CONST                      0: None
+                594     BUILD_SLICE                     2
+                596     BINARY_SUBSCR                   
+                598     LOAD_FAST                       2: lnum
+                600     LOAD_FAST                       12: pos
+                602     BUILD_TUPLE                     2
+                604     LOAD_FAST                       2: lnum
+                606     LOAD_GLOBAL                     4: len
+                608     LOAD_FAST                       11: line
+                610     CALL_FUNCTION                   1
+                612     BUILD_TUPLE                     2
+                614     LOAD_FAST                       11: line
+                616     CALL_FUNCTION                   5
+                618     YIELD_VALUE                     
+                620     POP_TOP                         
+                622     JUMP_ABSOLUTE                   41 (to 82)
+                624     LOAD_FAST                       18: column
+                626     LOAD_FAST                       9: indents
+                628     LOAD_CONST                      22: -1
+                630     BINARY_SUBSCR                   
+                632     COMPARE_OP                      4 (>)
+                634     POP_JUMP_IF_FALSE               341 (to 682)
+                638     LOAD_FAST                       9: indents
+                640     LOAD_METHOD                     14: append
+                642     LOAD_FAST                       18: column
+                644     CALL_METHOD                     1
+                646     POP_TOP                         
+                648     LOAD_GLOBAL                     0: TokenInfo
+                650     LOAD_GLOBAL                     15: INDENT
+                652     LOAD_FAST                       11: line
+                654     LOAD_CONST                      0: None
+                656     LOAD_FAST                       12: pos
+                658     BUILD_SLICE                     2
+                660     BINARY_SUBSCR                   
+                662     LOAD_FAST                       2: lnum
+                664     LOAD_CONST                      1: 0
+                666     BUILD_TUPLE                     2
+                668     LOAD_FAST                       2: lnum
+                670     LOAD_FAST                       12: pos
+                672     BUILD_TUPLE                     2
+                674     LOAD_FAST                       11: line
+                676     CALL_FUNCTION                   5
+                678     YIELD_VALUE                     
+                680     POP_TOP                         
+                682     LOAD_FAST                       18: column
+                684     LOAD_FAST                       9: indents
+                686     LOAD_CONST                      22: -1
+                688     BINARY_SUBSCR                   
+                690     COMPARE_OP                      0 (<)
+                692     POP_JUMP_IF_FALSE               388 (to 776)
+                696     LOAD_FAST                       18: column
+                698     LOAD_FAST                       9: indents
+                700     CONTAINS_OP                     1 (not in)
+                702     POP_JUMP_IF_FALSE               362 (to 724)
+                706     LOAD_GLOBAL                     16: IndentationError
+                708     LOAD_CONST                      23: 'unindent does not match any outer indentation level'
+                710     LOAD_CONST                      24: '<tokenize>'
+                712     LOAD_FAST                       2: lnum
+                714     LOAD_FAST                       12: pos
+                716     LOAD_FAST                       11: line
+                718     BUILD_TUPLE                     4
+                720     CALL_FUNCTION                   2
+                722     RAISE_VARARGS                   1
+                724     LOAD_FAST                       9: indents
+                726     LOAD_CONST                      0: None
+                728     LOAD_CONST                      22: -1
+                730     BUILD_SLICE                     2
+                732     BINARY_SUBSCR                   
+                734     STORE_FAST                      9: indents
+                736     LOAD_GLOBAL                     0: TokenInfo
+                738     LOAD_GLOBAL                     17: DEDENT
+                740     LOAD_CONST                      7: ''
+                742     LOAD_FAST                       2: lnum
+                744     LOAD_FAST                       12: pos
+                746     BUILD_TUPLE                     2
+                748     LOAD_FAST                       2: lnum
+                750     LOAD_FAST                       12: pos
+                752     BUILD_TUPLE                     2
+                754     LOAD_FAST                       11: line
+                756     CALL_FUNCTION                   5
+                758     YIELD_VALUE                     
+                760     POP_TOP                         
+                762     LOAD_FAST                       18: column
+                764     LOAD_FAST                       9: indents
+                766     LOAD_CONST                      22: -1
+                768     BINARY_SUBSCR                   
+                770     COMPARE_OP                      0 (<)
+                772     POP_JUMP_IF_TRUE                348 (to 696)
+                776     JUMP_FORWARD                    12 (to 802)
+                778     LOAD_FAST                       11: line
+                780     POP_JUMP_IF_TRUE                399 (to 798)
+                784     LOAD_GLOBAL                     5: TokenError
+                786     LOAD_CONST                      25: 'EOF in multi-line statement'
+                788     LOAD_FAST                       2: lnum
+                790     LOAD_CONST                      1: 0
+                792     BUILD_TUPLE                     2
+                794     CALL_FUNCTION                   2
+                796     RAISE_VARARGS                   1
+                798     LOAD_CONST                      1: 0
+                800     STORE_FAST                      4: continued
+                802     LOAD_FAST                       12: pos
+                804     LOAD_FAST                       13: max
+                806     COMPARE_OP                      0 (<)
+                808     POP_JUMP_IF_FALSE               751 (to 1502)
+                812     LOAD_GLOBAL                     18: _compile
+                814     LOAD_GLOBAL                     19: PseudoToken
+                816     CALL_FUNCTION                   1
+                818     LOAD_METHOD                     6: match
+                820     LOAD_FAST                       11: line
+                822     LOAD_FAST                       12: pos
+                824     CALL_METHOD                     2
+                826     STORE_FAST                      20: pseudomatch
+                828     LOAD_FAST                       20: pseudomatch
+                830     POP_JUMP_IF_FALSE               725 (to 1450)
+                834     LOAD_FAST                       20: pseudomatch
+                836     LOAD_METHOD                     20: span
+                838     LOAD_CONST                      10: 1
+                840     CALL_METHOD                     1
+                842     UNPACK_SEQUENCE                 2
+                844     STORE_FAST                      21: start
+                846     STORE_FAST                      17: end
+                848     LOAD_FAST                       2: lnum
+                850     LOAD_FAST                       21: start
+                852     BUILD_TUPLE                     2
+                854     LOAD_FAST                       2: lnum
+                856     LOAD_FAST                       17: end
+                858     BUILD_TUPLE                     2
+                860     LOAD_FAST                       17: end
+                862     ROT_THREE                       
+                864     ROT_TWO                         
+                866     STORE_FAST                      22: spos
+                868     STORE_FAST                      23: epos
+                870     STORE_FAST                      12: pos
+                872     LOAD_FAST                       21: start
+                874     LOAD_FAST                       17: end
+                876     COMPARE_OP                      2 (==)
+                878     POP_JUMP_IF_FALSE               443 (to 886)
+                882     JUMP_ABSOLUTE                   401 (to 802)
+                886     LOAD_FAST                       11: line
+                888     LOAD_FAST                       21: start
+                890     LOAD_FAST                       17: end
+                892     BUILD_SLICE                     2
+                894     BINARY_SUBSCR                   
+                896     LOAD_FAST                       11: line
+                898     LOAD_FAST                       21: start
+                900     BINARY_SUBSCR                   
+                902     ROT_TWO                         
+                904     STORE_FAST                      24: token
+                906     STORE_FAST                      25: initial
+                908     LOAD_FAST                       25: initial
+                910     LOAD_FAST                       5: numchars
+                912     CONTAINS_OP                     0 (in)
+                914     POP_JUMP_IF_TRUE                474 (to 948)
+                918     LOAD_FAST                       25: initial
+                920     LOAD_CONST                      26: '.'
+                922     COMPARE_OP                      2 (==)
+                924     POP_JUMP_IF_FALSE               485 (to 970)
+                928     LOAD_FAST                       24: token
+                930     LOAD_CONST                      26: '.'
+                932     COMPARE_OP                      3 (!=)
+                934     POP_JUMP_IF_FALSE               485 (to 970)
+                938     LOAD_FAST                       24: token
+                940     LOAD_CONST                      27: '...'
+                942     COMPARE_OP                      3 (!=)
+                944     POP_JUMP_IF_FALSE               485 (to 970)
+                948     LOAD_GLOBAL                     0: TokenInfo
+                950     LOAD_GLOBAL                     21: NUMBER
+                952     LOAD_FAST                       24: token
+                954     LOAD_FAST                       22: spos
+                956     LOAD_FAST                       23: epos
+                958     LOAD_FAST                       11: line
+                960     CALL_FUNCTION                   5
+                962     YIELD_VALUE                     
+                964     POP_TOP                         
+                966     JUMP_FORWARD                    261 (to 1492)
+                970     LOAD_FAST                       25: initial
+                972     LOAD_CONST                      21: '\r\n'
+                974     CONTAINS_OP                     0 (in)
+                976     POP_JUMP_IF_FALSE               515 (to 1030)
+                980     LOAD_FAST                       3: parenlev
+                982     LOAD_CONST                      1: 0
+                984     COMPARE_OP                      4 (>)
+                986     POP_JUMP_IF_FALSE               505 (to 1010)
+                990     LOAD_GLOBAL                     0: TokenInfo
+                992     LOAD_GLOBAL                     13: NL
+                994     LOAD_FAST                       24: token
+                996     LOAD_FAST                       22: spos
+                998     LOAD_FAST                       23: epos
+                1000    LOAD_FAST                       11: line
+                1002    CALL_FUNCTION                   5
+                1004    YIELD_VALUE                     
+                1006    POP_TOP                         
+                1008    JUMP_FORWARD                    241 (to 1492)
+                1010    LOAD_GLOBAL                     0: TokenInfo
+                1012    LOAD_GLOBAL                     22: NEWLINE
+                1014    LOAD_FAST                       24: token
+                1016    LOAD_FAST                       22: spos
+                1018    LOAD_FAST                       23: epos
+                1020    LOAD_FAST                       11: line
+                1022    CALL_FUNCTION                   5
+                1024    YIELD_VALUE                     
+                1026    POP_TOP                         
+                1028    JUMP_FORWARD                    231 (to 1492)
+                1030    LOAD_FAST                       25: initial
+                1032    LOAD_CONST                      20: '#'
+                1034    COMPARE_OP                      2 (==)
+                1036    POP_JUMP_IF_FALSE               538 (to 1076)
+                1040    LOAD_FAST                       24: token
+                1042    LOAD_METHOD                     23: endswith
+                1044    LOAD_CONST                      28: '\n'
+                1046    CALL_METHOD                     1
+                1048    POP_JUMP_IF_FALSE               528 (to 1056)
+                1052    LOAD_ASSERTION_ERROR            
+                1054    RAISE_VARARGS                   1
+                1056    LOAD_GLOBAL                     0: TokenInfo
+                1058    LOAD_GLOBAL                     12: COMMENT
+                1060    LOAD_FAST                       24: token
+                1062    LOAD_FAST                       22: spos
+                1064    LOAD_FAST                       23: epos
+                1066    LOAD_FAST                       11: line
+                1068    CALL_FUNCTION                   5
+                1070    YIELD_VALUE                     
+                1072    POP_TOP                         
+                1074    JUMP_FORWARD                    208 (to 1492)
+                1076    LOAD_FAST                       24: token
+                1078    LOAD_GLOBAL                     24: triple_quoted
+                1080    CONTAINS_OP                     0 (in)
+                1082    POP_JUMP_IF_FALSE               594 (to 1188)
+                1086    LOAD_GLOBAL                     18: _compile
+                1088    LOAD_GLOBAL                     25: endpats
+                1090    LOAD_FAST                       24: token
+                1092    BINARY_SUBSCR                   
+                1094    CALL_FUNCTION                   1
+                1096    STORE_FAST                      15: endprog
+                1098    LOAD_FAST                       15: endprog
+                1100    LOAD_METHOD                     6: match
+                1102    LOAD_FAST                       11: line
+                1104    LOAD_FAST                       12: pos
+                1106    CALL_METHOD                     2
+                1108    STORE_FAST                      16: endmatch
+                1110    LOAD_FAST                       16: endmatch
+                1112    POP_JUMP_IF_FALSE               581 (to 1162)
+                1116    LOAD_FAST                       16: endmatch
+                1118    LOAD_METHOD                     7: end
+                1120    LOAD_CONST                      1: 0
+                1122    CALL_METHOD                     1
+                1124    STORE_FAST                      12: pos
+                1126    LOAD_FAST                       11: line
+                1128    LOAD_FAST                       21: start
+                1130    LOAD_FAST                       12: pos
+                1132    BUILD_SLICE                     2
+                1134    BINARY_SUBSCR                   
+                1136    STORE_FAST                      24: token
+                1138    LOAD_GLOBAL                     0: TokenInfo
+                1140    LOAD_GLOBAL                     8: STRING
+                1142    LOAD_FAST                       24: token
+                1144    LOAD_FAST                       22: spos
+                1146    LOAD_FAST                       2: lnum
+                1148    LOAD_FAST                       12: pos
+                1150    BUILD_TUPLE                     2
+                1152    LOAD_FAST                       11: line
+                1154    CALL_FUNCTION                   5
+                1156    YIELD_VALUE                     
+                1158    POP_TOP                         
+                1160    JUMP_FORWARD                    165 (to 1492)
+                1162    LOAD_FAST                       2: lnum
+                1164    LOAD_FAST                       21: start
+                1166    BUILD_TUPLE                     2
+                1168    STORE_FAST                      14: strstart
+                1170    LOAD_FAST                       11: line
+                1172    LOAD_FAST                       21: start
+                1174    LOAD_CONST                      0: None
+                1176    BUILD_SLICE                     2
+                1178    BINARY_SUBSCR                   
+                1180    STORE_FAST                      6: contstr
+                1182    LOAD_FAST                       11: line
+                1184    STORE_FAST                      8: contline
+                1186    JUMP_FORWARD                    157 (to 1502)
+                1188    LOAD_FAST                       25: initial
+                1190    LOAD_GLOBAL                     26: single_quoted
+                1192    CONTAINS_OP                     0 (in)
+                1194    POP_JUMP_IF_TRUE                617 (to 1234)
+                1198    LOAD_FAST                       24: token
+                1200    LOAD_CONST                      0: None
+                1202    LOAD_CONST                      29: 2
+                1204    BUILD_SLICE                     2
+                1206    BINARY_SUBSCR                   
+                1208    LOAD_GLOBAL                     26: single_quoted
+                1210    CONTAINS_OP                     0 (in)
+                1212    POP_JUMP_IF_TRUE                617 (to 1234)
+                1216    LOAD_FAST                       24: token
+                1218    LOAD_CONST                      0: None
+                1220    LOAD_CONST                      30: 3
+                1222    BUILD_SLICE                     2
+                1224    BINARY_SUBSCR                   
+                1226    LOAD_GLOBAL                     26: single_quoted
+                1228    CONTAINS_OP                     0 (in)
+                1230    POP_JUMP_IF_FALSE               673 (to 1346)
+                1234    LOAD_FAST                       24: token
+                1236    LOAD_CONST                      22: -1
+                1238    BINARY_SUBSCR                   
+                1240    LOAD_CONST                      28: '\n'
+                1242    COMPARE_OP                      2 (==)
+                1244    POP_JUMP_IF_FALSE               663 (to 1326)
+                1248    LOAD_FAST                       2: lnum
+                1250    LOAD_FAST                       21: start
+                1252    BUILD_TUPLE                     2
+                1254    STORE_FAST                      14: strstart
+                1256    LOAD_GLOBAL                     18: _compile
+                1258    LOAD_GLOBAL                     25: endpats
+                1260    LOAD_METHOD                     27: get
+                1262    LOAD_FAST                       25: initial
+                1264    CALL_METHOD                     1
+                1266    JUMP_IF_TRUE_OR_POP             649 (to 1298)
+                1270    LOAD_GLOBAL                     25: endpats
+                1272    LOAD_METHOD                     27: get
+                1274    LOAD_FAST                       24: token
+                1276    LOAD_CONST                      10: 1
+                1278    BINARY_SUBSCR                   
+                1280    CALL_METHOD                     1
+                1282    JUMP_IF_TRUE_OR_POP             649 (to 1298)
+                1286    LOAD_GLOBAL                     25: endpats
+                1288    LOAD_METHOD                     27: get
+                1290    LOAD_FAST                       24: token
+                1292    LOAD_CONST                      29: 2
+                1294    BINARY_SUBSCR                   
+                1296    CALL_METHOD                     1
+                1298    CALL_FUNCTION                   1
+                1300    STORE_FAST                      15: endprog
+                1302    LOAD_FAST                       11: line
+                1304    LOAD_FAST                       21: start
+                1306    LOAD_CONST                      0: None
+                1308    BUILD_SLICE                     2
+                1310    BINARY_SUBSCR                   
+                1312    LOAD_CONST                      10: 1
+                1314    ROT_TWO                         
+                1316    STORE_FAST                      6: contstr
+                1318    STORE_FAST                      7: needcont
+                1320    LOAD_FAST                       11: line
+                1322    STORE_FAST                      8: contline
+                1324    JUMP_FORWARD                    88 (to 1502)
+                1326    LOAD_GLOBAL                     0: TokenInfo
+                1328    LOAD_GLOBAL                     8: STRING
+                1330    LOAD_FAST                       24: token
+                1332    LOAD_FAST                       22: spos
+                1334    LOAD_FAST                       23: epos
+                1336    LOAD_FAST                       11: line
+                1338    CALL_FUNCTION                   5
+                1340    YIELD_VALUE                     
+                1342    POP_TOP                         
+                1344    JUMP_FORWARD                    73 (to 1492)
+                1346    LOAD_FAST                       25: initial
+                1348    LOAD_METHOD                     28: isidentifier
+                1350    CALL_METHOD                     0
+                1352    POP_JUMP_IF_FALSE               688 (to 1376)
+                1356    LOAD_GLOBAL                     0: TokenInfo
+                1358    LOAD_GLOBAL                     29: NAME
+                1360    LOAD_FAST                       24: token
+                1362    LOAD_FAST                       22: spos
+                1364    LOAD_FAST                       23: epos
+                1366    LOAD_FAST                       11: line
+                1368    CALL_FUNCTION                   5
+                1370    YIELD_VALUE                     
+                1372    POP_TOP                         
+                1374    JUMP_FORWARD                    58 (to 1492)
+                1376    LOAD_FAST                       25: initial
+                1378    LOAD_CONST                      31: '\\'
+                1380    COMPARE_OP                      2 (==)
+                1382    POP_JUMP_IF_FALSE               696 (to 1392)
+                1386    LOAD_CONST                      10: 1
+                1388    STORE_FAST                      4: continued
+                1390    JUMP_FORWARD                    50 (to 1492)
+                1392    LOAD_FAST                       25: initial
+                1394    LOAD_CONST                      32: '([{'
+                1396    CONTAINS_OP                     0 (in)
+                1398    POP_JUMP_IF_FALSE               706 (to 1412)
+                1402    LOAD_FAST                       3: parenlev
+                1404    LOAD_CONST                      10: 1
+                1406    INPLACE_ADD                     
+                1408    STORE_FAST                      3: parenlev
+                1410    JUMP_FORWARD                    9 (to 1430)
+                1412    LOAD_FAST                       25: initial
+                1414    LOAD_CONST                      33: ')]}'
+                1416    CONTAINS_OP                     0 (in)
+                1418    POP_JUMP_IF_FALSE               715 (to 1430)
+                1422    LOAD_FAST                       3: parenlev
+                1424    LOAD_CONST                      10: 1
+                1426    INPLACE_SUBTRACT                
+                1428    STORE_FAST                      3: parenlev
+                1430    LOAD_GLOBAL                     0: TokenInfo
+                1432    LOAD_GLOBAL                     30: OP
+                1434    LOAD_FAST                       24: token
+                1436    LOAD_FAST                       22: spos
+                1438    LOAD_FAST                       23: epos
+                1440    LOAD_FAST                       11: line
+                1442    CALL_FUNCTION                   5
+                1444    YIELD_VALUE                     
+                1446    POP_TOP                         
+                1448    JUMP_FORWARD                    21 (to 1492)
+                1450    LOAD_GLOBAL                     0: TokenInfo
+                1452    LOAD_GLOBAL                     9: ERRORTOKEN
+                1454    LOAD_FAST                       11: line
+                1456    LOAD_FAST                       12: pos
+                1458    BINARY_SUBSCR                   
+                1460    LOAD_FAST                       2: lnum
+                1462    LOAD_FAST                       12: pos
+                1464    BUILD_TUPLE                     2
+                1466    LOAD_FAST                       2: lnum
+                1468    LOAD_FAST                       12: pos
+                1470    LOAD_CONST                      10: 1
+                1472    BINARY_ADD                      
+                1474    BUILD_TUPLE                     2
+                1476    LOAD_FAST                       11: line
+                1478    CALL_FUNCTION                   5
+                1480    YIELD_VALUE                     
+                1482    POP_TOP                         
+                1484    LOAD_FAST                       12: pos
+                1486    LOAD_CONST                      10: 1
+                1488    INPLACE_ADD                     
+                1490    STORE_FAST                      12: pos
+                1492    LOAD_FAST                       12: pos
+                1494    LOAD_FAST                       13: max
+                1496    COMPARE_OP                      0 (<)
+                1498    POP_JUMP_IF_TRUE                406 (to 812)
+                1502    JUMP_ABSOLUTE                   42 (to 84)
+                1504    LOAD_FAST                       10: last_line
+                1506    POP_JUMP_IF_FALSE               793 (to 1586)
+                1510    LOAD_FAST                       10: last_line
+                1512    LOAD_CONST                      22: -1
+                1514    BINARY_SUBSCR                   
+                1516    LOAD_CONST                      21: '\r\n'
+                1518    CONTAINS_OP                     1 (not in)
+                1520    POP_JUMP_IF_FALSE               793 (to 1586)
+                1524    LOAD_FAST                       10: last_line
+                1526    LOAD_METHOD                     31: strip
+                1528    CALL_METHOD                     0
+                1530    LOAD_METHOD                     32: startswith
+                1532    LOAD_CONST                      20: '#'
+                1534    CALL_METHOD                     1
+                1536    POP_JUMP_IF_TRUE                793 (to 1586)
+                1540    LOAD_GLOBAL                     0: TokenInfo
+                1542    LOAD_GLOBAL                     22: NEWLINE
+                1544    LOAD_CONST                      7: ''
+                1546    LOAD_FAST                       2: lnum
+                1548    LOAD_CONST                      10: 1
+                1550    BINARY_SUBTRACT                 
+                1552    LOAD_GLOBAL                     4: len
+                1554    LOAD_FAST                       10: last_line
+                1556    CALL_FUNCTION                   1
+                1558    BUILD_TUPLE                     2
+                1560    LOAD_FAST                       2: lnum
+                1562    LOAD_CONST                      10: 1
+                1564    BINARY_SUBTRACT                 
+                1566    LOAD_GLOBAL                     4: len
+                1568    LOAD_FAST                       10: last_line
+                1570    CALL_FUNCTION                   1
+                1572    LOAD_CONST                      10: 1
+                1574    BINARY_ADD                      
+                1576    BUILD_TUPLE                     2
+                1578    LOAD_CONST                      7: ''
+                1580    CALL_FUNCTION                   5
+                1582    YIELD_VALUE                     
+                1584    POP_TOP                         
+                1586    LOAD_FAST                       9: indents
+                1588    LOAD_CONST                      10: 1
+                1590    LOAD_CONST                      0: None
+                1592    BUILD_SLICE                     2
+                1594    BINARY_SUBSCR                   
+                1596    GET_ITER                        
+                1598    FOR_ITER                        16 (to 1632)
+                1600    STORE_FAST                      26: indent
+                1602    LOAD_GLOBAL                     0: TokenInfo
+                1604    LOAD_GLOBAL                     17: DEDENT
+                1606    LOAD_CONST                      7: ''
+                1608    LOAD_FAST                       2: lnum
+                1610    LOAD_CONST                      1: 0
+                1612    BUILD_TUPLE                     2
+                1614    LOAD_FAST                       2: lnum
+                1616    LOAD_CONST                      1: 0
+                1618    BUILD_TUPLE                     2
+                1620    LOAD_CONST                      7: ''
+                1622    CALL_FUNCTION                   5
+                1624    YIELD_VALUE                     
+                1626    POP_TOP                         
+                1628    JUMP_ABSOLUTE                   799 (to 1598)
+                1632    LOAD_GLOBAL                     0: TokenInfo
+                1634    LOAD_GLOBAL                     33: ENDMARKER
+                1636    LOAD_CONST                      7: ''
+                1638    LOAD_FAST                       2: lnum
+                1640    LOAD_CONST                      1: 0
+                1642    BUILD_TUPLE                     2
+                1644    LOAD_FAST                       2: lnum
+                1646    LOAD_CONST                      1: 0
+                1648    BUILD_TUPLE                     2
+                1650    LOAD_CONST                      7: ''
+                1652    CALL_FUNCTION                   5
+                1654    YIELD_VALUE                     
+                1656    POP_TOP                         
+                1658    LOAD_CONST                      0: None
+                1660    RETURN_VALUE                    
+        '_tokenize'
+        [Code]
+            File Name: tokenize.py
+            Object Name: generate_tokens
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_tokenize'
+            [Var Names]
+                'readline'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Tokenize a source reading Python code as unicode strings.\n\n    This has the same API as tokenize(), except that it expects the *readline*\n    callable to return str objects instead of bytes.\n    '
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _tokenize
+                2       LOAD_FAST                       0: readline
+                4       LOAD_CONST                      1: None
+                6       CALL_FUNCTION                   2
+                8       RETURN_VALUE                    
+        'generate_tokens'
+        [Code]
+            File Name: tokenize.py
+            Object Name: main
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 13
+            Stack Size: 10
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'argparse'
+                'ArgumentParser'
+                'add_argument'
+                'parse_args'
+                'filename'
+                '_builtin_open'
+                'list'
+                'tokenize'
+                'readline'
+                '_tokenize'
+                'sys'
+                'stdin'
+                'type'
+                'exact'
+                'exact_type'
+                'start'
+                'end'
+                'print'
+                'tok_name'
+                'string'
+                'IndentationError'
+                'args'
+                'TokenError'
+                'SyntaxError'
+                'OSError'
+                'KeyboardInterrupt'
+                'Exception'
+            [Var Names]
+                'argparse'
+                'error'
+                'parser'
+                'args'
+                'filename'
+                'f'
+                'tokens'
+                'token'
+                'token_type'
+                'token_range'
+                'err'
+                'line'
+                'column'
+            [Free Vars]
+            [Cell Vars]
+                'perror'
+            [Constants]
+                None
+                0
+                [Code]
+                    File Name: tokenize.py
+                    Object Name: perror
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        'sys'
+                        'stderr'
+                        'write'
+                    [Var Names]
+                        'message'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '\n'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: sys
+                        2       LOAD_ATTR                       1: stderr
+                        4       LOAD_METHOD                     2: write
+                        6       LOAD_FAST                       0: message
+                        8       CALL_METHOD                     1
+                        10      POP_TOP                         
+                        12      LOAD_GLOBAL                     0: sys
+                        14      LOAD_ATTR                       1: stderr
+                        16      LOAD_METHOD                     2: write
+                        18      LOAD_CONST                      1: '\n'
+                        20      CALL_METHOD                     1
+                        22      POP_TOP                         
+                        24      LOAD_CONST                      0: None
+                        26      RETURN_VALUE                    
+                'main.<locals>.perror'
+                [Code]
+                    File Name: tokenize.py
+                    Object Name: error
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 4
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                        'sys'
+                        'exit'
+                    [Var Names]
+                        'message'
+                        'filename'
+                        'location'
+                        'args'
+                    [Free Vars]
+                        'perror'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '%s:%d:%d: error: %s'
+                        '%s: error: %s'
+                        'error: %s'
+                        1
+                    [Disassembly]
+                        0       LOAD_FAST                       2: location
+                        2       POP_JUMP_IF_FALSE               17 (to 34)
+                        4       LOAD_FAST                       1: filename
+                        6       BUILD_TUPLE                     1
+                        8       LOAD_FAST                       2: location
+                        10      BINARY_ADD                      
+                        12      LOAD_FAST                       0: message
+                        14      BUILD_TUPLE                     1
+                        16      BINARY_ADD                      
+                        18      STORE_FAST                      3: args
+                        20      LOAD_DEREF                      0: perror
+                        22      LOAD_CONST                      1: '%s:%d:%d: error: %s'
+                        24      LOAD_FAST                       3: args
+                        26      BINARY_MODULO                   
+                        28      CALL_FUNCTION                   1
+                        30      POP_TOP                         
+                        32      JUMP_FORWARD                    17 (to 68)
+                        34      LOAD_FAST                       1: filename
+                        36      POP_JUMP_IF_FALSE               28 (to 56)
+                        38      LOAD_DEREF                      0: perror
+                        40      LOAD_CONST                      2: '%s: error: %s'
+                        42      LOAD_FAST                       1: filename
+                        44      LOAD_FAST                       0: message
+                        46      BUILD_TUPLE                     2
+                        48      BINARY_MODULO                   
+                        50      CALL_FUNCTION                   1
+                        52      POP_TOP                         
+                        54      JUMP_FORWARD                    6 (to 68)
+                        56      LOAD_DEREF                      0: perror
+                        58      LOAD_CONST                      3: 'error: %s'
+                        60      LOAD_FAST                       0: message
+                        62      BINARY_MODULO                   
+                        64      CALL_FUNCTION                   1
+                        66      POP_TOP                         
+                        68      LOAD_GLOBAL                     0: sys
+                        70      LOAD_METHOD                     1: exit
+                        72      LOAD_CONST                      4: 1
+                        74      CALL_METHOD                     1
+                        76      POP_TOP                         
+                        78      LOAD_CONST                      0: None
+                        80      RETURN_VALUE                    
+                'main.<locals>.error'
+                'python -m tokenize'
+                (
+                    'prog'
+                )
+                'filename'
+                '?'
+                'filename.py'
+                'the file to tokenize; defaults to stdin'
+                (
+                    'dest'
+                    'nargs'
+                    'metavar'
+                    'help'
+                )
+                '-e'
+                '--exact'
+                'exact'
+                'store_true'
+                'display token names using the exact type'
+                (
+                    'dest'
+                    'action'
+                    'help'
+                )
+                'rb'
+                '<stdin>'
+                '%d,%d-%d,%d:'
+                '%-20s%-15s%-15r'
+                1
+                3
+                'interrupted\n'
+                'unexpected error: %s'
+                (
+                    None
+                    None
+                )
+            [Disassembly]
+                0       LOAD_CONST                      1: 0
+                2       LOAD_CONST                      0: None
+                4       IMPORT_NAME                     0: argparse
+                6       STORE_FAST                      0: argparse
+                8       LOAD_CONST                      2: <CODE> perror
+                10      LOAD_CONST                      3: 'main.<locals>.perror'
+                12      MAKE_FUNCTION                   0
+                14      STORE_DEREF                     0: perror
+                16      LOAD_CONST                      27: (None, None)
+                18      LOAD_CLOSURE                    0: perror
+                20      BUILD_TUPLE                     1
+                22      LOAD_CONST                      4: <CODE> error
+                24      LOAD_CONST                      5: 'main.<locals>.error'
+                26      MAKE_FUNCTION                   9
+                28      STORE_FAST                      1: error
+                30      LOAD_FAST                       0: argparse
+                32      LOAD_ATTR                       1: ArgumentParser
+                34      LOAD_CONST                      6: 'python -m tokenize'
+                36      LOAD_CONST                      7: ('prog',)
+                38      CALL_FUNCTION_KW                1
+                40      STORE_FAST                      2: parser
+                42      LOAD_FAST                       2: parser
+                44      LOAD_ATTR                       2: add_argument
+                46      LOAD_CONST                      8: 'filename'
+                48      LOAD_CONST                      9: '?'
+                50      LOAD_CONST                      10: 'filename.py'
+                52      LOAD_CONST                      11: 'the file to tokenize; defaults to stdin'
+                54      LOAD_CONST                      12: ('dest', 'nargs', 'metavar', 'help')
+                56      CALL_FUNCTION_KW                4
+                58      POP_TOP                         
+                60      LOAD_FAST                       2: parser
+                62      LOAD_ATTR                       2: add_argument
+                64      LOAD_CONST                      13: '-e'
+                66      LOAD_CONST                      14: '--exact'
+                68      LOAD_CONST                      15: 'exact'
+                70      LOAD_CONST                      16: 'store_true'
+                72      LOAD_CONST                      17: 'display token names using the exact type'
+                74      LOAD_CONST                      18: ('dest', 'action', 'help')
+                76      CALL_FUNCTION_KW                5
+                78      POP_TOP                         
+                80      LOAD_FAST                       2: parser
+                82      LOAD_METHOD                     3: parse_args
+                84      CALL_METHOD                     0
+                86      STORE_FAST                      3: args
+                88      SETUP_FINALLY                   81 (to 252)
+                90      LOAD_FAST                       3: args
+                92      LOAD_ATTR                       4: filename
+                94      POP_JUMP_IF_FALSE               80 (to 160)
+                96      LOAD_FAST                       3: args
+                98      LOAD_ATTR                       4: filename
+                100     STORE_FAST                      4: filename
+                102     LOAD_GLOBAL                     5: _builtin_open
+                104     LOAD_FAST                       4: filename
+                106     LOAD_CONST                      19: 'rb'
+                108     CALL_FUNCTION                   2
+                110     SETUP_WITH                      15 (to 142)
+                112     STORE_FAST                      5: f
+                114     LOAD_GLOBAL                     6: list
+                116     LOAD_GLOBAL                     7: tokenize
+                118     LOAD_FAST                       5: f
+                120     LOAD_ATTR                       8: readline
+                122     CALL_FUNCTION                   1
+                124     CALL_FUNCTION                   1
+                126     STORE_FAST                      6: tokens
+                128     POP_BLOCK                       
+                130     LOAD_CONST                      0: None
+                132     DUP_TOP                         
+                134     DUP_TOP                         
+                136     CALL_FUNCTION                   3
+                138     POP_TOP                         
+                140     JUMP_FORWARD                    8 (to 158)
+                142     WITH_EXCEPT_START               
+                144     POP_JUMP_IF_TRUE                74 (to 148)
+                146     RERAISE                         1
+                148     POP_TOP                         
+                150     POP_TOP                         
+                152     POP_TOP                         
+                154     POP_EXCEPT                      
+                156     POP_TOP                         
+                158     JUMP_FORWARD                    9 (to 178)
+                160     LOAD_CONST                      20: '<stdin>'
+                162     STORE_FAST                      4: filename
+                164     LOAD_GLOBAL                     9: _tokenize
+                166     LOAD_GLOBAL                     10: sys
+                168     LOAD_ATTR                       11: stdin
+                170     LOAD_ATTR                       8: readline
+                172     LOAD_CONST                      0: None
+                174     CALL_FUNCTION                   2
+                176     STORE_FAST                      6: tokens
+                178     LOAD_FAST                       6: tokens
+                180     GET_ITER                        
+                182     FOR_ITER                        31 (to 246)
+                184     STORE_FAST                      7: token
+                186     LOAD_FAST                       7: token
+                188     LOAD_ATTR                       12: type
+                190     STORE_FAST                      8: token_type
+                192     LOAD_FAST                       3: args
+                194     LOAD_ATTR                       13: exact
+                196     POP_JUMP_IF_FALSE               102 (to 204)
+                198     LOAD_FAST                       7: token
+                200     LOAD_ATTR                       14: exact_type
+                202     STORE_FAST                      8: token_type
+                204     LOAD_CONST                      21: '%d,%d-%d,%d:'
+                206     LOAD_FAST                       7: token
+                208     LOAD_ATTR                       15: start
+                210     LOAD_FAST                       7: token
+                212     LOAD_ATTR                       16: end
+                214     BINARY_ADD                      
+                216     BINARY_MODULO                   
+                218     STORE_FAST                      9: token_range
+                220     LOAD_GLOBAL                     17: print
+                222     LOAD_CONST                      22: '%-20s%-15s%-15r'
+                224     LOAD_FAST                       9: token_range
+                226     LOAD_GLOBAL                     18: tok_name
+                228     LOAD_FAST                       8: token_type
+                230     BINARY_SUBSCR                   
+                232     LOAD_FAST                       7: token
+                234     LOAD_ATTR                       19: string
+                236     BUILD_TUPLE                     3
+                238     BINARY_MODULO                   
+                240     CALL_FUNCTION                   1
+                242     POP_TOP                         
+                244     JUMP_ABSOLUTE                   91 (to 182)
+                246     POP_BLOCK                       
+                248     LOAD_CONST                      0: None
+                250     RETURN_VALUE                    
+                252     DUP_TOP                         
+                254     LOAD_GLOBAL                     20: IndentationError
+                256     JUMP_IF_NOT_EXC_MATCH           166 (to 332)
+                258     POP_TOP                         
+                260     STORE_FAST                      10: err
+                262     POP_TOP                         
+                264     SETUP_FINALLY                   29 (to 324)
+                266     LOAD_FAST                       10: err
+                268     LOAD_ATTR                       21: args
+                270     LOAD_CONST                      23: 1
+                272     BINARY_SUBSCR                   
+                274     LOAD_CONST                      23: 1
+                276     LOAD_CONST                      24: 3
+                278     BUILD_SLICE                     2
+                280     BINARY_SUBSCR                   
+                282     UNPACK_SEQUENCE                 2
+                284     STORE_FAST                      11: line
+                286     STORE_FAST                      12: column
+                288     LOAD_FAST                       1: error
+                290     LOAD_FAST                       10: err
+                292     LOAD_ATTR                       21: args
+                294     LOAD_CONST                      1: 0
+                296     BINARY_SUBSCR                   
+                298     LOAD_FAST                       4: filename
+                300     LOAD_FAST                       11: line
+                302     LOAD_FAST                       12: column
+                304     BUILD_TUPLE                     2
+                306     CALL_FUNCTION                   3
+                308     POP_TOP                         
+                310     POP_BLOCK                       
+                312     POP_EXCEPT                      
+                314     LOAD_CONST                      0: None
+                316     STORE_FAST                      10: err
+                318     DELETE_FAST                     10: err
+                320     LOAD_CONST                      0: None
+                322     RETURN_VALUE                    
+                324     LOAD_CONST                      0: None
+                326     STORE_FAST                      10: err
+                328     DELETE_FAST                     10: err
+                330     RERAISE                         1
+                332     DUP_TOP                         
+                334     LOAD_GLOBAL                     22: TokenError
+                336     JUMP_IF_NOT_EXC_MATCH           202 (to 404)
+                338     POP_TOP                         
+                340     STORE_FAST                      10: err
+                342     POP_TOP                         
+                344     SETUP_FINALLY                   25 (to 396)
+                346     LOAD_FAST                       10: err
+                348     LOAD_ATTR                       21: args
+                350     LOAD_CONST                      23: 1
+                352     BINARY_SUBSCR                   
+                354     UNPACK_SEQUENCE                 2
+                356     STORE_FAST                      11: line
+                358     STORE_FAST                      12: column
+                360     LOAD_FAST                       1: error
+                362     LOAD_FAST                       10: err
+                364     LOAD_ATTR                       21: args
+                366     LOAD_CONST                      1: 0
+                368     BINARY_SUBSCR                   
+                370     LOAD_FAST                       4: filename
+                372     LOAD_FAST                       11: line
+                374     LOAD_FAST                       12: column
+                376     BUILD_TUPLE                     2
+                378     CALL_FUNCTION                   3
+                380     POP_TOP                         
+                382     POP_BLOCK                       
+                384     POP_EXCEPT                      
+                386     LOAD_CONST                      0: None
+                388     STORE_FAST                      10: err
+                390     DELETE_FAST                     10: err
+                392     LOAD_CONST                      0: None
+                394     RETURN_VALUE                    
+                396     LOAD_CONST                      0: None
+                398     STORE_FAST                      10: err
+                400     DELETE_FAST                     10: err
+                402     RERAISE                         1
+                404     DUP_TOP                         
+                406     LOAD_GLOBAL                     23: SyntaxError
+                408     JUMP_IF_NOT_EXC_MATCH           225 (to 450)
+                410     POP_TOP                         
+                412     STORE_FAST                      10: err
+                414     POP_TOP                         
+                416     SETUP_FINALLY                   12 (to 442)
+                418     LOAD_FAST                       1: error
+                420     LOAD_FAST                       10: err
+                422     LOAD_FAST                       4: filename
+                424     CALL_FUNCTION                   2
+                426     POP_TOP                         
+                428     POP_BLOCK                       
+                430     POP_EXCEPT                      
+                432     LOAD_CONST                      0: None
+                434     STORE_FAST                      10: err
+                436     DELETE_FAST                     10: err
+                438     LOAD_CONST                      0: None
+                440     RETURN_VALUE                    
+                442     LOAD_CONST                      0: None
+                444     STORE_FAST                      10: err
+                446     DELETE_FAST                     10: err
+                448     RERAISE                         1
+                450     DUP_TOP                         
+                452     LOAD_GLOBAL                     24: OSError
+                454     JUMP_IF_NOT_EXC_MATCH           247 (to 494)
+                456     POP_TOP                         
+                458     STORE_FAST                      10: err
+                460     POP_TOP                         
+                462     SETUP_FINALLY                   11 (to 486)
+                464     LOAD_FAST                       1: error
+                466     LOAD_FAST                       10: err
+                468     CALL_FUNCTION                   1
+                470     POP_TOP                         
+                472     POP_BLOCK                       
+                474     POP_EXCEPT                      
+                476     LOAD_CONST                      0: None
+                478     STORE_FAST                      10: err
+                480     DELETE_FAST                     10: err
+                482     LOAD_CONST                      0: None
+                484     RETURN_VALUE                    
+                486     LOAD_CONST                      0: None
+                488     STORE_FAST                      10: err
+                490     DELETE_FAST                     10: err
+                492     RERAISE                         1
+                494     DUP_TOP                         
+                496     LOAD_GLOBAL                     25: KeyboardInterrupt
+                498     JUMP_IF_NOT_EXC_MATCH           261 (to 522)
+                502     POP_TOP                         
+                504     POP_TOP                         
+                506     POP_TOP                         
+                508     LOAD_GLOBAL                     17: print
+                510     LOAD_CONST                      25: 'interrupted\n'
+                512     CALL_FUNCTION                   1
+                514     POP_TOP                         
+                516     POP_EXCEPT                      
+                518     LOAD_CONST                      0: None
+                520     RETURN_VALUE                    
+                522     DUP_TOP                         
+                524     LOAD_GLOBAL                     26: Exception
+                526     JUMP_IF_NOT_EXC_MATCH           280 (to 560)
+                530     POP_TOP                         
+                532     STORE_FAST                      10: err
+                534     POP_TOP                         
+                536     SETUP_FINALLY                   7 (to 552)
+                538     LOAD_DEREF                      0: perror
+                540     LOAD_CONST                      26: 'unexpected error: %s'
+                542     LOAD_FAST                       10: err
+                544     BINARY_MODULO                   
+                546     CALL_FUNCTION                   1
+                548     POP_TOP                         
+                550     RAISE_VARARGS                   0
+                552     LOAD_CONST                      0: None
+                554     STORE_FAST                      10: err
+                556     DELETE_FAST                     10: err
+                558     RERAISE                         1
+                560     RERAISE                         0
+        'main'
+        '__main__'
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Tokenization help for Python programs.\n\ntokenize(readline) is a generator that breaks a stream of bytes into\nPython tokens.  It decodes the bytes according to PEP-0263 for\ndetermining source file encoding.\n\nIt accepts a readline-like method which is called repeatedly to get the\nnext line of input (or b"" for EOF).  It generates 5-tuples with these\nmembers:\n\n    the token type (see token.py)\n    the token (a string)\n    the starting (row, column) indices of the token (a 2-tuple of ints)\n    the ending (row, column) indices of the token (a 2-tuple of ints)\n    the original line (string)\n\nIt is designed to match the working of the Python tokenizer exactly, except\nthat it produces COMMENT tokens for comments and gives type OP for all\noperators.  Additionally, all token lists start with an ENCODING token\nwhich tells you which encoding was used to decode the bytes stream.\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 'Ka-Ping Yee <ping@lfw.org>'
+        6       STORE_NAME                      1: __author__
+        8       LOAD_CONST                      2: 'GvR, ESR, Tim Peters, Thomas Wouters, Fred Drake, Skip Montanaro, Raymond Hettinger, Trent Nelson, Michael Foord'
+        10      STORE_NAME                      2: __credits__
+        12      LOAD_CONST                      3: 0
+        14      LOAD_CONST                      4: ('open',)
+        16      IMPORT_NAME                     3: builtins
+        18      IMPORT_FROM                     4: open
+        20      STORE_NAME                      5: _builtin_open
+        22      POP_TOP                         
+        24      LOAD_CONST                      3: 0
+        26      LOAD_CONST                      5: ('lookup', 'BOM_UTF8')
+        28      IMPORT_NAME                     6: codecs
+        30      IMPORT_FROM                     7: lookup
+        32      STORE_NAME                      7: lookup
+        34      IMPORT_FROM                     8: BOM_UTF8
+        36      STORE_NAME                      8: BOM_UTF8
+        38      POP_TOP                         
+        40      LOAD_CONST                      3: 0
+        42      LOAD_CONST                      6: None
+        44      IMPORT_NAME                     9: collections
+        46      STORE_NAME                      9: collections
+        48      LOAD_CONST                      3: 0
+        50      LOAD_CONST                      6: None
+        52      IMPORT_NAME                     10: functools
+        54      STORE_NAME                      10: functools
+        56      LOAD_CONST                      3: 0
+        58      LOAD_CONST                      7: ('TextIOWrapper',)
+        60      IMPORT_NAME                     11: io
+        62      IMPORT_FROM                     12: TextIOWrapper
+        64      STORE_NAME                      12: TextIOWrapper
+        66      POP_TOP                         
+        68      LOAD_CONST                      3: 0
+        70      LOAD_CONST                      6: None
+        72      IMPORT_NAME                     13: itertools
+        74      STORE_NAME                      14: _itertools
+        76      LOAD_CONST                      3: 0
+        78      LOAD_CONST                      6: None
+        80      IMPORT_NAME                     15: re
+        82      STORE_NAME                      15: re
+        84      LOAD_CONST                      3: 0
+        86      LOAD_CONST                      6: None
+        88      IMPORT_NAME                     16: sys
+        90      STORE_NAME                      16: sys
+        92      LOAD_CONST                      3: 0
+        94      LOAD_CONST                      8: ('*',)
+        96      IMPORT_NAME                     17: token
+        98      IMPORT_STAR                     
+        100     LOAD_CONST                      3: 0
+        102     LOAD_CONST                      9: ('EXACT_TOKEN_TYPES',)
+        104     IMPORT_NAME                     17: token
+        106     IMPORT_FROM                     18: EXACT_TOKEN_TYPES
+        108     STORE_NAME                      18: EXACT_TOKEN_TYPES
+        110     POP_TOP                         
+        112     LOAD_NAME                       15: re
+        114     LOAD_METHOD                     19: compile
+        116     LOAD_CONST                      10: '^[ \\t\\f]*#.*?coding[:=][ \\t]*([-\\w.]+)'
+        118     LOAD_NAME                       15: re
+        120     LOAD_ATTR                       20: ASCII
+        122     CALL_METHOD                     2
+        124     STORE_NAME                      21: cookie_re
+        126     LOAD_NAME                       15: re
+        128     LOAD_METHOD                     19: compile
+        130     LOAD_CONST                      11: b'^[ \\t\\f]*(?:[#\\r\\n]|$)'
+        132     LOAD_NAME                       15: re
+        134     LOAD_ATTR                       20: ASCII
+        136     CALL_METHOD                     2
+        138     STORE_NAME                      22: blank_re
+        140     LOAD_CONST                      3: 0
+        142     LOAD_CONST                      6: None
+        144     IMPORT_NAME                     17: token
+        146     STORE_NAME                      17: token
+        148     LOAD_NAME                       17: token
+        150     LOAD_ATTR                       23: __all__
+        152     BUILD_LIST                      0
+        154     LOAD_CONST                      12: ('tokenize', 'generate_tokens', 'detect_encoding', 'untokenize', 'TokenInfo')
+        156     LIST_EXTEND                     1
+        158     BINARY_ADD                      
+        160     STORE_NAME                      23: __all__
+        162     DELETE_NAME                     17: token
+        164     LOAD_BUILD_CLASS                
+        166     LOAD_CONST                      13: <CODE> TokenInfo
+        168     LOAD_CONST                      14: 'TokenInfo'
+        170     MAKE_FUNCTION                   0
+        172     LOAD_CONST                      14: 'TokenInfo'
+        174     LOAD_NAME                       9: collections
+        176     LOAD_METHOD                     24: namedtuple
+        178     LOAD_CONST                      14: 'TokenInfo'
+        180     LOAD_CONST                      15: 'type string start end line'
+        182     CALL_METHOD                     2
+        184     CALL_FUNCTION                   3
+        186     STORE_NAME                      25: TokenInfo
+        188     LOAD_CONST                      16: <CODE> group
+        190     LOAD_CONST                      17: 'group'
+        192     MAKE_FUNCTION                   0
+        194     STORE_NAME                      26: group
+        196     LOAD_CONST                      18: <CODE> any
+        198     LOAD_CONST                      19: 'any'
+        200     MAKE_FUNCTION                   0
+        202     STORE_NAME                      27: any
+        204     LOAD_CONST                      20: <CODE> maybe
+        206     LOAD_CONST                      21: 'maybe'
+        208     MAKE_FUNCTION                   0
+        210     STORE_NAME                      28: maybe
+        212     LOAD_CONST                      22: '[ \\f\\t]*'
+        214     STORE_NAME                      29: Whitespace
+        216     LOAD_CONST                      23: '#[^\\r\\n]*'
+        218     STORE_NAME                      30: Comment
+        220     LOAD_NAME                       29: Whitespace
+        222     LOAD_NAME                       27: any
+        224     LOAD_CONST                      24: '\\\\\\r?\\n'
+        226     LOAD_NAME                       29: Whitespace
+        228     BINARY_ADD                      
+        230     CALL_FUNCTION                   1
+        232     BINARY_ADD                      
+        234     LOAD_NAME                       28: maybe
+        236     LOAD_NAME                       30: Comment
+        238     CALL_FUNCTION                   1
+        240     BINARY_ADD                      
+        242     STORE_NAME                      31: Ignore
+        244     LOAD_CONST                      25: '\\w+'
+        246     STORE_NAME                      32: Name
+        248     LOAD_CONST                      26: '0[xX](?:_?[0-9a-fA-F])+'
+        250     STORE_NAME                      33: Hexnumber
+        252     LOAD_CONST                      27: '0[bB](?:_?[01])+'
+        254     STORE_NAME                      34: Binnumber
+        256     LOAD_CONST                      28: '0[oO](?:_?[0-7])+'
+        258     STORE_NAME                      35: Octnumber
+        260     LOAD_CONST                      29: '(?:0(?:_?0)*|[1-9](?:_?[0-9])*)'
+        262     STORE_NAME                      36: Decnumber
+        264     LOAD_NAME                       26: group
+        266     LOAD_NAME                       33: Hexnumber
+        268     LOAD_NAME                       34: Binnumber
+        270     LOAD_NAME                       35: Octnumber
+        272     LOAD_NAME                       36: Decnumber
+        274     CALL_FUNCTION                   4
+        276     STORE_NAME                      37: Intnumber
+        278     LOAD_CONST                      30: '[eE][-+]?[0-9](?:_?[0-9])*'
+        280     STORE_NAME                      38: Exponent
+        282     LOAD_NAME                       26: group
+        284     LOAD_CONST                      31: '[0-9](?:_?[0-9])*\\.(?:[0-9](?:_?[0-9])*)?'
+        286     LOAD_CONST                      32: '\\.[0-9](?:_?[0-9])*'
+        288     CALL_FUNCTION                   2
+        290     LOAD_NAME                       28: maybe
+        292     LOAD_NAME                       38: Exponent
+        294     CALL_FUNCTION                   1
+        296     BINARY_ADD                      
+        298     STORE_NAME                      39: Pointfloat
+        300     LOAD_CONST                      33: '[0-9](?:_?[0-9])*'
+        302     LOAD_NAME                       38: Exponent
+        304     BINARY_ADD                      
+        306     STORE_NAME                      40: Expfloat
+        308     LOAD_NAME                       26: group
+        310     LOAD_NAME                       39: Pointfloat
+        312     LOAD_NAME                       40: Expfloat
+        314     CALL_FUNCTION                   2
+        316     STORE_NAME                      41: Floatnumber
+        318     LOAD_NAME                       26: group
+        320     LOAD_CONST                      34: '[0-9](?:_?[0-9])*[jJ]'
+        322     LOAD_NAME                       41: Floatnumber
+        324     LOAD_CONST                      35: '[jJ]'
+        326     BINARY_ADD                      
+        328     CALL_FUNCTION                   2
+        330     STORE_NAME                      42: Imagnumber
+        332     LOAD_NAME                       26: group
+        334     LOAD_NAME                       42: Imagnumber
+        336     LOAD_NAME                       41: Floatnumber
+        338     LOAD_NAME                       37: Intnumber
+        340     CALL_FUNCTION                   3
+        342     STORE_NAME                      43: Number
+        344     LOAD_CONST                      36: <CODE> _all_string_prefixes
+        346     LOAD_CONST                      37: '_all_string_prefixes'
+        348     MAKE_FUNCTION                   0
+        350     STORE_NAME                      44: _all_string_prefixes
+        352     LOAD_NAME                       10: functools
+        354     LOAD_ATTR                       45: lru_cache
+        356     LOAD_CONST                      38: <CODE> _compile
+        358     LOAD_CONST                      39: '_compile'
+        360     MAKE_FUNCTION                   0
+        362     CALL_FUNCTION                   1
+        364     STORE_NAME                      46: _compile
+        366     LOAD_NAME                       26: group
+        368     LOAD_NAME                       44: _all_string_prefixes
+        370     CALL_FUNCTION                   0
+        372     CALL_FUNCTION_EX                0
+        374     STORE_NAME                      47: StringPrefix
+        376     LOAD_CONST                      40: "[^'\\\\]*(?:\\\\.[^'\\\\]*)*'"
+        378     STORE_NAME                      48: Single
+        380     LOAD_CONST                      41: '[^"\\\\]*(?:\\\\.[^"\\\\]*)*"'
+        382     STORE_NAME                      49: Double
+        384     LOAD_CONST                      42: "[^'\\\\]*(?:(?:\\\\.|'(?!''))[^'\\\\]*)*'''"
+        386     STORE_NAME                      50: Single3
+        388     LOAD_CONST                      43: '[^"\\\\]*(?:(?:\\\\.|"(?!""))[^"\\\\]*)*"""'
+        390     STORE_NAME                      51: Double3
+        392     LOAD_NAME                       26: group
+        394     LOAD_NAME                       47: StringPrefix
+        396     LOAD_CONST                      44: "'''"
+        398     BINARY_ADD                      
+        400     LOAD_NAME                       47: StringPrefix
+        402     LOAD_CONST                      45: '"""'
+        404     BINARY_ADD                      
+        406     CALL_FUNCTION                   2
+        408     STORE_NAME                      52: Triple
+        410     LOAD_NAME                       26: group
+        412     LOAD_NAME                       47: StringPrefix
+        414     LOAD_CONST                      46: "'[^\\n'\\\\]*(?:\\\\.[^\\n'\\\\]*)*'"
+        416     BINARY_ADD                      
+        418     LOAD_NAME                       47: StringPrefix
+        420     LOAD_CONST                      47: '"[^\\n"\\\\]*(?:\\\\.[^\\n"\\\\]*)*"'
+        422     BINARY_ADD                      
+        424     CALL_FUNCTION                   2
+        426     STORE_NAME                      53: String
+        428     LOAD_NAME                       26: group
+        430     LOAD_NAME                       54: map
+        432     LOAD_NAME                       15: re
+        434     LOAD_ATTR                       55: escape
+        436     LOAD_NAME                       56: sorted
+        438     LOAD_NAME                       18: EXACT_TOKEN_TYPES
+        440     LOAD_CONST                      48: True
+        442     LOAD_CONST                      49: ('reverse',)
+        444     CALL_FUNCTION_KW                2
+        446     CALL_FUNCTION                   2
+        448     CALL_FUNCTION_EX                0
+        450     STORE_NAME                      57: Special
+        452     LOAD_NAME                       26: group
+        454     LOAD_CONST                      50: '\\r?\\n'
+        456     LOAD_NAME                       57: Special
+        458     CALL_FUNCTION                   2
+        460     STORE_NAME                      58: Funny
+        462     LOAD_NAME                       26: group
+        464     LOAD_NAME                       43: Number
+        466     LOAD_NAME                       58: Funny
+        468     LOAD_NAME                       53: String
+        470     LOAD_NAME                       32: Name
+        472     CALL_FUNCTION                   4
+        474     STORE_NAME                      59: PlainToken
+        476     LOAD_NAME                       31: Ignore
+        478     LOAD_NAME                       59: PlainToken
+        480     BINARY_ADD                      
+        482     STORE_NAME                      60: Token
+        484     LOAD_NAME                       26: group
+        486     LOAD_NAME                       47: StringPrefix
+        488     LOAD_CONST                      51: "'[^\\n'\\\\]*(?:\\\\.[^\\n'\\\\]*)*"
+        490     BINARY_ADD                      
+        492     LOAD_NAME                       26: group
+        494     LOAD_CONST                      52: "'"
+        496     LOAD_CONST                      24: '\\\\\\r?\\n'
+        498     CALL_FUNCTION                   2
+        500     BINARY_ADD                      
+        502     LOAD_NAME                       47: StringPrefix
+        504     LOAD_CONST                      53: '"[^\\n"\\\\]*(?:\\\\.[^\\n"\\\\]*)*'
+        506     BINARY_ADD                      
+        508     LOAD_NAME                       26: group
+        510     LOAD_CONST                      54: '"'
+        512     LOAD_CONST                      24: '\\\\\\r?\\n'
+        514     CALL_FUNCTION                   2
+        516     BINARY_ADD                      
+        518     CALL_FUNCTION                   2
+        520     STORE_NAME                      61: ContStr
+        522     LOAD_NAME                       26: group
+        524     LOAD_CONST                      55: '\\\\\\r?\\n|\\Z'
+        526     LOAD_NAME                       30: Comment
+        528     LOAD_NAME                       52: Triple
+        530     CALL_FUNCTION                   3
+        532     STORE_NAME                      62: PseudoExtras
+        534     LOAD_NAME                       29: Whitespace
+        536     LOAD_NAME                       26: group
+        538     LOAD_NAME                       62: PseudoExtras
+        540     LOAD_NAME                       43: Number
+        542     LOAD_NAME                       58: Funny
+        544     LOAD_NAME                       61: ContStr
+        546     LOAD_NAME                       32: Name
+        548     CALL_FUNCTION                   5
+        550     BINARY_ADD                      
+        552     STORE_NAME                      63: PseudoToken
+        554     BUILD_MAP                       0
+        556     STORE_NAME                      64: endpats
+        558     LOAD_NAME                       44: _all_string_prefixes
+        560     CALL_FUNCTION                   0
+        562     GET_ITER                        
+        564     FOR_ITER                        27 (to 620)
+        566     STORE_NAME                      65: _prefix
+        568     LOAD_NAME                       48: Single
+        570     LOAD_NAME                       64: endpats
+        572     LOAD_NAME                       65: _prefix
+        574     LOAD_CONST                      52: "'"
+        576     BINARY_ADD                      
+        578     STORE_SUBSCR                    
+        580     LOAD_NAME                       49: Double
+        582     LOAD_NAME                       64: endpats
+        584     LOAD_NAME                       65: _prefix
+        586     LOAD_CONST                      54: '"'
+        588     BINARY_ADD                      
+        590     STORE_SUBSCR                    
+        592     LOAD_NAME                       50: Single3
+        594     LOAD_NAME                       64: endpats
+        596     LOAD_NAME                       65: _prefix
+        598     LOAD_CONST                      44: "'''"
+        600     BINARY_ADD                      
+        602     STORE_SUBSCR                    
+        604     LOAD_NAME                       51: Double3
+        606     LOAD_NAME                       64: endpats
+        608     LOAD_NAME                       65: _prefix
+        610     LOAD_CONST                      45: '"""'
+        612     BINARY_ADD                      
+        614     STORE_SUBSCR                    
+        616     JUMP_ABSOLUTE                   282 (to 564)
+        620     LOAD_NAME                       66: set
+        622     CALL_FUNCTION                   0
+        624     STORE_NAME                      67: single_quoted
+        626     LOAD_NAME                       66: set
+        628     CALL_FUNCTION                   0
+        630     STORE_NAME                      68: triple_quoted
+        632     LOAD_NAME                       44: _all_string_prefixes
+        634     CALL_FUNCTION                   0
+        636     GET_ITER                        
+        638     FOR_ITER                        37 (to 714)
+        640     STORE_NAME                      69: t
+        642     LOAD_NAME                       69: t
+        644     LOAD_CONST                      54: '"'
+        646     BINARY_ADD                      
+        648     LOAD_NAME                       69: t
+        650     LOAD_CONST                      52: "'"
+        652     BINARY_ADD                      
+        654     BUILD_TUPLE                     2
+        656     GET_ITER                        
+        658     FOR_ITER                        8 (to 676)
+        660     STORE_NAME                      70: u
+        662     LOAD_NAME                       67: single_quoted
+        664     LOAD_METHOD                     71: add
+        666     LOAD_NAME                       70: u
+        668     CALL_METHOD                     1
+        670     POP_TOP                         
+        672     JUMP_ABSOLUTE                   329 (to 658)
+        676     LOAD_NAME                       69: t
+        678     LOAD_CONST                      45: '"""'
+        680     BINARY_ADD                      
+        682     LOAD_NAME                       69: t
+        684     LOAD_CONST                      44: "'''"
+        686     BINARY_ADD                      
+        688     BUILD_TUPLE                     2
+        690     GET_ITER                        
+        692     FOR_ITER                        8 (to 710)
+        694     STORE_NAME                      70: u
+        696     LOAD_NAME                       68: triple_quoted
+        698     LOAD_METHOD                     71: add
+        700     LOAD_NAME                       70: u
+        702     CALL_METHOD                     1
+        704     POP_TOP                         
+        706     JUMP_ABSOLUTE                   346 (to 692)
+        710     JUMP_ABSOLUTE                   319 (to 638)
+        714     LOAD_CONST                      56: 8
+        716     STORE_NAME                      72: tabsize
+        718     LOAD_BUILD_CLASS                
+        720     LOAD_CONST                      57: <CODE> TokenError
+        722     LOAD_CONST                      58: 'TokenError'
+        724     MAKE_FUNCTION                   0
+        726     LOAD_CONST                      58: 'TokenError'
+        728     LOAD_NAME                       73: Exception
+        730     CALL_FUNCTION                   3
+        732     STORE_NAME                      74: TokenError
+        734     LOAD_BUILD_CLASS                
+        736     LOAD_CONST                      59: <CODE> StopTokenizing
+        738     LOAD_CONST                      60: 'StopTokenizing'
+        740     MAKE_FUNCTION                   0
+        742     LOAD_CONST                      60: 'StopTokenizing'
+        744     LOAD_NAME                       73: Exception
+        746     CALL_FUNCTION                   3
+        748     STORE_NAME                      75: StopTokenizing
+        750     LOAD_BUILD_CLASS                
+        752     LOAD_CONST                      61: <CODE> Untokenizer
+        754     LOAD_CONST                      62: 'Untokenizer'
+        756     MAKE_FUNCTION                   0
+        758     LOAD_CONST                      62: 'Untokenizer'
+        760     CALL_FUNCTION                   2
+        762     STORE_NAME                      76: Untokenizer
+        764     LOAD_CONST                      63: <CODE> untokenize
+        766     LOAD_CONST                      64: 'untokenize'
+        768     MAKE_FUNCTION                   0
+        770     STORE_NAME                      77: untokenize
+        772     LOAD_CONST                      65: <CODE> _get_normal_name
+        774     LOAD_CONST                      66: '_get_normal_name'
+        776     MAKE_FUNCTION                   0
+        778     STORE_NAME                      78: _get_normal_name
+        780     LOAD_CONST                      67: <CODE> detect_encoding
+        782     LOAD_CONST                      68: 'detect_encoding'
+        784     MAKE_FUNCTION                   0
+        786     STORE_NAME                      79: detect_encoding
+        788     LOAD_CONST                      69: <CODE> open
+        790     LOAD_CONST                      70: 'open'
+        792     MAKE_FUNCTION                   0
+        794     STORE_NAME                      4: open
+        796     LOAD_CONST                      71: <CODE> tokenize
+        798     LOAD_CONST                      72: 'tokenize'
+        800     MAKE_FUNCTION                   0
+        802     STORE_NAME                      80: tokenize
+        804     LOAD_CONST                      73: <CODE> _tokenize
+        806     LOAD_CONST                      74: '_tokenize'
+        808     MAKE_FUNCTION                   0
+        810     STORE_NAME                      81: _tokenize
+        812     LOAD_CONST                      75: <CODE> generate_tokens
+        814     LOAD_CONST                      76: 'generate_tokens'
+        816     MAKE_FUNCTION                   0
+        818     STORE_NAME                      82: generate_tokens
+        820     LOAD_CONST                      77: <CODE> main
+        822     LOAD_CONST                      78: 'main'
+        824     MAKE_FUNCTION                   0
+        826     STORE_NAME                      83: main
+        828     LOAD_NAME                       84: __name__
+        830     LOAD_CONST                      79: '__main__'
+        832     COMPARE_OP                      2 (==)
+        834     POP_JUMP_IF_FALSE               424 (to 848)
+        838     LOAD_NAME                       83: main
+        840     CALL_FUNCTION                   0
+        842     POP_TOP                         
+        844     LOAD_CONST                      6: None
+        846     RETURN_VALUE                    
+        848     LOAD_CONST                      6: None
+        850     RETURN_VALUE                    

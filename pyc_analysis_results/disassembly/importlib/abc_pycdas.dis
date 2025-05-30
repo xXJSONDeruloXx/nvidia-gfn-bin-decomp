@@ -1,0 +1,2153 @@
+abc.pyc (Python 3.10)
+[Code]
+    File Name: importlib/abc.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 10
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        ''
+        '_bootstrap_external'
+        'machinery'
+        '_frozen_importlib'
+        'ImportError'
+        'exc'
+        'name'
+        '_frozen_importlib_external'
+        '_abc'
+        'Loader'
+        'abc'
+        'warnings'
+        'typing'
+        'BinaryIO'
+        'Iterable'
+        'Text'
+        'Protocol'
+        'runtime_checkable'
+        '_register'
+        'ABCMeta'
+        'Finder'
+        'MetaPathFinder'
+        'BuiltinImporter'
+        'FrozenImporter'
+        'PathFinder'
+        'WindowsRegistryFinder'
+        'PathEntryFinder'
+        'FileFinder'
+        'ResourceLoader'
+        'InspectLoader'
+        'ExecutionLoader'
+        'ExtensionFileLoader'
+        'FileLoader'
+        'SourceFileLoader'
+        'SourcelessFileLoader'
+        'SourceLoader'
+        'ResourceReader'
+        'Traversable'
+        'TraversableResources'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Abstract base classes related to import.'
+        1
+        (
+            '_bootstrap_external'
+        )
+        (
+            'machinery'
+        )
+        0
+        None
+        '_frozen_importlib'
+        (
+            'Loader'
+        )
+        (
+            'BinaryIO'
+            'Iterable'
+            'Text'
+        )
+        (
+            'Protocol'
+            'runtime_checkable'
+        )
+        [Code]
+            File Name: importlib/abc.py
+            Object Name: _register
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 9
+            Flags: 0x00000047 (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_NOFREE)
+            [Names]
+                'register'
+                '_frozen_importlib'
+                'getattr'
+                '__name__'
+                'AttributeError'
+                '_frozen_importlib_external'
+            [Var Names]
+                'abstract_cls'
+                'classes'
+                'cls'
+                'frozen_cls'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_FAST                       1: classes
+                2       GET_ITER                        
+                4       FOR_ITER                        40 (to 86)
+                6       STORE_FAST                      2: cls
+                8       LOAD_FAST                       0: abstract_cls
+                10      LOAD_METHOD                     0: register
+                12      LOAD_FAST                       2: cls
+                14      CALL_METHOD                     1
+                16      POP_TOP                         
+                18      LOAD_GLOBAL                     1: _frozen_importlib
+                20      LOAD_CONST                      0: None
+                22      IS_OP                           1 (is not)
+                24      POP_JUMP_IF_FALSE               42 (to 84)
+                26      SETUP_FINALLY                   8 (to 44)
+                28      LOAD_GLOBAL                     2: getattr
+                30      LOAD_GLOBAL                     1: _frozen_importlib
+                32      LOAD_FAST                       2: cls
+                34      LOAD_ATTR                       3: __name__
+                36      CALL_FUNCTION                   2
+                38      STORE_FAST                      3: frozen_cls
+                40      POP_BLOCK                       
+                42      JUMP_FORWARD                    15 (to 74)
+                44      DUP_TOP                         
+                46      LOAD_GLOBAL                     4: AttributeError
+                48      JUMP_IF_NOT_EXC_MATCH           36 (to 72)
+                50      POP_TOP                         
+                52      POP_TOP                         
+                54      POP_TOP                         
+                56      LOAD_GLOBAL                     2: getattr
+                58      LOAD_GLOBAL                     5: _frozen_importlib_external
+                60      LOAD_FAST                       2: cls
+                62      LOAD_ATTR                       3: __name__
+                64      CALL_FUNCTION                   2
+                66      STORE_FAST                      3: frozen_cls
+                68      POP_EXCEPT                      
+                70      JUMP_FORWARD                    1 (to 74)
+                72      RERAISE                         0
+                74      LOAD_FAST                       0: abstract_cls
+                76      LOAD_METHOD                     0: register
+                78      LOAD_FAST                       3: frozen_cls
+                80      CALL_METHOD                     1
+                82      POP_TOP                         
+                84      JUMP_ABSOLUTE                   2 (to 4)
+                86      LOAD_CONST                      0: None
+                88      RETURN_VALUE                    
+        '_register'
+        [Code]
+            File Name: importlib/abc.py
+            Object Name: Finder
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                'abc'
+                'abstractmethod'
+                'find_module'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Finder'
+                'Legacy abstract base class for import finders.\n\n    It may be subclassed for compatibility with legacy third party\n    reimplementations of the import system.  Otherwise, finder\n    implementations should derive from the more specific MetaPathFinder\n    or PathEntryFinder ABCs.\n\n    Deprecated since Python 3.3\n    '
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'warnings'
+                        'warn'
+                        'DeprecationWarning'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'the Finder ABC is deprecated and slated for removal in Python 3.12; use MetaPathFinder or PathEntryFinder instead'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: warnings
+                        2       LOAD_METHOD                     1: warn
+                        4       LOAD_CONST                      1: 'the Finder ABC is deprecated and slated for removal in Python 3.12; use MetaPathFinder or PathEntryFinder instead'
+                        6       LOAD_GLOBAL                     2: DeprecationWarning
+                        8       CALL_METHOD                     2
+                        10      POP_TOP                         
+                        12      LOAD_CONST                      0: None
+                        14      RETURN_VALUE                    
+                'Finder.__init__'
+                None
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: find_module
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'warnings'
+                        'warn'
+                        'DeprecationWarning'
+                    [Var Names]
+                        'self'
+                        'fullname'
+                        'path'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'An abstract method that should find a module.\n        The fullname is a str and the optional path is a str or None.\n        Returns a Loader object or None.\n        '
+                        'importlib.abc.Finder along with its find_module() method are deprecated and slated for removal in Python 3.12; use MetaPathFinder.find_spec() or PathEntryFinder.find_spec() instead'
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: warnings
+                        2       LOAD_METHOD                     1: warn
+                        4       LOAD_CONST                      1: 'importlib.abc.Finder along with its find_module() method are deprecated and slated for removal in Python 3.12; use MetaPathFinder.find_spec() or PathEntryFinder.find_spec() instead'
+                        6       LOAD_GLOBAL                     2: DeprecationWarning
+                        8       CALL_METHOD                     2
+                        10      POP_TOP                         
+                        12      LOAD_CONST                      2: None
+                        14      RETURN_VALUE                    
+                'Finder.find_module'
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Finder'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Legacy abstract base class for import finders.\n\n    It may be subclassed for compatibility with legacy third party\n    reimplementations of the import system.  Otherwise, finder\n    implementations should derive from the more specific MetaPathFinder\n    or PathEntryFinder ABCs.\n\n    Deprecated since Python 3.3\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> __init__
+                14      LOAD_CONST                      3: 'Finder.__init__'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: __init__
+                20      LOAD_NAME                       5: abc
+                22      LOAD_ATTR                       6: abstractmethod
+                24      LOAD_CONST                      7: (None,)
+                26      LOAD_CONST                      5: <CODE> find_module
+                28      LOAD_CONST                      6: 'Finder.find_module'
+                30      MAKE_FUNCTION                   1
+                32      CALL_FUNCTION                   1
+                34      STORE_NAME                      7: find_module
+                36      LOAD_CONST                      4: None
+                38      RETURN_VALUE                    
+        'Finder'
+        (
+            'metaclass'
+        )
+        [Code]
+            File Name: importlib/abc.py
+            Object Name: MetaPathFinder
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'find_module'
+                'invalidate_caches'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'MetaPathFinder'
+                'Abstract base class for import finders on sys.meta_path.'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: find_module
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'warnings'
+                        'warn'
+                        'DeprecationWarning'
+                        'hasattr'
+                        'find_spec'
+                        'loader'
+                    [Var Names]
+                        'self'
+                        'fullname'
+                        'path'
+                        'found'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return a loader for the module.\n\n        If no module is found, return None.  The fullname is a str and\n        the path is a list of strings or None.\n\n        This method is deprecated since Python 3.4 in favor of\n        finder.find_spec(). If find_spec() exists then backwards-compatible\n        functionality is provided for this method.\n\n        '
+                        'MetaPathFinder.find_module() is deprecated since Python 3.4 in favor of MetaPathFinder.find_spec() and is slated for removal in Python 3.12'
+                        2
+                        (
+                            'stacklevel'
+                        )
+                        'find_spec'
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: warnings
+                        2       LOAD_ATTR                       1: warn
+                        4       LOAD_CONST                      1: 'MetaPathFinder.find_module() is deprecated since Python 3.4 in favor of MetaPathFinder.find_spec() and is slated for removal in Python 3.12'
+                        6       LOAD_GLOBAL                     2: DeprecationWarning
+                        8       LOAD_CONST                      2: 2
+                        10      LOAD_CONST                      3: ('stacklevel',)
+                        12      CALL_FUNCTION_KW                3
+                        14      POP_TOP                         
+                        16      LOAD_GLOBAL                     3: hasattr
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_CONST                      4: 'find_spec'
+                        22      CALL_FUNCTION                   2
+                        24      POP_JUMP_IF_TRUE                15 (to 30)
+                        26      LOAD_CONST                      5: None
+                        28      RETURN_VALUE                    
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_METHOD                     4: find_spec
+                        34      LOAD_FAST                       1: fullname
+                        36      LOAD_FAST                       2: path
+                        38      CALL_METHOD                     2
+                        40      STORE_FAST                      3: found
+                        42      LOAD_FAST                       3: found
+                        44      LOAD_CONST                      5: None
+                        46      IS_OP                           1 (is not)
+                        48      POP_JUMP_IF_FALSE               28 (to 56)
+                        50      LOAD_FAST                       3: found
+                        52      LOAD_ATTR                       5: loader
+                        54      RETURN_VALUE                    
+                        56      LOAD_CONST                      5: None
+                        58      RETURN_VALUE                    
+                'MetaPathFinder.find_module'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: invalidate_caches
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "An optional method for clearing the finder's cache, if any.\n        This method is used by importlib.invalidate_caches().\n        "
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'MetaPathFinder.invalidate_caches'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'MetaPathFinder'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Abstract base class for import finders on sys.meta_path.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> find_module
+                14      LOAD_CONST                      3: 'MetaPathFinder.find_module'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: find_module
+                20      LOAD_CONST                      4: <CODE> invalidate_caches
+                22      LOAD_CONST                      5: 'MetaPathFinder.invalidate_caches'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: invalidate_caches
+                28      LOAD_CONST                      6: None
+                30      RETURN_VALUE                    
+        'MetaPathFinder'
+        [Code]
+            File Name: importlib/abc.py
+            Object Name: PathEntryFinder
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'find_loader'
+                '_bootstrap_external'
+                '_find_module_shim'
+                'find_module'
+                'invalidate_caches'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'PathEntryFinder'
+                'Abstract base class for path entry finders used by PathFinder.'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: find_loader
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'warnings'
+                        'warn'
+                        'DeprecationWarning'
+                        'hasattr'
+                        'find_spec'
+                        'submodule_search_locations'
+                        'loader'
+                    [Var Names]
+                        'self'
+                        'fullname'
+                        'found'
+                        'portions'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return (loader, namespace portion) for the path entry.\n\n        The fullname is a str.  The namespace portion is a sequence of\n        path entries contributing to part of a namespace package. The\n        sequence may be empty.  If loader is not None, the portion will\n        be ignored.\n\n        The portion will be discarded if another path entry finder\n        locates the module as a normal module or package.\n\n        This method is deprecated since Python 3.4 in favor of\n        finder.find_spec(). If find_spec() is provided than backwards-compatible\n        functionality is provided.\n        '
+                        'PathEntryFinder.find_loader() is deprecated since Python 3.4 in favor of PathEntryFinder.find_spec() (available since 3.4)'
+                        2
+                        (
+                            'stacklevel'
+                        )
+                        'find_spec'
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: warnings
+                        2       LOAD_ATTR                       1: warn
+                        4       LOAD_CONST                      1: 'PathEntryFinder.find_loader() is deprecated since Python 3.4 in favor of PathEntryFinder.find_spec() (available since 3.4)'
+                        6       LOAD_GLOBAL                     2: DeprecationWarning
+                        8       LOAD_CONST                      2: 2
+                        10      LOAD_CONST                      3: ('stacklevel',)
+                        12      CALL_FUNCTION_KW                3
+                        14      POP_TOP                         
+                        16      LOAD_GLOBAL                     3: hasattr
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_CONST                      4: 'find_spec'
+                        22      CALL_FUNCTION                   2
+                        24      POP_JUMP_IF_TRUE                17 (to 34)
+                        26      LOAD_CONST                      5: None
+                        28      BUILD_LIST                      0
+                        30      BUILD_TUPLE                     2
+                        32      RETURN_VALUE                    
+                        34      LOAD_FAST                       0: self
+                        36      LOAD_METHOD                     4: find_spec
+                        38      LOAD_FAST                       1: fullname
+                        40      CALL_METHOD                     1
+                        42      STORE_FAST                      2: found
+                        44      LOAD_FAST                       2: found
+                        46      LOAD_CONST                      5: None
+                        48      IS_OP                           1 (is not)
+                        50      POP_JUMP_IF_FALSE               40 (to 80)
+                        52      LOAD_FAST                       2: found
+                        54      LOAD_ATTR                       5: submodule_search_locations
+                        56      POP_JUMP_IF_TRUE                32 (to 64)
+                        58      BUILD_LIST                      0
+                        60      STORE_FAST                      3: portions
+                        62      JUMP_FORWARD                    3 (to 70)
+                        64      LOAD_FAST                       2: found
+                        66      LOAD_ATTR                       5: submodule_search_locations
+                        68      STORE_FAST                      3: portions
+                        70      LOAD_FAST                       2: found
+                        72      LOAD_ATTR                       6: loader
+                        74      LOAD_FAST                       3: portions
+                        76      BUILD_TUPLE                     2
+                        78      RETURN_VALUE                    
+                        80      LOAD_CONST                      5: None
+                        82      BUILD_LIST                      0
+                        84      BUILD_TUPLE                     2
+                        86      RETURN_VALUE                    
+                'PathEntryFinder.find_loader'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: invalidate_caches
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "An optional method for clearing the finder's cache, if any.\n        This method is used by PathFinder.invalidate_caches().\n        "
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'PathEntryFinder.invalidate_caches'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'PathEntryFinder'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Abstract base class for path entry finders used by PathFinder.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> find_loader
+                14      LOAD_CONST                      3: 'PathEntryFinder.find_loader'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: find_loader
+                20      LOAD_NAME                       5: _bootstrap_external
+                22      LOAD_ATTR                       6: _find_module_shim
+                24      STORE_NAME                      7: find_module
+                26      LOAD_CONST                      4: <CODE> invalidate_caches
+                28      LOAD_CONST                      5: 'PathEntryFinder.invalidate_caches'
+                30      MAKE_FUNCTION                   0
+                32      STORE_NAME                      8: invalidate_caches
+                34      LOAD_CONST                      6: None
+                36      RETURN_VALUE                    
+        'PathEntryFinder'
+        [Code]
+            File Name: importlib/abc.py
+            Object Name: ResourceLoader
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'abc'
+                'abstractmethod'
+                'get_data'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'ResourceLoader'
+                'Abstract base class for loaders which can return data from their\n    back-end storage.\n\n    This ABC represents one of the optional protocols specified by PEP 302.\n\n    '
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: get_data
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'OSError'
+                    [Var Names]
+                        'self'
+                        'path'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Abstract method which when implemented should return the bytes for\n        the specified path.  The path must be a str.'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: OSError
+                        2       RAISE_VARARGS                   1
+                'ResourceLoader.get_data'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'ResourceLoader'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Abstract base class for loaders which can return data from their\n    back-end storage.\n\n    This ABC represents one of the optional protocols specified by PEP 302.\n\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_NAME                       4: abc
+                14      LOAD_ATTR                       5: abstractmethod
+                16      LOAD_CONST                      2: <CODE> get_data
+                18      LOAD_CONST                      3: 'ResourceLoader.get_data'
+                20      MAKE_FUNCTION                   0
+                22      CALL_FUNCTION                   1
+                24      STORE_NAME                      6: get_data
+                26      LOAD_CONST                      4: None
+                28      RETURN_VALUE                    
+        'ResourceLoader'
+        [Code]
+            File Name: importlib/abc.py
+            Object Name: InspectLoader
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'is_package'
+                'get_code'
+                'abc'
+                'abstractmethod'
+                'get_source'
+                'staticmethod'
+                'source_to_code'
+                '_bootstrap_external'
+                '_LoaderBasics'
+                'exec_module'
+                'load_module'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'InspectLoader'
+                'Abstract base class for loaders which support inspection about the\n    modules they can load.\n\n    This ABC represents one of the optional protocols specified by PEP 302.\n\n    '
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: is_package
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'ImportError'
+                    [Var Names]
+                        'self'
+                        'fullname'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Optional method which when implemented should return whether the\n        module is a package.  The fullname is a str.  Returns a bool.\n\n        Raises ImportError if the module cannot be found.\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: ImportError
+                        2       RAISE_VARARGS                   1
+                'InspectLoader.is_package'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: get_code
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'get_source'
+                        'source_to_code'
+                    [Var Names]
+                        'self'
+                        'fullname'
+                        'source'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Method which returns the code object for the module.\n\n        The fullname is a str.  Returns a types.CodeType if possible, else\n        returns None if a code object does not make sense\n        (e.g. built-in module). Raises ImportError if the module cannot be\n        found.\n        '
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: get_source
+                        4       LOAD_FAST                       1: fullname
+                        6       CALL_METHOD                     1
+                        8       STORE_FAST                      2: source
+                        10      LOAD_FAST                       2: source
+                        12      LOAD_CONST                      1: None
+                        14      IS_OP                           0 (is)
+                        16      POP_JUMP_IF_FALSE               11 (to 22)
+                        18      LOAD_CONST                      1: None
+                        20      RETURN_VALUE                    
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_METHOD                     1: source_to_code
+                        26      LOAD_FAST                       2: source
+                        28      CALL_METHOD                     1
+                        30      RETURN_VALUE                    
+                'InspectLoader.get_code'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: get_source
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'ImportError'
+                    [Var Names]
+                        'self'
+                        'fullname'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Abstract method which should return the source code for the\n        module.  The fullname is a str.  Returns a str.\n\n        Raises ImportError if the module cannot be found.\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: ImportError
+                        2       RAISE_VARARGS                   1
+                'InspectLoader.get_source'
+                '<string>'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: source_to_code
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'compile'
+                    [Var Names]
+                        'data'
+                        'path'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Compile 'data' into a code object.\n\n        The 'data' argument can be anything that compile() can handle. The'path'\n        argument should be where the data was retrieved (when applicable)."
+                        'exec'
+                        True
+                        (
+                            'dont_inherit'
+                        )
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: compile
+                        2       LOAD_FAST                       0: data
+                        4       LOAD_FAST                       1: path
+                        6       LOAD_CONST                      1: 'exec'
+                        8       LOAD_CONST                      2: True
+                        10      LOAD_CONST                      3: ('dont_inherit',)
+                        12      CALL_FUNCTION_KW                4
+                        14      RETURN_VALUE                    
+                'InspectLoader.source_to_code'
+                None
+                (
+                    '<string>'
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'InspectLoader'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Abstract base class for loaders which support inspection about the\n    modules they can load.\n\n    This ABC represents one of the optional protocols specified by PEP 302.\n\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> is_package
+                14      LOAD_CONST                      3: 'InspectLoader.is_package'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: is_package
+                20      LOAD_CONST                      4: <CODE> get_code
+                22      LOAD_CONST                      5: 'InspectLoader.get_code'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: get_code
+                28      LOAD_NAME                       6: abc
+                30      LOAD_ATTR                       7: abstractmethod
+                32      LOAD_CONST                      6: <CODE> get_source
+                34      LOAD_CONST                      7: 'InspectLoader.get_source'
+                36      MAKE_FUNCTION                   0
+                38      CALL_FUNCTION                   1
+                40      STORE_NAME                      8: get_source
+                42      LOAD_NAME                       9: staticmethod
+                44      LOAD_CONST                      12: ('<string>',)
+                46      LOAD_CONST                      9: <CODE> source_to_code
+                48      LOAD_CONST                      10: 'InspectLoader.source_to_code'
+                50      MAKE_FUNCTION                   1
+                52      CALL_FUNCTION                   1
+                54      STORE_NAME                      10: source_to_code
+                56      LOAD_NAME                       11: _bootstrap_external
+                58      LOAD_ATTR                       12: _LoaderBasics
+                60      LOAD_ATTR                       13: exec_module
+                62      STORE_NAME                      13: exec_module
+                64      LOAD_NAME                       11: _bootstrap_external
+                66      LOAD_ATTR                       12: _LoaderBasics
+                68      LOAD_ATTR                       14: load_module
+                70      STORE_NAME                      14: load_module
+                72      LOAD_CONST                      11: None
+                74      RETURN_VALUE                    
+        'InspectLoader'
+        [Code]
+            File Name: importlib/abc.py
+            Object Name: ExecutionLoader
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'abc'
+                'abstractmethod'
+                'get_filename'
+                'get_code'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'ExecutionLoader'
+                'Abstract base class for loaders that wish to support the execution of\n    modules as scripts.\n\n    This ABC represents one of the optional protocols specified in PEP 302.\n\n    '
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: get_filename
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'ImportError'
+                    [Var Names]
+                        'self'
+                        'fullname'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Abstract method which should return the value that __file__ is to be\n        set to.\n\n        Raises ImportError if the module cannot be found.\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: ImportError
+                        2       RAISE_VARARGS                   1
+                'ExecutionLoader.get_filename'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: get_code
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'get_source'
+                        'get_filename'
+                        'ImportError'
+                        'source_to_code'
+                    [Var Names]
+                        'self'
+                        'fullname'
+                        'source'
+                        'path'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Method to return the code object for fullname.\n\n        Should return None if not applicable (e.g. built-in module).\n        Raise ImportError if the module cannot be found.\n        '
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: get_source
+                        4       LOAD_FAST                       1: fullname
+                        6       CALL_METHOD                     1
+                        8       STORE_FAST                      2: source
+                        10      LOAD_FAST                       2: source
+                        12      LOAD_CONST                      1: None
+                        14      IS_OP                           0 (is)
+                        16      POP_JUMP_IF_FALSE               11 (to 22)
+                        18      LOAD_CONST                      1: None
+                        20      RETURN_VALUE                    
+                        22      SETUP_FINALLY                   7 (to 38)
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_METHOD                     1: get_filename
+                        28      LOAD_FAST                       1: fullname
+                        30      CALL_METHOD                     1
+                        32      STORE_FAST                      3: path
+                        34      POP_BLOCK                       
+                        36      JUMP_FORWARD                    14 (to 66)
+                        38      DUP_TOP                         
+                        40      LOAD_GLOBAL                     2: ImportError
+                        42      JUMP_IF_NOT_EXC_MATCH           32 (to 64)
+                        44      POP_TOP                         
+                        46      POP_TOP                         
+                        48      POP_TOP                         
+                        50      LOAD_FAST                       0: self
+                        52      LOAD_METHOD                     3: source_to_code
+                        54      LOAD_FAST                       2: source
+                        56      CALL_METHOD                     1
+                        58      ROT_FOUR                        
+                        60      POP_EXCEPT                      
+                        62      RETURN_VALUE                    
+                        64      RERAISE                         0
+                        66      LOAD_FAST                       0: self
+                        68      LOAD_METHOD                     3: source_to_code
+                        70      LOAD_FAST                       2: source
+                        72      LOAD_FAST                       3: path
+                        74      CALL_METHOD                     2
+                        76      RETURN_VALUE                    
+                'ExecutionLoader.get_code'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'ExecutionLoader'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Abstract base class for loaders that wish to support the execution of\n    modules as scripts.\n\n    This ABC represents one of the optional protocols specified in PEP 302.\n\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_NAME                       4: abc
+                14      LOAD_ATTR                       5: abstractmethod
+                16      LOAD_CONST                      2: <CODE> get_filename
+                18      LOAD_CONST                      3: 'ExecutionLoader.get_filename'
+                20      MAKE_FUNCTION                   0
+                22      CALL_FUNCTION                   1
+                24      STORE_NAME                      6: get_filename
+                26      LOAD_CONST                      4: <CODE> get_code
+                28      LOAD_CONST                      5: 'ExecutionLoader.get_code'
+                30      MAKE_FUNCTION                   0
+                32      STORE_NAME                      7: get_code
+                34      LOAD_CONST                      6: None
+                36      RETURN_VALUE                    
+        'ExecutionLoader'
+        [Code]
+            File Name: importlib/abc.py
+            Object Name: FileLoader
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'FileLoader'
+                'Abstract base class partially implementing the ResourceLoader and\n    ExecutionLoader ABCs.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'FileLoader'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Abstract base class partially implementing the ResourceLoader and\n    ExecutionLoader ABCs.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'FileLoader'
+        [Code]
+            File Name: importlib/abc.py
+            Object Name: SourceLoader
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'path_mtime'
+                'path_stats'
+                'set_data'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'SourceLoader'
+                'Abstract base class for loading source code (and optionally any\n    corresponding bytecode).\n\n    To support loading from source code, the abstractmethods inherited from\n    ResourceLoader and ExecutionLoader need to be implemented. To also support\n    loading from bytecode, the optional methods specified directly by this ABC\n    is required.\n\n    Inherited abstractmethods not implemented in this ABC:\n\n        * ResourceLoader.get_data\n        * ExecutionLoader.get_filename\n\n    '
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: path_mtime
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'path_stats'
+                        '__func__'
+                        'SourceLoader'
+                        'OSError'
+                        'int'
+                    [Var Names]
+                        'self'
+                        'path'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return the (int) modification time for the path (str).'
+                        'mtime'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: path_stats
+                        4       LOAD_ATTR                       1: __func__
+                        6       LOAD_GLOBAL                     2: SourceLoader
+                        8       LOAD_ATTR                       0: path_stats
+                        10      IS_OP                           0 (is)
+                        12      POP_JUMP_IF_FALSE               9 (to 18)
+                        14      LOAD_GLOBAL                     3: OSError
+                        16      RAISE_VARARGS                   1
+                        18      LOAD_GLOBAL                     4: int
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_METHOD                     0: path_stats
+                        24      LOAD_FAST                       1: path
+                        26      CALL_METHOD                     1
+                        28      LOAD_CONST                      1: 'mtime'
+                        30      BINARY_SUBSCR                   
+                        32      CALL_FUNCTION                   1
+                        34      RETURN_VALUE                    
+                'SourceLoader.path_mtime'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: path_stats
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'path_mtime'
+                        '__func__'
+                        'SourceLoader'
+                        'OSError'
+                    [Var Names]
+                        'self'
+                        'path'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Return a metadata dict for the source pointed to by the path (str).\n        Possible keys:\n        - 'mtime' (mandatory) is the numeric timestamp of last source\n          code modification;\n        - 'size' (optional) is the size in bytes of the source code.\n        "
+                        'mtime'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: path_mtime
+                        4       LOAD_ATTR                       1: __func__
+                        6       LOAD_GLOBAL                     2: SourceLoader
+                        8       LOAD_ATTR                       0: path_mtime
+                        10      IS_OP                           0 (is)
+                        12      POP_JUMP_IF_FALSE               9 (to 18)
+                        14      LOAD_GLOBAL                     3: OSError
+                        16      RAISE_VARARGS                   1
+                        18      LOAD_CONST                      1: 'mtime'
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_METHOD                     0: path_mtime
+                        24      LOAD_FAST                       1: path
+                        26      CALL_METHOD                     1
+                        28      BUILD_MAP                       1
+                        30      RETURN_VALUE                    
+                'SourceLoader.path_stats'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: set_data
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        'path'
+                        'data'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Write the bytes to the path (if possible).\n\n        Accepts a str path and data as bytes.\n\n        Any needed intermediary directories are to be created. If for some\n        reason the file cannot be written because of permissions, fail\n        silently.\n        '
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'SourceLoader.set_data'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'SourceLoader'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Abstract base class for loading source code (and optionally any\n    corresponding bytecode).\n\n    To support loading from source code, the abstractmethods inherited from\n    ResourceLoader and ExecutionLoader need to be implemented. To also support\n    loading from bytecode, the optional methods specified directly by this ABC\n    is required.\n\n    Inherited abstractmethods not implemented in this ABC:\n\n        * ResourceLoader.get_data\n        * ExecutionLoader.get_filename\n\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> path_mtime
+                14      LOAD_CONST                      3: 'SourceLoader.path_mtime'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: path_mtime
+                20      LOAD_CONST                      4: <CODE> path_stats
+                22      LOAD_CONST                      5: 'SourceLoader.path_stats'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: path_stats
+                28      LOAD_CONST                      6: <CODE> set_data
+                30      LOAD_CONST                      7: 'SourceLoader.set_data'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      6: set_data
+                36      LOAD_CONST                      8: None
+                38      RETURN_VALUE                    
+        'SourceLoader'
+        [Code]
+            File Name: importlib/abc.py
+            Object Name: ResourceReader
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 5
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'abc'
+                'abstractmethod'
+                'Text'
+                'BinaryIO'
+                'open_resource'
+                'resource_path'
+                'bool'
+                'is_resource'
+                'Iterable'
+                'str'
+                'contents'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'ResourceReader'
+                'Abstract base class for loaders to provide resource reading support.'
+                'resource'
+                'return'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: open_resource
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'FileNotFoundError'
+                    [Var Names]
+                        'self'
+                        'resource'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Return an opened, file-like object for binary reading.\n\n        The 'resource' argument is expected to represent only a file name.\n        If the resource cannot be found, FileNotFoundError is raised.\n        "
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: FileNotFoundError
+                        2       RAISE_VARARGS                   1
+                'ResourceReader.open_resource'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: resource_path
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'FileNotFoundError'
+                    [Var Names]
+                        'self'
+                        'resource'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Return the file system path to the specified resource.\n\n        The 'resource' argument is expected to represent only a file name.\n        If the resource does not exist on the file system, raise\n        FileNotFoundError.\n        "
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: FileNotFoundError
+                        2       RAISE_VARARGS                   1
+                'ResourceReader.resource_path'
+                'path'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: is_resource
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'FileNotFoundError'
+                    [Var Names]
+                        'self'
+                        'path'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Return True if the named 'path' is a resource.\n\n        Files are resources, directories are not.\n        "
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: FileNotFoundError
+                        2       RAISE_VARARGS                   1
+                'ResourceReader.is_resource'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: contents
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'FileNotFoundError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return an iterable of entries in `package`.'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: FileNotFoundError
+                        2       RAISE_VARARGS                   1
+                'ResourceReader.contents'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'ResourceReader'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Abstract base class for loaders to provide resource reading support.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_NAME                       4: abc
+                14      LOAD_ATTR                       5: abstractmethod
+                16      LOAD_CONST                      2: 'resource'
+                18      LOAD_NAME                       6: Text
+                20      LOAD_CONST                      3: 'return'
+                22      LOAD_NAME                       7: BinaryIO
+                24      BUILD_TUPLE                     4
+                26      LOAD_CONST                      4: <CODE> open_resource
+                28      LOAD_CONST                      5: 'ResourceReader.open_resource'
+                30      MAKE_FUNCTION                   4
+                32      CALL_FUNCTION                   1
+                34      STORE_NAME                      8: open_resource
+                36      LOAD_NAME                       4: abc
+                38      LOAD_ATTR                       5: abstractmethod
+                40      LOAD_CONST                      2: 'resource'
+                42      LOAD_NAME                       6: Text
+                44      LOAD_CONST                      3: 'return'
+                46      LOAD_NAME                       6: Text
+                48      BUILD_TUPLE                     4
+                50      LOAD_CONST                      6: <CODE> resource_path
+                52      LOAD_CONST                      7: 'ResourceReader.resource_path'
+                54      MAKE_FUNCTION                   4
+                56      CALL_FUNCTION                   1
+                58      STORE_NAME                      9: resource_path
+                60      LOAD_NAME                       4: abc
+                62      LOAD_ATTR                       5: abstractmethod
+                64      LOAD_CONST                      8: 'path'
+                66      LOAD_NAME                       6: Text
+                68      LOAD_CONST                      3: 'return'
+                70      LOAD_NAME                       10: bool
+                72      BUILD_TUPLE                     4
+                74      LOAD_CONST                      9: <CODE> is_resource
+                76      LOAD_CONST                      10: 'ResourceReader.is_resource'
+                78      MAKE_FUNCTION                   4
+                80      CALL_FUNCTION                   1
+                82      STORE_NAME                      11: is_resource
+                84      LOAD_NAME                       4: abc
+                86      LOAD_ATTR                       5: abstractmethod
+                88      LOAD_CONST                      3: 'return'
+                90      LOAD_NAME                       12: Iterable
+                92      LOAD_NAME                       13: str
+                94      BINARY_SUBSCR                   
+                96      BUILD_TUPLE                     2
+                98      LOAD_CONST                      11: <CODE> contents
+                100     LOAD_CONST                      12: 'ResourceReader.contents'
+                102     MAKE_FUNCTION                   4
+                104     CALL_FUNCTION                   1
+                106     STORE_NAME                      14: contents
+                108     LOAD_CONST                      13: None
+                110     RETURN_VALUE                    
+        'ResourceReader'
+        [Code]
+            File Name: importlib/abc.py
+            Object Name: Traversable
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'abc'
+                'abstractmethod'
+                'iterdir'
+                'read_bytes'
+                'read_text'
+                'bool'
+                'is_dir'
+                'is_file'
+                'joinpath'
+                '__truediv__'
+                'open'
+                'abstractproperty'
+                'str'
+                'name'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Traversable'
+                '\n    An object with a subset of pathlib.Path methods suitable for\n    traversing directories and opening files.\n    '
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: iterdir
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '\n        Yield Traversable objects in self\n        '
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'Traversable.iterdir'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: read_bytes
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'open'
+                        'read'
+                    [Var Names]
+                        'self'
+                        'strm'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '\n        Read contents of self as bytes\n        '
+                        'rb'
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: open
+                        4       LOAD_CONST                      1: 'rb'
+                        6       CALL_METHOD                     1
+                        8       SETUP_WITH                      12 (to 34)
+                        10      STORE_FAST                      1: strm
+                        12      LOAD_FAST                       1: strm
+                        14      LOAD_METHOD                     1: read
+                        16      CALL_METHOD                     0
+                        18      POP_BLOCK                       
+                        20      ROT_TWO                         
+                        22      LOAD_CONST                      2: None
+                        24      DUP_TOP                         
+                        26      DUP_TOP                         
+                        28      CALL_FUNCTION                   3
+                        30      POP_TOP                         
+                        32      RETURN_VALUE                    
+                        34      WITH_EXCEPT_START               
+                        36      POP_JUMP_IF_TRUE                20 (to 40)
+                        38      RERAISE                         1
+                        40      POP_TOP                         
+                        42      POP_TOP                         
+                        44      POP_TOP                         
+                        46      POP_EXCEPT                      
+                        48      POP_TOP                         
+                        50      LOAD_CONST                      2: None
+                        52      RETURN_VALUE                    
+                'Traversable.read_bytes'
+                None
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: read_text
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'open'
+                        'read'
+                    [Var Names]
+                        'self'
+                        'encoding'
+                        'strm'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '\n        Read contents of self as text\n        '
+                        (
+                            'encoding'
+                        )
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: open
+                        4       LOAD_FAST                       1: encoding
+                        6       LOAD_CONST                      1: ('encoding',)
+                        8       CALL_FUNCTION_KW                1
+                        10      SETUP_WITH                      12 (to 36)
+                        12      STORE_FAST                      2: strm
+                        14      LOAD_FAST                       2: strm
+                        16      LOAD_METHOD                     1: read
+                        18      CALL_METHOD                     0
+                        20      POP_BLOCK                       
+                        22      ROT_TWO                         
+                        24      LOAD_CONST                      2: None
+                        26      DUP_TOP                         
+                        28      DUP_TOP                         
+                        30      CALL_FUNCTION                   3
+                        32      POP_TOP                         
+                        34      RETURN_VALUE                    
+                        36      WITH_EXCEPT_START               
+                        38      POP_JUMP_IF_TRUE                21 (to 42)
+                        40      RERAISE                         1
+                        42      POP_TOP                         
+                        44      POP_TOP                         
+                        46      POP_TOP                         
+                        48      POP_EXCEPT                      
+                        50      POP_TOP                         
+                        52      LOAD_CONST                      2: None
+                        54      RETURN_VALUE                    
+                'Traversable.read_text'
+                'return'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: is_dir
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '\n        Return True if self is a dir\n        '
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'Traversable.is_dir'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: is_file
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '\n        Return True if self is a file\n        '
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'Traversable.is_file'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: joinpath
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        'child'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '\n        Return Traversable child in self\n        '
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'Traversable.joinpath'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: __truediv__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'joinpath'
+                    [Var Names]
+                        'self'
+                        'child'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '\n        Return Traversable child in self\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: joinpath
+                        4       LOAD_FAST                       1: child
+                        6       CALL_METHOD                     1
+                        8       RETURN_VALUE                    
+                'Traversable.__truediv__'
+                'r'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: open
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 1
+                    Flags: 0x0000004F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        'mode'
+                        'args'
+                        'kwargs'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "\n        mode may be 'r' or 'rb' to open as text or binary. Return a handle\n        suitable for reading (same as pathlib.Path.open).\n\n        When opening as text, accepts encoding parameters such as those\n        accepted by io.TextIOWrapper.\n        "
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'Traversable.open'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: name
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '\n        The base name of this object without any parent references.\n        '
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'Traversable.name'
+                (
+                    None
+                )
+                (
+                    'r'
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Traversable'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: '\n    An object with a subset of pathlib.Path methods suitable for\n    traversing directories and opening files.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_NAME                       4: abc
+                14      LOAD_ATTR                       5: abstractmethod
+                16      LOAD_CONST                      2: <CODE> iterdir
+                18      LOAD_CONST                      3: 'Traversable.iterdir'
+                20      MAKE_FUNCTION                   0
+                22      CALL_FUNCTION                   1
+                24      STORE_NAME                      6: iterdir
+                26      LOAD_CONST                      4: <CODE> read_bytes
+                28      LOAD_CONST                      5: 'Traversable.read_bytes'
+                30      MAKE_FUNCTION                   0
+                32      STORE_NAME                      7: read_bytes
+                34      LOAD_CONST                      23: (None,)
+                36      LOAD_CONST                      7: <CODE> read_text
+                38      LOAD_CONST                      8: 'Traversable.read_text'
+                40      MAKE_FUNCTION                   1
+                42      STORE_NAME                      8: read_text
+                44      LOAD_NAME                       4: abc
+                46      LOAD_ATTR                       5: abstractmethod
+                48      LOAD_CONST                      9: 'return'
+                50      LOAD_NAME                       9: bool
+                52      BUILD_TUPLE                     2
+                54      LOAD_CONST                      10: <CODE> is_dir
+                56      LOAD_CONST                      11: 'Traversable.is_dir'
+                58      MAKE_FUNCTION                   4
+                60      CALL_FUNCTION                   1
+                62      STORE_NAME                      10: is_dir
+                64      LOAD_NAME                       4: abc
+                66      LOAD_ATTR                       5: abstractmethod
+                68      LOAD_CONST                      9: 'return'
+                70      LOAD_NAME                       9: bool
+                72      BUILD_TUPLE                     2
+                74      LOAD_CONST                      12: <CODE> is_file
+                76      LOAD_CONST                      13: 'Traversable.is_file'
+                78      MAKE_FUNCTION                   4
+                80      CALL_FUNCTION                   1
+                82      STORE_NAME                      11: is_file
+                84      LOAD_NAME                       4: abc
+                86      LOAD_ATTR                       5: abstractmethod
+                88      LOAD_CONST                      14: <CODE> joinpath
+                90      LOAD_CONST                      15: 'Traversable.joinpath'
+                92      MAKE_FUNCTION                   0
+                94      CALL_FUNCTION                   1
+                96      STORE_NAME                      12: joinpath
+                98      LOAD_CONST                      16: <CODE> __truediv__
+                100     LOAD_CONST                      17: 'Traversable.__truediv__'
+                102     MAKE_FUNCTION                   0
+                104     STORE_NAME                      13: __truediv__
+                106     LOAD_NAME                       4: abc
+                108     LOAD_ATTR                       5: abstractmethod
+                110     LOAD_CONST                      24: ('r',)
+                112     LOAD_CONST                      19: <CODE> open
+                114     LOAD_CONST                      20: 'Traversable.open'
+                116     MAKE_FUNCTION                   1
+                118     CALL_FUNCTION                   1
+                120     STORE_NAME                      14: open
+                122     LOAD_NAME                       4: abc
+                124     LOAD_ATTR                       15: abstractproperty
+                126     LOAD_CONST                      9: 'return'
+                128     LOAD_NAME                       16: str
+                130     BUILD_TUPLE                     2
+                132     LOAD_CONST                      21: <CODE> name
+                134     LOAD_CONST                      22: 'Traversable.name'
+                136     MAKE_FUNCTION                   4
+                138     CALL_FUNCTION                   1
+                140     STORE_NAME                      17: name
+                142     LOAD_CONST                      6: None
+                144     RETURN_VALUE                    
+        'Traversable'
+        [Code]
+            File Name: importlib/abc.py
+            Object Name: TraversableResources
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'abc'
+                'abstractmethod'
+                'files'
+                'open_resource'
+                'resource_path'
+                'is_resource'
+                'contents'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'TraversableResources'
+                '\n    The required interface for providing traversable\n    resources.\n    '
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: files
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return a Traversable object for the loaded package.'
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'TraversableResources.files'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: open_resource
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'files'
+                        'joinpath'
+                        'open'
+                    [Var Names]
+                        'self'
+                        'resource'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'rb'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: files
+                        4       CALL_METHOD                     0
+                        6       LOAD_METHOD                     1: joinpath
+                        8       LOAD_FAST                       1: resource
+                        10      CALL_METHOD                     1
+                        12      LOAD_METHOD                     2: open
+                        14      LOAD_CONST                      1: 'rb'
+                        16      CALL_METHOD                     1
+                        18      RETURN_VALUE                    
+                'TraversableResources.open_resource'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: resource_path
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'FileNotFoundError'
+                    [Var Names]
+                        'self'
+                        'resource'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: FileNotFoundError
+                        2       LOAD_FAST                       1: resource
+                        4       CALL_FUNCTION                   1
+                        6       RAISE_VARARGS                   1
+                'TraversableResources.resource_path'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: is_resource
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'files'
+                        'joinpath'
+                        'is_file'
+                    [Var Names]
+                        'self'
+                        'path'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: files
+                        4       CALL_METHOD                     0
+                        6       LOAD_METHOD                     1: joinpath
+                        8       LOAD_FAST                       1: path
+                        10      CALL_METHOD                     1
+                        12      LOAD_METHOD                     2: is_file
+                        14      CALL_METHOD                     0
+                        16      RETURN_VALUE                    
+                'TraversableResources.is_resource'
+                [Code]
+                    File Name: importlib/abc.py
+                    Object Name: contents
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'files'
+                        'iterdir'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        [Code]
+                            File Name: importlib/abc.py
+                            Object Name: <genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 2
+                            Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                            [Names]
+                                'name'
+                            [Var Names]
+                                '.0'
+                                'item'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       GEN_START                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        6 (to 18)
+                                6       STORE_FAST                      1: item
+                                8       LOAD_FAST                       1: item
+                                10      LOAD_ATTR                       0: name
+                                12      YIELD_VALUE                     
+                                14      POP_TOP                         
+                                16      JUMP_ABSOLUTE                   2 (to 4)
+                                18      LOAD_CONST                      0: None
+                                20      RETURN_VALUE                    
+                        'TraversableResources.contents.<locals>.<genexpr>'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: <CODE> <genexpr>
+                        2       LOAD_CONST                      2: 'TraversableResources.contents.<locals>.<genexpr>'
+                        4       MAKE_FUNCTION                   0
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_METHOD                     0: files
+                        10      CALL_METHOD                     0
+                        12      LOAD_METHOD                     1: iterdir
+                        14      CALL_METHOD                     0
+                        16      GET_ITER                        
+                        18      CALL_FUNCTION                   1
+                        20      RETURN_VALUE                    
+                'TraversableResources.contents'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'TraversableResources'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: '\n    The required interface for providing traversable\n    resources.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_NAME                       4: abc
+                14      LOAD_ATTR                       5: abstractmethod
+                16      LOAD_CONST                      2: <CODE> files
+                18      LOAD_CONST                      3: 'TraversableResources.files'
+                20      MAKE_FUNCTION                   0
+                22      CALL_FUNCTION                   1
+                24      STORE_NAME                      6: files
+                26      LOAD_CONST                      4: <CODE> open_resource
+                28      LOAD_CONST                      5: 'TraversableResources.open_resource'
+                30      MAKE_FUNCTION                   0
+                32      STORE_NAME                      7: open_resource
+                34      LOAD_CONST                      6: <CODE> resource_path
+                36      LOAD_CONST                      7: 'TraversableResources.resource_path'
+                38      MAKE_FUNCTION                   0
+                40      STORE_NAME                      8: resource_path
+                42      LOAD_CONST                      8: <CODE> is_resource
+                44      LOAD_CONST                      9: 'TraversableResources.is_resource'
+                46      MAKE_FUNCTION                   0
+                48      STORE_NAME                      9: is_resource
+                50      LOAD_CONST                      10: <CODE> contents
+                52      LOAD_CONST                      11: 'TraversableResources.contents'
+                54      MAKE_FUNCTION                   0
+                56      STORE_NAME                      10: contents
+                58      LOAD_CONST                      12: None
+                60      RETURN_VALUE                    
+        'TraversableResources'
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Abstract base classes related to import.'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 1
+        6       LOAD_CONST                      2: ('_bootstrap_external',)
+        8       IMPORT_NAME                     1: 
+        10      IMPORT_FROM                     2: _bootstrap_external
+        12      STORE_NAME                      2: _bootstrap_external
+        14      POP_TOP                         
+        16      LOAD_CONST                      1: 1
+        18      LOAD_CONST                      3: ('machinery',)
+        20      IMPORT_NAME                     1: 
+        22      IMPORT_FROM                     3: machinery
+        24      STORE_NAME                      3: machinery
+        26      POP_TOP                         
+        28      SETUP_FINALLY                   6 (to 42)
+        30      LOAD_CONST                      4: 0
+        32      LOAD_CONST                      5: None
+        34      IMPORT_NAME                     4: _frozen_importlib
+        36      STORE_NAME                      4: _frozen_importlib
+        38      POP_BLOCK                       
+        40      JUMP_FORWARD                    26 (to 94)
+        42      DUP_TOP                         
+        44      LOAD_NAME                       5: ImportError
+        46      JUMP_IF_NOT_EXC_MATCH           46 (to 92)
+        48      POP_TOP                         
+        50      STORE_NAME                      6: exc
+        52      POP_TOP                         
+        54      SETUP_FINALLY                   14 (to 84)
+        56      LOAD_NAME                       6: exc
+        58      LOAD_ATTR                       7: name
+        60      LOAD_CONST                      6: '_frozen_importlib'
+        62      COMPARE_OP                      3 (!=)
+        64      POP_JUMP_IF_FALSE               34 (to 68)
+        66      RAISE_VARARGS                   0
+        68      LOAD_CONST                      5: None
+        70      STORE_NAME                      4: _frozen_importlib
+        72      POP_BLOCK                       
+        74      POP_EXCEPT                      
+        76      LOAD_CONST                      5: None
+        78      STORE_NAME                      6: exc
+        80      DELETE_NAME                     6: exc
+        82      JUMP_FORWARD                    5 (to 94)
+        84      LOAD_CONST                      5: None
+        86      STORE_NAME                      6: exc
+        88      DELETE_NAME                     6: exc
+        90      RERAISE                         1
+        92      RERAISE                         0
+        94      SETUP_FINALLY                   6 (to 108)
+        96      LOAD_CONST                      4: 0
+        98      LOAD_CONST                      5: None
+        100     IMPORT_NAME                     8: _frozen_importlib_external
+        102     STORE_NAME                      8: _frozen_importlib_external
+        104     POP_BLOCK                       
+        106     JUMP_FORWARD                    11 (to 130)
+        108     DUP_TOP                         
+        110     LOAD_NAME                       5: ImportError
+        112     JUMP_IF_NOT_EXC_MATCH           64 (to 128)
+        114     POP_TOP                         
+        116     POP_TOP                         
+        118     POP_TOP                         
+        120     LOAD_NAME                       2: _bootstrap_external
+        122     STORE_NAME                      8: _frozen_importlib_external
+        124     POP_EXCEPT                      
+        126     JUMP_FORWARD                    1 (to 130)
+        128     RERAISE                         0
+        130     LOAD_CONST                      1: 1
+        132     LOAD_CONST                      7: ('Loader',)
+        134     IMPORT_NAME                     9: _abc
+        136     IMPORT_FROM                     10: Loader
+        138     STORE_NAME                      10: Loader
+        140     POP_TOP                         
+        142     LOAD_CONST                      4: 0
+        144     LOAD_CONST                      5: None
+        146     IMPORT_NAME                     11: abc
+        148     STORE_NAME                      11: abc
+        150     LOAD_CONST                      4: 0
+        152     LOAD_CONST                      5: None
+        154     IMPORT_NAME                     12: warnings
+        156     STORE_NAME                      12: warnings
+        158     LOAD_CONST                      4: 0
+        160     LOAD_CONST                      8: ('BinaryIO', 'Iterable', 'Text')
+        162     IMPORT_NAME                     13: typing
+        164     IMPORT_FROM                     14: BinaryIO
+        166     STORE_NAME                      14: BinaryIO
+        168     IMPORT_FROM                     15: Iterable
+        170     STORE_NAME                      15: Iterable
+        172     IMPORT_FROM                     16: Text
+        174     STORE_NAME                      16: Text
+        176     POP_TOP                         
+        178     LOAD_CONST                      4: 0
+        180     LOAD_CONST                      9: ('Protocol', 'runtime_checkable')
+        182     IMPORT_NAME                     13: typing
+        184     IMPORT_FROM                     17: Protocol
+        186     STORE_NAME                      17: Protocol
+        188     IMPORT_FROM                     18: runtime_checkable
+        190     STORE_NAME                      18: runtime_checkable
+        192     POP_TOP                         
+        194     LOAD_CONST                      10: <CODE> _register
+        196     LOAD_CONST                      11: '_register'
+        198     MAKE_FUNCTION                   0
+        200     STORE_NAME                      19: _register
+        202     LOAD_BUILD_CLASS                
+        204     LOAD_CONST                      12: <CODE> Finder
+        206     LOAD_CONST                      13: 'Finder'
+        208     MAKE_FUNCTION                   0
+        210     LOAD_CONST                      13: 'Finder'
+        212     LOAD_NAME                       11: abc
+        214     LOAD_ATTR                       20: ABCMeta
+        216     LOAD_CONST                      14: ('metaclass',)
+        218     CALL_FUNCTION_KW                3
+        220     STORE_NAME                      21: Finder
+        222     LOAD_BUILD_CLASS                
+        224     LOAD_CONST                      15: <CODE> MetaPathFinder
+        226     LOAD_CONST                      16: 'MetaPathFinder'
+        228     MAKE_FUNCTION                   0
+        230     LOAD_CONST                      16: 'MetaPathFinder'
+        232     LOAD_NAME                       11: abc
+        234     LOAD_ATTR                       20: ABCMeta
+        236     LOAD_CONST                      14: ('metaclass',)
+        238     CALL_FUNCTION_KW                3
+        240     STORE_NAME                      22: MetaPathFinder
+        242     LOAD_NAME                       19: _register
+        244     LOAD_NAME                       22: MetaPathFinder
+        246     LOAD_NAME                       3: machinery
+        248     LOAD_ATTR                       23: BuiltinImporter
+        250     LOAD_NAME                       3: machinery
+        252     LOAD_ATTR                       24: FrozenImporter
+        254     LOAD_NAME                       3: machinery
+        256     LOAD_ATTR                       25: PathFinder
+        258     LOAD_NAME                       3: machinery
+        260     LOAD_ATTR                       26: WindowsRegistryFinder
+        262     CALL_FUNCTION                   5
+        264     POP_TOP                         
+        266     LOAD_BUILD_CLASS                
+        268     LOAD_CONST                      17: <CODE> PathEntryFinder
+        270     LOAD_CONST                      18: 'PathEntryFinder'
+        272     MAKE_FUNCTION                   0
+        274     LOAD_CONST                      18: 'PathEntryFinder'
+        276     LOAD_NAME                       11: abc
+        278     LOAD_ATTR                       20: ABCMeta
+        280     LOAD_CONST                      14: ('metaclass',)
+        282     CALL_FUNCTION_KW                3
+        284     STORE_NAME                      27: PathEntryFinder
+        286     LOAD_NAME                       19: _register
+        288     LOAD_NAME                       27: PathEntryFinder
+        290     LOAD_NAME                       3: machinery
+        292     LOAD_ATTR                       28: FileFinder
+        294     CALL_FUNCTION                   2
+        296     POP_TOP                         
+        298     LOAD_BUILD_CLASS                
+        300     LOAD_CONST                      19: <CODE> ResourceLoader
+        302     LOAD_CONST                      20: 'ResourceLoader'
+        304     MAKE_FUNCTION                   0
+        306     LOAD_CONST                      20: 'ResourceLoader'
+        308     LOAD_NAME                       10: Loader
+        310     CALL_FUNCTION                   3
+        312     STORE_NAME                      29: ResourceLoader
+        314     LOAD_BUILD_CLASS                
+        316     LOAD_CONST                      21: <CODE> InspectLoader
+        318     LOAD_CONST                      22: 'InspectLoader'
+        320     MAKE_FUNCTION                   0
+        322     LOAD_CONST                      22: 'InspectLoader'
+        324     LOAD_NAME                       10: Loader
+        326     CALL_FUNCTION                   3
+        328     STORE_NAME                      30: InspectLoader
+        330     LOAD_NAME                       19: _register
+        332     LOAD_NAME                       30: InspectLoader
+        334     LOAD_NAME                       3: machinery
+        336     LOAD_ATTR                       23: BuiltinImporter
+        338     LOAD_NAME                       3: machinery
+        340     LOAD_ATTR                       24: FrozenImporter
+        342     CALL_FUNCTION                   3
+        344     POP_TOP                         
+        346     LOAD_BUILD_CLASS                
+        348     LOAD_CONST                      23: <CODE> ExecutionLoader
+        350     LOAD_CONST                      24: 'ExecutionLoader'
+        352     MAKE_FUNCTION                   0
+        354     LOAD_CONST                      24: 'ExecutionLoader'
+        356     LOAD_NAME                       30: InspectLoader
+        358     CALL_FUNCTION                   3
+        360     STORE_NAME                      31: ExecutionLoader
+        362     LOAD_NAME                       19: _register
+        364     LOAD_NAME                       31: ExecutionLoader
+        366     LOAD_NAME                       3: machinery
+        368     LOAD_ATTR                       32: ExtensionFileLoader
+        370     CALL_FUNCTION                   2
+        372     POP_TOP                         
+        374     LOAD_BUILD_CLASS                
+        376     LOAD_CONST                      25: <CODE> FileLoader
+        378     LOAD_CONST                      26: 'FileLoader'
+        380     MAKE_FUNCTION                   0
+        382     LOAD_CONST                      26: 'FileLoader'
+        384     LOAD_NAME                       2: _bootstrap_external
+        386     LOAD_ATTR                       33: FileLoader
+        388     LOAD_NAME                       29: ResourceLoader
+        390     LOAD_NAME                       31: ExecutionLoader
+        392     CALL_FUNCTION                   5
+        394     STORE_NAME                      33: FileLoader
+        396     LOAD_NAME                       19: _register
+        398     LOAD_NAME                       33: FileLoader
+        400     LOAD_NAME                       3: machinery
+        402     LOAD_ATTR                       34: SourceFileLoader
+        404     LOAD_NAME                       3: machinery
+        406     LOAD_ATTR                       35: SourcelessFileLoader
+        408     CALL_FUNCTION                   3
+        410     POP_TOP                         
+        412     LOAD_BUILD_CLASS                
+        414     LOAD_CONST                      27: <CODE> SourceLoader
+        416     LOAD_CONST                      28: 'SourceLoader'
+        418     MAKE_FUNCTION                   0
+        420     LOAD_CONST                      28: 'SourceLoader'
+        422     LOAD_NAME                       2: _bootstrap_external
+        424     LOAD_ATTR                       36: SourceLoader
+        426     LOAD_NAME                       29: ResourceLoader
+        428     LOAD_NAME                       31: ExecutionLoader
+        430     CALL_FUNCTION                   5
+        432     STORE_NAME                      36: SourceLoader
+        434     LOAD_NAME                       19: _register
+        436     LOAD_NAME                       36: SourceLoader
+        438     LOAD_NAME                       3: machinery
+        440     LOAD_ATTR                       34: SourceFileLoader
+        442     CALL_FUNCTION                   2
+        444     POP_TOP                         
+        446     LOAD_BUILD_CLASS                
+        448     LOAD_CONST                      29: <CODE> ResourceReader
+        450     LOAD_CONST                      30: 'ResourceReader'
+        452     MAKE_FUNCTION                   0
+        454     LOAD_CONST                      30: 'ResourceReader'
+        456     LOAD_NAME                       11: abc
+        458     LOAD_ATTR                       20: ABCMeta
+        460     LOAD_CONST                      14: ('metaclass',)
+        462     CALL_FUNCTION_KW                3
+        464     STORE_NAME                      37: ResourceReader
+        466     LOAD_NAME                       18: runtime_checkable
+        468     LOAD_BUILD_CLASS                
+        470     LOAD_CONST                      31: <CODE> Traversable
+        472     LOAD_CONST                      32: 'Traversable'
+        474     MAKE_FUNCTION                   0
+        476     LOAD_CONST                      32: 'Traversable'
+        478     LOAD_NAME                       17: Protocol
+        480     CALL_FUNCTION                   3
+        482     CALL_FUNCTION                   1
+        484     STORE_NAME                      38: Traversable
+        486     LOAD_BUILD_CLASS                
+        488     LOAD_CONST                      33: <CODE> TraversableResources
+        490     LOAD_CONST                      34: 'TraversableResources'
+        492     MAKE_FUNCTION                   0
+        494     LOAD_CONST                      34: 'TraversableResources'
+        496     LOAD_NAME                       37: ResourceReader
+        498     CALL_FUNCTION                   3
+        500     STORE_NAME                      39: TraversableResources
+        502     LOAD_CONST                      5: None
+        504     RETURN_VALUE                    

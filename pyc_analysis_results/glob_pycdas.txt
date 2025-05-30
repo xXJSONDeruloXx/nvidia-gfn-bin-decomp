@@ -1,0 +1,1448 @@
+glob.pyc (Python 3.10)
+[Code]
+    File Name: glob.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 5
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'contextlib'
+        'os'
+        're'
+        'fnmatch'
+        'itertools'
+        'stat'
+        'sys'
+        '__all__'
+        'glob'
+        'iglob'
+        '_iglob'
+        '_glob1'
+        '_glob0'
+        'glob0'
+        'glob1'
+        '_glob2'
+        '_iterdir'
+        '_listdir'
+        '_rlistdir'
+        '_lexists'
+        '_isdir'
+        '_join'
+        'compile'
+        'magic_check'
+        'magic_check_bytes'
+        'has_magic'
+        '_ishidden'
+        '_isrecursive'
+        'escape'
+        'O_RDONLY'
+        'getattr'
+        '_dir_open_flags'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Filename globbing utility.'
+        0
+        None
+        (
+            'glob'
+            'iglob'
+            'escape'
+        )
+        False
+        (
+            'root_dir'
+            'dir_fd'
+            'recursive'
+        )
+        [Code]
+            File Name: glob.py
+            Object Name: glob
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 3
+            Locals: 4
+            Stack Size: 7
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'list'
+                'iglob'
+            [Var Names]
+                'pathname'
+                'root_dir'
+                'dir_fd'
+                'recursive'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Return a list of paths matching a pathname pattern.\n\n    The pattern may contain simple shell-style wildcards a la\n    fnmatch. However, unlike fnmatch, filenames starting with a\n    dot are special cases that are not matched by '*' and '?'\n    patterns.\n\n    If recursive is true, the pattern '**' will match any files and\n    zero or more directories and subdirectories.\n    "
+                (
+                    'root_dir'
+                    'dir_fd'
+                    'recursive'
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: list
+                2       LOAD_GLOBAL                     1: iglob
+                4       LOAD_FAST                       0: pathname
+                6       LOAD_FAST                       1: root_dir
+                8       LOAD_FAST                       2: dir_fd
+                10      LOAD_FAST                       3: recursive
+                12      LOAD_CONST                      1: ('root_dir', 'dir_fd', 'recursive')
+                14      CALL_FUNCTION_KW                4
+                16      CALL_FUNCTION                   1
+                18      RETURN_VALUE                    
+        'glob'
+        [Code]
+            File Name: glob.py
+            Object Name: iglob
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 3
+            Locals: 6
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'sys'
+                'audit'
+                'os'
+                'fspath'
+                '_iglob'
+                '_isrecursive'
+                'next'
+                'itertools'
+                'chain'
+                'StopIteration'
+            [Var Names]
+                'pathname'
+                'root_dir'
+                'dir_fd'
+                'recursive'
+                'it'
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Return an iterator which yields the paths matching a pathname pattern.\n\n    The pattern may contain simple shell-style wildcards a la\n    fnmatch. However, unlike fnmatch, filenames starting with a\n    dot are special cases that are not matched by '*' and '?'\n    patterns.\n\n    If recursive is true, the pattern '**' will match any files and\n    zero or more directories and subdirectories.\n    "
+                'glob.glob'
+                'glob.glob/2'
+                None
+                0
+                False
+                2
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: sys
+                2       LOAD_METHOD                     1: audit
+                4       LOAD_CONST                      1: 'glob.glob'
+                6       LOAD_FAST                       0: pathname
+                8       LOAD_FAST                       3: recursive
+                10      CALL_METHOD                     3
+                12      POP_TOP                         
+                14      LOAD_GLOBAL                     0: sys
+                16      LOAD_METHOD                     1: audit
+                18      LOAD_CONST                      2: 'glob.glob/2'
+                20      LOAD_FAST                       0: pathname
+                22      LOAD_FAST                       3: recursive
+                24      LOAD_FAST                       1: root_dir
+                26      LOAD_FAST                       2: dir_fd
+                28      CALL_METHOD                     5
+                30      POP_TOP                         
+                32      LOAD_FAST                       1: root_dir
+                34      LOAD_CONST                      3: None
+                36      IS_OP                           1 (is not)
+                38      POP_JUMP_IF_FALSE               26 (to 52)
+                40      LOAD_GLOBAL                     2: os
+                42      LOAD_METHOD                     3: fspath
+                44      LOAD_FAST                       1: root_dir
+                46      CALL_METHOD                     1
+                48      STORE_FAST                      1: root_dir
+                50      JUMP_FORWARD                    6 (to 64)
+                52      LOAD_FAST                       0: pathname
+                54      LOAD_CONST                      3: None
+                56      LOAD_CONST                      4: 0
+                58      BUILD_SLICE                     2
+                60      BINARY_SUBSCR                   
+                62      STORE_FAST                      1: root_dir
+                64      LOAD_GLOBAL                     4: _iglob
+                66      LOAD_FAST                       0: pathname
+                68      LOAD_FAST                       1: root_dir
+                70      LOAD_FAST                       2: dir_fd
+                72      LOAD_FAST                       3: recursive
+                74      LOAD_CONST                      5: False
+                76      CALL_FUNCTION                   5
+                78      STORE_FAST                      4: it
+                80      LOAD_FAST                       0: pathname
+                82      POP_JUMP_IF_FALSE               52 (to 104)
+                84      LOAD_FAST                       3: recursive
+                86      POP_JUMP_IF_FALSE               82 (to 164)
+                88      LOAD_GLOBAL                     5: _isrecursive
+                90      LOAD_FAST                       0: pathname
+                92      LOAD_CONST                      3: None
+                94      LOAD_CONST                      6: 2
+                96      BUILD_SLICE                     2
+                98      BINARY_SUBSCR                   
+                100     CALL_FUNCTION                   1
+                102     POP_JUMP_IF_FALSE               82 (to 164)
+                104     SETUP_FINALLY                   19 (to 144)
+                106     LOAD_GLOBAL                     6: next
+                108     LOAD_FAST                       4: it
+                110     CALL_FUNCTION                   1
+                112     STORE_FAST                      5: s
+                114     LOAD_FAST                       5: s
+                116     POP_JUMP_IF_FALSE               69 (to 138)
+                118     LOAD_GLOBAL                     7: itertools
+                120     LOAD_METHOD                     8: chain
+                122     LOAD_FAST                       5: s
+                124     BUILD_TUPLE                     1
+                126     LOAD_FAST                       4: it
+                128     CALL_METHOD                     2
+                130     STORE_FAST                      4: it
+                132     POP_BLOCK                       
+                134     LOAD_FAST                       4: it
+                136     RETURN_VALUE                    
+                138     POP_BLOCK                       
+                140     LOAD_FAST                       4: it
+                142     RETURN_VALUE                    
+                144     DUP_TOP                         
+                146     LOAD_GLOBAL                     9: StopIteration
+                148     JUMP_IF_NOT_EXC_MATCH           81 (to 162)
+                150     POP_TOP                         
+                152     POP_TOP                         
+                154     POP_TOP                         
+                156     POP_EXCEPT                      
+                158     LOAD_FAST                       4: it
+                160     RETURN_VALUE                    
+                162     RERAISE                         0
+                164     LOAD_FAST                       4: it
+                166     RETURN_VALUE                    
+        'iglob'
+        [Code]
+            File Name: glob.py
+            Object Name: _iglob
+            Arg Count: 5
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 10
+            Stack Size: 6
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                'os'
+                'path'
+                'split'
+                'has_magic'
+                '_lexists'
+                '_join'
+                '_isdir'
+                '_isrecursive'
+                '_glob2'
+                '_glob1'
+                '_iglob'
+                '_glob0'
+                'join'
+            [Var Names]
+                'pathname'
+                'root_dir'
+                'dir_fd'
+                'recursive'
+                'dironly'
+                'dirname'
+                'basename'
+                'dirs'
+                'glob_in_dir'
+                'name'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                True
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_GLOBAL                     0: os
+                4       LOAD_ATTR                       1: path
+                6       LOAD_METHOD                     2: split
+                8       LOAD_FAST                       0: pathname
+                10      CALL_METHOD                     1
+                12      UNPACK_SEQUENCE                 2
+                14      STORE_FAST                      5: dirname
+                16      STORE_FAST                      6: basename
+                18      LOAD_GLOBAL                     3: has_magic
+                20      LOAD_FAST                       0: pathname
+                22      CALL_FUNCTION                   1
+                24      POP_JUMP_IF_TRUE                45 (to 90)
+                26      LOAD_FAST                       4: dironly
+                28      POP_JUMP_IF_FALSE               17 (to 34)
+                30      LOAD_ASSERTION_ERROR            
+                32      RAISE_VARARGS                   1
+                34      LOAD_FAST                       6: basename
+                36      POP_JUMP_IF_FALSE               32 (to 64)
+                38      LOAD_GLOBAL                     4: _lexists
+                40      LOAD_GLOBAL                     5: _join
+                42      LOAD_FAST                       1: root_dir
+                44      LOAD_FAST                       0: pathname
+                46      CALL_FUNCTION                   2
+                48      LOAD_FAST                       2: dir_fd
+                50      CALL_FUNCTION                   2
+                52      POP_JUMP_IF_FALSE               30 (to 60)
+                54      LOAD_FAST                       0: pathname
+                56      YIELD_VALUE                     
+                58      POP_TOP                         
+                60      LOAD_CONST                      0: None
+                62      RETURN_VALUE                    
+                64      LOAD_GLOBAL                     6: _isdir
+                66      LOAD_GLOBAL                     5: _join
+                68      LOAD_FAST                       1: root_dir
+                70      LOAD_FAST                       5: dirname
+                72      CALL_FUNCTION                   2
+                74      LOAD_FAST                       2: dir_fd
+                76      CALL_FUNCTION                   2
+                78      POP_JUMP_IF_FALSE               43 (to 86)
+                80      LOAD_FAST                       0: pathname
+                82      YIELD_VALUE                     
+                84      POP_TOP                         
+                86      LOAD_CONST                      0: None
+                88      RETURN_VALUE                    
+                90      LOAD_FAST                       5: dirname
+                92      POP_JUMP_IF_TRUE                77 (to 154)
+                94      LOAD_FAST                       3: recursive
+                96      POP_JUMP_IF_FALSE               65 (to 130)
+                98      LOAD_GLOBAL                     7: _isrecursive
+                100     LOAD_FAST                       6: basename
+                102     CALL_FUNCTION                   1
+                104     POP_JUMP_IF_FALSE               65 (to 130)
+                106     LOAD_GLOBAL                     8: _glob2
+                108     LOAD_FAST                       1: root_dir
+                110     LOAD_FAST                       6: basename
+                112     LOAD_FAST                       2: dir_fd
+                114     LOAD_FAST                       4: dironly
+                116     CALL_FUNCTION                   4
+                118     GET_YIELD_FROM_ITER             
+                120     LOAD_CONST                      0: None
+                122     YIELD_FROM                      
+                124     POP_TOP                         
+                126     LOAD_CONST                      0: None
+                128     RETURN_VALUE                    
+                130     LOAD_GLOBAL                     9: _glob1
+                132     LOAD_FAST                       1: root_dir
+                134     LOAD_FAST                       6: basename
+                136     LOAD_FAST                       2: dir_fd
+                138     LOAD_FAST                       4: dironly
+                140     CALL_FUNCTION                   4
+                142     GET_YIELD_FROM_ITER             
+                144     LOAD_CONST                      0: None
+                146     YIELD_FROM                      
+                148     POP_TOP                         
+                150     LOAD_CONST                      0: None
+                152     RETURN_VALUE                    
+                154     LOAD_FAST                       5: dirname
+                156     LOAD_FAST                       0: pathname
+                158     COMPARE_OP                      3 (!=)
+                160     POP_JUMP_IF_FALSE               94 (to 188)
+                162     LOAD_GLOBAL                     3: has_magic
+                164     LOAD_FAST                       5: dirname
+                166     CALL_FUNCTION                   1
+                168     POP_JUMP_IF_FALSE               94 (to 188)
+                170     LOAD_GLOBAL                     10: _iglob
+                172     LOAD_FAST                       5: dirname
+                174     LOAD_FAST                       1: root_dir
+                176     LOAD_FAST                       2: dir_fd
+                178     LOAD_FAST                       3: recursive
+                180     LOAD_CONST                      1: True
+                182     CALL_FUNCTION                   5
+                184     STORE_FAST                      7: dirs
+                186     JUMP_FORWARD                    3 (to 194)
+                188     LOAD_FAST                       5: dirname
+                190     BUILD_LIST                      1
+                192     STORE_FAST                      7: dirs
+                194     LOAD_GLOBAL                     3: has_magic
+                196     LOAD_FAST                       6: basename
+                198     CALL_FUNCTION                   1
+                200     POP_JUMP_IF_FALSE               113 (to 226)
+                202     LOAD_FAST                       3: recursive
+                204     POP_JUMP_IF_FALSE               110 (to 220)
+                206     LOAD_GLOBAL                     7: _isrecursive
+                208     LOAD_FAST                       6: basename
+                210     CALL_FUNCTION                   1
+                212     POP_JUMP_IF_FALSE               110 (to 220)
+                214     LOAD_GLOBAL                     8: _glob2
+                216     STORE_FAST                      8: glob_in_dir
+                218     JUMP_FORWARD                    5 (to 230)
+                220     LOAD_GLOBAL                     9: _glob1
+                222     STORE_FAST                      8: glob_in_dir
+                224     JUMP_FORWARD                    2 (to 230)
+                226     LOAD_GLOBAL                     11: _glob0
+                228     STORE_FAST                      8: glob_in_dir
+                230     LOAD_FAST                       7: dirs
+                232     GET_ITER                        
+                234     FOR_ITER                        23 (to 282)
+                236     STORE_FAST                      5: dirname
+                238     LOAD_FAST                       8: glob_in_dir
+                240     LOAD_GLOBAL                     5: _join
+                242     LOAD_FAST                       1: root_dir
+                244     LOAD_FAST                       5: dirname
+                246     CALL_FUNCTION                   2
+                248     LOAD_FAST                       6: basename
+                250     LOAD_FAST                       2: dir_fd
+                252     LOAD_FAST                       4: dironly
+                254     CALL_FUNCTION                   4
+                256     GET_ITER                        
+                258     FOR_ITER                        10 (to 280)
+                260     STORE_FAST                      9: name
+                262     LOAD_GLOBAL                     0: os
+                264     LOAD_ATTR                       1: path
+                266     LOAD_METHOD                     12: join
+                268     LOAD_FAST                       5: dirname
+                270     LOAD_FAST                       9: name
+                272     CALL_METHOD                     2
+                274     YIELD_VALUE                     
+                276     POP_TOP                         
+                278     JUMP_ABSOLUTE                   129 (to 258)
+                280     JUMP_ABSOLUTE                   117 (to 234)
+                282     LOAD_CONST                      0: None
+                284     RETURN_VALUE                    
+        '_iglob'
+        [Code]
+            File Name: glob.py
+            Object Name: _glob1
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_listdir'
+                '_ishidden'
+                'fnmatch'
+                'filter'
+            [Var Names]
+                'dirname'
+                'pattern'
+                'dir_fd'
+                'dironly'
+                'names'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                [Code]
+                    File Name: glob.py
+                    Object Name: <genexpr>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                    [Names]
+                        '_ishidden'
+                    [Var Names]
+                        '.0'
+                        'x'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        9 (to 24)
+                        6       STORE_FAST                      1: x
+                        8       LOAD_GLOBAL                     0: _ishidden
+                        10      LOAD_FAST                       1: x
+                        12      CALL_FUNCTION                   1
+                        14      POP_JUMP_IF_TRUE                2 (to 4)
+                        16      LOAD_FAST                       1: x
+                        18      YIELD_VALUE                     
+                        20      POP_TOP                         
+                        22      JUMP_ABSOLUTE                   2 (to 4)
+                        24      LOAD_CONST                      0: None
+                        26      RETURN_VALUE                    
+                '_glob1.<locals>.<genexpr>'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _listdir
+                2       LOAD_FAST                       0: dirname
+                4       LOAD_FAST                       2: dir_fd
+                6       LOAD_FAST                       3: dironly
+                8       CALL_FUNCTION                   3
+                10      STORE_FAST                      4: names
+                12      LOAD_GLOBAL                     1: _ishidden
+                14      LOAD_FAST                       1: pattern
+                16      CALL_FUNCTION                   1
+                18      POP_JUMP_IF_TRUE                17 (to 34)
+                20      LOAD_CONST                      1: <CODE> <genexpr>
+                22      LOAD_CONST                      2: '_glob1.<locals>.<genexpr>'
+                24      MAKE_FUNCTION                   0
+                26      LOAD_FAST                       4: names
+                28      GET_ITER                        
+                30      CALL_FUNCTION                   1
+                32      STORE_FAST                      4: names
+                34      LOAD_GLOBAL                     2: fnmatch
+                36      LOAD_METHOD                     3: filter
+                38      LOAD_FAST                       4: names
+                40      LOAD_FAST                       1: pattern
+                42      CALL_METHOD                     2
+                44      RETURN_VALUE                    
+        '_glob1'
+        [Code]
+            File Name: glob.py
+            Object Name: _glob0
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_lexists'
+                '_join'
+                '_isdir'
+            [Var Names]
+                'dirname'
+                'basename'
+                'dir_fd'
+                'dironly'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_FAST                       1: basename
+                2       POP_JUMP_IF_FALSE               15 (to 30)
+                4       LOAD_GLOBAL                     0: _lexists
+                6       LOAD_GLOBAL                     1: _join
+                8       LOAD_FAST                       0: dirname
+                10      LOAD_FAST                       1: basename
+                12      CALL_FUNCTION                   2
+                14      LOAD_FAST                       2: dir_fd
+                16      CALL_FUNCTION                   2
+                18      POP_JUMP_IF_FALSE               13 (to 26)
+                20      LOAD_FAST                       1: basename
+                22      BUILD_LIST                      1
+                24      RETURN_VALUE                    
+                26      BUILD_LIST                      0
+                28      RETURN_VALUE                    
+                30      LOAD_GLOBAL                     2: _isdir
+                32      LOAD_FAST                       0: dirname
+                34      LOAD_FAST                       2: dir_fd
+                36      CALL_FUNCTION                   2
+                38      POP_JUMP_IF_FALSE               23 (to 46)
+                40      LOAD_FAST                       1: basename
+                42      BUILD_LIST                      1
+                44      RETURN_VALUE                    
+                46      BUILD_LIST                      0
+                48      RETURN_VALUE                    
+        '_glob0'
+        [Code]
+            File Name: glob.py
+            Object Name: glob0
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_glob0'
+            [Var Names]
+                'dirname'
+                'pattern'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                False
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _glob0
+                2       LOAD_FAST                       0: dirname
+                4       LOAD_FAST                       1: pattern
+                6       LOAD_CONST                      0: None
+                8       LOAD_CONST                      1: False
+                10      CALL_FUNCTION                   4
+                12      RETURN_VALUE                    
+        'glob0'
+        [Code]
+            File Name: glob.py
+            Object Name: glob1
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_glob1'
+            [Var Names]
+                'dirname'
+                'pattern'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                False
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _glob1
+                2       LOAD_FAST                       0: dirname
+                4       LOAD_FAST                       1: pattern
+                6       LOAD_CONST                      0: None
+                8       LOAD_CONST                      1: False
+                10      CALL_FUNCTION                   4
+                12      RETURN_VALUE                    
+        'glob1'
+        [Code]
+            File Name: glob.py
+            Object Name: _glob2
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 4
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                '_isrecursive'
+                '_rlistdir'
+            [Var Names]
+                'dirname'
+                'pattern'
+                'dir_fd'
+                'dironly'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                0
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_GLOBAL                     0: _isrecursive
+                4       LOAD_FAST                       1: pattern
+                6       CALL_FUNCTION                   1
+                8       POP_JUMP_IF_TRUE                7 (to 14)
+                10      LOAD_ASSERTION_ERROR            
+                12      RAISE_VARARGS                   1
+                14      LOAD_FAST                       1: pattern
+                16      LOAD_CONST                      0: None
+                18      LOAD_CONST                      1: 0
+                20      BUILD_SLICE                     2
+                22      BINARY_SUBSCR                   
+                24      YIELD_VALUE                     
+                26      POP_TOP                         
+                28      LOAD_GLOBAL                     1: _rlistdir
+                30      LOAD_FAST                       0: dirname
+                32      LOAD_FAST                       2: dir_fd
+                34      LOAD_FAST                       3: dironly
+                36      CALL_FUNCTION                   3
+                38      GET_YIELD_FROM_ITER             
+                40      LOAD_CONST                      0: None
+                42      YIELD_FROM                      
+                44      POP_TOP                         
+                46      LOAD_CONST                      0: None
+                48      RETURN_VALUE                    
+        '_glob2'
+        [Code]
+            File Name: glob.py
+            Object Name: _iterdir
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 8
+            Stack Size: 10
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                'os'
+                'open'
+                '_dir_open_flags'
+                'isinstance'
+                'bytes'
+                'fsencode'
+                'curdir'
+                'scandir'
+                'is_dir'
+                'name'
+                'OSError'
+                'close'
+            [Var Names]
+                'dirname'
+                'dir_fd'
+                'dironly'
+                'fd'
+                'fsencode'
+                'arg'
+                'it'
+                'entry'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                (
+                    'dir_fd'
+                )
+                'ASCII'
+            [Disassembly]
+                0       GEN_START                       0
+                2       SETUP_FINALLY                   138 (to 280)
+                4       LOAD_CONST                      0: None
+                6       STORE_FAST                      3: fd
+                8       LOAD_CONST                      0: None
+                10      STORE_FAST                      4: fsencode
+                12      LOAD_FAST                       1: dir_fd
+                14      LOAD_CONST                      0: None
+                16      IS_OP                           1 (is not)
+                18      POP_JUMP_IF_FALSE               34 (to 68)
+                20      LOAD_FAST                       0: dirname
+                22      POP_JUMP_IF_FALSE               23 (to 46)
+                24      LOAD_GLOBAL                     0: os
+                26      LOAD_ATTR                       1: open
+                28      LOAD_FAST                       0: dirname
+                30      LOAD_GLOBAL                     2: _dir_open_flags
+                32      LOAD_FAST                       1: dir_fd
+                34      LOAD_CONST                      1: ('dir_fd',)
+                36      CALL_FUNCTION_KW                3
+                38      DUP_TOP                         
+                40      STORE_FAST                      3: fd
+                42      STORE_FAST                      5: arg
+                44      JUMP_FORWARD                    2 (to 50)
+                46      LOAD_FAST                       1: dir_fd
+                48      STORE_FAST                      5: arg
+                50      LOAD_GLOBAL                     3: isinstance
+                52      LOAD_FAST                       0: dirname
+                54      LOAD_GLOBAL                     4: bytes
+                56      CALL_FUNCTION                   2
+                58      POP_JUMP_IF_FALSE               33 (to 66)
+                60      LOAD_GLOBAL                     0: os
+                62      LOAD_ATTR                       5: fsencode
+                64      STORE_FAST                      4: fsencode
+                66      JUMP_FORWARD                    20 (to 108)
+                68      LOAD_FAST                       0: dirname
+                70      POP_JUMP_IF_FALSE               39 (to 78)
+                72      LOAD_FAST                       0: dirname
+                74      STORE_FAST                      5: arg
+                76      JUMP_FORWARD                    15 (to 108)
+                78      LOAD_GLOBAL                     3: isinstance
+                80      LOAD_FAST                       0: dirname
+                82      LOAD_GLOBAL                     4: bytes
+                84      CALL_FUNCTION                   2
+                86      POP_JUMP_IF_FALSE               51 (to 102)
+                88      LOAD_GLOBAL                     4: bytes
+                90      LOAD_GLOBAL                     0: os
+                92      LOAD_ATTR                       6: curdir
+                94      LOAD_CONST                      2: 'ASCII'
+                96      CALL_FUNCTION                   2
+                98      STORE_FAST                      5: arg
+                100     JUMP_FORWARD                    3 (to 108)
+                102     LOAD_GLOBAL                     0: os
+                104     LOAD_ATTR                       6: curdir
+                106     STORE_FAST                      5: arg
+                108     SETUP_FINALLY                   74 (to 258)
+                110     LOAD_GLOBAL                     0: os
+                112     LOAD_METHOD                     7: scandir
+                114     LOAD_FAST                       5: arg
+                116     CALL_METHOD                     1
+                118     SETUP_WITH                      45 (to 210)
+                120     STORE_FAST                      6: it
+                122     LOAD_FAST                       6: it
+                124     GET_ITER                        
+                126     FOR_ITER                        34 (to 196)
+                128     STORE_FAST                      7: entry
+                130     SETUP_FINALLY                   23 (to 178)
+                132     LOAD_FAST                       2: dironly
+                134     POP_JUMP_IF_FALSE               72 (to 144)
+                136     LOAD_FAST                       7: entry
+                138     LOAD_METHOD                     8: is_dir
+                140     CALL_METHOD                     0
+                142     POP_JUMP_IF_FALSE               87 (to 174)
+                144     LOAD_FAST                       4: fsencode
+                146     LOAD_CONST                      0: None
+                148     IS_OP                           1 (is not)
+                150     POP_JUMP_IF_FALSE               83 (to 166)
+                152     LOAD_FAST                       4: fsencode
+                154     LOAD_FAST                       7: entry
+                156     LOAD_ATTR                       9: name
+                158     CALL_FUNCTION                   1
+                160     YIELD_VALUE                     
+                162     POP_TOP                         
+                164     JUMP_FORWARD                    4 (to 174)
+                166     LOAD_FAST                       7: entry
+                168     LOAD_ATTR                       9: name
+                170     YIELD_VALUE                     
+                172     POP_TOP                         
+                174     POP_BLOCK                       
+                176     JUMP_ABSOLUTE                   63 (to 126)
+                178     DUP_TOP                         
+                180     LOAD_GLOBAL                     10: OSError
+                182     JUMP_IF_NOT_EXC_MATCH           97 (to 194)
+                184     POP_TOP                         
+                186     POP_TOP                         
+                188     POP_TOP                         
+                190     POP_EXCEPT                      
+                192     JUMP_ABSOLUTE                   63 (to 126)
+                194     RERAISE                         0
+                196     POP_BLOCK                       
+                198     LOAD_CONST                      0: None
+                200     DUP_TOP                         
+                202     DUP_TOP                         
+                204     CALL_FUNCTION                   3
+                206     POP_TOP                         
+                208     JUMP_FORWARD                    8 (to 226)
+                210     WITH_EXCEPT_START               
+                212     POP_JUMP_IF_TRUE                108 (to 216)
+                214     RERAISE                         1
+                216     POP_TOP                         
+                218     POP_TOP                         
+                220     POP_TOP                         
+                222     POP_EXCEPT                      
+                224     POP_TOP                         
+                226     POP_BLOCK                       
+                228     LOAD_FAST                       3: fd
+                230     LOAD_CONST                      0: None
+                232     IS_OP                           1 (is not)
+                234     POP_JUMP_IF_FALSE               126 (to 252)
+                236     LOAD_GLOBAL                     0: os
+                238     LOAD_METHOD                     11: close
+                240     LOAD_FAST                       3: fd
+                242     CALL_METHOD                     1
+                244     POP_TOP                         
+                246     POP_BLOCK                       
+                248     LOAD_CONST                      0: None
+                250     RETURN_VALUE                    
+                252     POP_BLOCK                       
+                254     LOAD_CONST                      0: None
+                256     RETURN_VALUE                    
+                258     LOAD_FAST                       3: fd
+                260     LOAD_CONST                      0: None
+                262     IS_OP                           1 (is not)
+                264     POP_JUMP_IF_FALSE               139 (to 278)
+                266     LOAD_GLOBAL                     0: os
+                268     LOAD_METHOD                     11: close
+                270     LOAD_FAST                       3: fd
+                272     CALL_METHOD                     1
+                274     POP_TOP                         
+                276     RERAISE                         0
+                278     RERAISE                         0
+                280     DUP_TOP                         
+                282     LOAD_GLOBAL                     10: OSError
+                284     JUMP_IF_NOT_EXC_MATCH           149 (to 298)
+                286     POP_TOP                         
+                288     POP_TOP                         
+                290     POP_TOP                         
+                292     POP_EXCEPT                      
+                294     LOAD_CONST                      0: None
+                296     RETURN_VALUE                    
+                298     RERAISE                         0
+        '_iterdir'
+        [Code]
+            File Name: glob.py
+            Object Name: _listdir
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'contextlib'
+                'closing'
+                '_iterdir'
+                'list'
+            [Var Names]
+                'dirname'
+                'dir_fd'
+                'dironly'
+                'it'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: contextlib
+                2       LOAD_METHOD                     1: closing
+                4       LOAD_GLOBAL                     2: _iterdir
+                6       LOAD_FAST                       0: dirname
+                8       LOAD_FAST                       1: dir_fd
+                10      LOAD_FAST                       2: dironly
+                12      CALL_FUNCTION                   3
+                14      CALL_METHOD                     1
+                16      SETUP_WITH                      12 (to 42)
+                18      STORE_FAST                      3: it
+                20      LOAD_GLOBAL                     3: list
+                22      LOAD_FAST                       3: it
+                24      CALL_FUNCTION                   1
+                26      POP_BLOCK                       
+                28      ROT_TWO                         
+                30      LOAD_CONST                      0: None
+                32      DUP_TOP                         
+                34      DUP_TOP                         
+                36      CALL_FUNCTION                   3
+                38      POP_TOP                         
+                40      RETURN_VALUE                    
+                42      WITH_EXCEPT_START               
+                44      POP_JUMP_IF_TRUE                24 (to 48)
+                46      RERAISE                         1
+                48      POP_TOP                         
+                50      POP_TOP                         
+                52      POP_TOP                         
+                54      POP_EXCEPT                      
+                56      POP_TOP                         
+                58      LOAD_CONST                      0: None
+                60      RETURN_VALUE                    
+        '_listdir'
+        [Code]
+            File Name: glob.py
+            Object Name: _rlistdir
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 7
+            Stack Size: 5
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                '_listdir'
+                '_ishidden'
+                '_join'
+                '_rlistdir'
+            [Var Names]
+                'dirname'
+                'dir_fd'
+                'dironly'
+                'names'
+                'x'
+                'path'
+                'y'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_GLOBAL                     0: _listdir
+                4       LOAD_FAST                       0: dirname
+                6       LOAD_FAST                       1: dir_fd
+                8       LOAD_FAST                       2: dironly
+                10      CALL_FUNCTION                   3
+                12      STORE_FAST                      3: names
+                14      LOAD_FAST                       3: names
+                16      GET_ITER                        
+                18      FOR_ITER                        33 (to 86)
+                20      STORE_FAST                      4: x
+                22      LOAD_GLOBAL                     1: _ishidden
+                24      LOAD_FAST                       4: x
+                26      CALL_FUNCTION                   1
+                28      POP_JUMP_IF_TRUE                42 (to 84)
+                30      LOAD_FAST                       4: x
+                32      YIELD_VALUE                     
+                34      POP_TOP                         
+                36      LOAD_FAST                       0: dirname
+                38      POP_JUMP_IF_FALSE               25 (to 50)
+                40      LOAD_GLOBAL                     2: _join
+                42      LOAD_FAST                       0: dirname
+                44      LOAD_FAST                       4: x
+                46      CALL_FUNCTION                   2
+                48      JUMP_FORWARD                    1 (to 52)
+                50      LOAD_FAST                       4: x
+                52      STORE_FAST                      5: path
+                54      LOAD_GLOBAL                     3: _rlistdir
+                56      LOAD_FAST                       5: path
+                58      LOAD_FAST                       1: dir_fd
+                60      LOAD_FAST                       2: dironly
+                62      CALL_FUNCTION                   3
+                64      GET_ITER                        
+                66      FOR_ITER                        8 (to 84)
+                68      STORE_FAST                      6: y
+                70      LOAD_GLOBAL                     2: _join
+                72      LOAD_FAST                       4: x
+                74      LOAD_FAST                       6: y
+                76      CALL_FUNCTION                   2
+                78      YIELD_VALUE                     
+                80      POP_TOP                         
+                82      JUMP_ABSOLUTE                   33 (to 66)
+                84      JUMP_ABSOLUTE                   9 (to 18)
+                86      LOAD_CONST                      0: None
+                88      RETURN_VALUE                    
+        '_rlistdir'
+        [Code]
+            File Name: glob.py
+            Object Name: _lexists
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 9
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'os'
+                'path'
+                'lexists'
+                'lstat'
+                'OSError'
+                'ValueError'
+            [Var Names]
+                'pathname'
+                'dir_fd'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                (
+                    'dir_fd'
+                )
+                False
+                True
+            [Disassembly]
+                0       LOAD_FAST                       1: dir_fd
+                2       LOAD_CONST                      0: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               10 (to 20)
+                8       LOAD_GLOBAL                     0: os
+                10      LOAD_ATTR                       1: path
+                12      LOAD_METHOD                     2: lexists
+                14      LOAD_FAST                       0: pathname
+                16      CALL_METHOD                     1
+                18      RETURN_VALUE                    
+                20      SETUP_FINALLY                   10 (to 42)
+                22      LOAD_GLOBAL                     0: os
+                24      LOAD_ATTR                       3: lstat
+                26      LOAD_FAST                       0: pathname
+                28      LOAD_FAST                       1: dir_fd
+                30      LOAD_CONST                      1: ('dir_fd',)
+                32      CALL_FUNCTION_KW                2
+                34      POP_TOP                         
+                36      POP_BLOCK                       
+                38      LOAD_CONST                      3: True
+                40      RETURN_VALUE                    
+                42      DUP_TOP                         
+                44      LOAD_GLOBAL                     4: OSError
+                46      LOAD_GLOBAL                     5: ValueError
+                48      BUILD_TUPLE                     2
+                50      JUMP_IF_NOT_EXC_MATCH           32 (to 64)
+                52      POP_TOP                         
+                54      POP_TOP                         
+                56      POP_TOP                         
+                58      POP_EXCEPT                      
+                60      LOAD_CONST                      2: False
+                62      RETURN_VALUE                    
+                64      RERAISE                         0
+        '_lexists'
+        [Code]
+            File Name: glob.py
+            Object Name: _isdir
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 9
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'os'
+                'path'
+                'isdir'
+                'stat'
+                'OSError'
+                'ValueError'
+                'S_ISDIR'
+                'st_mode'
+            [Var Names]
+                'pathname'
+                'dir_fd'
+                'st'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                (
+                    'dir_fd'
+                )
+                False
+            [Disassembly]
+                0       LOAD_FAST                       1: dir_fd
+                2       LOAD_CONST                      0: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               10 (to 20)
+                8       LOAD_GLOBAL                     0: os
+                10      LOAD_ATTR                       1: path
+                12      LOAD_METHOD                     2: isdir
+                14      LOAD_FAST                       0: pathname
+                16      CALL_METHOD                     1
+                18      RETURN_VALUE                    
+                20      SETUP_FINALLY                   9 (to 40)
+                22      LOAD_GLOBAL                     0: os
+                24      LOAD_ATTR                       3: stat
+                26      LOAD_FAST                       0: pathname
+                28      LOAD_FAST                       1: dir_fd
+                30      LOAD_CONST                      1: ('dir_fd',)
+                32      CALL_FUNCTION_KW                2
+                34      STORE_FAST                      2: st
+                36      POP_BLOCK                       
+                38      JUMP_FORWARD                    12 (to 64)
+                40      DUP_TOP                         
+                42      LOAD_GLOBAL                     4: OSError
+                44      LOAD_GLOBAL                     5: ValueError
+                46      BUILD_TUPLE                     2
+                48      JUMP_IF_NOT_EXC_MATCH           31 (to 62)
+                50      POP_TOP                         
+                52      POP_TOP                         
+                54      POP_TOP                         
+                56      POP_EXCEPT                      
+                58      LOAD_CONST                      2: False
+                60      RETURN_VALUE                    
+                62      RERAISE                         0
+                64      LOAD_GLOBAL                     3: stat
+                66      LOAD_METHOD                     6: S_ISDIR
+                68      LOAD_FAST                       2: st
+                70      LOAD_ATTR                       7: st_mode
+                72      CALL_METHOD                     1
+                74      RETURN_VALUE                    
+        '_isdir'
+        [Code]
+            File Name: glob.py
+            Object Name: _join
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'os'
+                'path'
+                'join'
+            [Var Names]
+                'dirname'
+                'basename'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: dirname
+                2       POP_JUMP_IF_FALSE               4 (to 8)
+                4       LOAD_FAST                       1: basename
+                6       POP_JUMP_IF_TRUE                8 (to 16)
+                8       LOAD_FAST                       0: dirname
+                10      JUMP_IF_TRUE_OR_POP             7 (to 14)
+                12      LOAD_FAST                       1: basename
+                14      RETURN_VALUE                    
+                16      LOAD_GLOBAL                     0: os
+                18      LOAD_ATTR                       1: path
+                20      LOAD_METHOD                     2: join
+                22      LOAD_FAST                       0: dirname
+                24      LOAD_FAST                       1: basename
+                26      CALL_METHOD                     2
+                28      RETURN_VALUE                    
+        '_join'
+        '([*?[])'
+        b'([*?[])'
+        [Code]
+            File Name: glob.py
+            Object Name: has_magic
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'bytes'
+                'magic_check_bytes'
+                'search'
+                'magic_check'
+            [Var Names]
+                's'
+                'match'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: s
+                4       LOAD_GLOBAL                     1: bytes
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_FALSE               14 (to 28)
+                10      LOAD_GLOBAL                     2: magic_check_bytes
+                12      LOAD_METHOD                     3: search
+                14      LOAD_FAST                       0: s
+                16      CALL_METHOD                     1
+                18      STORE_FAST                      1: match
+                20      LOAD_FAST                       1: match
+                22      LOAD_CONST                      0: None
+                24      IS_OP                           1 (is not)
+                26      RETURN_VALUE                    
+                28      LOAD_GLOBAL                     4: magic_check
+                30      LOAD_METHOD                     3: search
+                32      LOAD_FAST                       0: s
+                34      CALL_METHOD                     1
+                36      STORE_FAST                      1: match
+                38      LOAD_FAST                       1: match
+                40      LOAD_CONST                      0: None
+                42      IS_OP                           1 (is not)
+                44      RETURN_VALUE                    
+        'has_magic'
+        [Code]
+            File Name: glob.py
+            Object Name: _ishidden
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+            [Var Names]
+                'path'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                0
+                (
+                    '.'
+                    46
+                )
+            [Disassembly]
+                0       LOAD_FAST                       0: path
+                2       LOAD_CONST                      1: 0
+                4       BINARY_SUBSCR                   
+                6       LOAD_CONST                      2: ('.', 46)
+                8       CONTAINS_OP                     0 (in)
+                10      RETURN_VALUE                    
+        '_ishidden'
+        [Code]
+            File Name: glob.py
+            Object Name: _isrecursive
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'bytes'
+            [Var Names]
+                'pattern'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                b'**'
+                '**'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: pattern
+                4       LOAD_GLOBAL                     1: bytes
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_FALSE               9 (to 18)
+                10      LOAD_FAST                       0: pattern
+                12      LOAD_CONST                      1: b'**'
+                14      COMPARE_OP                      2 (==)
+                16      RETURN_VALUE                    
+                18      LOAD_FAST                       0: pattern
+                20      LOAD_CONST                      2: '**'
+                22      COMPARE_OP                      2 (==)
+                24      RETURN_VALUE                    
+        '_isrecursive'
+        [Code]
+            File Name: glob.py
+            Object Name: escape
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'os'
+                'path'
+                'splitdrive'
+                'isinstance'
+                'bytes'
+                'magic_check_bytes'
+                'sub'
+                'magic_check'
+            [Var Names]
+                'pathname'
+                'drive'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Escape all special characters.\n    '
+                b'[\\1]'
+                '[\\1]'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: os
+                2       LOAD_ATTR                       1: path
+                4       LOAD_METHOD                     2: splitdrive
+                6       LOAD_FAST                       0: pathname
+                8       CALL_METHOD                     1
+                10      UNPACK_SEQUENCE                 2
+                12      STORE_FAST                      1: drive
+                14      STORE_FAST                      0: pathname
+                16      LOAD_GLOBAL                     3: isinstance
+                18      LOAD_FAST                       0: pathname
+                20      LOAD_GLOBAL                     4: bytes
+                22      CALL_FUNCTION                   2
+                24      POP_JUMP_IF_FALSE               23 (to 46)
+                26      LOAD_GLOBAL                     5: magic_check_bytes
+                28      LOAD_METHOD                     6: sub
+                30      LOAD_CONST                      1: b'[\\1]'
+                32      LOAD_FAST                       0: pathname
+                34      CALL_METHOD                     2
+                36      STORE_FAST                      0: pathname
+                38      LOAD_FAST                       1: drive
+                40      LOAD_FAST                       0: pathname
+                42      BINARY_ADD                      
+                44      RETURN_VALUE                    
+                46      LOAD_GLOBAL                     7: magic_check
+                48      LOAD_METHOD                     6: sub
+                50      LOAD_CONST                      2: '[\\1]'
+                52      LOAD_FAST                       0: pathname
+                54      CALL_METHOD                     2
+                56      STORE_FAST                      0: pathname
+                58      LOAD_FAST                       1: drive
+                60      LOAD_FAST                       0: pathname
+                62      BINARY_ADD                      
+                64      RETURN_VALUE                    
+        'escape'
+        'O_DIRECTORY'
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Filename globbing utility.'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: contextlib
+        10      STORE_NAME                      1: contextlib
+        12      LOAD_CONST                      1: 0
+        14      LOAD_CONST                      2: None
+        16      IMPORT_NAME                     2: os
+        18      STORE_NAME                      2: os
+        20      LOAD_CONST                      1: 0
+        22      LOAD_CONST                      2: None
+        24      IMPORT_NAME                     3: re
+        26      STORE_NAME                      3: re
+        28      LOAD_CONST                      1: 0
+        30      LOAD_CONST                      2: None
+        32      IMPORT_NAME                     4: fnmatch
+        34      STORE_NAME                      4: fnmatch
+        36      LOAD_CONST                      1: 0
+        38      LOAD_CONST                      2: None
+        40      IMPORT_NAME                     5: itertools
+        42      STORE_NAME                      5: itertools
+        44      LOAD_CONST                      1: 0
+        46      LOAD_CONST                      2: None
+        48      IMPORT_NAME                     6: stat
+        50      STORE_NAME                      6: stat
+        52      LOAD_CONST                      1: 0
+        54      LOAD_CONST                      2: None
+        56      IMPORT_NAME                     7: sys
+        58      STORE_NAME                      7: sys
+        60      BUILD_LIST                      0
+        62      LOAD_CONST                      3: ('glob', 'iglob', 'escape')
+        64      LIST_EXTEND                     1
+        66      STORE_NAME                      8: __all__
+        68      LOAD_CONST                      2: None
+        70      LOAD_CONST                      2: None
+        72      LOAD_CONST                      4: False
+        74      LOAD_CONST                      5: ('root_dir', 'dir_fd', 'recursive')
+        76      BUILD_CONST_KEY_MAP             3
+        78      LOAD_CONST                      6: <CODE> glob
+        80      LOAD_CONST                      7: 'glob'
+        82      MAKE_FUNCTION                   2
+        84      STORE_NAME                      9: glob
+        86      LOAD_CONST                      2: None
+        88      LOAD_CONST                      2: None
+        90      LOAD_CONST                      4: False
+        92      LOAD_CONST                      5: ('root_dir', 'dir_fd', 'recursive')
+        94      BUILD_CONST_KEY_MAP             3
+        96      LOAD_CONST                      8: <CODE> iglob
+        98      LOAD_CONST                      9: 'iglob'
+        100     MAKE_FUNCTION                   2
+        102     STORE_NAME                      10: iglob
+        104     LOAD_CONST                      10: <CODE> _iglob
+        106     LOAD_CONST                      11: '_iglob'
+        108     MAKE_FUNCTION                   0
+        110     STORE_NAME                      11: _iglob
+        112     LOAD_CONST                      12: <CODE> _glob1
+        114     LOAD_CONST                      13: '_glob1'
+        116     MAKE_FUNCTION                   0
+        118     STORE_NAME                      12: _glob1
+        120     LOAD_CONST                      14: <CODE> _glob0
+        122     LOAD_CONST                      15: '_glob0'
+        124     MAKE_FUNCTION                   0
+        126     STORE_NAME                      13: _glob0
+        128     LOAD_CONST                      16: <CODE> glob0
+        130     LOAD_CONST                      17: 'glob0'
+        132     MAKE_FUNCTION                   0
+        134     STORE_NAME                      14: glob0
+        136     LOAD_CONST                      18: <CODE> glob1
+        138     LOAD_CONST                      19: 'glob1'
+        140     MAKE_FUNCTION                   0
+        142     STORE_NAME                      15: glob1
+        144     LOAD_CONST                      20: <CODE> _glob2
+        146     LOAD_CONST                      21: '_glob2'
+        148     MAKE_FUNCTION                   0
+        150     STORE_NAME                      16: _glob2
+        152     LOAD_CONST                      22: <CODE> _iterdir
+        154     LOAD_CONST                      23: '_iterdir'
+        156     MAKE_FUNCTION                   0
+        158     STORE_NAME                      17: _iterdir
+        160     LOAD_CONST                      24: <CODE> _listdir
+        162     LOAD_CONST                      25: '_listdir'
+        164     MAKE_FUNCTION                   0
+        166     STORE_NAME                      18: _listdir
+        168     LOAD_CONST                      26: <CODE> _rlistdir
+        170     LOAD_CONST                      27: '_rlistdir'
+        172     MAKE_FUNCTION                   0
+        174     STORE_NAME                      19: _rlistdir
+        176     LOAD_CONST                      28: <CODE> _lexists
+        178     LOAD_CONST                      29: '_lexists'
+        180     MAKE_FUNCTION                   0
+        182     STORE_NAME                      20: _lexists
+        184     LOAD_CONST                      30: <CODE> _isdir
+        186     LOAD_CONST                      31: '_isdir'
+        188     MAKE_FUNCTION                   0
+        190     STORE_NAME                      21: _isdir
+        192     LOAD_CONST                      32: <CODE> _join
+        194     LOAD_CONST                      33: '_join'
+        196     MAKE_FUNCTION                   0
+        198     STORE_NAME                      22: _join
+        200     LOAD_NAME                       3: re
+        202     LOAD_METHOD                     23: compile
+        204     LOAD_CONST                      34: '([*?[])'
+        206     CALL_METHOD                     1
+        208     STORE_NAME                      24: magic_check
+        210     LOAD_NAME                       3: re
+        212     LOAD_METHOD                     23: compile
+        214     LOAD_CONST                      35: b'([*?[])'
+        216     CALL_METHOD                     1
+        218     STORE_NAME                      25: magic_check_bytes
+        220     LOAD_CONST                      36: <CODE> has_magic
+        222     LOAD_CONST                      37: 'has_magic'
+        224     MAKE_FUNCTION                   0
+        226     STORE_NAME                      26: has_magic
+        228     LOAD_CONST                      38: <CODE> _ishidden
+        230     LOAD_CONST                      39: '_ishidden'
+        232     MAKE_FUNCTION                   0
+        234     STORE_NAME                      27: _ishidden
+        236     LOAD_CONST                      40: <CODE> _isrecursive
+        238     LOAD_CONST                      41: '_isrecursive'
+        240     MAKE_FUNCTION                   0
+        242     STORE_NAME                      28: _isrecursive
+        244     LOAD_CONST                      42: <CODE> escape
+        246     LOAD_CONST                      43: 'escape'
+        248     MAKE_FUNCTION                   0
+        250     STORE_NAME                      29: escape
+        252     LOAD_NAME                       2: os
+        254     LOAD_ATTR                       30: O_RDONLY
+        256     LOAD_NAME                       31: getattr
+        258     LOAD_NAME                       2: os
+        260     LOAD_CONST                      44: 'O_DIRECTORY'
+        262     LOAD_CONST                      1: 0
+        264     CALL_FUNCTION                   3
+        266     BINARY_OR                       
+        268     STORE_NAME                      32: _dir_open_flags
+        270     LOAD_CONST                      2: None
+        272     RETURN_VALUE                    

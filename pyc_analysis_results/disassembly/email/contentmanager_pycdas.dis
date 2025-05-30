@@ -1,0 +1,1862 @@
+contentmanager.pyc (Python 3.10)
+[Code]
+    File Name: email/contentmanager.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 5
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        'binascii'
+        'email.charset'
+        'email'
+        'email.message'
+        'email.errors'
+        'quoprimime'
+        'ContentManager'
+        'raw_data_manager'
+        'get_text_content'
+        'add_get_handler'
+        'get_non_text_content'
+        'split'
+        'maintype'
+        'get_message_content'
+        'subtype'
+        'get_and_fixup_unknown_message_content'
+        '_prepare_set'
+        '_finalize_set'
+        '_encode_base64'
+        '_encode_text'
+        'set_text_content'
+        'add_set_handler'
+        'str'
+        'set_message_content'
+        'message'
+        'Message'
+        'set_bytes_content'
+        'bytes'
+        'bytearray'
+        'memoryview'
+        'typ'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        None
+        (
+            'quoprimime'
+        )
+        [Code]
+            File Name: email/contentmanager.py
+            Object Name: ContentManager
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__init__'
+                'add_get_handler'
+                'get_content'
+                'add_set_handler'
+                'set_content'
+                '_find_set_handler'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'ContentManager'
+                [Code]
+                    File Name: email/contentmanager.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'get_handlers'
+                        'set_handlers'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       BUILD_MAP                       0
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: get_handlers
+                        6       BUILD_MAP                       0
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: set_handlers
+                        12      LOAD_CONST                      0: None
+                        14      RETURN_VALUE                    
+                'ContentManager.__init__'
+                [Code]
+                    File Name: email/contentmanager.py
+                    Object Name: add_get_handler
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'get_handlers'
+                    [Var Names]
+                        'self'
+                        'key'
+                        'handler'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       2: handler
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       0: get_handlers
+                        6       LOAD_FAST                       1: key
+                        8       STORE_SUBSCR                    
+                        10      LOAD_CONST                      0: None
+                        12      RETURN_VALUE                    
+                'ContentManager.add_get_handler'
+                [Code]
+                    File Name: email/contentmanager.py
+                    Object Name: get_content
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 4
+                    Flags: 0x0000004F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NOFREE)
+                    [Names]
+                        'get_content_type'
+                        'get_handlers'
+                        'get_content_maintype'
+                        'KeyError'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        'args'
+                        'kw'
+                        'content_type'
+                        'maintype'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        ''
+                    [Disassembly]
+                        0       LOAD_FAST                       1: msg
+                        2       LOAD_METHOD                     0: get_content_type
+                        4       CALL_METHOD                     0
+                        6       STORE_FAST                      4: content_type
+                        8       LOAD_FAST                       4: content_type
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       1: get_handlers
+                        14      CONTAINS_OP                     0 (in)
+                        16      POP_JUMP_IF_FALSE               23 (to 46)
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_ATTR                       1: get_handlers
+                        22      LOAD_FAST                       4: content_type
+                        24      BINARY_SUBSCR                   
+                        26      LOAD_FAST                       1: msg
+                        28      BUILD_LIST                      1
+                        30      LOAD_FAST                       2: args
+                        32      LIST_EXTEND                     1
+                        34      LIST_TO_TUPLE                   
+                        36      BUILD_MAP                       0
+                        38      LOAD_FAST                       3: kw
+                        40      DICT_MERGE                      1
+                        42      CALL_FUNCTION_EX                1
+                        44      RETURN_VALUE                    
+                        46      LOAD_FAST                       1: msg
+                        48      LOAD_METHOD                     2: get_content_maintype
+                        50      CALL_METHOD                     0
+                        52      STORE_FAST                      5: maintype
+                        54      LOAD_FAST                       5: maintype
+                        56      LOAD_FAST                       0: self
+                        58      LOAD_ATTR                       1: get_handlers
+                        60      CONTAINS_OP                     0 (in)
+                        62      POP_JUMP_IF_FALSE               46 (to 92)
+                        64      LOAD_FAST                       0: self
+                        66      LOAD_ATTR                       1: get_handlers
+                        68      LOAD_FAST                       5: maintype
+                        70      BINARY_SUBSCR                   
+                        72      LOAD_FAST                       1: msg
+                        74      BUILD_LIST                      1
+                        76      LOAD_FAST                       2: args
+                        78      LIST_EXTEND                     1
+                        80      LIST_TO_TUPLE                   
+                        82      BUILD_MAP                       0
+                        84      LOAD_FAST                       3: kw
+                        86      DICT_MERGE                      1
+                        88      CALL_FUNCTION_EX                1
+                        90      RETURN_VALUE                    
+                        92      LOAD_CONST                      1: ''
+                        94      LOAD_FAST                       0: self
+                        96      LOAD_ATTR                       1: get_handlers
+                        98      CONTAINS_OP                     0 (in)
+                        100     POP_JUMP_IF_FALSE               65 (to 130)
+                        102     LOAD_FAST                       0: self
+                        104     LOAD_ATTR                       1: get_handlers
+                        106     LOAD_CONST                      1: ''
+                        108     BINARY_SUBSCR                   
+                        110     LOAD_FAST                       1: msg
+                        112     BUILD_LIST                      1
+                        114     LOAD_FAST                       2: args
+                        116     LIST_EXTEND                     1
+                        118     LIST_TO_TUPLE                   
+                        120     BUILD_MAP                       0
+                        122     LOAD_FAST                       3: kw
+                        124     DICT_MERGE                      1
+                        126     CALL_FUNCTION_EX                1
+                        128     RETURN_VALUE                    
+                        130     LOAD_GLOBAL                     3: KeyError
+                        132     LOAD_FAST                       4: content_type
+                        134     CALL_FUNCTION                   1
+                        136     RAISE_VARARGS                   1
+                'ContentManager.get_content'
+                [Code]
+                    File Name: email/contentmanager.py
+                    Object Name: add_set_handler
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'set_handlers'
+                    [Var Names]
+                        'self'
+                        'typekey'
+                        'handler'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       2: handler
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       0: set_handlers
+                        6       LOAD_FAST                       1: typekey
+                        8       STORE_SUBSCR                    
+                        10      LOAD_CONST                      0: None
+                        12      RETURN_VALUE                    
+                'ContentManager.add_set_handler'
+                [Code]
+                    File Name: email/contentmanager.py
+                    Object Name: set_content
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 4
+                    Flags: 0x0000004F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NOFREE)
+                    [Names]
+                        'get_content_maintype'
+                        'TypeError'
+                        '_find_set_handler'
+                        'clear_content'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        'obj'
+                        'args'
+                        'kw'
+                        'handler'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'multipart'
+                        'set_content not valid on multipart'
+                    [Disassembly]
+                        0       LOAD_FAST                       1: msg
+                        2       LOAD_METHOD                     0: get_content_maintype
+                        4       CALL_METHOD                     0
+                        6       LOAD_CONST                      1: 'multipart'
+                        8       COMPARE_OP                      2 (==)
+                        10      POP_JUMP_IF_FALSE               10 (to 20)
+                        12      LOAD_GLOBAL                     1: TypeError
+                        14      LOAD_CONST                      2: 'set_content not valid on multipart'
+                        16      CALL_FUNCTION                   1
+                        18      RAISE_VARARGS                   1
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_METHOD                     2: _find_set_handler
+                        24      LOAD_FAST                       1: msg
+                        26      LOAD_FAST                       2: obj
+                        28      CALL_METHOD                     2
+                        30      STORE_FAST                      5: handler
+                        32      LOAD_FAST                       1: msg
+                        34      LOAD_METHOD                     3: clear_content
+                        36      CALL_METHOD                     0
+                        38      POP_TOP                         
+                        40      LOAD_FAST                       5: handler
+                        42      LOAD_FAST                       1: msg
+                        44      LOAD_FAST                       2: obj
+                        46      BUILD_LIST                      2
+                        48      LOAD_FAST                       3: args
+                        50      LIST_EXTEND                     1
+                        52      LIST_TO_TUPLE                   
+                        54      BUILD_MAP                       0
+                        56      LOAD_FAST                       4: kw
+                        58      DICT_MERGE                      1
+                        60      CALL_FUNCTION_EX                1
+                        62      POP_TOP                         
+                        64      LOAD_CONST                      0: None
+                        66      RETURN_VALUE                    
+                'ContentManager.set_content'
+                [Code]
+                    File Name: email/contentmanager.py
+                    Object Name: _find_set_handler
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 9
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'type'
+                        '__mro__'
+                        'set_handlers'
+                        '__qualname__'
+                        'getattr'
+                        'join'
+                        '__name__'
+                        'KeyError'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        'obj'
+                        'full_path_for_error'
+                        'typ'
+                        'qname'
+                        'modname'
+                        'full_path'
+                        'name'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '__module__'
+                        ''
+                        '.'
+                    [Disassembly]
+                        0       LOAD_CONST                      0: None
+                        2       STORE_FAST                      3: full_path_for_error
+                        4       LOAD_GLOBAL                     0: type
+                        6       LOAD_FAST                       2: obj
+                        8       CALL_FUNCTION                   1
+                        10      LOAD_ATTR                       1: __mro__
+                        12      GET_ITER                        
+                        14      FOR_ITER                        79 (to 174)
+                        16      STORE_FAST                      4: typ
+                        18      LOAD_FAST                       4: typ
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       2: set_handlers
+                        24      CONTAINS_OP                     0 (in)
+                        26      POP_JUMP_IF_FALSE               21 (to 42)
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       2: set_handlers
+                        32      LOAD_FAST                       4: typ
+                        34      BINARY_SUBSCR                   
+                        36      ROT_TWO                         
+                        38      POP_TOP                         
+                        40      RETURN_VALUE                    
+                        42      LOAD_FAST                       4: typ
+                        44      LOAD_ATTR                       3: __qualname__
+                        46      STORE_FAST                      5: qname
+                        48      LOAD_GLOBAL                     4: getattr
+                        50      LOAD_FAST                       4: typ
+                        52      LOAD_CONST                      1: '__module__'
+                        54      LOAD_CONST                      2: ''
+                        56      CALL_FUNCTION                   3
+                        58      STORE_FAST                      6: modname
+                        60      LOAD_FAST                       6: modname
+                        62      POP_JUMP_IF_FALSE               39 (to 78)
+                        64      LOAD_CONST                      3: '.'
+                        66      LOAD_METHOD                     5: join
+                        68      LOAD_FAST                       6: modname
+                        70      LOAD_FAST                       5: qname
+                        72      BUILD_TUPLE                     2
+                        74      CALL_METHOD                     1
+                        76      JUMP_FORWARD                    1 (to 80)
+                        78      LOAD_FAST                       5: qname
+                        80      STORE_FAST                      7: full_path
+                        82      LOAD_FAST                       3: full_path_for_error
+                        84      LOAD_CONST                      0: None
+                        86      IS_OP                           0 (is)
+                        88      POP_JUMP_IF_FALSE               47 (to 94)
+                        90      LOAD_FAST                       7: full_path
+                        92      STORE_FAST                      3: full_path_for_error
+                        94      LOAD_FAST                       7: full_path
+                        96      LOAD_FAST                       0: self
+                        98      LOAD_ATTR                       2: set_handlers
+                        100     CONTAINS_OP                     0 (in)
+                        102     POP_JUMP_IF_FALSE               59 (to 118)
+                        104     LOAD_FAST                       0: self
+                        106     LOAD_ATTR                       2: set_handlers
+                        108     LOAD_FAST                       7: full_path
+                        110     BINARY_SUBSCR                   
+                        112     ROT_TWO                         
+                        114     POP_TOP                         
+                        116     RETURN_VALUE                    
+                        118     LOAD_FAST                       5: qname
+                        120     LOAD_FAST                       0: self
+                        122     LOAD_ATTR                       2: set_handlers
+                        124     CONTAINS_OP                     0 (in)
+                        126     POP_JUMP_IF_FALSE               71 (to 142)
+                        128     LOAD_FAST                       0: self
+                        130     LOAD_ATTR                       2: set_handlers
+                        132     LOAD_FAST                       5: qname
+                        134     BINARY_SUBSCR                   
+                        136     ROT_TWO                         
+                        138     POP_TOP                         
+                        140     RETURN_VALUE                    
+                        142     LOAD_FAST                       4: typ
+                        144     LOAD_ATTR                       6: __name__
+                        146     STORE_FAST                      8: name
+                        148     LOAD_FAST                       8: name
+                        150     LOAD_FAST                       0: self
+                        152     LOAD_ATTR                       2: set_handlers
+                        154     CONTAINS_OP                     0 (in)
+                        156     POP_JUMP_IF_FALSE               86 (to 172)
+                        158     LOAD_FAST                       0: self
+                        160     LOAD_ATTR                       2: set_handlers
+                        162     LOAD_FAST                       8: name
+                        164     BINARY_SUBSCR                   
+                        166     ROT_TWO                         
+                        168     POP_TOP                         
+                        170     RETURN_VALUE                    
+                        172     JUMP_ABSOLUTE                   7 (to 14)
+                        174     LOAD_CONST                      0: None
+                        176     LOAD_FAST                       0: self
+                        178     LOAD_ATTR                       2: set_handlers
+                        180     CONTAINS_OP                     0 (in)
+                        182     POP_JUMP_IF_FALSE               97 (to 194)
+                        184     LOAD_FAST                       0: self
+                        186     LOAD_ATTR                       2: set_handlers
+                        188     LOAD_CONST                      0: None
+                        190     BINARY_SUBSCR                   
+                        192     RETURN_VALUE                    
+                        194     LOAD_GLOBAL                     7: KeyError
+                        196     LOAD_FAST                       3: full_path_for_error
+                        198     CALL_FUNCTION                   1
+                        200     RAISE_VARARGS                   1
+                'ContentManager._find_set_handler'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'ContentManager'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: <CODE> __init__
+                10      LOAD_CONST                      2: 'ContentManager.__init__'
+                12      MAKE_FUNCTION                   0
+                14      STORE_NAME                      3: __init__
+                16      LOAD_CONST                      3: <CODE> add_get_handler
+                18      LOAD_CONST                      4: 'ContentManager.add_get_handler'
+                20      MAKE_FUNCTION                   0
+                22      STORE_NAME                      4: add_get_handler
+                24      LOAD_CONST                      5: <CODE> get_content
+                26      LOAD_CONST                      6: 'ContentManager.get_content'
+                28      MAKE_FUNCTION                   0
+                30      STORE_NAME                      5: get_content
+                32      LOAD_CONST                      7: <CODE> add_set_handler
+                34      LOAD_CONST                      8: 'ContentManager.add_set_handler'
+                36      MAKE_FUNCTION                   0
+                38      STORE_NAME                      6: add_set_handler
+                40      LOAD_CONST                      9: <CODE> set_content
+                42      LOAD_CONST                      10: 'ContentManager.set_content'
+                44      MAKE_FUNCTION                   0
+                46      STORE_NAME                      7: set_content
+                48      LOAD_CONST                      11: <CODE> _find_set_handler
+                50      LOAD_CONST                      12: 'ContentManager._find_set_handler'
+                52      MAKE_FUNCTION                   0
+                54      STORE_NAME                      8: _find_set_handler
+                56      LOAD_CONST                      13: None
+                58      RETURN_VALUE                    
+        'ContentManager'
+        'replace'
+        [Code]
+            File Name: email/contentmanager.py
+            Object Name: get_text_content
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'get_payload'
+                'get_param'
+                'decode'
+            [Var Names]
+                'msg'
+                'errors'
+                'content'
+                'charset'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                True
+                (
+                    'decode'
+                )
+                'charset'
+                'ASCII'
+                (
+                    'errors'
+                )
+            [Disassembly]
+                0       LOAD_FAST                       0: msg
+                2       LOAD_ATTR                       0: get_payload
+                4       LOAD_CONST                      1: True
+                6       LOAD_CONST                      2: ('decode',)
+                8       CALL_FUNCTION_KW                1
+                10      STORE_FAST                      2: content
+                12      LOAD_FAST                       0: msg
+                14      LOAD_METHOD                     1: get_param
+                16      LOAD_CONST                      3: 'charset'
+                18      LOAD_CONST                      4: 'ASCII'
+                20      CALL_METHOD                     2
+                22      STORE_FAST                      3: charset
+                24      LOAD_FAST                       2: content
+                26      LOAD_ATTR                       2: decode
+                28      LOAD_FAST                       3: charset
+                30      LOAD_FAST                       1: errors
+                32      LOAD_CONST                      5: ('errors',)
+                34      CALL_FUNCTION_KW                2
+                36      RETURN_VALUE                    
+        'get_text_content'
+        'text'
+        [Code]
+            File Name: email/contentmanager.py
+            Object Name: get_non_text_content
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'get_payload'
+            [Var Names]
+                'msg'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                True
+                (
+                    'decode'
+                )
+            [Disassembly]
+                0       LOAD_FAST                       0: msg
+                2       LOAD_ATTR                       0: get_payload
+                4       LOAD_CONST                      1: True
+                6       LOAD_CONST                      2: ('decode',)
+                8       CALL_FUNCTION_KW                1
+                10      RETURN_VALUE                    
+        'get_non_text_content'
+        'audio image video application'
+        [Code]
+            File Name: email/contentmanager.py
+            Object Name: get_message_content
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'get_payload'
+            [Var Names]
+                'msg'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                0
+            [Disassembly]
+                0       LOAD_FAST                       0: msg
+                2       LOAD_METHOD                     0: get_payload
+                4       LOAD_CONST                      1: 0
+                6       CALL_METHOD                     1
+                8       RETURN_VALUE                    
+        'get_message_content'
+        'rfc822 external-body'
+        'message/'
+        [Code]
+            File Name: email/contentmanager.py
+            Object Name: get_and_fixup_unknown_message_content
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'bytes'
+                'get_payload'
+            [Var Names]
+                'msg'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                0
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: bytes
+                2       LOAD_FAST                       0: msg
+                4       LOAD_METHOD                     1: get_payload
+                6       LOAD_CONST                      1: 0
+                8       CALL_METHOD                     1
+                10      CALL_FUNCTION                   1
+                12      RETURN_VALUE                    
+        'get_and_fixup_unknown_message_content'
+        'message'
+        [Code]
+            File Name: email/contentmanager.py
+            Object Name: _prepare_set
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 10
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'join'
+                'hasattr'
+                'policy'
+                'defects'
+                'name'
+                'email'
+                'errors'
+                'HeaderDefect'
+                'ValueError'
+                'format'
+                'fold'
+            [Var Names]
+                'msg'
+                'maintype'
+                'subtype'
+                'headers'
+                'header'
+                'exc'
+            [Free Vars]
+            [Cell Vars]
+                'mp'
+            [Constants]
+                None
+                '/'
+                'Content-Type'
+                0
+                'name'
+                [Code]
+                    File Name: email/contentmanager.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 6
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                        'header_factory'
+                        'header_source_parse'
+                    [Var Names]
+                        '.0'
+                        'header'
+                    [Free Vars]
+                        'mp'
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        11 (to 28)
+                        6       STORE_FAST                      1: header
+                        8       LOAD_DEREF                      0: mp
+                        10      LOAD_ATTR                       0: header_factory
+                        12      LOAD_DEREF                      0: mp
+                        14      LOAD_METHOD                     1: header_source_parse
+                        16      LOAD_FAST                       1: header
+                        18      BUILD_LIST                      1
+                        20      CALL_METHOD                     1
+                        22      CALL_FUNCTION_EX                0
+                        24      LIST_APPEND                     2
+                        26      JUMP_ABSOLUTE                   2 (to 4)
+                        28      RETURN_VALUE                    
+                '_prepare_set.<locals>.<listcomp>'
+                'Invalid header: {}'
+                (
+                    'policy'
+                )
+            [Disassembly]
+                0       LOAD_CONST                      1: '/'
+                2       LOAD_METHOD                     0: join
+                4       LOAD_FAST                       1: maintype
+                6       LOAD_FAST                       2: subtype
+                8       BUILD_TUPLE                     2
+                10      CALL_METHOD                     1
+                12      LOAD_FAST                       0: msg
+                14      LOAD_CONST                      2: 'Content-Type'
+                16      STORE_SUBSCR                    
+                18      LOAD_FAST                       3: headers
+                20      POP_JUMP_IF_FALSE               79 (to 158)
+                22      LOAD_GLOBAL                     1: hasattr
+                24      LOAD_FAST                       3: headers
+                26      LOAD_CONST                      3: 0
+                28      BINARY_SUBSCR                   
+                30      LOAD_CONST                      4: 'name'
+                32      CALL_FUNCTION                   2
+                34      POP_JUMP_IF_TRUE                30 (to 60)
+                36      LOAD_FAST                       0: msg
+                38      LOAD_ATTR                       2: policy
+                40      STORE_DEREF                     0: mp
+                42      LOAD_CLOSURE                    0: mp
+                44      BUILD_TUPLE                     1
+                46      LOAD_CONST                      5: <CODE> <listcomp>
+                48      LOAD_CONST                      6: '_prepare_set.<locals>.<listcomp>'
+                50      MAKE_FUNCTION                   8
+                52      LOAD_FAST                       3: headers
+                54      GET_ITER                        
+                56      CALL_FUNCTION                   1
+                58      STORE_FAST                      3: headers
+                60      SETUP_FINALLY                   21 (to 104)
+                62      LOAD_FAST                       3: headers
+                64      GET_ITER                        
+                66      FOR_ITER                        15 (to 98)
+                68      STORE_FAST                      4: header
+                70      LOAD_FAST                       4: header
+                72      LOAD_ATTR                       3: defects
+                74      POP_JUMP_IF_FALSE               43 (to 86)
+                76      LOAD_FAST                       4: header
+                78      LOAD_ATTR                       3: defects
+                80      LOAD_CONST                      3: 0
+                82      BINARY_SUBSCR                   
+                84      RAISE_VARARGS                   1
+                86      LOAD_FAST                       4: header
+                88      LOAD_FAST                       0: msg
+                90      LOAD_FAST                       4: header
+                92      LOAD_ATTR                       4: name
+                94      STORE_SUBSCR                    
+                96      JUMP_ABSOLUTE                   33 (to 66)
+                98      POP_BLOCK                       
+                100     LOAD_CONST                      0: None
+                102     RETURN_VALUE                    
+                104     DUP_TOP                         
+                106     LOAD_GLOBAL                     5: email
+                108     LOAD_ATTR                       6: errors
+                110     LOAD_ATTR                       7: HeaderDefect
+                112     JUMP_IF_NOT_EXC_MATCH           78 (to 156)
+                114     POP_TOP                         
+                116     STORE_FAST                      5: exc
+                118     POP_TOP                         
+                120     SETUP_FINALLY                   13 (to 148)
+                122     LOAD_GLOBAL                     8: ValueError
+                124     LOAD_CONST                      7: 'Invalid header: {}'
+                126     LOAD_METHOD                     9: format
+                128     LOAD_FAST                       4: header
+                130     LOAD_ATTR                       10: fold
+                132     LOAD_FAST                       0: msg
+                134     LOAD_ATTR                       2: policy
+                136     LOAD_CONST                      8: ('policy',)
+                138     CALL_FUNCTION_KW                1
+                140     CALL_METHOD                     1
+                142     CALL_FUNCTION                   1
+                144     LOAD_FAST                       5: exc
+                146     RAISE_VARARGS                   2
+                148     LOAD_CONST                      0: None
+                150     STORE_FAST                      5: exc
+                152     DELETE_FAST                     5: exc
+                154     RERAISE                         1
+                156     RERAISE                         0
+                158     LOAD_CONST                      0: None
+                160     RETURN_VALUE                    
+        '_prepare_set'
+        [Code]
+            File Name: email/contentmanager.py
+            Object Name: _finalize_set
+            Arg Count: 5
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 7
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'set_param'
+                'items'
+            [Var Names]
+                'msg'
+                'disposition'
+                'filename'
+                'cid'
+                'params'
+                'key'
+                'value'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'attachment'
+                'Content-Disposition'
+                'filename'
+                True
+                (
+                    'header'
+                    'replace'
+                )
+                'Content-ID'
+            [Disassembly]
+                0       LOAD_FAST                       1: disposition
+                2       LOAD_CONST                      0: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               10 (to 20)
+                8       LOAD_FAST                       2: filename
+                10      LOAD_CONST                      0: None
+                12      IS_OP                           1 (is not)
+                14      POP_JUMP_IF_FALSE               10 (to 20)
+                16      LOAD_CONST                      1: 'attachment'
+                18      STORE_FAST                      1: disposition
+                20      LOAD_FAST                       1: disposition
+                22      LOAD_CONST                      0: None
+                24      IS_OP                           1 (is not)
+                26      POP_JUMP_IF_FALSE               18 (to 36)
+                28      LOAD_FAST                       1: disposition
+                30      LOAD_FAST                       0: msg
+                32      LOAD_CONST                      2: 'Content-Disposition'
+                34      STORE_SUBSCR                    
+                36      LOAD_FAST                       2: filename
+                38      LOAD_CONST                      0: None
+                40      IS_OP                           1 (is not)
+                42      POP_JUMP_IF_FALSE               31 (to 62)
+                44      LOAD_FAST                       0: msg
+                46      LOAD_ATTR                       0: set_param
+                48      LOAD_CONST                      3: 'filename'
+                50      LOAD_FAST                       2: filename
+                52      LOAD_CONST                      2: 'Content-Disposition'
+                54      LOAD_CONST                      4: True
+                56      LOAD_CONST                      5: ('header', 'replace')
+                58      CALL_FUNCTION_KW                4
+                60      POP_TOP                         
+                62      LOAD_FAST                       3: cid
+                64      LOAD_CONST                      0: None
+                66      IS_OP                           1 (is not)
+                68      POP_JUMP_IF_FALSE               39 (to 78)
+                70      LOAD_FAST                       3: cid
+                72      LOAD_FAST                       0: msg
+                74      LOAD_CONST                      6: 'Content-ID'
+                76      STORE_SUBSCR                    
+                78      LOAD_FAST                       4: params
+                80      LOAD_CONST                      0: None
+                82      IS_OP                           1 (is not)
+                84      POP_JUMP_IF_FALSE               58 (to 116)
+                86      LOAD_FAST                       4: params
+                88      LOAD_METHOD                     1: items
+                90      CALL_METHOD                     0
+                92      GET_ITER                        
+                94      FOR_ITER                        12 (to 120)
+                96      UNPACK_SEQUENCE                 2
+                98      STORE_FAST                      5: key
+                100     STORE_FAST                      6: value
+                102     LOAD_FAST                       0: msg
+                104     LOAD_METHOD                     0: set_param
+                106     LOAD_FAST                       5: key
+                108     LOAD_FAST                       6: value
+                110     CALL_METHOD                     2
+                112     POP_TOP                         
+                114     JUMP_ABSOLUTE                   47 (to 94)
+                116     LOAD_CONST                      0: None
+                118     RETURN_VALUE                    
+                120     LOAD_CONST                      0: None
+                122     RETURN_VALUE                    
+        '_finalize_set'
+        [Code]
+            File Name: email/contentmanager.py
+            Object Name: _encode_base64
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'range'
+                'len'
+                'append'
+                'binascii'
+                'b2a_base64'
+                'decode'
+                'join'
+            [Var Names]
+                'data'
+                'max_line_length'
+                'encoded_lines'
+                'unencoded_bytes_per_line'
+                'i'
+                'thisline'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                4
+                3
+                0
+                'ascii'
+                ''
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       STORE_FAST                      2: encoded_lines
+                4       LOAD_FAST                       1: max_line_length
+                6       LOAD_CONST                      1: 4
+                8       BINARY_FLOOR_DIVIDE             
+                10      LOAD_CONST                      2: 3
+                12      BINARY_MULTIPLY                 
+                14      STORE_FAST                      3: unencoded_bytes_per_line
+                16      LOAD_GLOBAL                     0: range
+                18      LOAD_CONST                      3: 0
+                20      LOAD_GLOBAL                     1: len
+                22      LOAD_FAST                       0: data
+                24      CALL_FUNCTION                   1
+                26      LOAD_FAST                       3: unencoded_bytes_per_line
+                28      CALL_FUNCTION                   3
+                30      GET_ITER                        
+                32      FOR_ITER                        21 (to 76)
+                34      STORE_FAST                      4: i
+                36      LOAD_FAST                       0: data
+                38      LOAD_FAST                       4: i
+                40      LOAD_FAST                       4: i
+                42      LOAD_FAST                       3: unencoded_bytes_per_line
+                44      BINARY_ADD                      
+                46      BUILD_SLICE                     2
+                48      BINARY_SUBSCR                   
+                50      STORE_FAST                      5: thisline
+                52      LOAD_FAST                       2: encoded_lines
+                54      LOAD_METHOD                     2: append
+                56      LOAD_GLOBAL                     3: binascii
+                58      LOAD_METHOD                     4: b2a_base64
+                60      LOAD_FAST                       5: thisline
+                62      CALL_METHOD                     1
+                64      LOAD_METHOD                     5: decode
+                66      LOAD_CONST                      4: 'ascii'
+                68      CALL_METHOD                     1
+                70      CALL_METHOD                     1
+                72      POP_TOP                         
+                74      JUMP_ABSOLUTE                   16 (to 32)
+                76      LOAD_CONST                      5: ''
+                78      LOAD_METHOD                     6: join
+                80      LOAD_FAST                       2: encoded_lines
+                82      CALL_METHOD                     1
+                84      RETURN_VALUE                    
+        '_encode_base64'
+        [Code]
+            File Name: email/contentmanager.py
+            Object Name: _encode_text
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 11
+            Stack Size: 8
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'encode'
+                'splitlines'
+                'linesep'
+                'max'
+                'max_line_length'
+                'decode'
+                'UnicodeDecodeError'
+                'cte_type'
+                'quoprimime'
+                'body_encode'
+                'binascii'
+                'b2a_base64'
+                'len'
+                '_encode_base64'
+                'ValueError'
+                'format'
+            [Var Names]
+                'string'
+                'charset'
+                'cte'
+                'policy'
+                'lines'
+                'embedded_body'
+                'normal_body'
+                'sniff'
+                'sniff_qp'
+                'sniff_base64'
+                'data'
+            [Free Vars]
+            [Cell Vars]
+                'linesep'
+            [Constants]
+                None
+                'ascii'
+                [Code]
+                    File Name: email/contentmanager.py
+                    Object Name: embedded_body
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                        'join'
+                    [Var Names]
+                        'lines'
+                    [Free Vars]
+                        'linesep'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_DEREF                      0: linesep
+                        2       LOAD_METHOD                     0: join
+                        4       LOAD_FAST                       0: lines
+                        6       CALL_METHOD                     1
+                        8       LOAD_DEREF                      0: linesep
+                        10      BINARY_ADD                      
+                        12      RETURN_VALUE                    
+                '_encode_text.<locals>.embedded_body'
+                [Code]
+                    File Name: email/contentmanager.py
+                    Object Name: normal_body
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        'join'
+                    [Var Names]
+                        'lines'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        b'\n'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: b'\n'
+                        2       LOAD_METHOD                     0: join
+                        4       LOAD_FAST                       0: lines
+                        6       CALL_METHOD                     1
+                        8       LOAD_CONST                      1: b'\n'
+                        10      BINARY_ADD                      
+                        12      RETURN_VALUE                    
+                '_encode_text.<locals>.normal_body'
+                [Code]
+                    File Name: email/contentmanager.py
+                    Object Name: <genexpr>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                    [Names]
+                        'len'
+                    [Var Names]
+                        '.0'
+                        'x'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        7 (to 20)
+                        6       STORE_FAST                      1: x
+                        8       LOAD_GLOBAL                     0: len
+                        10      LOAD_FAST                       1: x
+                        12      CALL_FUNCTION                   1
+                        14      YIELD_VALUE                     
+                        16      POP_TOP                         
+                        18      JUMP_ABSOLUTE                   2 (to 4)
+                        20      LOAD_CONST                      0: None
+                        22      RETURN_VALUE                    
+                '_encode_text.<locals>.<genexpr>'
+                0
+                (
+                    'default'
+                )
+                '7bit'
+                '8bit'
+                'surrogateescape'
+                10
+                'latin-1'
+                'base64'
+                'quoted-printable'
+                'Unknown content transfer encoding {}'
+            [Disassembly]
+                0       LOAD_FAST                       0: string
+                2       LOAD_METHOD                     0: encode
+                4       LOAD_FAST                       1: charset
+                6       CALL_METHOD                     1
+                8       LOAD_METHOD                     1: splitlines
+                10      CALL_METHOD                     0
+                12      STORE_FAST                      4: lines
+                14      LOAD_FAST                       3: policy
+                16      LOAD_ATTR                       2: linesep
+                18      LOAD_METHOD                     0: encode
+                20      LOAD_CONST                      1: 'ascii'
+                22      CALL_METHOD                     1
+                24      STORE_DEREF                     0: linesep
+                26      LOAD_CLOSURE                    0: linesep
+                28      BUILD_TUPLE                     1
+                30      LOAD_CONST                      2: <CODE> embedded_body
+                32      LOAD_CONST                      3: '_encode_text.<locals>.embedded_body'
+                34      MAKE_FUNCTION                   8
+                36      STORE_FAST                      5: embedded_body
+                38      LOAD_CONST                      4: <CODE> normal_body
+                40      LOAD_CONST                      5: '_encode_text.<locals>.normal_body'
+                42      MAKE_FUNCTION                   0
+                44      STORE_FAST                      6: normal_body
+                46      LOAD_FAST                       2: cte
+                48      LOAD_CONST                      0: None
+                50      IS_OP                           0 (is)
+                52      POP_JUMP_IF_FALSE               122 (to 244)
+                54      LOAD_GLOBAL                     3: max
+                56      LOAD_CONST                      6: <CODE> <genexpr>
+                58      LOAD_CONST                      7: '_encode_text.<locals>.<genexpr>'
+                60      MAKE_FUNCTION                   0
+                62      LOAD_FAST                       4: lines
+                64      GET_ITER                        
+                66      CALL_FUNCTION                   1
+                68      LOAD_CONST                      8: 0
+                70      LOAD_CONST                      9: ('default',)
+                72      CALL_FUNCTION_KW                2
+                74      LOAD_FAST                       3: policy
+                76      LOAD_ATTR                       4: max_line_length
+                78      COMPARE_OP                      1 (<=)
+                80      POP_JUMP_IF_FALSE               76 (to 152)
+                82      SETUP_FINALLY                   10 (to 104)
+                84      LOAD_CONST                      10: '7bit'
+                86      LOAD_FAST                       6: normal_body
+                88      LOAD_FAST                       4: lines
+                90      CALL_FUNCTION                   1
+                92      LOAD_METHOD                     5: decode
+                94      LOAD_CONST                      1: 'ascii'
+                96      CALL_METHOD                     1
+                98      BUILD_TUPLE                     2
+                100     POP_BLOCK                       
+                102     RETURN_VALUE                    
+                104     DUP_TOP                         
+                106     LOAD_GLOBAL                     6: UnicodeDecodeError
+                108     JUMP_IF_NOT_EXC_MATCH           60 (to 120)
+                110     POP_TOP                         
+                112     POP_TOP                         
+                114     POP_TOP                         
+                116     POP_EXCEPT                      
+                118     JUMP_FORWARD                    1 (to 122)
+                120     RERAISE                         0
+                122     LOAD_FAST                       3: policy
+                124     LOAD_ATTR                       7: cte_type
+                126     LOAD_CONST                      11: '8bit'
+                128     COMPARE_OP                      2 (==)
+                130     POP_JUMP_IF_FALSE               76 (to 152)
+                132     LOAD_CONST                      11: '8bit'
+                134     LOAD_FAST                       6: normal_body
+                136     LOAD_FAST                       4: lines
+                138     CALL_FUNCTION                   1
+                140     LOAD_METHOD                     5: decode
+                142     LOAD_CONST                      1: 'ascii'
+                144     LOAD_CONST                      12: 'surrogateescape'
+                146     CALL_METHOD                     2
+                148     BUILD_TUPLE                     2
+                150     RETURN_VALUE                    
+                152     LOAD_FAST                       5: embedded_body
+                154     LOAD_FAST                       4: lines
+                156     LOAD_CONST                      0: None
+                158     LOAD_CONST                      13: 10
+                160     BUILD_SLICE                     2
+                162     BINARY_SUBSCR                   
+                164     CALL_FUNCTION                   1
+                166     STORE_FAST                      7: sniff
+                168     LOAD_GLOBAL                     8: quoprimime
+                170     LOAD_METHOD                     9: body_encode
+                172     LOAD_FAST                       7: sniff
+                174     LOAD_METHOD                     5: decode
+                176     LOAD_CONST                      14: 'latin-1'
+                178     CALL_METHOD                     1
+                180     LOAD_FAST                       3: policy
+                182     LOAD_ATTR                       4: max_line_length
+                184     CALL_METHOD                     2
+                186     STORE_FAST                      8: sniff_qp
+                188     LOAD_GLOBAL                     10: binascii
+                190     LOAD_METHOD                     11: b2a_base64
+                192     LOAD_FAST                       7: sniff
+                194     CALL_METHOD                     1
+                196     STORE_FAST                      9: sniff_base64
+                198     LOAD_GLOBAL                     12: len
+                200     LOAD_FAST                       8: sniff_qp
+                202     CALL_FUNCTION                   1
+                204     LOAD_GLOBAL                     12: len
+                206     LOAD_FAST                       9: sniff_base64
+                208     CALL_FUNCTION                   1
+                210     COMPARE_OP                      4 (>)
+                212     POP_JUMP_IF_FALSE               110 (to 220)
+                214     LOAD_CONST                      15: 'base64'
+                216     STORE_FAST                      2: cte
+                218     JUMP_FORWARD                    12 (to 244)
+                220     LOAD_CONST                      16: 'quoted-printable'
+                222     STORE_FAST                      2: cte
+                224     LOAD_GLOBAL                     12: len
+                226     LOAD_FAST                       4: lines
+                228     CALL_FUNCTION                   1
+                230     LOAD_CONST                      13: 10
+                232     COMPARE_OP                      1 (<=)
+                234     POP_JUMP_IF_FALSE               122 (to 244)
+                236     LOAD_FAST                       2: cte
+                238     LOAD_FAST                       8: sniff_qp
+                240     BUILD_TUPLE                     2
+                242     RETURN_VALUE                    
+                244     LOAD_FAST                       2: cte
+                246     LOAD_CONST                      10: '7bit'
+                248     COMPARE_OP                      2 (==)
+                250     POP_JUMP_IF_FALSE               137 (to 274)
+                252     LOAD_FAST                       6: normal_body
+                254     LOAD_FAST                       4: lines
+                256     CALL_FUNCTION                   1
+                258     LOAD_METHOD                     5: decode
+                260     LOAD_CONST                      1: 'ascii'
+                262     CALL_METHOD                     1
+                264     STORE_FAST                      10: data
+                266     LOAD_FAST                       2: cte
+                268     LOAD_FAST                       10: data
+                270     BUILD_TUPLE                     2
+                272     RETURN_VALUE                    
+                274     LOAD_FAST                       2: cte
+                276     LOAD_CONST                      11: '8bit'
+                278     COMPARE_OP                      2 (==)
+                280     POP_JUMP_IF_FALSE               153 (to 306)
+                282     LOAD_FAST                       6: normal_body
+                284     LOAD_FAST                       4: lines
+                286     CALL_FUNCTION                   1
+                288     LOAD_METHOD                     5: decode
+                290     LOAD_CONST                      1: 'ascii'
+                292     LOAD_CONST                      12: 'surrogateescape'
+                294     CALL_METHOD                     2
+                296     STORE_FAST                      10: data
+                298     LOAD_FAST                       2: cte
+                300     LOAD_FAST                       10: data
+                302     BUILD_TUPLE                     2
+                304     RETURN_VALUE                    
+                306     LOAD_FAST                       2: cte
+                308     LOAD_CONST                      16: 'quoted-printable'
+                310     COMPARE_OP                      2 (==)
+                312     POP_JUMP_IF_FALSE               173 (to 346)
+                314     LOAD_GLOBAL                     8: quoprimime
+                316     LOAD_METHOD                     9: body_encode
+                318     LOAD_FAST                       6: normal_body
+                320     LOAD_FAST                       4: lines
+                322     CALL_FUNCTION                   1
+                324     LOAD_METHOD                     5: decode
+                326     LOAD_CONST                      14: 'latin-1'
+                328     CALL_METHOD                     1
+                330     LOAD_FAST                       3: policy
+                332     LOAD_ATTR                       4: max_line_length
+                334     CALL_METHOD                     2
+                336     STORE_FAST                      10: data
+                338     LOAD_FAST                       2: cte
+                340     LOAD_FAST                       10: data
+                342     BUILD_TUPLE                     2
+                344     RETURN_VALUE                    
+                346     LOAD_FAST                       2: cte
+                348     LOAD_CONST                      15: 'base64'
+                350     COMPARE_OP                      2 (==)
+                352     POP_JUMP_IF_FALSE               189 (to 378)
+                354     LOAD_GLOBAL                     13: _encode_base64
+                356     LOAD_FAST                       5: embedded_body
+                358     LOAD_FAST                       4: lines
+                360     CALL_FUNCTION                   1
+                362     LOAD_FAST                       3: policy
+                364     LOAD_ATTR                       4: max_line_length
+                366     CALL_FUNCTION                   2
+                368     STORE_FAST                      10: data
+                370     LOAD_FAST                       2: cte
+                372     LOAD_FAST                       10: data
+                374     BUILD_TUPLE                     2
+                376     RETURN_VALUE                    
+                378     LOAD_GLOBAL                     14: ValueError
+                380     LOAD_CONST                      17: 'Unknown content transfer encoding {}'
+                382     LOAD_METHOD                     15: format
+                384     LOAD_FAST                       2: cte
+                386     CALL_METHOD                     1
+                388     CALL_FUNCTION                   1
+                390     RAISE_VARARGS                   1
+        '_encode_text'
+        'plain'
+        'utf-8'
+        [Code]
+            File Name: email/contentmanager.py
+            Object Name: set_text_content
+            Arg Count: 10
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 11
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_prepare_set'
+                '_encode_text'
+                'policy'
+                'set_payload'
+                'set_param'
+                'email'
+                'charset'
+                'ALIASES'
+                'get'
+                '_finalize_set'
+            [Var Names]
+                'msg'
+                'string'
+                'subtype'
+                'charset'
+                'cte'
+                'disposition'
+                'filename'
+                'cid'
+                'params'
+                'headers'
+                'payload'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'text'
+                'charset'
+                True
+                (
+                    'replace'
+                )
+                'Content-Transfer-Encoding'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _prepare_set
+                2       LOAD_FAST                       0: msg
+                4       LOAD_CONST                      1: 'text'
+                6       LOAD_FAST                       2: subtype
+                8       LOAD_FAST                       9: headers
+                10      CALL_FUNCTION                   4
+                12      POP_TOP                         
+                14      LOAD_GLOBAL                     1: _encode_text
+                16      LOAD_FAST                       1: string
+                18      LOAD_FAST                       3: charset
+                20      LOAD_FAST                       4: cte
+                22      LOAD_FAST                       0: msg
+                24      LOAD_ATTR                       2: policy
+                26      CALL_FUNCTION                   4
+                28      UNPACK_SEQUENCE                 2
+                30      STORE_FAST                      4: cte
+                32      STORE_FAST                      10: payload
+                34      LOAD_FAST                       0: msg
+                36      LOAD_METHOD                     3: set_payload
+                38      LOAD_FAST                       10: payload
+                40      CALL_METHOD                     1
+                42      POP_TOP                         
+                44      LOAD_FAST                       0: msg
+                46      LOAD_ATTR                       4: set_param
+                48      LOAD_CONST                      2: 'charset'
+                50      LOAD_GLOBAL                     5: email
+                52      LOAD_ATTR                       6: charset
+                54      LOAD_ATTR                       7: ALIASES
+                56      LOAD_METHOD                     8: get
+                58      LOAD_FAST                       3: charset
+                60      LOAD_FAST                       3: charset
+                62      CALL_METHOD                     2
+                64      LOAD_CONST                      3: True
+                66      LOAD_CONST                      4: ('replace',)
+                68      CALL_FUNCTION_KW                3
+                70      POP_TOP                         
+                72      LOAD_FAST                       4: cte
+                74      LOAD_FAST                       0: msg
+                76      LOAD_CONST                      5: 'Content-Transfer-Encoding'
+                78      STORE_SUBSCR                    
+                80      LOAD_GLOBAL                     9: _finalize_set
+                82      LOAD_FAST                       0: msg
+                84      LOAD_FAST                       5: disposition
+                86      LOAD_FAST                       6: filename
+                88      LOAD_FAST                       7: cid
+                90      LOAD_FAST                       8: params
+                92      CALL_FUNCTION                   5
+                94      POP_TOP                         
+                96      LOAD_CONST                      0: None
+                98      RETURN_VALUE                    
+        'set_text_content'
+        'rfc822'
+        [Code]
+            File Name: email/contentmanager.py
+            Object Name: set_message_content
+            Arg Count: 9
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 9
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ValueError'
+                'format'
+                '_prepare_set'
+                'set_payload'
+                '_finalize_set'
+            [Var Names]
+                'msg'
+                'message'
+                'subtype'
+                'cte'
+                'disposition'
+                'filename'
+                'cid'
+                'params'
+                'headers'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'partial'
+                'message/partial is not supported for Message objects'
+                'rfc822'
+                (
+                    None
+                    '7bit'
+                    '8bit'
+                    'binary'
+                )
+                'message/rfc822 parts do not support cte={}'
+                '8bit'
+                'external-body'
+                (
+                    None
+                    '7bit'
+                )
+                'message/external-body parts do not support cte={}'
+                '7bit'
+                'message'
+                'Content-Transfer-Encoding'
+            [Disassembly]
+                0       LOAD_FAST                       2: subtype
+                2       LOAD_CONST                      1: 'partial'
+                4       COMPARE_OP                      2 (==)
+                6       POP_JUMP_IF_FALSE               8 (to 16)
+                8       LOAD_GLOBAL                     0: ValueError
+                10      LOAD_CONST                      2: 'message/partial is not supported for Message objects'
+                12      CALL_FUNCTION                   1
+                14      RAISE_VARARGS                   1
+                16      LOAD_FAST                       2: subtype
+                18      LOAD_CONST                      3: 'rfc822'
+                20      COMPARE_OP                      2 (==)
+                22      POP_JUMP_IF_FALSE               32 (to 64)
+                24      LOAD_FAST                       3: cte
+                26      LOAD_CONST                      4: (None, '7bit', '8bit', 'binary')
+                28      CONTAINS_OP                     1 (not in)
+                30      POP_JUMP_IF_FALSE               23 (to 46)
+                32      LOAD_GLOBAL                     0: ValueError
+                34      LOAD_CONST                      5: 'message/rfc822 parts do not support cte={}'
+                36      LOAD_METHOD                     1: format
+                38      LOAD_FAST                       3: cte
+                40      CALL_METHOD                     1
+                42      CALL_FUNCTION                   1
+                44      RAISE_VARARGS                   1
+                46      LOAD_FAST                       3: cte
+                48      LOAD_CONST                      0: None
+                50      IS_OP                           0 (is)
+                52      POP_JUMP_IF_FALSE               29 (to 58)
+                54      LOAD_CONST                      6: '8bit'
+                56      JUMP_FORWARD                    1 (to 60)
+                58      LOAD_FAST                       3: cte
+                60      STORE_FAST                      3: cte
+                62      JUMP_FORWARD                    24 (to 112)
+                64      LOAD_FAST                       2: subtype
+                66      LOAD_CONST                      7: 'external-body'
+                68      COMPARE_OP                      2 (==)
+                70      POP_JUMP_IF_FALSE               50 (to 100)
+                72      LOAD_FAST                       3: cte
+                74      LOAD_CONST                      8: (None, '7bit')
+                76      CONTAINS_OP                     1 (not in)
+                78      POP_JUMP_IF_FALSE               47 (to 94)
+                80      LOAD_GLOBAL                     0: ValueError
+                82      LOAD_CONST                      9: 'message/external-body parts do not support cte={}'
+                84      LOAD_METHOD                     1: format
+                86      LOAD_FAST                       3: cte
+                88      CALL_METHOD                     1
+                90      CALL_FUNCTION                   1
+                92      RAISE_VARARGS                   1
+                94      LOAD_CONST                      10: '7bit'
+                96      STORE_FAST                      3: cte
+                98      JUMP_FORWARD                    6 (to 112)
+                100     LOAD_FAST                       3: cte
+                102     LOAD_CONST                      0: None
+                104     IS_OP                           0 (is)
+                106     POP_JUMP_IF_FALSE               56 (to 112)
+                108     LOAD_CONST                      10: '7bit'
+                110     STORE_FAST                      3: cte
+                112     LOAD_GLOBAL                     2: _prepare_set
+                114     LOAD_FAST                       0: msg
+                116     LOAD_CONST                      11: 'message'
+                118     LOAD_FAST                       2: subtype
+                120     LOAD_FAST                       8: headers
+                122     CALL_FUNCTION                   4
+                124     POP_TOP                         
+                126     LOAD_FAST                       0: msg
+                128     LOAD_METHOD                     3: set_payload
+                130     LOAD_FAST                       1: message
+                132     BUILD_LIST                      1
+                134     CALL_METHOD                     1
+                136     POP_TOP                         
+                138     LOAD_FAST                       3: cte
+                140     LOAD_FAST                       0: msg
+                142     LOAD_CONST                      12: 'Content-Transfer-Encoding'
+                144     STORE_SUBSCR                    
+                146     LOAD_GLOBAL                     4: _finalize_set
+                148     LOAD_FAST                       0: msg
+                150     LOAD_FAST                       4: disposition
+                152     LOAD_FAST                       5: filename
+                154     LOAD_FAST                       6: cid
+                156     LOAD_FAST                       7: params
+                158     CALL_FUNCTION                   5
+                160     POP_TOP                         
+                162     LOAD_CONST                      0: None
+                164     RETURN_VALUE                    
+        'set_message_content'
+        'base64'
+        [Code]
+            File Name: email/contentmanager.py
+            Object Name: set_bytes_content
+            Arg Count: 10
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 10
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_prepare_set'
+                '_encode_base64'
+                'policy'
+                'max_line_length'
+                'binascii'
+                'b2a_qp'
+                'decode'
+                'set_payload'
+                '_finalize_set'
+            [Var Names]
+                'msg'
+                'data'
+                'maintype'
+                'subtype'
+                'cte'
+                'disposition'
+                'filename'
+                'cid'
+                'params'
+                'headers'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'base64'
+                (
+                    'max_line_length'
+                )
+                'quoted-printable'
+                False
+                True
+                (
+                    'istext'
+                    'header'
+                    'quotetabs'
+                )
+                'ascii'
+                '7bit'
+                (
+                    '8bit'
+                    'binary'
+                )
+                'surrogateescape'
+                'Content-Transfer-Encoding'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _prepare_set
+                2       LOAD_FAST                       0: msg
+                4       LOAD_FAST                       2: maintype
+                6       LOAD_FAST                       3: subtype
+                8       LOAD_FAST                       9: headers
+                10      CALL_FUNCTION                   4
+                12      POP_TOP                         
+                14      LOAD_FAST                       4: cte
+                16      LOAD_CONST                      1: 'base64'
+                18      COMPARE_OP                      2 (==)
+                20      POP_JUMP_IF_FALSE               20 (to 40)
+                22      LOAD_GLOBAL                     1: _encode_base64
+                24      LOAD_FAST                       1: data
+                26      LOAD_FAST                       0: msg
+                28      LOAD_ATTR                       2: policy
+                30      LOAD_ATTR                       3: max_line_length
+                32      LOAD_CONST                      2: ('max_line_length',)
+                34      CALL_FUNCTION_KW                2
+                36      STORE_FAST                      1: data
+                38      JUMP_FORWARD                    39 (to 118)
+                40      LOAD_FAST                       4: cte
+                42      LOAD_CONST                      3: 'quoted-printable'
+                44      COMPARE_OP                      2 (==)
+                46      POP_JUMP_IF_FALSE               39 (to 78)
+                48      LOAD_GLOBAL                     4: binascii
+                50      LOAD_ATTR                       5: b2a_qp
+                52      LOAD_FAST                       1: data
+                54      LOAD_CONST                      4: False
+                56      LOAD_CONST                      4: False
+                58      LOAD_CONST                      5: True
+                60      LOAD_CONST                      6: ('istext', 'header', 'quotetabs')
+                62      CALL_FUNCTION_KW                4
+                64      STORE_FAST                      1: data
+                66      LOAD_FAST                       1: data
+                68      LOAD_METHOD                     6: decode
+                70      LOAD_CONST                      7: 'ascii'
+                72      CALL_METHOD                     1
+                74      STORE_FAST                      1: data
+                76      JUMP_FORWARD                    20 (to 118)
+                78      LOAD_FAST                       4: cte
+                80      LOAD_CONST                      8: '7bit'
+                82      COMPARE_OP                      2 (==)
+                84      POP_JUMP_IF_FALSE               49 (to 98)
+                86      LOAD_FAST                       1: data
+                88      LOAD_METHOD                     6: decode
+                90      LOAD_CONST                      7: 'ascii'
+                92      CALL_METHOD                     1
+                94      STORE_FAST                      1: data
+                96      JUMP_FORWARD                    10 (to 118)
+                98      LOAD_FAST                       4: cte
+                100     LOAD_CONST                      9: ('8bit', 'binary')
+                102     CONTAINS_OP                     0 (in)
+                104     POP_JUMP_IF_FALSE               59 (to 118)
+                106     LOAD_FAST                       1: data
+                108     LOAD_METHOD                     6: decode
+                110     LOAD_CONST                      7: 'ascii'
+                112     LOAD_CONST                      10: 'surrogateescape'
+                114     CALL_METHOD                     2
+                116     STORE_FAST                      1: data
+                118     LOAD_FAST                       0: msg
+                120     LOAD_METHOD                     7: set_payload
+                122     LOAD_FAST                       1: data
+                124     CALL_METHOD                     1
+                126     POP_TOP                         
+                128     LOAD_FAST                       4: cte
+                130     LOAD_FAST                       0: msg
+                132     LOAD_CONST                      11: 'Content-Transfer-Encoding'
+                134     STORE_SUBSCR                    
+                136     LOAD_GLOBAL                     8: _finalize_set
+                138     LOAD_FAST                       0: msg
+                140     LOAD_FAST                       5: disposition
+                142     LOAD_FAST                       6: filename
+                144     LOAD_FAST                       7: cid
+                146     LOAD_FAST                       8: params
+                148     CALL_FUNCTION                   5
+                150     POP_TOP                         
+                152     LOAD_CONST                      0: None
+                154     RETURN_VALUE                    
+        'set_bytes_content'
+        (
+            'replace'
+        )
+        (
+            'plain'
+            'utf-8'
+            None
+            None
+            None
+            None
+            None
+            None
+        )
+        (
+            'rfc822'
+            None
+            None
+            None
+            None
+            None
+            None
+        )
+        (
+            'base64'
+            None
+            None
+            None
+            None
+            None
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 0
+        2       LOAD_CONST                      1: None
+        4       IMPORT_NAME                     0: binascii
+        6       STORE_NAME                      0: binascii
+        8       LOAD_CONST                      0: 0
+        10      LOAD_CONST                      1: None
+        12      IMPORT_NAME                     1: email.charset
+        14      STORE_NAME                      2: email
+        16      LOAD_CONST                      0: 0
+        18      LOAD_CONST                      1: None
+        20      IMPORT_NAME                     3: email.message
+        22      STORE_NAME                      2: email
+        24      LOAD_CONST                      0: 0
+        26      LOAD_CONST                      1: None
+        28      IMPORT_NAME                     4: email.errors
+        30      STORE_NAME                      2: email
+        32      LOAD_CONST                      0: 0
+        34      LOAD_CONST                      2: ('quoprimime',)
+        36      IMPORT_NAME                     2: email
+        38      IMPORT_FROM                     5: quoprimime
+        40      STORE_NAME                      5: quoprimime
+        42      POP_TOP                         
+        44      LOAD_BUILD_CLASS                
+        46      LOAD_CONST                      3: <CODE> ContentManager
+        48      LOAD_CONST                      4: 'ContentManager'
+        50      MAKE_FUNCTION                   0
+        52      LOAD_CONST                      4: 'ContentManager'
+        54      CALL_FUNCTION                   2
+        56      STORE_NAME                      6: ContentManager
+        58      LOAD_NAME                       6: ContentManager
+        60      CALL_FUNCTION                   0
+        62      STORE_NAME                      7: raw_data_manager
+        64      LOAD_CONST                      37: ('replace',)
+        66      LOAD_CONST                      6: <CODE> get_text_content
+        68      LOAD_CONST                      7: 'get_text_content'
+        70      MAKE_FUNCTION                   1
+        72      STORE_NAME                      8: get_text_content
+        74      LOAD_NAME                       7: raw_data_manager
+        76      LOAD_METHOD                     9: add_get_handler
+        78      LOAD_CONST                      8: 'text'
+        80      LOAD_NAME                       8: get_text_content
+        82      CALL_METHOD                     2
+        84      POP_TOP                         
+        86      LOAD_CONST                      9: <CODE> get_non_text_content
+        88      LOAD_CONST                      10: 'get_non_text_content'
+        90      MAKE_FUNCTION                   0
+        92      STORE_NAME                      10: get_non_text_content
+        94      LOAD_CONST                      11: 'audio image video application'
+        96      LOAD_METHOD                     11: split
+        98      CALL_METHOD                     0
+        100     GET_ITER                        
+        102     FOR_ITER                        8 (to 120)
+        104     STORE_NAME                      12: maintype
+        106     LOAD_NAME                       7: raw_data_manager
+        108     LOAD_METHOD                     9: add_get_handler
+        110     LOAD_NAME                       12: maintype
+        112     LOAD_NAME                       10: get_non_text_content
+        114     CALL_METHOD                     2
+        116     POP_TOP                         
+        118     JUMP_ABSOLUTE                   51 (to 102)
+        120     LOAD_CONST                      12: <CODE> get_message_content
+        122     LOAD_CONST                      13: 'get_message_content'
+        124     MAKE_FUNCTION                   0
+        126     STORE_NAME                      13: get_message_content
+        128     LOAD_CONST                      14: 'rfc822 external-body'
+        130     LOAD_METHOD                     11: split
+        132     CALL_METHOD                     0
+        134     GET_ITER                        
+        136     FOR_ITER                        10 (to 158)
+        138     STORE_NAME                      14: subtype
+        140     LOAD_NAME                       7: raw_data_manager
+        142     LOAD_METHOD                     9: add_get_handler
+        144     LOAD_CONST                      15: 'message/'
+        146     LOAD_NAME                       14: subtype
+        148     BINARY_ADD                      
+        150     LOAD_NAME                       13: get_message_content
+        152     CALL_METHOD                     2
+        154     POP_TOP                         
+        156     JUMP_ABSOLUTE                   68 (to 136)
+        158     LOAD_CONST                      16: <CODE> get_and_fixup_unknown_message_content
+        160     LOAD_CONST                      17: 'get_and_fixup_unknown_message_content'
+        162     MAKE_FUNCTION                   0
+        164     STORE_NAME                      15: get_and_fixup_unknown_message_content
+        166     LOAD_NAME                       7: raw_data_manager
+        168     LOAD_METHOD                     9: add_get_handler
+        170     LOAD_CONST                      18: 'message'
+        172     LOAD_NAME                       15: get_and_fixup_unknown_message_content
+        174     CALL_METHOD                     2
+        176     POP_TOP                         
+        178     LOAD_CONST                      19: <CODE> _prepare_set
+        180     LOAD_CONST                      20: '_prepare_set'
+        182     MAKE_FUNCTION                   0
+        184     STORE_NAME                      16: _prepare_set
+        186     LOAD_CONST                      21: <CODE> _finalize_set
+        188     LOAD_CONST                      22: '_finalize_set'
+        190     MAKE_FUNCTION                   0
+        192     STORE_NAME                      17: _finalize_set
+        194     LOAD_CONST                      23: <CODE> _encode_base64
+        196     LOAD_CONST                      24: '_encode_base64'
+        198     MAKE_FUNCTION                   0
+        200     STORE_NAME                      18: _encode_base64
+        202     LOAD_CONST                      25: <CODE> _encode_text
+        204     LOAD_CONST                      26: '_encode_text'
+        206     MAKE_FUNCTION                   0
+        208     STORE_NAME                      19: _encode_text
+        210     NOP                             
+        212     NOP                             
+        214     NOP                             
+        216     LOAD_CONST                      38: ('plain', 'utf-8', None, None, None, None, None, None)
+        218     LOAD_CONST                      29: <CODE> set_text_content
+        220     LOAD_CONST                      30: 'set_text_content'
+        222     MAKE_FUNCTION                   1
+        224     STORE_NAME                      20: set_text_content
+        226     LOAD_NAME                       7: raw_data_manager
+        228     LOAD_METHOD                     21: add_set_handler
+        230     LOAD_NAME                       22: str
+        232     LOAD_NAME                       20: set_text_content
+        234     CALL_METHOD                     2
+        236     POP_TOP                         
+        238     NOP                             
+        240     NOP                             
+        242     NOP                             
+        244     LOAD_CONST                      39: ('rfc822', None, None, None, None, None, None)
+        246     LOAD_CONST                      32: <CODE> set_message_content
+        248     LOAD_CONST                      33: 'set_message_content'
+        250     MAKE_FUNCTION                   1
+        252     STORE_NAME                      23: set_message_content
+        254     LOAD_NAME                       7: raw_data_manager
+        256     LOAD_METHOD                     21: add_set_handler
+        258     LOAD_NAME                       2: email
+        260     LOAD_ATTR                       24: message
+        262     LOAD_ATTR                       25: Message
+        264     LOAD_NAME                       23: set_message_content
+        266     CALL_METHOD                     2
+        268     POP_TOP                         
+        270     NOP                             
+        272     NOP                             
+        274     NOP                             
+        276     LOAD_CONST                      40: ('base64', None, None, None, None, None)
+        278     LOAD_CONST                      35: <CODE> set_bytes_content
+        280     LOAD_CONST                      36: 'set_bytes_content'
+        282     MAKE_FUNCTION                   1
+        284     STORE_NAME                      26: set_bytes_content
+        286     LOAD_NAME                       27: bytes
+        288     LOAD_NAME                       28: bytearray
+        290     LOAD_NAME                       29: memoryview
+        292     BUILD_TUPLE                     3
+        294     GET_ITER                        
+        296     FOR_ITER                        8 (to 314)
+        298     STORE_NAME                      30: typ
+        300     LOAD_NAME                       7: raw_data_manager
+        302     LOAD_METHOD                     21: add_set_handler
+        304     LOAD_NAME                       30: typ
+        306     LOAD_NAME                       26: set_bytes_content
+        308     CALL_METHOD                     2
+        310     POP_TOP                         
+        312     JUMP_ABSOLUTE                   148 (to 296)
+        314     LOAD_CONST                      1: None
+        316     RETURN_VALUE                    

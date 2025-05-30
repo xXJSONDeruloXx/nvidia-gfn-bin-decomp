@@ -1,0 +1,233 @@
+_functools.pyc (Python 3.10)
+[Code]
+    File Name: importlib/metadata/_functools.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 3
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        'types'
+        'functools'
+        'method_cache'
+        'pass_none'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        None
+        [Code]
+            File Name: importlib/metadata/_functools.py
+            Object Name: method_cache
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 3
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'functools'
+                'lru_cache'
+                'cache_clear'
+            [Var Names]
+                'method'
+                'cache_wrapper'
+                'wrapper'
+            [Free Vars]
+            [Cell Vars]
+                'cache_wrapper'
+                'method'
+            [Constants]
+                "\n    Wrap lru_cache to support storing the cache data in the object instances.\n\n    Abstracts the common paradigm where the method explicitly saves an\n    underscore-prefixed protected property on first call and returns that\n    subsequently.\n\n    >>> class MyClass:\n    ...     calls = 0\n    ...\n    ...     @method_cache\n    ...     def method(self, value):\n    ...         self.calls += 1\n    ...         return value\n\n    >>> a = MyClass()\n    >>> a.method(3)\n    3\n    >>> for x in range(75):\n    ...     res = a.method(x)\n    >>> a.calls\n    75\n\n    Note that the apparent behavior will be exactly like that of lru_cache\n    except that the cache is stored on each instance, so values in one\n    instance will not flush values from another, and when an instance is\n    deleted, so are the cached values for that instance.\n\n    >>> b = MyClass()\n    >>> for x in range(35):\n    ...     res = b.method(x)\n    >>> b.calls\n    35\n    >>> a.method(0)\n    0\n    >>> a.calls\n    75\n\n    Note that if method had been decorated with ``functools.lru_cache()``,\n    a.calls would have been 76 (due to the cached value of 0 having been\n    flushed by the 'b' instance).\n\n    Clear the cache with ``.cache_clear()``\n\n    >>> a.method.cache_clear()\n\n    Same for a method that hasn't yet been called.\n\n    >>> c = MyClass()\n    >>> c.method.cache_clear()\n\n    Another cache wrapper may be supplied:\n\n    >>> cache = functools.lru_cache(maxsize=2)\n    >>> MyClass.method2 = method_cache(lambda self: 3, cache_wrapper=cache)\n    >>> a = MyClass()\n    >>> a.method2()\n    3\n\n    Caution - do not subsequently wrap the method with another decorator, such\n    as ``@property``, which changes the semantics of the function.\n\n    See also\n    http://code.activestate.com/recipes/577452-a-memoize-decorator-for-instance-methods/\n    for another implementation and additional justification.\n    "
+                [Code]
+                    File Name: importlib/metadata/_functools.py
+                    Object Name: wrapper
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 4
+                    Flags: 0x0000001F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NESTED)
+                    [Names]
+                        'types'
+                        'MethodType'
+                        'setattr'
+                        '__name__'
+                    [Var Names]
+                        'self'
+                        'args'
+                        'kwargs'
+                        'bound_method'
+                        'cached_method'
+                    [Free Vars]
+                        'cache_wrapper'
+                        'method'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: types
+                        2       LOAD_METHOD                     1: MethodType
+                        4       LOAD_DEREF                      1: method
+                        6       LOAD_FAST                       0: self
+                        8       CALL_METHOD                     2
+                        10      STORE_FAST                      3: bound_method
+                        12      LOAD_DEREF                      0: cache_wrapper
+                        14      LOAD_FAST                       3: bound_method
+                        16      CALL_FUNCTION                   1
+                        18      STORE_FAST                      4: cached_method
+                        20      LOAD_GLOBAL                     2: setattr
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_DEREF                      1: method
+                        26      LOAD_ATTR                       3: __name__
+                        28      LOAD_FAST                       4: cached_method
+                        30      CALL_FUNCTION                   3
+                        32      POP_TOP                         
+                        34      LOAD_FAST                       4: cached_method
+                        36      LOAD_FAST                       1: args
+                        38      BUILD_MAP                       0
+                        40      LOAD_FAST                       2: kwargs
+                        42      DICT_MERGE                      1
+                        44      CALL_FUNCTION_EX                1
+                        46      RETURN_VALUE                    
+                'method_cache.<locals>.wrapper'
+                [Code]
+                    File Name: importlib/metadata/_functools.py
+                    Object Name: <lambda>
+                    Arg Count: 0
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 0
+                    Stack Size: 1
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      0: None
+                        2       RETURN_VALUE                    
+                'method_cache.<locals>.<lambda>'
+            [Disassembly]
+                0       LOAD_DEREF                      0: cache_wrapper
+                2       JUMP_IF_TRUE_OR_POP             5 (to 10)
+                4       LOAD_GLOBAL                     0: functools
+                6       LOAD_METHOD                     1: lru_cache
+                8       CALL_METHOD                     0
+                10      STORE_DEREF                     0: cache_wrapper
+                12      LOAD_CLOSURE                    0: cache_wrapper
+                14      LOAD_CLOSURE                    1: method
+                16      BUILD_TUPLE                     2
+                18      LOAD_CONST                      1: <CODE> wrapper
+                20      LOAD_CONST                      2: 'method_cache.<locals>.wrapper'
+                22      MAKE_FUNCTION                   8
+                24      STORE_FAST                      2: wrapper
+                26      LOAD_CONST                      3: <CODE> <lambda>
+                28      LOAD_CONST                      4: 'method_cache.<locals>.<lambda>'
+                30      MAKE_FUNCTION                   0
+                32      LOAD_FAST                       2: wrapper
+                34      STORE_ATTR                      2: cache_clear
+                36      LOAD_FAST                       2: wrapper
+                38      RETURN_VALUE                    
+        'method_cache'
+        [Code]
+            File Name: importlib/metadata/_functools.py
+            Object Name: pass_none
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'functools'
+                'wraps'
+            [Var Names]
+                'func'
+                'wrapper'
+            [Free Vars]
+            [Cell Vars]
+                'func'
+            [Constants]
+                "\n    Wrap func so it's not called if its first param is None\n\n    >>> print_text = pass_none(print)\n    >>> print_text('text')\n    text\n    >>> print_text(None)\n    "
+                [Code]
+                    File Name: importlib/metadata/_functools.py
+                    Object Name: wrapper
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x0000001F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NESTED)
+                    [Names]
+                    [Var Names]
+                        'param'
+                        'args'
+                        'kwargs'
+                    [Free Vars]
+                        'func'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: param
+                        2       LOAD_CONST                      0: None
+                        4       IS_OP                           1 (is not)
+                        6       POP_JUMP_IF_FALSE               15 (to 30)
+                        8       LOAD_DEREF                      0: func
+                        10      LOAD_FAST                       0: param
+                        12      BUILD_LIST                      1
+                        14      LOAD_FAST                       1: args
+                        16      LIST_EXTEND                     1
+                        18      LIST_TO_TUPLE                   
+                        20      BUILD_MAP                       0
+                        22      LOAD_FAST                       2: kwargs
+                        24      DICT_MERGE                      1
+                        26      CALL_FUNCTION_EX                1
+                        28      RETURN_VALUE                    
+                        30      LOAD_CONST                      0: None
+                        32      RETURN_VALUE                    
+                'pass_none.<locals>.wrapper'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: functools
+                2       LOAD_METHOD                     1: wraps
+                4       LOAD_DEREF                      0: func
+                6       CALL_METHOD                     1
+                8       LOAD_CLOSURE                    0: func
+                10      BUILD_TUPLE                     1
+                12      LOAD_CONST                      1: <CODE> wrapper
+                14      LOAD_CONST                      2: 'pass_none.<locals>.wrapper'
+                16      MAKE_FUNCTION                   8
+                18      CALL_FUNCTION                   1
+                20      STORE_FAST                      1: wrapper
+                22      LOAD_FAST                       1: wrapper
+                24      RETURN_VALUE                    
+        'pass_none'
+        (
+            None
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 0
+        2       LOAD_CONST                      1: None
+        4       IMPORT_NAME                     0: types
+        6       STORE_NAME                      0: types
+        8       LOAD_CONST                      0: 0
+        10      LOAD_CONST                      1: None
+        12      IMPORT_NAME                     1: functools
+        14      STORE_NAME                      1: functools
+        16      LOAD_CONST                      6: (None,)
+        18      LOAD_CONST                      2: <CODE> method_cache
+        20      LOAD_CONST                      3: 'method_cache'
+        22      MAKE_FUNCTION                   1
+        24      STORE_NAME                      2: method_cache
+        26      LOAD_CONST                      4: <CODE> pass_none
+        28      LOAD_CONST                      5: 'pass_none'
+        30      MAKE_FUNCTION                   0
+        32      STORE_NAME                      3: pass_none
+        34      LOAD_CONST                      1: None
+        36      RETURN_VALUE                    

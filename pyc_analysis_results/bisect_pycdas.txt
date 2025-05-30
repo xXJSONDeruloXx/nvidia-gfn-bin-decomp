@@ -1,0 +1,432 @@
+bisect.pyc (Python 3.10)
+[Code]
+    File Name: bisect.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 8
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'insort_right'
+        'bisect_right'
+        'insort_left'
+        'bisect_left'
+        '_bisect'
+        'ImportError'
+        'bisect'
+        'insort'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Bisection algorithms.'
+        0
+        None
+        (
+            'key'
+        )
+        [Code]
+            File Name: bisect.py
+            Object Name: insort_right
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 1
+            Locals: 5
+            Stack Size: 7
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'bisect_right'
+                'insert'
+            [Var Names]
+                'a'
+                'x'
+                'lo'
+                'hi'
+                'key'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Insert item x in list a, and keep it sorted assuming a is sorted.\n\n    If x is already in a, insert it to the right of the rightmost x.\n\n    Optional args lo (default 0) and hi (default len(a)) bound the\n    slice of a to be searched.\n    '
+                None
+                (
+                    'key'
+                )
+            [Disassembly]
+                0       LOAD_FAST                       4: key
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               12 (to 24)
+                8       LOAD_GLOBAL                     0: bisect_right
+                10      LOAD_FAST                       0: a
+                12      LOAD_FAST                       1: x
+                14      LOAD_FAST                       2: lo
+                16      LOAD_FAST                       3: hi
+                18      CALL_FUNCTION                   4
+                20      STORE_FAST                      2: lo
+                22      JUMP_FORWARD                    11 (to 46)
+                24      LOAD_GLOBAL                     0: bisect_right
+                26      LOAD_FAST                       0: a
+                28      LOAD_FAST                       4: key
+                30      LOAD_FAST                       1: x
+                32      CALL_FUNCTION                   1
+                34      LOAD_FAST                       2: lo
+                36      LOAD_FAST                       3: hi
+                38      LOAD_FAST                       4: key
+                40      LOAD_CONST                      2: ('key',)
+                42      CALL_FUNCTION_KW                5
+                44      STORE_FAST                      2: lo
+                46      LOAD_FAST                       0: a
+                48      LOAD_METHOD                     1: insert
+                50      LOAD_FAST                       2: lo
+                52      LOAD_FAST                       1: x
+                54      CALL_METHOD                     2
+                56      POP_TOP                         
+                58      LOAD_CONST                      1: None
+                60      RETURN_VALUE                    
+        'insort_right'
+        [Code]
+            File Name: bisect.py
+            Object Name: bisect_right
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 1
+            Locals: 6
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ValueError'
+                'len'
+            [Var Names]
+                'a'
+                'x'
+                'lo'
+                'hi'
+                'key'
+                'mid'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return the index where to insert item x in list a, assuming a is sorted.\n\n    The return value i is such that all e in a[:i] have e <= x, and all e in\n    a[i:] have e > x.  So if x already appears in the list, a.insert(i, x) will\n    insert just after the rightmost x already there.\n\n    Optional args lo (default 0) and hi (default len(a)) bound the\n    slice of a to be searched.\n    '
+                0
+                'lo must be non-negative'
+                None
+                2
+                1
+            [Disassembly]
+                0       LOAD_FAST                       2: lo
+                2       LOAD_CONST                      1: 0
+                4       COMPARE_OP                      0 (<)
+                6       POP_JUMP_IF_FALSE               8 (to 16)
+                8       LOAD_GLOBAL                     0: ValueError
+                10      LOAD_CONST                      2: 'lo must be non-negative'
+                12      CALL_FUNCTION                   1
+                14      RAISE_VARARGS                   1
+                16      LOAD_FAST                       3: hi
+                18      LOAD_CONST                      3: None
+                20      IS_OP                           0 (is)
+                22      POP_JUMP_IF_FALSE               16 (to 32)
+                24      LOAD_GLOBAL                     1: len
+                26      LOAD_FAST                       0: a
+                28      CALL_FUNCTION                   1
+                30      STORE_FAST                      3: hi
+                32      LOAD_FAST                       4: key
+                34      LOAD_CONST                      3: None
+                36      IS_OP                           0 (is)
+                38      POP_JUMP_IF_FALSE               49 (to 98)
+                40      LOAD_FAST                       2: lo
+                42      LOAD_FAST                       3: hi
+                44      COMPARE_OP                      0 (<)
+                46      POP_JUMP_IF_FALSE               47 (to 94)
+                48      LOAD_FAST                       2: lo
+                50      LOAD_FAST                       3: hi
+                52      BINARY_ADD                      
+                54      LOAD_CONST                      4: 2
+                56      BINARY_FLOOR_DIVIDE             
+                58      STORE_FAST                      5: mid
+                60      LOAD_FAST                       1: x
+                62      LOAD_FAST                       0: a
+                64      LOAD_FAST                       5: mid
+                66      BINARY_SUBSCR                   
+                68      COMPARE_OP                      0 (<)
+                70      POP_JUMP_IF_FALSE               39 (to 78)
+                72      LOAD_FAST                       5: mid
+                74      STORE_FAST                      3: hi
+                76      JUMP_FORWARD                    4 (to 86)
+                78      LOAD_FAST                       5: mid
+                80      LOAD_CONST                      5: 1
+                82      BINARY_ADD                      
+                84      STORE_FAST                      2: lo
+                86      LOAD_FAST                       2: lo
+                88      LOAD_FAST                       3: hi
+                90      COMPARE_OP                      0 (<)
+                92      POP_JUMP_IF_TRUE                24 (to 48)
+                94      LOAD_FAST                       2: lo
+                96      RETURN_VALUE                    
+                98      LOAD_FAST                       2: lo
+                100     LOAD_FAST                       3: hi
+                102     COMPARE_OP                      0 (<)
+                104     POP_JUMP_IF_FALSE               78 (to 156)
+                106     LOAD_FAST                       2: lo
+                108     LOAD_FAST                       3: hi
+                110     BINARY_ADD                      
+                112     LOAD_CONST                      4: 2
+                114     BINARY_FLOOR_DIVIDE             
+                116     STORE_FAST                      5: mid
+                118     LOAD_FAST                       1: x
+                120     LOAD_FAST                       4: key
+                122     LOAD_FAST                       0: a
+                124     LOAD_FAST                       5: mid
+                126     BINARY_SUBSCR                   
+                128     CALL_FUNCTION                   1
+                130     COMPARE_OP                      0 (<)
+                132     POP_JUMP_IF_FALSE               70 (to 140)
+                134     LOAD_FAST                       5: mid
+                136     STORE_FAST                      3: hi
+                138     JUMP_FORWARD                    4 (to 148)
+                140     LOAD_FAST                       5: mid
+                142     LOAD_CONST                      5: 1
+                144     BINARY_ADD                      
+                146     STORE_FAST                      2: lo
+                148     LOAD_FAST                       2: lo
+                150     LOAD_FAST                       3: hi
+                152     COMPARE_OP                      0 (<)
+                154     POP_JUMP_IF_TRUE                53 (to 106)
+                156     LOAD_FAST                       2: lo
+                158     RETURN_VALUE                    
+        'bisect_right'
+        [Code]
+            File Name: bisect.py
+            Object Name: insort_left
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 1
+            Locals: 5
+            Stack Size: 7
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'bisect_left'
+                'insert'
+            [Var Names]
+                'a'
+                'x'
+                'lo'
+                'hi'
+                'key'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Insert item x in list a, and keep it sorted assuming a is sorted.\n\n    If x is already in a, insert it to the left of the leftmost x.\n\n    Optional args lo (default 0) and hi (default len(a)) bound the\n    slice of a to be searched.\n    '
+                None
+                (
+                    'key'
+                )
+            [Disassembly]
+                0       LOAD_FAST                       4: key
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               12 (to 24)
+                8       LOAD_GLOBAL                     0: bisect_left
+                10      LOAD_FAST                       0: a
+                12      LOAD_FAST                       1: x
+                14      LOAD_FAST                       2: lo
+                16      LOAD_FAST                       3: hi
+                18      CALL_FUNCTION                   4
+                20      STORE_FAST                      2: lo
+                22      JUMP_FORWARD                    11 (to 46)
+                24      LOAD_GLOBAL                     0: bisect_left
+                26      LOAD_FAST                       0: a
+                28      LOAD_FAST                       4: key
+                30      LOAD_FAST                       1: x
+                32      CALL_FUNCTION                   1
+                34      LOAD_FAST                       2: lo
+                36      LOAD_FAST                       3: hi
+                38      LOAD_FAST                       4: key
+                40      LOAD_CONST                      2: ('key',)
+                42      CALL_FUNCTION_KW                5
+                44      STORE_FAST                      2: lo
+                46      LOAD_FAST                       0: a
+                48      LOAD_METHOD                     1: insert
+                50      LOAD_FAST                       2: lo
+                52      LOAD_FAST                       1: x
+                54      CALL_METHOD                     2
+                56      POP_TOP                         
+                58      LOAD_CONST                      1: None
+                60      RETURN_VALUE                    
+        'insort_left'
+        [Code]
+            File Name: bisect.py
+            Object Name: bisect_left
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 1
+            Locals: 6
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ValueError'
+                'len'
+            [Var Names]
+                'a'
+                'x'
+                'lo'
+                'hi'
+                'key'
+                'mid'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return the index where to insert item x in list a, assuming a is sorted.\n\n    The return value i is such that all e in a[:i] have e < x, and all e in\n    a[i:] have e >= x.  So if x already appears in the list, a.insert(i, x) will\n    insert just before the leftmost x already there.\n\n    Optional args lo (default 0) and hi (default len(a)) bound the\n    slice of a to be searched.\n    '
+                0
+                'lo must be non-negative'
+                None
+                2
+                1
+            [Disassembly]
+                0       LOAD_FAST                       2: lo
+                2       LOAD_CONST                      1: 0
+                4       COMPARE_OP                      0 (<)
+                6       POP_JUMP_IF_FALSE               8 (to 16)
+                8       LOAD_GLOBAL                     0: ValueError
+                10      LOAD_CONST                      2: 'lo must be non-negative'
+                12      CALL_FUNCTION                   1
+                14      RAISE_VARARGS                   1
+                16      LOAD_FAST                       3: hi
+                18      LOAD_CONST                      3: None
+                20      IS_OP                           0 (is)
+                22      POP_JUMP_IF_FALSE               16 (to 32)
+                24      LOAD_GLOBAL                     1: len
+                26      LOAD_FAST                       0: a
+                28      CALL_FUNCTION                   1
+                30      STORE_FAST                      3: hi
+                32      LOAD_FAST                       4: key
+                34      LOAD_CONST                      3: None
+                36      IS_OP                           0 (is)
+                38      POP_JUMP_IF_FALSE               49 (to 98)
+                40      LOAD_FAST                       2: lo
+                42      LOAD_FAST                       3: hi
+                44      COMPARE_OP                      0 (<)
+                46      POP_JUMP_IF_FALSE               47 (to 94)
+                48      LOAD_FAST                       2: lo
+                50      LOAD_FAST                       3: hi
+                52      BINARY_ADD                      
+                54      LOAD_CONST                      4: 2
+                56      BINARY_FLOOR_DIVIDE             
+                58      STORE_FAST                      5: mid
+                60      LOAD_FAST                       0: a
+                62      LOAD_FAST                       5: mid
+                64      BINARY_SUBSCR                   
+                66      LOAD_FAST                       1: x
+                68      COMPARE_OP                      0 (<)
+                70      POP_JUMP_IF_FALSE               41 (to 82)
+                72      LOAD_FAST                       5: mid
+                74      LOAD_CONST                      5: 1
+                76      BINARY_ADD                      
+                78      STORE_FAST                      2: lo
+                80      JUMP_FORWARD                    2 (to 86)
+                82      LOAD_FAST                       5: mid
+                84      STORE_FAST                      3: hi
+                86      LOAD_FAST                       2: lo
+                88      LOAD_FAST                       3: hi
+                90      COMPARE_OP                      0 (<)
+                92      POP_JUMP_IF_TRUE                24 (to 48)
+                94      LOAD_FAST                       2: lo
+                96      RETURN_VALUE                    
+                98      LOAD_FAST                       2: lo
+                100     LOAD_FAST                       3: hi
+                102     COMPARE_OP                      0 (<)
+                104     POP_JUMP_IF_FALSE               78 (to 156)
+                106     LOAD_FAST                       2: lo
+                108     LOAD_FAST                       3: hi
+                110     BINARY_ADD                      
+                112     LOAD_CONST                      4: 2
+                114     BINARY_FLOOR_DIVIDE             
+                116     STORE_FAST                      5: mid
+                118     LOAD_FAST                       4: key
+                120     LOAD_FAST                       0: a
+                122     LOAD_FAST                       5: mid
+                124     BINARY_SUBSCR                   
+                126     CALL_FUNCTION                   1
+                128     LOAD_FAST                       1: x
+                130     COMPARE_OP                      0 (<)
+                132     POP_JUMP_IF_FALSE               72 (to 144)
+                134     LOAD_FAST                       5: mid
+                136     LOAD_CONST                      5: 1
+                138     BINARY_ADD                      
+                140     STORE_FAST                      2: lo
+                142     JUMP_FORWARD                    2 (to 148)
+                144     LOAD_FAST                       5: mid
+                146     STORE_FAST                      3: hi
+                148     LOAD_FAST                       2: lo
+                150     LOAD_FAST                       3: hi
+                152     COMPARE_OP                      0 (<)
+                154     POP_JUMP_IF_TRUE                53 (to 106)
+                156     LOAD_FAST                       2: lo
+                158     RETURN_VALUE                    
+        'bisect_left'
+        (
+            '*'
+        )
+        (
+            0
+            None
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Bisection algorithms.'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      13: (0, None)
+        6       LOAD_CONST                      2: None
+        8       LOAD_CONST                      3: ('key',)
+        10      BUILD_CONST_KEY_MAP             1
+        12      LOAD_CONST                      4: <CODE> insort_right
+        14      LOAD_CONST                      5: 'insort_right'
+        16      MAKE_FUNCTION                   3
+        18      STORE_NAME                      1: insort_right
+        20      LOAD_CONST                      13: (0, None)
+        22      LOAD_CONST                      2: None
+        24      LOAD_CONST                      3: ('key',)
+        26      BUILD_CONST_KEY_MAP             1
+        28      LOAD_CONST                      6: <CODE> bisect_right
+        30      LOAD_CONST                      7: 'bisect_right'
+        32      MAKE_FUNCTION                   3
+        34      STORE_NAME                      2: bisect_right
+        36      LOAD_CONST                      13: (0, None)
+        38      LOAD_CONST                      2: None
+        40      LOAD_CONST                      3: ('key',)
+        42      BUILD_CONST_KEY_MAP             1
+        44      LOAD_CONST                      8: <CODE> insort_left
+        46      LOAD_CONST                      9: 'insort_left'
+        48      MAKE_FUNCTION                   3
+        50      STORE_NAME                      3: insort_left
+        52      LOAD_CONST                      13: (0, None)
+        54      LOAD_CONST                      2: None
+        56      LOAD_CONST                      3: ('key',)
+        58      BUILD_CONST_KEY_MAP             1
+        60      LOAD_CONST                      10: <CODE> bisect_left
+        62      LOAD_CONST                      11: 'bisect_left'
+        64      MAKE_FUNCTION                   3
+        66      STORE_NAME                      4: bisect_left
+        68      SETUP_FINALLY                   6 (to 82)
+        70      LOAD_CONST                      1: 0
+        72      LOAD_CONST                      12: ('*',)
+        74      IMPORT_NAME                     5: _bisect
+        76      IMPORT_STAR                     
+        78      POP_BLOCK                       
+        80      JUMP_FORWARD                    9 (to 100)
+        82      DUP_TOP                         
+        84      LOAD_NAME                       6: ImportError
+        86      JUMP_IF_NOT_EXC_MATCH           49 (to 98)
+        88      POP_TOP                         
+        90      POP_TOP                         
+        92      POP_TOP                         
+        94      POP_EXCEPT                      
+        96      JUMP_FORWARD                    1 (to 100)
+        98      RERAISE                         0
+        100     LOAD_NAME                       2: bisect_right
+        102     STORE_NAME                      7: bisect
+        104     LOAD_NAME                       1: insort_right
+        106     STORE_NAME                      8: insort
+        108     LOAD_CONST                      2: None
+        110     RETURN_VALUE                    

@@ -1,0 +1,2879 @@
+_parseaddr.pyc (Python 3.10)
+[Code]
+    File Name: email/_parseaddr.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 15
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        'time'
+        'calendar'
+        'SPACE'
+        'EMPTYSTRING'
+        'COMMASPACE'
+        '_monthnames'
+        '_daynames'
+        '_timezones'
+        'parsedate_tz'
+        '_parsedate_tz'
+        'parsedate'
+        'mktime_tz'
+        'quote'
+        'AddrlistClass'
+        'AddressList'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Email address parsing code.\n\nLifted directly from rfc822.py.  This should eventually be rewritten.\n'
+        (
+            'mktime_tz'
+            'parsedate'
+            'parsedate_tz'
+            'quote'
+        )
+        0
+        None
+        ' '
+        ''
+        ', '
+        (
+            'jan'
+            'feb'
+            'mar'
+            'apr'
+            'may'
+            'jun'
+            'jul'
+            'aug'
+            'sep'
+            'oct'
+            'nov'
+            'dec'
+            'january'
+            'february'
+            'march'
+            'april'
+            'may'
+            'june'
+            'july'
+            'august'
+            'september'
+            'october'
+            'november'
+            'december'
+        )
+        (
+            'mon'
+            'tue'
+            'wed'
+            'thu'
+            'fri'
+            'sat'
+            'sun'
+        )
+        -400
+        -300
+        -500
+        -600
+        -700
+        -800
+        (
+            'UT'
+            'UTC'
+            'GMT'
+            'Z'
+            'AST'
+            'ADT'
+            'EST'
+            'EDT'
+            'CST'
+            'CDT'
+            'MST'
+            'MDT'
+            'PST'
+            'PDT'
+        )
+        [Code]
+            File Name: email/_parseaddr.py
+            Object Name: parsedate_tz
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_parsedate_tz'
+                'tuple'
+            [Var Names]
+                'data'
+                'res'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Convert a date string to a time tuple.\n\n    Accounts for military timezones.\n    '
+                None
+                9
+                0
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _parsedate_tz
+                2       LOAD_FAST                       0: data
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      1: res
+                8       LOAD_FAST                       1: res
+                10      POP_JUMP_IF_TRUE                8 (to 16)
+                12      LOAD_CONST                      1: None
+                14      RETURN_VALUE                    
+                16      LOAD_FAST                       1: res
+                18      LOAD_CONST                      2: 9
+                20      BINARY_SUBSCR                   
+                22      LOAD_CONST                      1: None
+                24      IS_OP                           0 (is)
+                26      POP_JUMP_IF_FALSE               18 (to 36)
+                28      LOAD_CONST                      3: 0
+                30      LOAD_FAST                       1: res
+                32      LOAD_CONST                      2: 9
+                34      STORE_SUBSCR                    
+                36      LOAD_GLOBAL                     1: tuple
+                38      LOAD_FAST                       1: res
+                40      CALL_FUNCTION                   1
+                42      RETURN_VALUE                    
+        'parsedate_tz'
+        [Code]
+            File Name: email/_parseaddr.py
+            Object Name: _parsedate_tz
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 14
+            Stack Size: 10
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'split'
+                'endswith'
+                'lower'
+                '_daynames'
+                'rfind'
+                'len'
+                'find'
+                'append'
+                '_monthnames'
+                'index'
+                'isdigit'
+                'int'
+                'ValueError'
+                'upper'
+                '_timezones'
+                'startswith'
+            [Var Names]
+                'data'
+                'i'
+                'stuff'
+                's'
+                'dd'
+                'mm'
+                'yy'
+                'tm'
+                'tz'
+                'thh'
+                'tmm'
+                'tss'
+                'tzoffset'
+                'tzsign'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Convert date to extended time tuple.\n\n    The last (additional) element is the time zone offset in seconds, except if\n    the timezone was specified as -0000.  In that case the last element is\n    None.  This indicates a UTC timestamp that explicitly declaims knowledge of\n    the source timezone, as opposed to a +0000 timestamp that indicates the\n    source timezone really was UTC.\n\n    '
+                None
+                0
+                ','
+                1
+                3
+                '-'
+                4
+                '+'
+                -1
+                ''
+                5
+                12
+                ':'
+                2
+                '0'
+                '.'
+                100
+                68
+                1900
+                2000
+                3600
+                60
+            [Disassembly]
+                0       LOAD_FAST                       0: data
+                2       POP_JUMP_IF_TRUE                4 (to 8)
+                4       LOAD_CONST                      1: None
+                6       RETURN_VALUE                    
+                8       LOAD_FAST                       0: data
+                10      LOAD_METHOD                     0: split
+                12      CALL_METHOD                     0
+                14      STORE_FAST                      0: data
+                16      LOAD_FAST                       0: data
+                18      POP_JUMP_IF_TRUE                12 (to 24)
+                20      LOAD_CONST                      1: None
+                22      RETURN_VALUE                    
+                24      LOAD_FAST                       0: data
+                26      LOAD_CONST                      2: 0
+                28      BINARY_SUBSCR                   
+                30      LOAD_METHOD                     1: endswith
+                32      LOAD_CONST                      3: ','
+                34      CALL_METHOD                     1
+                36      POP_JUMP_IF_TRUE                27 (to 54)
+                38      LOAD_FAST                       0: data
+                40      LOAD_CONST                      2: 0
+                42      BINARY_SUBSCR                   
+                44      LOAD_METHOD                     2: lower
+                46      CALL_METHOD                     0
+                48      LOAD_GLOBAL                     3: _daynames
+                50      CONTAINS_OP                     0 (in)
+                52      POP_JUMP_IF_FALSE               31 (to 62)
+                54      LOAD_FAST                       0: data
+                56      LOAD_CONST                      2: 0
+                58      DELETE_SUBSCR                   
+                60      JUMP_FORWARD                    23 (to 108)
+                62      LOAD_FAST                       0: data
+                64      LOAD_CONST                      2: 0
+                66      BINARY_SUBSCR                   
+                68      LOAD_METHOD                     4: rfind
+                70      LOAD_CONST                      3: ','
+                72      CALL_METHOD                     1
+                74      STORE_FAST                      1: i
+                76      LOAD_FAST                       1: i
+                78      LOAD_CONST                      2: 0
+                80      COMPARE_OP                      5 (>=)
+                82      POP_JUMP_IF_FALSE               54 (to 108)
+                84      LOAD_FAST                       0: data
+                86      LOAD_CONST                      2: 0
+                88      BINARY_SUBSCR                   
+                90      LOAD_FAST                       1: i
+                92      LOAD_CONST                      4: 1
+                94      BINARY_ADD                      
+                96      LOAD_CONST                      1: None
+                98      BUILD_SLICE                     2
+                100     BINARY_SUBSCR                   
+                102     LOAD_FAST                       0: data
+                104     LOAD_CONST                      2: 0
+                106     STORE_SUBSCR                    
+                108     LOAD_GLOBAL                     5: len
+                110     LOAD_FAST                       0: data
+                112     CALL_FUNCTION                   1
+                114     LOAD_CONST                      5: 3
+                116     COMPARE_OP                      2 (==)
+                118     POP_JUMP_IF_FALSE               81 (to 162)
+                120     LOAD_FAST                       0: data
+                122     LOAD_CONST                      2: 0
+                124     BINARY_SUBSCR                   
+                126     LOAD_METHOD                     0: split
+                128     LOAD_CONST                      6: '-'
+                130     CALL_METHOD                     1
+                132     STORE_FAST                      2: stuff
+                134     LOAD_GLOBAL                     5: len
+                136     LOAD_FAST                       2: stuff
+                138     CALL_FUNCTION                   1
+                140     LOAD_CONST                      5: 3
+                142     COMPARE_OP                      2 (==)
+                144     POP_JUMP_IF_FALSE               81 (to 162)
+                146     LOAD_FAST                       2: stuff
+                148     LOAD_FAST                       0: data
+                150     LOAD_CONST                      4: 1
+                152     LOAD_CONST                      1: None
+                154     BUILD_SLICE                     2
+                156     BINARY_SUBSCR                   
+                158     BINARY_ADD                      
+                160     STORE_FAST                      0: data
+                162     LOAD_GLOBAL                     5: len
+                164     LOAD_FAST                       0: data
+                166     CALL_FUNCTION                   1
+                168     LOAD_CONST                      7: 4
+                170     COMPARE_OP                      2 (==)
+                172     POP_JUMP_IF_FALSE               131 (to 262)
+                174     LOAD_FAST                       0: data
+                176     LOAD_CONST                      5: 3
+                178     BINARY_SUBSCR                   
+                180     STORE_FAST                      3: s
+                182     LOAD_FAST                       3: s
+                184     LOAD_METHOD                     6: find
+                186     LOAD_CONST                      8: '+'
+                188     CALL_METHOD                     1
+                190     STORE_FAST                      1: i
+                192     LOAD_FAST                       1: i
+                194     LOAD_CONST                      9: -1
+                196     COMPARE_OP                      2 (==)
+                198     POP_JUMP_IF_FALSE               105 (to 210)
+                200     LOAD_FAST                       3: s
+                202     LOAD_METHOD                     6: find
+                204     LOAD_CONST                      6: '-'
+                206     CALL_METHOD                     1
+                208     STORE_FAST                      1: i
+                210     LOAD_FAST                       1: i
+                212     LOAD_CONST                      2: 0
+                214     COMPARE_OP                      4 (>)
+                216     POP_JUMP_IF_FALSE               126 (to 252)
+                218     LOAD_FAST                       3: s
+                220     LOAD_CONST                      1: None
+                222     LOAD_FAST                       1: i
+                224     BUILD_SLICE                     2
+                226     BINARY_SUBSCR                   
+                228     LOAD_FAST                       3: s
+                230     LOAD_FAST                       1: i
+                232     LOAD_CONST                      1: None
+                234     BUILD_SLICE                     2
+                236     BINARY_SUBSCR                   
+                238     BUILD_LIST                      2
+                240     LOAD_FAST                       0: data
+                242     LOAD_CONST                      5: 3
+                244     LOAD_CONST                      1: None
+                246     BUILD_SLICE                     2
+                248     STORE_SUBSCR                    
+                250     JUMP_FORWARD                    5 (to 262)
+                252     LOAD_FAST                       0: data
+                254     LOAD_METHOD                     7: append
+                256     LOAD_CONST                      10: ''
+                258     CALL_METHOD                     1
+                260     POP_TOP                         
+                262     LOAD_GLOBAL                     5: len
+                264     LOAD_FAST                       0: data
+                266     CALL_FUNCTION                   1
+                268     LOAD_CONST                      11: 5
+                270     COMPARE_OP                      0 (<)
+                272     POP_JUMP_IF_FALSE               139 (to 278)
+                274     LOAD_CONST                      1: None
+                276     RETURN_VALUE                    
+                278     LOAD_FAST                       0: data
+                280     LOAD_CONST                      1: None
+                282     LOAD_CONST                      11: 5
+                284     BUILD_SLICE                     2
+                286     BINARY_SUBSCR                   
+                288     STORE_FAST                      0: data
+                290     LOAD_FAST                       0: data
+                292     UNPACK_SEQUENCE                 5
+                294     STORE_FAST                      4: dd
+                296     STORE_FAST                      5: mm
+                298     STORE_FAST                      6: yy
+                300     STORE_FAST                      7: tm
+                302     STORE_FAST                      8: tz
+                304     LOAD_FAST                       4: dd
+                306     POP_JUMP_IF_FALSE               158 (to 316)
+                308     LOAD_FAST                       5: mm
+                310     POP_JUMP_IF_FALSE               158 (to 316)
+                312     LOAD_FAST                       6: yy
+                314     POP_JUMP_IF_TRUE                160 (to 320)
+                316     LOAD_CONST                      1: None
+                318     RETURN_VALUE                    
+                320     LOAD_FAST                       5: mm
+                322     LOAD_METHOD                     2: lower
+                324     CALL_METHOD                     0
+                326     STORE_FAST                      5: mm
+                328     LOAD_FAST                       5: mm
+                330     LOAD_GLOBAL                     8: _monthnames
+                332     CONTAINS_OP                     1 (not in)
+                334     POP_JUMP_IF_FALSE               181 (to 362)
+                336     LOAD_FAST                       5: mm
+                338     LOAD_FAST                       4: dd
+                340     LOAD_METHOD                     2: lower
+                342     CALL_METHOD                     0
+                344     ROT_TWO                         
+                346     STORE_FAST                      4: dd
+                348     STORE_FAST                      5: mm
+                350     LOAD_FAST                       5: mm
+                352     LOAD_GLOBAL                     8: _monthnames
+                354     CONTAINS_OP                     1 (not in)
+                356     POP_JUMP_IF_FALSE               181 (to 362)
+                358     LOAD_CONST                      1: None
+                360     RETURN_VALUE                    
+                362     LOAD_GLOBAL                     8: _monthnames
+                364     LOAD_METHOD                     9: index
+                366     LOAD_FAST                       5: mm
+                368     CALL_METHOD                     1
+                370     LOAD_CONST                      4: 1
+                372     BINARY_ADD                      
+                374     STORE_FAST                      5: mm
+                376     LOAD_FAST                       5: mm
+                378     LOAD_CONST                      12: 12
+                380     COMPARE_OP                      4 (>)
+                382     POP_JUMP_IF_FALSE               196 (to 392)
+                384     LOAD_FAST                       5: mm
+                386     LOAD_CONST                      12: 12
+                388     INPLACE_SUBTRACT                
+                390     STORE_FAST                      5: mm
+                392     LOAD_FAST                       4: dd
+                394     LOAD_CONST                      9: -1
+                396     BINARY_SUBSCR                   
+                398     LOAD_CONST                      3: ','
+                400     COMPARE_OP                      2 (==)
+                402     POP_JUMP_IF_FALSE               208 (to 416)
+                404     LOAD_FAST                       4: dd
+                406     LOAD_CONST                      1: None
+                408     LOAD_CONST                      9: -1
+                410     BUILD_SLICE                     2
+                412     BINARY_SUBSCR                   
+                414     STORE_FAST                      4: dd
+                416     LOAD_FAST                       6: yy
+                418     LOAD_METHOD                     6: find
+                420     LOAD_CONST                      13: ':'
+                422     CALL_METHOD                     1
+                424     STORE_FAST                      1: i
+                426     LOAD_FAST                       1: i
+                428     LOAD_CONST                      2: 0
+                430     COMPARE_OP                      4 (>)
+                432     POP_JUMP_IF_FALSE               222 (to 444)
+                434     LOAD_FAST                       7: tm
+                436     LOAD_FAST                       6: yy
+                438     ROT_TWO                         
+                440     STORE_FAST                      6: yy
+                442     STORE_FAST                      7: tm
+                444     LOAD_FAST                       6: yy
+                446     LOAD_CONST                      9: -1
+                448     BINARY_SUBSCR                   
+                450     LOAD_CONST                      3: ','
+                452     COMPARE_OP                      2 (==)
+                454     POP_JUMP_IF_FALSE               238 (to 476)
+                456     LOAD_FAST                       6: yy
+                458     LOAD_CONST                      1: None
+                460     LOAD_CONST                      9: -1
+                462     BUILD_SLICE                     2
+                464     BINARY_SUBSCR                   
+                466     STORE_FAST                      6: yy
+                468     LOAD_FAST                       6: yy
+                470     POP_JUMP_IF_TRUE                238 (to 476)
+                472     LOAD_CONST                      1: None
+                474     RETURN_VALUE                    
+                476     LOAD_FAST                       6: yy
+                478     LOAD_CONST                      2: 0
+                480     BINARY_SUBSCR                   
+                482     LOAD_METHOD                     10: isdigit
+                484     CALL_METHOD                     0
+                486     POP_JUMP_IF_TRUE                249 (to 498)
+                488     LOAD_FAST                       8: tz
+                490     LOAD_FAST                       6: yy
+                492     ROT_TWO                         
+                494     STORE_FAST                      6: yy
+                496     STORE_FAST                      8: tz
+                498     LOAD_FAST                       7: tm
+                500     LOAD_CONST                      9: -1
+                502     BINARY_SUBSCR                   
+                504     LOAD_CONST                      3: ','
+                506     COMPARE_OP                      2 (==)
+                508     POP_JUMP_IF_FALSE               262 (to 524)
+                512     LOAD_FAST                       7: tm
+                514     LOAD_CONST                      1: None
+                516     LOAD_CONST                      9: -1
+                518     BUILD_SLICE                     2
+                520     BINARY_SUBSCR                   
+                522     STORE_FAST                      7: tm
+                524     LOAD_FAST                       7: tm
+                526     LOAD_METHOD                     0: split
+                528     LOAD_CONST                      13: ':'
+                530     CALL_METHOD                     1
+                532     STORE_FAST                      7: tm
+                534     LOAD_GLOBAL                     5: len
+                536     LOAD_FAST                       7: tm
+                538     CALL_FUNCTION                   1
+                540     LOAD_CONST                      14: 2
+                542     COMPARE_OP                      2 (==)
+                544     POP_JUMP_IF_FALSE               281 (to 562)
+                548     LOAD_FAST                       7: tm
+                550     UNPACK_SEQUENCE                 2
+                552     STORE_FAST                      9: thh
+                554     STORE_FAST                      10: tmm
+                556     LOAD_CONST                      15: '0'
+                558     STORE_FAST                      11: tss
+                560     JUMP_FORWARD                    65 (to 692)
+                562     LOAD_GLOBAL                     5: len
+                564     LOAD_FAST                       7: tm
+                566     CALL_FUNCTION                   1
+                568     LOAD_CONST                      5: 3
+                570     COMPARE_OP                      2 (==)
+                572     POP_JUMP_IF_FALSE               294 (to 588)
+                576     LOAD_FAST                       7: tm
+                578     UNPACK_SEQUENCE                 3
+                580     STORE_FAST                      9: thh
+                582     STORE_FAST                      10: tmm
+                584     STORE_FAST                      11: tss
+                586     JUMP_FORWARD                    52 (to 692)
+                588     LOAD_GLOBAL                     5: len
+                590     LOAD_FAST                       7: tm
+                592     CALL_FUNCTION                   1
+                594     LOAD_CONST                      4: 1
+                596     COMPARE_OP                      2 (==)
+                598     POP_JUMP_IF_FALSE               344 (to 688)
+                602     LOAD_CONST                      16: '.'
+                604     LOAD_FAST                       7: tm
+                606     LOAD_CONST                      2: 0
+                608     BINARY_SUBSCR                   
+                610     CONTAINS_OP                     0 (in)
+                612     POP_JUMP_IF_FALSE               344 (to 688)
+                616     LOAD_FAST                       7: tm
+                618     LOAD_CONST                      2: 0
+                620     BINARY_SUBSCR                   
+                622     LOAD_METHOD                     0: split
+                624     LOAD_CONST                      16: '.'
+                626     CALL_METHOD                     1
+                628     STORE_FAST                      7: tm
+                630     LOAD_GLOBAL                     5: len
+                632     LOAD_FAST                       7: tm
+                634     CALL_FUNCTION                   1
+                636     LOAD_CONST                      14: 2
+                638     COMPARE_OP                      2 (==)
+                640     POP_JUMP_IF_FALSE               329 (to 658)
+                644     LOAD_FAST                       7: tm
+                646     UNPACK_SEQUENCE                 2
+                648     STORE_FAST                      9: thh
+                650     STORE_FAST                      10: tmm
+                652     LOAD_CONST                      2: 0
+                654     STORE_FAST                      11: tss
+                656     JUMP_FORWARD                    17 (to 692)
+                658     LOAD_GLOBAL                     5: len
+                660     LOAD_FAST                       7: tm
+                662     CALL_FUNCTION                   1
+                664     LOAD_CONST                      5: 3
+                666     COMPARE_OP                      2 (==)
+                668     POP_JUMP_IF_FALSE               342 (to 684)
+                672     LOAD_FAST                       7: tm
+                674     UNPACK_SEQUENCE                 3
+                676     STORE_FAST                      9: thh
+                678     STORE_FAST                      10: tmm
+                680     STORE_FAST                      11: tss
+                682     JUMP_FORWARD                    4 (to 692)
+                684     LOAD_CONST                      1: None
+                686     RETURN_VALUE                    
+                688     LOAD_CONST                      1: None
+                690     RETURN_VALUE                    
+                692     SETUP_FINALLY                   22 (to 738)
+                694     LOAD_GLOBAL                     11: int
+                696     LOAD_FAST                       6: yy
+                698     CALL_FUNCTION                   1
+                700     STORE_FAST                      6: yy
+                702     LOAD_GLOBAL                     11: int
+                704     LOAD_FAST                       4: dd
+                706     CALL_FUNCTION                   1
+                708     STORE_FAST                      4: dd
+                710     LOAD_GLOBAL                     11: int
+                712     LOAD_FAST                       9: thh
+                714     CALL_FUNCTION                   1
+                716     STORE_FAST                      9: thh
+                718     LOAD_GLOBAL                     11: int
+                720     LOAD_FAST                       10: tmm
+                722     CALL_FUNCTION                   1
+                724     STORE_FAST                      10: tmm
+                726     LOAD_GLOBAL                     11: int
+                728     LOAD_FAST                       11: tss
+                730     CALL_FUNCTION                   1
+                732     STORE_FAST                      11: tss
+                734     POP_BLOCK                       
+                736     JUMP_FORWARD                    11 (to 760)
+                738     DUP_TOP                         
+                740     LOAD_GLOBAL                     12: ValueError
+                742     JUMP_IF_NOT_EXC_MATCH           379 (to 758)
+                746     POP_TOP                         
+                748     POP_TOP                         
+                750     POP_TOP                         
+                752     POP_EXCEPT                      
+                754     LOAD_CONST                      1: None
+                756     RETURN_VALUE                    
+                758     RERAISE                         0
+                760     LOAD_FAST                       6: yy
+                762     LOAD_CONST                      17: 100
+                764     COMPARE_OP                      0 (<)
+                766     POP_JUMP_IF_FALSE               399 (to 798)
+                770     LOAD_FAST                       6: yy
+                772     LOAD_CONST                      18: 68
+                774     COMPARE_OP                      4 (>)
+                776     POP_JUMP_IF_FALSE               395 (to 790)
+                780     LOAD_FAST                       6: yy
+                782     LOAD_CONST                      19: 1900
+                784     INPLACE_ADD                     
+                786     STORE_FAST                      6: yy
+                788     JUMP_FORWARD                    4 (to 798)
+                790     LOAD_FAST                       6: yy
+                792     LOAD_CONST                      20: 2000
+                794     INPLACE_ADD                     
+                796     STORE_FAST                      6: yy
+                798     LOAD_CONST                      1: None
+                800     STORE_FAST                      12: tzoffset
+                802     LOAD_FAST                       8: tz
+                804     LOAD_METHOD                     13: upper
+                806     CALL_METHOD                     0
+                808     STORE_FAST                      8: tz
+                810     LOAD_FAST                       8: tz
+                812     LOAD_GLOBAL                     14: _timezones
+                814     CONTAINS_OP                     0 (in)
+                816     POP_JUMP_IF_FALSE               415 (to 830)
+                820     LOAD_GLOBAL                     14: _timezones
+                822     LOAD_FAST                       8: tz
+                824     BINARY_SUBSCR                   
+                826     STORE_FAST                      12: tzoffset
+                828     JUMP_FORWARD                    30 (to 890)
+                830     SETUP_FINALLY                   6 (to 844)
+                832     LOAD_GLOBAL                     11: int
+                834     LOAD_FAST                       8: tz
+                836     CALL_FUNCTION                   1
+                838     STORE_FAST                      12: tzoffset
+                840     POP_BLOCK                       
+                842     JUMP_FORWARD                    10 (to 864)
+                844     DUP_TOP                         
+                846     LOAD_GLOBAL                     12: ValueError
+                848     JUMP_IF_NOT_EXC_MATCH           431 (to 862)
+                852     POP_TOP                         
+                854     POP_TOP                         
+                856     POP_TOP                         
+                858     POP_EXCEPT                      
+                860     JUMP_FORWARD                    1 (to 864)
+                862     RERAISE                         0
+                864     LOAD_FAST                       12: tzoffset
+                866     LOAD_CONST                      2: 0
+                868     COMPARE_OP                      2 (==)
+                870     POP_JUMP_IF_FALSE               445 (to 890)
+                874     LOAD_FAST                       8: tz
+                876     LOAD_METHOD                     15: startswith
+                878     LOAD_CONST                      6: '-'
+                880     CALL_METHOD                     1
+                882     POP_JUMP_IF_FALSE               445 (to 890)
+                886     LOAD_CONST                      1: None
+                888     STORE_FAST                      12: tzoffset
+                890     LOAD_FAST                       12: tzoffset
+                892     POP_JUMP_IF_FALSE               475 (to 950)
+                896     LOAD_FAST                       12: tzoffset
+                898     LOAD_CONST                      2: 0
+                900     COMPARE_OP                      0 (<)
+                902     POP_JUMP_IF_FALSE               459 (to 918)
+                906     LOAD_CONST                      9: -1
+                908     STORE_FAST                      13: tzsign
+                910     LOAD_FAST                       12: tzoffset
+                912     UNARY_NEGATIVE                  
+                914     STORE_FAST                      12: tzoffset
+                916     JUMP_FORWARD                    2 (to 922)
+                918     LOAD_CONST                      4: 1
+                920     STORE_FAST                      13: tzsign
+                922     LOAD_FAST                       13: tzsign
+                924     LOAD_FAST                       12: tzoffset
+                926     LOAD_CONST                      17: 100
+                928     BINARY_FLOOR_DIVIDE             
+                930     LOAD_CONST                      21: 3600
+                932     BINARY_MULTIPLY                 
+                934     LOAD_FAST                       12: tzoffset
+                936     LOAD_CONST                      17: 100
+                938     BINARY_MODULO                   
+                940     LOAD_CONST                      22: 60
+                942     BINARY_MULTIPLY                 
+                944     BINARY_ADD                      
+                946     BINARY_MULTIPLY                 
+                948     STORE_FAST                      12: tzoffset
+                950     LOAD_FAST                       6: yy
+                952     LOAD_FAST                       5: mm
+                954     LOAD_FAST                       4: dd
+                956     LOAD_FAST                       9: thh
+                958     LOAD_FAST                       10: tmm
+                960     LOAD_FAST                       11: tss
+                962     LOAD_CONST                      2: 0
+                964     LOAD_CONST                      4: 1
+                966     LOAD_CONST                      9: -1
+                968     LOAD_FAST                       12: tzoffset
+                970     BUILD_LIST                      10
+                972     RETURN_VALUE                    
+        '_parsedate_tz'
+        [Code]
+            File Name: email/_parseaddr.py
+            Object Name: parsedate
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'parsedate_tz'
+                'isinstance'
+                'tuple'
+            [Var Names]
+                'data'
+                't'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Convert a time string to a time tuple.'
+                None
+                9
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: parsedate_tz
+                2       LOAD_FAST                       0: data
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      1: t
+                8       LOAD_GLOBAL                     1: isinstance
+                10      LOAD_FAST                       1: t
+                12      LOAD_GLOBAL                     2: tuple
+                14      CALL_FUNCTION                   2
+                16      POP_JUMP_IF_FALSE               15 (to 30)
+                18      LOAD_FAST                       1: t
+                20      LOAD_CONST                      1: None
+                22      LOAD_CONST                      2: 9
+                24      BUILD_SLICE                     2
+                26      BINARY_SUBSCR                   
+                28      RETURN_VALUE                    
+                30      LOAD_FAST                       1: t
+                32      RETURN_VALUE                    
+        'parsedate'
+        [Code]
+            File Name: email/_parseaddr.py
+            Object Name: mktime_tz
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'time'
+                'mktime'
+                'calendar'
+                'timegm'
+            [Var Names]
+                'data'
+                't'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Turn a 10-tuple as returned by parsedate_tz() into a POSIX timestamp.'
+                9
+                None
+                8
+                (
+                    -1
+                )
+            [Disassembly]
+                0       LOAD_FAST                       0: data
+                2       LOAD_CONST                      1: 9
+                4       BINARY_SUBSCR                   
+                6       LOAD_CONST                      2: None
+                8       IS_OP                           0 (is)
+                10      POP_JUMP_IF_FALSE               17 (to 34)
+                12      LOAD_GLOBAL                     0: time
+                14      LOAD_METHOD                     1: mktime
+                16      LOAD_FAST                       0: data
+                18      LOAD_CONST                      2: None
+                20      LOAD_CONST                      3: 8
+                22      BUILD_SLICE                     2
+                24      BINARY_SUBSCR                   
+                26      LOAD_CONST                      4: (-1,)
+                28      BINARY_ADD                      
+                30      CALL_METHOD                     1
+                32      RETURN_VALUE                    
+                34      LOAD_GLOBAL                     2: calendar
+                36      LOAD_METHOD                     3: timegm
+                38      LOAD_FAST                       0: data
+                40      CALL_METHOD                     1
+                42      STORE_FAST                      1: t
+                44      LOAD_FAST                       1: t
+                46      LOAD_FAST                       0: data
+                48      LOAD_CONST                      1: 9
+                50      BINARY_SUBSCR                   
+                52      BINARY_SUBTRACT                 
+                54      RETURN_VALUE                    
+        'mktime_tz'
+        [Code]
+            File Name: email/_parseaddr.py
+            Object Name: quote
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'replace'
+            [Var Names]
+                'str'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Prepare string to be used in a quoted string.\n\n    Turns backslash and double quote characters into quoted pairs.  These\n    are the only characters that need to be quoted inside a quoted string.\n    Does not add the surrounding double quotes.\n    '
+                '\\'
+                '\\\\'
+                '"'
+                '\\"'
+            [Disassembly]
+                0       LOAD_FAST                       0: str
+                2       LOAD_METHOD                     0: replace
+                4       LOAD_CONST                      1: '\\'
+                6       LOAD_CONST                      2: '\\\\'
+                8       CALL_METHOD                     2
+                10      LOAD_METHOD                     0: replace
+                12      LOAD_CONST                      3: '"'
+                14      LOAD_CONST                      4: '\\"'
+                16      CALL_METHOD                     2
+                18      RETURN_VALUE                    
+        'quote'
+        [Code]
+            File Name: email/_parseaddr.py
+            Object Name: AddrlistClass
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                'gotonext'
+                'getaddrlist'
+                'getaddress'
+                'getrouteaddr'
+                'getaddrspec'
+                'getdomain'
+                'getdelimited'
+                'getquote'
+                'getcomment'
+                'getdomainliteral'
+                'getatom'
+                'getphraselist'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'AddrlistClass'
+                'Address parser class by Ben Escoto.\n\n    To understand what this class does, it helps to have a copy of RFC 2822 in\n    front of you.\n\n    Note: this class interface is deprecated and may be removed in the future.\n    Use email.utils.AddressList instead.\n    '
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'specials'
+                        'pos'
+                        'LWS'
+                        'CR'
+                        'FWS'
+                        'atomends'
+                        'replace'
+                        'phraseends'
+                        'field'
+                        'commentlist'
+                    [Var Names]
+                        'self'
+                        'field'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Initialize a new instance.\n\n        `field' is an unparsed address header field, containing\n        one or more addresses.\n        "
+                        '()<>@,:;."[]'
+                        0
+                        ' \t'
+                        '\r\n'
+                        '.'
+                        ''
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: '()<>@,:;."[]'
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: specials
+                        6       LOAD_CONST                      2: 0
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: pos
+                        12      LOAD_CONST                      3: ' \t'
+                        14      LOAD_FAST                       0: self
+                        16      STORE_ATTR                      2: LWS
+                        18      LOAD_CONST                      4: '\r\n'
+                        20      LOAD_FAST                       0: self
+                        22      STORE_ATTR                      3: CR
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       2: LWS
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       3: CR
+                        32      BINARY_ADD                      
+                        34      LOAD_FAST                       0: self
+                        36      STORE_ATTR                      4: FWS
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_ATTR                       0: specials
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_ATTR                       2: LWS
+                        46      BINARY_ADD                      
+                        48      LOAD_FAST                       0: self
+                        50      LOAD_ATTR                       3: CR
+                        52      BINARY_ADD                      
+                        54      LOAD_FAST                       0: self
+                        56      STORE_ATTR                      5: atomends
+                        58      LOAD_FAST                       0: self
+                        60      LOAD_ATTR                       5: atomends
+                        62      LOAD_METHOD                     6: replace
+                        64      LOAD_CONST                      5: '.'
+                        66      LOAD_CONST                      6: ''
+                        68      CALL_METHOD                     2
+                        70      LOAD_FAST                       0: self
+                        72      STORE_ATTR                      7: phraseends
+                        74      LOAD_FAST                       1: field
+                        76      LOAD_FAST                       0: self
+                        78      STORE_ATTR                      8: field
+                        80      BUILD_LIST                      0
+                        82      LOAD_FAST                       0: self
+                        84      STORE_ATTR                      9: commentlist
+                        86      LOAD_CONST                      7: None
+                        88      RETURN_VALUE                    
+                'AddrlistClass.__init__'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: gotonext
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'pos'
+                        'len'
+                        'field'
+                        'LWS'
+                        'append'
+                        'commentlist'
+                        'getcomment'
+                        'EMPTYSTRING'
+                        'join'
+                    [Var Names]
+                        'self'
+                        'wslist'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Skip white space and extract comments.'
+                        '\n\r'
+                        1
+                        '('
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       STORE_FAST                      1: wslist
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       0: pos
+                        8       LOAD_GLOBAL                     1: len
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       2: field
+                        14      CALL_FUNCTION                   1
+                        16      COMPARE_OP                      0 (<)
+                        18      POP_JUMP_IF_FALSE               72 (to 144)
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       2: field
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       0: pos
+                        28      BINARY_SUBSCR                   
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_ATTR                       3: LWS
+                        34      LOAD_CONST                      1: '\n\r'
+                        36      BINARY_ADD                      
+                        38      CONTAINS_OP                     0 (in)
+                        40      POP_JUMP_IF_FALSE               46 (to 92)
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_ATTR                       2: field
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_ATTR                       0: pos
+                        50      BINARY_SUBSCR                   
+                        52      LOAD_CONST                      1: '\n\r'
+                        54      CONTAINS_OP                     1 (not in)
+                        56      POP_JUMP_IF_FALSE               38 (to 76)
+                        58      LOAD_FAST                       1: wslist
+                        60      LOAD_METHOD                     4: append
+                        62      LOAD_FAST                       0: self
+                        64      LOAD_ATTR                       2: field
+                        66      LOAD_FAST                       0: self
+                        68      LOAD_ATTR                       0: pos
+                        70      BINARY_SUBSCR                   
+                        72      CALL_METHOD                     1
+                        74      POP_TOP                         
+                        76      LOAD_FAST                       0: self
+                        78      DUP_TOP                         
+                        80      LOAD_ATTR                       0: pos
+                        82      LOAD_CONST                      2: 1
+                        84      INPLACE_ADD                     
+                        86      ROT_TWO                         
+                        88      STORE_ATTR                      0: pos
+                        90      JUMP_FORWARD                    18 (to 128)
+                        92      LOAD_FAST                       0: self
+                        94      LOAD_ATTR                       2: field
+                        96      LOAD_FAST                       0: self
+                        98      LOAD_ATTR                       0: pos
+                        100     BINARY_SUBSCR                   
+                        102     LOAD_CONST                      3: '('
+                        104     COMPARE_OP                      2 (==)
+                        106     POP_JUMP_IF_FALSE               63 (to 126)
+                        108     LOAD_FAST                       0: self
+                        110     LOAD_ATTR                       5: commentlist
+                        112     LOAD_METHOD                     4: append
+                        114     LOAD_FAST                       0: self
+                        116     LOAD_METHOD                     6: getcomment
+                        118     CALL_METHOD                     0
+                        120     CALL_METHOD                     1
+                        122     POP_TOP                         
+                        124     JUMP_FORWARD                    1 (to 128)
+                        126     JUMP_FORWARD                    8 (to 144)
+                        128     LOAD_FAST                       0: self
+                        130     LOAD_ATTR                       0: pos
+                        132     LOAD_GLOBAL                     1: len
+                        134     LOAD_FAST                       0: self
+                        136     LOAD_ATTR                       2: field
+                        138     CALL_FUNCTION                   1
+                        140     COMPARE_OP                      0 (<)
+                        142     POP_JUMP_IF_TRUE                10 (to 20)
+                        144     LOAD_GLOBAL                     7: EMPTYSTRING
+                        146     LOAD_METHOD                     8: join
+                        148     LOAD_FAST                       1: wslist
+                        150     CALL_METHOD                     1
+                        152     RETURN_VALUE                    
+                'AddrlistClass.gotonext'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: getaddrlist
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'pos'
+                        'len'
+                        'field'
+                        'getaddress'
+                        'append'
+                    [Var Names]
+                        'self'
+                        'result'
+                        'ad'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Parse all addresses.\n\n        Returns a list containing all of the addresses.\n        '
+                        (
+                            ''
+                            ''
+                        )
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       STORE_FAST                      1: result
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       0: pos
+                        8       LOAD_GLOBAL                     1: len
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       2: field
+                        14      CALL_FUNCTION                   1
+                        16      COMPARE_OP                      0 (<)
+                        18      POP_JUMP_IF_FALSE               34 (to 68)
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_METHOD                     3: getaddress
+                        24      CALL_METHOD                     0
+                        26      STORE_FAST                      2: ad
+                        28      LOAD_FAST                       2: ad
+                        30      POP_JUMP_IF_FALSE               21 (to 42)
+                        32      LOAD_FAST                       1: result
+                        34      LOAD_FAST                       2: ad
+                        36      INPLACE_ADD                     
+                        38      STORE_FAST                      1: result
+                        40      JUMP_FORWARD                    5 (to 52)
+                        42      LOAD_FAST                       1: result
+                        44      LOAD_METHOD                     4: append
+                        46      LOAD_CONST                      1: ('', '')
+                        48      CALL_METHOD                     1
+                        50      POP_TOP                         
+                        52      LOAD_FAST                       0: self
+                        54      LOAD_ATTR                       0: pos
+                        56      LOAD_GLOBAL                     1: len
+                        58      LOAD_FAST                       0: self
+                        60      LOAD_ATTR                       2: field
+                        62      CALL_FUNCTION                   1
+                        64      COMPARE_OP                      0 (<)
+                        66      POP_JUMP_IF_TRUE                10 (to 20)
+                        68      LOAD_FAST                       1: result
+                        70      RETURN_VALUE                    
+                'AddrlistClass.getaddrlist'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: getaddress
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 8
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'commentlist'
+                        'gotonext'
+                        'pos'
+                        'getphraselist'
+                        'len'
+                        'field'
+                        'SPACE'
+                        'join'
+                        'getaddrspec'
+                        'getaddress'
+                        'getrouteaddr'
+                        'specials'
+                    [Var Names]
+                        'self'
+                        'oldpos'
+                        'oldcl'
+                        'plist'
+                        'returnlist'
+                        'addrspec'
+                        'fieldlen'
+                        'routeaddr'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Parse the next address.'
+                        0
+                        '.@'
+                        ':'
+                        1
+                        ';'
+                        '<'
+                        ' ('
+                        ' '
+                        ')'
+                        ','
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: commentlist
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_METHOD                     1: gotonext
+                        10      CALL_METHOD                     0
+                        12      POP_TOP                         
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_ATTR                       2: pos
+                        18      STORE_FAST                      1: oldpos
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       0: commentlist
+                        24      STORE_FAST                      2: oldcl
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_METHOD                     3: getphraselist
+                        30      CALL_METHOD                     0
+                        32      STORE_FAST                      3: plist
+                        34      LOAD_FAST                       0: self
+                        36      LOAD_METHOD                     1: gotonext
+                        38      CALL_METHOD                     0
+                        40      POP_TOP                         
+                        42      BUILD_LIST                      0
+                        44      STORE_FAST                      4: returnlist
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_ATTR                       2: pos
+                        50      LOAD_GLOBAL                     4: len
+                        52      LOAD_FAST                       0: self
+                        54      LOAD_ATTR                       5: field
+                        56      CALL_FUNCTION                   1
+                        58      COMPARE_OP                      5 (>=)
+                        60      POP_JUMP_IF_FALSE               45 (to 90)
+                        62      LOAD_FAST                       3: plist
+                        64      POP_JUMP_IF_FALSE               44 (to 88)
+                        66      LOAD_GLOBAL                     6: SPACE
+                        68      LOAD_METHOD                     7: join
+                        70      LOAD_FAST                       0: self
+                        72      LOAD_ATTR                       0: commentlist
+                        74      CALL_METHOD                     1
+                        76      LOAD_FAST                       3: plist
+                        78      LOAD_CONST                      1: 0
+                        80      BINARY_SUBSCR                   
+                        82      BUILD_TUPLE                     2
+                        84      BUILD_LIST                      1
+                        86      STORE_FAST                      4: returnlist
+                        88      JUMP_FORWARD                    171 (to 432)
+                        90      LOAD_FAST                       0: self
+                        92      LOAD_ATTR                       5: field
+                        94      LOAD_FAST                       0: self
+                        96      LOAD_ATTR                       2: pos
+                        98      BINARY_SUBSCR                   
+                        100     LOAD_CONST                      2: '.@'
+                        102     CONTAINS_OP                     0 (in)
+                        104     POP_JUMP_IF_FALSE               73 (to 146)
+                        106     LOAD_FAST                       1: oldpos
+                        108     LOAD_FAST                       0: self
+                        110     STORE_ATTR                      2: pos
+                        112     LOAD_FAST                       2: oldcl
+                        114     LOAD_FAST                       0: self
+                        116     STORE_ATTR                      0: commentlist
+                        118     LOAD_FAST                       0: self
+                        120     LOAD_METHOD                     8: getaddrspec
+                        122     CALL_METHOD                     0
+                        124     STORE_FAST                      5: addrspec
+                        126     LOAD_GLOBAL                     6: SPACE
+                        128     LOAD_METHOD                     7: join
+                        130     LOAD_FAST                       0: self
+                        132     LOAD_ATTR                       0: commentlist
+                        134     CALL_METHOD                     1
+                        136     LOAD_FAST                       5: addrspec
+                        138     BUILD_TUPLE                     2
+                        140     BUILD_LIST                      1
+                        142     STORE_FAST                      4: returnlist
+                        144     JUMP_FORWARD                    143 (to 432)
+                        146     LOAD_FAST                       0: self
+                        148     LOAD_ATTR                       5: field
+                        150     LOAD_FAST                       0: self
+                        152     LOAD_ATTR                       2: pos
+                        154     BINARY_SUBSCR                   
+                        156     LOAD_CONST                      3: ':'
+                        158     COMPARE_OP                      2 (==)
+                        160     POP_JUMP_IF_FALSE               143 (to 286)
+                        162     BUILD_LIST                      0
+                        164     STORE_FAST                      4: returnlist
+                        166     LOAD_GLOBAL                     4: len
+                        168     LOAD_FAST                       0: self
+                        170     LOAD_ATTR                       5: field
+                        172     CALL_FUNCTION                   1
+                        174     STORE_FAST                      6: fieldlen
+                        176     LOAD_FAST                       0: self
+                        178     DUP_TOP                         
+                        180     LOAD_ATTR                       2: pos
+                        182     LOAD_CONST                      4: 1
+                        184     INPLACE_ADD                     
+                        186     ROT_TWO                         
+                        188     STORE_ATTR                      2: pos
+                        190     LOAD_FAST                       0: self
+                        192     LOAD_ATTR                       2: pos
+                        194     LOAD_GLOBAL                     4: len
+                        196     LOAD_FAST                       0: self
+                        198     LOAD_ATTR                       5: field
+                        200     CALL_FUNCTION                   1
+                        202     COMPARE_OP                      0 (<)
+                        204     POP_JUMP_IF_FALSE               142 (to 284)
+                        206     LOAD_FAST                       0: self
+                        208     LOAD_METHOD                     1: gotonext
+                        210     CALL_METHOD                     0
+                        212     POP_TOP                         
+                        214     LOAD_FAST                       0: self
+                        216     LOAD_ATTR                       2: pos
+                        218     LOAD_FAST                       6: fieldlen
+                        220     COMPARE_OP                      0 (<)
+                        222     POP_JUMP_IF_FALSE               128 (to 256)
+                        224     LOAD_FAST                       0: self
+                        226     LOAD_ATTR                       5: field
+                        228     LOAD_FAST                       0: self
+                        230     LOAD_ATTR                       2: pos
+                        232     BINARY_SUBSCR                   
+                        234     LOAD_CONST                      5: ';'
+                        236     COMPARE_OP                      2 (==)
+                        238     POP_JUMP_IF_FALSE               128 (to 256)
+                        240     LOAD_FAST                       0: self
+                        242     DUP_TOP                         
+                        244     LOAD_ATTR                       2: pos
+                        246     LOAD_CONST                      4: 1
+                        248     INPLACE_ADD                     
+                        250     ROT_TWO                         
+                        252     STORE_ATTR                      2: pos
+                        254     JUMP_FORWARD                    14 (to 284)
+                        256     LOAD_FAST                       4: returnlist
+                        258     LOAD_FAST                       0: self
+                        260     LOAD_METHOD                     9: getaddress
+                        262     CALL_METHOD                     0
+                        264     BINARY_ADD                      
+                        266     STORE_FAST                      4: returnlist
+                        268     LOAD_FAST                       0: self
+                        270     LOAD_ATTR                       2: pos
+                        272     LOAD_GLOBAL                     4: len
+                        274     LOAD_FAST                       0: self
+                        276     LOAD_ATTR                       5: field
+                        278     CALL_FUNCTION                   1
+                        280     COMPARE_OP                      0 (<)
+                        282     POP_JUMP_IF_TRUE                103 (to 206)
+                        284     JUMP_FORWARD                    73 (to 432)
+                        286     LOAD_FAST                       0: self
+                        288     LOAD_ATTR                       5: field
+                        290     LOAD_FAST                       0: self
+                        292     LOAD_ATTR                       2: pos
+                        294     BINARY_SUBSCR                   
+                        296     LOAD_CONST                      6: '<'
+                        298     COMPARE_OP                      2 (==)
+                        300     POP_JUMP_IF_FALSE               186 (to 372)
+                        302     LOAD_FAST                       0: self
+                        304     LOAD_METHOD                     10: getrouteaddr
+                        306     CALL_METHOD                     0
+                        308     STORE_FAST                      7: routeaddr
+                        310     LOAD_FAST                       0: self
+                        312     LOAD_ATTR                       0: commentlist
+                        314     POP_JUMP_IF_FALSE               177 (to 354)
+                        316     LOAD_GLOBAL                     6: SPACE
+                        318     LOAD_METHOD                     7: join
+                        320     LOAD_FAST                       3: plist
+                        322     CALL_METHOD                     1
+                        324     LOAD_CONST                      7: ' ('
+                        326     BINARY_ADD                      
+                        328     LOAD_CONST                      8: ' '
+                        330     LOAD_METHOD                     7: join
+                        332     LOAD_FAST                       0: self
+                        334     LOAD_ATTR                       0: commentlist
+                        336     CALL_METHOD                     1
+                        338     BINARY_ADD                      
+                        340     LOAD_CONST                      9: ')'
+                        342     BINARY_ADD                      
+                        344     LOAD_FAST                       7: routeaddr
+                        346     BUILD_TUPLE                     2
+                        348     BUILD_LIST                      1
+                        350     STORE_FAST                      4: returnlist
+                        352     JUMP_FORWARD                    39 (to 432)
+                        354     LOAD_GLOBAL                     6: SPACE
+                        356     LOAD_METHOD                     7: join
+                        358     LOAD_FAST                       3: plist
+                        360     CALL_METHOD                     1
+                        362     LOAD_FAST                       7: routeaddr
+                        364     BUILD_TUPLE                     2
+                        366     BUILD_LIST                      1
+                        368     STORE_FAST                      4: returnlist
+                        370     JUMP_FORWARD                    30 (to 432)
+                        372     LOAD_FAST                       3: plist
+                        374     POP_JUMP_IF_FALSE               200 (to 400)
+                        376     LOAD_GLOBAL                     6: SPACE
+                        378     LOAD_METHOD                     7: join
+                        380     LOAD_FAST                       0: self
+                        382     LOAD_ATTR                       0: commentlist
+                        384     CALL_METHOD                     1
+                        386     LOAD_FAST                       3: plist
+                        388     LOAD_CONST                      1: 0
+                        390     BINARY_SUBSCR                   
+                        392     BUILD_TUPLE                     2
+                        394     BUILD_LIST                      1
+                        396     STORE_FAST                      4: returnlist
+                        398     JUMP_FORWARD                    16 (to 432)
+                        400     LOAD_FAST                       0: self
+                        402     LOAD_ATTR                       5: field
+                        404     LOAD_FAST                       0: self
+                        406     LOAD_ATTR                       2: pos
+                        408     BINARY_SUBSCR                   
+                        410     LOAD_FAST                       0: self
+                        412     LOAD_ATTR                       11: specials
+                        414     CONTAINS_OP                     0 (in)
+                        416     POP_JUMP_IF_FALSE               216 (to 432)
+                        418     LOAD_FAST                       0: self
+                        420     DUP_TOP                         
+                        422     LOAD_ATTR                       2: pos
+                        424     LOAD_CONST                      4: 1
+                        426     INPLACE_ADD                     
+                        428     ROT_TWO                         
+                        430     STORE_ATTR                      2: pos
+                        432     LOAD_FAST                       0: self
+                        434     LOAD_METHOD                     1: gotonext
+                        436     CALL_METHOD                     0
+                        438     POP_TOP                         
+                        440     LOAD_FAST                       0: self
+                        442     LOAD_ATTR                       2: pos
+                        444     LOAD_GLOBAL                     4: len
+                        446     LOAD_FAST                       0: self
+                        448     LOAD_ATTR                       5: field
+                        450     CALL_FUNCTION                   1
+                        452     COMPARE_OP                      0 (<)
+                        454     POP_JUMP_IF_FALSE               243 (to 486)
+                        456     LOAD_FAST                       0: self
+                        458     LOAD_ATTR                       5: field
+                        460     LOAD_FAST                       0: self
+                        462     LOAD_ATTR                       2: pos
+                        464     BINARY_SUBSCR                   
+                        466     LOAD_CONST                      10: ','
+                        468     COMPARE_OP                      2 (==)
+                        470     POP_JUMP_IF_FALSE               243 (to 486)
+                        472     LOAD_FAST                       0: self
+                        474     DUP_TOP                         
+                        476     LOAD_ATTR                       2: pos
+                        478     LOAD_CONST                      4: 1
+                        480     INPLACE_ADD                     
+                        482     ROT_TWO                         
+                        484     STORE_ATTR                      2: pos
+                        486     LOAD_FAST                       4: returnlist
+                        488     RETURN_VALUE                    
+                'AddrlistClass.getaddress'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: getrouteaddr
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'field'
+                        'pos'
+                        'gotonext'
+                        'len'
+                        'getdomain'
+                        'getaddrspec'
+                    [Var Names]
+                        'self'
+                        'expectroute'
+                        'adlist'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Parse a route address (Return-path value).\n\n        This method just skips all the route stuff and returns the addrspec.\n        '
+                        '<'
+                        None
+                        False
+                        1
+                        ''
+                        '>'
+                        '@'
+                        True
+                        ':'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: field
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       1: pos
+                        8       BINARY_SUBSCR                   
+                        10      LOAD_CONST                      1: '<'
+                        12      COMPARE_OP                      3 (!=)
+                        14      POP_JUMP_IF_FALSE               10 (to 20)
+                        16      LOAD_CONST                      2: None
+                        18      RETURN_VALUE                    
+                        20      LOAD_CONST                      3: False
+                        22      STORE_FAST                      1: expectroute
+                        24      LOAD_FAST                       0: self
+                        26      DUP_TOP                         
+                        28      LOAD_ATTR                       1: pos
+                        30      LOAD_CONST                      4: 1
+                        32      INPLACE_ADD                     
+                        34      ROT_TWO                         
+                        36      STORE_ATTR                      1: pos
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_METHOD                     2: gotonext
+                        42      CALL_METHOD                     0
+                        44      POP_TOP                         
+                        46      LOAD_CONST                      5: ''
+                        48      STORE_FAST                      2: adlist
+                        50      LOAD_FAST                       0: self
+                        52      LOAD_ATTR                       1: pos
+                        54      LOAD_GLOBAL                     3: len
+                        56      LOAD_FAST                       0: self
+                        58      LOAD_ATTR                       0: field
+                        60      CALL_FUNCTION                   1
+                        62      COMPARE_OP                      0 (<)
+                        64      POP_JUMP_IF_FALSE               120 (to 240)
+                        66      LOAD_FAST                       1: expectroute
+                        68      POP_JUMP_IF_FALSE               42 (to 84)
+                        70      LOAD_FAST                       0: self
+                        72      LOAD_METHOD                     4: getdomain
+                        74      CALL_METHOD                     0
+                        76      POP_TOP                         
+                        78      LOAD_CONST                      3: False
+                        80      STORE_FAST                      1: expectroute
+                        82      JUMP_FORWARD                    66 (to 216)
+                        84      LOAD_FAST                       0: self
+                        86      LOAD_ATTR                       0: field
+                        88      LOAD_FAST                       0: self
+                        90      LOAD_ATTR                       1: pos
+                        92      BINARY_SUBSCR                   
+                        94      LOAD_CONST                      6: '>'
+                        96      COMPARE_OP                      2 (==)
+                        98      POP_JUMP_IF_FALSE               60 (to 120)
+                        100     LOAD_FAST                       0: self
+                        102     DUP_TOP                         
+                        104     LOAD_ATTR                       1: pos
+                        106     LOAD_CONST                      4: 1
+                        108     INPLACE_ADD                     
+                        110     ROT_TWO                         
+                        112     STORE_ATTR                      1: pos
+                        114     NOP                             
+                        116     LOAD_FAST                       2: adlist
+                        118     RETURN_VALUE                    
+                        120     LOAD_FAST                       0: self
+                        122     LOAD_ATTR                       0: field
+                        124     LOAD_FAST                       0: self
+                        126     LOAD_ATTR                       1: pos
+                        128     BINARY_SUBSCR                   
+                        130     LOAD_CONST                      7: '@'
+                        132     COMPARE_OP                      2 (==)
+                        134     POP_JUMP_IF_FALSE               78 (to 156)
+                        136     LOAD_FAST                       0: self
+                        138     DUP_TOP                         
+                        140     LOAD_ATTR                       1: pos
+                        142     LOAD_CONST                      4: 1
+                        144     INPLACE_ADD                     
+                        146     ROT_TWO                         
+                        148     STORE_ATTR                      1: pos
+                        150     LOAD_CONST                      8: True
+                        152     STORE_FAST                      1: expectroute
+                        154     JUMP_FORWARD                    30 (to 216)
+                        156     LOAD_FAST                       0: self
+                        158     LOAD_ATTR                       0: field
+                        160     LOAD_FAST                       0: self
+                        162     LOAD_ATTR                       1: pos
+                        164     BINARY_SUBSCR                   
+                        166     LOAD_CONST                      9: ':'
+                        168     COMPARE_OP                      2 (==)
+                        170     POP_JUMP_IF_FALSE               94 (to 188)
+                        172     LOAD_FAST                       0: self
+                        174     DUP_TOP                         
+                        176     LOAD_ATTR                       1: pos
+                        178     LOAD_CONST                      4: 1
+                        180     INPLACE_ADD                     
+                        182     ROT_TWO                         
+                        184     STORE_ATTR                      1: pos
+                        186     JUMP_FORWARD                    14 (to 216)
+                        188     LOAD_FAST                       0: self
+                        190     LOAD_METHOD                     5: getaddrspec
+                        192     CALL_METHOD                     0
+                        194     STORE_FAST                      2: adlist
+                        196     LOAD_FAST                       0: self
+                        198     DUP_TOP                         
+                        200     LOAD_ATTR                       1: pos
+                        202     LOAD_CONST                      4: 1
+                        204     INPLACE_ADD                     
+                        206     ROT_TWO                         
+                        208     STORE_ATTR                      1: pos
+                        210     NOP                             
+                        212     LOAD_FAST                       2: adlist
+                        214     RETURN_VALUE                    
+                        216     LOAD_FAST                       0: self
+                        218     LOAD_METHOD                     2: gotonext
+                        220     CALL_METHOD                     0
+                        222     POP_TOP                         
+                        224     LOAD_FAST                       0: self
+                        226     LOAD_ATTR                       1: pos
+                        228     LOAD_GLOBAL                     3: len
+                        230     LOAD_FAST                       0: self
+                        232     LOAD_ATTR                       0: field
+                        234     CALL_FUNCTION                   1
+                        236     COMPARE_OP                      0 (<)
+                        238     POP_JUMP_IF_TRUE                33 (to 66)
+                        240     LOAD_FAST                       2: adlist
+                        242     RETURN_VALUE                    
+                'AddrlistClass.getrouteaddr'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: getaddrspec
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'gotonext'
+                        'pos'
+                        'len'
+                        'field'
+                        'strip'
+                        'pop'
+                        'append'
+                        'quote'
+                        'getquote'
+                        'atomends'
+                        'getatom'
+                        'EMPTYSTRING'
+                        'join'
+                        'getdomain'
+                    [Var Names]
+                        'self'
+                        'aslist'
+                        'preserve_ws'
+                        'ws'
+                        'domain'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Parse an RFC 2822 addr-spec.'
+                        True
+                        '.'
+                        -1
+                        1
+                        False
+                        '"'
+                        '"%s"'
+                        '@'
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       STORE_FAST                      1: aslist
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_METHOD                     0: gotonext
+                        8       CALL_METHOD                     0
+                        10      POP_TOP                         
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_ATTR                       1: pos
+                        16      LOAD_GLOBAL                     2: len
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_ATTR                       3: field
+                        22      CALL_FUNCTION                   1
+                        24      COMPARE_OP                      0 (<)
+                        26      POP_JUMP_IF_FALSE               121 (to 242)
+                        28      LOAD_CONST                      1: True
+                        30      STORE_FAST                      2: preserve_ws
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       3: field
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_ATTR                       1: pos
+                        40      BINARY_SUBSCR                   
+                        42      LOAD_CONST                      2: '.'
+                        44      COMPARE_OP                      2 (==)
+                        46      POP_JUMP_IF_FALSE               51 (to 102)
+                        48      LOAD_FAST                       1: aslist
+                        50      POP_JUMP_IF_FALSE               36 (to 72)
+                        52      LOAD_FAST                       1: aslist
+                        54      LOAD_CONST                      3: -1
+                        56      BINARY_SUBSCR                   
+                        58      LOAD_METHOD                     4: strip
+                        60      CALL_METHOD                     0
+                        62      POP_JUMP_IF_TRUE                36 (to 72)
+                        64      LOAD_FAST                       1: aslist
+                        66      LOAD_METHOD                     5: pop
+                        68      CALL_METHOD                     0
+                        70      POP_TOP                         
+                        72      LOAD_FAST                       1: aslist
+                        74      LOAD_METHOD                     6: append
+                        76      LOAD_CONST                      2: '.'
+                        78      CALL_METHOD                     1
+                        80      POP_TOP                         
+                        82      LOAD_FAST                       0: self
+                        84      DUP_TOP                         
+                        86      LOAD_ATTR                       1: pos
+                        88      LOAD_CONST                      4: 1
+                        90      INPLACE_ADD                     
+                        92      ROT_TWO                         
+                        94      STORE_ATTR                      1: pos
+                        96      LOAD_CONST                      5: False
+                        98      STORE_FAST                      2: preserve_ws
+                        100     JUMP_FORWARD                    49 (to 200)
+                        102     LOAD_FAST                       0: self
+                        104     LOAD_ATTR                       3: field
+                        106     LOAD_FAST                       0: self
+                        108     LOAD_ATTR                       1: pos
+                        110     BINARY_SUBSCR                   
+                        112     LOAD_CONST                      6: '"'
+                        114     COMPARE_OP                      2 (==)
+                        116     POP_JUMP_IF_FALSE               71 (to 142)
+                        118     LOAD_FAST                       1: aslist
+                        120     LOAD_METHOD                     6: append
+                        122     LOAD_CONST                      7: '"%s"'
+                        124     LOAD_GLOBAL                     7: quote
+                        126     LOAD_FAST                       0: self
+                        128     LOAD_METHOD                     8: getquote
+                        130     CALL_METHOD                     0
+                        132     CALL_FUNCTION                   1
+                        134     BINARY_MODULO                   
+                        136     CALL_METHOD                     1
+                        138     POP_TOP                         
+                        140     JUMP_FORWARD                    29 (to 200)
+                        142     LOAD_FAST                       0: self
+                        144     LOAD_ATTR                       3: field
+                        146     LOAD_FAST                       0: self
+                        148     LOAD_ATTR                       1: pos
+                        150     BINARY_SUBSCR                   
+                        152     LOAD_FAST                       0: self
+                        154     LOAD_ATTR                       9: atomends
+                        156     CONTAINS_OP                     0 (in)
+                        158     POP_JUMP_IF_FALSE               93 (to 186)
+                        160     LOAD_FAST                       1: aslist
+                        162     POP_JUMP_IF_FALSE               92 (to 184)
+                        164     LOAD_FAST                       1: aslist
+                        166     LOAD_CONST                      3: -1
+                        168     BINARY_SUBSCR                   
+                        170     LOAD_METHOD                     4: strip
+                        172     CALL_METHOD                     0
+                        174     POP_JUMP_IF_TRUE                92 (to 184)
+                        176     LOAD_FAST                       1: aslist
+                        178     LOAD_METHOD                     5: pop
+                        180     CALL_METHOD                     0
+                        182     POP_TOP                         
+                        184     JUMP_FORWARD                    28 (to 242)
+                        186     LOAD_FAST                       1: aslist
+                        188     LOAD_METHOD                     6: append
+                        190     LOAD_FAST                       0: self
+                        192     LOAD_METHOD                     10: getatom
+                        194     CALL_METHOD                     0
+                        196     CALL_METHOD                     1
+                        198     POP_TOP                         
+                        200     LOAD_FAST                       0: self
+                        202     LOAD_METHOD                     0: gotonext
+                        204     CALL_METHOD                     0
+                        206     STORE_FAST                      3: ws
+                        208     LOAD_FAST                       2: preserve_ws
+                        210     POP_JUMP_IF_FALSE               113 (to 226)
+                        212     LOAD_FAST                       3: ws
+                        214     POP_JUMP_IF_FALSE               113 (to 226)
+                        216     LOAD_FAST                       1: aslist
+                        218     LOAD_METHOD                     6: append
+                        220     LOAD_FAST                       3: ws
+                        222     CALL_METHOD                     1
+                        224     POP_TOP                         
+                        226     LOAD_FAST                       0: self
+                        228     LOAD_ATTR                       1: pos
+                        230     LOAD_GLOBAL                     2: len
+                        232     LOAD_FAST                       0: self
+                        234     LOAD_ATTR                       3: field
+                        236     CALL_FUNCTION                   1
+                        238     COMPARE_OP                      0 (<)
+                        240     POP_JUMP_IF_TRUE                14 (to 28)
+                        242     LOAD_FAST                       0: self
+                        244     LOAD_ATTR                       1: pos
+                        246     LOAD_GLOBAL                     2: len
+                        248     LOAD_FAST                       0: self
+                        250     LOAD_ATTR                       3: field
+                        252     CALL_FUNCTION                   1
+                        254     COMPARE_OP                      5 (>=)
+                        256     POP_JUMP_IF_TRUE                137 (to 274)
+                        258     LOAD_FAST                       0: self
+                        260     LOAD_ATTR                       3: field
+                        262     LOAD_FAST                       0: self
+                        264     LOAD_ATTR                       1: pos
+                        266     BINARY_SUBSCR                   
+                        268     LOAD_CONST                      8: '@'
+                        270     COMPARE_OP                      3 (!=)
+                        272     POP_JUMP_IF_FALSE               142 (to 284)
+                        274     LOAD_GLOBAL                     11: EMPTYSTRING
+                        276     LOAD_METHOD                     12: join
+                        278     LOAD_FAST                       1: aslist
+                        280     CALL_METHOD                     1
+                        282     RETURN_VALUE                    
+                        284     LOAD_FAST                       1: aslist
+                        286     LOAD_METHOD                     6: append
+                        288     LOAD_CONST                      8: '@'
+                        290     CALL_METHOD                     1
+                        292     POP_TOP                         
+                        294     LOAD_FAST                       0: self
+                        296     DUP_TOP                         
+                        298     LOAD_ATTR                       1: pos
+                        300     LOAD_CONST                      4: 1
+                        302     INPLACE_ADD                     
+                        304     ROT_TWO                         
+                        306     STORE_ATTR                      1: pos
+                        308     LOAD_FAST                       0: self
+                        310     LOAD_METHOD                     0: gotonext
+                        312     CALL_METHOD                     0
+                        314     POP_TOP                         
+                        316     LOAD_FAST                       0: self
+                        318     LOAD_METHOD                     13: getdomain
+                        320     CALL_METHOD                     0
+                        322     STORE_FAST                      4: domain
+                        324     LOAD_FAST                       4: domain
+                        326     POP_JUMP_IF_TRUE                166 (to 332)
+                        328     LOAD_GLOBAL                     11: EMPTYSTRING
+                        330     RETURN_VALUE                    
+                        332     LOAD_GLOBAL                     11: EMPTYSTRING
+                        334     LOAD_METHOD                     12: join
+                        336     LOAD_FAST                       1: aslist
+                        338     CALL_METHOD                     1
+                        340     LOAD_FAST                       4: domain
+                        342     BINARY_ADD                      
+                        344     RETURN_VALUE                    
+                'AddrlistClass.getaddrspec'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: getdomain
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'pos'
+                        'len'
+                        'field'
+                        'LWS'
+                        'commentlist'
+                        'append'
+                        'getcomment'
+                        'getdomainliteral'
+                        'EMPTYSTRING'
+                        'atomends'
+                        'getatom'
+                        'join'
+                    [Var Names]
+                        'self'
+                        'sdlist'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Get the complete domain name from an address.'
+                        1
+                        '('
+                        '['
+                        '.'
+                        '@'
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       STORE_FAST                      1: sdlist
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       0: pos
+                        8       LOAD_GLOBAL                     1: len
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       2: field
+                        14      CALL_FUNCTION                   1
+                        16      COMPARE_OP                      0 (<)
+                        18      POP_JUMP_IF_FALSE               116 (to 232)
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       2: field
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       0: pos
+                        28      BINARY_SUBSCR                   
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_ATTR                       3: LWS
+                        34      CONTAINS_OP                     0 (in)
+                        36      POP_JUMP_IF_FALSE               27 (to 54)
+                        38      LOAD_FAST                       0: self
+                        40      DUP_TOP                         
+                        42      LOAD_ATTR                       0: pos
+                        44      LOAD_CONST                      1: 1
+                        46      INPLACE_ADD                     
+                        48      ROT_TWO                         
+                        50      STORE_ATTR                      0: pos
+                        52      JUMP_FORWARD                    81 (to 216)
+                        54      LOAD_FAST                       0: self
+                        56      LOAD_ATTR                       2: field
+                        58      LOAD_FAST                       0: self
+                        60      LOAD_ATTR                       0: pos
+                        62      BINARY_SUBSCR                   
+                        64      LOAD_CONST                      2: '('
+                        66      COMPARE_OP                      2 (==)
+                        68      POP_JUMP_IF_FALSE               44 (to 88)
+                        70      LOAD_FAST                       0: self
+                        72      LOAD_ATTR                       4: commentlist
+                        74      LOAD_METHOD                     5: append
+                        76      LOAD_FAST                       0: self
+                        78      LOAD_METHOD                     6: getcomment
+                        80      CALL_METHOD                     0
+                        82      CALL_METHOD                     1
+                        84      POP_TOP                         
+                        86      JUMP_FORWARD                    64 (to 216)
+                        88      LOAD_FAST                       0: self
+                        90      LOAD_ATTR                       2: field
+                        92      LOAD_FAST                       0: self
+                        94      LOAD_ATTR                       0: pos
+                        96      BINARY_SUBSCR                   
+                        98      LOAD_CONST                      3: '['
+                        100     COMPARE_OP                      2 (==)
+                        102     POP_JUMP_IF_FALSE               60 (to 120)
+                        104     LOAD_FAST                       1: sdlist
+                        106     LOAD_METHOD                     5: append
+                        108     LOAD_FAST                       0: self
+                        110     LOAD_METHOD                     7: getdomainliteral
+                        112     CALL_METHOD                     0
+                        114     CALL_METHOD                     1
+                        116     POP_TOP                         
+                        118     JUMP_FORWARD                    48 (to 216)
+                        120     LOAD_FAST                       0: self
+                        122     LOAD_ATTR                       2: field
+                        124     LOAD_FAST                       0: self
+                        126     LOAD_ATTR                       0: pos
+                        128     BINARY_SUBSCR                   
+                        130     LOAD_CONST                      4: '.'
+                        132     COMPARE_OP                      2 (==)
+                        134     POP_JUMP_IF_FALSE               81 (to 162)
+                        136     LOAD_FAST                       0: self
+                        138     DUP_TOP                         
+                        140     LOAD_ATTR                       0: pos
+                        142     LOAD_CONST                      1: 1
+                        144     INPLACE_ADD                     
+                        146     ROT_TWO                         
+                        148     STORE_ATTR                      0: pos
+                        150     LOAD_FAST                       1: sdlist
+                        152     LOAD_METHOD                     5: append
+                        154     LOAD_CONST                      4: '.'
+                        156     CALL_METHOD                     1
+                        158     POP_TOP                         
+                        160     JUMP_FORWARD                    27 (to 216)
+                        162     LOAD_FAST                       0: self
+                        164     LOAD_ATTR                       2: field
+                        166     LOAD_FAST                       0: self
+                        168     LOAD_ATTR                       0: pos
+                        170     BINARY_SUBSCR                   
+                        172     LOAD_CONST                      5: '@'
+                        174     COMPARE_OP                      2 (==)
+                        176     POP_JUMP_IF_FALSE               91 (to 182)
+                        178     LOAD_GLOBAL                     8: EMPTYSTRING
+                        180     RETURN_VALUE                    
+                        182     LOAD_FAST                       0: self
+                        184     LOAD_ATTR                       2: field
+                        186     LOAD_FAST                       0: self
+                        188     LOAD_ATTR                       0: pos
+                        190     BINARY_SUBSCR                   
+                        192     LOAD_FAST                       0: self
+                        194     LOAD_ATTR                       9: atomends
+                        196     CONTAINS_OP                     0 (in)
+                        198     POP_JUMP_IF_FALSE               101 (to 202)
+                        200     JUMP_FORWARD                    15 (to 232)
+                        202     LOAD_FAST                       1: sdlist
+                        204     LOAD_METHOD                     5: append
+                        206     LOAD_FAST                       0: self
+                        208     LOAD_METHOD                     10: getatom
+                        210     CALL_METHOD                     0
+                        212     CALL_METHOD                     1
+                        214     POP_TOP                         
+                        216     LOAD_FAST                       0: self
+                        218     LOAD_ATTR                       0: pos
+                        220     LOAD_GLOBAL                     1: len
+                        222     LOAD_FAST                       0: self
+                        224     LOAD_ATTR                       2: field
+                        226     CALL_FUNCTION                   1
+                        228     COMPARE_OP                      0 (<)
+                        230     POP_JUMP_IF_TRUE                10 (to 20)
+                        232     LOAD_GLOBAL                     8: EMPTYSTRING
+                        234     LOAD_METHOD                     11: join
+                        236     LOAD_FAST                       1: sdlist
+                        238     CALL_METHOD                     1
+                        240     RETURN_VALUE                    
+                'AddrlistClass.getdomain'
+                True
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: getdelimited
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'field'
+                        'pos'
+                        'len'
+                        'append'
+                        'getcomment'
+                        'EMPTYSTRING'
+                        'join'
+                    [Var Names]
+                        'self'
+                        'beginchar'
+                        'endchars'
+                        'allowcomments'
+                        'slist'
+                        'quote'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Parse a header fragment delimited by special characters.\n\n        `beginchar' is the start character for the fragment.\n        If self is not looking at an instance of `beginchar' then\n        getdelimited returns the empty string.\n\n        `endchars' is a sequence of allowable end-delimiting characters.\n        Parsing stops when one of these is encountered.\n\n        If `allowcomments' is non-zero, embedded RFC 2822 comments are allowed\n        within the parsed fragment.\n        "
+                        ''
+                        False
+                        1
+                        '('
+                        '\\'
+                        True
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: field
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       1: pos
+                        8       BINARY_SUBSCR                   
+                        10      LOAD_FAST                       1: beginchar
+                        12      COMPARE_OP                      3 (!=)
+                        14      POP_JUMP_IF_FALSE               10 (to 20)
+                        16      LOAD_CONST                      1: ''
+                        18      RETURN_VALUE                    
+                        20      LOAD_CONST                      1: ''
+                        22      BUILD_LIST                      1
+                        24      STORE_FAST                      4: slist
+                        26      LOAD_CONST                      2: False
+                        28      STORE_FAST                      5: quote
+                        30      LOAD_FAST                       0: self
+                        32      DUP_TOP                         
+                        34      LOAD_ATTR                       1: pos
+                        36      LOAD_CONST                      3: 1
+                        38      INPLACE_ADD                     
+                        40      ROT_TWO                         
+                        42      STORE_ATTR                      1: pos
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_ATTR                       1: pos
+                        48      LOAD_GLOBAL                     2: len
+                        50      LOAD_FAST                       0: self
+                        52      LOAD_ATTR                       0: field
+                        54      CALL_FUNCTION                   1
+                        56      COMPARE_OP                      0 (<)
+                        58      POP_JUMP_IF_FALSE               113 (to 226)
+                        60      LOAD_FAST                       5: quote
+                        62      POP_JUMP_IF_FALSE               44 (to 88)
+                        64      LOAD_FAST                       4: slist
+                        66      LOAD_METHOD                     3: append
+                        68      LOAD_FAST                       0: self
+                        70      LOAD_ATTR                       0: field
+                        72      LOAD_FAST                       0: self
+                        74      LOAD_ATTR                       1: pos
+                        76      BINARY_SUBSCR                   
+                        78      CALL_METHOD                     1
+                        80      POP_TOP                         
+                        82      LOAD_CONST                      2: False
+                        84      STORE_FAST                      5: quote
+                        86      JUMP_FORWARD                    54 (to 196)
+                        88      LOAD_FAST                       0: self
+                        90      LOAD_ATTR                       0: field
+                        92      LOAD_FAST                       0: self
+                        94      LOAD_ATTR                       1: pos
+                        96      BINARY_SUBSCR                   
+                        98      LOAD_FAST                       2: endchars
+                        100     CONTAINS_OP                     0 (in)
+                        102     POP_JUMP_IF_FALSE               60 (to 120)
+                        104     LOAD_FAST                       0: self
+                        106     DUP_TOP                         
+                        108     LOAD_ATTR                       1: pos
+                        110     LOAD_CONST                      3: 1
+                        112     INPLACE_ADD                     
+                        114     ROT_TWO                         
+                        116     STORE_ATTR                      1: pos
+                        118     JUMP_FORWARD                    53 (to 226)
+                        120     LOAD_FAST                       3: allowcomments
+                        122     POP_JUMP_IF_FALSE               78 (to 156)
+                        124     LOAD_FAST                       0: self
+                        126     LOAD_ATTR                       0: field
+                        128     LOAD_FAST                       0: self
+                        130     LOAD_ATTR                       1: pos
+                        132     BINARY_SUBSCR                   
+                        134     LOAD_CONST                      4: '('
+                        136     COMPARE_OP                      2 (==)
+                        138     POP_JUMP_IF_FALSE               78 (to 156)
+                        140     LOAD_FAST                       4: slist
+                        142     LOAD_METHOD                     3: append
+                        144     LOAD_FAST                       0: self
+                        146     LOAD_METHOD                     4: getcomment
+                        148     CALL_METHOD                     0
+                        150     CALL_METHOD                     1
+                        152     POP_TOP                         
+                        154     JUMP_ABSOLUTE                   22 (to 44)
+                        156     LOAD_FAST                       0: self
+                        158     LOAD_ATTR                       0: field
+                        160     LOAD_FAST                       0: self
+                        162     LOAD_ATTR                       1: pos
+                        164     BINARY_SUBSCR                   
+                        166     LOAD_CONST                      5: '\\'
+                        168     COMPARE_OP                      2 (==)
+                        170     POP_JUMP_IF_FALSE               89 (to 178)
+                        172     LOAD_CONST                      6: True
+                        174     STORE_FAST                      5: quote
+                        176     JUMP_FORWARD                    9 (to 196)
+                        178     LOAD_FAST                       4: slist
+                        180     LOAD_METHOD                     3: append
+                        182     LOAD_FAST                       0: self
+                        184     LOAD_ATTR                       0: field
+                        186     LOAD_FAST                       0: self
+                        188     LOAD_ATTR                       1: pos
+                        190     BINARY_SUBSCR                   
+                        192     CALL_METHOD                     1
+                        194     POP_TOP                         
+                        196     LOAD_FAST                       0: self
+                        198     DUP_TOP                         
+                        200     LOAD_ATTR                       1: pos
+                        202     LOAD_CONST                      3: 1
+                        204     INPLACE_ADD                     
+                        206     ROT_TWO                         
+                        208     STORE_ATTR                      1: pos
+                        210     LOAD_FAST                       0: self
+                        212     LOAD_ATTR                       1: pos
+                        214     LOAD_GLOBAL                     2: len
+                        216     LOAD_FAST                       0: self
+                        218     LOAD_ATTR                       0: field
+                        220     CALL_FUNCTION                   1
+                        222     COMPARE_OP                      0 (<)
+                        224     POP_JUMP_IF_TRUE                30 (to 60)
+                        226     LOAD_GLOBAL                     5: EMPTYSTRING
+                        228     LOAD_METHOD                     6: join
+                        230     LOAD_FAST                       4: slist
+                        232     CALL_METHOD                     1
+                        234     RETURN_VALUE                    
+                'AddrlistClass.getdelimited'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: getquote
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'getdelimited'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Get a quote-delimited fragment from self's field."
+                        '"'
+                        '"\r'
+                        False
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: getdelimited
+                        4       LOAD_CONST                      1: '"'
+                        6       LOAD_CONST                      2: '"\r'
+                        8       LOAD_CONST                      3: False
+                        10      CALL_METHOD                     3
+                        12      RETURN_VALUE                    
+                'AddrlistClass.getquote'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: getcomment
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'getdelimited'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Get a parenthesis-delimited fragment from self's field."
+                        '('
+                        ')\r'
+                        True
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: getdelimited
+                        4       LOAD_CONST                      1: '('
+                        6       LOAD_CONST                      2: ')\r'
+                        8       LOAD_CONST                      3: True
+                        10      CALL_METHOD                     3
+                        12      RETURN_VALUE                    
+                'AddrlistClass.getcomment'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: getdomainliteral
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'getdelimited'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Parse an RFC 2822 domain-literal.'
+                        '[%s]'
+                        '['
+                        ']\r'
+                        False
+                    [Disassembly]
+                        0       LOAD_CONST                      1: '[%s]'
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_METHOD                     0: getdelimited
+                        6       LOAD_CONST                      2: '['
+                        8       LOAD_CONST                      3: ']\r'
+                        10      LOAD_CONST                      4: False
+                        12      CALL_METHOD                     3
+                        14      BINARY_MODULO                   
+                        16      RETURN_VALUE                    
+                'AddrlistClass.getdomainliteral'
+                None
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: getatom
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'atomends'
+                        'pos'
+                        'len'
+                        'field'
+                        'append'
+                        'EMPTYSTRING'
+                        'join'
+                    [Var Names]
+                        'self'
+                        'atomends'
+                        'atomlist'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Parse an RFC 2822 atom.\n\n        Optional atomends specifies a different set of end token delimiters\n        (the default is to use self.atomends).  This is used e.g. in\n        getphraselist() since phrase endings must not include the `.' (which\n        is legal in phrases)."
+                        ''
+                        None
+                        1
+                    [Disassembly]
+                        0       LOAD_CONST                      1: ''
+                        2       BUILD_LIST                      1
+                        4       STORE_FAST                      2: atomlist
+                        6       LOAD_FAST                       1: atomends
+                        8       LOAD_CONST                      2: None
+                        10      IS_OP                           0 (is)
+                        12      POP_JUMP_IF_FALSE               10 (to 20)
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_ATTR                       0: atomends
+                        18      STORE_FAST                      1: atomends
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       1: pos
+                        24      LOAD_GLOBAL                     2: len
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_ATTR                       3: field
+                        30      CALL_FUNCTION                   1
+                        32      COMPARE_OP                      0 (<)
+                        34      POP_JUMP_IF_FALSE               51 (to 102)
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_ATTR                       3: field
+                        40      LOAD_FAST                       0: self
+                        42      LOAD_ATTR                       1: pos
+                        44      BINARY_SUBSCR                   
+                        46      LOAD_FAST                       1: atomends
+                        48      CONTAINS_OP                     0 (in)
+                        50      POP_JUMP_IF_FALSE               27 (to 54)
+                        52      JUMP_FORWARD                    24 (to 102)
+                        54      LOAD_FAST                       2: atomlist
+                        56      LOAD_METHOD                     4: append
+                        58      LOAD_FAST                       0: self
+                        60      LOAD_ATTR                       3: field
+                        62      LOAD_FAST                       0: self
+                        64      LOAD_ATTR                       1: pos
+                        66      BINARY_SUBSCR                   
+                        68      CALL_METHOD                     1
+                        70      POP_TOP                         
+                        72      LOAD_FAST                       0: self
+                        74      DUP_TOP                         
+                        76      LOAD_ATTR                       1: pos
+                        78      LOAD_CONST                      3: 1
+                        80      INPLACE_ADD                     
+                        82      ROT_TWO                         
+                        84      STORE_ATTR                      1: pos
+                        86      LOAD_FAST                       0: self
+                        88      LOAD_ATTR                       1: pos
+                        90      LOAD_GLOBAL                     2: len
+                        92      LOAD_FAST                       0: self
+                        94      LOAD_ATTR                       3: field
+                        96      CALL_FUNCTION                   1
+                        98      COMPARE_OP                      0 (<)
+                        100     POP_JUMP_IF_TRUE                18 (to 36)
+                        102     LOAD_GLOBAL                     5: EMPTYSTRING
+                        104     LOAD_METHOD                     6: join
+                        106     LOAD_FAST                       2: atomlist
+                        108     CALL_METHOD                     1
+                        110     RETURN_VALUE                    
+                'AddrlistClass.getatom'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: getphraselist
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'pos'
+                        'len'
+                        'field'
+                        'FWS'
+                        'append'
+                        'getquote'
+                        'commentlist'
+                        'getcomment'
+                        'phraseends'
+                        'getatom'
+                    [Var Names]
+                        'self'
+                        'plist'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Parse a sequence of RFC 2822 phrases.\n\n        A phrase is a sequence of words, which are in turn either RFC 2822\n        atoms or quoted-strings.  Phrases are canonicalized by squeezing all\n        runs of continuous whitespace into one space.\n        '
+                        1
+                        '"'
+                        '('
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       STORE_FAST                      1: plist
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       0: pos
+                        8       LOAD_GLOBAL                     1: len
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       2: field
+                        14      CALL_FUNCTION                   1
+                        16      COMPARE_OP                      0 (<)
+                        18      POP_JUMP_IF_FALSE               89 (to 178)
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       2: field
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       0: pos
+                        28      BINARY_SUBSCR                   
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_ATTR                       3: FWS
+                        34      CONTAINS_OP                     0 (in)
+                        36      POP_JUMP_IF_FALSE               27 (to 54)
+                        38      LOAD_FAST                       0: self
+                        40      DUP_TOP                         
+                        42      LOAD_ATTR                       0: pos
+                        44      LOAD_CONST                      1: 1
+                        46      INPLACE_ADD                     
+                        48      ROT_TWO                         
+                        50      STORE_ATTR                      0: pos
+                        52      JUMP_FORWARD                    54 (to 162)
+                        54      LOAD_FAST                       0: self
+                        56      LOAD_ATTR                       2: field
+                        58      LOAD_FAST                       0: self
+                        60      LOAD_ATTR                       0: pos
+                        62      BINARY_SUBSCR                   
+                        64      LOAD_CONST                      2: '"'
+                        66      COMPARE_OP                      2 (==)
+                        68      POP_JUMP_IF_FALSE               43 (to 86)
+                        70      LOAD_FAST                       1: plist
+                        72      LOAD_METHOD                     4: append
+                        74      LOAD_FAST                       0: self
+                        76      LOAD_METHOD                     5: getquote
+                        78      CALL_METHOD                     0
+                        80      CALL_METHOD                     1
+                        82      POP_TOP                         
+                        84      JUMP_FORWARD                    38 (to 162)
+                        86      LOAD_FAST                       0: self
+                        88      LOAD_ATTR                       2: field
+                        90      LOAD_FAST                       0: self
+                        92      LOAD_ATTR                       0: pos
+                        94      BINARY_SUBSCR                   
+                        96      LOAD_CONST                      3: '('
+                        98      COMPARE_OP                      2 (==)
+                        100     POP_JUMP_IF_FALSE               60 (to 120)
+                        102     LOAD_FAST                       0: self
+                        104     LOAD_ATTR                       6: commentlist
+                        106     LOAD_METHOD                     4: append
+                        108     LOAD_FAST                       0: self
+                        110     LOAD_METHOD                     7: getcomment
+                        112     CALL_METHOD                     0
+                        114     CALL_METHOD                     1
+                        116     POP_TOP                         
+                        118     JUMP_FORWARD                    21 (to 162)
+                        120     LOAD_FAST                       0: self
+                        122     LOAD_ATTR                       2: field
+                        124     LOAD_FAST                       0: self
+                        126     LOAD_ATTR                       0: pos
+                        128     BINARY_SUBSCR                   
+                        130     LOAD_FAST                       0: self
+                        132     LOAD_ATTR                       8: phraseends
+                        134     CONTAINS_OP                     0 (in)
+                        136     POP_JUMP_IF_FALSE               72 (to 144)
+                        138     NOP                             
+                        140     LOAD_FAST                       1: plist
+                        142     RETURN_VALUE                    
+                        144     LOAD_FAST                       1: plist
+                        146     LOAD_METHOD                     4: append
+                        148     LOAD_FAST                       0: self
+                        150     LOAD_METHOD                     9: getatom
+                        152     LOAD_FAST                       0: self
+                        154     LOAD_ATTR                       8: phraseends
+                        156     CALL_METHOD                     1
+                        158     CALL_METHOD                     1
+                        160     POP_TOP                         
+                        162     LOAD_FAST                       0: self
+                        164     LOAD_ATTR                       0: pos
+                        166     LOAD_GLOBAL                     1: len
+                        168     LOAD_FAST                       0: self
+                        170     LOAD_ATTR                       2: field
+                        172     CALL_FUNCTION                   1
+                        174     COMPARE_OP                      0 (<)
+                        176     POP_JUMP_IF_TRUE                10 (to 20)
+                        178     LOAD_FAST                       1: plist
+                        180     RETURN_VALUE                    
+                'AddrlistClass.getphraselist'
+                (
+                    True
+                )
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'AddrlistClass'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Address parser class by Ben Escoto.\n\n    To understand what this class does, it helps to have a copy of RFC 2822 in\n    front of you.\n\n    Note: this class interface is deprecated and may be removed in the future.\n    Use email.utils.AddressList instead.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> __init__
+                14      LOAD_CONST                      3: 'AddrlistClass.__init__'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: __init__
+                20      LOAD_CONST                      4: <CODE> gotonext
+                22      LOAD_CONST                      5: 'AddrlistClass.gotonext'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: gotonext
+                28      LOAD_CONST                      6: <CODE> getaddrlist
+                30      LOAD_CONST                      7: 'AddrlistClass.getaddrlist'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      6: getaddrlist
+                36      LOAD_CONST                      8: <CODE> getaddress
+                38      LOAD_CONST                      9: 'AddrlistClass.getaddress'
+                40      MAKE_FUNCTION                   0
+                42      STORE_NAME                      7: getaddress
+                44      LOAD_CONST                      10: <CODE> getrouteaddr
+                46      LOAD_CONST                      11: 'AddrlistClass.getrouteaddr'
+                48      MAKE_FUNCTION                   0
+                50      STORE_NAME                      8: getrouteaddr
+                52      LOAD_CONST                      12: <CODE> getaddrspec
+                54      LOAD_CONST                      13: 'AddrlistClass.getaddrspec'
+                56      MAKE_FUNCTION                   0
+                58      STORE_NAME                      9: getaddrspec
+                60      LOAD_CONST                      14: <CODE> getdomain
+                62      LOAD_CONST                      15: 'AddrlistClass.getdomain'
+                64      MAKE_FUNCTION                   0
+                66      STORE_NAME                      10: getdomain
+                68      LOAD_CONST                      30: (True,)
+                70      LOAD_CONST                      17: <CODE> getdelimited
+                72      LOAD_CONST                      18: 'AddrlistClass.getdelimited'
+                74      MAKE_FUNCTION                   1
+                76      STORE_NAME                      11: getdelimited
+                78      LOAD_CONST                      19: <CODE> getquote
+                80      LOAD_CONST                      20: 'AddrlistClass.getquote'
+                82      MAKE_FUNCTION                   0
+                84      STORE_NAME                      12: getquote
+                86      LOAD_CONST                      21: <CODE> getcomment
+                88      LOAD_CONST                      22: 'AddrlistClass.getcomment'
+                90      MAKE_FUNCTION                   0
+                92      STORE_NAME                      13: getcomment
+                94      LOAD_CONST                      23: <CODE> getdomainliteral
+                96      LOAD_CONST                      24: 'AddrlistClass.getdomainliteral'
+                98      MAKE_FUNCTION                   0
+                100     STORE_NAME                      14: getdomainliteral
+                102     LOAD_CONST                      31: (None,)
+                104     LOAD_CONST                      26: <CODE> getatom
+                106     LOAD_CONST                      27: 'AddrlistClass.getatom'
+                108     MAKE_FUNCTION                   1
+                110     STORE_NAME                      15: getatom
+                112     LOAD_CONST                      28: <CODE> getphraselist
+                114     LOAD_CONST                      29: 'AddrlistClass.getphraselist'
+                116     MAKE_FUNCTION                   0
+                118     STORE_NAME                      16: getphraselist
+                120     LOAD_CONST                      25: None
+                122     RETURN_VALUE                    
+        'AddrlistClass'
+        [Code]
+            File Name: email/_parseaddr.py
+            Object Name: AddressList
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                '__len__'
+                '__add__'
+                '__iadd__'
+                '__sub__'
+                '__isub__'
+                '__getitem__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'AddressList'
+                'An AddressList encapsulates a list of parsed RFC 2822 addresses.'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'AddrlistClass'
+                        '__init__'
+                        'getaddrlist'
+                        'addresslist'
+                    [Var Names]
+                        'self'
+                        'field'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: AddrlistClass
+                        2       LOAD_METHOD                     1: __init__
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_FAST                       1: field
+                        8       CALL_METHOD                     2
+                        10      POP_TOP                         
+                        12      LOAD_FAST                       1: field
+                        14      POP_JUMP_IF_FALSE               15 (to 30)
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_METHOD                     2: getaddrlist
+                        20      CALL_METHOD                     0
+                        22      LOAD_FAST                       0: self
+                        24      STORE_ATTR                      3: addresslist
+                        26      LOAD_CONST                      0: None
+                        28      RETURN_VALUE                    
+                        30      BUILD_LIST                      0
+                        32      LOAD_FAST                       0: self
+                        34      STORE_ATTR                      3: addresslist
+                        36      LOAD_CONST                      0: None
+                        38      RETURN_VALUE                    
+                'AddressList.__init__'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: __len__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'len'
+                        'addresslist'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: len
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       1: addresslist
+                        6       CALL_FUNCTION                   1
+                        8       RETURN_VALUE                    
+                'AddressList.__len__'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: __add__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'AddressList'
+                        'addresslist'
+                        'append'
+                    [Var Names]
+                        'self'
+                        'other'
+                        'newaddr'
+                        'x'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: AddressList
+                        2       LOAD_CONST                      0: None
+                        4       CALL_FUNCTION                   1
+                        6       STORE_FAST                      2: newaddr
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: addresslist
+                        12      LOAD_CONST                      0: None
+                        14      LOAD_CONST                      0: None
+                        16      BUILD_SLICE                     2
+                        18      BINARY_SUBSCR                   
+                        20      LOAD_FAST                       2: newaddr
+                        22      STORE_ATTR                      1: addresslist
+                        24      LOAD_FAST                       1: other
+                        26      LOAD_ATTR                       1: addresslist
+                        28      GET_ITER                        
+                        30      FOR_ITER                        13 (to 58)
+                        32      STORE_FAST                      3: x
+                        34      LOAD_FAST                       3: x
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_ATTR                       1: addresslist
+                        40      CONTAINS_OP                     1 (not in)
+                        42      POP_JUMP_IF_FALSE               28 (to 56)
+                        44      LOAD_FAST                       2: newaddr
+                        46      LOAD_ATTR                       1: addresslist
+                        48      LOAD_METHOD                     2: append
+                        50      LOAD_FAST                       3: x
+                        52      CALL_METHOD                     1
+                        54      POP_TOP                         
+                        56      JUMP_ABSOLUTE                   15 (to 30)
+                        58      LOAD_FAST                       2: newaddr
+                        60      RETURN_VALUE                    
+                'AddressList.__add__'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: __iadd__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'addresslist'
+                        'append'
+                    [Var Names]
+                        'self'
+                        'other'
+                        'x'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: other
+                        2       LOAD_ATTR                       0: addresslist
+                        4       GET_ITER                        
+                        6       FOR_ITER                        13 (to 34)
+                        8       STORE_FAST                      2: x
+                        10      LOAD_FAST                       2: x
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_ATTR                       0: addresslist
+                        16      CONTAINS_OP                     1 (not in)
+                        18      POP_JUMP_IF_FALSE               16 (to 32)
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       0: addresslist
+                        24      LOAD_METHOD                     1: append
+                        26      LOAD_FAST                       2: x
+                        28      CALL_METHOD                     1
+                        30      POP_TOP                         
+                        32      JUMP_ABSOLUTE                   3 (to 6)
+                        34      LOAD_FAST                       0: self
+                        36      RETURN_VALUE                    
+                'AddressList.__iadd__'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: __sub__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'AddressList'
+                        'addresslist'
+                        'append'
+                    [Var Names]
+                        'self'
+                        'other'
+                        'newaddr'
+                        'x'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: AddressList
+                        2       LOAD_CONST                      0: None
+                        4       CALL_FUNCTION                   1
+                        6       STORE_FAST                      2: newaddr
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: addresslist
+                        12      GET_ITER                        
+                        14      FOR_ITER                        13 (to 42)
+                        16      STORE_FAST                      3: x
+                        18      LOAD_FAST                       3: x
+                        20      LOAD_FAST                       1: other
+                        22      LOAD_ATTR                       1: addresslist
+                        24      CONTAINS_OP                     1 (not in)
+                        26      POP_JUMP_IF_FALSE               20 (to 40)
+                        28      LOAD_FAST                       2: newaddr
+                        30      LOAD_ATTR                       1: addresslist
+                        32      LOAD_METHOD                     2: append
+                        34      LOAD_FAST                       3: x
+                        36      CALL_METHOD                     1
+                        38      POP_TOP                         
+                        40      JUMP_ABSOLUTE                   7 (to 14)
+                        42      LOAD_FAST                       2: newaddr
+                        44      RETURN_VALUE                    
+                'AddressList.__sub__'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: __isub__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'addresslist'
+                        'remove'
+                    [Var Names]
+                        'self'
+                        'other'
+                        'x'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: other
+                        2       LOAD_ATTR                       0: addresslist
+                        4       GET_ITER                        
+                        6       FOR_ITER                        13 (to 34)
+                        8       STORE_FAST                      2: x
+                        10      LOAD_FAST                       2: x
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_ATTR                       0: addresslist
+                        16      CONTAINS_OP                     0 (in)
+                        18      POP_JUMP_IF_FALSE               16 (to 32)
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       0: addresslist
+                        24      LOAD_METHOD                     1: remove
+                        26      LOAD_FAST                       2: x
+                        28      CALL_METHOD                     1
+                        30      POP_TOP                         
+                        32      JUMP_ABSOLUTE                   3 (to 6)
+                        34      LOAD_FAST                       0: self
+                        36      RETURN_VALUE                    
+                'AddressList.__isub__'
+                [Code]
+                    File Name: email/_parseaddr.py
+                    Object Name: __getitem__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'addresslist'
+                    [Var Names]
+                        'self'
+                        'index'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: addresslist
+                        4       LOAD_FAST                       1: index
+                        6       BINARY_SUBSCR                   
+                        8       RETURN_VALUE                    
+                'AddressList.__getitem__'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'AddressList'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'An AddressList encapsulates a list of parsed RFC 2822 addresses.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> __init__
+                14      LOAD_CONST                      3: 'AddressList.__init__'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: __init__
+                20      LOAD_CONST                      4: <CODE> __len__
+                22      LOAD_CONST                      5: 'AddressList.__len__'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: __len__
+                28      LOAD_CONST                      6: <CODE> __add__
+                30      LOAD_CONST                      7: 'AddressList.__add__'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      6: __add__
+                36      LOAD_CONST                      8: <CODE> __iadd__
+                38      LOAD_CONST                      9: 'AddressList.__iadd__'
+                40      MAKE_FUNCTION                   0
+                42      STORE_NAME                      7: __iadd__
+                44      LOAD_CONST                      10: <CODE> __sub__
+                46      LOAD_CONST                      11: 'AddressList.__sub__'
+                48      MAKE_FUNCTION                   0
+                50      STORE_NAME                      8: __sub__
+                52      LOAD_CONST                      12: <CODE> __isub__
+                54      LOAD_CONST                      13: 'AddressList.__isub__'
+                56      MAKE_FUNCTION                   0
+                58      STORE_NAME                      9: __isub__
+                60      LOAD_CONST                      14: <CODE> __getitem__
+                62      LOAD_CONST                      15: 'AddressList.__getitem__'
+                64      MAKE_FUNCTION                   0
+                66      STORE_NAME                      10: __getitem__
+                68      LOAD_CONST                      16: None
+                70      RETURN_VALUE                    
+        'AddressList'
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Email address parsing code.\n\nLifted directly from rfc822.py.  This should eventually be rewritten.\n'
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('mktime_tz', 'parsedate', 'parsedate_tz', 'quote')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: 0
+        14      LOAD_CONST                      3: None
+        16      IMPORT_NAME                     2: time
+        18      STORE_NAME                      2: time
+        20      LOAD_CONST                      2: 0
+        22      LOAD_CONST                      3: None
+        24      IMPORT_NAME                     3: calendar
+        26      STORE_NAME                      3: calendar
+        28      LOAD_CONST                      4: ' '
+        30      STORE_NAME                      4: SPACE
+        32      LOAD_CONST                      5: ''
+        34      STORE_NAME                      5: EMPTYSTRING
+        36      LOAD_CONST                      6: ', '
+        38      STORE_NAME                      6: COMMASPACE
+        40      BUILD_LIST                      0
+        42      LOAD_CONST                      7: ('jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december')
+        44      LIST_EXTEND                     1
+        46      STORE_NAME                      7: _monthnames
+        48      BUILD_LIST                      0
+        50      LOAD_CONST                      8: ('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun')
+        52      LIST_EXTEND                     1
+        54      STORE_NAME                      8: _daynames
+        56      LOAD_CONST                      2: 0
+        58      LOAD_CONST                      2: 0
+        60      LOAD_CONST                      2: 0
+        62      LOAD_CONST                      2: 0
+        64      LOAD_CONST                      9: -400
+        66      LOAD_CONST                      10: -300
+        68      LOAD_CONST                      11: -500
+        70      LOAD_CONST                      9: -400
+        72      LOAD_CONST                      12: -600
+        74      LOAD_CONST                      11: -500
+        76      LOAD_CONST                      13: -700
+        78      LOAD_CONST                      12: -600
+        80      LOAD_CONST                      14: -800
+        82      LOAD_CONST                      13: -700
+        84      LOAD_CONST                      15: ('UT', 'UTC', 'GMT', 'Z', 'AST', 'ADT', 'EST', 'EDT', 'CST', 'CDT', 'MST', 'MDT', 'PST', 'PDT')
+        86      BUILD_CONST_KEY_MAP             14
+        88      STORE_NAME                      9: _timezones
+        90      LOAD_CONST                      16: <CODE> parsedate_tz
+        92      LOAD_CONST                      17: 'parsedate_tz'
+        94      MAKE_FUNCTION                   0
+        96      STORE_NAME                      10: parsedate_tz
+        98      LOAD_CONST                      18: <CODE> _parsedate_tz
+        100     LOAD_CONST                      19: '_parsedate_tz'
+        102     MAKE_FUNCTION                   0
+        104     STORE_NAME                      11: _parsedate_tz
+        106     LOAD_CONST                      20: <CODE> parsedate
+        108     LOAD_CONST                      21: 'parsedate'
+        110     MAKE_FUNCTION                   0
+        112     STORE_NAME                      12: parsedate
+        114     LOAD_CONST                      22: <CODE> mktime_tz
+        116     LOAD_CONST                      23: 'mktime_tz'
+        118     MAKE_FUNCTION                   0
+        120     STORE_NAME                      13: mktime_tz
+        122     LOAD_CONST                      24: <CODE> quote
+        124     LOAD_CONST                      25: 'quote'
+        126     MAKE_FUNCTION                   0
+        128     STORE_NAME                      14: quote
+        130     LOAD_BUILD_CLASS                
+        132     LOAD_CONST                      26: <CODE> AddrlistClass
+        134     LOAD_CONST                      27: 'AddrlistClass'
+        136     MAKE_FUNCTION                   0
+        138     LOAD_CONST                      27: 'AddrlistClass'
+        140     CALL_FUNCTION                   2
+        142     STORE_NAME                      15: AddrlistClass
+        144     LOAD_BUILD_CLASS                
+        146     LOAD_CONST                      28: <CODE> AddressList
+        148     LOAD_CONST                      29: 'AddressList'
+        150     MAKE_FUNCTION                   0
+        152     LOAD_CONST                      29: 'AddressList'
+        154     LOAD_NAME                       15: AddrlistClass
+        156     CALL_FUNCTION                   3
+        158     STORE_NAME                      16: AddressList
+        160     LOAD_CONST                      3: None
+        162     RETURN_VALUE                    

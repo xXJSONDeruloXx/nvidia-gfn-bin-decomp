@@ -1,0 +1,3124 @@
+base64.pyc (Python 3.10)
+[Code]
+    File Name: base64.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 5
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        're'
+        'struct'
+        'binascii'
+        '__all__'
+        'bytes'
+        'bytearray'
+        'bytes_types'
+        '_bytes_from_decode_data'
+        'b64encode'
+        'b64decode'
+        'standard_b64encode'
+        'standard_b64decode'
+        'maketrans'
+        '_urlsafe_encode_translation'
+        '_urlsafe_decode_translation'
+        'urlsafe_b64encode'
+        'urlsafe_b64decode'
+        '_B32_ENCODE_DOCSTRING'
+        '_B32_DECODE_DOCSTRING'
+        '_B32_DECODE_MAP01_DOCSTRING'
+        '_b32alphabet'
+        '_b32hexalphabet'
+        '_b32tab2'
+        '_b32rev'
+        '_b32encode'
+        '_b32decode'
+        'b32encode'
+        'format'
+        'b32decode'
+        'b32hexencode'
+        'b32hexdecode'
+        'b16encode'
+        'b16decode'
+        '_a85chars'
+        '_a85chars2'
+        '_A85START'
+        '_A85END'
+        '_85encode'
+        'a85encode'
+        'a85decode'
+        '_b85alphabet'
+        '_b85chars'
+        '_b85chars2'
+        '_b85dec'
+        'b85encode'
+        'b85decode'
+        'MAXLINESIZE'
+        'MAXBINSIZE'
+        'encode'
+        'decode'
+        '_input_type_check'
+        'encodebytes'
+        'decodebytes'
+        'main'
+        'test'
+        '__name__'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Base16, Base32, Base64 (RFC 3548), Base85 and Ascii85 data encodings'
+        0
+        None
+        (
+            'encode'
+            'decode'
+            'encodebytes'
+            'decodebytes'
+            'b64encode'
+            'b64decode'
+            'b32encode'
+            'b32decode'
+            'b32hexencode'
+            'b32hexdecode'
+            'b16encode'
+            'b16decode'
+            'b85encode'
+            'b85decode'
+            'a85encode'
+            'a85decode'
+            'standard_b64encode'
+            'standard_b64decode'
+            'urlsafe_b64encode'
+            'urlsafe_b64decode'
+        )
+        [Code]
+            File Name: base64.py
+            Object Name: _bytes_from_decode_data
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'str'
+                'encode'
+                'UnicodeEncodeError'
+                'ValueError'
+                'bytes_types'
+                'memoryview'
+                'tobytes'
+                'TypeError'
+                '__class__'
+                '__name__'
+            [Var Names]
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'ascii'
+                'string argument should contain only ASCII characters'
+                'argument should be a bytes-like object or ASCII string, not %r'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: s
+                4       LOAD_GLOBAL                     1: str
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_FALSE               23 (to 46)
+                10      SETUP_FINALLY                   6 (to 24)
+                12      LOAD_FAST                       0: s
+                14      LOAD_METHOD                     2: encode
+                16      LOAD_CONST                      1: 'ascii'
+                18      CALL_METHOD                     1
+                20      POP_BLOCK                       
+                22      RETURN_VALUE                    
+                24      DUP_TOP                         
+                26      LOAD_GLOBAL                     3: UnicodeEncodeError
+                28      JUMP_IF_NOT_EXC_MATCH           22 (to 44)
+                30      POP_TOP                         
+                32      POP_TOP                         
+                34      POP_TOP                         
+                36      LOAD_GLOBAL                     4: ValueError
+                38      LOAD_CONST                      2: 'string argument should contain only ASCII characters'
+                40      CALL_FUNCTION                   1
+                42      RAISE_VARARGS                   1
+                44      RERAISE                         0
+                46      LOAD_GLOBAL                     0: isinstance
+                48      LOAD_FAST                       0: s
+                50      LOAD_GLOBAL                     5: bytes_types
+                52      CALL_FUNCTION                   2
+                54      POP_JUMP_IF_FALSE               30 (to 60)
+                56      LOAD_FAST                       0: s
+                58      RETURN_VALUE                    
+                60      SETUP_FINALLY                   7 (to 76)
+                62      LOAD_GLOBAL                     6: memoryview
+                64      LOAD_FAST                       0: s
+                66      CALL_FUNCTION                   1
+                68      LOAD_METHOD                     7: tobytes
+                70      CALL_METHOD                     0
+                72      POP_BLOCK                       
+                74      RETURN_VALUE                    
+                76      DUP_TOP                         
+                78      LOAD_GLOBAL                     8: TypeError
+                80      JUMP_IF_NOT_EXC_MATCH           53 (to 106)
+                82      POP_TOP                         
+                84      POP_TOP                         
+                86      POP_TOP                         
+                88      LOAD_GLOBAL                     8: TypeError
+                90      LOAD_CONST                      3: 'argument should be a bytes-like object or ASCII string, not %r'
+                92      LOAD_FAST                       0: s
+                94      LOAD_ATTR                       9: __class__
+                96      LOAD_ATTR                       10: __name__
+                98      BINARY_MODULO                   
+                100     CALL_FUNCTION                   1
+                102     LOAD_CONST                      0: None
+                104     RAISE_VARARGS                   2
+                106     RERAISE                         0
+        '_bytes_from_decode_data'
+        [Code]
+            File Name: base64.py
+            Object Name: b64encode
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'binascii'
+                'b2a_base64'
+                'len'
+                'repr'
+                'translate'
+                'bytes'
+                'maketrans'
+            [Var Names]
+                's'
+                'altchars'
+                'encoded'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Encode the bytes-like object s using Base64 and return a bytes object.\n\n    Optional altchars should be a byte string of length 2 which specifies an\n    alternative alphabet for the '+' and '/' characters.  This allows an\n    application to e.g. generate url or filesystem safe Base64 strings.\n    "
+                False
+                (
+                    'newline'
+                )
+                None
+                2
+                b'+/'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: binascii
+                2       LOAD_ATTR                       1: b2a_base64
+                4       LOAD_FAST                       0: s
+                6       LOAD_CONST                      1: False
+                8       LOAD_CONST                      2: ('newline',)
+                10      CALL_FUNCTION_KW                2
+                12      STORE_FAST                      2: encoded
+                14      LOAD_FAST                       1: altchars
+                16      LOAD_CONST                      3: None
+                18      IS_OP                           1 (is not)
+                20      POP_JUMP_IF_FALSE               32 (to 64)
+                22      LOAD_GLOBAL                     2: len
+                24      LOAD_FAST                       1: altchars
+                26      CALL_FUNCTION                   1
+                28      LOAD_CONST                      4: 2
+                30      COMPARE_OP                      2 (==)
+                32      POP_JUMP_IF_TRUE                23 (to 46)
+                34      LOAD_ASSERTION_ERROR            
+                36      LOAD_GLOBAL                     3: repr
+                38      LOAD_FAST                       1: altchars
+                40      CALL_FUNCTION                   1
+                42      CALL_FUNCTION                   1
+                44      RAISE_VARARGS                   1
+                46      LOAD_FAST                       2: encoded
+                48      LOAD_METHOD                     4: translate
+                50      LOAD_GLOBAL                     5: bytes
+                52      LOAD_METHOD                     6: maketrans
+                54      LOAD_CONST                      5: b'+/'
+                56      LOAD_FAST                       1: altchars
+                58      CALL_METHOD                     2
+                60      CALL_METHOD                     1
+                62      RETURN_VALUE                    
+                64      LOAD_FAST                       2: encoded
+                66      RETURN_VALUE                    
+        'b64encode'
+        False
+        [Code]
+            File Name: base64.py
+            Object Name: b64decode
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_bytes_from_decode_data'
+                'len'
+                'repr'
+                'translate'
+                'bytes'
+                'maketrans'
+                're'
+                'fullmatch'
+                'binascii'
+                'Error'
+                'a2b_base64'
+            [Var Names]
+                's'
+                'altchars'
+                'validate'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Decode the Base64 encoded bytes-like object or ASCII string s.\n\n    Optional altchars must be a bytes-like object or ASCII string of length 2\n    which specifies the alternative alphabet used instead of the '+' and '/'\n    characters.\n\n    The result is returned as a bytes object.  A binascii.Error is raised if\n    s is incorrectly padded.\n\n    If validate is False (the default), characters that are neither in the\n    normal base-64 alphabet nor the alternative alphabet are discarded prior\n    to the padding check.  If validate is True, these non-alphabet characters\n    in the input result in a binascii.Error.\n    "
+                None
+                2
+                b'+/'
+                b'[A-Za-z0-9+/]*={0,2}'
+                'Non-base64 digit found'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _bytes_from_decode_data
+                2       LOAD_FAST                       0: s
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      0: s
+                8       LOAD_FAST                       1: altchars
+                10      LOAD_CONST                      1: None
+                12      IS_OP                           1 (is not)
+                14      POP_JUMP_IF_FALSE               33 (to 66)
+                16      LOAD_GLOBAL                     0: _bytes_from_decode_data
+                18      LOAD_FAST                       1: altchars
+                20      CALL_FUNCTION                   1
+                22      STORE_FAST                      1: altchars
+                24      LOAD_GLOBAL                     1: len
+                26      LOAD_FAST                       1: altchars
+                28      CALL_FUNCTION                   1
+                30      LOAD_CONST                      2: 2
+                32      COMPARE_OP                      2 (==)
+                34      POP_JUMP_IF_TRUE                24 (to 48)
+                36      LOAD_ASSERTION_ERROR            
+                38      LOAD_GLOBAL                     2: repr
+                40      LOAD_FAST                       1: altchars
+                42      CALL_FUNCTION                   1
+                44      CALL_FUNCTION                   1
+                46      RAISE_VARARGS                   1
+                48      LOAD_FAST                       0: s
+                50      LOAD_METHOD                     3: translate
+                52      LOAD_GLOBAL                     4: bytes
+                54      LOAD_METHOD                     5: maketrans
+                56      LOAD_FAST                       1: altchars
+                58      LOAD_CONST                      3: b'+/'
+                60      CALL_METHOD                     2
+                62      CALL_METHOD                     1
+                64      STORE_FAST                      0: s
+                66      LOAD_FAST                       2: validate
+                68      POP_JUMP_IF_FALSE               46 (to 92)
+                70      LOAD_GLOBAL                     6: re
+                72      LOAD_METHOD                     7: fullmatch
+                74      LOAD_CONST                      4: b'[A-Za-z0-9+/]*={0,2}'
+                76      LOAD_FAST                       0: s
+                78      CALL_METHOD                     2
+                80      POP_JUMP_IF_TRUE                46 (to 92)
+                82      LOAD_GLOBAL                     8: binascii
+                84      LOAD_METHOD                     9: Error
+                86      LOAD_CONST                      5: 'Non-base64 digit found'
+                88      CALL_METHOD                     1
+                90      RAISE_VARARGS                   1
+                92      LOAD_GLOBAL                     8: binascii
+                94      LOAD_METHOD                     10: a2b_base64
+                96      LOAD_FAST                       0: s
+                98      CALL_METHOD                     1
+                100     RETURN_VALUE                    
+        'b64decode'
+        [Code]
+            File Name: base64.py
+            Object Name: standard_b64encode
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'b64encode'
+            [Var Names]
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Encode bytes-like object s using the standard Base64 alphabet.\n\n    The result is returned as a bytes object.\n    '
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: b64encode
+                2       LOAD_FAST                       0: s
+                4       CALL_FUNCTION                   1
+                6       RETURN_VALUE                    
+        'standard_b64encode'
+        [Code]
+            File Name: base64.py
+            Object Name: standard_b64decode
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'b64decode'
+            [Var Names]
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Decode bytes encoded with the standard Base64 alphabet.\n\n    Argument s is a bytes-like object or ASCII string to decode.  The result\n    is returned as a bytes object.  A binascii.Error is raised if the input\n    is incorrectly padded.  Characters that are not in the standard alphabet\n    are discarded prior to the padding check.\n    '
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: b64decode
+                2       LOAD_FAST                       0: s
+                4       CALL_FUNCTION                   1
+                6       RETURN_VALUE                    
+        'standard_b64decode'
+        b'+/'
+        b'-_'
+        [Code]
+            File Name: base64.py
+            Object Name: urlsafe_b64encode
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'b64encode'
+                'translate'
+                '_urlsafe_encode_translation'
+            [Var Names]
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Encode bytes using the URL- and filesystem-safe Base64 alphabet.\n\n    Argument s is a bytes-like object to encode.  The result is returned as a\n    bytes object.  The alphabet uses '-' instead of '+' and '_' instead of\n    '/'.\n    "
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: b64encode
+                2       LOAD_FAST                       0: s
+                4       CALL_FUNCTION                   1
+                6       LOAD_METHOD                     1: translate
+                8       LOAD_GLOBAL                     2: _urlsafe_encode_translation
+                10      CALL_METHOD                     1
+                12      RETURN_VALUE                    
+        'urlsafe_b64encode'
+        [Code]
+            File Name: base64.py
+            Object Name: urlsafe_b64decode
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_bytes_from_decode_data'
+                'translate'
+                '_urlsafe_decode_translation'
+                'b64decode'
+            [Var Names]
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Decode bytes using the URL- and filesystem-safe Base64 alphabet.\n\n    Argument s is a bytes-like object or ASCII string to decode.  The result\n    is returned as a bytes object.  A binascii.Error is raised if the input\n    is incorrectly padded.  Characters that are not in the URL-safe base-64\n    alphabet, and are not a plus '+' or slash '/', are discarded prior to the\n    padding check.\n\n    The alphabet uses '-' instead of '+' and '_' instead of '/'.\n    "
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _bytes_from_decode_data
+                2       LOAD_FAST                       0: s
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      0: s
+                8       LOAD_FAST                       0: s
+                10      LOAD_METHOD                     1: translate
+                12      LOAD_GLOBAL                     2: _urlsafe_decode_translation
+                14      CALL_METHOD                     1
+                16      STORE_FAST                      0: s
+                18      LOAD_GLOBAL                     3: b64decode
+                20      LOAD_FAST                       0: s
+                22      CALL_FUNCTION                   1
+                24      RETURN_VALUE                    
+        'urlsafe_b64decode'
+        '\nEncode the bytes-like objects using {encoding} and return a bytes object.\n'
+        '\nDecode the {encoding} encoded bytes-like object or ASCII string s.\n\nOptional casefold is a flag specifying whether a lowercase alphabet is\nacceptable as input.  For security purposes, the default is False.\n{extra_args}\nThe result is returned as a bytes object.  A binascii.Error is raised if\nthe input is incorrectly padded or if there are non-alphabet\ncharacters present in the input.\n'
+        '\nRFC 3548 allows for optional mapping of the digit 0 (zero) to the\nletter O (oh), and for optional mapping of the digit 1 (one) to\neither the letter I (eye) or letter L (el).  The optional argument\nmap01 when not None, specifies which letter the digit 1 should be\nmapped to (when map01 is not None, the digit 0 is always mapped to\nthe letter O).  For security purposes the default is None, so that\n0 and 1 are not allowed in the input.\n'
+        b'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567'
+        b'0123456789ABCDEFGHIJKLMNOPQRSTUV'
+        [Code]
+            File Name: base64.py
+            Object Name: _b32encode
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 8
+            Stack Size: 6
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                '_b32tab2'
+                'isinstance'
+                'bytes_types'
+                'memoryview'
+                'tobytes'
+                'len'
+                'bytearray'
+                'int'
+                'from_bytes'
+                'range'
+                'bytes'
+            [Var Names]
+                'alphabet'
+                's'
+                'leftover'
+                'encoded'
+                'from_bytes'
+                'b32tab2'
+                'i'
+                'c'
+            [Free Vars]
+            [Cell Vars]
+                'b32tab'
+            [Constants]
+                None
+                [Code]
+                    File Name: base64.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        'bytes'
+                    [Var Names]
+                        '.0'
+                        'i'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        7 (to 20)
+                        6       STORE_FAST                      1: i
+                        8       LOAD_GLOBAL                     0: bytes
+                        10      LOAD_FAST                       1: i
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION                   1
+                        16      LIST_APPEND                     2
+                        18      JUMP_ABSOLUTE                   2 (to 4)
+                        20      RETURN_VALUE                    
+                '_b32encode.<locals>.<listcomp>'
+                [Code]
+                    File Name: base64.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                    [Var Names]
+                        '.0'
+                        'a'
+                        'b'
+                    [Free Vars]
+                        'b32tab'
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        11 (to 28)
+                        6       STORE_FAST                      1: a
+                        8       LOAD_DEREF                      0: b32tab
+                        10      GET_ITER                        
+                        12      FOR_ITER                        6 (to 26)
+                        14      STORE_FAST                      2: b
+                        16      LOAD_FAST                       1: a
+                        18      LOAD_FAST                       2: b
+                        20      BINARY_ADD                      
+                        22      LIST_APPEND                     3
+                        24      JUMP_ABSOLUTE                   6 (to 12)
+                        26      JUMP_ABSOLUTE                   2 (to 4)
+                        28      RETURN_VALUE                    
+                5
+                b'\x00'
+                0
+                'big'
+                30
+                20
+                1023
+                10
+                1
+                b'======'
+                -6
+                2
+                b'===='
+                -4
+                3
+                b'==='
+                -3
+                4
+                b'='
+                -1
+            [Disassembly]
+                0       LOAD_FAST                       0: alphabet
+                2       LOAD_GLOBAL                     0: _b32tab2
+                4       CONTAINS_OP                     1 (not in)
+                6       POP_JUMP_IF_FALSE               24 (to 48)
+                8       LOAD_CONST                      1: <CODE> <listcomp>
+                10      LOAD_CONST                      2: '_b32encode.<locals>.<listcomp>'
+                12      MAKE_FUNCTION                   0
+                14      LOAD_FAST                       0: alphabet
+                16      GET_ITER                        
+                18      CALL_FUNCTION                   1
+                20      STORE_DEREF                     0: b32tab
+                22      LOAD_CLOSURE                    0: b32tab
+                24      BUILD_TUPLE                     1
+                26      LOAD_CONST                      3: <CODE> <listcomp>
+                28      LOAD_CONST                      2: '_b32encode.<locals>.<listcomp>'
+                30      MAKE_FUNCTION                   8
+                32      LOAD_DEREF                      0: b32tab
+                34      GET_ITER                        
+                36      CALL_FUNCTION                   1
+                38      LOAD_GLOBAL                     0: _b32tab2
+                40      LOAD_FAST                       0: alphabet
+                42      STORE_SUBSCR                    
+                44      LOAD_CONST                      0: None
+                46      STORE_DEREF                     0: b32tab
+                48      LOAD_GLOBAL                     1: isinstance
+                50      LOAD_FAST                       1: s
+                52      LOAD_GLOBAL                     2: bytes_types
+                54      CALL_FUNCTION                   2
+                56      POP_JUMP_IF_TRUE                35 (to 70)
+                58      LOAD_GLOBAL                     3: memoryview
+                60      LOAD_FAST                       1: s
+                62      CALL_FUNCTION                   1
+                64      LOAD_METHOD                     4: tobytes
+                66      CALL_METHOD                     0
+                68      STORE_FAST                      1: s
+                70      LOAD_GLOBAL                     5: len
+                72      LOAD_FAST                       1: s
+                74      CALL_FUNCTION                   1
+                76      LOAD_CONST                      4: 5
+                78      BINARY_MODULO                   
+                80      STORE_FAST                      2: leftover
+                82      LOAD_FAST                       2: leftover
+                84      POP_JUMP_IF_FALSE               51 (to 102)
+                86      LOAD_FAST                       1: s
+                88      LOAD_CONST                      5: b'\x00'
+                90      LOAD_CONST                      4: 5
+                92      LOAD_FAST                       2: leftover
+                94      BINARY_SUBTRACT                 
+                96      BINARY_MULTIPLY                 
+                98      BINARY_ADD                      
+                100     STORE_FAST                      1: s
+                102     LOAD_GLOBAL                     6: bytearray
+                104     CALL_FUNCTION                   0
+                106     STORE_FAST                      3: encoded
+                108     LOAD_GLOBAL                     7: int
+                110     LOAD_ATTR                       8: from_bytes
+                112     STORE_FAST                      4: from_bytes
+                114     LOAD_GLOBAL                     0: _b32tab2
+                116     LOAD_FAST                       0: alphabet
+                118     BINARY_SUBSCR                   
+                120     STORE_FAST                      5: b32tab2
+                122     LOAD_GLOBAL                     9: range
+                124     LOAD_CONST                      6: 0
+                126     LOAD_GLOBAL                     5: len
+                128     LOAD_FAST                       1: s
+                130     CALL_FUNCTION                   1
+                132     LOAD_CONST                      4: 5
+                134     CALL_FUNCTION                   3
+                136     GET_ITER                        
+                138     FOR_ITER                        43 (to 226)
+                140     STORE_FAST                      6: i
+                142     LOAD_FAST                       4: from_bytes
+                144     LOAD_FAST                       1: s
+                146     LOAD_FAST                       6: i
+                148     LOAD_FAST                       6: i
+                150     LOAD_CONST                      4: 5
+                152     BINARY_ADD                      
+                154     BUILD_SLICE                     2
+                156     BINARY_SUBSCR                   
+                158     LOAD_CONST                      7: 'big'
+                160     CALL_FUNCTION                   2
+                162     STORE_FAST                      7: c
+                164     LOAD_FAST                       3: encoded
+                166     LOAD_FAST                       5: b32tab2
+                168     LOAD_FAST                       7: c
+                170     LOAD_CONST                      8: 30
+                172     BINARY_RSHIFT                   
+                174     BINARY_SUBSCR                   
+                176     LOAD_FAST                       5: b32tab2
+                178     LOAD_FAST                       7: c
+                180     LOAD_CONST                      9: 20
+                182     BINARY_RSHIFT                   
+                184     LOAD_CONST                      10: 1023
+                186     BINARY_AND                      
+                188     BINARY_SUBSCR                   
+                190     BINARY_ADD                      
+                192     LOAD_FAST                       5: b32tab2
+                194     LOAD_FAST                       7: c
+                196     LOAD_CONST                      11: 10
+                198     BINARY_RSHIFT                   
+                200     LOAD_CONST                      10: 1023
+                202     BINARY_AND                      
+                204     BINARY_SUBSCR                   
+                206     BINARY_ADD                      
+                208     LOAD_FAST                       5: b32tab2
+                210     LOAD_FAST                       7: c
+                212     LOAD_CONST                      10: 1023
+                214     BINARY_AND                      
+                216     BINARY_SUBSCR                   
+                218     BINARY_ADD                      
+                220     INPLACE_ADD                     
+                222     STORE_FAST                      3: encoded
+                224     JUMP_ABSOLUTE                   69 (to 138)
+                226     LOAD_FAST                       2: leftover
+                228     LOAD_CONST                      12: 1
+                230     COMPARE_OP                      2 (==)
+                232     POP_JUMP_IF_FALSE               127 (to 254)
+                234     LOAD_CONST                      13: b'======'
+                236     LOAD_FAST                       3: encoded
+                238     LOAD_CONST                      14: -6
+                240     LOAD_CONST                      0: None
+                242     BUILD_SLICE                     2
+                244     STORE_SUBSCR                    
+                246     LOAD_GLOBAL                     10: bytes
+                248     LOAD_FAST                       3: encoded
+                250     CALL_FUNCTION                   1
+                252     RETURN_VALUE                    
+                254     LOAD_FAST                       2: leftover
+                256     LOAD_CONST                      15: 2
+                258     COMPARE_OP                      2 (==)
+                260     POP_JUMP_IF_FALSE               141 (to 282)
+                262     LOAD_CONST                      16: b'===='
+                264     LOAD_FAST                       3: encoded
+                266     LOAD_CONST                      17: -4
+                268     LOAD_CONST                      0: None
+                270     BUILD_SLICE                     2
+                272     STORE_SUBSCR                    
+                274     LOAD_GLOBAL                     10: bytes
+                276     LOAD_FAST                       3: encoded
+                278     CALL_FUNCTION                   1
+                280     RETURN_VALUE                    
+                282     LOAD_FAST                       2: leftover
+                284     LOAD_CONST                      18: 3
+                286     COMPARE_OP                      2 (==)
+                288     POP_JUMP_IF_FALSE               155 (to 310)
+                290     LOAD_CONST                      19: b'==='
+                292     LOAD_FAST                       3: encoded
+                294     LOAD_CONST                      20: -3
+                296     LOAD_CONST                      0: None
+                298     BUILD_SLICE                     2
+                300     STORE_SUBSCR                    
+                302     LOAD_GLOBAL                     10: bytes
+                304     LOAD_FAST                       3: encoded
+                306     CALL_FUNCTION                   1
+                308     RETURN_VALUE                    
+                310     LOAD_FAST                       2: leftover
+                312     LOAD_CONST                      21: 4
+                314     COMPARE_OP                      2 (==)
+                316     POP_JUMP_IF_FALSE               165 (to 330)
+                318     LOAD_CONST                      22: b'='
+                320     LOAD_FAST                       3: encoded
+                322     LOAD_CONST                      23: -1
+                324     LOAD_CONST                      0: None
+                326     BUILD_SLICE                     2
+                328     STORE_SUBSCR                    
+                330     LOAD_GLOBAL                     10: bytes
+                332     LOAD_FAST                       3: encoded
+                334     CALL_FUNCTION                   1
+                336     RETURN_VALUE                    
+        '_b32encode'
+        [Code]
+            File Name: base64.py
+            Object Name: _b32decode
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 14
+            Stack Size: 9
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_b32rev'
+                'enumerate'
+                '_bytes_from_decode_data'
+                'len'
+                'binascii'
+                'Error'
+                'repr'
+                'translate'
+                'bytes'
+                'maketrans'
+                'upper'
+                'rstrip'
+                'bytearray'
+                'range'
+                'KeyError'
+                'to_bytes'
+            [Var Names]
+                'alphabet'
+                's'
+                'casefold'
+                'map01'
+                'l'
+                'padchars'
+                'decoded'
+                'b32rev'
+                'i'
+                'quanta'
+                'acc'
+                'c'
+                'last'
+                'leftover'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                [Code]
+                    File Name: base64.py
+                    Object Name: <dictcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        '.0'
+                        'k'
+                        'v'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_MAP                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        7 (to 20)
+                        6       UNPACK_SEQUENCE                 2
+                        8       STORE_FAST                      1: k
+                        10      STORE_FAST                      2: v
+                        12      LOAD_FAST                       2: v
+                        14      LOAD_FAST                       1: k
+                        16      MAP_ADD                         2
+                        18      JUMP_ABSOLUTE                   2 (to 4)
+                        20      RETURN_VALUE                    
+                '_b32decode.<locals>.<dictcomp>'
+                8
+                'Incorrect padding'
+                1
+                b'01'
+                b'O'
+                b'='
+                0
+                5
+                'Non-base32 digit found'
+                'big'
+                frozenset({
+                    0
+                    1
+                    3
+                    4
+                    6
+                })
+                43
+                -5
+            [Disassembly]
+                0       LOAD_FAST                       0: alphabet
+                2       LOAD_GLOBAL                     0: _b32rev
+                4       CONTAINS_OP                     1 (not in)
+                6       POP_JUMP_IF_FALSE               15 (to 30)
+                8       LOAD_CONST                      1: <CODE> <dictcomp>
+                10      LOAD_CONST                      2: '_b32decode.<locals>.<dictcomp>'
+                12      MAKE_FUNCTION                   0
+                14      LOAD_GLOBAL                     1: enumerate
+                16      LOAD_FAST                       0: alphabet
+                18      CALL_FUNCTION                   1
+                20      GET_ITER                        
+                22      CALL_FUNCTION                   1
+                24      LOAD_GLOBAL                     0: _b32rev
+                26      LOAD_FAST                       0: alphabet
+                28      STORE_SUBSCR                    
+                30      LOAD_GLOBAL                     2: _bytes_from_decode_data
+                32      LOAD_FAST                       1: s
+                34      CALL_FUNCTION                   1
+                36      STORE_FAST                      1: s
+                38      LOAD_GLOBAL                     3: len
+                40      LOAD_FAST                       1: s
+                42      CALL_FUNCTION                   1
+                44      LOAD_CONST                      3: 8
+                46      BINARY_MODULO                   
+                48      POP_JUMP_IF_FALSE               30 (to 60)
+                50      LOAD_GLOBAL                     4: binascii
+                52      LOAD_METHOD                     5: Error
+                54      LOAD_CONST                      4: 'Incorrect padding'
+                56      CALL_METHOD                     1
+                58      RAISE_VARARGS                   1
+                60      LOAD_FAST                       3: map01
+                62      LOAD_CONST                      0: None
+                64      IS_OP                           1 (is not)
+                66      POP_JUMP_IF_FALSE               61 (to 122)
+                68      LOAD_GLOBAL                     2: _bytes_from_decode_data
+                70      LOAD_FAST                       3: map01
+                72      CALL_FUNCTION                   1
+                74      STORE_FAST                      3: map01
+                76      LOAD_GLOBAL                     3: len
+                78      LOAD_FAST                       3: map01
+                80      CALL_FUNCTION                   1
+                82      LOAD_CONST                      5: 1
+                84      COMPARE_OP                      2 (==)
+                86      POP_JUMP_IF_TRUE                50 (to 100)
+                88      LOAD_ASSERTION_ERROR            
+                90      LOAD_GLOBAL                     6: repr
+                92      LOAD_FAST                       3: map01
+                94      CALL_FUNCTION                   1
+                96      CALL_FUNCTION                   1
+                98      RAISE_VARARGS                   1
+                100     LOAD_FAST                       1: s
+                102     LOAD_METHOD                     7: translate
+                104     LOAD_GLOBAL                     8: bytes
+                106     LOAD_METHOD                     9: maketrans
+                108     LOAD_CONST                      6: b'01'
+                110     LOAD_CONST                      7: b'O'
+                112     LOAD_FAST                       3: map01
+                114     BINARY_ADD                      
+                116     CALL_METHOD                     2
+                118     CALL_METHOD                     1
+                120     STORE_FAST                      1: s
+                122     LOAD_FAST                       2: casefold
+                124     POP_JUMP_IF_FALSE               67 (to 134)
+                126     LOAD_FAST                       1: s
+                128     LOAD_METHOD                     10: upper
+                130     CALL_METHOD                     0
+                132     STORE_FAST                      1: s
+                134     LOAD_GLOBAL                     3: len
+                136     LOAD_FAST                       1: s
+                138     CALL_FUNCTION                   1
+                140     STORE_FAST                      4: l
+                142     LOAD_FAST                       1: s
+                144     LOAD_METHOD                     11: rstrip
+                146     LOAD_CONST                      8: b'='
+                148     CALL_METHOD                     1
+                150     STORE_FAST                      1: s
+                152     LOAD_FAST                       4: l
+                154     LOAD_GLOBAL                     3: len
+                156     LOAD_FAST                       1: s
+                158     CALL_FUNCTION                   1
+                160     BINARY_SUBTRACT                 
+                162     STORE_FAST                      5: padchars
+                164     LOAD_GLOBAL                     12: bytearray
+                166     CALL_FUNCTION                   0
+                168     STORE_FAST                      6: decoded
+                170     LOAD_GLOBAL                     0: _b32rev
+                172     LOAD_FAST                       0: alphabet
+                174     BINARY_SUBSCR                   
+                176     STORE_FAST                      7: b32rev
+                178     LOAD_GLOBAL                     13: range
+                180     LOAD_CONST                      9: 0
+                182     LOAD_GLOBAL                     3: len
+                184     LOAD_FAST                       1: s
+                186     CALL_FUNCTION                   1
+                188     LOAD_CONST                      3: 8
+                190     CALL_FUNCTION                   3
+                192     GET_ITER                        
+                194     FOR_ITER                        49 (to 294)
+                196     STORE_FAST                      8: i
+                198     LOAD_FAST                       1: s
+                200     LOAD_FAST                       8: i
+                202     LOAD_FAST                       8: i
+                204     LOAD_CONST                      3: 8
+                206     BINARY_ADD                      
+                208     BUILD_SLICE                     2
+                210     BINARY_SUBSCR                   
+                212     STORE_FAST                      9: quanta
+                214     LOAD_CONST                      9: 0
+                216     STORE_FAST                      10: acc
+                218     SETUP_FINALLY                   15 (to 250)
+                220     LOAD_FAST                       9: quanta
+                222     GET_ITER                        
+                224     FOR_ITER                        10 (to 246)
+                226     STORE_FAST                      11: c
+                228     LOAD_FAST                       10: acc
+                230     LOAD_CONST                      10: 5
+                232     BINARY_LSHIFT                   
+                234     LOAD_FAST                       7: b32rev
+                236     LOAD_FAST                       11: c
+                238     BINARY_SUBSCR                   
+                240     BINARY_ADD                      
+                242     STORE_FAST                      10: acc
+                244     JUMP_ABSOLUTE                   112 (to 224)
+                246     POP_BLOCK                       
+                248     JUMP_FORWARD                    13 (to 276)
+                250     DUP_TOP                         
+                252     LOAD_GLOBAL                     14: KeyError
+                254     JUMP_IF_NOT_EXC_MATCH           137 (to 274)
+                256     POP_TOP                         
+                258     POP_TOP                         
+                260     POP_TOP                         
+                262     LOAD_GLOBAL                     4: binascii
+                264     LOAD_METHOD                     5: Error
+                266     LOAD_CONST                      11: 'Non-base32 digit found'
+                268     CALL_METHOD                     1
+                270     LOAD_CONST                      0: None
+                272     RAISE_VARARGS                   2
+                274     RERAISE                         0
+                276     LOAD_FAST                       6: decoded
+                278     LOAD_FAST                       10: acc
+                280     LOAD_METHOD                     15: to_bytes
+                282     LOAD_CONST                      10: 5
+                284     LOAD_CONST                      12: 'big'
+                286     CALL_METHOD                     2
+                288     INPLACE_ADD                     
+                290     STORE_FAST                      6: decoded
+                292     JUMP_ABSOLUTE                   97 (to 194)
+                294     LOAD_FAST                       4: l
+                296     LOAD_CONST                      3: 8
+                298     BINARY_MODULO                   
+                300     POP_JUMP_IF_TRUE                155 (to 310)
+                302     LOAD_FAST                       5: padchars
+                304     LOAD_CONST                      13: frozenset({0, 1, 3, 4, 6})
+                306     CONTAINS_OP                     1 (not in)
+                308     POP_JUMP_IF_FALSE               160 (to 320)
+                310     LOAD_GLOBAL                     4: binascii
+                312     LOAD_METHOD                     5: Error
+                314     LOAD_CONST                      4: 'Incorrect padding'
+                316     CALL_METHOD                     1
+                318     RAISE_VARARGS                   1
+                320     LOAD_FAST                       5: padchars
+                322     POP_JUMP_IF_FALSE               194 (to 388)
+                324     LOAD_FAST                       6: decoded
+                326     POP_JUMP_IF_FALSE               194 (to 388)
+                328     LOAD_FAST                       10: acc
+                330     LOAD_CONST                      10: 5
+                332     LOAD_FAST                       5: padchars
+                334     BINARY_MULTIPLY                 
+                336     INPLACE_LSHIFT                  
+                338     STORE_FAST                      10: acc
+                340     LOAD_FAST                       10: acc
+                342     LOAD_METHOD                     15: to_bytes
+                344     LOAD_CONST                      10: 5
+                346     LOAD_CONST                      12: 'big'
+                348     CALL_METHOD                     2
+                350     STORE_FAST                      12: last
+                352     LOAD_CONST                      14: 43
+                354     LOAD_CONST                      10: 5
+                356     LOAD_FAST                       5: padchars
+                358     BINARY_MULTIPLY                 
+                360     BINARY_SUBTRACT                 
+                362     LOAD_CONST                      3: 8
+                364     BINARY_FLOOR_DIVIDE             
+                366     STORE_FAST                      13: leftover
+                368     LOAD_FAST                       12: last
+                370     LOAD_CONST                      0: None
+                372     LOAD_FAST                       13: leftover
+                374     BUILD_SLICE                     2
+                376     BINARY_SUBSCR                   
+                378     LOAD_FAST                       6: decoded
+                380     LOAD_CONST                      15: -5
+                382     LOAD_CONST                      0: None
+                384     BUILD_SLICE                     2
+                386     STORE_SUBSCR                    
+                388     LOAD_GLOBAL                     8: bytes
+                390     LOAD_FAST                       6: decoded
+                392     CALL_FUNCTION                   1
+                394     RETURN_VALUE                    
+        '_b32decode'
+        [Code]
+            File Name: base64.py
+            Object Name: b32encode
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_b32encode'
+                '_b32alphabet'
+            [Var Names]
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _b32encode
+                2       LOAD_GLOBAL                     1: _b32alphabet
+                4       LOAD_FAST                       0: s
+                6       CALL_FUNCTION                   2
+                8       RETURN_VALUE                    
+        'b32encode'
+        'base32'
+        (
+            'encoding'
+        )
+        [Code]
+            File Name: base64.py
+            Object Name: b32decode
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_b32decode'
+                '_b32alphabet'
+            [Var Names]
+                's'
+                'casefold'
+                'map01'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _b32decode
+                2       LOAD_GLOBAL                     1: _b32alphabet
+                4       LOAD_FAST                       0: s
+                6       LOAD_FAST                       1: casefold
+                8       LOAD_FAST                       2: map01
+                10      CALL_FUNCTION                   4
+                12      RETURN_VALUE                    
+        'b32decode'
+        (
+            'encoding'
+            'extra_args'
+        )
+        [Code]
+            File Name: base64.py
+            Object Name: b32hexencode
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_b32encode'
+                '_b32hexalphabet'
+            [Var Names]
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _b32encode
+                2       LOAD_GLOBAL                     1: _b32hexalphabet
+                4       LOAD_FAST                       0: s
+                6       CALL_FUNCTION                   2
+                8       RETURN_VALUE                    
+        'b32hexencode'
+        'base32hex'
+        [Code]
+            File Name: base64.py
+            Object Name: b32hexdecode
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_b32decode'
+                '_b32hexalphabet'
+            [Var Names]
+                's'
+                'casefold'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _b32decode
+                2       LOAD_GLOBAL                     1: _b32hexalphabet
+                4       LOAD_FAST                       0: s
+                6       LOAD_FAST                       1: casefold
+                8       CALL_FUNCTION                   3
+                10      RETURN_VALUE                    
+        'b32hexdecode'
+        ''
+        [Code]
+            File Name: base64.py
+            Object Name: b16encode
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'binascii'
+                'hexlify'
+                'upper'
+            [Var Names]
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Encode the bytes-like object s using Base16 and return a bytes object.\n    '
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: binascii
+                2       LOAD_METHOD                     1: hexlify
+                4       LOAD_FAST                       0: s
+                6       CALL_METHOD                     1
+                8       LOAD_METHOD                     2: upper
+                10      CALL_METHOD                     0
+                12      RETURN_VALUE                    
+        'b16encode'
+        [Code]
+            File Name: base64.py
+            Object Name: b16decode
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_bytes_from_decode_data'
+                'upper'
+                're'
+                'search'
+                'binascii'
+                'Error'
+                'unhexlify'
+            [Var Names]
+                's'
+                'casefold'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Decode the Base16 encoded bytes-like object or ASCII string s.\n\n    Optional casefold is a flag specifying whether a lowercase alphabet is\n    acceptable as input.  For security purposes, the default is False.\n\n    The result is returned as a bytes object.  A binascii.Error is raised if\n    s is incorrectly padded or if there are non-alphabet characters present\n    in the input.\n    '
+                b'[^0-9A-F]'
+                'Non-base16 digit found'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _bytes_from_decode_data
+                2       LOAD_FAST                       0: s
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      0: s
+                8       LOAD_FAST                       1: casefold
+                10      POP_JUMP_IF_FALSE               10 (to 20)
+                12      LOAD_FAST                       0: s
+                14      LOAD_METHOD                     1: upper
+                16      CALL_METHOD                     0
+                18      STORE_FAST                      0: s
+                20      LOAD_GLOBAL                     2: re
+                22      LOAD_METHOD                     3: search
+                24      LOAD_CONST                      1: b'[^0-9A-F]'
+                26      LOAD_FAST                       0: s
+                28      CALL_METHOD                     2
+                30      POP_JUMP_IF_FALSE               21 (to 42)
+                32      LOAD_GLOBAL                     4: binascii
+                34      LOAD_METHOD                     5: Error
+                36      LOAD_CONST                      2: 'Non-base16 digit found'
+                38      CALL_METHOD                     1
+                40      RAISE_VARARGS                   1
+                42      LOAD_GLOBAL                     4: binascii
+                44      LOAD_METHOD                     6: unhexlify
+                46      LOAD_FAST                       0: s
+                48      CALL_METHOD                     1
+                50      RETURN_VALUE                    
+        'b16decode'
+        b'<~'
+        b'~>'
+        [Code]
+            File Name: base64.py
+            Object Name: _85encode
+            Arg Count: 6
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 9
+            Stack Size: 5
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'isinstance'
+                'bytes_types'
+                'memoryview'
+                'tobytes'
+                'len'
+                'struct'
+                'Struct'
+                'unpack'
+                'join'
+            [Var Names]
+                'b'
+                'chars'
+                'chars2'
+                'pad'
+                'foldnuls'
+                'foldspaces'
+                'padding'
+                'words'
+                'chunks'
+            [Free Vars]
+            [Cell Vars]
+                'chars'
+                'chars2'
+                'foldnuls'
+                'foldspaces'
+            [Constants]
+                None
+                4
+                b'\x00'
+                '!%dI'
+                [Code]
+                    File Name: base64.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 6
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                    [Var Names]
+                        '.0'
+                        'word'
+                    [Free Vars]
+                        'chars'
+                        'chars2'
+                        'foldnuls'
+                        'foldspaces'
+                    [Cell Vars]
+                    [Constants]
+                        b'z'
+                        538976288
+                        b'y'
+                        614125
+                        85
+                        7225
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        36 (to 78)
+                        6       STORE_FAST                      1: word
+                        8       LOAD_DEREF                      2: foldnuls
+                        10      POP_JUMP_IF_FALSE               10 (to 20)
+                        12      LOAD_FAST                       1: word
+                        14      POP_JUMP_IF_TRUE                10 (to 20)
+                        16      LOAD_CONST                      0: b'z'
+                        18      JUMP_FORWARD                    27 (to 74)
+                        20      LOAD_DEREF                      3: foldspaces
+                        22      POP_JUMP_IF_FALSE               18 (to 36)
+                        24      LOAD_FAST                       1: word
+                        26      LOAD_CONST                      1: 538976288
+                        28      COMPARE_OP                      2 (==)
+                        30      POP_JUMP_IF_FALSE               18 (to 36)
+                        32      LOAD_CONST                      2: b'y'
+                        34      JUMP_FORWARD                    19 (to 74)
+                        36      LOAD_DEREF                      1: chars2
+                        38      LOAD_FAST                       1: word
+                        40      LOAD_CONST                      3: 614125
+                        42      BINARY_FLOOR_DIVIDE             
+                        44      BINARY_SUBSCR                   
+                        46      LOAD_DEREF                      1: chars2
+                        48      LOAD_FAST                       1: word
+                        50      LOAD_CONST                      4: 85
+                        52      BINARY_FLOOR_DIVIDE             
+                        54      LOAD_CONST                      5: 7225
+                        56      BINARY_MODULO                   
+                        58      BINARY_SUBSCR                   
+                        60      BINARY_ADD                      
+                        62      LOAD_DEREF                      0: chars
+                        64      LOAD_FAST                       1: word
+                        66      LOAD_CONST                      4: 85
+                        68      BINARY_MODULO                   
+                        70      BINARY_SUBSCR                   
+                        72      BINARY_ADD                      
+                        74      LIST_APPEND                     2
+                        76      JUMP_ABSOLUTE                   2 (to 4)
+                        78      RETURN_VALUE                    
+                '_85encode.<locals>.<listcomp>'
+                -1
+                b'z'
+                0
+                5
+                b''
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: b
+                4       LOAD_GLOBAL                     1: bytes_types
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_TRUE                11 (to 22)
+                10      LOAD_GLOBAL                     2: memoryview
+                12      LOAD_FAST                       0: b
+                14      CALL_FUNCTION                   1
+                16      LOAD_METHOD                     3: tobytes
+                18      CALL_METHOD                     0
+                20      STORE_FAST                      0: b
+                22      LOAD_GLOBAL                     4: len
+                24      LOAD_FAST                       0: b
+                26      CALL_FUNCTION                   1
+                28      UNARY_NEGATIVE                  
+                30      LOAD_CONST                      1: 4
+                32      BINARY_MODULO                   
+                34      STORE_FAST                      6: padding
+                36      LOAD_FAST                       6: padding
+                38      POP_JUMP_IF_FALSE               26 (to 52)
+                40      LOAD_FAST                       0: b
+                42      LOAD_CONST                      2: b'\x00'
+                44      LOAD_FAST                       6: padding
+                46      BINARY_MULTIPLY                 
+                48      BINARY_ADD                      
+                50      STORE_FAST                      0: b
+                52      LOAD_GLOBAL                     5: struct
+                54      LOAD_METHOD                     6: Struct
+                56      LOAD_CONST                      3: '!%dI'
+                58      LOAD_GLOBAL                     4: len
+                60      LOAD_FAST                       0: b
+                62      CALL_FUNCTION                   1
+                64      LOAD_CONST                      1: 4
+                66      BINARY_FLOOR_DIVIDE             
+                68      BINARY_MODULO                   
+                70      CALL_METHOD                     1
+                72      LOAD_METHOD                     7: unpack
+                74      LOAD_FAST                       0: b
+                76      CALL_METHOD                     1
+                78      STORE_FAST                      7: words
+                80      LOAD_CLOSURE                    0: chars
+                82      LOAD_CLOSURE                    1: chars2
+                84      LOAD_CLOSURE                    2: foldnuls
+                86      LOAD_CLOSURE                    3: foldspaces
+                88      BUILD_TUPLE                     4
+                90      LOAD_CONST                      4: <CODE> <listcomp>
+                92      LOAD_CONST                      5: '_85encode.<locals>.<listcomp>'
+                94      MAKE_FUNCTION                   8
+                96      LOAD_FAST                       7: words
+                98      GET_ITER                        
+                100     CALL_FUNCTION                   1
+                102     STORE_FAST                      8: chunks
+                104     LOAD_FAST                       6: padding
+                106     POP_JUMP_IF_FALSE               81 (to 162)
+                108     LOAD_FAST                       3: pad
+                110     POP_JUMP_IF_TRUE                81 (to 162)
+                112     LOAD_FAST                       8: chunks
+                114     LOAD_CONST                      6: -1
+                116     BINARY_SUBSCR                   
+                118     LOAD_CONST                      7: b'z'
+                120     COMPARE_OP                      2 (==)
+                122     POP_JUMP_IF_FALSE               70 (to 140)
+                124     LOAD_DEREF                      0: chars
+                126     LOAD_CONST                      8: 0
+                128     BINARY_SUBSCR                   
+                130     LOAD_CONST                      9: 5
+                132     BINARY_MULTIPLY                 
+                134     LOAD_FAST                       8: chunks
+                136     LOAD_CONST                      6: -1
+                138     STORE_SUBSCR                    
+                140     LOAD_FAST                       8: chunks
+                142     LOAD_CONST                      6: -1
+                144     BINARY_SUBSCR                   
+                146     LOAD_CONST                      0: None
+                148     LOAD_FAST                       6: padding
+                150     UNARY_NEGATIVE                  
+                152     BUILD_SLICE                     2
+                154     BINARY_SUBSCR                   
+                156     LOAD_FAST                       8: chunks
+                158     LOAD_CONST                      6: -1
+                160     STORE_SUBSCR                    
+                162     LOAD_CONST                      10: b''
+                164     LOAD_METHOD                     8: join
+                166     LOAD_FAST                       8: chunks
+                168     CALL_METHOD                     1
+                170     RETURN_VALUE                    
+        '_85encode'
+        (
+            'foldspaces'
+            'wrapcol'
+            'pad'
+            'adobe'
+        )
+        [Code]
+            File Name: base64.py
+            Object Name: a85encode
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 4
+            Locals: 6
+            Stack Size: 7
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                '_a85chars2'
+                'range'
+                '_a85chars'
+                '_85encode'
+                '_A85START'
+                'max'
+                'len'
+                'append'
+                'join'
+                '_A85END'
+            [Var Names]
+                'b'
+                'foldspaces'
+                'wrapcol'
+                'pad'
+                'adobe'
+                'chunks'
+            [Free Vars]
+            [Cell Vars]
+                'result'
+                'wrapcol'
+            [Constants]
+                'Encode bytes-like object b using Ascii85 and return a bytes object.\n\n    foldspaces is an optional flag that uses the special short sequence \'y\'\n    instead of 4 consecutive spaces (ASCII 0x20) as supported by \'btoa\'. This\n    feature is not supported by the "standard" Adobe encoding.\n\n    wrapcol controls whether the output should have newline (b\'\\n\') characters\n    added to it. If this is non-zero, each output line will be at most this\n    many characters long.\n\n    pad controls whether the input is padded to a multiple of 4 before\n    encoding. Note that the btoa implementation always pads.\n\n    adobe controls whether the encoded byte sequence is framed with <~ and ~>,\n    which is used by the Adobe implementation.\n    '
+                None
+                [Code]
+                    File Name: base64.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        'bytes'
+                    [Var Names]
+                        '.0'
+                        'i'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        7 (to 20)
+                        6       STORE_FAST                      1: i
+                        8       LOAD_GLOBAL                     0: bytes
+                        10      LOAD_FAST                       1: i
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION                   1
+                        16      LIST_APPEND                     2
+                        18      JUMP_ABSOLUTE                   2 (to 4)
+                        20      RETURN_VALUE                    
+                'a85encode.<locals>.<listcomp>'
+                33
+                118
+                [Code]
+                    File Name: base64.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        '_a85chars'
+                    [Var Names]
+                        '.0'
+                        'a'
+                        'b'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        11 (to 28)
+                        6       STORE_FAST                      1: a
+                        8       LOAD_GLOBAL                     0: _a85chars
+                        10      GET_ITER                        
+                        12      FOR_ITER                        6 (to 26)
+                        14      STORE_FAST                      2: b
+                        16      LOAD_FAST                       1: a
+                        18      LOAD_FAST                       2: b
+                        20      BINARY_ADD                      
+                        22      LIST_APPEND                     3
+                        24      JUMP_ABSOLUTE                   6 (to 12)
+                        26      JUMP_ABSOLUTE                   2 (to 4)
+                        28      RETURN_VALUE                    
+                True
+                2
+                1
+                [Code]
+                    File Name: base64.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 6
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                    [Var Names]
+                        '.0'
+                        'i'
+                    [Free Vars]
+                        'result'
+                        'wrapcol'
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        10 (to 26)
+                        6       STORE_FAST                      1: i
+                        8       LOAD_DEREF                      0: result
+                        10      LOAD_FAST                       1: i
+                        12      LOAD_FAST                       1: i
+                        14      LOAD_DEREF                      1: wrapcol
+                        16      BINARY_ADD                      
+                        18      BUILD_SLICE                     2
+                        20      BINARY_SUBSCR                   
+                        22      LIST_APPEND                     2
+                        24      JUMP_ABSOLUTE                   2 (to 4)
+                        26      RETURN_VALUE                    
+                0
+                -1
+                b''
+                b'\n'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _a85chars2
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               21 (to 42)
+                8       LOAD_CONST                      2: <CODE> <listcomp>
+                10      LOAD_CONST                      3: 'a85encode.<locals>.<listcomp>'
+                12      MAKE_FUNCTION                   0
+                14      LOAD_GLOBAL                     1: range
+                16      LOAD_CONST                      4: 33
+                18      LOAD_CONST                      5: 118
+                20      CALL_FUNCTION                   2
+                22      GET_ITER                        
+                24      CALL_FUNCTION                   1
+                26      STORE_GLOBAL                    2: _a85chars
+                28      LOAD_CONST                      6: <CODE> <listcomp>
+                30      LOAD_CONST                      3: 'a85encode.<locals>.<listcomp>'
+                32      MAKE_FUNCTION                   0
+                34      LOAD_GLOBAL                     2: _a85chars
+                36      GET_ITER                        
+                38      CALL_FUNCTION                   1
+                40      STORE_GLOBAL                    0: _a85chars2
+                42      LOAD_GLOBAL                     3: _85encode
+                44      LOAD_FAST                       0: b
+                46      LOAD_GLOBAL                     2: _a85chars
+                48      LOAD_GLOBAL                     0: _a85chars2
+                50      LOAD_FAST                       3: pad
+                52      LOAD_CONST                      7: True
+                54      LOAD_FAST                       1: foldspaces
+                56      CALL_FUNCTION                   6
+                58      STORE_DEREF                     0: result
+                60      LOAD_FAST                       4: adobe
+                62      POP_JUMP_IF_FALSE               36 (to 72)
+                64      LOAD_GLOBAL                     4: _A85START
+                66      LOAD_DEREF                      0: result
+                68      BINARY_ADD                      
+                70      STORE_DEREF                     0: result
+                72      LOAD_DEREF                      1: wrapcol
+                74      POP_JUMP_IF_FALSE               85 (to 170)
+                76      LOAD_GLOBAL                     5: max
+                78      LOAD_FAST                       4: adobe
+                80      POP_JUMP_IF_FALSE               43 (to 86)
+                82      LOAD_CONST                      8: 2
+                84      JUMP_FORWARD                    1 (to 88)
+                86      LOAD_CONST                      9: 1
+                88      LOAD_DEREF                      1: wrapcol
+                90      CALL_FUNCTION                   2
+                92      STORE_DEREF                     1: wrapcol
+                94      LOAD_CLOSURE                    0: result
+                96      LOAD_CLOSURE                    1: wrapcol
+                98      BUILD_TUPLE                     2
+                100     LOAD_CONST                      10: <CODE> <listcomp>
+                102     LOAD_CONST                      3: 'a85encode.<locals>.<listcomp>'
+                104     MAKE_FUNCTION                   8
+                106     LOAD_GLOBAL                     1: range
+                108     LOAD_CONST                      11: 0
+                110     LOAD_GLOBAL                     6: len
+                112     LOAD_DEREF                      0: result
+                114     CALL_FUNCTION                   1
+                116     LOAD_DEREF                      1: wrapcol
+                118     CALL_FUNCTION                   3
+                120     GET_ITER                        
+                122     CALL_FUNCTION                   1
+                124     STORE_FAST                      5: chunks
+                126     LOAD_FAST                       4: adobe
+                128     POP_JUMP_IF_FALSE               80 (to 160)
+                130     LOAD_GLOBAL                     6: len
+                132     LOAD_FAST                       5: chunks
+                134     LOAD_CONST                      12: -1
+                136     BINARY_SUBSCR                   
+                138     CALL_FUNCTION                   1
+                140     LOAD_CONST                      8: 2
+                142     BINARY_ADD                      
+                144     LOAD_DEREF                      1: wrapcol
+                146     COMPARE_OP                      4 (>)
+                148     POP_JUMP_IF_FALSE               80 (to 160)
+                150     LOAD_FAST                       5: chunks
+                152     LOAD_METHOD                     7: append
+                154     LOAD_CONST                      13: b''
+                156     CALL_METHOD                     1
+                158     POP_TOP                         
+                160     LOAD_CONST                      14: b'\n'
+                162     LOAD_METHOD                     8: join
+                164     LOAD_FAST                       5: chunks
+                166     CALL_METHOD                     1
+                168     STORE_DEREF                     0: result
+                170     LOAD_FAST                       4: adobe
+                172     POP_JUMP_IF_FALSE               91 (to 182)
+                174     LOAD_DEREF                      0: result
+                176     LOAD_GLOBAL                     9: _A85END
+                178     INPLACE_ADD                     
+                180     STORE_DEREF                     0: result
+                182     LOAD_DEREF                      0: result
+                184     RETURN_VALUE                    
+        'a85encode'
+        b' \t\n\r\x0b'
+        (
+            'foldspaces'
+            'adobe'
+            'ignorechars'
+        )
+        [Code]
+            File Name: base64.py
+            Object Name: a85decode
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 3
+            Locals: 14
+            Stack Size: 9
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_bytes_from_decode_data'
+                'endswith'
+                '_A85END'
+                'ValueError'
+                'format'
+                'startswith'
+                '_A85START'
+                'struct'
+                'Struct'
+                'pack'
+                'append'
+                'clear'
+                'len'
+                'error'
+                'join'
+            [Var Names]
+                'b'
+                'foldspaces'
+                'adobe'
+                'ignorechars'
+                'packI'
+                'decoded'
+                'decoded_append'
+                'curr'
+                'curr_append'
+                'curr_clear'
+                'x'
+                'acc'
+                'result'
+                'padding'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Decode the Ascii85 encoded bytes-like object or ASCII string b.\n\n    foldspaces is a flag that specifies whether the \'y\' short sequence should be\n    accepted as shorthand for 4 consecutive spaces (ASCII 0x20). This feature is\n    not supported by the "standard" Adobe encoding.\n\n    adobe controls whether the input sequence is in Adobe Ascii85 format (i.e.\n    is framed with <~ and ~>).\n\n    ignorechars should be a byte string containing characters to ignore from the\n    input. This should only contain whitespace characters, and by default\n    contains all whitespace characters in ASCII.\n\n    The result is returned as a bytes object.\n    '
+                'Ascii85 encoded byte sequences must end with {!r}'
+                2
+                -2
+                None
+                '!I'
+                b'uuuu'
+                33
+                117
+                5
+                0
+                85
+                'Ascii85 overflow'
+                122
+                'z inside Ascii85 5-tuple'
+                b'\x00\x00\x00\x00'
+                121
+                'y inside Ascii85 5-tuple'
+                b'    '
+                'Non-Ascii85 digit found: %c'
+                b''
+                4
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _bytes_from_decode_data
+                2       LOAD_FAST                       0: b
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      0: b
+                8       LOAD_FAST                       2: adobe
+                10      POP_JUMP_IF_FALSE               36 (to 72)
+                12      LOAD_FAST                       0: b
+                14      LOAD_METHOD                     1: endswith
+                16      LOAD_GLOBAL                     2: _A85END
+                18      CALL_METHOD                     1
+                20      POP_JUMP_IF_TRUE                18 (to 36)
+                22      LOAD_GLOBAL                     3: ValueError
+                24      LOAD_CONST                      1: 'Ascii85 encoded byte sequences must end with {!r}'
+                26      LOAD_METHOD                     4: format
+                28      LOAD_GLOBAL                     2: _A85END
+                30      CALL_METHOD                     1
+                32      CALL_FUNCTION                   1
+                34      RAISE_VARARGS                   1
+                36      LOAD_FAST                       0: b
+                38      LOAD_METHOD                     5: startswith
+                40      LOAD_GLOBAL                     6: _A85START
+                42      CALL_METHOD                     1
+                44      POP_JUMP_IF_FALSE               30 (to 60)
+                46      LOAD_FAST                       0: b
+                48      LOAD_CONST                      2: 2
+                50      LOAD_CONST                      3: -2
+                52      BUILD_SLICE                     2
+                54      BINARY_SUBSCR                   
+                56      STORE_FAST                      0: b
+                58      JUMP_FORWARD                    6 (to 72)
+                60      LOAD_FAST                       0: b
+                62      LOAD_CONST                      4: None
+                64      LOAD_CONST                      3: -2
+                66      BUILD_SLICE                     2
+                68      BINARY_SUBSCR                   
+                70      STORE_FAST                      0: b
+                72      LOAD_GLOBAL                     7: struct
+                74      LOAD_METHOD                     8: Struct
+                76      LOAD_CONST                      5: '!I'
+                78      CALL_METHOD                     1
+                80      LOAD_ATTR                       9: pack
+                82      STORE_FAST                      4: packI
+                84      BUILD_LIST                      0
+                86      STORE_FAST                      5: decoded
+                88      LOAD_FAST                       5: decoded
+                90      LOAD_ATTR                       10: append
+                92      STORE_FAST                      6: decoded_append
+                94      BUILD_LIST                      0
+                96      STORE_FAST                      7: curr
+                98      LOAD_FAST                       7: curr
+                100     LOAD_ATTR                       10: append
+                102     STORE_FAST                      8: curr_append
+                104     LOAD_FAST                       7: curr
+                106     LOAD_ATTR                       11: clear
+                108     STORE_FAST                      9: curr_clear
+                110     LOAD_FAST                       0: b
+                112     LOAD_CONST                      6: b'uuuu'
+                114     BINARY_ADD                      
+                116     GET_ITER                        
+                118     FOR_ITER                        107 (to 334)
+                120     STORE_FAST                      10: x
+                122     LOAD_CONST                      7: 33
+                124     LOAD_FAST                       10: x
+                126     DUP_TOP                         
+                128     ROT_THREE                       
+                130     COMPARE_OP                      1 (<=)
+                132     POP_JUMP_IF_FALSE               71 (to 142)
+                134     LOAD_CONST                      8: 117
+                136     COMPARE_OP                      1 (<=)
+                138     POP_JUMP_IF_FALSE               124 (to 248)
+                140     JUMP_FORWARD                    2 (to 146)
+                142     POP_TOP                         
+                144     JUMP_FORWARD                    51 (to 248)
+                146     LOAD_FAST                       8: curr_append
+                148     LOAD_FAST                       10: x
+                150     CALL_FUNCTION                   1
+                152     POP_TOP                         
+                154     LOAD_GLOBAL                     12: len
+                156     LOAD_FAST                       7: curr
+                158     CALL_FUNCTION                   1
+                160     LOAD_CONST                      9: 5
+                162     COMPARE_OP                      2 (==)
+                164     POP_JUMP_IF_FALSE               123 (to 246)
+                166     LOAD_CONST                      10: 0
+                168     STORE_FAST                      11: acc
+                170     LOAD_FAST                       7: curr
+                172     GET_ITER                        
+                174     FOR_ITER                        10 (to 196)
+                176     STORE_FAST                      10: x
+                178     LOAD_CONST                      11: 85
+                180     LOAD_FAST                       11: acc
+                182     BINARY_MULTIPLY                 
+                184     LOAD_FAST                       10: x
+                186     LOAD_CONST                      7: 33
+                188     BINARY_SUBTRACT                 
+                190     BINARY_ADD                      
+                192     STORE_FAST                      11: acc
+                194     JUMP_ABSOLUTE                   87 (to 174)
+                196     SETUP_FINALLY                   8 (to 214)
+                198     LOAD_FAST                       6: decoded_append
+                200     LOAD_FAST                       4: packI
+                202     LOAD_FAST                       11: acc
+                204     CALL_FUNCTION                   1
+                206     CALL_FUNCTION                   1
+                208     POP_TOP                         
+                210     POP_BLOCK                       
+                212     JUMP_FORWARD                    13 (to 240)
+                214     DUP_TOP                         
+                216     LOAD_GLOBAL                     7: struct
+                218     LOAD_ATTR                       13: error
+                220     JUMP_IF_NOT_EXC_MATCH           119 (to 238)
+                222     POP_TOP                         
+                224     POP_TOP                         
+                226     POP_TOP                         
+                228     LOAD_GLOBAL                     3: ValueError
+                230     LOAD_CONST                      12: 'Ascii85 overflow'
+                232     CALL_FUNCTION                   1
+                234     LOAD_CONST                      4: None
+                236     RAISE_VARARGS                   2
+                238     RERAISE                         0
+                240     LOAD_FAST                       9: curr_clear
+                242     CALL_FUNCTION                   0
+                244     POP_TOP                         
+                246     JUMP_ABSOLUTE                   59 (to 118)
+                248     LOAD_FAST                       10: x
+                250     LOAD_CONST                      13: 122
+                252     COMPARE_OP                      2 (==)
+                254     POP_JUMP_IF_FALSE               139 (to 278)
+                256     LOAD_FAST                       7: curr
+                258     POP_JUMP_IF_FALSE               134 (to 268)
+                260     LOAD_GLOBAL                     3: ValueError
+                262     LOAD_CONST                      14: 'z inside Ascii85 5-tuple'
+                264     CALL_FUNCTION                   1
+                266     RAISE_VARARGS                   1
+                268     LOAD_FAST                       6: decoded_append
+                270     LOAD_CONST                      15: b'\x00\x00\x00\x00'
+                272     CALL_FUNCTION                   1
+                274     POP_TOP                         
+                276     JUMP_ABSOLUTE                   59 (to 118)
+                278     LOAD_FAST                       1: foldspaces
+                280     POP_JUMP_IF_FALSE               156 (to 312)
+                282     LOAD_FAST                       10: x
+                284     LOAD_CONST                      16: 121
+                286     COMPARE_OP                      2 (==)
+                288     POP_JUMP_IF_FALSE               156 (to 312)
+                290     LOAD_FAST                       7: curr
+                292     POP_JUMP_IF_FALSE               151 (to 302)
+                294     LOAD_GLOBAL                     3: ValueError
+                296     LOAD_CONST                      17: 'y inside Ascii85 5-tuple'
+                298     CALL_FUNCTION                   1
+                300     RAISE_VARARGS                   1
+                302     LOAD_FAST                       6: decoded_append
+                304     LOAD_CONST                      18: b'    '
+                306     CALL_FUNCTION                   1
+                308     POP_TOP                         
+                310     JUMP_ABSOLUTE                   59 (to 118)
+                312     LOAD_FAST                       10: x
+                314     LOAD_FAST                       3: ignorechars
+                316     CONTAINS_OP                     0 (in)
+                318     POP_JUMP_IF_FALSE               161 (to 322)
+                320     JUMP_ABSOLUTE                   59 (to 118)
+                322     LOAD_GLOBAL                     3: ValueError
+                324     LOAD_CONST                      19: 'Non-Ascii85 digit found: %c'
+                326     LOAD_FAST                       10: x
+                328     BINARY_MODULO                   
+                330     CALL_FUNCTION                   1
+                332     RAISE_VARARGS                   1
+                334     LOAD_CONST                      20: b''
+                336     LOAD_METHOD                     14: join
+                338     LOAD_FAST                       5: decoded
+                340     CALL_METHOD                     1
+                342     STORE_FAST                      12: result
+                344     LOAD_CONST                      21: 4
+                346     LOAD_GLOBAL                     12: len
+                348     LOAD_FAST                       7: curr
+                350     CALL_FUNCTION                   1
+                352     BINARY_SUBTRACT                 
+                354     STORE_FAST                      13: padding
+                356     LOAD_FAST                       13: padding
+                358     POP_JUMP_IF_FALSE               187 (to 374)
+                360     LOAD_FAST                       12: result
+                362     LOAD_CONST                      4: None
+                364     LOAD_FAST                       13: padding
+                366     UNARY_NEGATIVE                  
+                368     BUILD_SLICE                     2
+                370     BINARY_SUBSCR                   
+                372     STORE_FAST                      12: result
+                374     LOAD_FAST                       12: result
+                376     RETURN_VALUE                    
+        'a85decode'
+        b'0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-;<=>?@^_`{|}~'
+        [Code]
+            File Name: base64.py
+            Object Name: b85encode
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_b85chars2'
+                '_b85alphabet'
+                '_b85chars'
+                '_85encode'
+            [Var Names]
+                'b'
+                'pad'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Encode bytes-like object b in base85 format and return a bytes object.\n\n    If pad is true, the input is padded with b'\\0' so its length is a multiple of\n    4 bytes before encoding.\n    "
+                None
+                [Code]
+                    File Name: base64.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        'bytes'
+                    [Var Names]
+                        '.0'
+                        'i'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        7 (to 20)
+                        6       STORE_FAST                      1: i
+                        8       LOAD_GLOBAL                     0: bytes
+                        10      LOAD_FAST                       1: i
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION                   1
+                        16      LIST_APPEND                     2
+                        18      JUMP_ABSOLUTE                   2 (to 4)
+                        20      RETURN_VALUE                    
+                'b85encode.<locals>.<listcomp>'
+                [Code]
+                    File Name: base64.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        '_b85chars'
+                    [Var Names]
+                        '.0'
+                        'a'
+                        'b'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        11 (to 28)
+                        6       STORE_FAST                      1: a
+                        8       LOAD_GLOBAL                     0: _b85chars
+                        10      GET_ITER                        
+                        12      FOR_ITER                        6 (to 26)
+                        14      STORE_FAST                      2: b
+                        16      LOAD_FAST                       1: a
+                        18      LOAD_FAST                       2: b
+                        20      BINARY_ADD                      
+                        22      LIST_APPEND                     3
+                        24      JUMP_ABSOLUTE                   6 (to 12)
+                        26      JUMP_ABSOLUTE                   2 (to 4)
+                        28      RETURN_VALUE                    
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _b85chars2
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               18 (to 36)
+                8       LOAD_CONST                      2: <CODE> <listcomp>
+                10      LOAD_CONST                      3: 'b85encode.<locals>.<listcomp>'
+                12      MAKE_FUNCTION                   0
+                14      LOAD_GLOBAL                     1: _b85alphabet
+                16      GET_ITER                        
+                18      CALL_FUNCTION                   1
+                20      STORE_GLOBAL                    2: _b85chars
+                22      LOAD_CONST                      4: <CODE> <listcomp>
+                24      LOAD_CONST                      3: 'b85encode.<locals>.<listcomp>'
+                26      MAKE_FUNCTION                   0
+                28      LOAD_GLOBAL                     2: _b85chars
+                30      GET_ITER                        
+                32      CALL_FUNCTION                   1
+                34      STORE_GLOBAL                    0: _b85chars2
+                36      LOAD_GLOBAL                     3: _85encode
+                38      LOAD_FAST                       0: b
+                40      LOAD_GLOBAL                     2: _b85chars
+                42      LOAD_GLOBAL                     0: _b85chars2
+                44      LOAD_FAST                       1: pad
+                46      CALL_FUNCTION                   4
+                48      RETURN_VALUE                    
+        'b85encode'
+        [Code]
+            File Name: base64.py
+            Object Name: b85decode
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 10
+            Stack Size: 9
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_b85dec'
+                'enumerate'
+                '_b85alphabet'
+                '_bytes_from_decode_data'
+                'len'
+                'struct'
+                'Struct'
+                'pack'
+                'range'
+                'TypeError'
+                'ValueError'
+                'append'
+                'error'
+                'join'
+            [Var Names]
+                'b'
+                'i'
+                'c'
+                'padding'
+                'out'
+                'packI'
+                'chunk'
+                'acc'
+                'j'
+                'result'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Decode the base85-encoded bytes-like object or ASCII string b\n\n    The result is returned as a bytes object.\n    '
+                None
+                256
+                5
+                b'~'
+                '!I'
+                0
+                85
+                'bad base85 character at position %d'
+                'base85 overflow in hunk starting at byte %d'
+                b''
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _b85dec
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               22 (to 44)
+                8       LOAD_CONST                      1: None
+                10      BUILD_LIST                      1
+                12      LOAD_CONST                      2: 256
+                14      BINARY_MULTIPLY                 
+                16      STORE_GLOBAL                    0: _b85dec
+                18      LOAD_GLOBAL                     1: enumerate
+                20      LOAD_GLOBAL                     2: _b85alphabet
+                22      CALL_FUNCTION                   1
+                24      GET_ITER                        
+                26      FOR_ITER                        8 (to 44)
+                28      UNPACK_SEQUENCE                 2
+                30      STORE_FAST                      1: i
+                32      STORE_FAST                      2: c
+                34      LOAD_FAST                       1: i
+                36      LOAD_GLOBAL                     0: _b85dec
+                38      LOAD_FAST                       2: c
+                40      STORE_SUBSCR                    
+                42      JUMP_ABSOLUTE                   13 (to 26)
+                44      LOAD_GLOBAL                     3: _bytes_from_decode_data
+                46      LOAD_FAST                       0: b
+                48      CALL_FUNCTION                   1
+                50      STORE_FAST                      0: b
+                52      LOAD_GLOBAL                     4: len
+                54      LOAD_FAST                       0: b
+                56      CALL_FUNCTION                   1
+                58      UNARY_NEGATIVE                  
+                60      LOAD_CONST                      3: 5
+                62      BINARY_MODULO                   
+                64      STORE_FAST                      3: padding
+                66      LOAD_FAST                       0: b
+                68      LOAD_CONST                      4: b'~'
+                70      LOAD_FAST                       3: padding
+                72      BINARY_MULTIPLY                 
+                74      BINARY_ADD                      
+                76      STORE_FAST                      0: b
+                78      BUILD_LIST                      0
+                80      STORE_FAST                      4: out
+                82      LOAD_GLOBAL                     5: struct
+                84      LOAD_METHOD                     6: Struct
+                86      LOAD_CONST                      5: '!I'
+                88      CALL_METHOD                     1
+                90      LOAD_ATTR                       7: pack
+                92      STORE_FAST                      5: packI
+                94      LOAD_GLOBAL                     8: range
+                96      LOAD_CONST                      6: 0
+                98      LOAD_GLOBAL                     4: len
+                100     LOAD_FAST                       0: b
+                102     CALL_FUNCTION                   1
+                104     LOAD_CONST                      3: 5
+                106     CALL_FUNCTION                   3
+                108     GET_ITER                        
+                110     FOR_ITER                        84 (to 280)
+                112     STORE_FAST                      1: i
+                114     LOAD_FAST                       0: b
+                116     LOAD_FAST                       1: i
+                118     LOAD_FAST                       1: i
+                120     LOAD_CONST                      3: 5
+                122     BINARY_ADD                      
+                124     BUILD_SLICE                     2
+                126     BINARY_SUBSCR                   
+                128     STORE_FAST                      6: chunk
+                130     LOAD_CONST                      6: 0
+                132     STORE_FAST                      7: acc
+                134     SETUP_FINALLY                   15 (to 166)
+                136     LOAD_FAST                       6: chunk
+                138     GET_ITER                        
+                140     FOR_ITER                        10 (to 162)
+                142     STORE_FAST                      2: c
+                144     LOAD_FAST                       7: acc
+                146     LOAD_CONST                      7: 85
+                148     BINARY_MULTIPLY                 
+                150     LOAD_GLOBAL                     0: _b85dec
+                152     LOAD_FAST                       2: c
+                154     BINARY_SUBSCR                   
+                156     BINARY_ADD                      
+                158     STORE_FAST                      7: acc
+                160     JUMP_ABSOLUTE                   70 (to 140)
+                162     POP_BLOCK                       
+                164     JUMP_FORWARD                    32 (to 230)
+                166     DUP_TOP                         
+                168     LOAD_GLOBAL                     9: TypeError
+                170     JUMP_IF_NOT_EXC_MATCH           114 (to 228)
+                172     POP_TOP                         
+                174     POP_TOP                         
+                176     POP_TOP                         
+                178     LOAD_GLOBAL                     1: enumerate
+                180     LOAD_FAST                       6: chunk
+                182     CALL_FUNCTION                   1
+                184     GET_ITER                        
+                186     FOR_ITER                        19 (to 226)
+                188     UNPACK_SEQUENCE                 2
+                190     STORE_FAST                      8: j
+                192     STORE_FAST                      2: c
+                194     LOAD_GLOBAL                     0: _b85dec
+                196     LOAD_FAST                       2: c
+                198     BINARY_SUBSCR                   
+                200     LOAD_CONST                      1: None
+                202     IS_OP                           0 (is)
+                204     POP_JUMP_IF_FALSE               112 (to 224)
+                206     LOAD_GLOBAL                     10: ValueError
+                208     LOAD_CONST                      8: 'bad base85 character at position %d'
+                210     LOAD_FAST                       1: i
+                212     LOAD_FAST                       8: j
+                214     BINARY_ADD                      
+                216     BINARY_MODULO                   
+                218     CALL_FUNCTION                   1
+                220     LOAD_CONST                      1: None
+                222     RAISE_VARARGS                   2
+                224     JUMP_ABSOLUTE                   93 (to 186)
+                226     RAISE_VARARGS                   0
+                228     RERAISE                         0
+                230     SETUP_FINALLY                   9 (to 250)
+                232     LOAD_FAST                       4: out
+                234     LOAD_METHOD                     11: append
+                236     LOAD_FAST                       5: packI
+                238     LOAD_FAST                       7: acc
+                240     CALL_FUNCTION                   1
+                242     CALL_METHOD                     1
+                244     POP_TOP                         
+                246     POP_BLOCK                       
+                248     JUMP_ABSOLUTE                   55 (to 110)
+                250     DUP_TOP                         
+                252     LOAD_GLOBAL                     5: struct
+                254     LOAD_ATTR                       12: error
+                256     JUMP_IF_NOT_EXC_MATCH           139 (to 278)
+                258     POP_TOP                         
+                260     POP_TOP                         
+                262     POP_TOP                         
+                264     LOAD_GLOBAL                     10: ValueError
+                266     LOAD_CONST                      9: 'base85 overflow in hunk starting at byte %d'
+                268     LOAD_FAST                       1: i
+                270     BINARY_MODULO                   
+                272     CALL_FUNCTION                   1
+                274     LOAD_CONST                      1: None
+                276     RAISE_VARARGS                   2
+                278     RERAISE                         0
+                280     LOAD_CONST                      10: b''
+                282     LOAD_METHOD                     13: join
+                284     LOAD_FAST                       4: out
+                286     CALL_METHOD                     1
+                288     STORE_FAST                      9: result
+                290     LOAD_FAST                       3: padding
+                292     POP_JUMP_IF_FALSE               154 (to 308)
+                294     LOAD_FAST                       9: result
+                296     LOAD_CONST                      1: None
+                298     LOAD_FAST                       3: padding
+                300     UNARY_NEGATIVE                  
+                302     BUILD_SLICE                     2
+                304     BINARY_SUBSCR                   
+                306     STORE_FAST                      9: result
+                308     LOAD_FAST                       9: result
+                310     RETURN_VALUE                    
+        'b85decode'
+        76
+        4
+        3
+        [Code]
+            File Name: base64.py
+            Object Name: encode
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'read'
+                'MAXBINSIZE'
+                'len'
+                'binascii'
+                'b2a_base64'
+                'write'
+            [Var Names]
+                'input'
+                'output'
+                's'
+                'ns'
+                'line'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Encode a file; input and output are binary files.'
+                True
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_FAST                       0: input
+                4       LOAD_METHOD                     0: read
+                6       LOAD_GLOBAL                     1: MAXBINSIZE
+                8       CALL_METHOD                     1
+                10      STORE_FAST                      2: s
+                12      LOAD_FAST                       2: s
+                14      POP_JUMP_IF_TRUE                10 (to 20)
+                16      LOAD_CONST                      2: None
+                18      RETURN_VALUE                    
+                20      LOAD_GLOBAL                     2: len
+                22      LOAD_FAST                       2: s
+                24      CALL_FUNCTION                   1
+                26      LOAD_GLOBAL                     1: MAXBINSIZE
+                28      COMPARE_OP                      0 (<)
+                30      POP_JUMP_IF_FALSE               38 (to 76)
+                32      LOAD_FAST                       0: input
+                34      LOAD_METHOD                     0: read
+                36      LOAD_GLOBAL                     1: MAXBINSIZE
+                38      LOAD_GLOBAL                     2: len
+                40      LOAD_FAST                       2: s
+                42      CALL_FUNCTION                   1
+                44      BINARY_SUBTRACT                 
+                46      CALL_METHOD                     1
+                48      STORE_FAST                      3: ns
+                50      LOAD_FAST                       3: ns
+                52      POP_JUMP_IF_TRUE                28 (to 56)
+                54      JUMP_FORWARD                    10 (to 76)
+                56      LOAD_FAST                       2: s
+                58      LOAD_FAST                       3: ns
+                60      INPLACE_ADD                     
+                62      STORE_FAST                      2: s
+                64      LOAD_GLOBAL                     2: len
+                66      LOAD_FAST                       2: s
+                68      CALL_FUNCTION                   1
+                70      LOAD_GLOBAL                     1: MAXBINSIZE
+                72      COMPARE_OP                      0 (<)
+                74      POP_JUMP_IF_TRUE                16 (to 32)
+                76      LOAD_GLOBAL                     3: binascii
+                78      LOAD_METHOD                     4: b2a_base64
+                80      LOAD_FAST                       2: s
+                82      CALL_METHOD                     1
+                84      STORE_FAST                      4: line
+                86      LOAD_FAST                       1: output
+                88      LOAD_METHOD                     5: write
+                90      LOAD_FAST                       4: line
+                92      CALL_METHOD                     1
+                94      POP_TOP                         
+                96      JUMP_ABSOLUTE                   1 (to 2)
+        'encode'
+        [Code]
+            File Name: base64.py
+            Object Name: decode
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'readline'
+                'binascii'
+                'a2b_base64'
+                'write'
+            [Var Names]
+                'input'
+                'output'
+                'line'
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Decode a file; input and output are binary files.'
+                True
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_FAST                       0: input
+                4       LOAD_METHOD                     0: readline
+                6       CALL_METHOD                     0
+                8       STORE_FAST                      2: line
+                10      LOAD_FAST                       2: line
+                12      POP_JUMP_IF_TRUE                9 (to 18)
+                14      LOAD_CONST                      2: None
+                16      RETURN_VALUE                    
+                18      LOAD_GLOBAL                     1: binascii
+                20      LOAD_METHOD                     2: a2b_base64
+                22      LOAD_FAST                       2: line
+                24      CALL_METHOD                     1
+                26      STORE_FAST                      3: s
+                28      LOAD_FAST                       1: output
+                30      LOAD_METHOD                     3: write
+                32      LOAD_FAST                       3: s
+                34      CALL_METHOD                     1
+                36      POP_TOP                         
+                38      JUMP_ABSOLUTE                   1 (to 2)
+        'decode'
+        [Code]
+            File Name: base64.py
+            Object Name: _input_type_check
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 10
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'memoryview'
+                'TypeError'
+                '__class__'
+                '__name__'
+                'format'
+                'ndim'
+            [Var Names]
+                's'
+                'm'
+                'err'
+                'msg'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'expected bytes-like object, not %s'
+                (
+                    'c'
+                    'b'
+                    'B'
+                )
+                'expected single byte elements, not %r from %s'
+                1
+                'expected 1-D data, not %d-D data from %s'
+            [Disassembly]
+                0       SETUP_FINALLY                   6 (to 14)
+                2       LOAD_GLOBAL                     0: memoryview
+                4       LOAD_FAST                       0: s
+                6       CALL_FUNCTION                   1
+                8       STORE_FAST                      1: m
+                10      POP_BLOCK                       
+                12      JUMP_FORWARD                    23 (to 60)
+                14      DUP_TOP                         
+                16      LOAD_GLOBAL                     1: TypeError
+                18      JUMP_IF_NOT_EXC_MATCH           29 (to 58)
+                20      POP_TOP                         
+                22      STORE_FAST                      2: err
+                24      POP_TOP                         
+                26      SETUP_FINALLY                   11 (to 50)
+                28      LOAD_CONST                      1: 'expected bytes-like object, not %s'
+                30      LOAD_FAST                       0: s
+                32      LOAD_ATTR                       2: __class__
+                34      LOAD_ATTR                       3: __name__
+                36      BINARY_MODULO                   
+                38      STORE_FAST                      3: msg
+                40      LOAD_GLOBAL                     1: TypeError
+                42      LOAD_FAST                       3: msg
+                44      CALL_FUNCTION                   1
+                46      LOAD_FAST                       2: err
+                48      RAISE_VARARGS                   2
+                50      LOAD_CONST                      0: None
+                52      STORE_FAST                      2: err
+                54      DELETE_FAST                     2: err
+                56      RERAISE                         1
+                58      RERAISE                         0
+                60      LOAD_FAST                       1: m
+                62      LOAD_ATTR                       4: format
+                64      LOAD_CONST                      2: ('c', 'b', 'B')
+                66      CONTAINS_OP                     1 (not in)
+                68      POP_JUMP_IF_FALSE               48 (to 96)
+                70      LOAD_CONST                      3: 'expected single byte elements, not %r from %s'
+                72      LOAD_FAST                       1: m
+                74      LOAD_ATTR                       4: format
+                76      LOAD_FAST                       0: s
+                78      LOAD_ATTR                       2: __class__
+                80      LOAD_ATTR                       3: __name__
+                82      BUILD_TUPLE                     2
+                84      BINARY_MODULO                   
+                86      STORE_FAST                      3: msg
+                88      LOAD_GLOBAL                     1: TypeError
+                90      LOAD_FAST                       3: msg
+                92      CALL_FUNCTION                   1
+                94      RAISE_VARARGS                   1
+                96      LOAD_FAST                       1: m
+                98      LOAD_ATTR                       5: ndim
+                100     LOAD_CONST                      4: 1
+                102     COMPARE_OP                      3 (!=)
+                104     POP_JUMP_IF_FALSE               66 (to 132)
+                106     LOAD_CONST                      5: 'expected 1-D data, not %d-D data from %s'
+                108     LOAD_FAST                       1: m
+                110     LOAD_ATTR                       5: ndim
+                112     LOAD_FAST                       0: s
+                114     LOAD_ATTR                       2: __class__
+                116     LOAD_ATTR                       3: __name__
+                118     BUILD_TUPLE                     2
+                120     BINARY_MODULO                   
+                122     STORE_FAST                      3: msg
+                124     LOAD_GLOBAL                     1: TypeError
+                126     LOAD_FAST                       3: msg
+                128     CALL_FUNCTION                   1
+                130     RAISE_VARARGS                   1
+                132     LOAD_CONST                      0: None
+                134     RETURN_VALUE                    
+        '_input_type_check'
+        [Code]
+            File Name: base64.py
+            Object Name: encodebytes
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_input_type_check'
+                'range'
+                'len'
+                'MAXBINSIZE'
+                'append'
+                'binascii'
+                'b2a_base64'
+                'join'
+            [Var Names]
+                's'
+                'pieces'
+                'i'
+                'chunk'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Encode a bytestring into a bytes object containing multiple lines\n    of base-64 data.'
+                0
+                b''
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _input_type_check
+                2       LOAD_FAST                       0: s
+                4       CALL_FUNCTION                   1
+                6       POP_TOP                         
+                8       BUILD_LIST                      0
+                10      STORE_FAST                      1: pieces
+                12      LOAD_GLOBAL                     1: range
+                14      LOAD_CONST                      1: 0
+                16      LOAD_GLOBAL                     2: len
+                18      LOAD_FAST                       0: s
+                20      CALL_FUNCTION                   1
+                22      LOAD_GLOBAL                     3: MAXBINSIZE
+                24      CALL_FUNCTION                   3
+                26      GET_ITER                        
+                28      FOR_ITER                        18 (to 66)
+                30      STORE_FAST                      2: i
+                32      LOAD_FAST                       0: s
+                34      LOAD_FAST                       2: i
+                36      LOAD_FAST                       2: i
+                38      LOAD_GLOBAL                     3: MAXBINSIZE
+                40      BINARY_ADD                      
+                42      BUILD_SLICE                     2
+                44      BINARY_SUBSCR                   
+                46      STORE_FAST                      3: chunk
+                48      LOAD_FAST                       1: pieces
+                50      LOAD_METHOD                     4: append
+                52      LOAD_GLOBAL                     5: binascii
+                54      LOAD_METHOD                     6: b2a_base64
+                56      LOAD_FAST                       3: chunk
+                58      CALL_METHOD                     1
+                60      CALL_METHOD                     1
+                62      POP_TOP                         
+                64      JUMP_ABSOLUTE                   14 (to 28)
+                66      LOAD_CONST                      2: b''
+                68      LOAD_METHOD                     7: join
+                70      LOAD_FAST                       1: pieces
+                72      CALL_METHOD                     1
+                74      RETURN_VALUE                    
+        'encodebytes'
+        [Code]
+            File Name: base64.py
+            Object Name: decodebytes
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_input_type_check'
+                'binascii'
+                'a2b_base64'
+            [Var Names]
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Decode a bytestring of base-64 data into a bytes object.'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _input_type_check
+                2       LOAD_FAST                       0: s
+                4       CALL_FUNCTION                   1
+                6       POP_TOP                         
+                8       LOAD_GLOBAL                     1: binascii
+                10      LOAD_METHOD                     2: a2b_base64
+                12      LOAD_FAST                       0: s
+                14      CALL_METHOD                     1
+                16      RETURN_VALUE                    
+        'decodebytes'
+        [Code]
+            File Name: base64.py
+            Object Name: main
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 9
+            Stack Size: 10
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'sys'
+                'getopt'
+                'argv'
+                'error'
+                'stderr'
+                'stdout'
+                'print'
+                'exit'
+                'encode'
+                'decode'
+                'test'
+                'open'
+                'buffer'
+                'stdin'
+            [Var Names]
+                'sys'
+                'getopt'
+                'opts'
+                'args'
+                'msg'
+                'func'
+                'o'
+                'a'
+                'f'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Small main program'
+                0
+                None
+                1
+                'deut'
+                "usage: %s [-d|-e|-u|-t] [file|-]\n        -d, -u: decode\n        -e: encode (default)\n        -t: encode and decode string 'Aladdin:open sesame'"
+                2
+                '-e'
+                '-d'
+                '-u'
+                '-t'
+                '-'
+                'rb'
+            [Disassembly]
+                0       LOAD_CONST                      1: 0
+                2       LOAD_CONST                      2: None
+                4       IMPORT_NAME                     0: sys
+                6       STORE_FAST                      0: sys
+                8       LOAD_CONST                      1: 0
+                10      LOAD_CONST                      2: None
+                12      IMPORT_NAME                     1: getopt
+                14      STORE_FAST                      1: getopt
+                16      SETUP_FINALLY                   15 (to 48)
+                18      LOAD_FAST                       1: getopt
+                20      LOAD_METHOD                     1: getopt
+                22      LOAD_FAST                       0: sys
+                24      LOAD_ATTR                       2: argv
+                26      LOAD_CONST                      3: 1
+                28      LOAD_CONST                      2: None
+                30      BUILD_SLICE                     2
+                32      BINARY_SUBSCR                   
+                34      LOAD_CONST                      4: 'deut'
+                36      CALL_METHOD                     2
+                38      UNPACK_SEQUENCE                 2
+                40      STORE_FAST                      2: opts
+                42      STORE_FAST                      3: args
+                44      POP_BLOCK                       
+                46      JUMP_FORWARD                    41 (to 130)
+                48      DUP_TOP                         
+                50      LOAD_FAST                       1: getopt
+                52      LOAD_ATTR                       3: error
+                54      JUMP_IF_NOT_EXC_MATCH           64 (to 128)
+                56      POP_TOP                         
+                58      STORE_FAST                      4: msg
+                60      POP_TOP                         
+                62      SETUP_FINALLY                   28 (to 120)
+                64      LOAD_FAST                       0: sys
+                66      LOAD_ATTR                       4: stderr
+                68      LOAD_FAST                       0: sys
+                70      STORE_ATTR                      5: stdout
+                72      LOAD_GLOBAL                     6: print
+                74      LOAD_FAST                       4: msg
+                76      CALL_FUNCTION                   1
+                78      POP_TOP                         
+                80      LOAD_GLOBAL                     6: print
+                82      LOAD_CONST                      5: "usage: %s [-d|-e|-u|-t] [file|-]\n        -d, -u: decode\n        -e: encode (default)\n        -t: encode and decode string 'Aladdin:open sesame'"
+                84      LOAD_FAST                       0: sys
+                86      LOAD_ATTR                       2: argv
+                88      LOAD_CONST                      1: 0
+                90      BINARY_SUBSCR                   
+                92      BINARY_MODULO                   
+                94      CALL_FUNCTION                   1
+                96      POP_TOP                         
+                98      LOAD_FAST                       0: sys
+                100     LOAD_METHOD                     7: exit
+                102     LOAD_CONST                      6: 2
+                104     CALL_METHOD                     1
+                106     POP_TOP                         
+                108     POP_BLOCK                       
+                110     POP_EXCEPT                      
+                112     LOAD_CONST                      2: None
+                114     STORE_FAST                      4: msg
+                116     DELETE_FAST                     4: msg
+                118     JUMP_FORWARD                    5 (to 130)
+                120     LOAD_CONST                      2: None
+                122     STORE_FAST                      4: msg
+                124     DELETE_FAST                     4: msg
+                126     RERAISE                         1
+                128     RERAISE                         0
+                130     LOAD_GLOBAL                     8: encode
+                132     STORE_FAST                      5: func
+                134     LOAD_FAST                       2: opts
+                136     GET_ITER                        
+                138     FOR_ITER                        32 (to 204)
+                140     UNPACK_SEQUENCE                 2
+                142     STORE_FAST                      6: o
+                144     STORE_FAST                      7: a
+                146     LOAD_FAST                       6: o
+                148     LOAD_CONST                      7: '-e'
+                150     COMPARE_OP                      2 (==)
+                152     POP_JUMP_IF_FALSE               79 (to 158)
+                154     LOAD_GLOBAL                     8: encode
+                156     STORE_FAST                      5: func
+                158     LOAD_FAST                       6: o
+                160     LOAD_CONST                      8: '-d'
+                162     COMPARE_OP                      2 (==)
+                164     POP_JUMP_IF_FALSE               85 (to 170)
+                166     LOAD_GLOBAL                     9: decode
+                168     STORE_FAST                      5: func
+                170     LOAD_FAST                       6: o
+                172     LOAD_CONST                      9: '-u'
+                174     COMPARE_OP                      2 (==)
+                176     POP_JUMP_IF_FALSE               91 (to 182)
+                178     LOAD_GLOBAL                     9: decode
+                180     STORE_FAST                      5: func
+                182     LOAD_FAST                       6: o
+                184     LOAD_CONST                      10: '-t'
+                186     COMPARE_OP                      2 (==)
+                188     POP_JUMP_IF_FALSE               101 (to 202)
+                190     LOAD_GLOBAL                     10: test
+                192     CALL_FUNCTION                   0
+                194     POP_TOP                         
+                196     POP_TOP                         
+                198     LOAD_CONST                      2: None
+                200     RETURN_VALUE                    
+                202     JUMP_ABSOLUTE                   69 (to 138)
+                204     LOAD_FAST                       3: args
+                206     POP_JUMP_IF_FALSE               143 (to 286)
+                208     LOAD_FAST                       3: args
+                210     LOAD_CONST                      1: 0
+                212     BINARY_SUBSCR                   
+                214     LOAD_CONST                      11: '-'
+                216     COMPARE_OP                      3 (!=)
+                218     POP_JUMP_IF_FALSE               143 (to 286)
+                220     LOAD_GLOBAL                     11: open
+                222     LOAD_FAST                       3: args
+                224     LOAD_CONST                      1: 0
+                226     BINARY_SUBSCR                   
+                228     LOAD_CONST                      12: 'rb'
+                230     CALL_FUNCTION                   2
+                232     SETUP_WITH                      16 (to 266)
+                234     STORE_FAST                      8: f
+                236     LOAD_FAST                       5: func
+                238     LOAD_FAST                       8: f
+                240     LOAD_FAST                       0: sys
+                242     LOAD_ATTR                       5: stdout
+                244     LOAD_ATTR                       12: buffer
+                246     CALL_FUNCTION                   2
+                248     POP_TOP                         
+                250     POP_BLOCK                       
+                252     LOAD_CONST                      2: None
+                254     DUP_TOP                         
+                256     DUP_TOP                         
+                258     CALL_FUNCTION                   3
+                260     POP_TOP                         
+                262     LOAD_CONST                      2: None
+                264     RETURN_VALUE                    
+                266     WITH_EXCEPT_START               
+                268     POP_JUMP_IF_TRUE                136 (to 272)
+                270     RERAISE                         1
+                272     POP_TOP                         
+                274     POP_TOP                         
+                276     POP_TOP                         
+                278     POP_EXCEPT                      
+                280     POP_TOP                         
+                282     LOAD_CONST                      2: None
+                284     RETURN_VALUE                    
+                286     LOAD_FAST                       5: func
+                288     LOAD_FAST                       0: sys
+                290     LOAD_ATTR                       13: stdin
+                292     LOAD_ATTR                       12: buffer
+                294     LOAD_FAST                       0: sys
+                296     LOAD_ATTR                       5: stdout
+                298     LOAD_ATTR                       12: buffer
+                300     CALL_FUNCTION                   2
+                302     POP_TOP                         
+                304     LOAD_CONST                      2: None
+                306     RETURN_VALUE                    
+        'main'
+        [Code]
+            File Name: base64.py
+            Object Name: test
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'print'
+                'repr'
+                'encodebytes'
+                'decodebytes'
+            [Var Names]
+                's0'
+                's1'
+                's2'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                b'Aladdin:open sesame'
+            [Disassembly]
+                0       LOAD_CONST                      1: b'Aladdin:open sesame'
+                2       STORE_FAST                      0: s0
+                4       LOAD_GLOBAL                     0: print
+                6       LOAD_GLOBAL                     1: repr
+                8       LOAD_FAST                       0: s0
+                10      CALL_FUNCTION                   1
+                12      CALL_FUNCTION                   1
+                14      POP_TOP                         
+                16      LOAD_GLOBAL                     2: encodebytes
+                18      LOAD_FAST                       0: s0
+                20      CALL_FUNCTION                   1
+                22      STORE_FAST                      1: s1
+                24      LOAD_GLOBAL                     0: print
+                26      LOAD_GLOBAL                     1: repr
+                28      LOAD_FAST                       1: s1
+                30      CALL_FUNCTION                   1
+                32      CALL_FUNCTION                   1
+                34      POP_TOP                         
+                36      LOAD_GLOBAL                     3: decodebytes
+                38      LOAD_FAST                       1: s1
+                40      CALL_FUNCTION                   1
+                42      STORE_FAST                      2: s2
+                44      LOAD_GLOBAL                     0: print
+                46      LOAD_GLOBAL                     1: repr
+                48      LOAD_FAST                       2: s2
+                50      CALL_FUNCTION                   1
+                52      CALL_FUNCTION                   1
+                54      POP_TOP                         
+                56      LOAD_FAST                       0: s0
+                58      LOAD_FAST                       2: s2
+                60      COMPARE_OP                      2 (==)
+                62      POP_JUMP_IF_TRUE                34 (to 68)
+                64      LOAD_ASSERTION_ERROR            
+                66      RAISE_VARARGS                   1
+                68      LOAD_CONST                      0: None
+                70      RETURN_VALUE                    
+        'test'
+        '__main__'
+        (
+            None
+        )
+        (
+            None
+            False
+        )
+        (
+            False
+            None
+        )
+        (
+            False
+        )
+        (
+            False
+            False
+            False
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Base16, Base32, Base64 (RFC 3548), Base85 and Ascii85 data encodings'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: re
+        10      STORE_NAME                      1: re
+        12      LOAD_CONST                      1: 0
+        14      LOAD_CONST                      2: None
+        16      IMPORT_NAME                     2: struct
+        18      STORE_NAME                      2: struct
+        20      LOAD_CONST                      1: 0
+        22      LOAD_CONST                      2: None
+        24      IMPORT_NAME                     3: binascii
+        26      STORE_NAME                      3: binascii
+        28      BUILD_LIST                      0
+        30      LOAD_CONST                      3: ('encode', 'decode', 'encodebytes', 'decodebytes', 'b64encode', 'b64decode', 'b32encode', 'b32decode', 'b32hexencode', 'b32hexdecode', 'b16encode', 'b16decode', 'b85encode', 'b85decode', 'a85encode', 'a85decode', 'standard_b64encode', 'standard_b64decode', 'urlsafe_b64encode', 'urlsafe_b64decode')
+        32      LIST_EXTEND                     1
+        34      STORE_NAME                      4: __all__
+        36      LOAD_NAME                       5: bytes
+        38      LOAD_NAME                       6: bytearray
+        40      BUILD_TUPLE                     2
+        42      STORE_NAME                      7: bytes_types
+        44      LOAD_CONST                      4: <CODE> _bytes_from_decode_data
+        46      LOAD_CONST                      5: '_bytes_from_decode_data'
+        48      MAKE_FUNCTION                   0
+        50      STORE_NAME                      8: _bytes_from_decode_data
+        52      LOAD_CONST                      81: (None,)
+        54      LOAD_CONST                      6: <CODE> b64encode
+        56      LOAD_CONST                      7: 'b64encode'
+        58      MAKE_FUNCTION                   1
+        60      STORE_NAME                      9: b64encode
+        62      LOAD_CONST                      82: (None, False)
+        64      LOAD_CONST                      9: <CODE> b64decode
+        66      LOAD_CONST                      10: 'b64decode'
+        68      MAKE_FUNCTION                   1
+        70      STORE_NAME                      10: b64decode
+        72      LOAD_CONST                      11: <CODE> standard_b64encode
+        74      LOAD_CONST                      12: 'standard_b64encode'
+        76      MAKE_FUNCTION                   0
+        78      STORE_NAME                      11: standard_b64encode
+        80      LOAD_CONST                      13: <CODE> standard_b64decode
+        82      LOAD_CONST                      14: 'standard_b64decode'
+        84      MAKE_FUNCTION                   0
+        86      STORE_NAME                      12: standard_b64decode
+        88      LOAD_NAME                       5: bytes
+        90      LOAD_METHOD                     13: maketrans
+        92      LOAD_CONST                      15: b'+/'
+        94      LOAD_CONST                      16: b'-_'
+        96      CALL_METHOD                     2
+        98      STORE_NAME                      14: _urlsafe_encode_translation
+        100     LOAD_NAME                       5: bytes
+        102     LOAD_METHOD                     13: maketrans
+        104     LOAD_CONST                      16: b'-_'
+        106     LOAD_CONST                      15: b'+/'
+        108     CALL_METHOD                     2
+        110     STORE_NAME                      15: _urlsafe_decode_translation
+        112     LOAD_CONST                      17: <CODE> urlsafe_b64encode
+        114     LOAD_CONST                      18: 'urlsafe_b64encode'
+        116     MAKE_FUNCTION                   0
+        118     STORE_NAME                      16: urlsafe_b64encode
+        120     LOAD_CONST                      19: <CODE> urlsafe_b64decode
+        122     LOAD_CONST                      20: 'urlsafe_b64decode'
+        124     MAKE_FUNCTION                   0
+        126     STORE_NAME                      17: urlsafe_b64decode
+        128     LOAD_CONST                      21: '\nEncode the bytes-like objects using {encoding} and return a bytes object.\n'
+        130     STORE_NAME                      18: _B32_ENCODE_DOCSTRING
+        132     LOAD_CONST                      22: '\nDecode the {encoding} encoded bytes-like object or ASCII string s.\n\nOptional casefold is a flag specifying whether a lowercase alphabet is\nacceptable as input.  For security purposes, the default is False.\n{extra_args}\nThe result is returned as a bytes object.  A binascii.Error is raised if\nthe input is incorrectly padded or if there are non-alphabet\ncharacters present in the input.\n'
+        134     STORE_NAME                      19: _B32_DECODE_DOCSTRING
+        136     LOAD_CONST                      23: '\nRFC 3548 allows for optional mapping of the digit 0 (zero) to the\nletter O (oh), and for optional mapping of the digit 1 (one) to\neither the letter I (eye) or letter L (el).  The optional argument\nmap01 when not None, specifies which letter the digit 1 should be\nmapped to (when map01 is not None, the digit 0 is always mapped to\nthe letter O).  For security purposes the default is None, so that\n0 and 1 are not allowed in the input.\n'
+        138     STORE_NAME                      20: _B32_DECODE_MAP01_DOCSTRING
+        140     LOAD_CONST                      24: b'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567'
+        142     STORE_NAME                      21: _b32alphabet
+        144     LOAD_CONST                      25: b'0123456789ABCDEFGHIJKLMNOPQRSTUV'
+        146     STORE_NAME                      22: _b32hexalphabet
+        148     BUILD_MAP                       0
+        150     STORE_GLOBAL                    23: _b32tab2
+        152     BUILD_MAP                       0
+        154     STORE_GLOBAL                    24: _b32rev
+        156     LOAD_CONST                      26: <CODE> _b32encode
+        158     LOAD_CONST                      27: '_b32encode'
+        160     MAKE_FUNCTION                   0
+        162     STORE_NAME                      25: _b32encode
+        164     LOAD_CONST                      83: (False, None)
+        166     LOAD_CONST                      28: <CODE> _b32decode
+        168     LOAD_CONST                      29: '_b32decode'
+        170     MAKE_FUNCTION                   1
+        172     STORE_NAME                      26: _b32decode
+        174     LOAD_CONST                      30: <CODE> b32encode
+        176     LOAD_CONST                      31: 'b32encode'
+        178     MAKE_FUNCTION                   0
+        180     STORE_NAME                      27: b32encode
+        182     LOAD_NAME                       18: _B32_ENCODE_DOCSTRING
+        184     LOAD_ATTR                       28: format
+        186     LOAD_CONST                      32: 'base32'
+        188     LOAD_CONST                      33: ('encoding',)
+        190     CALL_FUNCTION_KW                1
+        192     LOAD_NAME                       27: b32encode
+        194     STORE_ATTR                      0: __doc__
+        196     LOAD_CONST                      83: (False, None)
+        198     LOAD_CONST                      34: <CODE> b32decode
+        200     LOAD_CONST                      35: 'b32decode'
+        202     MAKE_FUNCTION                   1
+        204     STORE_NAME                      29: b32decode
+        206     LOAD_NAME                       19: _B32_DECODE_DOCSTRING
+        208     LOAD_ATTR                       28: format
+        210     LOAD_CONST                      32: 'base32'
+        212     LOAD_NAME                       20: _B32_DECODE_MAP01_DOCSTRING
+        214     LOAD_CONST                      36: ('encoding', 'extra_args')
+        216     CALL_FUNCTION_KW                2
+        218     LOAD_NAME                       29: b32decode
+        220     STORE_ATTR                      0: __doc__
+        222     LOAD_CONST                      37: <CODE> b32hexencode
+        224     LOAD_CONST                      38: 'b32hexencode'
+        226     MAKE_FUNCTION                   0
+        228     STORE_NAME                      30: b32hexencode
+        230     LOAD_NAME                       18: _B32_ENCODE_DOCSTRING
+        232     LOAD_ATTR                       28: format
+        234     LOAD_CONST                      39: 'base32hex'
+        236     LOAD_CONST                      33: ('encoding',)
+        238     CALL_FUNCTION_KW                1
+        240     LOAD_NAME                       30: b32hexencode
+        242     STORE_ATTR                      0: __doc__
+        244     LOAD_CONST                      84: (False,)
+        246     LOAD_CONST                      40: <CODE> b32hexdecode
+        248     LOAD_CONST                      41: 'b32hexdecode'
+        250     MAKE_FUNCTION                   1
+        252     STORE_NAME                      31: b32hexdecode
+        254     LOAD_NAME                       19: _B32_DECODE_DOCSTRING
+        256     LOAD_ATTR                       28: format
+        258     LOAD_CONST                      39: 'base32hex'
+        260     LOAD_CONST                      42: ''
+        262     LOAD_CONST                      36: ('encoding', 'extra_args')
+        264     CALL_FUNCTION_KW                2
+        266     LOAD_NAME                       31: b32hexdecode
+        268     STORE_ATTR                      0: __doc__
+        270     LOAD_CONST                      43: <CODE> b16encode
+        272     LOAD_CONST                      44: 'b16encode'
+        274     MAKE_FUNCTION                   0
+        276     STORE_NAME                      32: b16encode
+        278     LOAD_CONST                      84: (False,)
+        280     LOAD_CONST                      45: <CODE> b16decode
+        282     LOAD_CONST                      46: 'b16decode'
+        284     MAKE_FUNCTION                   1
+        286     STORE_NAME                      33: b16decode
+        288     LOAD_CONST                      2: None
+        290     STORE_GLOBAL                    34: _a85chars
+        292     LOAD_CONST                      2: None
+        294     STORE_GLOBAL                    35: _a85chars2
+        296     LOAD_CONST                      47: b'<~'
+        298     STORE_NAME                      36: _A85START
+        300     LOAD_CONST                      48: b'~>'
+        302     STORE_NAME                      37: _A85END
+        304     LOAD_CONST                      85: (False, False, False)
+        306     LOAD_CONST                      49: <CODE> _85encode
+        308     LOAD_CONST                      50: '_85encode'
+        310     MAKE_FUNCTION                   1
+        312     STORE_NAME                      38: _85encode
+        314     LOAD_CONST                      8: False
+        316     LOAD_CONST                      1: 0
+        318     LOAD_CONST                      8: False
+        320     LOAD_CONST                      8: False
+        322     LOAD_CONST                      51: ('foldspaces', 'wrapcol', 'pad', 'adobe')
+        324     BUILD_CONST_KEY_MAP             4
+        326     LOAD_CONST                      52: <CODE> a85encode
+        328     LOAD_CONST                      53: 'a85encode'
+        330     MAKE_FUNCTION                   2
+        332     STORE_NAME                      39: a85encode
+        334     LOAD_CONST                      8: False
+        336     LOAD_CONST                      8: False
+        338     LOAD_CONST                      54: b' \t\n\r\x0b'
+        340     LOAD_CONST                      55: ('foldspaces', 'adobe', 'ignorechars')
+        342     BUILD_CONST_KEY_MAP             3
+        344     LOAD_CONST                      56: <CODE> a85decode
+        346     LOAD_CONST                      57: 'a85decode'
+        348     MAKE_FUNCTION                   2
+        350     STORE_NAME                      40: a85decode
+        352     LOAD_CONST                      58: b'0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-;<=>?@^_`{|}~'
+        354     STORE_NAME                      41: _b85alphabet
+        356     LOAD_CONST                      2: None
+        358     STORE_GLOBAL                    42: _b85chars
+        360     LOAD_CONST                      2: None
+        362     STORE_GLOBAL                    43: _b85chars2
+        364     LOAD_CONST                      2: None
+        366     STORE_GLOBAL                    44: _b85dec
+        368     LOAD_CONST                      84: (False,)
+        370     LOAD_CONST                      59: <CODE> b85encode
+        372     LOAD_CONST                      60: 'b85encode'
+        374     MAKE_FUNCTION                   1
+        376     STORE_NAME                      45: b85encode
+        378     LOAD_CONST                      61: <CODE> b85decode
+        380     LOAD_CONST                      62: 'b85decode'
+        382     MAKE_FUNCTION                   0
+        384     STORE_NAME                      46: b85decode
+        386     LOAD_CONST                      63: 76
+        388     STORE_NAME                      47: MAXLINESIZE
+        390     LOAD_NAME                       47: MAXLINESIZE
+        392     LOAD_CONST                      64: 4
+        394     BINARY_FLOOR_DIVIDE             
+        396     LOAD_CONST                      65: 3
+        398     BINARY_MULTIPLY                 
+        400     STORE_NAME                      48: MAXBINSIZE
+        402     LOAD_CONST                      66: <CODE> encode
+        404     LOAD_CONST                      67: 'encode'
+        406     MAKE_FUNCTION                   0
+        408     STORE_NAME                      49: encode
+        410     LOAD_CONST                      68: <CODE> decode
+        412     LOAD_CONST                      69: 'decode'
+        414     MAKE_FUNCTION                   0
+        416     STORE_NAME                      50: decode
+        418     LOAD_CONST                      70: <CODE> _input_type_check
+        420     LOAD_CONST                      71: '_input_type_check'
+        422     MAKE_FUNCTION                   0
+        424     STORE_NAME                      51: _input_type_check
+        426     LOAD_CONST                      72: <CODE> encodebytes
+        428     LOAD_CONST                      73: 'encodebytes'
+        430     MAKE_FUNCTION                   0
+        432     STORE_NAME                      52: encodebytes
+        434     LOAD_CONST                      74: <CODE> decodebytes
+        436     LOAD_CONST                      75: 'decodebytes'
+        438     MAKE_FUNCTION                   0
+        440     STORE_NAME                      53: decodebytes
+        442     LOAD_CONST                      76: <CODE> main
+        444     LOAD_CONST                      77: 'main'
+        446     MAKE_FUNCTION                   0
+        448     STORE_NAME                      54: main
+        450     LOAD_CONST                      78: <CODE> test
+        452     LOAD_CONST                      79: 'test'
+        454     MAKE_FUNCTION                   0
+        456     STORE_NAME                      55: test
+        458     LOAD_NAME                       56: __name__
+        460     LOAD_CONST                      80: '__main__'
+        462     COMPARE_OP                      2 (==)
+        464     POP_JUMP_IF_FALSE               238 (to 476)
+        466     LOAD_NAME                       54: main
+        468     CALL_FUNCTION                   0
+        470     POP_TOP                         
+        472     LOAD_CONST                      2: None
+        474     RETURN_VALUE                    
+        476     LOAD_CONST                      2: None
+        478     RETURN_VALUE                    

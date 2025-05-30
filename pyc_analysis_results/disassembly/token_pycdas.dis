@@ -1,0 +1,620 @@
+token.pyc (Python 3.10)
+[Code]
+    File Name: token.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 15
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        'ENDMARKER'
+        'NAME'
+        'NUMBER'
+        'STRING'
+        'NEWLINE'
+        'INDENT'
+        'DEDENT'
+        'LPAR'
+        'RPAR'
+        'LSQB'
+        'RSQB'
+        'COLON'
+        'COMMA'
+        'SEMI'
+        'PLUS'
+        'MINUS'
+        'STAR'
+        'SLASH'
+        'VBAR'
+        'AMPER'
+        'LESS'
+        'GREATER'
+        'EQUAL'
+        'DOT'
+        'PERCENT'
+        'LBRACE'
+        'RBRACE'
+        'EQEQUAL'
+        'NOTEQUAL'
+        'LESSEQUAL'
+        'GREATEREQUAL'
+        'TILDE'
+        'CIRCUMFLEX'
+        'LEFTSHIFT'
+        'RIGHTSHIFT'
+        'DOUBLESTAR'
+        'PLUSEQUAL'
+        'MINEQUAL'
+        'STAREQUAL'
+        'SLASHEQUAL'
+        'PERCENTEQUAL'
+        'AMPEREQUAL'
+        'VBAREQUAL'
+        'CIRCUMFLEXEQUAL'
+        'LEFTSHIFTEQUAL'
+        'RIGHTSHIFTEQUAL'
+        'DOUBLESTAREQUAL'
+        'DOUBLESLASH'
+        'DOUBLESLASHEQUAL'
+        'AT'
+        'ATEQUAL'
+        'RARROW'
+        'ELLIPSIS'
+        'COLONEQUAL'
+        'OP'
+        'AWAIT'
+        'ASYNC'
+        'TYPE_IGNORE'
+        'TYPE_COMMENT'
+        'SOFT_KEYWORD'
+        'ERRORTOKEN'
+        'COMMENT'
+        'NL'
+        'ENCODING'
+        'N_TOKENS'
+        'NT_OFFSET'
+        'globals'
+        'items'
+        'tok_name'
+        'extend'
+        'values'
+        'EXACT_TOKEN_TYPES'
+        'ISTERMINAL'
+        'ISNONTERMINAL'
+        'ISEOF'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Token constants.'
+        (
+            'tok_name'
+            'ISTERMINAL'
+            'ISNONTERMINAL'
+            'ISEOF'
+        )
+        0
+        1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+        11
+        12
+        13
+        14
+        15
+        16
+        17
+        18
+        19
+        20
+        21
+        22
+        23
+        24
+        25
+        26
+        27
+        28
+        29
+        30
+        31
+        32
+        33
+        34
+        35
+        36
+        37
+        38
+        39
+        40
+        41
+        42
+        43
+        44
+        45
+        46
+        47
+        48
+        49
+        50
+        51
+        52
+        53
+        54
+        55
+        56
+        57
+        58
+        59
+        60
+        61
+        62
+        63
+        64
+        256
+        [Code]
+            File Name: token.py
+            Object Name: <dictcomp>
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'int'
+                'startswith'
+            [Var Names]
+                '.0'
+                'name'
+                'value'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '_'
+            [Disassembly]
+                0       BUILD_MAP                       0
+                2       LOAD_FAST                       0: .0
+                4       FOR_ITER                        17 (to 40)
+                6       UNPACK_SEQUENCE                 2
+                8       STORE_FAST                      1: name
+                10      STORE_FAST                      2: value
+                12      LOAD_GLOBAL                     0: isinstance
+                14      LOAD_FAST                       2: value
+                16      LOAD_GLOBAL                     1: int
+                18      CALL_FUNCTION                   2
+                20      POP_JUMP_IF_FALSE               2 (to 4)
+                22      LOAD_FAST                       1: name
+                24      LOAD_METHOD                     2: startswith
+                26      LOAD_CONST                      0: '_'
+                28      CALL_METHOD                     1
+                30      POP_JUMP_IF_TRUE                2 (to 4)
+                32      LOAD_FAST                       2: value
+                34      LOAD_FAST                       1: name
+                36      MAP_ADD                         2
+                38      JUMP_ABSOLUTE                   2 (to 4)
+                40      RETURN_VALUE                    
+        '<dictcomp>'
+        '!='
+        '%'
+        '%='
+        '&'
+        '&='
+        '('
+        ')'
+        '*'
+        '**'
+        '**='
+        '*='
+        '+'
+        '+='
+        ','
+        '-'
+        '-='
+        '->'
+        '.'
+        '...'
+        '/'
+        '//'
+        '//='
+        '/='
+        ':'
+        ':='
+        ';'
+        '<'
+        '<<'
+        '<<='
+        '<='
+        '='
+        '=='
+        '>'
+        '>='
+        (
+            '>>'
+            '>>='
+            '@'
+            '@='
+            '['
+            ']'
+            '^'
+            '^='
+            '{'
+            '|'
+            '|='
+            '}'
+            '~'
+        )
+        [Code]
+            File Name: token.py
+            Object Name: ISTERMINAL
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'NT_OFFSET'
+            [Var Names]
+                'x'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: x
+                2       LOAD_GLOBAL                     0: NT_OFFSET
+                4       COMPARE_OP                      0 (<)
+                6       RETURN_VALUE                    
+        'ISTERMINAL'
+        [Code]
+            File Name: token.py
+            Object Name: ISNONTERMINAL
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'NT_OFFSET'
+            [Var Names]
+                'x'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: x
+                2       LOAD_GLOBAL                     0: NT_OFFSET
+                4       COMPARE_OP                      5 (>=)
+                6       RETURN_VALUE                    
+        'ISNONTERMINAL'
+        [Code]
+            File Name: token.py
+            Object Name: ISEOF
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ENDMARKER'
+            [Var Names]
+                'x'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: x
+                2       LOAD_GLOBAL                     0: ENDMARKER
+                4       COMPARE_OP                      2 (==)
+                6       RETURN_VALUE                    
+        'ISEOF'
+        None
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Token constants.'
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('tok_name', 'ISTERMINAL', 'ISNONTERMINAL', 'ISEOF')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: 0
+        14      STORE_NAME                      2: ENDMARKER
+        16      LOAD_CONST                      3: 1
+        18      STORE_NAME                      3: NAME
+        20      LOAD_CONST                      4: 2
+        22      STORE_NAME                      4: NUMBER
+        24      LOAD_CONST                      5: 3
+        26      STORE_NAME                      5: STRING
+        28      LOAD_CONST                      6: 4
+        30      STORE_NAME                      6: NEWLINE
+        32      LOAD_CONST                      7: 5
+        34      STORE_NAME                      7: INDENT
+        36      LOAD_CONST                      8: 6
+        38      STORE_NAME                      8: DEDENT
+        40      LOAD_CONST                      9: 7
+        42      STORE_NAME                      9: LPAR
+        44      LOAD_CONST                      10: 8
+        46      STORE_NAME                      10: RPAR
+        48      LOAD_CONST                      11: 9
+        50      STORE_NAME                      11: LSQB
+        52      LOAD_CONST                      12: 10
+        54      STORE_NAME                      12: RSQB
+        56      LOAD_CONST                      13: 11
+        58      STORE_NAME                      13: COLON
+        60      LOAD_CONST                      14: 12
+        62      STORE_NAME                      14: COMMA
+        64      LOAD_CONST                      15: 13
+        66      STORE_NAME                      15: SEMI
+        68      LOAD_CONST                      16: 14
+        70      STORE_NAME                      16: PLUS
+        72      LOAD_CONST                      17: 15
+        74      STORE_NAME                      17: MINUS
+        76      LOAD_CONST                      18: 16
+        78      STORE_NAME                      18: STAR
+        80      LOAD_CONST                      19: 17
+        82      STORE_NAME                      19: SLASH
+        84      LOAD_CONST                      20: 18
+        86      STORE_NAME                      20: VBAR
+        88      LOAD_CONST                      21: 19
+        90      STORE_NAME                      21: AMPER
+        92      LOAD_CONST                      22: 20
+        94      STORE_NAME                      22: LESS
+        96      LOAD_CONST                      23: 21
+        98      STORE_NAME                      23: GREATER
+        100     LOAD_CONST                      24: 22
+        102     STORE_NAME                      24: EQUAL
+        104     LOAD_CONST                      25: 23
+        106     STORE_NAME                      25: DOT
+        108     LOAD_CONST                      26: 24
+        110     STORE_NAME                      26: PERCENT
+        112     LOAD_CONST                      27: 25
+        114     STORE_NAME                      27: LBRACE
+        116     LOAD_CONST                      28: 26
+        118     STORE_NAME                      28: RBRACE
+        120     LOAD_CONST                      29: 27
+        122     STORE_NAME                      29: EQEQUAL
+        124     LOAD_CONST                      30: 28
+        126     STORE_NAME                      30: NOTEQUAL
+        128     LOAD_CONST                      31: 29
+        130     STORE_NAME                      31: LESSEQUAL
+        132     LOAD_CONST                      32: 30
+        134     STORE_NAME                      32: GREATEREQUAL
+        136     LOAD_CONST                      33: 31
+        138     STORE_NAME                      33: TILDE
+        140     LOAD_CONST                      34: 32
+        142     STORE_NAME                      34: CIRCUMFLEX
+        144     LOAD_CONST                      35: 33
+        146     STORE_NAME                      35: LEFTSHIFT
+        148     LOAD_CONST                      36: 34
+        150     STORE_NAME                      36: RIGHTSHIFT
+        152     LOAD_CONST                      37: 35
+        154     STORE_NAME                      37: DOUBLESTAR
+        156     LOAD_CONST                      38: 36
+        158     STORE_NAME                      38: PLUSEQUAL
+        160     LOAD_CONST                      39: 37
+        162     STORE_NAME                      39: MINEQUAL
+        164     LOAD_CONST                      40: 38
+        166     STORE_NAME                      40: STAREQUAL
+        168     LOAD_CONST                      41: 39
+        170     STORE_NAME                      41: SLASHEQUAL
+        172     LOAD_CONST                      42: 40
+        174     STORE_NAME                      42: PERCENTEQUAL
+        176     LOAD_CONST                      43: 41
+        178     STORE_NAME                      43: AMPEREQUAL
+        180     LOAD_CONST                      44: 42
+        182     STORE_NAME                      44: VBAREQUAL
+        184     LOAD_CONST                      45: 43
+        186     STORE_NAME                      45: CIRCUMFLEXEQUAL
+        188     LOAD_CONST                      46: 44
+        190     STORE_NAME                      46: LEFTSHIFTEQUAL
+        192     LOAD_CONST                      47: 45
+        194     STORE_NAME                      47: RIGHTSHIFTEQUAL
+        196     LOAD_CONST                      48: 46
+        198     STORE_NAME                      48: DOUBLESTAREQUAL
+        200     LOAD_CONST                      49: 47
+        202     STORE_NAME                      49: DOUBLESLASH
+        204     LOAD_CONST                      50: 48
+        206     STORE_NAME                      50: DOUBLESLASHEQUAL
+        208     LOAD_CONST                      51: 49
+        210     STORE_NAME                      51: AT
+        212     LOAD_CONST                      52: 50
+        214     STORE_NAME                      52: ATEQUAL
+        216     LOAD_CONST                      53: 51
+        218     STORE_NAME                      53: RARROW
+        220     LOAD_CONST                      54: 52
+        222     STORE_NAME                      54: ELLIPSIS
+        224     LOAD_CONST                      55: 53
+        226     STORE_NAME                      55: COLONEQUAL
+        228     LOAD_CONST                      56: 54
+        230     STORE_NAME                      56: OP
+        232     LOAD_CONST                      57: 55
+        234     STORE_NAME                      57: AWAIT
+        236     LOAD_CONST                      58: 56
+        238     STORE_NAME                      58: ASYNC
+        240     LOAD_CONST                      59: 57
+        242     STORE_NAME                      59: TYPE_IGNORE
+        244     LOAD_CONST                      60: 58
+        246     STORE_NAME                      60: TYPE_COMMENT
+        248     LOAD_CONST                      61: 59
+        250     STORE_NAME                      61: SOFT_KEYWORD
+        252     LOAD_CONST                      62: 60
+        254     STORE_NAME                      62: ERRORTOKEN
+        256     LOAD_CONST                      63: 61
+        258     STORE_NAME                      63: COMMENT
+        260     LOAD_CONST                      64: 62
+        262     STORE_NAME                      64: NL
+        264     LOAD_CONST                      65: 63
+        266     STORE_NAME                      65: ENCODING
+        268     LOAD_CONST                      66: 64
+        270     STORE_NAME                      66: N_TOKENS
+        272     LOAD_CONST                      67: 256
+        274     STORE_NAME                      67: NT_OFFSET
+        276     LOAD_CONST                      68: <CODE> <dictcomp>
+        278     LOAD_CONST                      69: '<dictcomp>'
+        280     MAKE_FUNCTION                   0
+        282     LOAD_NAME                       68: globals
+        284     CALL_FUNCTION                   0
+        286     LOAD_METHOD                     69: items
+        288     CALL_METHOD                     0
+        290     GET_ITER                        
+        292     CALL_FUNCTION                   1
+        294     STORE_NAME                      70: tok_name
+        296     LOAD_NAME                       1: __all__
+        298     LOAD_METHOD                     71: extend
+        300     LOAD_NAME                       70: tok_name
+        302     LOAD_METHOD                     72: values
+        304     CALL_METHOD                     0
+        306     CALL_METHOD                     1
+        308     POP_TOP                         
+        310     BUILD_MAP                       0
+        312     LOAD_CONST                      70: '!='
+        314     LOAD_NAME                       30: NOTEQUAL
+        316     MAP_ADD                         1
+        318     LOAD_CONST                      71: '%'
+        320     LOAD_NAME                       26: PERCENT
+        322     MAP_ADD                         1
+        324     LOAD_CONST                      72: '%='
+        326     LOAD_NAME                       42: PERCENTEQUAL
+        328     MAP_ADD                         1
+        330     LOAD_CONST                      73: '&'
+        332     LOAD_NAME                       21: AMPER
+        334     MAP_ADD                         1
+        336     LOAD_CONST                      74: '&='
+        338     LOAD_NAME                       43: AMPEREQUAL
+        340     MAP_ADD                         1
+        342     LOAD_CONST                      75: '('
+        344     LOAD_NAME                       9: LPAR
+        346     MAP_ADD                         1
+        348     LOAD_CONST                      76: ')'
+        350     LOAD_NAME                       10: RPAR
+        352     MAP_ADD                         1
+        354     LOAD_CONST                      77: '*'
+        356     LOAD_NAME                       18: STAR
+        358     MAP_ADD                         1
+        360     LOAD_CONST                      78: '**'
+        362     LOAD_NAME                       37: DOUBLESTAR
+        364     MAP_ADD                         1
+        366     LOAD_CONST                      79: '**='
+        368     LOAD_NAME                       48: DOUBLESTAREQUAL
+        370     MAP_ADD                         1
+        372     LOAD_CONST                      80: '*='
+        374     LOAD_NAME                       40: STAREQUAL
+        376     MAP_ADD                         1
+        378     LOAD_CONST                      81: '+'
+        380     LOAD_NAME                       16: PLUS
+        382     MAP_ADD                         1
+        384     LOAD_CONST                      82: '+='
+        386     LOAD_NAME                       38: PLUSEQUAL
+        388     MAP_ADD                         1
+        390     LOAD_CONST                      83: ','
+        392     LOAD_NAME                       14: COMMA
+        394     MAP_ADD                         1
+        396     LOAD_CONST                      84: '-'
+        398     LOAD_NAME                       17: MINUS
+        400     MAP_ADD                         1
+        402     LOAD_CONST                      85: '-='
+        404     LOAD_NAME                       39: MINEQUAL
+        406     MAP_ADD                         1
+        408     LOAD_CONST                      86: '->'
+        410     LOAD_NAME                       53: RARROW
+        412     MAP_ADD                         1
+        414     BUILD_MAP                       0
+        416     LOAD_CONST                      87: '.'
+        418     LOAD_NAME                       25: DOT
+        420     MAP_ADD                         1
+        422     LOAD_CONST                      88: '...'
+        424     LOAD_NAME                       54: ELLIPSIS
+        426     MAP_ADD                         1
+        428     LOAD_CONST                      89: '/'
+        430     LOAD_NAME                       19: SLASH
+        432     MAP_ADD                         1
+        434     LOAD_CONST                      90: '//'
+        436     LOAD_NAME                       49: DOUBLESLASH
+        438     MAP_ADD                         1
+        440     LOAD_CONST                      91: '//='
+        442     LOAD_NAME                       50: DOUBLESLASHEQUAL
+        444     MAP_ADD                         1
+        446     LOAD_CONST                      92: '/='
+        448     LOAD_NAME                       41: SLASHEQUAL
+        450     MAP_ADD                         1
+        452     LOAD_CONST                      93: ':'
+        454     LOAD_NAME                       13: COLON
+        456     MAP_ADD                         1
+        458     LOAD_CONST                      94: ':='
+        460     LOAD_NAME                       55: COLONEQUAL
+        462     MAP_ADD                         1
+        464     LOAD_CONST                      95: ';'
+        466     LOAD_NAME                       15: SEMI
+        468     MAP_ADD                         1
+        470     LOAD_CONST                      96: '<'
+        472     LOAD_NAME                       22: LESS
+        474     MAP_ADD                         1
+        476     LOAD_CONST                      97: '<<'
+        478     LOAD_NAME                       35: LEFTSHIFT
+        480     MAP_ADD                         1
+        482     LOAD_CONST                      98: '<<='
+        484     LOAD_NAME                       46: LEFTSHIFTEQUAL
+        486     MAP_ADD                         1
+        488     LOAD_CONST                      99: '<='
+        490     LOAD_NAME                       31: LESSEQUAL
+        492     MAP_ADD                         1
+        494     LOAD_CONST                      100: '='
+        496     LOAD_NAME                       24: EQUAL
+        498     MAP_ADD                         1
+        500     LOAD_CONST                      101: '=='
+        502     LOAD_NAME                       29: EQEQUAL
+        504     MAP_ADD                         1
+        506     LOAD_CONST                      102: '>'
+        508     LOAD_NAME                       23: GREATER
+        510     MAP_ADD                         1
+        512     LOAD_CONST                      103: '>='
+        514     LOAD_NAME                       32: GREATEREQUAL
+        516     MAP_ADD                         1
+        518     DICT_UPDATE                     1
+        520     LOAD_NAME                       36: RIGHTSHIFT
+        522     LOAD_NAME                       47: RIGHTSHIFTEQUAL
+        524     LOAD_NAME                       51: AT
+        526     LOAD_NAME                       52: ATEQUAL
+        528     LOAD_NAME                       11: LSQB
+        530     LOAD_NAME                       12: RSQB
+        532     LOAD_NAME                       34: CIRCUMFLEX
+        534     LOAD_NAME                       45: CIRCUMFLEXEQUAL
+        536     LOAD_NAME                       27: LBRACE
+        538     LOAD_NAME                       20: VBAR
+        540     LOAD_NAME                       44: VBAREQUAL
+        542     LOAD_NAME                       28: RBRACE
+        544     LOAD_NAME                       33: TILDE
+        546     LOAD_CONST                      104: ('>>', '>>=', '@', '@=', '[', ']', '^', '^=', '{', '|', '|=', '}', '~')
+        548     BUILD_CONST_KEY_MAP             13
+        550     DICT_UPDATE                     1
+        552     STORE_NAME                      73: EXACT_TOKEN_TYPES
+        554     LOAD_CONST                      105: <CODE> ISTERMINAL
+        556     LOAD_CONST                      106: 'ISTERMINAL'
+        558     MAKE_FUNCTION                   0
+        560     STORE_NAME                      74: ISTERMINAL
+        562     LOAD_CONST                      107: <CODE> ISNONTERMINAL
+        564     LOAD_CONST                      108: 'ISNONTERMINAL'
+        566     MAKE_FUNCTION                   0
+        568     STORE_NAME                      75: ISNONTERMINAL
+        570     LOAD_CONST                      109: <CODE> ISEOF
+        572     LOAD_CONST                      110: 'ISEOF'
+        574     MAKE_FUNCTION                   0
+        576     STORE_NAME                      76: ISEOF
+        578     LOAD_CONST                      111: None
+        580     RETURN_VALUE                    

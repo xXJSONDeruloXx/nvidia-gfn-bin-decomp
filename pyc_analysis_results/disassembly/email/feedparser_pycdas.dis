@@ -1,0 +1,2320 @@
+feedparser.pyc (Python 3.10)
+[Code]
+    File Name: email/feedparser.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        're'
+        'email'
+        'errors'
+        'email._policybase'
+        'compat32'
+        'collections'
+        'deque'
+        'io'
+        'StringIO'
+        'compile'
+        'NLCRE'
+        'NLCRE_bol'
+        'NLCRE_eol'
+        'NLCRE_crack'
+        'headerRE'
+        'EMPTYSTRING'
+        'NL'
+        'object'
+        'NeedMoreData'
+        'BufferedSubFile'
+        'FeedParser'
+        'BytesFeedParser'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        "FeedParser - An email feed parser.\n\nThe feed parser implements an interface for incrementally parsing an email\nmessage, line by line.  This has advantages for certain applications, such as\nthose reading email messages off a socket.\n\nFeedParser.feed() is the primary interface for pushing new data into the\nparser.  It returns when there's nothing more it can do with the available\ndata.  When you have no more data to push into the parser, call .close().\nThis completes the parsing and returns the root message object.\n\nThe other advantage of this parser is that it will never raise a parsing\nexception.  Instead, when it finds something unexpected, it adds a 'defect' to\nthe current message.  Defects are just instances that live on the message\nobject's .defects attribute.\n"
+        'FeedParser'
+        'BytesFeedParser'
+        0
+        None
+        (
+            'errors'
+        )
+        (
+            'compat32'
+        )
+        (
+            'deque'
+        )
+        (
+            'StringIO'
+        )
+        '\\r\\n|\\r|\\n'
+        '(\\r\\n|\\r|\\n)'
+        '(\\r\\n|\\r|\\n)\\Z'
+        '^(From |[\\041-\\071\\073-\\176]*:|[\\t ])'
+        ''
+        '\n'
+        [Code]
+            File Name: email/feedparser.py
+            Object Name: BufferedSubFile
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                'push_eof_matcher'
+                'pop_eof_matcher'
+                'close'
+                'readline'
+                'unreadline'
+                'push'
+                'pushlines'
+                '__iter__'
+                '__next__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'BufferedSubFile'
+                'A file-ish object that can have new data loaded into it.\n\n    You can also push and pop line-matching predicates onto a stack.  When the\n    current predicate matches the current line, a false EOF response\n    (i.e. empty string) is returned instead.  This lets the parser adhere to a\n    simple abstraction -- it parses until EOF closes the current message.\n    '
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'StringIO'
+                        '_partial'
+                        'deque'
+                        '_lines'
+                        '_eofstack'
+                        '_closed'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        ''
+                        (
+                            'newline'
+                        )
+                        False
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: StringIO
+                        2       LOAD_CONST                      1: ''
+                        4       LOAD_CONST                      2: ('newline',)
+                        6       CALL_FUNCTION_KW                1
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: _partial
+                        12      LOAD_GLOBAL                     2: deque
+                        14      CALL_FUNCTION                   0
+                        16      LOAD_FAST                       0: self
+                        18      STORE_ATTR                      3: _lines
+                        20      BUILD_LIST                      0
+                        22      LOAD_FAST                       0: self
+                        24      STORE_ATTR                      4: _eofstack
+                        26      LOAD_CONST                      3: False
+                        28      LOAD_FAST                       0: self
+                        30      STORE_ATTR                      5: _closed
+                        32      LOAD_CONST                      0: None
+                        34      RETURN_VALUE                    
+                'BufferedSubFile.__init__'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: push_eof_matcher
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_eofstack'
+                        'append'
+                    [Var Names]
+                        'self'
+                        'pred'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _eofstack
+                        4       LOAD_METHOD                     1: append
+                        6       LOAD_FAST                       1: pred
+                        8       CALL_METHOD                     1
+                        10      POP_TOP                         
+                        12      LOAD_CONST                      0: None
+                        14      RETURN_VALUE                    
+                'BufferedSubFile.push_eof_matcher'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: pop_eof_matcher
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_eofstack'
+                        'pop'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _eofstack
+                        4       LOAD_METHOD                     1: pop
+                        6       CALL_METHOD                     0
+                        8       RETURN_VALUE                    
+                'BufferedSubFile.pop_eof_matcher'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: close
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_partial'
+                        'seek'
+                        'pushlines'
+                        'readlines'
+                        'truncate'
+                        '_closed'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                        True
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _partial
+                        4       LOAD_METHOD                     1: seek
+                        6       LOAD_CONST                      1: 0
+                        8       CALL_METHOD                     1
+                        10      POP_TOP                         
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_METHOD                     2: pushlines
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       0: _partial
+                        20      LOAD_METHOD                     3: readlines
+                        22      CALL_METHOD                     0
+                        24      CALL_METHOD                     1
+                        26      POP_TOP                         
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: _partial
+                        32      LOAD_METHOD                     1: seek
+                        34      LOAD_CONST                      1: 0
+                        36      CALL_METHOD                     1
+                        38      POP_TOP                         
+                        40      LOAD_FAST                       0: self
+                        42      LOAD_ATTR                       0: _partial
+                        44      LOAD_METHOD                     4: truncate
+                        46      CALL_METHOD                     0
+                        48      POP_TOP                         
+                        50      LOAD_CONST                      2: True
+                        52      LOAD_FAST                       0: self
+                        54      STORE_ATTR                      5: _closed
+                        56      LOAD_CONST                      0: None
+                        58      RETURN_VALUE                    
+                'BufferedSubFile.close'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: readline
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_lines'
+                        '_closed'
+                        'NeedMoreData'
+                        'popleft'
+                        'reversed'
+                        '_eofstack'
+                        'appendleft'
+                    [Var Names]
+                        'self'
+                        'line'
+                        'ateof'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        ''
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _lines
+                        4       POP_JUMP_IF_TRUE                10 (to 20)
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_ATTR                       1: _closed
+                        10      POP_JUMP_IF_FALSE               8 (to 16)
+                        12      LOAD_CONST                      1: ''
+                        14      RETURN_VALUE                    
+                        16      LOAD_GLOBAL                     2: NeedMoreData
+                        18      RETURN_VALUE                    
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       0: _lines
+                        24      LOAD_METHOD                     3: popleft
+                        26      CALL_METHOD                     0
+                        28      STORE_FAST                      1: line
+                        30      LOAD_GLOBAL                     4: reversed
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       5: _eofstack
+                        36      CALL_FUNCTION                   1
+                        38      GET_ITER                        
+                        40      FOR_ITER                        15 (to 72)
+                        42      STORE_FAST                      2: ateof
+                        44      LOAD_FAST                       2: ateof
+                        46      LOAD_FAST                       1: line
+                        48      CALL_FUNCTION                   1
+                        50      POP_JUMP_IF_FALSE               35 (to 70)
+                        52      LOAD_FAST                       0: self
+                        54      LOAD_ATTR                       0: _lines
+                        56      LOAD_METHOD                     6: appendleft
+                        58      LOAD_FAST                       1: line
+                        60      CALL_METHOD                     1
+                        62      POP_TOP                         
+                        64      POP_TOP                         
+                        66      LOAD_CONST                      1: ''
+                        68      RETURN_VALUE                    
+                        70      JUMP_ABSOLUTE                   20 (to 40)
+                        72      LOAD_FAST                       1: line
+                        74      RETURN_VALUE                    
+                'BufferedSubFile.readline'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: unreadline
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NeedMoreData'
+                        '_lines'
+                        'appendleft'
+                    [Var Names]
+                        'self'
+                        'line'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: line
+                        2       LOAD_GLOBAL                     0: NeedMoreData
+                        4       IS_OP                           1 (is not)
+                        6       POP_JUMP_IF_TRUE                6 (to 12)
+                        8       LOAD_ASSERTION_ERROR            
+                        10      RAISE_VARARGS                   1
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_ATTR                       1: _lines
+                        16      LOAD_METHOD                     2: appendleft
+                        18      LOAD_FAST                       1: line
+                        20      CALL_METHOD                     1
+                        22      POP_TOP                         
+                        24      LOAD_CONST                      0: None
+                        26      RETURN_VALUE                    
+                'BufferedSubFile.unreadline'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: push
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_partial'
+                        'write'
+                        'seek'
+                        'readlines'
+                        'truncate'
+                        'endswith'
+                        'pop'
+                        'pushlines'
+                    [Var Names]
+                        'self'
+                        'data'
+                        'parts'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Push some new data into this object.'
+                        '\n'
+                        '\r'
+                        None
+                        0
+                        -1
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _partial
+                        4       LOAD_METHOD                     1: write
+                        6       LOAD_FAST                       1: data
+                        8       CALL_METHOD                     1
+                        10      POP_TOP                         
+                        12      LOAD_CONST                      1: '\n'
+                        14      LOAD_FAST                       1: data
+                        16      CONTAINS_OP                     1 (not in)
+                        18      POP_JUMP_IF_FALSE               16 (to 32)
+                        20      LOAD_CONST                      2: '\r'
+                        22      LOAD_FAST                       1: data
+                        24      CONTAINS_OP                     1 (not in)
+                        26      POP_JUMP_IF_FALSE               16 (to 32)
+                        28      LOAD_CONST                      3: None
+                        30      RETURN_VALUE                    
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       0: _partial
+                        36      LOAD_METHOD                     2: seek
+                        38      LOAD_CONST                      4: 0
+                        40      CALL_METHOD                     1
+                        42      POP_TOP                         
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_ATTR                       0: _partial
+                        48      LOAD_METHOD                     3: readlines
+                        50      CALL_METHOD                     0
+                        52      STORE_FAST                      2: parts
+                        54      LOAD_FAST                       0: self
+                        56      LOAD_ATTR                       0: _partial
+                        58      LOAD_METHOD                     2: seek
+                        60      LOAD_CONST                      4: 0
+                        62      CALL_METHOD                     1
+                        64      POP_TOP                         
+                        66      LOAD_FAST                       0: self
+                        68      LOAD_ATTR                       0: _partial
+                        70      LOAD_METHOD                     4: truncate
+                        72      CALL_METHOD                     0
+                        74      POP_TOP                         
+                        76      LOAD_FAST                       2: parts
+                        78      LOAD_CONST                      5: -1
+                        80      BINARY_SUBSCR                   
+                        82      LOAD_METHOD                     5: endswith
+                        84      LOAD_CONST                      1: '\n'
+                        86      CALL_METHOD                     1
+                        88      POP_JUMP_IF_TRUE                53 (to 106)
+                        90      LOAD_FAST                       0: self
+                        92      LOAD_ATTR                       0: _partial
+                        94      LOAD_METHOD                     1: write
+                        96      LOAD_FAST                       2: parts
+                        98      LOAD_METHOD                     6: pop
+                        100     CALL_METHOD                     0
+                        102     CALL_METHOD                     1
+                        104     POP_TOP                         
+                        106     LOAD_FAST                       0: self
+                        108     LOAD_METHOD                     7: pushlines
+                        110     LOAD_FAST                       2: parts
+                        112     CALL_METHOD                     1
+                        114     POP_TOP                         
+                        116     LOAD_CONST                      3: None
+                        118     RETURN_VALUE                    
+                'BufferedSubFile.push'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: pushlines
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_lines'
+                        'extend'
+                    [Var Names]
+                        'self'
+                        'lines'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _lines
+                        4       LOAD_METHOD                     1: extend
+                        6       LOAD_FAST                       1: lines
+                        8       CALL_METHOD                     1
+                        10      POP_TOP                         
+                        12      LOAD_CONST                      0: None
+                        14      RETURN_VALUE                    
+                'BufferedSubFile.pushlines'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: __iter__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       RETURN_VALUE                    
+                'BufferedSubFile.__iter__'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: __next__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'readline'
+                        'StopIteration'
+                    [Var Names]
+                        'self'
+                        'line'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        ''
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: readline
+                        4       CALL_METHOD                     0
+                        6       STORE_FAST                      1: line
+                        8       LOAD_FAST                       1: line
+                        10      LOAD_CONST                      1: ''
+                        12      COMPARE_OP                      2 (==)
+                        14      POP_JUMP_IF_FALSE               10 (to 20)
+                        16      LOAD_GLOBAL                     1: StopIteration
+                        18      RAISE_VARARGS                   1
+                        20      LOAD_FAST                       1: line
+                        22      RETURN_VALUE                    
+                'BufferedSubFile.__next__'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'BufferedSubFile'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'A file-ish object that can have new data loaded into it.\n\n    You can also push and pop line-matching predicates onto a stack.  When the\n    current predicate matches the current line, a false EOF response\n    (i.e. empty string) is returned instead.  This lets the parser adhere to a\n    simple abstraction -- it parses until EOF closes the current message.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> __init__
+                14      LOAD_CONST                      3: 'BufferedSubFile.__init__'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: __init__
+                20      LOAD_CONST                      4: <CODE> push_eof_matcher
+                22      LOAD_CONST                      5: 'BufferedSubFile.push_eof_matcher'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: push_eof_matcher
+                28      LOAD_CONST                      6: <CODE> pop_eof_matcher
+                30      LOAD_CONST                      7: 'BufferedSubFile.pop_eof_matcher'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      6: pop_eof_matcher
+                36      LOAD_CONST                      8: <CODE> close
+                38      LOAD_CONST                      9: 'BufferedSubFile.close'
+                40      MAKE_FUNCTION                   0
+                42      STORE_NAME                      7: close
+                44      LOAD_CONST                      10: <CODE> readline
+                46      LOAD_CONST                      11: 'BufferedSubFile.readline'
+                48      MAKE_FUNCTION                   0
+                50      STORE_NAME                      8: readline
+                52      LOAD_CONST                      12: <CODE> unreadline
+                54      LOAD_CONST                      13: 'BufferedSubFile.unreadline'
+                56      MAKE_FUNCTION                   0
+                58      STORE_NAME                      9: unreadline
+                60      LOAD_CONST                      14: <CODE> push
+                62      LOAD_CONST                      15: 'BufferedSubFile.push'
+                64      MAKE_FUNCTION                   0
+                66      STORE_NAME                      10: push
+                68      LOAD_CONST                      16: <CODE> pushlines
+                70      LOAD_CONST                      17: 'BufferedSubFile.pushlines'
+                72      MAKE_FUNCTION                   0
+                74      STORE_NAME                      11: pushlines
+                76      LOAD_CONST                      18: <CODE> __iter__
+                78      LOAD_CONST                      19: 'BufferedSubFile.__iter__'
+                80      MAKE_FUNCTION                   0
+                82      STORE_NAME                      12: __iter__
+                84      LOAD_CONST                      20: <CODE> __next__
+                86      LOAD_CONST                      21: 'BufferedSubFile.__next__'
+                88      MAKE_FUNCTION                   0
+                90      STORE_NAME                      13: __next__
+                92      LOAD_CONST                      22: None
+                94      RETURN_VALUE                    
+        'BufferedSubFile'
+        [Code]
+            File Name: email/feedparser.py
+            Object Name: FeedParser
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'compat32'
+                '__init__'
+                '_set_headersonly'
+                'feed'
+                '_call_parse'
+                'close'
+                '_new_message'
+                '_pop_message'
+                '_parsegen'
+                '_parse_headers'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'FeedParser'
+                'A feed-style parser of email.'
+                None
+                (
+                    'policy'
+                )
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 1
+                    Locals: 4
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'policy'
+                        '_old_style_factory'
+                        'message_factory'
+                        'email.message'
+                        'Message'
+                        '_factory'
+                        'TypeError'
+                        'BufferedSubFile'
+                        '_input'
+                        '_msgstack'
+                        '_parsegen'
+                        '__next__'
+                        '_parse'
+                        '_cur'
+                        '_last'
+                        '_headersonly'
+                    [Var Names]
+                        'self'
+                        '_factory'
+                        'policy'
+                        'Message'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "_factory is called with no arguments to create a new message obj\n\n        The policy keyword specifies a policy object that controls a number of\n        aspects of the parser's operation.  The default policy maintains\n        backward compatibility.\n\n        "
+                        False
+                        None
+                        0
+                        (
+                            'Message'
+                        )
+                        (
+                            'policy'
+                        )
+                        True
+                    [Disassembly]
+                        0       LOAD_FAST                       2: policy
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: policy
+                        6       LOAD_CONST                      1: False
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: _old_style_factory
+                        12      LOAD_FAST                       1: _factory
+                        14      LOAD_CONST                      2: None
+                        16      IS_OP                           0 (is)
+                        18      POP_JUMP_IF_FALSE               30 (to 60)
+                        20      LOAD_FAST                       2: policy
+                        22      LOAD_ATTR                       2: message_factory
+                        24      LOAD_CONST                      2: None
+                        26      IS_OP                           0 (is)
+                        28      POP_JUMP_IF_FALSE               25 (to 50)
+                        30      LOAD_CONST                      3: 0
+                        32      LOAD_CONST                      4: ('Message',)
+                        34      IMPORT_NAME                     3: email.message
+                        36      IMPORT_FROM                     4: Message
+                        38      STORE_FAST                      3: Message
+                        40      POP_TOP                         
+                        42      LOAD_FAST                       3: Message
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      5: _factory
+                        48      JUMP_FORWARD                    29 (to 108)
+                        50      LOAD_FAST                       2: policy
+                        52      LOAD_ATTR                       2: message_factory
+                        54      LOAD_FAST                       0: self
+                        56      STORE_ATTR                      5: _factory
+                        58      JUMP_FORWARD                    24 (to 108)
+                        60      LOAD_FAST                       1: _factory
+                        62      LOAD_FAST                       0: self
+                        64      STORE_ATTR                      5: _factory
+                        66      SETUP_FINALLY                   8 (to 84)
+                        68      LOAD_FAST                       1: _factory
+                        70      LOAD_FAST                       0: self
+                        72      LOAD_ATTR                       0: policy
+                        74      LOAD_CONST                      5: ('policy',)
+                        76      CALL_FUNCTION_KW                1
+                        78      POP_TOP                         
+                        80      POP_BLOCK                       
+                        82      JUMP_FORWARD                    12 (to 108)
+                        84      DUP_TOP                         
+                        86      LOAD_GLOBAL                     6: TypeError
+                        88      JUMP_IF_NOT_EXC_MATCH           53 (to 106)
+                        90      POP_TOP                         
+                        92      POP_TOP                         
+                        94      POP_TOP                         
+                        96      LOAD_CONST                      6: True
+                        98      LOAD_FAST                       0: self
+                        100     STORE_ATTR                      1: _old_style_factory
+                        102     POP_EXCEPT                      
+                        104     JUMP_FORWARD                    1 (to 108)
+                        106     RERAISE                         0
+                        108     LOAD_GLOBAL                     7: BufferedSubFile
+                        110     CALL_FUNCTION                   0
+                        112     LOAD_FAST                       0: self
+                        114     STORE_ATTR                      8: _input
+                        116     BUILD_LIST                      0
+                        118     LOAD_FAST                       0: self
+                        120     STORE_ATTR                      9: _msgstack
+                        122     LOAD_FAST                       0: self
+                        124     LOAD_METHOD                     10: _parsegen
+                        126     CALL_METHOD                     0
+                        128     LOAD_ATTR                       11: __next__
+                        130     LOAD_FAST                       0: self
+                        132     STORE_ATTR                      12: _parse
+                        134     LOAD_CONST                      2: None
+                        136     LOAD_FAST                       0: self
+                        138     STORE_ATTR                      13: _cur
+                        140     LOAD_CONST                      2: None
+                        142     LOAD_FAST                       0: self
+                        144     STORE_ATTR                      14: _last
+                        146     LOAD_CONST                      1: False
+                        148     LOAD_FAST                       0: self
+                        150     STORE_ATTR                      15: _headersonly
+                        152     LOAD_CONST                      2: None
+                        154     RETURN_VALUE                    
+                'FeedParser.__init__'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: _set_headersonly
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_headersonly'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        True
+                    [Disassembly]
+                        0       LOAD_CONST                      1: True
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: _headersonly
+                        6       LOAD_CONST                      0: None
+                        8       RETURN_VALUE                    
+                'FeedParser._set_headersonly'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: feed
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_input'
+                        'push'
+                        '_call_parse'
+                    [Var Names]
+                        'self'
+                        'data'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Push more data into the parser.'
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _input
+                        4       LOAD_METHOD                     1: push
+                        6       LOAD_FAST                       1: data
+                        8       CALL_METHOD                     1
+                        10      POP_TOP                         
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_METHOD                     2: _call_parse
+                        16      CALL_METHOD                     0
+                        18      POP_TOP                         
+                        20      LOAD_CONST                      1: None
+                        22      RETURN_VALUE                    
+                'FeedParser.feed'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: _call_parse
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_parse'
+                        'StopIteration'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       SETUP_FINALLY                   7 (to 16)
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_METHOD                     0: _parse
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      POP_BLOCK                       
+                        12      LOAD_CONST                      0: None
+                        14      RETURN_VALUE                    
+                        16      DUP_TOP                         
+                        18      LOAD_GLOBAL                     1: StopIteration
+                        20      JUMP_IF_NOT_EXC_MATCH           17 (to 34)
+                        22      POP_TOP                         
+                        24      POP_TOP                         
+                        26      POP_TOP                         
+                        28      POP_EXCEPT                      
+                        30      LOAD_CONST                      0: None
+                        32      RETURN_VALUE                    
+                        34      RERAISE                         0
+                'FeedParser._call_parse'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: close
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_input'
+                        'close'
+                        '_call_parse'
+                        '_pop_message'
+                        '_msgstack'
+                        'get_content_maintype'
+                        'is_multipart'
+                        'errors'
+                        'MultipartInvariantViolationDefect'
+                        'policy'
+                        'handle_defect'
+                    [Var Names]
+                        'self'
+                        'root'
+                        'defect'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Parse all remaining data and return the root message object.'
+                        'multipart'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _input
+                        4       LOAD_METHOD                     1: close
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_METHOD                     2: _call_parse
+                        14      CALL_METHOD                     0
+                        16      POP_TOP                         
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_METHOD                     3: _pop_message
+                        22      CALL_METHOD                     0
+                        24      STORE_FAST                      1: root
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_ATTR                       4: _msgstack
+                        30      POP_JUMP_IF_FALSE               18 (to 36)
+                        32      LOAD_ASSERTION_ERROR            
+                        34      RAISE_VARARGS                   1
+                        36      LOAD_FAST                       1: root
+                        38      LOAD_METHOD                     5: get_content_maintype
+                        40      CALL_METHOD                     0
+                        42      LOAD_CONST                      1: 'multipart'
+                        44      COMPARE_OP                      2 (==)
+                        46      POP_JUMP_IF_FALSE               39 (to 78)
+                        48      LOAD_FAST                       1: root
+                        50      LOAD_METHOD                     6: is_multipart
+                        52      CALL_METHOD                     0
+                        54      POP_JUMP_IF_TRUE                39 (to 78)
+                        56      LOAD_GLOBAL                     7: errors
+                        58      LOAD_METHOD                     8: MultipartInvariantViolationDefect
+                        60      CALL_METHOD                     0
+                        62      STORE_FAST                      2: defect
+                        64      LOAD_FAST                       0: self
+                        66      LOAD_ATTR                       9: policy
+                        68      LOAD_METHOD                     10: handle_defect
+                        70      LOAD_FAST                       1: root
+                        72      LOAD_FAST                       2: defect
+                        74      CALL_METHOD                     2
+                        76      POP_TOP                         
+                        78      LOAD_FAST                       1: root
+                        80      RETURN_VALUE                    
+                'FeedParser.close'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: _new_message
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_old_style_factory'
+                        '_factory'
+                        'policy'
+                        '_cur'
+                        'get_content_type'
+                        'set_default_type'
+                        '_msgstack'
+                        'attach'
+                        'append'
+                        '_last'
+                    [Var Names]
+                        'self'
+                        'msg'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        (
+                            'policy'
+                        )
+                        'multipart/digest'
+                        'message/rfc822'
+                        -1
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _old_style_factory
+                        4       POP_JUMP_IF_FALSE               8 (to 16)
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_METHOD                     1: _factory
+                        10      CALL_METHOD                     0
+                        12      STORE_FAST                      1: msg
+                        14      JUMP_FORWARD                    7 (to 30)
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       1: _factory
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       2: policy
+                        24      LOAD_CONST                      1: ('policy',)
+                        26      CALL_FUNCTION_KW                1
+                        28      STORE_FAST                      1: msg
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_ATTR                       3: _cur
+                        34      POP_JUMP_IF_FALSE               30 (to 60)
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_ATTR                       3: _cur
+                        40      LOAD_METHOD                     4: get_content_type
+                        42      CALL_METHOD                     0
+                        44      LOAD_CONST                      2: 'multipart/digest'
+                        46      COMPARE_OP                      2 (==)
+                        48      POP_JUMP_IF_FALSE               30 (to 60)
+                        50      LOAD_FAST                       1: msg
+                        52      LOAD_METHOD                     5: set_default_type
+                        54      LOAD_CONST                      3: 'message/rfc822'
+                        56      CALL_METHOD                     1
+                        58      POP_TOP                         
+                        60      LOAD_FAST                       0: self
+                        62      LOAD_ATTR                       6: _msgstack
+                        64      POP_JUMP_IF_FALSE               41 (to 82)
+                        66      LOAD_FAST                       0: self
+                        68      LOAD_ATTR                       6: _msgstack
+                        70      LOAD_CONST                      4: -1
+                        72      BINARY_SUBSCR                   
+                        74      LOAD_METHOD                     7: attach
+                        76      LOAD_FAST                       1: msg
+                        78      CALL_METHOD                     1
+                        80      POP_TOP                         
+                        82      LOAD_FAST                       0: self
+                        84      LOAD_ATTR                       6: _msgstack
+                        86      LOAD_METHOD                     8: append
+                        88      LOAD_FAST                       1: msg
+                        90      CALL_METHOD                     1
+                        92      POP_TOP                         
+                        94      LOAD_FAST                       1: msg
+                        96      LOAD_FAST                       0: self
+                        98      STORE_ATTR                      3: _cur
+                        100     LOAD_FAST                       1: msg
+                        102     LOAD_FAST                       0: self
+                        104     STORE_ATTR                      9: _last
+                        106     LOAD_CONST                      0: None
+                        108     RETURN_VALUE                    
+                'FeedParser._new_message'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: _pop_message
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_msgstack'
+                        'pop'
+                        '_cur'
+                    [Var Names]
+                        'self'
+                        'retval'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        -1
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _msgstack
+                        4       LOAD_METHOD                     1: pop
+                        6       CALL_METHOD                     0
+                        8       STORE_FAST                      1: retval
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       0: _msgstack
+                        14      POP_JUMP_IF_FALSE               16 (to 32)
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       0: _msgstack
+                        20      LOAD_CONST                      1: -1
+                        22      BINARY_SUBSCR                   
+                        24      LOAD_FAST                       0: self
+                        26      STORE_ATTR                      2: _cur
+                        28      LOAD_FAST                       1: retval
+                        30      RETURN_VALUE                    
+                        32      LOAD_CONST                      0: None
+                        34      LOAD_FAST                       0: self
+                        36      STORE_ATTR                      2: _cur
+                        38      LOAD_FAST                       1: retval
+                        40      RETURN_VALUE                    
+                'FeedParser._pop_message'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: _parsegen
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 22
+                    Stack Size: 6
+                    Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+                    [Names]
+                        '_new_message'
+                        '_input'
+                        'NeedMoreData'
+                        'headerRE'
+                        'match'
+                        'NLCRE'
+                        'errors'
+                        'MissingHeaderBodySeparatorDefect'
+                        'policy'
+                        'handle_defect'
+                        '_cur'
+                        'unreadline'
+                        'append'
+                        '_parse_headers'
+                        '_headersonly'
+                        'readline'
+                        'set_payload'
+                        'EMPTYSTRING'
+                        'join'
+                        'get_content_type'
+                        'push_eof_matcher'
+                        '_parsegen'
+                        '_pop_message'
+                        'pop_eof_matcher'
+                        'get_content_maintype'
+                        'get_boundary'
+                        'NoBoundaryInMultipartDefect'
+                        'str'
+                        'get'
+                        'lower'
+                        'InvalidMultipartContentTransferEncodingDefect'
+                        're'
+                        'compile'
+                        'escape'
+                        'group'
+                        'NLCRE_eol'
+                        'search'
+                        'len'
+                        'preamble'
+                        '_last'
+                        'epilogue'
+                        '_payload'
+                        'isinstance'
+                        'StartBoundaryNotFoundDefect'
+                        'CloseBoundaryNotFoundDefect'
+                        'NLCRE_bol'
+                    [Var Names]
+                        'self'
+                        'headers'
+                        'line'
+                        'defect'
+                        'lines'
+                        'retval'
+                        'msg'
+                        'boundary'
+                        'separator'
+                        'boundaryre'
+                        'capturing_preamble'
+                        'preamble'
+                        'linesep'
+                        'close_boundary_seen'
+                        'mo'
+                        'lastline'
+                        'eolmo'
+                        'epilogue'
+                        'end'
+                        'payload'
+                        'firstline'
+                        'bolmo'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        True
+                        ''
+                        'message/delivery-status'
+                        'message'
+                        'multipart'
+                        'content-transfer-encoding'
+                        '8bit'
+                        (
+                            '7bit'
+                            '8bit'
+                            'binary'
+                        )
+                        '--'
+                        '(?P<sep>'
+                        ')(?P<end>--)?(?P<ws>[ \\t]*)(?P<linesep>\\r\\n|\\r|\\n)?$'
+                        False
+                        'end'
+                        'linesep'
+                        -1
+                        0
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_METHOD                     0: _new_message
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      BUILD_LIST                      0
+                        12      STORE_FAST                      1: headers
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_ATTR                       1: _input
+                        18      GET_ITER                        
+                        20      FOR_ITER                        45 (to 112)
+                        22      STORE_FAST                      2: line
+                        24      LOAD_FAST                       2: line
+                        26      LOAD_GLOBAL                     2: NeedMoreData
+                        28      IS_OP                           0 (is)
+                        30      POP_JUMP_IF_FALSE               20 (to 40)
+                        32      LOAD_GLOBAL                     2: NeedMoreData
+                        34      YIELD_VALUE                     
+                        36      POP_TOP                         
+                        38      JUMP_ABSOLUTE                   10 (to 20)
+                        40      LOAD_GLOBAL                     3: headerRE
+                        42      LOAD_METHOD                     4: match
+                        44      LOAD_FAST                       2: line
+                        46      CALL_METHOD                     1
+                        48      POP_JUMP_IF_TRUE                50 (to 100)
+                        50      LOAD_GLOBAL                     5: NLCRE
+                        52      LOAD_METHOD                     4: match
+                        54      LOAD_FAST                       2: line
+                        56      CALL_METHOD                     1
+                        58      POP_JUMP_IF_TRUE                48 (to 96)
+                        60      LOAD_GLOBAL                     6: errors
+                        62      LOAD_METHOD                     7: MissingHeaderBodySeparatorDefect
+                        64      CALL_METHOD                     0
+                        66      STORE_FAST                      3: defect
+                        68      LOAD_FAST                       0: self
+                        70      LOAD_ATTR                       8: policy
+                        72      LOAD_METHOD                     9: handle_defect
+                        74      LOAD_FAST                       0: self
+                        76      LOAD_ATTR                       10: _cur
+                        78      LOAD_FAST                       3: defect
+                        80      CALL_METHOD                     2
+                        82      POP_TOP                         
+                        84      LOAD_FAST                       0: self
+                        86      LOAD_ATTR                       1: _input
+                        88      LOAD_METHOD                     11: unreadline
+                        90      LOAD_FAST                       2: line
+                        92      CALL_METHOD                     1
+                        94      POP_TOP                         
+                        96      POP_TOP                         
+                        98      JUMP_FORWARD                    6 (to 112)
+                        100     LOAD_FAST                       1: headers
+                        102     LOAD_METHOD                     12: append
+                        104     LOAD_FAST                       2: line
+                        106     CALL_METHOD                     1
+                        108     POP_TOP                         
+                        110     JUMP_ABSOLUTE                   10 (to 20)
+                        112     LOAD_FAST                       0: self
+                        114     LOAD_METHOD                     13: _parse_headers
+                        116     LOAD_FAST                       1: headers
+                        118     CALL_METHOD                     1
+                        120     POP_TOP                         
+                        122     LOAD_FAST                       0: self
+                        124     LOAD_ATTR                       14: _headersonly
+                        126     POP_JUMP_IF_FALSE               102 (to 204)
+                        128     BUILD_LIST                      0
+                        130     STORE_FAST                      4: lines
+                        132     NOP                             
+                        134     LOAD_FAST                       0: self
+                        136     LOAD_ATTR                       1: _input
+                        138     LOAD_METHOD                     15: readline
+                        140     CALL_METHOD                     0
+                        142     STORE_FAST                      2: line
+                        144     LOAD_FAST                       2: line
+                        146     LOAD_GLOBAL                     2: NeedMoreData
+                        148     IS_OP                           0 (is)
+                        150     POP_JUMP_IF_FALSE               80 (to 160)
+                        152     LOAD_GLOBAL                     2: NeedMoreData
+                        154     YIELD_VALUE                     
+                        156     POP_TOP                         
+                        158     JUMP_ABSOLUTE                   66 (to 132)
+                        160     LOAD_FAST                       2: line
+                        162     LOAD_CONST                      2: ''
+                        164     COMPARE_OP                      2 (==)
+                        166     POP_JUMP_IF_FALSE               85 (to 170)
+                        168     JUMP_FORWARD                    6 (to 182)
+                        170     LOAD_FAST                       4: lines
+                        172     LOAD_METHOD                     12: append
+                        174     LOAD_FAST                       2: line
+                        176     CALL_METHOD                     1
+                        178     POP_TOP                         
+                        180     JUMP_ABSOLUTE                   67 (to 134)
+                        182     LOAD_FAST                       0: self
+                        184     LOAD_ATTR                       10: _cur
+                        186     LOAD_METHOD                     16: set_payload
+                        188     LOAD_GLOBAL                     17: EMPTYSTRING
+                        190     LOAD_METHOD                     18: join
+                        192     LOAD_FAST                       4: lines
+                        194     CALL_METHOD                     1
+                        196     CALL_METHOD                     1
+                        198     POP_TOP                         
+                        200     LOAD_CONST                      0: None
+                        202     RETURN_VALUE                    
+                        204     LOAD_FAST                       0: self
+                        206     LOAD_ATTR                       10: _cur
+                        208     LOAD_METHOD                     19: get_content_type
+                        210     CALL_METHOD                     0
+                        212     LOAD_CONST                      3: 'message/delivery-status'
+                        214     COMPARE_OP                      2 (==)
+                        216     POP_JUMP_IF_FALSE               185 (to 370)
+                        218     NOP                             
+                        220     LOAD_FAST                       0: self
+                        222     LOAD_ATTR                       1: _input
+                        224     LOAD_METHOD                     20: push_eof_matcher
+                        226     LOAD_GLOBAL                     5: NLCRE
+                        228     LOAD_ATTR                       4: match
+                        230     CALL_METHOD                     1
+                        232     POP_TOP                         
+                        234     LOAD_FAST                       0: self
+                        236     LOAD_METHOD                     21: _parsegen
+                        238     CALL_METHOD                     0
+                        240     GET_ITER                        
+                        242     FOR_ITER                        10 (to 264)
+                        244     STORE_FAST                      5: retval
+                        246     LOAD_FAST                       5: retval
+                        248     LOAD_GLOBAL                     2: NeedMoreData
+                        250     IS_OP                           0 (is)
+                        252     POP_JUMP_IF_FALSE               131 (to 262)
+                        254     LOAD_GLOBAL                     2: NeedMoreData
+                        256     YIELD_VALUE                     
+                        258     POP_TOP                         
+                        260     JUMP_ABSOLUTE                   121 (to 242)
+                        262     POP_TOP                         
+                        264     LOAD_FAST                       0: self
+                        266     LOAD_METHOD                     22: _pop_message
+                        268     CALL_METHOD                     0
+                        270     STORE_FAST                      6: msg
+                        272     LOAD_FAST                       0: self
+                        274     LOAD_ATTR                       1: _input
+                        276     LOAD_METHOD                     23: pop_eof_matcher
+                        278     CALL_METHOD                     0
+                        280     POP_TOP                         
+                        282     NOP                             
+                        284     LOAD_FAST                       0: self
+                        286     LOAD_ATTR                       1: _input
+                        288     LOAD_METHOD                     15: readline
+                        290     CALL_METHOD                     0
+                        292     STORE_FAST                      2: line
+                        294     LOAD_FAST                       2: line
+                        296     LOAD_GLOBAL                     2: NeedMoreData
+                        298     IS_OP                           0 (is)
+                        300     POP_JUMP_IF_FALSE               155 (to 310)
+                        302     LOAD_GLOBAL                     2: NeedMoreData
+                        304     YIELD_VALUE                     
+                        306     POP_TOP                         
+                        308     JUMP_ABSOLUTE                   141 (to 282)
+                        310     NOP                             
+                        312     NOP                             
+                        314     LOAD_FAST                       0: self
+                        316     LOAD_ATTR                       1: _input
+                        318     LOAD_METHOD                     15: readline
+                        320     CALL_METHOD                     0
+                        322     STORE_FAST                      2: line
+                        324     LOAD_FAST                       2: line
+                        326     LOAD_GLOBAL                     2: NeedMoreData
+                        328     IS_OP                           0 (is)
+                        330     POP_JUMP_IF_FALSE               170 (to 340)
+                        332     LOAD_GLOBAL                     2: NeedMoreData
+                        334     YIELD_VALUE                     
+                        336     POP_TOP                         
+                        338     JUMP_ABSOLUTE                   156 (to 312)
+                        340     NOP                             
+                        342     LOAD_FAST                       2: line
+                        344     LOAD_CONST                      2: ''
+                        346     COMPARE_OP                      2 (==)
+                        348     POP_JUMP_IF_FALSE               178 (to 356)
+                        350     NOP                             
+                        352     LOAD_CONST                      0: None
+                        354     RETURN_VALUE                    
+                        356     LOAD_FAST                       0: self
+                        358     LOAD_ATTR                       1: _input
+                        360     LOAD_METHOD                     11: unreadline
+                        362     LOAD_FAST                       2: line
+                        364     CALL_METHOD                     1
+                        366     POP_TOP                         
+                        368     JUMP_ABSOLUTE                   110 (to 220)
+                        370     LOAD_FAST                       0: self
+                        372     LOAD_ATTR                       10: _cur
+                        374     LOAD_METHOD                     24: get_content_maintype
+                        376     CALL_METHOD                     0
+                        378     LOAD_CONST                      4: 'message'
+                        380     COMPARE_OP                      2 (==)
+                        382     POP_JUMP_IF_FALSE               213 (to 426)
+                        384     LOAD_FAST                       0: self
+                        386     LOAD_METHOD                     21: _parsegen
+                        388     CALL_METHOD                     0
+                        390     GET_ITER                        
+                        392     FOR_ITER                        10 (to 414)
+                        394     STORE_FAST                      5: retval
+                        396     LOAD_FAST                       5: retval
+                        398     LOAD_GLOBAL                     2: NeedMoreData
+                        400     IS_OP                           0 (is)
+                        402     POP_JUMP_IF_FALSE               206 (to 412)
+                        404     LOAD_GLOBAL                     2: NeedMoreData
+                        406     YIELD_VALUE                     
+                        408     POP_TOP                         
+                        410     JUMP_ABSOLUTE                   196 (to 392)
+                        412     POP_TOP                         
+                        414     LOAD_FAST                       0: self
+                        416     LOAD_METHOD                     22: _pop_message
+                        418     CALL_METHOD                     0
+                        420     POP_TOP                         
+                        422     LOAD_CONST                      0: None
+                        424     RETURN_VALUE                    
+                        426     LOAD_FAST                       0: self
+                        428     LOAD_ATTR                       10: _cur
+                        430     LOAD_METHOD                     24: get_content_maintype
+                        432     CALL_METHOD                     0
+                        434     LOAD_CONST                      5: 'multipart'
+                        436     COMPARE_OP                      2 (==)
+                        438     POP_JUMP_IF_FALSE               725 (to 1450)
+                        442     LOAD_FAST                       0: self
+                        444     LOAD_ATTR                       10: _cur
+                        446     LOAD_METHOD                     25: get_boundary
+                        448     CALL_METHOD                     0
+                        450     STORE_FAST                      7: boundary
+                        452     LOAD_FAST                       7: boundary
+                        454     LOAD_CONST                      0: None
+                        456     IS_OP                           0 (is)
+                        458     POP_JUMP_IF_FALSE               276 (to 552)
+                        462     LOAD_GLOBAL                     6: errors
+                        464     LOAD_METHOD                     26: NoBoundaryInMultipartDefect
+                        466     CALL_METHOD                     0
+                        468     STORE_FAST                      3: defect
+                        470     LOAD_FAST                       0: self
+                        472     LOAD_ATTR                       8: policy
+                        474     LOAD_METHOD                     9: handle_defect
+                        476     LOAD_FAST                       0: self
+                        478     LOAD_ATTR                       10: _cur
+                        480     LOAD_FAST                       3: defect
+                        482     CALL_METHOD                     2
+                        484     POP_TOP                         
+                        486     BUILD_LIST                      0
+                        488     STORE_FAST                      4: lines
+                        490     LOAD_FAST                       0: self
+                        492     LOAD_ATTR                       1: _input
+                        494     GET_ITER                        
+                        496     FOR_ITER                        16 (to 530)
+                        498     STORE_FAST                      2: line
+                        500     LOAD_FAST                       2: line
+                        502     LOAD_GLOBAL                     2: NeedMoreData
+                        504     IS_OP                           0 (is)
+                        506     POP_JUMP_IF_FALSE               259 (to 518)
+                        510     LOAD_GLOBAL                     2: NeedMoreData
+                        512     YIELD_VALUE                     
+                        514     POP_TOP                         
+                        516     JUMP_ABSOLUTE                   248 (to 496)
+                        518     LOAD_FAST                       4: lines
+                        520     LOAD_METHOD                     12: append
+                        522     LOAD_FAST                       2: line
+                        524     CALL_METHOD                     1
+                        526     POP_TOP                         
+                        528     JUMP_ABSOLUTE                   248 (to 496)
+                        530     LOAD_FAST                       0: self
+                        532     LOAD_ATTR                       10: _cur
+                        534     LOAD_METHOD                     16: set_payload
+                        536     LOAD_GLOBAL                     17: EMPTYSTRING
+                        538     LOAD_METHOD                     18: join
+                        540     LOAD_FAST                       4: lines
+                        542     CALL_METHOD                     1
+                        544     CALL_METHOD                     1
+                        546     POP_TOP                         
+                        548     LOAD_CONST                      0: None
+                        550     RETURN_VALUE                    
+                        552     LOAD_GLOBAL                     27: str
+                        554     LOAD_FAST                       0: self
+                        556     LOAD_ATTR                       10: _cur
+                        558     LOAD_METHOD                     28: get
+                        560     LOAD_CONST                      6: 'content-transfer-encoding'
+                        562     LOAD_CONST                      7: '8bit'
+                        564     CALL_METHOD                     2
+                        566     CALL_FUNCTION                   1
+                        568     LOAD_METHOD                     29: lower
+                        570     CALL_METHOD                     0
+                        572     LOAD_CONST                      8: ('7bit', '8bit', 'binary')
+                        574     CONTAINS_OP                     1 (not in)
+                        576     POP_JUMP_IF_FALSE               302 (to 604)
+                        580     LOAD_GLOBAL                     6: errors
+                        582     LOAD_METHOD                     30: InvalidMultipartContentTransferEncodingDefect
+                        584     CALL_METHOD                     0
+                        586     STORE_FAST                      3: defect
+                        588     LOAD_FAST                       0: self
+                        590     LOAD_ATTR                       8: policy
+                        592     LOAD_METHOD                     9: handle_defect
+                        594     LOAD_FAST                       0: self
+                        596     LOAD_ATTR                       10: _cur
+                        598     LOAD_FAST                       3: defect
+                        600     CALL_METHOD                     2
+                        602     POP_TOP                         
+                        604     LOAD_CONST                      9: '--'
+                        606     LOAD_FAST                       7: boundary
+                        608     BINARY_ADD                      
+                        610     STORE_FAST                      8: separator
+                        612     LOAD_GLOBAL                     31: re
+                        614     LOAD_METHOD                     32: compile
+                        616     LOAD_CONST                      10: '(?P<sep>'
+                        618     LOAD_GLOBAL                     31: re
+                        620     LOAD_METHOD                     33: escape
+                        622     LOAD_FAST                       8: separator
+                        624     CALL_METHOD                     1
+                        626     BINARY_ADD                      
+                        628     LOAD_CONST                      11: ')(?P<end>--)?(?P<ws>[ \\t]*)(?P<linesep>\\r\\n|\\r|\\n)?$'
+                        630     BINARY_ADD                      
+                        632     CALL_METHOD                     1
+                        634     STORE_FAST                      9: boundaryre
+                        636     LOAD_CONST                      1: True
+                        638     STORE_FAST                      10: capturing_preamble
+                        640     BUILD_LIST                      0
+                        642     STORE_FAST                      11: preamble
+                        644     LOAD_CONST                      12: False
+                        646     STORE_FAST                      12: linesep
+                        648     LOAD_CONST                      12: False
+                        650     STORE_FAST                      13: close_boundary_seen
+                        652     NOP                             
+                        654     LOAD_FAST                       0: self
+                        656     LOAD_ATTR                       1: _input
+                        658     LOAD_METHOD                     15: readline
+                        660     CALL_METHOD                     0
+                        662     STORE_FAST                      2: line
+                        664     LOAD_FAST                       2: line
+                        666     LOAD_GLOBAL                     2: NeedMoreData
+                        668     IS_OP                           0 (is)
+                        670     POP_JUMP_IF_FALSE               342 (to 684)
+                        674     LOAD_GLOBAL                     2: NeedMoreData
+                        676     YIELD_VALUE                     
+                        678     POP_TOP                         
+                        680     JUMP_ABSOLUTE                   326 (to 652)
+                        684     LOAD_FAST                       2: line
+                        686     LOAD_CONST                      2: ''
+                        688     COMPARE_OP                      2 (==)
+                        690     POP_JUMP_IF_FALSE               348 (to 696)
+                        694     JUMP_FORWARD                    240 (to 1176)
+                        696     LOAD_FAST                       9: boundaryre
+                        698     LOAD_METHOD                     4: match
+                        700     LOAD_FAST                       2: line
+                        702     CALL_METHOD                     1
+                        704     STORE_FAST                      14: mo
+                        706     LOAD_FAST                       14: mo
+                        708     POP_JUMP_IF_FALSE               576 (to 1152)
+                        712     LOAD_FAST                       14: mo
+                        714     LOAD_METHOD                     34: group
+                        716     LOAD_CONST                      13: 'end'
+                        718     CALL_METHOD                     1
+                        720     POP_JUMP_IF_FALSE               370 (to 740)
+                        724     LOAD_CONST                      1: True
+                        726     STORE_FAST                      13: close_boundary_seen
+                        728     LOAD_FAST                       14: mo
+                        730     LOAD_METHOD                     34: group
+                        732     LOAD_CONST                      14: 'linesep'
+                        734     CALL_METHOD                     1
+                        736     STORE_FAST                      12: linesep
+                        738     JUMP_FORWARD                    218 (to 1176)
+                        740     LOAD_FAST                       10: capturing_preamble
+                        742     POP_JUMP_IF_FALSE               419 (to 838)
+                        746     LOAD_FAST                       11: preamble
+                        748     POP_JUMP_IF_FALSE               409 (to 818)
+                        752     LOAD_FAST                       11: preamble
+                        754     LOAD_CONST                      15: -1
+                        756     BINARY_SUBSCR                   
+                        758     STORE_FAST                      15: lastline
+                        760     LOAD_GLOBAL                     35: NLCRE_eol
+                        762     LOAD_METHOD                     36: search
+                        764     LOAD_FAST                       15: lastline
+                        766     CALL_METHOD                     1
+                        768     STORE_FAST                      16: eolmo
+                        770     LOAD_FAST                       16: eolmo
+                        772     POP_JUMP_IF_FALSE               402 (to 804)
+                        776     LOAD_FAST                       15: lastline
+                        778     LOAD_CONST                      0: None
+                        780     LOAD_GLOBAL                     37: len
+                        782     LOAD_FAST                       16: eolmo
+                        784     LOAD_METHOD                     34: group
+                        786     LOAD_CONST                      16: 0
+                        788     CALL_METHOD                     1
+                        790     CALL_FUNCTION                   1
+                        792     UNARY_NEGATIVE                  
+                        794     BUILD_SLICE                     2
+                        796     BINARY_SUBSCR                   
+                        798     LOAD_FAST                       11: preamble
+                        800     LOAD_CONST                      15: -1
+                        802     STORE_SUBSCR                    
+                        804     LOAD_GLOBAL                     17: EMPTYSTRING
+                        806     LOAD_METHOD                     18: join
+                        808     LOAD_FAST                       11: preamble
+                        810     CALL_METHOD                     1
+                        812     LOAD_FAST                       0: self
+                        814     LOAD_ATTR                       10: _cur
+                        816     STORE_ATTR                      38: preamble
+                        818     LOAD_CONST                      12: False
+                        820     STORE_FAST                      10: capturing_preamble
+                        822     LOAD_FAST                       0: self
+                        824     LOAD_ATTR                       1: _input
+                        826     LOAD_METHOD                     11: unreadline
+                        828     LOAD_FAST                       2: line
+                        830     CALL_METHOD                     1
+                        832     POP_TOP                         
+                        834     JUMP_ABSOLUTE                   326 (to 652)
+                        838     NOP                             
+                        840     LOAD_FAST                       0: self
+                        842     LOAD_ATTR                       1: _input
+                        844     LOAD_METHOD                     15: readline
+                        846     CALL_METHOD                     0
+                        848     STORE_FAST                      2: line
+                        850     LOAD_FAST                       2: line
+                        852     LOAD_GLOBAL                     2: NeedMoreData
+                        854     IS_OP                           0 (is)
+                        856     POP_JUMP_IF_FALSE               435 (to 870)
+                        860     LOAD_GLOBAL                     2: NeedMoreData
+                        862     YIELD_VALUE                     
+                        864     POP_TOP                         
+                        866     JUMP_ABSOLUTE                   419 (to 838)
+                        870     LOAD_FAST                       9: boundaryre
+                        872     LOAD_METHOD                     4: match
+                        874     LOAD_FAST                       2: line
+                        876     CALL_METHOD                     1
+                        878     STORE_FAST                      14: mo
+                        880     LOAD_FAST                       14: mo
+                        882     POP_JUMP_IF_TRUE                450 (to 900)
+                        886     LOAD_FAST                       0: self
+                        888     LOAD_ATTR                       1: _input
+                        890     LOAD_METHOD                     11: unreadline
+                        892     LOAD_FAST                       2: line
+                        894     CALL_METHOD                     1
+                        896     POP_TOP                         
+                        898     JUMP_FORWARD                    2 (to 904)
+                        900     JUMP_ABSOLUTE                   420 (to 840)
+                        904     LOAD_FAST                       0: self
+                        906     LOAD_ATTR                       1: _input
+                        908     LOAD_METHOD                     20: push_eof_matcher
+                        910     LOAD_FAST                       9: boundaryre
+                        912     LOAD_ATTR                       4: match
+                        914     CALL_METHOD                     1
+                        916     POP_TOP                         
+                        918     LOAD_FAST                       0: self
+                        920     LOAD_METHOD                     21: _parsegen
+                        922     CALL_METHOD                     0
+                        924     GET_ITER                        
+                        926     FOR_ITER                        12 (to 952)
+                        928     STORE_FAST                      5: retval
+                        930     LOAD_FAST                       5: retval
+                        932     LOAD_GLOBAL                     2: NeedMoreData
+                        934     IS_OP                           0 (is)
+                        936     POP_JUMP_IF_FALSE               475 (to 950)
+                        940     LOAD_GLOBAL                     2: NeedMoreData
+                        942     YIELD_VALUE                     
+                        944     POP_TOP                         
+                        946     JUMP_ABSOLUTE                   463 (to 926)
+                        950     POP_TOP                         
+                        952     LOAD_FAST                       0: self
+                        954     LOAD_ATTR                       39: _last
+                        956     LOAD_METHOD                     24: get_content_maintype
+                        958     CALL_METHOD                     0
+                        960     LOAD_CONST                      5: 'multipart'
+                        962     COMPARE_OP                      2 (==)
+                        964     POP_JUMP_IF_FALSE               528 (to 1056)
+                        968     LOAD_FAST                       0: self
+                        970     LOAD_ATTR                       39: _last
+                        972     LOAD_ATTR                       40: epilogue
+                        974     STORE_FAST                      17: epilogue
+                        976     LOAD_FAST                       17: epilogue
+                        978     LOAD_CONST                      2: ''
+                        980     COMPARE_OP                      2 (==)
+                        982     POP_JUMP_IF_FALSE               498 (to 996)
+                        986     LOAD_CONST                      0: None
+                        988     LOAD_FAST                       0: self
+                        990     LOAD_ATTR                       39: _last
+                        992     STORE_ATTR                      40: epilogue
+                        994     JUMP_FORWARD                    64 (to 1124)
+                        996     LOAD_FAST                       17: epilogue
+                        998     LOAD_CONST                      0: None
+                        1000    IS_OP                           1 (is not)
+                        1002    POP_JUMP_IF_FALSE               527 (to 1054)
+                        1006    LOAD_GLOBAL                     35: NLCRE_eol
+                        1008    LOAD_METHOD                     36: search
+                        1010    LOAD_FAST                       17: epilogue
+                        1012    CALL_METHOD                     1
+                        1014    STORE_FAST                      14: mo
+                        1016    LOAD_FAST                       14: mo
+                        1018    POP_JUMP_IF_FALSE               527 (to 1054)
+                        1022    LOAD_GLOBAL                     37: len
+                        1024    LOAD_FAST                       14: mo
+                        1026    LOAD_METHOD                     34: group
+                        1028    LOAD_CONST                      16: 0
+                        1030    CALL_METHOD                     1
+                        1032    CALL_FUNCTION                   1
+                        1034    STORE_FAST                      18: end
+                        1036    LOAD_FAST                       17: epilogue
+                        1038    LOAD_CONST                      0: None
+                        1040    LOAD_FAST                       18: end
+                        1042    UNARY_NEGATIVE                  
+                        1044    BUILD_SLICE                     2
+                        1046    BINARY_SUBSCR                   
+                        1048    LOAD_FAST                       0: self
+                        1050    LOAD_ATTR                       39: _last
+                        1052    STORE_ATTR                      40: epilogue
+                        1054    JUMP_FORWARD                    34 (to 1124)
+                        1056    LOAD_FAST                       0: self
+                        1058    LOAD_ATTR                       39: _last
+                        1060    LOAD_ATTR                       41: _payload
+                        1062    STORE_FAST                      19: payload
+                        1064    LOAD_GLOBAL                     42: isinstance
+                        1066    LOAD_FAST                       19: payload
+                        1068    LOAD_GLOBAL                     27: str
+                        1070    CALL_FUNCTION                   2
+                        1072    POP_JUMP_IF_FALSE               562 (to 1124)
+                        1076    LOAD_GLOBAL                     35: NLCRE_eol
+                        1078    LOAD_METHOD                     36: search
+                        1080    LOAD_FAST                       19: payload
+                        1082    CALL_METHOD                     1
+                        1084    STORE_FAST                      14: mo
+                        1086    LOAD_FAST                       14: mo
+                        1088    POP_JUMP_IF_FALSE               562 (to 1124)
+                        1092    LOAD_FAST                       19: payload
+                        1094    LOAD_CONST                      0: None
+                        1096    LOAD_GLOBAL                     37: len
+                        1098    LOAD_FAST                       14: mo
+                        1100    LOAD_METHOD                     34: group
+                        1102    LOAD_CONST                      16: 0
+                        1104    CALL_METHOD                     1
+                        1106    CALL_FUNCTION                   1
+                        1108    UNARY_NEGATIVE                  
+                        1110    BUILD_SLICE                     2
+                        1112    BINARY_SUBSCR                   
+                        1114    STORE_FAST                      19: payload
+                        1116    LOAD_FAST                       19: payload
+                        1118    LOAD_FAST                       0: self
+                        1120    LOAD_ATTR                       39: _last
+                        1122    STORE_ATTR                      41: _payload
+                        1124    LOAD_FAST                       0: self
+                        1126    LOAD_ATTR                       1: _input
+                        1128    LOAD_METHOD                     23: pop_eof_matcher
+                        1130    CALL_METHOD                     0
+                        1132    POP_TOP                         
+                        1134    LOAD_FAST                       0: self
+                        1136    LOAD_METHOD                     22: _pop_message
+                        1138    CALL_METHOD                     0
+                        1140    POP_TOP                         
+                        1142    LOAD_FAST                       0: self
+                        1144    LOAD_ATTR                       10: _cur
+                        1146    LOAD_FAST                       0: self
+                        1148    STORE_ATTR                      39: _last
+                        1150    JUMP_FORWARD                    10 (to 1172)
+                        1152    LOAD_FAST                       10: capturing_preamble
+                        1154    POP_JUMP_IF_TRUE                581 (to 1162)
+                        1158    LOAD_ASSERTION_ERROR            
+                        1160    RAISE_VARARGS                   1
+                        1162    LOAD_FAST                       11: preamble
+                        1164    LOAD_METHOD                     12: append
+                        1166    LOAD_FAST                       2: line
+                        1168    CALL_METHOD                     1
+                        1170    POP_TOP                         
+                        1172    JUMP_ABSOLUTE                   327 (to 654)
+                        1176    LOAD_FAST                       10: capturing_preamble
+                        1178    POP_JUMP_IF_FALSE               640 (to 1280)
+                        1182    LOAD_GLOBAL                     6: errors
+                        1184    LOAD_METHOD                     43: StartBoundaryNotFoundDefect
+                        1186    CALL_METHOD                     0
+                        1188    STORE_FAST                      3: defect
+                        1190    LOAD_FAST                       0: self
+                        1192    LOAD_ATTR                       8: policy
+                        1194    LOAD_METHOD                     9: handle_defect
+                        1196    LOAD_FAST                       0: self
+                        1198    LOAD_ATTR                       10: _cur
+                        1200    LOAD_FAST                       3: defect
+                        1202    CALL_METHOD                     2
+                        1204    POP_TOP                         
+                        1206    LOAD_FAST                       0: self
+                        1208    LOAD_ATTR                       10: _cur
+                        1210    LOAD_METHOD                     16: set_payload
+                        1212    LOAD_GLOBAL                     17: EMPTYSTRING
+                        1214    LOAD_METHOD                     18: join
+                        1216    LOAD_FAST                       11: preamble
+                        1218    CALL_METHOD                     1
+                        1220    CALL_METHOD                     1
+                        1222    POP_TOP                         
+                        1224    BUILD_LIST                      0
+                        1226    STORE_FAST                      17: epilogue
+                        1228    LOAD_FAST                       0: self
+                        1230    LOAD_ATTR                       1: _input
+                        1232    GET_ITER                        
+                        1234    FOR_ITER                        13 (to 1262)
+                        1236    STORE_FAST                      2: line
+                        1238    LOAD_FAST                       2: line
+                        1240    LOAD_GLOBAL                     2: NeedMoreData
+                        1242    IS_OP                           0 (is)
+                        1244    POP_JUMP_IF_FALSE               629 (to 1258)
+                        1248    LOAD_GLOBAL                     2: NeedMoreData
+                        1250    YIELD_VALUE                     
+                        1252    POP_TOP                         
+                        1254    JUMP_ABSOLUTE                   617 (to 1234)
+                        1258    JUMP_ABSOLUTE                   617 (to 1234)
+                        1262    LOAD_GLOBAL                     17: EMPTYSTRING
+                        1264    LOAD_METHOD                     18: join
+                        1266    LOAD_FAST                       17: epilogue
+                        1268    CALL_METHOD                     1
+                        1270    LOAD_FAST                       0: self
+                        1272    LOAD_ATTR                       10: _cur
+                        1274    STORE_ATTR                      40: epilogue
+                        1276    LOAD_CONST                      0: None
+                        1278    RETURN_VALUE                    
+                        1280    LOAD_FAST                       13: close_boundary_seen
+                        1282    POP_JUMP_IF_TRUE                657 (to 1314)
+                        1286    LOAD_GLOBAL                     6: errors
+                        1288    LOAD_METHOD                     44: CloseBoundaryNotFoundDefect
+                        1290    CALL_METHOD                     0
+                        1292    STORE_FAST                      3: defect
+                        1294    LOAD_FAST                       0: self
+                        1296    LOAD_ATTR                       8: policy
+                        1298    LOAD_METHOD                     9: handle_defect
+                        1300    LOAD_FAST                       0: self
+                        1302    LOAD_ATTR                       10: _cur
+                        1304    LOAD_FAST                       3: defect
+                        1306    CALL_METHOD                     2
+                        1308    POP_TOP                         
+                        1310    LOAD_CONST                      0: None
+                        1312    RETURN_VALUE                    
+                        1314    LOAD_FAST                       12: linesep
+                        1316    POP_JUMP_IF_FALSE               664 (to 1328)
+                        1320    LOAD_CONST                      2: ''
+                        1322    BUILD_LIST                      1
+                        1324    STORE_FAST                      17: epilogue
+                        1326    JUMP_FORWARD                    2 (to 1332)
+                        1328    BUILD_LIST                      0
+                        1330    STORE_FAST                      17: epilogue
+                        1332    LOAD_FAST                       0: self
+                        1334    LOAD_ATTR                       1: _input
+                        1336    GET_ITER                        
+                        1338    FOR_ITER                        18 (to 1376)
+                        1340    STORE_FAST                      2: line
+                        1342    LOAD_FAST                       2: line
+                        1344    LOAD_GLOBAL                     2: NeedMoreData
+                        1346    IS_OP                           0 (is)
+                        1348    POP_JUMP_IF_FALSE               681 (to 1362)
+                        1352    LOAD_GLOBAL                     2: NeedMoreData
+                        1354    YIELD_VALUE                     
+                        1356    POP_TOP                         
+                        1358    JUMP_ABSOLUTE                   669 (to 1338)
+                        1362    LOAD_FAST                       17: epilogue
+                        1364    LOAD_METHOD                     12: append
+                        1366    LOAD_FAST                       2: line
+                        1368    CALL_METHOD                     1
+                        1370    POP_TOP                         
+                        1372    JUMP_ABSOLUTE                   669 (to 1338)
+                        1376    LOAD_FAST                       17: epilogue
+                        1378    POP_JUMP_IF_FALSE               716 (to 1432)
+                        1382    LOAD_FAST                       17: epilogue
+                        1384    LOAD_CONST                      16: 0
+                        1386    BINARY_SUBSCR                   
+                        1388    STORE_FAST                      20: firstline
+                        1390    LOAD_GLOBAL                     45: NLCRE_bol
+                        1392    LOAD_METHOD                     4: match
+                        1394    LOAD_FAST                       20: firstline
+                        1396    CALL_METHOD                     1
+                        1398    STORE_FAST                      21: bolmo
+                        1400    LOAD_FAST                       21: bolmo
+                        1402    POP_JUMP_IF_FALSE               716 (to 1432)
+                        1406    LOAD_FAST                       20: firstline
+                        1408    LOAD_GLOBAL                     37: len
+                        1410    LOAD_FAST                       21: bolmo
+                        1412    LOAD_METHOD                     34: group
+                        1414    LOAD_CONST                      16: 0
+                        1416    CALL_METHOD                     1
+                        1418    CALL_FUNCTION                   1
+                        1420    LOAD_CONST                      0: None
+                        1422    BUILD_SLICE                     2
+                        1424    BINARY_SUBSCR                   
+                        1426    LOAD_FAST                       17: epilogue
+                        1428    LOAD_CONST                      16: 0
+                        1430    STORE_SUBSCR                    
+                        1432    LOAD_GLOBAL                     17: EMPTYSTRING
+                        1434    LOAD_METHOD                     18: join
+                        1436    LOAD_FAST                       17: epilogue
+                        1438    CALL_METHOD                     1
+                        1440    LOAD_FAST                       0: self
+                        1442    LOAD_ATTR                       10: _cur
+                        1444    STORE_ATTR                      40: epilogue
+                        1446    LOAD_CONST                      0: None
+                        1448    RETURN_VALUE                    
+                        1450    BUILD_LIST                      0
+                        1452    STORE_FAST                      4: lines
+                        1454    LOAD_FAST                       0: self
+                        1456    LOAD_ATTR                       1: _input
+                        1458    GET_ITER                        
+                        1460    FOR_ITER                        18 (to 1498)
+                        1462    STORE_FAST                      2: line
+                        1464    LOAD_FAST                       2: line
+                        1466    LOAD_GLOBAL                     2: NeedMoreData
+                        1468    IS_OP                           0 (is)
+                        1470    POP_JUMP_IF_FALSE               742 (to 1484)
+                        1474    LOAD_GLOBAL                     2: NeedMoreData
+                        1476    YIELD_VALUE                     
+                        1478    POP_TOP                         
+                        1480    JUMP_ABSOLUTE                   730 (to 1460)
+                        1484    LOAD_FAST                       4: lines
+                        1486    LOAD_METHOD                     12: append
+                        1488    LOAD_FAST                       2: line
+                        1490    CALL_METHOD                     1
+                        1492    POP_TOP                         
+                        1494    JUMP_ABSOLUTE                   730 (to 1460)
+                        1498    LOAD_FAST                       0: self
+                        1500    LOAD_ATTR                       10: _cur
+                        1502    LOAD_METHOD                     16: set_payload
+                        1504    LOAD_GLOBAL                     17: EMPTYSTRING
+                        1506    LOAD_METHOD                     18: join
+                        1508    LOAD_FAST                       4: lines
+                        1510    CALL_METHOD                     1
+                        1512    CALL_METHOD                     1
+                        1514    POP_TOP                         
+                        1516    LOAD_CONST                      0: None
+                        1518    RETURN_VALUE                    
+                'FeedParser._parsegen'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: _parse_headers
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 9
+                    Stack Size: 7
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'enumerate'
+                        'errors'
+                        'FirstHeaderLineIsContinuationDefect'
+                        'policy'
+                        'handle_defect'
+                        '_cur'
+                        'append'
+                        'set_raw'
+                        'header_source_parse'
+                        'startswith'
+                        'NLCRE_eol'
+                        'search'
+                        'len'
+                        'group'
+                        'set_unixfrom'
+                        '_input'
+                        'unreadline'
+                        'MisplacedEnvelopeHeaderDefect'
+                        'defects'
+                        'find'
+                        'InvalidHeaderDefect'
+                    [Var Names]
+                        'self'
+                        'lines'
+                        'lastheader'
+                        'lastvalue'
+                        'lineno'
+                        'line'
+                        'defect'
+                        'mo'
+                        'i'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        ''
+                        0
+                        ' \t'
+                        'From '
+                        1
+                        ':'
+                        'Missing header name.'
+                        '_parse_headers fed line with no : and no leading WS'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: ''
+                        2       STORE_FAST                      2: lastheader
+                        4       BUILD_LIST                      0
+                        6       STORE_FAST                      3: lastvalue
+                        8       LOAD_GLOBAL                     0: enumerate
+                        10      LOAD_FAST                       1: lines
+                        12      CALL_FUNCTION                   1
+                        14      GET_ITER                        
+                        16      FOR_ITER                        153 (to 324)
+                        18      UNPACK_SEQUENCE                 2
+                        20      STORE_FAST                      4: lineno
+                        22      STORE_FAST                      5: line
+                        24      LOAD_FAST                       5: line
+                        26      LOAD_CONST                      2: 0
+                        28      BINARY_SUBSCR                   
+                        30      LOAD_CONST                      3: ' \t'
+                        32      CONTAINS_OP                     0 (in)
+                        34      POP_JUMP_IF_FALSE               40 (to 80)
+                        36      LOAD_FAST                       2: lastheader
+                        38      POP_JUMP_IF_TRUE                34 (to 68)
+                        40      LOAD_GLOBAL                     1: errors
+                        42      LOAD_METHOD                     2: FirstHeaderLineIsContinuationDefect
+                        44      LOAD_FAST                       5: line
+                        46      CALL_METHOD                     1
+                        48      STORE_FAST                      6: defect
+                        50      LOAD_FAST                       0: self
+                        52      LOAD_ATTR                       3: policy
+                        54      LOAD_METHOD                     4: handle_defect
+                        56      LOAD_FAST                       0: self
+                        58      LOAD_ATTR                       5: _cur
+                        60      LOAD_FAST                       6: defect
+                        62      CALL_METHOD                     2
+                        64      POP_TOP                         
+                        66      JUMP_ABSOLUTE                   8 (to 16)
+                        68      LOAD_FAST                       3: lastvalue
+                        70      LOAD_METHOD                     6: append
+                        72      LOAD_FAST                       5: line
+                        74      CALL_METHOD                     1
+                        76      POP_TOP                         
+                        78      JUMP_ABSOLUTE                   8 (to 16)
+                        80      LOAD_FAST                       2: lastheader
+                        82      POP_JUMP_IF_FALSE               57 (to 114)
+                        84      LOAD_FAST                       0: self
+                        86      LOAD_ATTR                       5: _cur
+                        88      LOAD_ATTR                       7: set_raw
+                        90      LOAD_FAST                       0: self
+                        92      LOAD_ATTR                       3: policy
+                        94      LOAD_METHOD                     8: header_source_parse
+                        96      LOAD_FAST                       3: lastvalue
+                        98      CALL_METHOD                     1
+                        100     CALL_FUNCTION_EX                0
+                        102     POP_TOP                         
+                        104     LOAD_CONST                      1: ''
+                        106     BUILD_LIST                      0
+                        108     ROT_TWO                         
+                        110     STORE_FAST                      2: lastheader
+                        112     STORE_FAST                      3: lastvalue
+                        114     LOAD_FAST                       5: line
+                        116     LOAD_METHOD                     9: startswith
+                        118     LOAD_CONST                      4: 'From '
+                        120     CALL_METHOD                     1
+                        122     POP_JUMP_IF_FALSE               122 (to 244)
+                        124     LOAD_FAST                       4: lineno
+                        126     LOAD_CONST                      2: 0
+                        128     COMPARE_OP                      2 (==)
+                        130     POP_JUMP_IF_FALSE               92 (to 184)
+                        132     LOAD_GLOBAL                     10: NLCRE_eol
+                        134     LOAD_METHOD                     11: search
+                        136     LOAD_FAST                       5: line
+                        138     CALL_METHOD                     1
+                        140     STORE_FAST                      7: mo
+                        142     LOAD_FAST                       7: mo
+                        144     POP_JUMP_IF_FALSE               85 (to 170)
+                        146     LOAD_FAST                       5: line
+                        148     LOAD_CONST                      0: None
+                        150     LOAD_GLOBAL                     12: len
+                        152     LOAD_FAST                       7: mo
+                        154     LOAD_METHOD                     13: group
+                        156     LOAD_CONST                      2: 0
+                        158     CALL_METHOD                     1
+                        160     CALL_FUNCTION                   1
+                        162     UNARY_NEGATIVE                  
+                        164     BUILD_SLICE                     2
+                        166     BINARY_SUBSCR                   
+                        168     STORE_FAST                      5: line
+                        170     LOAD_FAST                       0: self
+                        172     LOAD_ATTR                       5: _cur
+                        174     LOAD_METHOD                     14: set_unixfrom
+                        176     LOAD_FAST                       5: line
+                        178     CALL_METHOD                     1
+                        180     POP_TOP                         
+                        182     JUMP_ABSOLUTE                   8 (to 16)
+                        184     LOAD_FAST                       4: lineno
+                        186     LOAD_GLOBAL                     12: len
+                        188     LOAD_FAST                       1: lines
+                        190     CALL_FUNCTION                   1
+                        192     LOAD_CONST                      5: 1
+                        194     BINARY_SUBTRACT                 
+                        196     COMPARE_OP                      2 (==)
+                        198     POP_JUMP_IF_FALSE               109 (to 218)
+                        200     LOAD_FAST                       0: self
+                        202     LOAD_ATTR                       15: _input
+                        204     LOAD_METHOD                     16: unreadline
+                        206     LOAD_FAST                       5: line
+                        208     CALL_METHOD                     1
+                        210     POP_TOP                         
+                        212     POP_TOP                         
+                        214     LOAD_CONST                      0: None
+                        216     RETURN_VALUE                    
+                        218     LOAD_GLOBAL                     1: errors
+                        220     LOAD_METHOD                     17: MisplacedEnvelopeHeaderDefect
+                        222     LOAD_FAST                       5: line
+                        224     CALL_METHOD                     1
+                        226     STORE_FAST                      6: defect
+                        228     LOAD_FAST                       0: self
+                        230     LOAD_ATTR                       5: _cur
+                        232     LOAD_ATTR                       18: defects
+                        234     LOAD_METHOD                     6: append
+                        236     LOAD_FAST                       6: defect
+                        238     CALL_METHOD                     1
+                        240     POP_TOP                         
+                        242     JUMP_ABSOLUTE                   8 (to 16)
+                        244     LOAD_FAST                       5: line
+                        246     LOAD_METHOD                     19: find
+                        248     LOAD_CONST                      6: ':'
+                        250     CALL_METHOD                     1
+                        252     STORE_FAST                      8: i
+                        254     LOAD_FAST                       8: i
+                        256     LOAD_CONST                      2: 0
+                        258     COMPARE_OP                      2 (==)
+                        260     POP_JUMP_IF_FALSE               144 (to 288)
+                        262     LOAD_GLOBAL                     1: errors
+                        264     LOAD_METHOD                     20: InvalidHeaderDefect
+                        266     LOAD_CONST                      7: 'Missing header name.'
+                        268     CALL_METHOD                     1
+                        270     STORE_FAST                      6: defect
+                        272     LOAD_FAST                       0: self
+                        274     LOAD_ATTR                       5: _cur
+                        276     LOAD_ATTR                       18: defects
+                        278     LOAD_METHOD                     6: append
+                        280     LOAD_FAST                       6: defect
+                        282     CALL_METHOD                     1
+                        284     POP_TOP                         
+                        286     JUMP_ABSOLUTE                   8 (to 16)
+                        288     LOAD_FAST                       8: i
+                        290     LOAD_CONST                      2: 0
+                        292     COMPARE_OP                      4 (>)
+                        294     POP_JUMP_IF_TRUE                152 (to 304)
+                        296     LOAD_ASSERTION_ERROR            
+                        298     LOAD_CONST                      8: '_parse_headers fed line with no : and no leading WS'
+                        300     CALL_FUNCTION                   1
+                        302     RAISE_VARARGS                   1
+                        304     LOAD_FAST                       5: line
+                        306     LOAD_CONST                      0: None
+                        308     LOAD_FAST                       8: i
+                        310     BUILD_SLICE                     2
+                        312     BINARY_SUBSCR                   
+                        314     STORE_FAST                      2: lastheader
+                        316     LOAD_FAST                       5: line
+                        318     BUILD_LIST                      1
+                        320     STORE_FAST                      3: lastvalue
+                        322     JUMP_ABSOLUTE                   8 (to 16)
+                        324     LOAD_FAST                       2: lastheader
+                        326     POP_JUMP_IF_FALSE               176 (to 352)
+                        328     LOAD_FAST                       0: self
+                        330     LOAD_ATTR                       5: _cur
+                        332     LOAD_ATTR                       7: set_raw
+                        334     LOAD_FAST                       0: self
+                        336     LOAD_ATTR                       3: policy
+                        338     LOAD_METHOD                     8: header_source_parse
+                        340     LOAD_FAST                       3: lastvalue
+                        342     CALL_METHOD                     1
+                        344     CALL_FUNCTION_EX                0
+                        346     POP_TOP                         
+                        348     LOAD_CONST                      0: None
+                        350     RETURN_VALUE                    
+                        352     LOAD_CONST                      0: None
+                        354     RETURN_VALUE                    
+                'FeedParser._parse_headers'
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'FeedParser'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'A feed-style parser of email.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      22: (None,)
+                14      LOAD_NAME                       4: compat32
+                16      LOAD_CONST                      3: ('policy',)
+                18      BUILD_CONST_KEY_MAP             1
+                20      LOAD_CONST                      4: <CODE> __init__
+                22      LOAD_CONST                      5: 'FeedParser.__init__'
+                24      MAKE_FUNCTION                   3
+                26      STORE_NAME                      5: __init__
+                28      LOAD_CONST                      6: <CODE> _set_headersonly
+                30      LOAD_CONST                      7: 'FeedParser._set_headersonly'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      6: _set_headersonly
+                36      LOAD_CONST                      8: <CODE> feed
+                38      LOAD_CONST                      9: 'FeedParser.feed'
+                40      MAKE_FUNCTION                   0
+                42      STORE_NAME                      7: feed
+                44      LOAD_CONST                      10: <CODE> _call_parse
+                46      LOAD_CONST                      11: 'FeedParser._call_parse'
+                48      MAKE_FUNCTION                   0
+                50      STORE_NAME                      8: _call_parse
+                52      LOAD_CONST                      12: <CODE> close
+                54      LOAD_CONST                      13: 'FeedParser.close'
+                56      MAKE_FUNCTION                   0
+                58      STORE_NAME                      9: close
+                60      LOAD_CONST                      14: <CODE> _new_message
+                62      LOAD_CONST                      15: 'FeedParser._new_message'
+                64      MAKE_FUNCTION                   0
+                66      STORE_NAME                      10: _new_message
+                68      LOAD_CONST                      16: <CODE> _pop_message
+                70      LOAD_CONST                      17: 'FeedParser._pop_message'
+                72      MAKE_FUNCTION                   0
+                74      STORE_NAME                      11: _pop_message
+                76      LOAD_CONST                      18: <CODE> _parsegen
+                78      LOAD_CONST                      19: 'FeedParser._parsegen'
+                80      MAKE_FUNCTION                   0
+                82      STORE_NAME                      12: _parsegen
+                84      LOAD_CONST                      20: <CODE> _parse_headers
+                86      LOAD_CONST                      21: 'FeedParser._parse_headers'
+                88      MAKE_FUNCTION                   0
+                90      STORE_NAME                      13: _parse_headers
+                92      LOAD_CONST                      2: None
+                94      RETURN_VALUE                    
+        [Code]
+            File Name: email/feedparser.py
+            Object Name: BytesFeedParser
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'feed'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'BytesFeedParser'
+                'Like FeedParser, but feed accepts bytes.'
+                [Code]
+                    File Name: email/feedparser.py
+                    Object Name: feed
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 6
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        'feed'
+                        'decode'
+                    [Var Names]
+                        'self'
+                        'data'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'ascii'
+                        'surrogateescape'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_METHOD                     1: feed
+                        6       LOAD_FAST                       1: data
+                        8       LOAD_METHOD                     2: decode
+                        10      LOAD_CONST                      1: 'ascii'
+                        12      LOAD_CONST                      2: 'surrogateescape'
+                        14      CALL_METHOD                     2
+                        16      CALL_METHOD                     1
+                        18      POP_TOP                         
+                        20      LOAD_CONST                      0: None
+                        22      RETURN_VALUE                    
+                'BytesFeedParser.feed'
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'BytesFeedParser'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Like FeedParser, but feed accepts bytes.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CLOSURE                    0: __class__
+                14      BUILD_TUPLE                     1
+                16      LOAD_CONST                      2: <CODE> feed
+                18      LOAD_CONST                      3: 'BytesFeedParser.feed'
+                20      MAKE_FUNCTION                   8
+                22      STORE_NAME                      4: feed
+                24      LOAD_CLOSURE                    0: __class__
+                26      DUP_TOP                         
+                28      STORE_NAME                      5: __classcell__
+                30      RETURN_VALUE                    
+    [Disassembly]
+        0       LOAD_CONST                      0: "FeedParser - An email feed parser.\n\nThe feed parser implements an interface for incrementally parsing an email\nmessage, line by line.  This has advantages for certain applications, such as\nthose reading email messages off a socket.\n\nFeedParser.feed() is the primary interface for pushing new data into the\nparser.  It returns when there's nothing more it can do with the available\ndata.  When you have no more data to push into the parser, call .close().\nThis completes the parsing and returns the root message object.\n\nThe other advantage of this parser is that it will never raise a parsing\nexception.  Instead, when it finds something unexpected, it adds a 'defect' to\nthe current message.  Defects are just instances that live on the message\nobject's .defects attribute.\n"
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 'FeedParser'
+        6       LOAD_CONST                      2: 'BytesFeedParser'
+        8       BUILD_LIST                      2
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      3: 0
+        14      LOAD_CONST                      4: None
+        16      IMPORT_NAME                     2: re
+        18      STORE_NAME                      2: re
+        20      LOAD_CONST                      3: 0
+        22      LOAD_CONST                      5: ('errors',)
+        24      IMPORT_NAME                     3: email
+        26      IMPORT_FROM                     4: errors
+        28      STORE_NAME                      4: errors
+        30      POP_TOP                         
+        32      LOAD_CONST                      3: 0
+        34      LOAD_CONST                      6: ('compat32',)
+        36      IMPORT_NAME                     5: email._policybase
+        38      IMPORT_FROM                     6: compat32
+        40      STORE_NAME                      6: compat32
+        42      POP_TOP                         
+        44      LOAD_CONST                      3: 0
+        46      LOAD_CONST                      7: ('deque',)
+        48      IMPORT_NAME                     7: collections
+        50      IMPORT_FROM                     8: deque
+        52      STORE_NAME                      8: deque
+        54      POP_TOP                         
+        56      LOAD_CONST                      3: 0
+        58      LOAD_CONST                      8: ('StringIO',)
+        60      IMPORT_NAME                     9: io
+        62      IMPORT_FROM                     10: StringIO
+        64      STORE_NAME                      10: StringIO
+        66      POP_TOP                         
+        68      LOAD_NAME                       2: re
+        70      LOAD_METHOD                     11: compile
+        72      LOAD_CONST                      9: '\\r\\n|\\r|\\n'
+        74      CALL_METHOD                     1
+        76      STORE_NAME                      12: NLCRE
+        78      LOAD_NAME                       2: re
+        80      LOAD_METHOD                     11: compile
+        82      LOAD_CONST                      10: '(\\r\\n|\\r|\\n)'
+        84      CALL_METHOD                     1
+        86      STORE_NAME                      13: NLCRE_bol
+        88      LOAD_NAME                       2: re
+        90      LOAD_METHOD                     11: compile
+        92      LOAD_CONST                      11: '(\\r\\n|\\r|\\n)\\Z'
+        94      CALL_METHOD                     1
+        96      STORE_NAME                      14: NLCRE_eol
+        98      LOAD_NAME                       2: re
+        100     LOAD_METHOD                     11: compile
+        102     LOAD_CONST                      10: '(\\r\\n|\\r|\\n)'
+        104     CALL_METHOD                     1
+        106     STORE_NAME                      15: NLCRE_crack
+        108     LOAD_NAME                       2: re
+        110     LOAD_METHOD                     11: compile
+        112     LOAD_CONST                      12: '^(From |[\\041-\\071\\073-\\176]*:|[\\t ])'
+        114     CALL_METHOD                     1
+        116     STORE_NAME                      16: headerRE
+        118     LOAD_CONST                      13: ''
+        120     STORE_NAME                      17: EMPTYSTRING
+        122     LOAD_CONST                      14: '\n'
+        124     STORE_NAME                      18: NL
+        126     LOAD_NAME                       19: object
+        128     CALL_FUNCTION                   0
+        130     STORE_NAME                      20: NeedMoreData
+        132     LOAD_BUILD_CLASS                
+        134     LOAD_CONST                      15: <CODE> BufferedSubFile
+        136     LOAD_CONST                      16: 'BufferedSubFile'
+        138     MAKE_FUNCTION                   0
+        140     LOAD_CONST                      16: 'BufferedSubFile'
+        142     LOAD_NAME                       19: object
+        144     CALL_FUNCTION                   3
+        146     STORE_NAME                      21: BufferedSubFile
+        148     LOAD_BUILD_CLASS                
+        150     LOAD_CONST                      17: <CODE> FeedParser
+        152     LOAD_CONST                      1: 'FeedParser'
+        154     MAKE_FUNCTION                   0
+        156     LOAD_CONST                      1: 'FeedParser'
+        158     CALL_FUNCTION                   2
+        160     STORE_NAME                      22: FeedParser
+        162     LOAD_BUILD_CLASS                
+        164     LOAD_CONST                      18: <CODE> BytesFeedParser
+        166     LOAD_CONST                      2: 'BytesFeedParser'
+        168     MAKE_FUNCTION                   0
+        170     LOAD_CONST                      2: 'BytesFeedParser'
+        172     LOAD_NAME                       22: FeedParser
+        174     CALL_FUNCTION                   3
+        176     STORE_NAME                      23: BytesFeedParser
+        178     LOAD_CONST                      4: None
+        180     RETURN_VALUE                    

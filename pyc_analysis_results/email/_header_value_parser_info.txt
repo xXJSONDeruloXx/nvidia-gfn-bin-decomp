@@ -1,0 +1,4 @@
+File: /Users/kurt/Desktop/PYZ-00.pyz_extracted/email/_header_value_parser.pyc
+Size: 77912 bytes
+Modified: Thu May 29 21:01:55 2025
+Python Version: 3.12+

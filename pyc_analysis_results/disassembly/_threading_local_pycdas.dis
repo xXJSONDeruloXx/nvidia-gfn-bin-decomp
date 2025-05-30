@@ -1,0 +1,801 @@
+_threading_local.pyc (Python 3.10)
+[Code]
+    File Name: _threading_local.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 3
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'weakref'
+        'ref'
+        'contextlib'
+        'contextmanager'
+        '__all__'
+        '_localimpl'
+        '_patch'
+        'local'
+        'threading'
+        'current_thread'
+        'RLock'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        "Thread-local objects.\n\n(Note that this module provides a Python version of the threading.local\n class.  Depending on the version of Python you're using, there may be a\n faster one available.  You should always import the `local` class from\n `threading`.)\n\nThread-local objects support the management of thread-local data.\nIf you have data that you want to be local to a thread, simply create\na thread-local object and use its attributes:\n\n  >>> mydata = local()\n  >>> mydata.number = 42\n  >>> mydata.number\n  42\n\nYou can also access the local-object's dictionary:\n\n  >>> mydata.__dict__\n  {'number': 42}\n  >>> mydata.__dict__.setdefault('widgets', [])\n  []\n  >>> mydata.widgets\n  []\n\nWhat's important about thread-local objects is that their data are\nlocal to a thread. If we access the data in a different thread:\n\n  >>> log = []\n  >>> def f():\n  ...     items = sorted(mydata.__dict__.items())\n  ...     log.append(items)\n  ...     mydata.number = 11\n  ...     log.append(mydata.number)\n\n  >>> import threading\n  >>> thread = threading.Thread(target=f)\n  >>> thread.start()\n  >>> thread.join()\n  >>> log\n  [[], 11]\n\nwe get different data.  Furthermore, changes made in the other thread\ndon't affect data seen in this thread:\n\n  >>> mydata.number\n  42\n\nOf course, values you get from a local object, including a __dict__\nattribute, are for whatever thread was current at the time the\nattribute was read.  For that reason, you generally don't want to save\nthese values across threads, as they apply only to the thread they\ncame from.\n\nYou can create custom local objects by subclassing the local class:\n\n  >>> class MyLocal(local):\n  ...     number = 2\n  ...     def __init__(self, /, **kw):\n  ...         self.__dict__.update(kw)\n  ...     def squared(self):\n  ...         return self.number ** 2\n\nThis can be useful to support default values, methods and\ninitialization.  Note that if you define an __init__ method, it will be\ncalled each time the local object is used in a separate thread.  This\nis necessary to initialize each thread's dictionary.\n\nNow if we create a local object:\n\n  >>> mydata = MyLocal(color='red')\n\nNow we have a default number:\n\n  >>> mydata.number\n  2\n\nan initial color:\n\n  >>> mydata.color\n  'red'\n  >>> del mydata.color\n\nAnd a method that operates on the data:\n\n  >>> mydata.squared()\n  4\n\nAs before, we can access the data in a separate thread:\n\n  >>> log = []\n  >>> thread = threading.Thread(target=f)\n  >>> thread.start()\n  >>> thread.join()\n  >>> log\n  [[('color', 'red')], 11]\n\nwithout affecting this thread's data:\n\n  >>> mydata.number\n  2\n  >>> mydata.color\n  Traceback (most recent call last):\n  ...\n  AttributeError: 'MyLocal' object has no attribute 'color'\n\nNote that subclasses can define slots, but they are not thread\nlocal. They are shared across threads:\n\n  >>> class MyLocal(local):\n  ...     __slots__ = 'number'\n\n  >>> mydata = MyLocal()\n  >>> mydata.number = 42\n  >>> mydata.color = 'red'\n\nSo, the separate thread:\n\n  >>> thread = threading.Thread(target=f)\n  >>> thread.start()\n  >>> thread.join()\n\naffects what we see:\n\n  >>> mydata.number\n  11\n\n>>> del mydata\n"
+        0
+        (
+            'ref'
+        )
+        (
+            'contextmanager'
+        )
+        'local'
+        [Code]
+            File Name: _threading_local.py
+            Object Name: _localimpl
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__slots__'
+                '__init__'
+                'get_dict'
+                'create_dict'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '_localimpl'
+                'A class managing thread-local dicts'
+                (
+                    'key'
+                    'dicts'
+                    'localargs'
+                    'locallock'
+                    '__weakref__'
+                )
+                [Code]
+                    File Name: _threading_local.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'str'
+                        'id'
+                        'key'
+                        'dicts'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '_threading_local._localimpl.'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: '_threading_local._localimpl.'
+                        2       LOAD_GLOBAL                     0: str
+                        4       LOAD_GLOBAL                     1: id
+                        6       LOAD_FAST                       0: self
+                        8       CALL_FUNCTION                   1
+                        10      CALL_FUNCTION                   1
+                        12      BINARY_ADD                      
+                        14      LOAD_FAST                       0: self
+                        16      STORE_ATTR                      2: key
+                        18      BUILD_MAP                       0
+                        20      LOAD_FAST                       0: self
+                        22      STORE_ATTR                      3: dicts
+                        24      LOAD_CONST                      0: None
+                        26      RETURN_VALUE                    
+                '_localimpl.__init__'
+                [Code]
+                    File Name: _threading_local.py
+                    Object Name: get_dict
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'current_thread'
+                        'dicts'
+                        'id'
+                    [Var Names]
+                        'self'
+                        'thread'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return the dict for the current thread. Raises KeyError if none\n        defined.'
+                        1
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: current_thread
+                        2       CALL_FUNCTION                   0
+                        4       STORE_FAST                      1: thread
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_ATTR                       1: dicts
+                        10      LOAD_GLOBAL                     2: id
+                        12      LOAD_FAST                       1: thread
+                        14      CALL_FUNCTION                   1
+                        16      BINARY_SUBSCR                   
+                        18      LOAD_CONST                      1: 1
+                        20      BINARY_SUBSCR                   
+                        22      RETURN_VALUE                    
+                '_localimpl.get_dict'
+                [Code]
+                    File Name: _threading_local.py
+                    Object Name: create_dict
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 7
+                    Stack Size: 4
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'key'
+                        'current_thread'
+                        'id'
+                        'ref'
+                        '__dict__'
+                        'dicts'
+                    [Var Names]
+                        'self'
+                        'localdict'
+                        'key'
+                        'thread'
+                        'idt'
+                        'local_deleted'
+                        'thread_deleted'
+                    [Free Vars]
+                    [Cell Vars]
+                        'wrlocal'
+                        'wrthread'
+                    [Constants]
+                        'Create a new dict for the current thread, and return it.'
+                        [Code]
+                            File Name: _threading_local.py
+                            Object Name: local_deleted
+                            Arg Count: 2
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 3
+                            Stack Size: 2
+                            Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                            [Names]
+                                '__dict__'
+                            [Var Names]
+                                '_'
+                                'key'
+                                'thread'
+                            [Free Vars]
+                                'wrthread'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       LOAD_DEREF                      0: wrthread
+                                2       CALL_FUNCTION                   0
+                                4       STORE_FAST                      2: thread
+                                6       LOAD_FAST                       2: thread
+                                8       LOAD_CONST                      0: None
+                                10      IS_OP                           1 (is not)
+                                12      POP_JUMP_IF_FALSE               13 (to 26)
+                                14      LOAD_FAST                       2: thread
+                                16      LOAD_ATTR                       0: __dict__
+                                18      LOAD_FAST                       1: key
+                                20      DELETE_SUBSCR                   
+                                22      LOAD_CONST                      0: None
+                                24      RETURN_VALUE                    
+                                26      LOAD_CONST                      0: None
+                                28      RETURN_VALUE                    
+                        '_localimpl.create_dict.<locals>.local_deleted'
+                        [Code]
+                            File Name: _threading_local.py
+                            Object Name: thread_deleted
+                            Arg Count: 2
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 4
+                            Stack Size: 3
+                            Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                            [Names]
+                                'dicts'
+                                'pop'
+                            [Var Names]
+                                '_'
+                                'idt'
+                                'local'
+                                'dct'
+                            [Free Vars]
+                                'wrlocal'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       LOAD_DEREF                      0: wrlocal
+                                2       CALL_FUNCTION                   0
+                                4       STORE_FAST                      2: local
+                                6       LOAD_FAST                       2: local
+                                8       LOAD_CONST                      0: None
+                                10      IS_OP                           1 (is not)
+                                12      POP_JUMP_IF_FALSE               15 (to 30)
+                                14      LOAD_FAST                       2: local
+                                16      LOAD_ATTR                       0: dicts
+                                18      LOAD_METHOD                     1: pop
+                                20      LOAD_FAST                       1: idt
+                                22      CALL_METHOD                     1
+                                24      STORE_FAST                      3: dct
+                                26      LOAD_CONST                      0: None
+                                28      RETURN_VALUE                    
+                                30      LOAD_CONST                      0: None
+                                32      RETURN_VALUE                    
+                        '_localimpl.create_dict.<locals>.thread_deleted'
+                    [Disassembly]
+                        0       BUILD_MAP                       0
+                        2       STORE_FAST                      1: localdict
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       0: key
+                        8       STORE_FAST                      2: key
+                        10      LOAD_GLOBAL                     1: current_thread
+                        12      CALL_FUNCTION                   0
+                        14      STORE_FAST                      3: thread
+                        16      LOAD_GLOBAL                     2: id
+                        18      LOAD_FAST                       3: thread
+                        20      CALL_FUNCTION                   1
+                        22      STORE_FAST                      4: idt
+                        24      LOAD_FAST                       2: key
+                        26      BUILD_TUPLE                     1
+                        28      LOAD_CLOSURE                    1: wrthread
+                        30      BUILD_TUPLE                     1
+                        32      LOAD_CONST                      1: <CODE> local_deleted
+                        34      LOAD_CONST                      2: '_localimpl.create_dict.<locals>.local_deleted'
+                        36      MAKE_FUNCTION                   9
+                        38      STORE_FAST                      5: local_deleted
+                        40      LOAD_FAST                       4: idt
+                        42      BUILD_TUPLE                     1
+                        44      LOAD_CLOSURE                    0: wrlocal
+                        46      BUILD_TUPLE                     1
+                        48      LOAD_CONST                      3: <CODE> thread_deleted
+                        50      LOAD_CONST                      4: '_localimpl.create_dict.<locals>.thread_deleted'
+                        52      MAKE_FUNCTION                   9
+                        54      STORE_FAST                      6: thread_deleted
+                        56      LOAD_GLOBAL                     3: ref
+                        58      LOAD_FAST                       0: self
+                        60      LOAD_FAST                       5: local_deleted
+                        62      CALL_FUNCTION                   2
+                        64      STORE_DEREF                     0: wrlocal
+                        66      LOAD_GLOBAL                     3: ref
+                        68      LOAD_FAST                       3: thread
+                        70      LOAD_FAST                       6: thread_deleted
+                        72      CALL_FUNCTION                   2
+                        74      STORE_DEREF                     1: wrthread
+                        76      LOAD_DEREF                      0: wrlocal
+                        78      LOAD_FAST                       3: thread
+                        80      LOAD_ATTR                       4: __dict__
+                        82      LOAD_FAST                       2: key
+                        84      STORE_SUBSCR                    
+                        86      LOAD_DEREF                      1: wrthread
+                        88      LOAD_FAST                       1: localdict
+                        90      BUILD_TUPLE                     2
+                        92      LOAD_FAST                       0: self
+                        94      LOAD_ATTR                       5: dicts
+                        96      LOAD_FAST                       4: idt
+                        98      STORE_SUBSCR                    
+                        100     LOAD_FAST                       1: localdict
+                        102     RETURN_VALUE                    
+                '_localimpl.create_dict'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: '_localimpl'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'A class managing thread-local dicts'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: ('key', 'dicts', 'localargs', 'locallock', '__weakref__')
+                14      STORE_NAME                      4: __slots__
+                16      LOAD_CONST                      3: <CODE> __init__
+                18      LOAD_CONST                      4: '_localimpl.__init__'
+                20      MAKE_FUNCTION                   0
+                22      STORE_NAME                      5: __init__
+                24      LOAD_CONST                      5: <CODE> get_dict
+                26      LOAD_CONST                      6: '_localimpl.get_dict'
+                28      MAKE_FUNCTION                   0
+                30      STORE_NAME                      6: get_dict
+                32      LOAD_CONST                      7: <CODE> create_dict
+                34      LOAD_CONST                      8: '_localimpl.create_dict'
+                36      MAKE_FUNCTION                   0
+                38      STORE_NAME                      7: create_dict
+                40      LOAD_CONST                      9: None
+                42      RETURN_VALUE                    
+        '_localimpl'
+        [Code]
+            File Name: _threading_local.py
+            Object Name: _patch
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 8
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                'object'
+                '__getattribute__'
+                'get_dict'
+                'KeyError'
+                'create_dict'
+                'localargs'
+                '__init__'
+                'locallock'
+                '__setattr__'
+            [Var Names]
+                'self'
+                'impl'
+                'dct'
+                'args'
+                'kw'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                '_local__impl'
+                '__dict__'
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_GLOBAL                     0: object
+                4       LOAD_METHOD                     1: __getattribute__
+                6       LOAD_FAST                       0: self
+                8       LOAD_CONST                      1: '_local__impl'
+                10      CALL_METHOD                     2
+                12      STORE_FAST                      1: impl
+                14      SETUP_FINALLY                   6 (to 28)
+                16      LOAD_FAST                       1: impl
+                18      LOAD_METHOD                     2: get_dict
+                20      CALL_METHOD                     0
+                22      STORE_FAST                      2: dct
+                24      POP_BLOCK                       
+                26      JUMP_FORWARD                    26 (to 80)
+                28      DUP_TOP                         
+                30      LOAD_GLOBAL                     3: KeyError
+                32      JUMP_IF_NOT_EXC_MATCH           39 (to 78)
+                34      POP_TOP                         
+                36      POP_TOP                         
+                38      POP_TOP                         
+                40      LOAD_FAST                       1: impl
+                42      LOAD_METHOD                     4: create_dict
+                44      CALL_METHOD                     0
+                46      STORE_FAST                      2: dct
+                48      LOAD_FAST                       1: impl
+                50      LOAD_ATTR                       5: localargs
+                52      UNPACK_SEQUENCE                 2
+                54      STORE_FAST                      3: args
+                56      STORE_FAST                      4: kw
+                58      LOAD_FAST                       0: self
+                60      LOAD_ATTR                       6: __init__
+                62      LOAD_FAST                       3: args
+                64      BUILD_MAP                       0
+                66      LOAD_FAST                       4: kw
+                68      DICT_MERGE                      1
+                70      CALL_FUNCTION_EX                1
+                72      POP_TOP                         
+                74      POP_EXCEPT                      
+                76      JUMP_FORWARD                    1 (to 80)
+                78      RERAISE                         0
+                80      LOAD_FAST                       1: impl
+                82      LOAD_ATTR                       7: locallock
+                84      SETUP_WITH                      19 (to 124)
+                86      POP_TOP                         
+                88      LOAD_GLOBAL                     0: object
+                90      LOAD_METHOD                     8: __setattr__
+                92      LOAD_FAST                       0: self
+                94      LOAD_CONST                      2: '__dict__'
+                96      LOAD_FAST                       2: dct
+                98      CALL_METHOD                     3
+                100     POP_TOP                         
+                102     LOAD_CONST                      0: None
+                104     YIELD_VALUE                     
+                106     POP_TOP                         
+                108     POP_BLOCK                       
+                110     LOAD_CONST                      0: None
+                112     DUP_TOP                         
+                114     DUP_TOP                         
+                116     CALL_FUNCTION                   3
+                118     POP_TOP                         
+                120     LOAD_CONST                      0: None
+                122     RETURN_VALUE                    
+                124     WITH_EXCEPT_START               
+                126     POP_JUMP_IF_TRUE                65 (to 130)
+                128     RERAISE                         1
+                130     POP_TOP                         
+                132     POP_TOP                         
+                134     POP_TOP                         
+                136     POP_EXCEPT                      
+                138     POP_TOP                         
+                140     LOAD_CONST                      0: None
+                142     RETURN_VALUE                    
+        '_patch'
+        [Code]
+            File Name: _threading_local.py
+            Object Name: local
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__slots__'
+                '__new__'
+                '__getattribute__'
+                '__setattr__'
+                '__delattr__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'local'
+                (
+                    '_local__impl'
+                    '__dict__'
+                )
+                [Code]
+                    File Name: _threading_local.py
+                    Object Name: __new__
+                    Arg Count: 1
+                    Pos Only Arg Count: 1
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 5
+                    Flags: 0x0000004F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NOFREE)
+                    [Names]
+                        '__init__'
+                        'object'
+                        'TypeError'
+                        '__new__'
+                        '_localimpl'
+                        'localargs'
+                        'RLock'
+                        'locallock'
+                        '__setattr__'
+                        'create_dict'
+                    [Var Names]
+                        'cls'
+                        'args'
+                        'kw'
+                        'self'
+                        'impl'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'Initialization arguments are not supported'
+                        '_local__impl'
+                    [Disassembly]
+                        0       LOAD_FAST                       1: args
+                        2       POP_JUMP_IF_TRUE                4 (to 8)
+                        4       LOAD_FAST                       2: kw
+                        6       POP_JUMP_IF_FALSE               14 (to 28)
+                        8       LOAD_FAST                       0: cls
+                        10      LOAD_ATTR                       0: __init__
+                        12      LOAD_GLOBAL                     1: object
+                        14      LOAD_ATTR                       0: __init__
+                        16      IS_OP                           0 (is)
+                        18      POP_JUMP_IF_FALSE               14 (to 28)
+                        20      LOAD_GLOBAL                     2: TypeError
+                        22      LOAD_CONST                      1: 'Initialization arguments are not supported'
+                        24      CALL_FUNCTION                   1
+                        26      RAISE_VARARGS                   1
+                        28      LOAD_GLOBAL                     1: object
+                        30      LOAD_METHOD                     3: __new__
+                        32      LOAD_FAST                       0: cls
+                        34      CALL_METHOD                     1
+                        36      STORE_FAST                      3: self
+                        38      LOAD_GLOBAL                     4: _localimpl
+                        40      CALL_FUNCTION                   0
+                        42      STORE_FAST                      4: impl
+                        44      LOAD_FAST                       1: args
+                        46      LOAD_FAST                       2: kw
+                        48      BUILD_TUPLE                     2
+                        50      LOAD_FAST                       4: impl
+                        52      STORE_ATTR                      5: localargs
+                        54      LOAD_GLOBAL                     6: RLock
+                        56      CALL_FUNCTION                   0
+                        58      LOAD_FAST                       4: impl
+                        60      STORE_ATTR                      7: locallock
+                        62      LOAD_GLOBAL                     1: object
+                        64      LOAD_METHOD                     8: __setattr__
+                        66      LOAD_FAST                       3: self
+                        68      LOAD_CONST                      2: '_local__impl'
+                        70      LOAD_FAST                       4: impl
+                        72      CALL_METHOD                     3
+                        74      POP_TOP                         
+                        76      LOAD_FAST                       4: impl
+                        78      LOAD_METHOD                     9: create_dict
+                        80      CALL_METHOD                     0
+                        82      POP_TOP                         
+                        84      LOAD_FAST                       3: self
+                        86      RETURN_VALUE                    
+                'local.__new__'
+                [Code]
+                    File Name: _threading_local.py
+                    Object Name: __getattribute__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_patch'
+                        'object'
+                        '__getattribute__'
+                    [Var Names]
+                        'self'
+                        'name'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: _patch
+                        2       LOAD_FAST                       0: self
+                        4       CALL_FUNCTION                   1
+                        6       SETUP_WITH                      14 (to 36)
+                        8       POP_TOP                         
+                        10      LOAD_GLOBAL                     1: object
+                        12      LOAD_METHOD                     2: __getattribute__
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_FAST                       1: name
+                        18      CALL_METHOD                     2
+                        20      POP_BLOCK                       
+                        22      ROT_TWO                         
+                        24      LOAD_CONST                      0: None
+                        26      DUP_TOP                         
+                        28      DUP_TOP                         
+                        30      CALL_FUNCTION                   3
+                        32      POP_TOP                         
+                        34      RETURN_VALUE                    
+                        36      WITH_EXCEPT_START               
+                        38      POP_JUMP_IF_TRUE                21 (to 42)
+                        40      RERAISE                         1
+                        42      POP_TOP                         
+                        44      POP_TOP                         
+                        46      POP_TOP                         
+                        48      POP_EXCEPT                      
+                        50      POP_TOP                         
+                        52      LOAD_CONST                      0: None
+                        54      RETURN_VALUE                    
+                'local.__getattribute__'
+                [Code]
+                    File Name: _threading_local.py
+                    Object Name: __setattr__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'AttributeError'
+                        '__class__'
+                        '__name__'
+                        '_patch'
+                        'object'
+                        '__setattr__'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '__dict__'
+                        "%r object attribute '__dict__' is read-only"
+                    [Disassembly]
+                        0       LOAD_FAST                       1: name
+                        2       LOAD_CONST                      1: '__dict__'
+                        4       COMPARE_OP                      2 (==)
+                        6       POP_JUMP_IF_FALSE               12 (to 24)
+                        8       LOAD_GLOBAL                     0: AttributeError
+                        10      LOAD_CONST                      2: "%r object attribute '__dict__' is read-only"
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_ATTR                       1: __class__
+                        16      LOAD_ATTR                       2: __name__
+                        18      BINARY_MODULO                   
+                        20      CALL_FUNCTION                   1
+                        22      RAISE_VARARGS                   1
+                        24      LOAD_GLOBAL                     3: _patch
+                        26      LOAD_FAST                       0: self
+                        28      CALL_FUNCTION                   1
+                        30      SETUP_WITH                      15 (to 62)
+                        32      POP_TOP                         
+                        34      LOAD_GLOBAL                     4: object
+                        36      LOAD_METHOD                     5: __setattr__
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_FAST                       1: name
+                        42      LOAD_FAST                       2: value
+                        44      CALL_METHOD                     3
+                        46      POP_BLOCK                       
+                        48      ROT_TWO                         
+                        50      LOAD_CONST                      0: None
+                        52      DUP_TOP                         
+                        54      DUP_TOP                         
+                        56      CALL_FUNCTION                   3
+                        58      POP_TOP                         
+                        60      RETURN_VALUE                    
+                        62      WITH_EXCEPT_START               
+                        64      POP_JUMP_IF_TRUE                34 (to 68)
+                        66      RERAISE                         1
+                        68      POP_TOP                         
+                        70      POP_TOP                         
+                        72      POP_TOP                         
+                        74      POP_EXCEPT                      
+                        76      POP_TOP                         
+                        78      LOAD_CONST                      0: None
+                        80      RETURN_VALUE                    
+                'local.__setattr__'
+                [Code]
+                    File Name: _threading_local.py
+                    Object Name: __delattr__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'AttributeError'
+                        '__class__'
+                        '__name__'
+                        '_patch'
+                        'object'
+                        '__delattr__'
+                    [Var Names]
+                        'self'
+                        'name'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '__dict__'
+                        "%r object attribute '__dict__' is read-only"
+                    [Disassembly]
+                        0       LOAD_FAST                       1: name
+                        2       LOAD_CONST                      1: '__dict__'
+                        4       COMPARE_OP                      2 (==)
+                        6       POP_JUMP_IF_FALSE               12 (to 24)
+                        8       LOAD_GLOBAL                     0: AttributeError
+                        10      LOAD_CONST                      2: "%r object attribute '__dict__' is read-only"
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_ATTR                       1: __class__
+                        16      LOAD_ATTR                       2: __name__
+                        18      BINARY_MODULO                   
+                        20      CALL_FUNCTION                   1
+                        22      RAISE_VARARGS                   1
+                        24      LOAD_GLOBAL                     3: _patch
+                        26      LOAD_FAST                       0: self
+                        28      CALL_FUNCTION                   1
+                        30      SETUP_WITH                      14 (to 60)
+                        32      POP_TOP                         
+                        34      LOAD_GLOBAL                     4: object
+                        36      LOAD_METHOD                     5: __delattr__
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_FAST                       1: name
+                        42      CALL_METHOD                     2
+                        44      POP_BLOCK                       
+                        46      ROT_TWO                         
+                        48      LOAD_CONST                      0: None
+                        50      DUP_TOP                         
+                        52      DUP_TOP                         
+                        54      CALL_FUNCTION                   3
+                        56      POP_TOP                         
+                        58      RETURN_VALUE                    
+                        60      WITH_EXCEPT_START               
+                        62      POP_JUMP_IF_TRUE                33 (to 66)
+                        64      RERAISE                         1
+                        66      POP_TOP                         
+                        68      POP_TOP                         
+                        70      POP_TOP                         
+                        72      POP_EXCEPT                      
+                        74      POP_TOP                         
+                        76      LOAD_CONST                      0: None
+                        78      RETURN_VALUE                    
+                'local.__delattr__'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'local'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: ('_local__impl', '__dict__')
+                10      STORE_NAME                      3: __slots__
+                12      LOAD_CONST                      2: <CODE> __new__
+                14      LOAD_CONST                      3: 'local.__new__'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: __new__
+                20      LOAD_CONST                      4: <CODE> __getattribute__
+                22      LOAD_CONST                      5: 'local.__getattribute__'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: __getattribute__
+                28      LOAD_CONST                      6: <CODE> __setattr__
+                30      LOAD_CONST                      7: 'local.__setattr__'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      6: __setattr__
+                36      LOAD_CONST                      8: <CODE> __delattr__
+                38      LOAD_CONST                      9: 'local.__delattr__'
+                40      MAKE_FUNCTION                   0
+                42      STORE_NAME                      7: __delattr__
+                44      LOAD_CONST                      10: None
+                46      RETURN_VALUE                    
+        (
+            'current_thread'
+            'RLock'
+        )
+        None
+    [Disassembly]
+        0       LOAD_CONST                      0: "Thread-local objects.\n\n(Note that this module provides a Python version of the threading.local\n class.  Depending on the version of Python you're using, there may be a\n faster one available.  You should always import the `local` class from\n `threading`.)\n\nThread-local objects support the management of thread-local data.\nIf you have data that you want to be local to a thread, simply create\na thread-local object and use its attributes:\n\n  >>> mydata = local()\n  >>> mydata.number = 42\n  >>> mydata.number\n  42\n\nYou can also access the local-object's dictionary:\n\n  >>> mydata.__dict__\n  {'number': 42}\n  >>> mydata.__dict__.setdefault('widgets', [])\n  []\n  >>> mydata.widgets\n  []\n\nWhat's important about thread-local objects is that their data are\nlocal to a thread. If we access the data in a different thread:\n\n  >>> log = []\n  >>> def f():\n  ...     items = sorted(mydata.__dict__.items())\n  ...     log.append(items)\n  ...     mydata.number = 11\n  ...     log.append(mydata.number)\n\n  >>> import threading\n  >>> thread = threading.Thread(target=f)\n  >>> thread.start()\n  >>> thread.join()\n  >>> log\n  [[], 11]\n\nwe get different data.  Furthermore, changes made in the other thread\ndon't affect data seen in this thread:\n\n  >>> mydata.number\n  42\n\nOf course, values you get from a local object, including a __dict__\nattribute, are for whatever thread was current at the time the\nattribute was read.  For that reason, you generally don't want to save\nthese values across threads, as they apply only to the thread they\ncame from.\n\nYou can create custom local objects by subclassing the local class:\n\n  >>> class MyLocal(local):\n  ...     number = 2\n  ...     def __init__(self, /, **kw):\n  ...         self.__dict__.update(kw)\n  ...     def squared(self):\n  ...         return self.number ** 2\n\nThis can be useful to support default values, methods and\ninitialization.  Note that if you define an __init__ method, it will be\ncalled each time the local object is used in a separate thread.  This\nis necessary to initialize each thread's dictionary.\n\nNow if we create a local object:\n\n  >>> mydata = MyLocal(color='red')\n\nNow we have a default number:\n\n  >>> mydata.number\n  2\n\nan initial color:\n\n  >>> mydata.color\n  'red'\n  >>> del mydata.color\n\nAnd a method that operates on the data:\n\n  >>> mydata.squared()\n  4\n\nAs before, we can access the data in a separate thread:\n\n  >>> log = []\n  >>> thread = threading.Thread(target=f)\n  >>> thread.start()\n  >>> thread.join()\n  >>> log\n  [[('color', 'red')], 11]\n\nwithout affecting this thread's data:\n\n  >>> mydata.number\n  2\n  >>> mydata.color\n  Traceback (most recent call last):\n  ...\n  AttributeError: 'MyLocal' object has no attribute 'color'\n\nNote that subclasses can define slots, but they are not thread\nlocal. They are shared across threads:\n\n  >>> class MyLocal(local):\n  ...     __slots__ = 'number'\n\n  >>> mydata = MyLocal()\n  >>> mydata.number = 42\n  >>> mydata.color = 'red'\n\nSo, the separate thread:\n\n  >>> thread = threading.Thread(target=f)\n  >>> thread.start()\n  >>> thread.join()\n\naffects what we see:\n\n  >>> mydata.number\n  11\n\n>>> del mydata\n"
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: ('ref',)
+        8       IMPORT_NAME                     1: weakref
+        10      IMPORT_FROM                     2: ref
+        12      STORE_NAME                      2: ref
+        14      POP_TOP                         
+        16      LOAD_CONST                      1: 0
+        18      LOAD_CONST                      3: ('contextmanager',)
+        20      IMPORT_NAME                     3: contextlib
+        22      IMPORT_FROM                     4: contextmanager
+        24      STORE_NAME                      4: contextmanager
+        26      POP_TOP                         
+        28      LOAD_CONST                      4: 'local'
+        30      BUILD_LIST                      1
+        32      STORE_NAME                      5: __all__
+        34      LOAD_BUILD_CLASS                
+        36      LOAD_CONST                      5: <CODE> _localimpl
+        38      LOAD_CONST                      6: '_localimpl'
+        40      MAKE_FUNCTION                   0
+        42      LOAD_CONST                      6: '_localimpl'
+        44      CALL_FUNCTION                   2
+        46      STORE_NAME                      6: _localimpl
+        48      LOAD_NAME                       4: contextmanager
+        50      LOAD_CONST                      7: <CODE> _patch
+        52      LOAD_CONST                      8: '_patch'
+        54      MAKE_FUNCTION                   0
+        56      CALL_FUNCTION                   1
+        58      STORE_NAME                      7: _patch
+        60      LOAD_BUILD_CLASS                
+        62      LOAD_CONST                      9: <CODE> local
+        64      LOAD_CONST                      4: 'local'
+        66      MAKE_FUNCTION                   0
+        68      LOAD_CONST                      4: 'local'
+        70      CALL_FUNCTION                   2
+        72      STORE_NAME                      8: local
+        74      LOAD_CONST                      1: 0
+        76      LOAD_CONST                      10: ('current_thread', 'RLock')
+        78      IMPORT_NAME                     9: threading
+        80      IMPORT_FROM                     10: current_thread
+        82      STORE_NAME                      10: current_thread
+        84      IMPORT_FROM                     11: RLock
+        86      STORE_NAME                      11: RLock
+        88      POP_TOP                         
+        90      LOAD_CONST                      11: None
+        92      RETURN_VALUE                    

@@ -1,0 +1,256 @@
+_collections.pyc (Python 3.10)
+[Code]
+    File Name: importlib/metadata/_collections.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 7
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        'collections'
+        'defaultdict'
+        'FreezableDefaultDict'
+        'namedtuple'
+        'Pair'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        None
+        [Code]
+            File Name: importlib/metadata/_collections.py
+            Object Name: FreezableDefaultDict
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__missing__'
+                'freeze'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'FreezableDefaultDict'
+                "\n    Often it is desirable to prevent the mutation of\n    a default dict after its initial construction, such\n    as to prevent mutation during iteration.\n\n    >>> dd = FreezableDefaultDict(list)\n    >>> dd[0].append('1')\n    >>> dd.freeze()\n    >>> dd[1]\n    []\n    >>> len(dd)\n    1\n    "
+                [Code]
+                    File Name: importlib/metadata/_collections.py
+                    Object Name: __missing__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'getattr'
+                        'super'
+                        '__missing__'
+                    [Var Names]
+                        'self'
+                        'key'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '_frozen'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: getattr
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_CONST                      1: '_frozen'
+                        6       LOAD_GLOBAL                     1: super
+                        8       CALL_FUNCTION                   0
+                        10      LOAD_ATTR                       2: __missing__
+                        12      CALL_FUNCTION                   3
+                        14      LOAD_FAST                       1: key
+                        16      CALL_FUNCTION                   1
+                        18      RETURN_VALUE                    
+                'FreezableDefaultDict.__missing__'
+                [Code]
+                    File Name: importlib/metadata/_collections.py
+                    Object Name: freeze
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        '_frozen'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                        'self'
+                    [Constants]
+                        None
+                        [Code]
+                            File Name: importlib/metadata/_collections.py
+                            Object Name: <lambda>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 1
+                            Stack Size: 2
+                            Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                            [Names]
+                                'default_factory'
+                            [Var Names]
+                                'key'
+                            [Free Vars]
+                                'self'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       LOAD_DEREF                      0: self
+                                2       LOAD_METHOD                     0: default_factory
+                                4       CALL_METHOD                     0
+                                6       RETURN_VALUE                    
+                        'FreezableDefaultDict.freeze.<locals>.<lambda>'
+                    [Disassembly]
+                        0       LOAD_CLOSURE                    0: self
+                        2       BUILD_TUPLE                     1
+                        4       LOAD_CONST                      1: <CODE> <lambda>
+                        6       LOAD_CONST                      2: 'FreezableDefaultDict.freeze.<locals>.<lambda>'
+                        8       MAKE_FUNCTION                   8
+                        10      LOAD_DEREF                      0: self
+                        12      STORE_ATTR                      0: _frozen
+                        14      LOAD_CONST                      0: None
+                        16      RETURN_VALUE                    
+                'FreezableDefaultDict.freeze'
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'FreezableDefaultDict'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: "\n    Often it is desirable to prevent the mutation of\n    a default dict after its initial construction, such\n    as to prevent mutation during iteration.\n\n    >>> dd = FreezableDefaultDict(list)\n    >>> dd[0].append('1')\n    >>> dd.freeze()\n    >>> dd[1]\n    []\n    >>> len(dd)\n    1\n    "
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CLOSURE                    0: __class__
+                14      BUILD_TUPLE                     1
+                16      LOAD_CONST                      2: <CODE> __missing__
+                18      LOAD_CONST                      3: 'FreezableDefaultDict.__missing__'
+                20      MAKE_FUNCTION                   8
+                22      STORE_NAME                      4: __missing__
+                24      LOAD_CONST                      4: <CODE> freeze
+                26      LOAD_CONST                      5: 'FreezableDefaultDict.freeze'
+                28      MAKE_FUNCTION                   0
+                30      STORE_NAME                      5: freeze
+                32      LOAD_CLOSURE                    0: __class__
+                34      DUP_TOP                         
+                36      STORE_NAME                      6: __classcell__
+                38      RETURN_VALUE                    
+        'FreezableDefaultDict'
+        [Code]
+            File Name: importlib/metadata/_collections.py
+            Object Name: Pair
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                'classmethod'
+                'parse'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Pair'
+                [Code]
+                    File Name: importlib/metadata/_collections.py
+                    Object Name: parse
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 7
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'map'
+                        'str'
+                        'strip'
+                        'split'
+                    [Var Names]
+                        'cls'
+                        'text'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '='
+                        1
+                    [Disassembly]
+                        0       LOAD_FAST                       0: cls
+                        2       LOAD_GLOBAL                     0: map
+                        4       LOAD_GLOBAL                     1: str
+                        6       LOAD_ATTR                       2: strip
+                        8       LOAD_FAST                       1: text
+                        10      LOAD_METHOD                     3: split
+                        12      LOAD_CONST                      1: '='
+                        14      LOAD_CONST                      2: 1
+                        16      CALL_METHOD                     2
+                        18      CALL_FUNCTION                   2
+                        20      CALL_FUNCTION_EX                0
+                        22      RETURN_VALUE                    
+                'Pair.parse'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Pair'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_NAME                       3: classmethod
+                10      LOAD_CONST                      1: <CODE> parse
+                12      LOAD_CONST                      2: 'Pair.parse'
+                14      MAKE_FUNCTION                   0
+                16      CALL_FUNCTION                   1
+                18      STORE_NAME                      4: parse
+                20      LOAD_CONST                      3: None
+                22      RETURN_VALUE                    
+        'Pair'
+        'name value'
+    [Disassembly]
+        0       LOAD_CONST                      0: 0
+        2       LOAD_CONST                      1: None
+        4       IMPORT_NAME                     0: collections
+        6       STORE_NAME                      0: collections
+        8       LOAD_BUILD_CLASS                
+        10      LOAD_CONST                      2: <CODE> FreezableDefaultDict
+        12      LOAD_CONST                      3: 'FreezableDefaultDict'
+        14      MAKE_FUNCTION                   0
+        16      LOAD_CONST                      3: 'FreezableDefaultDict'
+        18      LOAD_NAME                       0: collections
+        20      LOAD_ATTR                       1: defaultdict
+        22      CALL_FUNCTION                   3
+        24      STORE_NAME                      2: FreezableDefaultDict
+        26      LOAD_BUILD_CLASS                
+        28      LOAD_CONST                      4: <CODE> Pair
+        30      LOAD_CONST                      5: 'Pair'
+        32      MAKE_FUNCTION                   0
+        34      LOAD_CONST                      5: 'Pair'
+        36      LOAD_NAME                       0: collections
+        38      LOAD_METHOD                     3: namedtuple
+        40      LOAD_CONST                      5: 'Pair'
+        42      LOAD_CONST                      6: 'name value'
+        44      CALL_METHOD                     2
+        46      CALL_FUNCTION                   3
+        48      STORE_NAME                      4: Pair
+        50      LOAD_CONST                      1: None
+        52      RETURN_VALUE                    

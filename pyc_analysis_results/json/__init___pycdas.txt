@@ -1,0 +1,772 @@
+__init__.pyc (Python 3.10)
+[Code]
+    File Name: json/__init__.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 10
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__version__'
+        '__all__'
+        '__author__'
+        'decoder'
+        'JSONDecoder'
+        'JSONDecodeError'
+        'encoder'
+        'JSONEncoder'
+        'codecs'
+        '_default_encoder'
+        'dump'
+        'dumps'
+        '_default_decoder'
+        'detect_encoding'
+        'load'
+        'loads'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'JSON (JavaScript Object Notation) <https://json.org> is a subset of\nJavaScript syntax (ECMA-262 3rd edition) used as a lightweight data\ninterchange format.\n\n:mod:`json` exposes an API familiar to users of the standard library\n:mod:`marshal` and :mod:`pickle` modules.  It is derived from a\nversion of the externally maintained simplejson library.\n\nEncoding basic Python object hierarchies::\n\n    >>> import json\n    >>> json.dumps([\'foo\', {\'bar\': (\'baz\', None, 1.0, 2)}])\n    \'["foo", {"bar": ["baz", null, 1.0, 2]}]\'\n    >>> print(json.dumps("\\"foo\\bar"))\n    "\\"foo\\bar"\n    >>> print(json.dumps(\'\\u1234\'))\n    "\\u1234"\n    >>> print(json.dumps(\'\\\\\'))\n    "\\\\"\n    >>> print(json.dumps({"c": 0, "b": 0, "a": 0}, sort_keys=True))\n    {"a": 0, "b": 0, "c": 0}\n    >>> from io import StringIO\n    >>> io = StringIO()\n    >>> json.dump([\'streaming API\'], io)\n    >>> io.getvalue()\n    \'["streaming API"]\'\n\nCompact encoding::\n\n    >>> import json\n    >>> mydict = {\'4\': 5, \'6\': 7}\n    >>> json.dumps([1,2,3,mydict], separators=(\',\', \':\'))\n    \'[1,2,3,{"4":5,"6":7}]\'\n\nPretty printing::\n\n    >>> import json\n    >>> print(json.dumps({\'4\': 5, \'6\': 7}, sort_keys=True, indent=4))\n    {\n        "4": 5,\n        "6": 7\n    }\n\nDecoding JSON::\n\n    >>> import json\n    >>> obj = [\'foo\', {\'bar\': [\'baz\', None, 1.0, 2]}]\n    >>> json.loads(\'["foo", {"bar":["baz", null, 1.0, 2]}]\') == obj\n    True\n    >>> json.loads(\'"\\\\"foo\\\\bar"\') == \'"foo\\x08ar\'\n    True\n    >>> from io import StringIO\n    >>> io = StringIO(\'["streaming API"]\')\n    >>> json.load(io)[0] == \'streaming API\'\n    True\n\nSpecializing JSON object decoding::\n\n    >>> import json\n    >>> def as_complex(dct):\n    ...     if \'__complex__\' in dct:\n    ...         return complex(dct[\'real\'], dct[\'imag\'])\n    ...     return dct\n    ...\n    >>> json.loads(\'{"__complex__": true, "real": 1, "imag": 2}\',\n    ...     object_hook=as_complex)\n    (1+2j)\n    >>> from decimal import Decimal\n    >>> json.loads(\'1.1\', parse_float=Decimal) == Decimal(\'1.1\')\n    True\n\nSpecializing JSON object encoding::\n\n    >>> import json\n    >>> def encode_complex(obj):\n    ...     if isinstance(obj, complex):\n    ...         return [obj.real, obj.imag]\n    ...     raise TypeError(f\'Object of type {obj.__class__.__name__} \'\n    ...                     f\'is not JSON serializable\')\n    ...\n    >>> json.dumps(2 + 1j, default=encode_complex)\n    \'[2.0, 1.0]\'\n    >>> json.JSONEncoder(default=encode_complex).encode(2 + 1j)\n    \'[2.0, 1.0]\'\n    >>> \'\'.join(json.JSONEncoder(default=encode_complex).iterencode(2 + 1j))\n    \'[2.0, 1.0]\'\n\n\nUsing json.tool from the shell to validate and pretty-print::\n\n    $ echo \'{"json":"obj"}\' | python -m json.tool\n    {\n        "json": "obj"\n    }\n    $ echo \'{ 1.2:3.4}\' | python -m json.tool\n    Expecting property name enclosed in double quotes: line 1 column 3 (char 2)\n'
+        '2.0.9'
+        (
+            'dump'
+            'dumps'
+            'load'
+            'loads'
+            'JSONDecoder'
+            'JSONDecodeError'
+            'JSONEncoder'
+        )
+        'Bob Ippolito <bob@redivi.com>'
+        1
+        (
+            'JSONDecoder'
+            'JSONDecodeError'
+        )
+        (
+            'JSONEncoder'
+        )
+        0
+        None
+        False
+        True
+        (
+            'skipkeys'
+            'ensure_ascii'
+            'check_circular'
+            'allow_nan'
+            'indent'
+            'separators'
+            'default'
+        )
+        (
+            'skipkeys'
+            'ensure_ascii'
+            'check_circular'
+            'allow_nan'
+            'cls'
+            'indent'
+            'separators'
+            'default'
+            'sort_keys'
+        )
+        [Code]
+            File Name: json/__init__.py
+            Object Name: dump
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 9
+            Locals: 14
+            Stack Size: 11
+            Flags: 0x0000004B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                '_default_encoder'
+                'iterencode'
+                'JSONEncoder'
+                'write'
+            [Var Names]
+                'obj'
+                'fp'
+                'skipkeys'
+                'ensure_ascii'
+                'check_circular'
+                'allow_nan'
+                'cls'
+                'indent'
+                'separators'
+                'default'
+                'sort_keys'
+                'kw'
+                'iterable'
+                'chunk'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Serialize ``obj`` as a JSON formatted stream to ``fp`` (a\n    ``.write()``-supporting file-like object).\n\n    If ``skipkeys`` is true then ``dict`` keys that are not basic types\n    (``str``, ``int``, ``float``, ``bool``, ``None``) will be skipped\n    instead of raising a ``TypeError``.\n\n    If ``ensure_ascii`` is false, then the strings written to ``fp`` can\n    contain non-ASCII characters if they appear in strings contained in\n    ``obj``. Otherwise, all such characters are escaped in JSON strings.\n\n    If ``check_circular`` is false, then the circular reference check\n    for container types will be skipped and a circular reference will\n    result in an ``RecursionError`` (or worse).\n\n    If ``allow_nan`` is false, then it will be a ``ValueError`` to\n    serialize out of range ``float`` values (``nan``, ``inf``, ``-inf``)\n    in strict compliance of the JSON specification, instead of using the\n    JavaScript equivalents (``NaN``, ``Infinity``, ``-Infinity``).\n\n    If ``indent`` is a non-negative integer, then JSON array elements and\n    object members will be pretty-printed with that indent level. An indent\n    level of 0 will only insert newlines. ``None`` is the most compact\n    representation.\n\n    If specified, ``separators`` should be an ``(item_separator, key_separator)``\n    tuple.  The default is ``(', ', ': ')`` if *indent* is ``None`` and\n    ``(',', ': ')`` otherwise.  To get the most compact JSON representation,\n    you should specify ``(',', ':')`` to eliminate whitespace.\n\n    ``default(obj)`` is a function that should return a serializable version\n    of obj or raise TypeError. The default simply raises TypeError.\n\n    If *sort_keys* is true (default: ``False``), then the output of\n    dictionaries will be sorted by key.\n\n    To use a custom ``JSONEncoder`` subclass (e.g. one that overrides the\n    ``.default()`` method to serialize additional types), specify it with\n    the ``cls`` kwarg; otherwise ``JSONEncoder`` is used.\n\n    "
+                None
+                (
+                    'skipkeys'
+                    'ensure_ascii'
+                    'check_circular'
+                    'allow_nan'
+                    'indent'
+                    'separators'
+                    'default'
+                    'sort_keys'
+                )
+                (
+                )
+            [Disassembly]
+                0       LOAD_FAST                       2: skipkeys
+                2       POP_JUMP_IF_TRUE                34 (to 68)
+                4       LOAD_FAST                       3: ensure_ascii
+                6       POP_JUMP_IF_FALSE               34 (to 68)
+                8       LOAD_FAST                       4: check_circular
+                10      POP_JUMP_IF_FALSE               34 (to 68)
+                12      LOAD_FAST                       5: allow_nan
+                14      POP_JUMP_IF_FALSE               34 (to 68)
+                16      LOAD_FAST                       6: cls
+                18      LOAD_CONST                      1: None
+                20      IS_OP                           0 (is)
+                22      POP_JUMP_IF_FALSE               34 (to 68)
+                24      LOAD_FAST                       7: indent
+                26      LOAD_CONST                      1: None
+                28      IS_OP                           0 (is)
+                30      POP_JUMP_IF_FALSE               34 (to 68)
+                32      LOAD_FAST                       8: separators
+                34      LOAD_CONST                      1: None
+                36      IS_OP                           0 (is)
+                38      POP_JUMP_IF_FALSE               34 (to 68)
+                40      LOAD_FAST                       9: default
+                42      LOAD_CONST                      1: None
+                44      IS_OP                           0 (is)
+                46      POP_JUMP_IF_FALSE               34 (to 68)
+                48      LOAD_FAST                       10: sort_keys
+                50      POP_JUMP_IF_TRUE                34 (to 68)
+                52      LOAD_FAST                       11: kw
+                54      POP_JUMP_IF_TRUE                34 (to 68)
+                56      LOAD_GLOBAL                     0: _default_encoder
+                58      LOAD_METHOD                     1: iterencode
+                60      LOAD_FAST                       0: obj
+                62      CALL_METHOD                     1
+                64      STORE_FAST                      12: iterable
+                66      JUMP_FORWARD                    25 (to 118)
+                68      LOAD_FAST                       6: cls
+                70      LOAD_CONST                      1: None
+                72      IS_OP                           0 (is)
+                74      POP_JUMP_IF_FALSE               40 (to 80)
+                76      LOAD_GLOBAL                     2: JSONEncoder
+                78      STORE_FAST                      6: cls
+                80      LOAD_FAST                       6: cls
+                82      LOAD_CONST                      3: ()
+                84      LOAD_FAST                       2: skipkeys
+                86      LOAD_FAST                       3: ensure_ascii
+                88      LOAD_FAST                       4: check_circular
+                90      LOAD_FAST                       5: allow_nan
+                92      LOAD_FAST                       7: indent
+                94      LOAD_FAST                       8: separators
+                96      LOAD_FAST                       9: default
+                98      LOAD_FAST                       10: sort_keys
+                100     LOAD_CONST                      2: ('skipkeys', 'ensure_ascii', 'check_circular', 'allow_nan', 'indent', 'separators', 'default', 'sort_keys')
+                102     BUILD_CONST_KEY_MAP             8
+                104     LOAD_FAST                       11: kw
+                106     DICT_MERGE                      1
+                108     CALL_FUNCTION_EX                1
+                110     LOAD_METHOD                     1: iterencode
+                112     LOAD_FAST                       0: obj
+                114     CALL_METHOD                     1
+                116     STORE_FAST                      12: iterable
+                118     LOAD_FAST                       12: iterable
+                120     GET_ITER                        
+                122     FOR_ITER                        7 (to 138)
+                124     STORE_FAST                      13: chunk
+                126     LOAD_FAST                       1: fp
+                128     LOAD_METHOD                     3: write
+                130     LOAD_FAST                       13: chunk
+                132     CALL_METHOD                     1
+                134     POP_TOP                         
+                136     JUMP_ABSOLUTE                   61 (to 122)
+                138     LOAD_CONST                      1: None
+                140     RETURN_VALUE                    
+        'dump'
+        [Code]
+            File Name: json/__init__.py
+            Object Name: dumps
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 9
+            Locals: 11
+            Stack Size: 11
+            Flags: 0x0000004B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                '_default_encoder'
+                'encode'
+                'JSONEncoder'
+            [Var Names]
+                'obj'
+                'skipkeys'
+                'ensure_ascii'
+                'check_circular'
+                'allow_nan'
+                'cls'
+                'indent'
+                'separators'
+                'default'
+                'sort_keys'
+                'kw'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Serialize ``obj`` to a JSON formatted ``str``.\n\n    If ``skipkeys`` is true then ``dict`` keys that are not basic types\n    (``str``, ``int``, ``float``, ``bool``, ``None``) will be skipped\n    instead of raising a ``TypeError``.\n\n    If ``ensure_ascii`` is false, then the return value can contain non-ASCII\n    characters if they appear in strings contained in ``obj``. Otherwise, all\n    such characters are escaped in JSON strings.\n\n    If ``check_circular`` is false, then the circular reference check\n    for container types will be skipped and a circular reference will\n    result in an ``RecursionError`` (or worse).\n\n    If ``allow_nan`` is false, then it will be a ``ValueError`` to\n    serialize out of range ``float`` values (``nan``, ``inf``, ``-inf``) in\n    strict compliance of the JSON specification, instead of using the\n    JavaScript equivalents (``NaN``, ``Infinity``, ``-Infinity``).\n\n    If ``indent`` is a non-negative integer, then JSON array elements and\n    object members will be pretty-printed with that indent level. An indent\n    level of 0 will only insert newlines. ``None`` is the most compact\n    representation.\n\n    If specified, ``separators`` should be an ``(item_separator, key_separator)``\n    tuple.  The default is ``(', ', ': ')`` if *indent* is ``None`` and\n    ``(',', ': ')`` otherwise.  To get the most compact JSON representation,\n    you should specify ``(',', ':')`` to eliminate whitespace.\n\n    ``default(obj)`` is a function that should return a serializable version\n    of obj or raise TypeError. The default simply raises TypeError.\n\n    If *sort_keys* is true (default: ``False``), then the output of\n    dictionaries will be sorted by key.\n\n    To use a custom ``JSONEncoder`` subclass (e.g. one that overrides the\n    ``.default()`` method to serialize additional types), specify it with\n    the ``cls`` kwarg; otherwise ``JSONEncoder`` is used.\n\n    "
+                None
+                (
+                    'skipkeys'
+                    'ensure_ascii'
+                    'check_circular'
+                    'allow_nan'
+                    'indent'
+                    'separators'
+                    'default'
+                    'sort_keys'
+                )
+                (
+                )
+            [Disassembly]
+                0       LOAD_FAST                       1: skipkeys
+                2       POP_JUMP_IF_TRUE                33 (to 66)
+                4       LOAD_FAST                       2: ensure_ascii
+                6       POP_JUMP_IF_FALSE               33 (to 66)
+                8       LOAD_FAST                       3: check_circular
+                10      POP_JUMP_IF_FALSE               33 (to 66)
+                12      LOAD_FAST                       4: allow_nan
+                14      POP_JUMP_IF_FALSE               33 (to 66)
+                16      LOAD_FAST                       5: cls
+                18      LOAD_CONST                      1: None
+                20      IS_OP                           0 (is)
+                22      POP_JUMP_IF_FALSE               33 (to 66)
+                24      LOAD_FAST                       6: indent
+                26      LOAD_CONST                      1: None
+                28      IS_OP                           0 (is)
+                30      POP_JUMP_IF_FALSE               33 (to 66)
+                32      LOAD_FAST                       7: separators
+                34      LOAD_CONST                      1: None
+                36      IS_OP                           0 (is)
+                38      POP_JUMP_IF_FALSE               33 (to 66)
+                40      LOAD_FAST                       8: default
+                42      LOAD_CONST                      1: None
+                44      IS_OP                           0 (is)
+                46      POP_JUMP_IF_FALSE               33 (to 66)
+                48      LOAD_FAST                       9: sort_keys
+                50      POP_JUMP_IF_TRUE                33 (to 66)
+                52      LOAD_FAST                       10: kw
+                54      POP_JUMP_IF_TRUE                33 (to 66)
+                56      LOAD_GLOBAL                     0: _default_encoder
+                58      LOAD_METHOD                     1: encode
+                60      LOAD_FAST                       0: obj
+                62      CALL_METHOD                     1
+                64      RETURN_VALUE                    
+                66      LOAD_FAST                       5: cls
+                68      LOAD_CONST                      1: None
+                70      IS_OP                           0 (is)
+                72      POP_JUMP_IF_FALSE               39 (to 78)
+                74      LOAD_GLOBAL                     2: JSONEncoder
+                76      STORE_FAST                      5: cls
+                78      LOAD_FAST                       5: cls
+                80      LOAD_CONST                      3: ()
+                82      LOAD_FAST                       1: skipkeys
+                84      LOAD_FAST                       2: ensure_ascii
+                86      LOAD_FAST                       3: check_circular
+                88      LOAD_FAST                       4: allow_nan
+                90      LOAD_FAST                       6: indent
+                92      LOAD_FAST                       7: separators
+                94      LOAD_FAST                       8: default
+                96      LOAD_FAST                       9: sort_keys
+                98      LOAD_CONST                      2: ('skipkeys', 'ensure_ascii', 'check_circular', 'allow_nan', 'indent', 'separators', 'default', 'sort_keys')
+                100     BUILD_CONST_KEY_MAP             8
+                102     LOAD_FAST                       10: kw
+                104     DICT_MERGE                      1
+                106     CALL_FUNCTION_EX                1
+                108     LOAD_METHOD                     1: encode
+                110     LOAD_FAST                       0: obj
+                112     CALL_METHOD                     1
+                114     RETURN_VALUE                    
+        'dumps'
+        (
+            'object_hook'
+            'object_pairs_hook'
+        )
+        [Code]
+            File Name: json/__init__.py
+            Object Name: detect_encoding
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'startswith'
+                'codecs'
+                'BOM_UTF32_BE'
+                'BOM_UTF32_LE'
+                'BOM_UTF16_BE'
+                'BOM_UTF16_LE'
+                'BOM_UTF8'
+                'len'
+            [Var Names]
+                'b'
+                'bstartswith'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'utf-32'
+                'utf-16'
+                'utf-8-sig'
+                4
+                0
+                1
+                'utf-16-be'
+                'utf-32-be'
+                2
+                3
+                'utf-16-le'
+                'utf-32-le'
+                'utf-8'
+            [Disassembly]
+                0       LOAD_FAST                       0: b
+                2       LOAD_ATTR                       0: startswith
+                4       STORE_FAST                      1: bstartswith
+                6       LOAD_FAST                       1: bstartswith
+                8       LOAD_GLOBAL                     1: codecs
+                10      LOAD_ATTR                       2: BOM_UTF32_BE
+                12      LOAD_GLOBAL                     1: codecs
+                14      LOAD_ATTR                       3: BOM_UTF32_LE
+                16      BUILD_TUPLE                     2
+                18      CALL_FUNCTION                   1
+                20      POP_JUMP_IF_FALSE               13 (to 26)
+                22      LOAD_CONST                      1: 'utf-32'
+                24      RETURN_VALUE                    
+                26      LOAD_FAST                       1: bstartswith
+                28      LOAD_GLOBAL                     1: codecs
+                30      LOAD_ATTR                       4: BOM_UTF16_BE
+                32      LOAD_GLOBAL                     1: codecs
+                34      LOAD_ATTR                       5: BOM_UTF16_LE
+                36      BUILD_TUPLE                     2
+                38      CALL_FUNCTION                   1
+                40      POP_JUMP_IF_FALSE               23 (to 46)
+                42      LOAD_CONST                      2: 'utf-16'
+                44      RETURN_VALUE                    
+                46      LOAD_FAST                       1: bstartswith
+                48      LOAD_GLOBAL                     1: codecs
+                50      LOAD_ATTR                       6: BOM_UTF8
+                52      CALL_FUNCTION                   1
+                54      POP_JUMP_IF_FALSE               30 (to 60)
+                56      LOAD_CONST                      3: 'utf-8-sig'
+                58      RETURN_VALUE                    
+                60      LOAD_GLOBAL                     7: len
+                62      LOAD_FAST                       0: b
+                64      CALL_FUNCTION                   1
+                66      LOAD_CONST                      4: 4
+                68      COMPARE_OP                      5 (>=)
+                70      POP_JUMP_IF_FALSE               66 (to 132)
+                72      LOAD_FAST                       0: b
+                74      LOAD_CONST                      5: 0
+                76      BINARY_SUBSCR                   
+                78      POP_JUMP_IF_TRUE                48 (to 96)
+                80      LOAD_FAST                       0: b
+                82      LOAD_CONST                      6: 1
+                84      BINARY_SUBSCR                   
+                86      POP_JUMP_IF_FALSE               46 (to 92)
+                88      LOAD_CONST                      7: 'utf-16-be'
+                90      RETURN_VALUE                    
+                92      LOAD_CONST                      8: 'utf-32-be'
+                94      RETURN_VALUE                    
+                96      LOAD_FAST                       0: b
+                98      LOAD_CONST                      6: 1
+                100     BINARY_SUBSCR                   
+                102     POP_JUMP_IF_TRUE                64 (to 128)
+                104     LOAD_FAST                       0: b
+                106     LOAD_CONST                      9: 2
+                108     BINARY_SUBSCR                   
+                110     POP_JUMP_IF_TRUE                60 (to 120)
+                112     LOAD_FAST                       0: b
+                114     LOAD_CONST                      10: 3
+                116     BINARY_SUBSCR                   
+                118     POP_JUMP_IF_FALSE               62 (to 124)
+                120     LOAD_CONST                      11: 'utf-16-le'
+                122     RETURN_VALUE                    
+                124     LOAD_CONST                      12: 'utf-32-le'
+                126     RETURN_VALUE                    
+                128     LOAD_CONST                      13: 'utf-8'
+                130     RETURN_VALUE                    
+                132     LOAD_GLOBAL                     7: len
+                134     LOAD_FAST                       0: b
+                136     CALL_FUNCTION                   1
+                138     LOAD_CONST                      9: 2
+                140     COMPARE_OP                      2 (==)
+                142     POP_JUMP_IF_FALSE               84 (to 168)
+                144     LOAD_FAST                       0: b
+                146     LOAD_CONST                      5: 0
+                148     BINARY_SUBSCR                   
+                150     POP_JUMP_IF_TRUE                78 (to 156)
+                152     LOAD_CONST                      7: 'utf-16-be'
+                154     RETURN_VALUE                    
+                156     LOAD_FAST                       0: b
+                158     LOAD_CONST                      6: 1
+                160     BINARY_SUBSCR                   
+                162     POP_JUMP_IF_TRUE                84 (to 168)
+                164     LOAD_CONST                      11: 'utf-16-le'
+                166     RETURN_VALUE                    
+                168     LOAD_CONST                      13: 'utf-8'
+                170     RETURN_VALUE                    
+        'detect_encoding'
+        (
+            'cls'
+            'object_hook'
+            'parse_float'
+            'parse_int'
+            'parse_constant'
+            'object_pairs_hook'
+        )
+        [Code]
+            File Name: json/__init__.py
+            Object Name: load
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 6
+            Locals: 8
+            Stack Size: 9
+            Flags: 0x0000004B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                'loads'
+                'read'
+            [Var Names]
+                'fp'
+                'cls'
+                'object_hook'
+                'parse_float'
+                'parse_int'
+                'parse_constant'
+                'object_pairs_hook'
+                'kw'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Deserialize ``fp`` (a ``.read()``-supporting file-like object containing\n    a JSON document) to a Python object.\n\n    ``object_hook`` is an optional function that will be called with the\n    result of any object literal decode (a ``dict``). The return value of\n    ``object_hook`` will be used instead of the ``dict``. This feature\n    can be used to implement custom decoders (e.g. JSON-RPC class hinting).\n\n    ``object_pairs_hook`` is an optional function that will be called with the\n    result of any object literal decoded with an ordered list of pairs.  The\n    return value of ``object_pairs_hook`` will be used instead of the ``dict``.\n    This feature can be used to implement custom decoders.  If ``object_hook``\n    is also defined, the ``object_pairs_hook`` takes priority.\n\n    To use a custom ``JSONDecoder`` subclass, specify it with the ``cls``\n    kwarg; otherwise ``JSONDecoder`` is used.\n    '
+                (
+                    'cls'
+                    'object_hook'
+                    'parse_float'
+                    'parse_int'
+                    'parse_constant'
+                    'object_pairs_hook'
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: loads
+                2       LOAD_FAST                       0: fp
+                4       LOAD_METHOD                     1: read
+                6       CALL_METHOD                     0
+                8       BUILD_TUPLE                     1
+                10      LOAD_FAST                       1: cls
+                12      LOAD_FAST                       2: object_hook
+                14      LOAD_FAST                       3: parse_float
+                16      LOAD_FAST                       4: parse_int
+                18      LOAD_FAST                       5: parse_constant
+                20      LOAD_FAST                       6: object_pairs_hook
+                22      LOAD_CONST                      1: ('cls', 'object_hook', 'parse_float', 'parse_int', 'parse_constant', 'object_pairs_hook')
+                24      BUILD_CONST_KEY_MAP             6
+                26      LOAD_FAST                       7: kw
+                28      DICT_MERGE                      1
+                30      CALL_FUNCTION_EX                1
+                32      RETURN_VALUE                    
+        'load'
+        [Code]
+            File Name: json/__init__.py
+            Object Name: loads
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 6
+            Locals: 8
+            Stack Size: 4
+            Flags: 0x0000004B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'str'
+                'startswith'
+                'JSONDecodeError'
+                'bytes'
+                'bytearray'
+                'TypeError'
+                '__class__'
+                '__name__'
+                'decode'
+                'detect_encoding'
+                '_default_decoder'
+                'JSONDecoder'
+            [Var Names]
+                's'
+                'cls'
+                'object_hook'
+                'parse_float'
+                'parse_int'
+                'parse_constant'
+                'object_pairs_hook'
+                'kw'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Deserialize ``s`` (a ``str``, ``bytes`` or ``bytearray`` instance\n    containing a JSON document) to a Python object.\n\n    ``object_hook`` is an optional function that will be called with the\n    result of any object literal decode (a ``dict``). The return value of\n    ``object_hook`` will be used instead of the ``dict``. This feature\n    can be used to implement custom decoders (e.g. JSON-RPC class hinting).\n\n    ``object_pairs_hook`` is an optional function that will be called with the\n    result of any object literal decoded with an ordered list of pairs.  The\n    return value of ``object_pairs_hook`` will be used instead of the ``dict``.\n    This feature can be used to implement custom decoders.  If ``object_hook``\n    is also defined, the ``object_pairs_hook`` takes priority.\n\n    ``parse_float``, if specified, will be called with the string\n    of every JSON float to be decoded. By default this is equivalent to\n    float(num_str). This can be used to use another datatype or parser\n    for JSON floats (e.g. decimal.Decimal).\n\n    ``parse_int``, if specified, will be called with the string\n    of every JSON int to be decoded. By default this is equivalent to\n    int(num_str). This can be used to use another datatype or parser\n    for JSON integers (e.g. float).\n\n    ``parse_constant``, if specified, will be called with one of the\n    following strings: -Infinity, Infinity, NaN.\n    This can be used to raise an exception if invalid JSON numbers\n    are encountered.\n\n    To use a custom ``JSONDecoder`` subclass, specify it with the ``cls``\n    kwarg; otherwise ``JSONDecoder`` is used.\n    '
+                '﻿'
+                'Unexpected UTF-8 BOM (decode using utf-8-sig)'
+                0
+                'the JSON object must be str, bytes or bytearray, not '
+                'surrogatepass'
+                None
+                'object_hook'
+                'object_pairs_hook'
+                'parse_float'
+                'parse_int'
+                'parse_constant'
+                (
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: s
+                4       LOAD_GLOBAL                     1: str
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_FALSE               17 (to 34)
+                10      LOAD_FAST                       0: s
+                12      LOAD_METHOD                     2: startswith
+                14      LOAD_CONST                      1: '﻿'
+                16      CALL_METHOD                     1
+                18      POP_JUMP_IF_FALSE               16 (to 32)
+                20      LOAD_GLOBAL                     3: JSONDecodeError
+                22      LOAD_CONST                      2: 'Unexpected UTF-8 BOM (decode using utf-8-sig)'
+                24      LOAD_FAST                       0: s
+                26      LOAD_CONST                      3: 0
+                28      CALL_FUNCTION                   3
+                30      RAISE_VARARGS                   1
+                32      JUMP_FORWARD                    24 (to 82)
+                34      LOAD_GLOBAL                     0: isinstance
+                36      LOAD_FAST                       0: s
+                38      LOAD_GLOBAL                     4: bytes
+                40      LOAD_GLOBAL                     5: bytearray
+                42      BUILD_TUPLE                     2
+                44      CALL_FUNCTION                   2
+                46      POP_JUMP_IF_TRUE                33 (to 66)
+                48      LOAD_GLOBAL                     6: TypeError
+                50      LOAD_CONST                      4: 'the JSON object must be str, bytes or bytearray, not '
+                52      LOAD_FAST                       0: s
+                54      LOAD_ATTR                       7: __class__
+                56      LOAD_ATTR                       8: __name__
+                58      FORMAT_VALUE                    0 (FVC_NONE)
+                60      BUILD_STRING                    2
+                62      CALL_FUNCTION                   1
+                64      RAISE_VARARGS                   1
+                66      LOAD_FAST                       0: s
+                68      LOAD_METHOD                     9: decode
+                70      LOAD_GLOBAL                     10: detect_encoding
+                72      LOAD_FAST                       0: s
+                74      CALL_FUNCTION                   1
+                76      LOAD_CONST                      5: 'surrogatepass'
+                78      CALL_METHOD                     2
+                80      STORE_FAST                      0: s
+                82      LOAD_FAST                       1: cls
+                84      LOAD_CONST                      6: None
+                86      IS_OP                           0 (is)
+                88      POP_JUMP_IF_FALSE               72 (to 144)
+                90      LOAD_FAST                       2: object_hook
+                92      LOAD_CONST                      6: None
+                94      IS_OP                           0 (is)
+                96      POP_JUMP_IF_FALSE               72 (to 144)
+                98      LOAD_FAST                       4: parse_int
+                100     LOAD_CONST                      6: None
+                102     IS_OP                           0 (is)
+                104     POP_JUMP_IF_FALSE               72 (to 144)
+                106     LOAD_FAST                       3: parse_float
+                108     LOAD_CONST                      6: None
+                110     IS_OP                           0 (is)
+                112     POP_JUMP_IF_FALSE               72 (to 144)
+                114     LOAD_FAST                       5: parse_constant
+                116     LOAD_CONST                      6: None
+                118     IS_OP                           0 (is)
+                120     POP_JUMP_IF_FALSE               72 (to 144)
+                122     LOAD_FAST                       6: object_pairs_hook
+                124     LOAD_CONST                      6: None
+                126     IS_OP                           0 (is)
+                128     POP_JUMP_IF_FALSE               72 (to 144)
+                130     LOAD_FAST                       7: kw
+                132     POP_JUMP_IF_TRUE                72 (to 144)
+                134     LOAD_GLOBAL                     11: _default_decoder
+                136     LOAD_METHOD                     9: decode
+                138     LOAD_FAST                       0: s
+                140     CALL_METHOD                     1
+                142     RETURN_VALUE                    
+                144     LOAD_FAST                       1: cls
+                146     LOAD_CONST                      6: None
+                148     IS_OP                           0 (is)
+                150     POP_JUMP_IF_FALSE               78 (to 156)
+                152     LOAD_GLOBAL                     12: JSONDecoder
+                154     STORE_FAST                      1: cls
+                156     LOAD_FAST                       2: object_hook
+                158     LOAD_CONST                      6: None
+                160     IS_OP                           1 (is not)
+                162     POP_JUMP_IF_FALSE               86 (to 172)
+                164     LOAD_FAST                       2: object_hook
+                166     LOAD_FAST                       7: kw
+                168     LOAD_CONST                      7: 'object_hook'
+                170     STORE_SUBSCR                    
+                172     LOAD_FAST                       6: object_pairs_hook
+                174     LOAD_CONST                      6: None
+                176     IS_OP                           1 (is not)
+                178     POP_JUMP_IF_FALSE               94 (to 188)
+                180     LOAD_FAST                       6: object_pairs_hook
+                182     LOAD_FAST                       7: kw
+                184     LOAD_CONST                      8: 'object_pairs_hook'
+                186     STORE_SUBSCR                    
+                188     LOAD_FAST                       3: parse_float
+                190     LOAD_CONST                      6: None
+                192     IS_OP                           1 (is not)
+                194     POP_JUMP_IF_FALSE               102 (to 204)
+                196     LOAD_FAST                       3: parse_float
+                198     LOAD_FAST                       7: kw
+                200     LOAD_CONST                      9: 'parse_float'
+                202     STORE_SUBSCR                    
+                204     LOAD_FAST                       4: parse_int
+                206     LOAD_CONST                      6: None
+                208     IS_OP                           1 (is not)
+                210     POP_JUMP_IF_FALSE               110 (to 220)
+                212     LOAD_FAST                       4: parse_int
+                214     LOAD_FAST                       7: kw
+                216     LOAD_CONST                      10: 'parse_int'
+                218     STORE_SUBSCR                    
+                220     LOAD_FAST                       5: parse_constant
+                222     LOAD_CONST                      6: None
+                224     IS_OP                           1 (is not)
+                226     POP_JUMP_IF_FALSE               118 (to 236)
+                228     LOAD_FAST                       5: parse_constant
+                230     LOAD_FAST                       7: kw
+                232     LOAD_CONST                      11: 'parse_constant'
+                234     STORE_SUBSCR                    
+                236     LOAD_FAST                       1: cls
+                238     LOAD_CONST                      12: ()
+                240     BUILD_MAP                       0
+                242     LOAD_FAST                       7: kw
+                244     DICT_MERGE                      1
+                246     CALL_FUNCTION_EX                1
+                248     LOAD_METHOD                     9: decode
+                250     LOAD_FAST                       0: s
+                252     CALL_METHOD                     1
+                254     RETURN_VALUE                    
+        'loads'
+    [Disassembly]
+        0       LOAD_CONST                      0: 'JSON (JavaScript Object Notation) <https://json.org> is a subset of\nJavaScript syntax (ECMA-262 3rd edition) used as a lightweight data\ninterchange format.\n\n:mod:`json` exposes an API familiar to users of the standard library\n:mod:`marshal` and :mod:`pickle` modules.  It is derived from a\nversion of the externally maintained simplejson library.\n\nEncoding basic Python object hierarchies::\n\n    >>> import json\n    >>> json.dumps([\'foo\', {\'bar\': (\'baz\', None, 1.0, 2)}])\n    \'["foo", {"bar": ["baz", null, 1.0, 2]}]\'\n    >>> print(json.dumps("\\"foo\\bar"))\n    "\\"foo\\bar"\n    >>> print(json.dumps(\'\\u1234\'))\n    "\\u1234"\n    >>> print(json.dumps(\'\\\\\'))\n    "\\\\"\n    >>> print(json.dumps({"c": 0, "b": 0, "a": 0}, sort_keys=True))\n    {"a": 0, "b": 0, "c": 0}\n    >>> from io import StringIO\n    >>> io = StringIO()\n    >>> json.dump([\'streaming API\'], io)\n    >>> io.getvalue()\n    \'["streaming API"]\'\n\nCompact encoding::\n\n    >>> import json\n    >>> mydict = {\'4\': 5, \'6\': 7}\n    >>> json.dumps([1,2,3,mydict], separators=(\',\', \':\'))\n    \'[1,2,3,{"4":5,"6":7}]\'\n\nPretty printing::\n\n    >>> import json\n    >>> print(json.dumps({\'4\': 5, \'6\': 7}, sort_keys=True, indent=4))\n    {\n        "4": 5,\n        "6": 7\n    }\n\nDecoding JSON::\n\n    >>> import json\n    >>> obj = [\'foo\', {\'bar\': [\'baz\', None, 1.0, 2]}]\n    >>> json.loads(\'["foo", {"bar":["baz", null, 1.0, 2]}]\') == obj\n    True\n    >>> json.loads(\'"\\\\"foo\\\\bar"\') == \'"foo\\x08ar\'\n    True\n    >>> from io import StringIO\n    >>> io = StringIO(\'["streaming API"]\')\n    >>> json.load(io)[0] == \'streaming API\'\n    True\n\nSpecializing JSON object decoding::\n\n    >>> import json\n    >>> def as_complex(dct):\n    ...     if \'__complex__\' in dct:\n    ...         return complex(dct[\'real\'], dct[\'imag\'])\n    ...     return dct\n    ...\n    >>> json.loads(\'{"__complex__": true, "real": 1, "imag": 2}\',\n    ...     object_hook=as_complex)\n    (1+2j)\n    >>> from decimal import Decimal\n    >>> json.loads(\'1.1\', parse_float=Decimal) == Decimal(\'1.1\')\n    True\n\nSpecializing JSON object encoding::\n\n    >>> import json\n    >>> def encode_complex(obj):\n    ...     if isinstance(obj, complex):\n    ...         return [obj.real, obj.imag]\n    ...     raise TypeError(f\'Object of type {obj.__class__.__name__} \'\n    ...                     f\'is not JSON serializable\')\n    ...\n    >>> json.dumps(2 + 1j, default=encode_complex)\n    \'[2.0, 1.0]\'\n    >>> json.JSONEncoder(default=encode_complex).encode(2 + 1j)\n    \'[2.0, 1.0]\'\n    >>> \'\'.join(json.JSONEncoder(default=encode_complex).iterencode(2 + 1j))\n    \'[2.0, 1.0]\'\n\n\nUsing json.tool from the shell to validate and pretty-print::\n\n    $ echo \'{"json":"obj"}\' | python -m json.tool\n    {\n        "json": "obj"\n    }\n    $ echo \'{ 1.2:3.4}\' | python -m json.tool\n    Expecting property name enclosed in double quotes: line 1 column 3 (char 2)\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: '2.0.9'
+        6       STORE_NAME                      1: __version__
+        8       BUILD_LIST                      0
+        10      LOAD_CONST                      2: ('dump', 'dumps', 'load', 'loads', 'JSONDecoder', 'JSONDecodeError', 'JSONEncoder')
+        12      LIST_EXTEND                     1
+        14      STORE_NAME                      2: __all__
+        16      LOAD_CONST                      3: 'Bob Ippolito <bob@redivi.com>'
+        18      STORE_NAME                      3: __author__
+        20      LOAD_CONST                      4: 1
+        22      LOAD_CONST                      5: ('JSONDecoder', 'JSONDecodeError')
+        24      IMPORT_NAME                     4: decoder
+        26      IMPORT_FROM                     5: JSONDecoder
+        28      STORE_NAME                      5: JSONDecoder
+        30      IMPORT_FROM                     6: JSONDecodeError
+        32      STORE_NAME                      6: JSONDecodeError
+        34      POP_TOP                         
+        36      LOAD_CONST                      4: 1
+        38      LOAD_CONST                      6: ('JSONEncoder',)
+        40      IMPORT_NAME                     7: encoder
+        42      IMPORT_FROM                     8: JSONEncoder
+        44      STORE_NAME                      8: JSONEncoder
+        46      POP_TOP                         
+        48      LOAD_CONST                      7: 0
+        50      LOAD_CONST                      8: None
+        52      IMPORT_NAME                     9: codecs
+        54      STORE_NAME                      9: codecs
+        56      LOAD_NAME                       8: JSONEncoder
+        58      LOAD_CONST                      9: False
+        60      LOAD_CONST                      10: True
+        62      LOAD_CONST                      10: True
+        64      LOAD_CONST                      10: True
+        66      LOAD_CONST                      8: None
+        68      LOAD_CONST                      8: None
+        70      LOAD_CONST                      8: None
+        72      LOAD_CONST                      11: ('skipkeys', 'ensure_ascii', 'check_circular', 'allow_nan', 'indent', 'separators', 'default')
+        74      CALL_FUNCTION_KW                7
+        76      STORE_NAME                      10: _default_encoder
+        78      LOAD_CONST                      9: False
+        80      LOAD_CONST                      10: True
+        82      LOAD_CONST                      10: True
+        84      LOAD_CONST                      10: True
+        86      LOAD_CONST                      8: None
+        88      LOAD_CONST                      8: None
+        90      LOAD_CONST                      8: None
+        92      LOAD_CONST                      8: None
+        94      LOAD_CONST                      9: False
+        96      LOAD_CONST                      12: ('skipkeys', 'ensure_ascii', 'check_circular', 'allow_nan', 'cls', 'indent', 'separators', 'default', 'sort_keys')
+        98      BUILD_CONST_KEY_MAP             9
+        100     LOAD_CONST                      13: <CODE> dump
+        102     LOAD_CONST                      14: 'dump'
+        104     MAKE_FUNCTION                   2
+        106     STORE_NAME                      11: dump
+        108     LOAD_CONST                      9: False
+        110     LOAD_CONST                      10: True
+        112     LOAD_CONST                      10: True
+        114     LOAD_CONST                      10: True
+        116     LOAD_CONST                      8: None
+        118     LOAD_CONST                      8: None
+        120     LOAD_CONST                      8: None
+        122     LOAD_CONST                      8: None
+        124     LOAD_CONST                      9: False
+        126     LOAD_CONST                      12: ('skipkeys', 'ensure_ascii', 'check_circular', 'allow_nan', 'cls', 'indent', 'separators', 'default', 'sort_keys')
+        128     BUILD_CONST_KEY_MAP             9
+        130     LOAD_CONST                      15: <CODE> dumps
+        132     LOAD_CONST                      16: 'dumps'
+        134     MAKE_FUNCTION                   2
+        136     STORE_NAME                      12: dumps
+        138     LOAD_NAME                       5: JSONDecoder
+        140     LOAD_CONST                      8: None
+        142     LOAD_CONST                      8: None
+        144     LOAD_CONST                      17: ('object_hook', 'object_pairs_hook')
+        146     CALL_FUNCTION_KW                2
+        148     STORE_NAME                      13: _default_decoder
+        150     LOAD_CONST                      18: <CODE> detect_encoding
+        152     LOAD_CONST                      19: 'detect_encoding'
+        154     MAKE_FUNCTION                   0
+        156     STORE_NAME                      14: detect_encoding
+        158     LOAD_CONST                      8: None
+        160     LOAD_CONST                      8: None
+        162     LOAD_CONST                      8: None
+        164     LOAD_CONST                      8: None
+        166     LOAD_CONST                      8: None
+        168     LOAD_CONST                      8: None
+        170     LOAD_CONST                      20: ('cls', 'object_hook', 'parse_float', 'parse_int', 'parse_constant', 'object_pairs_hook')
+        172     BUILD_CONST_KEY_MAP             6
+        174     LOAD_CONST                      21: <CODE> load
+        176     LOAD_CONST                      22: 'load'
+        178     MAKE_FUNCTION                   2
+        180     STORE_NAME                      15: load
+        182     LOAD_CONST                      8: None
+        184     LOAD_CONST                      8: None
+        186     LOAD_CONST                      8: None
+        188     LOAD_CONST                      8: None
+        190     LOAD_CONST                      8: None
+        192     LOAD_CONST                      8: None
+        194     LOAD_CONST                      20: ('cls', 'object_hook', 'parse_float', 'parse_int', 'parse_constant', 'object_pairs_hook')
+        196     BUILD_CONST_KEY_MAP             6
+        198     LOAD_CONST                      23: <CODE> loads
+        200     LOAD_CONST                      24: 'loads'
+        202     MAKE_FUNCTION                   2
+        204     STORE_NAME                      16: loads
+        206     LOAD_CONST                      8: None
+        208     RETURN_VALUE                    

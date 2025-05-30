@@ -1,0 +1,4 @@
+File: /Users/kurt/Desktop/PYZ-00.pyz_extracted/email/_encoded_words.pyc
+Size: 5718 bytes
+Modified: Thu May 29 21:01:55 2025
+Python Version: 3.12+

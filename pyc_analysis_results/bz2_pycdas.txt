@@ -1,0 +1,1500 @@
+bz2.pyc (Python 3.10)
+[Code]
+    File Name: bz2.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        '__author__'
+        'builtins'
+        'open'
+        '_builtin_open'
+        'io'
+        'os'
+        '_compression'
+        '_bz2'
+        'BZ2Compressor'
+        'BZ2Decompressor'
+        '_MODE_CLOSED'
+        '_MODE_READ'
+        '_MODE_WRITE'
+        'BaseStream'
+        'BZ2File'
+        'compress'
+        'decompress'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Interface to the libbzip2 compression library.\n\nThis module provides a file interface, classes for incremental\n(de)compression, and functions for one-shot (de)compression.\n'
+        (
+            'BZ2File'
+            'BZ2Compressor'
+            'BZ2Decompressor'
+            'open'
+            'compress'
+            'decompress'
+        )
+        'Nadeem Vawda <nadeem.vawda@gmail.com>'
+        0
+        (
+            'open'
+        )
+        None
+        (
+            'BZ2Compressor'
+            'BZ2Decompressor'
+        )
+        1
+        3
+        [Code]
+            File Name: bz2.py
+            Object Name: BZ2File
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                'close'
+                'property'
+                'closed'
+                'fileno'
+                'seekable'
+                'readable'
+                'writable'
+                'peek'
+                'read'
+                'read1'
+                'readinto'
+                'readline'
+                'readlines'
+                'write'
+                'writelines'
+                'io'
+                'SEEK_SET'
+                'seek'
+                'tell'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'BZ2File'
+                'A file object providing transparent bzip2 (de)compression.\n\n    A BZ2File can act as a wrapper for an existing file object, or refer\n    directly to a named file on disk.\n\n    Note that BZ2File provides a *binary* file interface - data read is\n    returned as bytes, and data to be written should be given as bytes.\n    '
+                'r'
+                9
+                (
+                    'compresslevel'
+                )
+                [Code]
+                    File Name: bz2.py
+                    Object Name: __init__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 1
+                    Locals: 6
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fp'
+                        '_closefp'
+                        '_MODE_CLOSED'
+                        '_mode'
+                        'ValueError'
+                        '_MODE_READ'
+                        '_MODE_WRITE'
+                        'BZ2Compressor'
+                        '_compressor'
+                        'isinstance'
+                        'str'
+                        'bytes'
+                        'os'
+                        'PathLike'
+                        '_builtin_open'
+                        'hasattr'
+                        'TypeError'
+                        '_compression'
+                        'DecompressReader'
+                        'BZ2Decompressor'
+                        'OSError'
+                        'io'
+                        'BufferedReader'
+                        '_buffer'
+                        '_pos'
+                    [Var Names]
+                        'self'
+                        'filename'
+                        'mode'
+                        'compresslevel'
+                        'mode_code'
+                        'raw'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Open a bzip2-compressed file.\n\n        If filename is a str, bytes, or PathLike object, it gives the\n        name of the file to be opened. Otherwise, it should be a file\n        object, which will be used to read or write the compressed data.\n\n        mode can be 'r' for reading (default), 'w' for (over)writing,\n        'x' for creating exclusively, or 'a' for appending. These can\n        equivalently be given as 'rb', 'wb', 'xb', and 'ab'.\n\n        If mode is 'w', 'x' or 'a', compresslevel can be a number between 1\n        and 9 specifying the level of compression: 1 produces the least\n        compression, and 9 (default) produces the most compression.\n\n        If mode is 'r', the input file may be the concatenation of\n        multiple compressed streams.\n        "
+                        None
+                        False
+                        1
+                        9
+                        'compresslevel must be between 1 and 9'
+                        (
+                            ''
+                            'r'
+                            'rb'
+                        )
+                        'rb'
+                        (
+                            'w'
+                            'wb'
+                        )
+                        'wb'
+                        (
+                            'x'
+                            'xb'
+                        )
+                        'xb'
+                        (
+                            'a'
+                            'ab'
+                        )
+                        'ab'
+                        'Invalid mode: %r'
+                        True
+                        'read'
+                        'write'
+                        'filename must be a str, bytes, file or PathLike object'
+                        (
+                            'trailing_error'
+                        )
+                        0
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: _fp
+                        6       LOAD_CONST                      2: False
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: _closefp
+                        12      LOAD_GLOBAL                     2: _MODE_CLOSED
+                        14      LOAD_FAST                       0: self
+                        16      STORE_ATTR                      3: _mode
+                        18      LOAD_CONST                      3: 1
+                        20      LOAD_FAST                       3: compresslevel
+                        22      DUP_TOP                         
+                        24      ROT_THREE                       
+                        26      COMPARE_OP                      1 (<=)
+                        28      POP_JUMP_IF_FALSE               22 (to 44)
+                        30      LOAD_CONST                      4: 9
+                        32      COMPARE_OP                      1 (<=)
+                        34      POP_JUMP_IF_TRUE                27 (to 54)
+                        36      LOAD_GLOBAL                     4: ValueError
+                        38      LOAD_CONST                      5: 'compresslevel must be between 1 and 9'
+                        40      CALL_FUNCTION                   1
+                        42      RAISE_VARARGS                   1
+                        44      POP_TOP                         
+                        46      LOAD_GLOBAL                     4: ValueError
+                        48      LOAD_CONST                      5: 'compresslevel must be between 1 and 9'
+                        50      CALL_FUNCTION                   1
+                        52      RAISE_VARARGS                   1
+                        54      LOAD_FAST                       2: mode
+                        56      LOAD_CONST                      6: ('', 'r', 'rb')
+                        58      CONTAINS_OP                     0 (in)
+                        60      POP_JUMP_IF_FALSE               36 (to 72)
+                        62      LOAD_CONST                      7: 'rb'
+                        64      STORE_FAST                      2: mode
+                        66      LOAD_GLOBAL                     5: _MODE_READ
+                        68      STORE_FAST                      4: mode_code
+                        70      JUMP_FORWARD                    49 (to 170)
+                        72      LOAD_FAST                       2: mode
+                        74      LOAD_CONST                      8: ('w', 'wb')
+                        76      CONTAINS_OP                     0 (in)
+                        78      POP_JUMP_IF_FALSE               50 (to 100)
+                        80      LOAD_CONST                      9: 'wb'
+                        82      STORE_FAST                      2: mode
+                        84      LOAD_GLOBAL                     6: _MODE_WRITE
+                        86      STORE_FAST                      4: mode_code
+                        88      LOAD_GLOBAL                     7: BZ2Compressor
+                        90      LOAD_FAST                       3: compresslevel
+                        92      CALL_FUNCTION                   1
+                        94      LOAD_FAST                       0: self
+                        96      STORE_ATTR                      8: _compressor
+                        98      JUMP_FORWARD                    35 (to 170)
+                        100     LOAD_FAST                       2: mode
+                        102     LOAD_CONST                      10: ('x', 'xb')
+                        104     CONTAINS_OP                     0 (in)
+                        106     POP_JUMP_IF_FALSE               64 (to 128)
+                        108     LOAD_CONST                      11: 'xb'
+                        110     STORE_FAST                      2: mode
+                        112     LOAD_GLOBAL                     6: _MODE_WRITE
+                        114     STORE_FAST                      4: mode_code
+                        116     LOAD_GLOBAL                     7: BZ2Compressor
+                        118     LOAD_FAST                       3: compresslevel
+                        120     CALL_FUNCTION                   1
+                        122     LOAD_FAST                       0: self
+                        124     STORE_ATTR                      8: _compressor
+                        126     JUMP_FORWARD                    21 (to 170)
+                        128     LOAD_FAST                       2: mode
+                        130     LOAD_CONST                      12: ('a', 'ab')
+                        132     CONTAINS_OP                     0 (in)
+                        134     POP_JUMP_IF_FALSE               78 (to 156)
+                        136     LOAD_CONST                      13: 'ab'
+                        138     STORE_FAST                      2: mode
+                        140     LOAD_GLOBAL                     6: _MODE_WRITE
+                        142     STORE_FAST                      4: mode_code
+                        144     LOAD_GLOBAL                     7: BZ2Compressor
+                        146     LOAD_FAST                       3: compresslevel
+                        148     CALL_FUNCTION                   1
+                        150     LOAD_FAST                       0: self
+                        152     STORE_ATTR                      8: _compressor
+                        154     JUMP_FORWARD                    7 (to 170)
+                        156     LOAD_GLOBAL                     4: ValueError
+                        158     LOAD_CONST                      14: 'Invalid mode: %r'
+                        160     LOAD_FAST                       2: mode
+                        162     BUILD_TUPLE                     1
+                        164     BINARY_MODULO                   
+                        166     CALL_FUNCTION                   1
+                        168     RAISE_VARARGS                   1
+                        170     LOAD_GLOBAL                     9: isinstance
+                        172     LOAD_FAST                       1: filename
+                        174     LOAD_GLOBAL                     10: str
+                        176     LOAD_GLOBAL                     11: bytes
+                        178     LOAD_GLOBAL                     12: os
+                        180     LOAD_ATTR                       13: PathLike
+                        182     BUILD_TUPLE                     3
+                        184     CALL_FUNCTION                   2
+                        186     POP_JUMP_IF_FALSE               107 (to 214)
+                        188     LOAD_GLOBAL                     14: _builtin_open
+                        190     LOAD_FAST                       1: filename
+                        192     LOAD_FAST                       2: mode
+                        194     CALL_FUNCTION                   2
+                        196     LOAD_FAST                       0: self
+                        198     STORE_ATTR                      0: _fp
+                        200     LOAD_CONST                      15: True
+                        202     LOAD_FAST                       0: self
+                        204     STORE_ATTR                      1: _closefp
+                        206     LOAD_FAST                       4: mode_code
+                        208     LOAD_FAST                       0: self
+                        210     STORE_ATTR                      3: _mode
+                        212     JUMP_FORWARD                    21 (to 256)
+                        214     LOAD_GLOBAL                     15: hasattr
+                        216     LOAD_FAST                       1: filename
+                        218     LOAD_CONST                      16: 'read'
+                        220     CALL_FUNCTION                   2
+                        222     POP_JUMP_IF_TRUE                117 (to 234)
+                        224     LOAD_GLOBAL                     15: hasattr
+                        226     LOAD_FAST                       1: filename
+                        228     LOAD_CONST                      17: 'write'
+                        230     CALL_FUNCTION                   2
+                        232     POP_JUMP_IF_FALSE               124 (to 248)
+                        234     LOAD_FAST                       1: filename
+                        236     LOAD_FAST                       0: self
+                        238     STORE_ATTR                      0: _fp
+                        240     LOAD_FAST                       4: mode_code
+                        242     LOAD_FAST                       0: self
+                        244     STORE_ATTR                      3: _mode
+                        246     JUMP_FORWARD                    4 (to 256)
+                        248     LOAD_GLOBAL                     16: TypeError
+                        250     LOAD_CONST                      18: 'filename must be a str, bytes, file or PathLike object'
+                        252     CALL_FUNCTION                   1
+                        254     RAISE_VARARGS                   1
+                        256     LOAD_FAST                       0: self
+                        258     LOAD_ATTR                       3: _mode
+                        260     LOAD_GLOBAL                     5: _MODE_READ
+                        262     COMPARE_OP                      2 (==)
+                        264     POP_JUMP_IF_FALSE               150 (to 300)
+                        266     LOAD_GLOBAL                     17: _compression
+                        268     LOAD_ATTR                       18: DecompressReader
+                        270     LOAD_FAST                       0: self
+                        272     LOAD_ATTR                       0: _fp
+                        274     LOAD_GLOBAL                     19: BZ2Decompressor
+                        276     LOAD_GLOBAL                     20: OSError
+                        278     LOAD_CONST                      19: ('trailing_error',)
+                        280     CALL_FUNCTION_KW                3
+                        282     STORE_FAST                      5: raw
+                        284     LOAD_GLOBAL                     21: io
+                        286     LOAD_METHOD                     22: BufferedReader
+                        288     LOAD_FAST                       5: raw
+                        290     CALL_METHOD                     1
+                        292     LOAD_FAST                       0: self
+                        294     STORE_ATTR                      23: _buffer
+                        296     LOAD_CONST                      1: None
+                        298     RETURN_VALUE                    
+                        300     LOAD_CONST                      20: 0
+                        302     LOAD_FAST                       0: self
+                        304     STORE_ATTR                      24: _pos
+                        306     LOAD_CONST                      1: None
+                        308     RETURN_VALUE                    
+                'BZ2File.__init__'
+                [Code]
+                    File Name: bz2.py
+                    Object Name: close
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 14
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_mode'
+                        '_MODE_CLOSED'
+                        '_MODE_READ'
+                        '_buffer'
+                        'close'
+                        '_MODE_WRITE'
+                        '_fp'
+                        'write'
+                        '_compressor'
+                        'flush'
+                        '_closefp'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Flush and close the file.\n\n        May be called more than once without error. Once the file is\n        closed, any other operation on it will raise a ValueError.\n        '
+                        None
+                        False
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _mode
+                        4       LOAD_GLOBAL                     1: _MODE_CLOSED
+                        6       COMPARE_OP                      2 (==)
+                        8       POP_JUMP_IF_FALSE               7 (to 14)
+                        10      LOAD_CONST                      1: None
+                        12      RETURN_VALUE                    
+                        14      SETUP_FINALLY                   81 (to 178)
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       0: _mode
+                        20      LOAD_GLOBAL                     2: _MODE_READ
+                        22      COMPARE_OP                      2 (==)
+                        24      POP_JUMP_IF_FALSE               19 (to 38)
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_ATTR                       3: _buffer
+                        30      LOAD_METHOD                     4: close
+                        32      CALL_METHOD                     0
+                        34      POP_TOP                         
+                        36      JUMP_FORWARD                    17 (to 72)
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_ATTR                       0: _mode
+                        42      LOAD_GLOBAL                     5: _MODE_WRITE
+                        44      COMPARE_OP                      2 (==)
+                        46      POP_JUMP_IF_FALSE               36 (to 72)
+                        48      LOAD_FAST                       0: self
+                        50      LOAD_ATTR                       6: _fp
+                        52      LOAD_METHOD                     7: write
+                        54      LOAD_FAST                       0: self
+                        56      LOAD_ATTR                       8: _compressor
+                        58      LOAD_METHOD                     9: flush
+                        60      CALL_METHOD                     0
+                        62      CALL_METHOD                     1
+                        64      POP_TOP                         
+                        66      LOAD_CONST                      1: None
+                        68      LOAD_FAST                       0: self
+                        70      STORE_ATTR                      8: _compressor
+                        72      POP_BLOCK                       
+                        74      SETUP_FINALLY                   38 (to 152)
+                        76      LOAD_FAST                       0: self
+                        78      LOAD_ATTR                       10: _closefp
+                        80      POP_JUMP_IF_FALSE               61 (to 122)
+                        82      LOAD_FAST                       0: self
+                        84      LOAD_ATTR                       6: _fp
+                        86      LOAD_METHOD                     4: close
+                        88      CALL_METHOD                     0
+                        90      POP_TOP                         
+                        92      POP_BLOCK                       
+                        94      LOAD_CONST                      1: None
+                        96      LOAD_FAST                       0: self
+                        98      STORE_ATTR                      6: _fp
+                        100     LOAD_CONST                      2: False
+                        102     LOAD_FAST                       0: self
+                        104     STORE_ATTR                      10: _closefp
+                        106     LOAD_GLOBAL                     1: _MODE_CLOSED
+                        108     LOAD_FAST                       0: self
+                        110     STORE_ATTR                      0: _mode
+                        112     LOAD_CONST                      1: None
+                        114     LOAD_FAST                       0: self
+                        116     STORE_ATTR                      3: _buffer
+                        118     LOAD_CONST                      1: None
+                        120     RETURN_VALUE                    
+                        122     POP_BLOCK                       
+                        124     LOAD_CONST                      1: None
+                        126     LOAD_FAST                       0: self
+                        128     STORE_ATTR                      6: _fp
+                        130     LOAD_CONST                      2: False
+                        132     LOAD_FAST                       0: self
+                        134     STORE_ATTR                      10: _closefp
+                        136     LOAD_GLOBAL                     1: _MODE_CLOSED
+                        138     LOAD_FAST                       0: self
+                        140     STORE_ATTR                      0: _mode
+                        142     LOAD_CONST                      1: None
+                        144     LOAD_FAST                       0: self
+                        146     STORE_ATTR                      3: _buffer
+                        148     LOAD_CONST                      1: None
+                        150     RETURN_VALUE                    
+                        152     LOAD_CONST                      1: None
+                        154     LOAD_FAST                       0: self
+                        156     STORE_ATTR                      6: _fp
+                        158     LOAD_CONST                      2: False
+                        160     LOAD_FAST                       0: self
+                        162     STORE_ATTR                      10: _closefp
+                        164     LOAD_GLOBAL                     1: _MODE_CLOSED
+                        166     LOAD_FAST                       0: self
+                        168     STORE_ATTR                      0: _mode
+                        170     LOAD_CONST                      1: None
+                        172     LOAD_FAST                       0: self
+                        174     STORE_ATTR                      3: _buffer
+                        176     RERAISE                         0
+                        178     SETUP_FINALLY                   36 (to 252)
+                        180     LOAD_FAST                       0: self
+                        182     LOAD_ATTR                       10: _closefp
+                        184     POP_JUMP_IF_FALSE               112 (to 224)
+                        186     LOAD_FAST                       0: self
+                        188     LOAD_ATTR                       6: _fp
+                        190     LOAD_METHOD                     4: close
+                        192     CALL_METHOD                     0
+                        194     POP_TOP                         
+                        196     POP_BLOCK                       
+                        198     LOAD_CONST                      1: None
+                        200     LOAD_FAST                       0: self
+                        202     STORE_ATTR                      6: _fp
+                        204     LOAD_CONST                      2: False
+                        206     LOAD_FAST                       0: self
+                        208     STORE_ATTR                      10: _closefp
+                        210     LOAD_GLOBAL                     1: _MODE_CLOSED
+                        212     LOAD_FAST                       0: self
+                        214     STORE_ATTR                      0: _mode
+                        216     LOAD_CONST                      1: None
+                        218     LOAD_FAST                       0: self
+                        220     STORE_ATTR                      3: _buffer
+                        222     RERAISE                         0
+                        224     POP_BLOCK                       
+                        226     LOAD_CONST                      1: None
+                        228     LOAD_FAST                       0: self
+                        230     STORE_ATTR                      6: _fp
+                        232     LOAD_CONST                      2: False
+                        234     LOAD_FAST                       0: self
+                        236     STORE_ATTR                      10: _closefp
+                        238     LOAD_GLOBAL                     1: _MODE_CLOSED
+                        240     LOAD_FAST                       0: self
+                        242     STORE_ATTR                      0: _mode
+                        244     LOAD_CONST                      1: None
+                        246     LOAD_FAST                       0: self
+                        248     STORE_ATTR                      3: _buffer
+                        250     RERAISE                         0
+                        252     LOAD_CONST                      1: None
+                        254     LOAD_FAST                       0: self
+                        256     STORE_ATTR                      6: _fp
+                        258     LOAD_CONST                      2: False
+                        260     LOAD_FAST                       0: self
+                        262     STORE_ATTR                      10: _closefp
+                        264     LOAD_GLOBAL                     1: _MODE_CLOSED
+                        266     LOAD_FAST                       0: self
+                        268     STORE_ATTR                      0: _mode
+                        270     LOAD_CONST                      1: None
+                        272     LOAD_FAST                       0: self
+                        274     STORE_ATTR                      3: _buffer
+                        276     RERAISE                         0
+                'BZ2File.close'
+                [Code]
+                    File Name: bz2.py
+                    Object Name: closed
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_mode'
+                        '_MODE_CLOSED'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'True if this file is closed.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _mode
+                        4       LOAD_GLOBAL                     1: _MODE_CLOSED
+                        6       COMPARE_OP                      2 (==)
+                        8       RETURN_VALUE                    
+                'BZ2File.closed'
+                [Code]
+                    File Name: bz2.py
+                    Object Name: fileno
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_not_closed'
+                        '_fp'
+                        'fileno'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return the file descriptor for the underlying file.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_not_closed
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _fp
+                        12      LOAD_METHOD                     2: fileno
+                        14      CALL_METHOD                     0
+                        16      RETURN_VALUE                    
+                'BZ2File.fileno'
+                [Code]
+                    File Name: bz2.py
+                    Object Name: seekable
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'readable'
+                        '_buffer'
+                        'seekable'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return whether the file supports seeking.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: readable
+                        4       CALL_METHOD                     0
+                        6       JUMP_IF_FALSE_OR_POP            8 (to 16)
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _buffer
+                        12      LOAD_METHOD                     2: seekable
+                        14      CALL_METHOD                     0
+                        16      RETURN_VALUE                    
+                'BZ2File.seekable'
+                [Code]
+                    File Name: bz2.py
+                    Object Name: readable
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_not_closed'
+                        '_mode'
+                        '_MODE_READ'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return whether the file was opened for reading.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_not_closed
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _mode
+                        12      LOAD_GLOBAL                     2: _MODE_READ
+                        14      COMPARE_OP                      2 (==)
+                        16      RETURN_VALUE                    
+                'BZ2File.readable'
+                [Code]
+                    File Name: bz2.py
+                    Object Name: writable
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_not_closed'
+                        '_mode'
+                        '_MODE_WRITE'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return whether the file was opened for writing.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_not_closed
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _mode
+                        12      LOAD_GLOBAL                     2: _MODE_WRITE
+                        14      COMPARE_OP                      2 (==)
+                        16      RETURN_VALUE                    
+                'BZ2File.writable'
+                0
+                [Code]
+                    File Name: bz2.py
+                    Object Name: peek
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_can_read'
+                        '_buffer'
+                        'peek'
+                    [Var Names]
+                        'self'
+                        'n'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return buffered data without advancing the file position.\n\n        Always returns at least one byte of data, unless at EOF.\n        The exact number of bytes returned is unspecified.\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_can_read
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _buffer
+                        12      LOAD_METHOD                     2: peek
+                        14      LOAD_FAST                       1: n
+                        16      CALL_METHOD                     1
+                        18      RETURN_VALUE                    
+                'BZ2File.peek'
+                -1
+                [Code]
+                    File Name: bz2.py
+                    Object Name: read
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_can_read'
+                        '_buffer'
+                        'read'
+                    [Var Names]
+                        'self'
+                        'size'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Read up to size uncompressed bytes from the file.\n\n        If size is negative or omitted, read until EOF is reached.\n        Returns b'' if the file is already at EOF.\n        "
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_can_read
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _buffer
+                        12      LOAD_METHOD                     2: read
+                        14      LOAD_FAST                       1: size
+                        16      CALL_METHOD                     1
+                        18      RETURN_VALUE                    
+                'BZ2File.read'
+                [Code]
+                    File Name: bz2.py
+                    Object Name: read1
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_can_read'
+                        'io'
+                        'DEFAULT_BUFFER_SIZE'
+                        '_buffer'
+                        'read1'
+                    [Var Names]
+                        'self'
+                        'size'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Read up to size uncompressed bytes, while trying to avoid\n        making multiple reads from the underlying stream. Reads up to a\n        buffer's worth of data if size is negative.\n\n        Returns b'' if the file is at EOF.\n        "
+                        0
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_can_read
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       1: size
+                        10      LOAD_CONST                      1: 0
+                        12      COMPARE_OP                      0 (<)
+                        14      POP_JUMP_IF_FALSE               11 (to 22)
+                        16      LOAD_GLOBAL                     1: io
+                        18      LOAD_ATTR                       2: DEFAULT_BUFFER_SIZE
+                        20      STORE_FAST                      1: size
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       3: _buffer
+                        26      LOAD_METHOD                     4: read1
+                        28      LOAD_FAST                       1: size
+                        30      CALL_METHOD                     1
+                        32      RETURN_VALUE                    
+                'BZ2File.read1'
+                [Code]
+                    File Name: bz2.py
+                    Object Name: readinto
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_can_read'
+                        '_buffer'
+                        'readinto'
+                    [Var Names]
+                        'self'
+                        'b'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Read bytes into b.\n\n        Returns the number of bytes read (0 for EOF).\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_can_read
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _buffer
+                        12      LOAD_METHOD                     2: readinto
+                        14      LOAD_FAST                       1: b
+                        16      CALL_METHOD                     1
+                        18      RETURN_VALUE                    
+                'BZ2File.readinto'
+                [Code]
+                    File Name: bz2.py
+                    Object Name: readline
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        'int'
+                        'hasattr'
+                        'TypeError'
+                        '__index__'
+                        '_check_can_read'
+                        '_buffer'
+                        'readline'
+                    [Var Names]
+                        'self'
+                        'size'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Read a line of uncompressed bytes from the file.\n\n        The terminating newline (if present) is retained. If size is\n        non-negative, no more than size bytes will be read (in which\n        case the line may be incomplete). Returns b'' if already at EOF.\n        "
+                        '__index__'
+                        'Integer argument expected'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_FAST                       1: size
+                        4       LOAD_GLOBAL                     1: int
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_TRUE                18 (to 36)
+                        10      LOAD_GLOBAL                     2: hasattr
+                        12      LOAD_FAST                       1: size
+                        14      LOAD_CONST                      1: '__index__'
+                        16      CALL_FUNCTION                   2
+                        18      POP_JUMP_IF_TRUE                14 (to 28)
+                        20      LOAD_GLOBAL                     3: TypeError
+                        22      LOAD_CONST                      2: 'Integer argument expected'
+                        24      CALL_FUNCTION                   1
+                        26      RAISE_VARARGS                   1
+                        28      LOAD_FAST                       1: size
+                        30      LOAD_METHOD                     4: __index__
+                        32      CALL_METHOD                     0
+                        34      STORE_FAST                      1: size
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_METHOD                     5: _check_can_read
+                        40      CALL_METHOD                     0
+                        42      POP_TOP                         
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_ATTR                       6: _buffer
+                        48      LOAD_METHOD                     7: readline
+                        50      LOAD_FAST                       1: size
+                        52      CALL_METHOD                     1
+                        54      RETURN_VALUE                    
+                'BZ2File.readline'
+                [Code]
+                    File Name: bz2.py
+                    Object Name: readlines
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        'int'
+                        'hasattr'
+                        'TypeError'
+                        '__index__'
+                        '_check_can_read'
+                        '_buffer'
+                        'readlines'
+                    [Var Names]
+                        'self'
+                        'size'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Read a list of lines of uncompressed bytes from the file.\n\n        size can be specified to control the number of lines read: no\n        further lines will be read once the total size of the lines read\n        so far equals or exceeds size.\n        '
+                        '__index__'
+                        'Integer argument expected'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_FAST                       1: size
+                        4       LOAD_GLOBAL                     1: int
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_TRUE                18 (to 36)
+                        10      LOAD_GLOBAL                     2: hasattr
+                        12      LOAD_FAST                       1: size
+                        14      LOAD_CONST                      1: '__index__'
+                        16      CALL_FUNCTION                   2
+                        18      POP_JUMP_IF_TRUE                14 (to 28)
+                        20      LOAD_GLOBAL                     3: TypeError
+                        22      LOAD_CONST                      2: 'Integer argument expected'
+                        24      CALL_FUNCTION                   1
+                        26      RAISE_VARARGS                   1
+                        28      LOAD_FAST                       1: size
+                        30      LOAD_METHOD                     4: __index__
+                        32      CALL_METHOD                     0
+                        34      STORE_FAST                      1: size
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_METHOD                     5: _check_can_read
+                        40      CALL_METHOD                     0
+                        42      POP_TOP                         
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_ATTR                       6: _buffer
+                        48      LOAD_METHOD                     7: readlines
+                        50      LOAD_FAST                       1: size
+                        52      CALL_METHOD                     1
+                        54      RETURN_VALUE                    
+                'BZ2File.readlines'
+                [Code]
+                    File Name: bz2.py
+                    Object Name: write
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_can_write'
+                        'isinstance'
+                        'bytes'
+                        'bytearray'
+                        'len'
+                        'memoryview'
+                        'nbytes'
+                        '_compressor'
+                        'compress'
+                        '_fp'
+                        'write'
+                        '_pos'
+                    [Var Names]
+                        'self'
+                        'data'
+                        'length'
+                        'compressed'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Write a byte string to the file.\n\n        Returns the number of uncompressed bytes written, which is\n        always the length of data in bytes. Note that due to buffering,\n        the file on disk may not reflect the data written until close()\n        is called.\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_can_write
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_GLOBAL                     1: isinstance
+                        10      LOAD_FAST                       1: data
+                        12      LOAD_GLOBAL                     2: bytes
+                        14      LOAD_GLOBAL                     3: bytearray
+                        16      BUILD_TUPLE                     2
+                        18      CALL_FUNCTION                   2
+                        20      POP_JUMP_IF_FALSE               16 (to 32)
+                        22      LOAD_GLOBAL                     4: len
+                        24      LOAD_FAST                       1: data
+                        26      CALL_FUNCTION                   1
+                        28      STORE_FAST                      2: length
+                        30      JUMP_FORWARD                    7 (to 46)
+                        32      LOAD_GLOBAL                     5: memoryview
+                        34      LOAD_FAST                       1: data
+                        36      CALL_FUNCTION                   1
+                        38      STORE_FAST                      1: data
+                        40      LOAD_FAST                       1: data
+                        42      LOAD_ATTR                       6: nbytes
+                        44      STORE_FAST                      2: length
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_ATTR                       7: _compressor
+                        50      LOAD_METHOD                     8: compress
+                        52      LOAD_FAST                       1: data
+                        54      CALL_METHOD                     1
+                        56      STORE_FAST                      3: compressed
+                        58      LOAD_FAST                       0: self
+                        60      LOAD_ATTR                       9: _fp
+                        62      LOAD_METHOD                     10: write
+                        64      LOAD_FAST                       3: compressed
+                        66      CALL_METHOD                     1
+                        68      POP_TOP                         
+                        70      LOAD_FAST                       0: self
+                        72      DUP_TOP                         
+                        74      LOAD_ATTR                       11: _pos
+                        76      LOAD_FAST                       2: length
+                        78      INPLACE_ADD                     
+                        80      ROT_TWO                         
+                        82      STORE_ATTR                      11: _pos
+                        84      LOAD_FAST                       2: length
+                        86      RETURN_VALUE                    
+                'BZ2File.write'
+                [Code]
+                    File Name: bz2.py
+                    Object Name: writelines
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_compression'
+                        'BaseStream'
+                        'writelines'
+                    [Var Names]
+                        'self'
+                        'seq'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Write a sequence of byte strings to the file.\n\n        Returns the number of uncompressed bytes written.\n        seq can be any iterable yielding byte strings.\n\n        Line separators are not added between the written byte strings.\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: _compression
+                        2       LOAD_ATTR                       1: BaseStream
+                        4       LOAD_METHOD                     2: writelines
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_FAST                       1: seq
+                        10      CALL_METHOD                     2
+                        12      RETURN_VALUE                    
+                'BZ2File.writelines'
+                [Code]
+                    File Name: bz2.py
+                    Object Name: seek
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_can_seek'
+                        '_buffer'
+                        'seek'
+                    [Var Names]
+                        'self'
+                        'offset'
+                        'whence'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Change the file position.\n\n        The new position is specified by offset, relative to the\n        position indicated by whence. Values for whence are:\n\n            0: start of stream (default); offset must not be negative\n            1: current stream position\n            2: end of stream; offset must not be positive\n\n        Returns the new file position.\n\n        Note that seeking is emulated, so depending on the parameters,\n        this operation may be extremely slow.\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_can_seek
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _buffer
+                        12      LOAD_METHOD                     2: seek
+                        14      LOAD_FAST                       1: offset
+                        16      LOAD_FAST                       2: whence
+                        18      CALL_METHOD                     2
+                        20      RETURN_VALUE                    
+                'BZ2File.seek'
+                [Code]
+                    File Name: bz2.py
+                    Object Name: tell
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_not_closed'
+                        '_mode'
+                        '_MODE_READ'
+                        '_buffer'
+                        'tell'
+                        '_pos'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return the current file position.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_not_closed
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _mode
+                        12      LOAD_GLOBAL                     2: _MODE_READ
+                        14      COMPARE_OP                      2 (==)
+                        16      POP_JUMP_IF_FALSE               14 (to 28)
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_ATTR                       3: _buffer
+                        22      LOAD_METHOD                     4: tell
+                        24      CALL_METHOD                     0
+                        26      RETURN_VALUE                    
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       5: _pos
+                        32      RETURN_VALUE                    
+                'BZ2File.tell'
+                None
+                (
+                    'r'
+                )
+                (
+                    0
+                )
+                (
+                    -1
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'BZ2File'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'A file object providing transparent bzip2 (de)compression.\n\n    A BZ2File can act as a wrapper for an existing file object, or refer\n    directly to a named file on disk.\n\n    Note that BZ2File provides a *binary* file interface - data read is\n    returned as bytes, and data to be written should be given as bytes.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      42: ('r',)
+                14      LOAD_CONST                      3: 9
+                16      LOAD_CONST                      4: ('compresslevel',)
+                18      BUILD_CONST_KEY_MAP             1
+                20      LOAD_CONST                      5: <CODE> __init__
+                22      LOAD_CONST                      6: 'BZ2File.__init__'
+                24      MAKE_FUNCTION                   3
+                26      STORE_NAME                      4: __init__
+                28      LOAD_CONST                      7: <CODE> close
+                30      LOAD_CONST                      8: 'BZ2File.close'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      5: close
+                36      LOAD_NAME                       6: property
+                38      LOAD_CONST                      9: <CODE> closed
+                40      LOAD_CONST                      10: 'BZ2File.closed'
+                42      MAKE_FUNCTION                   0
+                44      CALL_FUNCTION                   1
+                46      STORE_NAME                      7: closed
+                48      LOAD_CONST                      11: <CODE> fileno
+                50      LOAD_CONST                      12: 'BZ2File.fileno'
+                52      MAKE_FUNCTION                   0
+                54      STORE_NAME                      8: fileno
+                56      LOAD_CONST                      13: <CODE> seekable
+                58      LOAD_CONST                      14: 'BZ2File.seekable'
+                60      MAKE_FUNCTION                   0
+                62      STORE_NAME                      9: seekable
+                64      LOAD_CONST                      15: <CODE> readable
+                66      LOAD_CONST                      16: 'BZ2File.readable'
+                68      MAKE_FUNCTION                   0
+                70      STORE_NAME                      10: readable
+                72      LOAD_CONST                      17: <CODE> writable
+                74      LOAD_CONST                      18: 'BZ2File.writable'
+                76      MAKE_FUNCTION                   0
+                78      STORE_NAME                      11: writable
+                80      LOAD_CONST                      43: (0,)
+                82      LOAD_CONST                      20: <CODE> peek
+                84      LOAD_CONST                      21: 'BZ2File.peek'
+                86      MAKE_FUNCTION                   1
+                88      STORE_NAME                      12: peek
+                90      LOAD_CONST                      44: (-1,)
+                92      LOAD_CONST                      23: <CODE> read
+                94      LOAD_CONST                      24: 'BZ2File.read'
+                96      MAKE_FUNCTION                   1
+                98      STORE_NAME                      13: read
+                100     LOAD_CONST                      44: (-1,)
+                102     LOAD_CONST                      25: <CODE> read1
+                104     LOAD_CONST                      26: 'BZ2File.read1'
+                106     MAKE_FUNCTION                   1
+                108     STORE_NAME                      14: read1
+                110     LOAD_CONST                      27: <CODE> readinto
+                112     LOAD_CONST                      28: 'BZ2File.readinto'
+                114     MAKE_FUNCTION                   0
+                116     STORE_NAME                      15: readinto
+                118     LOAD_CONST                      44: (-1,)
+                120     LOAD_CONST                      29: <CODE> readline
+                122     LOAD_CONST                      30: 'BZ2File.readline'
+                124     MAKE_FUNCTION                   1
+                126     STORE_NAME                      16: readline
+                128     LOAD_CONST                      44: (-1,)
+                130     LOAD_CONST                      31: <CODE> readlines
+                132     LOAD_CONST                      32: 'BZ2File.readlines'
+                134     MAKE_FUNCTION                   1
+                136     STORE_NAME                      17: readlines
+                138     LOAD_CONST                      33: <CODE> write
+                140     LOAD_CONST                      34: 'BZ2File.write'
+                142     MAKE_FUNCTION                   0
+                144     STORE_NAME                      18: write
+                146     LOAD_CONST                      35: <CODE> writelines
+                148     LOAD_CONST                      36: 'BZ2File.writelines'
+                150     MAKE_FUNCTION                   0
+                152     STORE_NAME                      19: writelines
+                154     LOAD_NAME                       20: io
+                156     LOAD_ATTR                       21: SEEK_SET
+                158     BUILD_TUPLE                     1
+                160     LOAD_CONST                      37: <CODE> seek
+                162     LOAD_CONST                      38: 'BZ2File.seek'
+                164     MAKE_FUNCTION                   1
+                166     STORE_NAME                      22: seek
+                168     LOAD_CONST                      39: <CODE> tell
+                170     LOAD_CONST                      40: 'BZ2File.tell'
+                172     MAKE_FUNCTION                   0
+                174     STORE_NAME                      23: tell
+                176     LOAD_CONST                      41: None
+                178     RETURN_VALUE                    
+        'BZ2File'
+        'rb'
+        9
+        [Code]
+            File Name: bz2.py
+            Object Name: open
+            Arg Count: 6
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 8
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ValueError'
+                'replace'
+                'BZ2File'
+                'io'
+                'text_encoding'
+                'TextIOWrapper'
+            [Var Names]
+                'filename'
+                'mode'
+                'compresslevel'
+                'encoding'
+                'errors'
+                'newline'
+                'bz_mode'
+                'binary_file'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Open a bzip2-compressed file in binary or text mode.\n\n    The filename argument can be an actual filename (a str, bytes, or\n    PathLike object), or an existing file object to read from or write\n    to.\n\n    The mode argument can be "r", "rb", "w", "wb", "x", "xb", "a" or\n    "ab" for binary mode, or "rt", "wt", "xt" or "at" for text mode.\n    The default mode is "rb", and the default compresslevel is 9.\n\n    For binary mode, this function is equivalent to the BZ2File\n    constructor: BZ2File(filename, mode, compresslevel). In this case,\n    the encoding, errors and newline arguments must not be provided.\n\n    For text mode, a BZ2File object is created, and wrapped in an\n    io.TextIOWrapper instance with the specified encoding, error\n    handling behavior, and line ending(s).\n\n    '
+                't'
+                'b'
+                'Invalid mode: %r'
+                None
+                "Argument 'encoding' not supported in binary mode"
+                "Argument 'errors' not supported in binary mode"
+                "Argument 'newline' not supported in binary mode"
+                ''
+                (
+                    'compresslevel'
+                )
+            [Disassembly]
+                0       LOAD_CONST                      1: 't'
+                2       LOAD_FAST                       1: mode
+                4       CONTAINS_OP                     0 (in)
+                6       POP_JUMP_IF_FALSE               16 (to 32)
+                8       LOAD_CONST                      2: 'b'
+                10      LOAD_FAST                       1: mode
+                12      CONTAINS_OP                     0 (in)
+                14      POP_JUMP_IF_FALSE               15 (to 30)
+                16      LOAD_GLOBAL                     0: ValueError
+                18      LOAD_CONST                      3: 'Invalid mode: %r'
+                20      LOAD_FAST                       1: mode
+                22      BUILD_TUPLE                     1
+                24      BINARY_MODULO                   
+                26      CALL_FUNCTION                   1
+                28      RAISE_VARARGS                   1
+                30      JUMP_FORWARD                    24 (to 80)
+                32      LOAD_FAST                       3: encoding
+                34      LOAD_CONST                      4: None
+                36      IS_OP                           1 (is not)
+                38      POP_JUMP_IF_FALSE               24 (to 48)
+                40      LOAD_GLOBAL                     0: ValueError
+                42      LOAD_CONST                      5: "Argument 'encoding' not supported in binary mode"
+                44      CALL_FUNCTION                   1
+                46      RAISE_VARARGS                   1
+                48      LOAD_FAST                       4: errors
+                50      LOAD_CONST                      4: None
+                52      IS_OP                           1 (is not)
+                54      POP_JUMP_IF_FALSE               32 (to 64)
+                56      LOAD_GLOBAL                     0: ValueError
+                58      LOAD_CONST                      6: "Argument 'errors' not supported in binary mode"
+                60      CALL_FUNCTION                   1
+                62      RAISE_VARARGS                   1
+                64      LOAD_FAST                       5: newline
+                66      LOAD_CONST                      4: None
+                68      IS_OP                           1 (is not)
+                70      POP_JUMP_IF_FALSE               40 (to 80)
+                72      LOAD_GLOBAL                     0: ValueError
+                74      LOAD_CONST                      7: "Argument 'newline' not supported in binary mode"
+                76      CALL_FUNCTION                   1
+                78      RAISE_VARARGS                   1
+                80      LOAD_FAST                       1: mode
+                82      LOAD_METHOD                     1: replace
+                84      LOAD_CONST                      1: 't'
+                86      LOAD_CONST                      8: ''
+                88      CALL_METHOD                     2
+                90      STORE_FAST                      6: bz_mode
+                92      LOAD_GLOBAL                     2: BZ2File
+                94      LOAD_FAST                       0: filename
+                96      LOAD_FAST                       6: bz_mode
+                98      LOAD_FAST                       2: compresslevel
+                100     LOAD_CONST                      9: ('compresslevel',)
+                102     CALL_FUNCTION_KW                3
+                104     STORE_FAST                      7: binary_file
+                106     LOAD_CONST                      1: 't'
+                108     LOAD_FAST                       1: mode
+                110     CONTAINS_OP                     0 (in)
+                112     POP_JUMP_IF_FALSE               70 (to 140)
+                114     LOAD_GLOBAL                     3: io
+                116     LOAD_METHOD                     4: text_encoding
+                118     LOAD_FAST                       3: encoding
+                120     CALL_METHOD                     1
+                122     STORE_FAST                      3: encoding
+                124     LOAD_GLOBAL                     3: io
+                126     LOAD_METHOD                     5: TextIOWrapper
+                128     LOAD_FAST                       7: binary_file
+                130     LOAD_FAST                       3: encoding
+                132     LOAD_FAST                       4: errors
+                134     LOAD_FAST                       5: newline
+                136     CALL_METHOD                     4
+                138     RETURN_VALUE                    
+                140     LOAD_FAST                       7: binary_file
+                142     RETURN_VALUE                    
+        'open'
+        [Code]
+            File Name: bz2.py
+            Object Name: compress
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'BZ2Compressor'
+                'compress'
+                'flush'
+            [Var Names]
+                'data'
+                'compresslevel'
+                'comp'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Compress a block of data.\n\n    compresslevel, if given, must be a number between 1 and 9.\n\n    For incremental compression, use a BZ2Compressor object instead.\n    '
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: BZ2Compressor
+                2       LOAD_FAST                       1: compresslevel
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      2: comp
+                8       LOAD_FAST                       2: comp
+                10      LOAD_METHOD                     1: compress
+                12      LOAD_FAST                       0: data
+                14      CALL_METHOD                     1
+                16      LOAD_FAST                       2: comp
+                18      LOAD_METHOD                     2: flush
+                20      CALL_METHOD                     0
+                22      BINARY_ADD                      
+                24      RETURN_VALUE                    
+        'compress'
+        [Code]
+            File Name: bz2.py
+            Object Name: decompress
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'BZ2Decompressor'
+                'decompress'
+                'OSError'
+                'append'
+                'eof'
+                'ValueError'
+                'unused_data'
+                'join'
+            [Var Names]
+                'data'
+                'results'
+                'decomp'
+                'res'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Decompress a block of data.\n\n    For incremental decompression, use a BZ2Decompressor object instead.\n    '
+                'Compressed data ended before the end-of-stream marker was reached'
+                b''
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       STORE_FAST                      1: results
+                4       LOAD_FAST                       0: data
+                6       POP_JUMP_IF_FALSE               44 (to 88)
+                8       LOAD_GLOBAL                     0: BZ2Decompressor
+                10      CALL_FUNCTION                   0
+                12      STORE_FAST                      2: decomp
+                14      SETUP_FINALLY                   7 (to 30)
+                16      LOAD_FAST                       2: decomp
+                18      LOAD_METHOD                     1: decompress
+                20      LOAD_FAST                       0: data
+                22      CALL_METHOD                     1
+                24      STORE_FAST                      3: res
+                26      POP_BLOCK                       
+                28      JUMP_FORWARD                    12 (to 54)
+                30      DUP_TOP                         
+                32      LOAD_GLOBAL                     2: OSError
+                34      JUMP_IF_NOT_EXC_MATCH           26 (to 52)
+                36      POP_TOP                         
+                38      POP_TOP                         
+                40      POP_TOP                         
+                42      LOAD_FAST                       1: results
+                44      POP_JUMP_IF_FALSE               25 (to 50)
+                46      POP_EXCEPT                      
+                48      JUMP_FORWARD                    19 (to 88)
+                50      RAISE_VARARGS                   0
+                52      RERAISE                         0
+                54      LOAD_FAST                       1: results
+                56      LOAD_METHOD                     3: append
+                58      LOAD_FAST                       3: res
+                60      CALL_METHOD                     1
+                62      POP_TOP                         
+                64      LOAD_FAST                       2: decomp
+                66      LOAD_ATTR                       4: eof
+                68      POP_JUMP_IF_TRUE                39 (to 78)
+                70      LOAD_GLOBAL                     5: ValueError
+                72      LOAD_CONST                      1: 'Compressed data ended before the end-of-stream marker was reached'
+                74      CALL_FUNCTION                   1
+                76      RAISE_VARARGS                   1
+                78      LOAD_FAST                       2: decomp
+                80      LOAD_ATTR                       6: unused_data
+                82      STORE_FAST                      0: data
+                84      LOAD_FAST                       0: data
+                86      POP_JUMP_IF_TRUE                4 (to 8)
+                88      LOAD_CONST                      2: b''
+                90      LOAD_METHOD                     7: join
+                92      LOAD_FAST                       1: results
+                94      CALL_METHOD                     1
+                96      RETURN_VALUE                    
+        'decompress'
+        (
+            'rb'
+            9
+            None
+            None
+            None
+        )
+        (
+            9
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Interface to the libbzip2 compression library.\n\nThis module provides a file interface, classes for incremental\n(de)compression, and functions for one-shot (de)compression.\n'
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('BZ2File', 'BZ2Compressor', 'BZ2Decompressor', 'open', 'compress', 'decompress')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: 'Nadeem Vawda <nadeem.vawda@gmail.com>'
+        14      STORE_NAME                      2: __author__
+        16      LOAD_CONST                      3: 0
+        18      LOAD_CONST                      4: ('open',)
+        20      IMPORT_NAME                     3: builtins
+        22      IMPORT_FROM                     4: open
+        24      STORE_NAME                      5: _builtin_open
+        26      POP_TOP                         
+        28      LOAD_CONST                      3: 0
+        30      LOAD_CONST                      5: None
+        32      IMPORT_NAME                     6: io
+        34      STORE_NAME                      6: io
+        36      LOAD_CONST                      3: 0
+        38      LOAD_CONST                      5: None
+        40      IMPORT_NAME                     7: os
+        42      STORE_NAME                      7: os
+        44      LOAD_CONST                      3: 0
+        46      LOAD_CONST                      5: None
+        48      IMPORT_NAME                     8: _compression
+        50      STORE_NAME                      8: _compression
+        52      LOAD_CONST                      3: 0
+        54      LOAD_CONST                      6: ('BZ2Compressor', 'BZ2Decompressor')
+        56      IMPORT_NAME                     9: _bz2
+        58      IMPORT_FROM                     10: BZ2Compressor
+        60      STORE_NAME                      10: BZ2Compressor
+        62      IMPORT_FROM                     11: BZ2Decompressor
+        64      STORE_NAME                      11: BZ2Decompressor
+        66      POP_TOP                         
+        68      LOAD_CONST                      3: 0
+        70      STORE_NAME                      12: _MODE_CLOSED
+        72      LOAD_CONST                      7: 1
+        74      STORE_NAME                      13: _MODE_READ
+        76      LOAD_CONST                      8: 3
+        78      STORE_NAME                      14: _MODE_WRITE
+        80      LOAD_BUILD_CLASS                
+        82      LOAD_CONST                      9: <CODE> BZ2File
+        84      LOAD_CONST                      10: 'BZ2File'
+        86      MAKE_FUNCTION                   0
+        88      LOAD_CONST                      10: 'BZ2File'
+        90      LOAD_NAME                       8: _compression
+        92      LOAD_ATTR                       15: BaseStream
+        94      CALL_FUNCTION                   3
+        96      STORE_NAME                      16: BZ2File
+        98      NOP                             
+        100     NOP                             
+        102     LOAD_CONST                      19: ('rb', 9, None, None, None)
+        104     LOAD_CONST                      13: <CODE> open
+        106     LOAD_CONST                      14: 'open'
+        108     MAKE_FUNCTION                   1
+        110     STORE_NAME                      4: open
+        112     LOAD_CONST                      20: (9,)
+        114     LOAD_CONST                      15: <CODE> compress
+        116     LOAD_CONST                      16: 'compress'
+        118     MAKE_FUNCTION                   1
+        120     STORE_NAME                      17: compress
+        122     LOAD_CONST                      17: <CODE> decompress
+        124     LOAD_CONST                      18: 'decompress'
+        126     MAKE_FUNCTION                   0
+        128     STORE_NAME                      18: decompress
+        130     LOAD_CONST                      5: None
+        132     RETURN_VALUE                    

@@ -1,0 +1,1089 @@
+_compat_pickle.pyc (Python 3.10)
+[Code]
+    File Name: _compat_pickle.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 16
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        'IMPORT_MAPPING'
+        'NAME_MAPPING'
+        'PYTHON2_EXCEPTIONS'
+        'WindowsError'
+        'NameError'
+        'excname'
+        'MULTIPROCESSING_EXCEPTIONS'
+        'dict'
+        'items'
+        'REVERSE_IMPORT_MAPPING'
+        'len'
+        'REVERSE_NAME_MAPPING'
+        'update'
+        'PYTHON3_OSERROR_EXCEPTIONS'
+        'PYTHON3_IMPORTERROR_EXCEPTIONS'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        '__builtin__'
+        'builtins'
+        'copy_reg'
+        'copyreg'
+        'Queue'
+        'queue'
+        'SocketServer'
+        'socketserver'
+        'ConfigParser'
+        'configparser'
+        'repr'
+        'reprlib'
+        'tkFileDialog'
+        'tkinter.filedialog'
+        'tkSimpleDialog'
+        'tkinter.simpledialog'
+        'tkColorChooser'
+        'tkinter.colorchooser'
+        'tkCommonDialog'
+        'tkinter.commondialog'
+        'Dialog'
+        'tkinter.dialog'
+        'Tkdnd'
+        'tkinter.dnd'
+        'tkFont'
+        'tkinter.font'
+        'tkMessageBox'
+        'tkinter.messagebox'
+        'ScrolledText'
+        'tkinter.scrolledtext'
+        'Tkconstants'
+        'tkinter.constants'
+        'Tix'
+        'tkinter.tix'
+        'ttk'
+        'tkinter.ttk'
+        'Tkinter'
+        'tkinter'
+        'markupbase'
+        '_markupbase'
+        '_winreg'
+        'winreg'
+        'thread'
+        '_thread'
+        'dummy_thread'
+        '_dummy_thread'
+        'dbhash'
+        'dbm.bsd'
+        'dumbdbm'
+        'dbm.dumb'
+        'dbm'
+        'dbm.ndbm'
+        'gdbm'
+        'dbm.gnu'
+        'xmlrpclib'
+        'xmlrpc.client'
+        'SimpleXMLRPCServer'
+        'xmlrpc.server'
+        'httplib'
+        'http.client'
+        'htmlentitydefs'
+        'html.entities'
+        'HTMLParser'
+        'html.parser'
+        'Cookie'
+        'http.cookies'
+        'cookielib'
+        'http.cookiejar'
+        'http.server'
+        'test.support'
+        'subprocess'
+        'urllib.parse'
+        'urllib.robotparser'
+        'urllib.request'
+        'collections.abc'
+        (
+            'BaseHTTPServer'
+            'test.test_support'
+            'commands'
+            'urlparse'
+            'robotparser'
+            'urllib2'
+            'anydbm'
+            '_abcoll'
+        )
+        (
+            '__builtin__'
+            'xrange'
+        )
+        (
+            'builtins'
+            'range'
+        )
+        (
+            '__builtin__'
+            'reduce'
+        )
+        (
+            'functools'
+            'reduce'
+        )
+        (
+            '__builtin__'
+            'intern'
+        )
+        (
+            'sys'
+            'intern'
+        )
+        (
+            '__builtin__'
+            'unichr'
+        )
+        (
+            'builtins'
+            'chr'
+        )
+        (
+            '__builtin__'
+            'unicode'
+        )
+        (
+            'builtins'
+            'str'
+        )
+        (
+            '__builtin__'
+            'long'
+        )
+        (
+            'builtins'
+            'int'
+        )
+        (
+            'itertools'
+            'izip'
+        )
+        (
+            'builtins'
+            'zip'
+        )
+        (
+            'itertools'
+            'imap'
+        )
+        (
+            'builtins'
+            'map'
+        )
+        (
+            'itertools'
+            'ifilter'
+        )
+        (
+            'builtins'
+            'filter'
+        )
+        (
+            'itertools'
+            'ifilterfalse'
+        )
+        (
+            'itertools'
+            'filterfalse'
+        )
+        (
+            'itertools'
+            'izip_longest'
+        )
+        (
+            'itertools'
+            'zip_longest'
+        )
+        (
+            'UserDict'
+            'IterableUserDict'
+        )
+        (
+            'collections'
+            'UserDict'
+        )
+        (
+            'UserList'
+            'UserList'
+        )
+        (
+            'collections'
+            'UserList'
+        )
+        (
+            'UserString'
+            'UserString'
+        )
+        (
+            'collections'
+            'UserString'
+        )
+        (
+            'whichdb'
+            'whichdb'
+        )
+        (
+            'dbm'
+            'whichdb'
+        )
+        (
+            '_socket'
+            'fromfd'
+        )
+        (
+            'socket'
+            'fromfd'
+        )
+        (
+            '_multiprocessing'
+            'Connection'
+        )
+        (
+            'multiprocessing.connection'
+            'Connection'
+        )
+        (
+            'multiprocessing.process'
+            'Process'
+        )
+        (
+            'multiprocessing.context'
+            'Process'
+        )
+        (
+            'multiprocessing.forking'
+            'Popen'
+        )
+        (
+            'multiprocessing.popen_fork'
+            'Popen'
+        )
+        (
+            'urllib'
+            'ContentTooShortError'
+        )
+        (
+            'urllib.error'
+            'ContentTooShortError'
+        )
+        (
+            'urllib'
+            'getproxies'
+        )
+        (
+            'urllib.request'
+            'getproxies'
+        )
+        (
+            'urllib'
+            'pathname2url'
+        )
+        (
+            'urllib.request'
+            'pathname2url'
+        )
+        (
+            'urllib'
+            'quote_plus'
+        )
+        (
+            'urllib.parse'
+            'quote_plus'
+        )
+        (
+            'urllib'
+            'quote'
+        )
+        (
+            'urllib.parse'
+            'quote'
+        )
+        (
+            'urllib'
+            'unquote_plus'
+        )
+        (
+            'urllib.parse'
+            'unquote_plus'
+        )
+        (
+            'urllib'
+            'unquote'
+        )
+        (
+            'urllib.parse'
+            'unquote'
+        )
+        (
+            'urllib'
+            'url2pathname'
+        )
+        (
+            'urllib.request'
+            'url2pathname'
+        )
+        (
+            'urllib'
+            'urlcleanup'
+        )
+        (
+            'urllib.request'
+            'urlcleanup'
+        )
+        (
+            'urllib'
+            'urlencode'
+        )
+        (
+            'urllib.parse'
+            'urlencode'
+        )
+        (
+            'urllib'
+            'urlopen'
+        )
+        (
+            'urllib.request'
+            'urlopen'
+        )
+        (
+            'urllib'
+            'urlretrieve'
+        )
+        (
+            'urllib.request'
+            'urlretrieve'
+        )
+        (
+            'urllib2'
+            'HTTPError'
+        )
+        (
+            'urllib.error'
+            'HTTPError'
+        )
+        (
+            'urllib2'
+            'URLError'
+        )
+        (
+            'urllib.error'
+            'URLError'
+        )
+        (
+            'ArithmeticError'
+            'AssertionError'
+            'AttributeError'
+            'BaseException'
+            'BufferError'
+            'BytesWarning'
+            'DeprecationWarning'
+            'EOFError'
+            'EnvironmentError'
+            'Exception'
+            'FloatingPointError'
+            'FutureWarning'
+            'GeneratorExit'
+            'IOError'
+            'ImportError'
+            'ImportWarning'
+            'IndentationError'
+            'IndexError'
+            'KeyError'
+            'KeyboardInterrupt'
+            'LookupError'
+            'MemoryError'
+            'NameError'
+            'NotImplementedError'
+            'OSError'
+            'OverflowError'
+            'PendingDeprecationWarning'
+            'ReferenceError'
+            'RuntimeError'
+            'RuntimeWarning'
+            'StopIteration'
+            'SyntaxError'
+            'SyntaxWarning'
+            'SystemError'
+            'SystemExit'
+            'TabError'
+            'TypeError'
+            'UnboundLocalError'
+            'UnicodeDecodeError'
+            'UnicodeEncodeError'
+            'UnicodeError'
+            'UnicodeTranslateError'
+            'UnicodeWarning'
+            'UserWarning'
+            'ValueError'
+            'Warning'
+            'ZeroDivisionError'
+        )
+        (
+            'WindowsError'
+        )
+        'exceptions'
+        (
+            'AuthenticationError'
+            'BufferTooShort'
+            'ProcessError'
+            'TimeoutError'
+        )
+        'multiprocessing.context'
+        'multiprocessing'
+        [Code]
+            File Name: _compat_pickle.py
+            Object Name: <genexpr>
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 3
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+            [Var Names]
+                '.0'
+                'k'
+                'v'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_FAST                       0: .0
+                4       FOR_ITER                        9 (to 24)
+                6       UNPACK_SEQUENCE                 2
+                8       STORE_FAST                      1: k
+                10      STORE_FAST                      2: v
+                12      LOAD_FAST                       2: v
+                14      LOAD_FAST                       1: k
+                16      BUILD_TUPLE                     2
+                18      YIELD_VALUE                     
+                20      POP_TOP                         
+                22      JUMP_ABSOLUTE                   2 (to 4)
+                24      LOAD_CONST                      0: None
+                26      RETURN_VALUE                    
+        '<genexpr>'
+        [Code]
+            File Name: _compat_pickle.py
+            Object Name: <genexpr>
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 3
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+            [Var Names]
+                '.0'
+                'k'
+                'v'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_FAST                       0: .0
+                4       FOR_ITER                        9 (to 24)
+                6       UNPACK_SEQUENCE                 2
+                8       STORE_FAST                      1: k
+                10      STORE_FAST                      2: v
+                12      LOAD_FAST                       2: v
+                14      LOAD_FAST                       1: k
+                16      BUILD_TUPLE                     2
+                18      YIELD_VALUE                     
+                20      POP_TOP                         
+                22      JUMP_ABSOLUTE                   2 (to 4)
+                24      LOAD_CONST                      0: None
+                26      RETURN_VALUE                    
+        'pickle'
+        'xml.etree.ElementTree'
+        'collections'
+        'io'
+        (
+            'cPickle'
+            '_elementtree'
+            'FileDialog'
+            'SimpleDialog'
+            'DocXMLRPCServer'
+            'SimpleHTTPServer'
+            'CGIHTTPServer'
+            'UserDict'
+            'UserList'
+            'UserString'
+            'whichdb'
+            'StringIO'
+            'cStringIO'
+        )
+        'bz2'
+        'functools'
+        (
+            '_bz2'
+            '_dbm'
+            '_functools'
+            '_gdbm'
+            '_pickle'
+        )
+        (
+            'builtins'
+            'Exception'
+        )
+        (
+            'socket'
+            'SocketType'
+        )
+        (
+            (
+                '__builtin__'
+                'basestring'
+            )
+            (
+                'exceptions'
+                'StandardError'
+            )
+            (
+                'UserDict'
+                'UserDict'
+            )
+            (
+                'socket'
+                '_socketobject'
+            )
+        )
+        (
+            'FileDialog'
+            'FileDialog'
+        )
+        (
+            'FileDialog'
+            'LoadFileDialog'
+        )
+        (
+            'FileDialog'
+            'SaveFileDialog'
+        )
+        (
+            'SimpleDialog'
+            'SimpleDialog'
+        )
+        (
+            'DocXMLRPCServer'
+            'ServerHTMLDoc'
+        )
+        (
+            'DocXMLRPCServer'
+            'XMLRPCDocGenerator'
+        )
+        (
+            'DocXMLRPCServer'
+            'DocXMLRPCRequestHandler'
+        )
+        (
+            'DocXMLRPCServer'
+            'DocXMLRPCServer'
+        )
+        (
+            'DocXMLRPCServer'
+            'DocCGIXMLRPCRequestHandler'
+        )
+        (
+            'SimpleHTTPServer'
+            'SimpleHTTPRequestHandler'
+        )
+        (
+            'CGIHTTPServer'
+            'CGIHTTPRequestHandler'
+        )
+        (
+            'socket'
+            '_socketobject'
+        )
+        (
+            (
+                '_functools'
+                'reduce'
+            )
+            (
+                'tkinter.filedialog'
+                'FileDialog'
+            )
+            (
+                'tkinter.filedialog'
+                'LoadFileDialog'
+            )
+            (
+                'tkinter.filedialog'
+                'SaveFileDialog'
+            )
+            (
+                'tkinter.simpledialog'
+                'SimpleDialog'
+            )
+            (
+                'xmlrpc.server'
+                'ServerHTMLDoc'
+            )
+            (
+                'xmlrpc.server'
+                'XMLRPCDocGenerator'
+            )
+            (
+                'xmlrpc.server'
+                'DocXMLRPCRequestHandler'
+            )
+            (
+                'xmlrpc.server'
+                'DocXMLRPCServer'
+            )
+            (
+                'xmlrpc.server'
+                'DocCGIXMLRPCRequestHandler'
+            )
+            (
+                'http.server'
+                'SimpleHTTPRequestHandler'
+            )
+            (
+                'http.server'
+                'CGIHTTPRequestHandler'
+            )
+            (
+                '_socket'
+                'socket'
+            )
+        )
+        (
+            'BrokenPipeError'
+            'ChildProcessError'
+            'ConnectionAbortedError'
+            'ConnectionError'
+            'ConnectionRefusedError'
+            'ConnectionResetError'
+            'FileExistsError'
+            'FileNotFoundError'
+            'InterruptedError'
+            'IsADirectoryError'
+            'NotADirectoryError'
+            'PermissionError'
+            'ProcessLookupError'
+            'TimeoutError'
+        )
+        (
+            'exceptions'
+            'OSError'
+        )
+        (
+            'ModuleNotFoundError'
+        )
+        (
+            'exceptions'
+            'ImportError'
+        )
+        None
+    [Disassembly]
+        0       BUILD_MAP                       0
+        2       LOAD_CONST                      0: '__builtin__'
+        4       LOAD_CONST                      1: 'builtins'
+        6       MAP_ADD                         1
+        8       LOAD_CONST                      2: 'copy_reg'
+        10      LOAD_CONST                      3: 'copyreg'
+        12      MAP_ADD                         1
+        14      LOAD_CONST                      4: 'Queue'
+        16      LOAD_CONST                      5: 'queue'
+        18      MAP_ADD                         1
+        20      LOAD_CONST                      6: 'SocketServer'
+        22      LOAD_CONST                      7: 'socketserver'
+        24      MAP_ADD                         1
+        26      LOAD_CONST                      8: 'ConfigParser'
+        28      LOAD_CONST                      9: 'configparser'
+        30      MAP_ADD                         1
+        32      LOAD_CONST                      10: 'repr'
+        34      LOAD_CONST                      11: 'reprlib'
+        36      MAP_ADD                         1
+        38      LOAD_CONST                      12: 'tkFileDialog'
+        40      LOAD_CONST                      13: 'tkinter.filedialog'
+        42      MAP_ADD                         1
+        44      LOAD_CONST                      14: 'tkSimpleDialog'
+        46      LOAD_CONST                      15: 'tkinter.simpledialog'
+        48      MAP_ADD                         1
+        50      LOAD_CONST                      16: 'tkColorChooser'
+        52      LOAD_CONST                      17: 'tkinter.colorchooser'
+        54      MAP_ADD                         1
+        56      LOAD_CONST                      18: 'tkCommonDialog'
+        58      LOAD_CONST                      19: 'tkinter.commondialog'
+        60      MAP_ADD                         1
+        62      LOAD_CONST                      20: 'Dialog'
+        64      LOAD_CONST                      21: 'tkinter.dialog'
+        66      MAP_ADD                         1
+        68      LOAD_CONST                      22: 'Tkdnd'
+        70      LOAD_CONST                      23: 'tkinter.dnd'
+        72      MAP_ADD                         1
+        74      LOAD_CONST                      24: 'tkFont'
+        76      LOAD_CONST                      25: 'tkinter.font'
+        78      MAP_ADD                         1
+        80      LOAD_CONST                      26: 'tkMessageBox'
+        82      LOAD_CONST                      27: 'tkinter.messagebox'
+        84      MAP_ADD                         1
+        86      LOAD_CONST                      28: 'ScrolledText'
+        88      LOAD_CONST                      29: 'tkinter.scrolledtext'
+        90      MAP_ADD                         1
+        92      LOAD_CONST                      30: 'Tkconstants'
+        94      LOAD_CONST                      31: 'tkinter.constants'
+        96      MAP_ADD                         1
+        98      LOAD_CONST                      32: 'Tix'
+        100     LOAD_CONST                      33: 'tkinter.tix'
+        102     MAP_ADD                         1
+        104     BUILD_MAP                       0
+        106     LOAD_CONST                      34: 'ttk'
+        108     LOAD_CONST                      35: 'tkinter.ttk'
+        110     MAP_ADD                         1
+        112     LOAD_CONST                      36: 'Tkinter'
+        114     LOAD_CONST                      37: 'tkinter'
+        116     MAP_ADD                         1
+        118     LOAD_CONST                      38: 'markupbase'
+        120     LOAD_CONST                      39: '_markupbase'
+        122     MAP_ADD                         1
+        124     LOAD_CONST                      40: '_winreg'
+        126     LOAD_CONST                      41: 'winreg'
+        128     MAP_ADD                         1
+        130     LOAD_CONST                      42: 'thread'
+        132     LOAD_CONST                      43: '_thread'
+        134     MAP_ADD                         1
+        136     LOAD_CONST                      44: 'dummy_thread'
+        138     LOAD_CONST                      45: '_dummy_thread'
+        140     MAP_ADD                         1
+        142     LOAD_CONST                      46: 'dbhash'
+        144     LOAD_CONST                      47: 'dbm.bsd'
+        146     MAP_ADD                         1
+        148     LOAD_CONST                      48: 'dumbdbm'
+        150     LOAD_CONST                      49: 'dbm.dumb'
+        152     MAP_ADD                         1
+        154     LOAD_CONST                      50: 'dbm'
+        156     LOAD_CONST                      51: 'dbm.ndbm'
+        158     MAP_ADD                         1
+        160     LOAD_CONST                      52: 'gdbm'
+        162     LOAD_CONST                      53: 'dbm.gnu'
+        164     MAP_ADD                         1
+        166     LOAD_CONST                      54: 'xmlrpclib'
+        168     LOAD_CONST                      55: 'xmlrpc.client'
+        170     MAP_ADD                         1
+        172     LOAD_CONST                      56: 'SimpleXMLRPCServer'
+        174     LOAD_CONST                      57: 'xmlrpc.server'
+        176     MAP_ADD                         1
+        178     LOAD_CONST                      58: 'httplib'
+        180     LOAD_CONST                      59: 'http.client'
+        182     MAP_ADD                         1
+        184     LOAD_CONST                      60: 'htmlentitydefs'
+        186     LOAD_CONST                      61: 'html.entities'
+        188     MAP_ADD                         1
+        190     LOAD_CONST                      62: 'HTMLParser'
+        192     LOAD_CONST                      63: 'html.parser'
+        194     MAP_ADD                         1
+        196     LOAD_CONST                      64: 'Cookie'
+        198     LOAD_CONST                      65: 'http.cookies'
+        200     MAP_ADD                         1
+        202     LOAD_CONST                      66: 'cookielib'
+        204     LOAD_CONST                      67: 'http.cookiejar'
+        206     MAP_ADD                         1
+        208     DICT_UPDATE                     1
+        210     LOAD_CONST                      68: 'http.server'
+        212     LOAD_CONST                      69: 'test.support'
+        214     LOAD_CONST                      70: 'subprocess'
+        216     LOAD_CONST                      71: 'urllib.parse'
+        218     LOAD_CONST                      72: 'urllib.robotparser'
+        220     LOAD_CONST                      73: 'urllib.request'
+        222     LOAD_CONST                      50: 'dbm'
+        224     LOAD_CONST                      74: 'collections.abc'
+        226     LOAD_CONST                      75: ('BaseHTTPServer', 'test.test_support', 'commands', 'urlparse', 'robotparser', 'urllib2', 'anydbm', '_abcoll')
+        228     BUILD_CONST_KEY_MAP             8
+        230     DICT_UPDATE                     1
+        232     STORE_NAME                      0: IMPORT_MAPPING
+        234     BUILD_MAP                       0
+        236     LOAD_CONST                      76: ('__builtin__', 'xrange')
+        238     LOAD_CONST                      77: ('builtins', 'range')
+        240     MAP_ADD                         1
+        242     LOAD_CONST                      78: ('__builtin__', 'reduce')
+        244     LOAD_CONST                      79: ('functools', 'reduce')
+        246     MAP_ADD                         1
+        248     LOAD_CONST                      80: ('__builtin__', 'intern')
+        250     LOAD_CONST                      81: ('sys', 'intern')
+        252     MAP_ADD                         1
+        254     LOAD_CONST                      82: ('__builtin__', 'unichr')
+        256     LOAD_CONST                      83: ('builtins', 'chr')
+        258     MAP_ADD                         1
+        260     LOAD_CONST                      84: ('__builtin__', 'unicode')
+        262     LOAD_CONST                      85: ('builtins', 'str')
+        264     MAP_ADD                         1
+        266     LOAD_CONST                      86: ('__builtin__', 'long')
+        268     LOAD_CONST                      87: ('builtins', 'int')
+        270     MAP_ADD                         1
+        272     LOAD_CONST                      88: ('itertools', 'izip')
+        274     LOAD_CONST                      89: ('builtins', 'zip')
+        276     MAP_ADD                         1
+        278     LOAD_CONST                      90: ('itertools', 'imap')
+        280     LOAD_CONST                      91: ('builtins', 'map')
+        282     MAP_ADD                         1
+        284     LOAD_CONST                      92: ('itertools', 'ifilter')
+        286     LOAD_CONST                      93: ('builtins', 'filter')
+        288     MAP_ADD                         1
+        290     LOAD_CONST                      94: ('itertools', 'ifilterfalse')
+        292     LOAD_CONST                      95: ('itertools', 'filterfalse')
+        294     MAP_ADD                         1
+        296     LOAD_CONST                      96: ('itertools', 'izip_longest')
+        298     LOAD_CONST                      97: ('itertools', 'zip_longest')
+        300     MAP_ADD                         1
+        302     LOAD_CONST                      98: ('UserDict', 'IterableUserDict')
+        304     LOAD_CONST                      99: ('collections', 'UserDict')
+        306     MAP_ADD                         1
+        308     LOAD_CONST                      100: ('UserList', 'UserList')
+        310     LOAD_CONST                      101: ('collections', 'UserList')
+        312     MAP_ADD                         1
+        314     LOAD_CONST                      102: ('UserString', 'UserString')
+        316     LOAD_CONST                      103: ('collections', 'UserString')
+        318     MAP_ADD                         1
+        320     LOAD_CONST                      104: ('whichdb', 'whichdb')
+        322     LOAD_CONST                      105: ('dbm', 'whichdb')
+        324     MAP_ADD                         1
+        326     LOAD_CONST                      106: ('_socket', 'fromfd')
+        328     LOAD_CONST                      107: ('socket', 'fromfd')
+        330     MAP_ADD                         1
+        332     LOAD_CONST                      108: ('_multiprocessing', 'Connection')
+        334     LOAD_CONST                      109: ('multiprocessing.connection', 'Connection')
+        336     MAP_ADD                         1
+        338     BUILD_MAP                       0
+        340     LOAD_CONST                      110: ('multiprocessing.process', 'Process')
+        342     LOAD_CONST                      111: ('multiprocessing.context', 'Process')
+        344     MAP_ADD                         1
+        346     LOAD_CONST                      112: ('multiprocessing.forking', 'Popen')
+        348     LOAD_CONST                      113: ('multiprocessing.popen_fork', 'Popen')
+        350     MAP_ADD                         1
+        352     LOAD_CONST                      114: ('urllib', 'ContentTooShortError')
+        354     LOAD_CONST                      115: ('urllib.error', 'ContentTooShortError')
+        356     MAP_ADD                         1
+        358     LOAD_CONST                      116: ('urllib', 'getproxies')
+        360     LOAD_CONST                      117: ('urllib.request', 'getproxies')
+        362     MAP_ADD                         1
+        364     LOAD_CONST                      118: ('urllib', 'pathname2url')
+        366     LOAD_CONST                      119: ('urllib.request', 'pathname2url')
+        368     MAP_ADD                         1
+        370     LOAD_CONST                      120: ('urllib', 'quote_plus')
+        372     LOAD_CONST                      121: ('urllib.parse', 'quote_plus')
+        374     MAP_ADD                         1
+        376     LOAD_CONST                      122: ('urllib', 'quote')
+        378     LOAD_CONST                      123: ('urllib.parse', 'quote')
+        380     MAP_ADD                         1
+        382     LOAD_CONST                      124: ('urllib', 'unquote_plus')
+        384     LOAD_CONST                      125: ('urllib.parse', 'unquote_plus')
+        386     MAP_ADD                         1
+        388     LOAD_CONST                      126: ('urllib', 'unquote')
+        390     LOAD_CONST                      127: ('urllib.parse', 'unquote')
+        392     MAP_ADD                         1
+        394     LOAD_CONST                      128: ('urllib', 'url2pathname')
+        396     LOAD_CONST                      129: ('urllib.request', 'url2pathname')
+        398     MAP_ADD                         1
+        400     LOAD_CONST                      130: ('urllib', 'urlcleanup')
+        402     LOAD_CONST                      131: ('urllib.request', 'urlcleanup')
+        404     MAP_ADD                         1
+        406     LOAD_CONST                      132: ('urllib', 'urlencode')
+        408     LOAD_CONST                      133: ('urllib.parse', 'urlencode')
+        410     MAP_ADD                         1
+        412     LOAD_CONST                      134: ('urllib', 'urlopen')
+        414     LOAD_CONST                      135: ('urllib.request', 'urlopen')
+        416     MAP_ADD                         1
+        418     LOAD_CONST                      136: ('urllib', 'urlretrieve')
+        420     LOAD_CONST                      137: ('urllib.request', 'urlretrieve')
+        422     MAP_ADD                         1
+        424     LOAD_CONST                      138: ('urllib2', 'HTTPError')
+        426     LOAD_CONST                      139: ('urllib.error', 'HTTPError')
+        428     MAP_ADD                         1
+        430     LOAD_CONST                      140: ('urllib2', 'URLError')
+        432     LOAD_CONST                      141: ('urllib.error', 'URLError')
+        434     MAP_ADD                         1
+        436     DICT_UPDATE                     1
+        438     STORE_NAME                      1: NAME_MAPPING
+        440     LOAD_CONST                      142: ('ArithmeticError', 'AssertionError', 'AttributeError', 'BaseException', 'BufferError', 'BytesWarning', 'DeprecationWarning', 'EOFError', 'EnvironmentError', 'Exception', 'FloatingPointError', 'FutureWarning', 'GeneratorExit', 'IOError', 'ImportError', 'ImportWarning', 'IndentationError', 'IndexError', 'KeyError', 'KeyboardInterrupt', 'LookupError', 'MemoryError', 'NameError', 'NotImplementedError', 'OSError', 'OverflowError', 'PendingDeprecationWarning', 'ReferenceError', 'RuntimeError', 'RuntimeWarning', 'StopIteration', 'SyntaxError', 'SyntaxWarning', 'SystemError', 'SystemExit', 'TabError', 'TypeError', 'UnboundLocalError', 'UnicodeDecodeError', 'UnicodeEncodeError', 'UnicodeError', 'UnicodeTranslateError', 'UnicodeWarning', 'UserWarning', 'ValueError', 'Warning', 'ZeroDivisionError')
+        442     STORE_NAME                      2: PYTHON2_EXCEPTIONS
+        444     SETUP_FINALLY                   4 (to 454)
+        446     LOAD_NAME                       3: WindowsError
+        448     POP_TOP                         
+        450     POP_BLOCK                       
+        452     JUMP_FORWARD                    9 (to 472)
+        454     DUP_TOP                         
+        456     LOAD_NAME                       4: NameError
+        458     JUMP_IF_NOT_EXC_MATCH           235 (to 470)
+        460     POP_TOP                         
+        462     POP_TOP                         
+        464     POP_TOP                         
+        466     POP_EXCEPT                      
+        468     JUMP_FORWARD                    5 (to 480)
+        470     RERAISE                         0
+        472     LOAD_NAME                       2: PYTHON2_EXCEPTIONS
+        474     LOAD_CONST                      143: ('WindowsError',)
+        476     INPLACE_ADD                     
+        478     STORE_NAME                      2: PYTHON2_EXCEPTIONS
+        480     LOAD_NAME                       2: PYTHON2_EXCEPTIONS
+        482     GET_ITER                        
+        484     FOR_ITER                        10 (to 506)
+        486     STORE_NAME                      5: excname
+        488     LOAD_CONST                      1: 'builtins'
+        490     LOAD_NAME                       5: excname
+        492     BUILD_TUPLE                     2
+        494     LOAD_NAME                       1: NAME_MAPPING
+        496     LOAD_CONST                      144: 'exceptions'
+        498     LOAD_NAME                       5: excname
+        500     BUILD_TUPLE                     2
+        502     STORE_SUBSCR                    
+        504     JUMP_ABSOLUTE                   242 (to 484)
+        506     LOAD_CONST                      145: ('AuthenticationError', 'BufferTooShort', 'ProcessError', 'TimeoutError')
+        508     STORE_NAME                      6: MULTIPROCESSING_EXCEPTIONS
+        510     LOAD_NAME                       6: MULTIPROCESSING_EXCEPTIONS
+        512     GET_ITER                        
+        514     FOR_ITER                        11 (to 538)
+        516     STORE_NAME                      5: excname
+        518     LOAD_CONST                      146: 'multiprocessing.context'
+        520     LOAD_NAME                       5: excname
+        522     BUILD_TUPLE                     2
+        524     LOAD_NAME                       1: NAME_MAPPING
+        526     LOAD_CONST                      147: 'multiprocessing'
+        528     LOAD_NAME                       5: excname
+        530     BUILD_TUPLE                     2
+        532     STORE_SUBSCR                    
+        534     JUMP_ABSOLUTE                   257 (to 514)
+        538     LOAD_NAME                       7: dict
+        540     LOAD_CONST                      148: <CODE> <genexpr>
+        542     LOAD_CONST                      149: '<genexpr>'
+        544     MAKE_FUNCTION                   0
+        546     LOAD_NAME                       0: IMPORT_MAPPING
+        548     LOAD_METHOD                     8: items
+        550     CALL_METHOD                     0
+        552     GET_ITER                        
+        554     CALL_FUNCTION                   1
+        556     CALL_FUNCTION                   1
+        558     STORE_NAME                      9: REVERSE_IMPORT_MAPPING
+        560     LOAD_NAME                       10: len
+        562     LOAD_NAME                       9: REVERSE_IMPORT_MAPPING
+        564     CALL_FUNCTION                   1
+        566     LOAD_NAME                       10: len
+        568     LOAD_NAME                       0: IMPORT_MAPPING
+        570     CALL_FUNCTION                   1
+        572     COMPARE_OP                      2 (==)
+        574     POP_JUMP_IF_TRUE                291 (to 582)
+        578     LOAD_ASSERTION_ERROR            
+        580     RAISE_VARARGS                   1
+        582     LOAD_NAME                       7: dict
+        584     LOAD_CONST                      150: <CODE> <genexpr>
+        586     LOAD_CONST                      149: '<genexpr>'
+        588     MAKE_FUNCTION                   0
+        590     LOAD_NAME                       1: NAME_MAPPING
+        592     LOAD_METHOD                     8: items
+        594     CALL_METHOD                     0
+        596     GET_ITER                        
+        598     CALL_FUNCTION                   1
+        600     CALL_FUNCTION                   1
+        602     STORE_NAME                      11: REVERSE_NAME_MAPPING
+        604     LOAD_NAME                       10: len
+        606     LOAD_NAME                       11: REVERSE_NAME_MAPPING
+        608     CALL_FUNCTION                   1
+        610     LOAD_NAME                       10: len
+        612     LOAD_NAME                       1: NAME_MAPPING
+        614     CALL_FUNCTION                   1
+        616     COMPARE_OP                      2 (==)
+        618     POP_JUMP_IF_TRUE                313 (to 626)
+        622     LOAD_ASSERTION_ERROR            
+        624     RAISE_VARARGS                   1
+        626     LOAD_NAME                       0: IMPORT_MAPPING
+        628     LOAD_METHOD                     12: update
+        630     LOAD_CONST                      151: 'pickle'
+        632     LOAD_CONST                      152: 'xml.etree.ElementTree'
+        634     LOAD_CONST                      13: 'tkinter.filedialog'
+        636     LOAD_CONST                      15: 'tkinter.simpledialog'
+        638     LOAD_CONST                      57: 'xmlrpc.server'
+        640     LOAD_CONST                      68: 'http.server'
+        642     LOAD_CONST                      68: 'http.server'
+        644     LOAD_CONST                      153: 'collections'
+        646     LOAD_CONST                      153: 'collections'
+        648     LOAD_CONST                      153: 'collections'
+        650     LOAD_CONST                      50: 'dbm'
+        652     LOAD_CONST                      154: 'io'
+        654     LOAD_CONST                      154: 'io'
+        656     LOAD_CONST                      155: ('cPickle', '_elementtree', 'FileDialog', 'SimpleDialog', 'DocXMLRPCServer', 'SimpleHTTPServer', 'CGIHTTPServer', 'UserDict', 'UserList', 'UserString', 'whichdb', 'StringIO', 'cStringIO')
+        658     BUILD_CONST_KEY_MAP             13
+        660     CALL_METHOD                     1
+        662     POP_TOP                         
+        664     LOAD_NAME                       9: REVERSE_IMPORT_MAPPING
+        666     LOAD_METHOD                     12: update
+        668     LOAD_CONST                      156: 'bz2'
+        670     LOAD_CONST                      50: 'dbm'
+        672     LOAD_CONST                      157: 'functools'
+        674     LOAD_CONST                      52: 'gdbm'
+        676     LOAD_CONST                      151: 'pickle'
+        678     LOAD_CONST                      158: ('_bz2', '_dbm', '_functools', '_gdbm', '_pickle')
+        680     BUILD_CONST_KEY_MAP             5
+        682     CALL_METHOD                     1
+        684     POP_TOP                         
+        686     LOAD_NAME                       1: NAME_MAPPING
+        688     LOAD_METHOD                     12: update
+        690     LOAD_CONST                      85: ('builtins', 'str')
+        692     LOAD_CONST                      159: ('builtins', 'Exception')
+        694     LOAD_CONST                      99: ('collections', 'UserDict')
+        696     LOAD_CONST                      160: ('socket', 'SocketType')
+        698     LOAD_CONST                      161: (('__builtin__', 'basestring'), ('exceptions', 'StandardError'), ('UserDict', 'UserDict'), ('socket', '_socketobject'))
+        700     BUILD_CONST_KEY_MAP             4
+        702     CALL_METHOD                     1
+        704     POP_TOP                         
+        706     LOAD_NAME                       11: REVERSE_NAME_MAPPING
+        708     LOAD_METHOD                     12: update
+        710     LOAD_CONST                      78: ('__builtin__', 'reduce')
+        712     LOAD_CONST                      162: ('FileDialog', 'FileDialog')
+        714     LOAD_CONST                      163: ('FileDialog', 'LoadFileDialog')
+        716     LOAD_CONST                      164: ('FileDialog', 'SaveFileDialog')
+        718     LOAD_CONST                      165: ('SimpleDialog', 'SimpleDialog')
+        720     LOAD_CONST                      166: ('DocXMLRPCServer', 'ServerHTMLDoc')
+        722     LOAD_CONST                      167: ('DocXMLRPCServer', 'XMLRPCDocGenerator')
+        724     LOAD_CONST                      168: ('DocXMLRPCServer', 'DocXMLRPCRequestHandler')
+        726     LOAD_CONST                      169: ('DocXMLRPCServer', 'DocXMLRPCServer')
+        728     LOAD_CONST                      170: ('DocXMLRPCServer', 'DocCGIXMLRPCRequestHandler')
+        730     LOAD_CONST                      171: ('SimpleHTTPServer', 'SimpleHTTPRequestHandler')
+        732     LOAD_CONST                      172: ('CGIHTTPServer', 'CGIHTTPRequestHandler')
+        734     LOAD_CONST                      173: ('socket', '_socketobject')
+        736     LOAD_CONST                      174: (('_functools', 'reduce'), ('tkinter.filedialog', 'FileDialog'), ('tkinter.filedialog', 'LoadFileDialog'), ('tkinter.filedialog', 'SaveFileDialog'), ('tkinter.simpledialog', 'SimpleDialog'), ('xmlrpc.server', 'ServerHTMLDoc'), ('xmlrpc.server', 'XMLRPCDocGenerator'), ('xmlrpc.server', 'DocXMLRPCRequestHandler'), ('xmlrpc.server', 'DocXMLRPCServer'), ('xmlrpc.server', 'DocCGIXMLRPCRequestHandler'), ('http.server', 'SimpleHTTPRequestHandler'), ('http.server', 'CGIHTTPRequestHandler'), ('_socket', 'socket'))
+        738     BUILD_CONST_KEY_MAP             13
+        740     CALL_METHOD                     1
+        742     POP_TOP                         
+        744     LOAD_CONST                      175: ('BrokenPipeError', 'ChildProcessError', 'ConnectionAbortedError', 'ConnectionError', 'ConnectionRefusedError', 'ConnectionResetError', 'FileExistsError', 'FileNotFoundError', 'InterruptedError', 'IsADirectoryError', 'NotADirectoryError', 'PermissionError', 'ProcessLookupError', 'TimeoutError')
+        746     STORE_NAME                      13: PYTHON3_OSERROR_EXCEPTIONS
+        748     LOAD_NAME                       13: PYTHON3_OSERROR_EXCEPTIONS
+        750     GET_ITER                        
+        752     FOR_ITER                        9 (to 772)
+        754     STORE_NAME                      5: excname
+        756     LOAD_CONST                      176: ('exceptions', 'OSError')
+        758     LOAD_NAME                       11: REVERSE_NAME_MAPPING
+        760     LOAD_CONST                      1: 'builtins'
+        762     LOAD_NAME                       5: excname
+        764     BUILD_TUPLE                     2
+        766     STORE_SUBSCR                    
+        768     JUMP_ABSOLUTE                   376 (to 752)
+        772     LOAD_CONST                      177: ('ModuleNotFoundError',)
+        774     STORE_NAME                      14: PYTHON3_IMPORTERROR_EXCEPTIONS
+        776     LOAD_NAME                       14: PYTHON3_IMPORTERROR_EXCEPTIONS
+        778     GET_ITER                        
+        780     FOR_ITER                        9 (to 800)
+        782     STORE_NAME                      5: excname
+        784     LOAD_CONST                      178: ('exceptions', 'ImportError')
+        786     LOAD_NAME                       11: REVERSE_NAME_MAPPING
+        788     LOAD_CONST                      1: 'builtins'
+        790     LOAD_NAME                       5: excname
+        792     BUILD_TUPLE                     2
+        794     STORE_SUBSCR                    
+        796     JUMP_ABSOLUTE                   390 (to 780)
+        800     LOAD_CONST                      179: None
+        802     RETURN_VALUE                    

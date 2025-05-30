@@ -1,0 +1,471 @@
+_meta.pyc (Python 3.10)
+[Code]
+    File Name: importlib/metadata/_meta.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        'typing'
+        'Any'
+        'Dict'
+        'Iterator'
+        'List'
+        'Protocol'
+        'TypeVar'
+        'Union'
+        '_T'
+        'PackageMetadata'
+        'SimplePath'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        (
+            'Any'
+            'Dict'
+            'Iterator'
+            'List'
+            'Protocol'
+            'TypeVar'
+            'Union'
+        )
+        '_T'
+        [Code]
+            File Name: importlib/metadata/_meta.py
+            Object Name: PackageMetadata
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 9
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                'int'
+                '__len__'
+                'str'
+                'bool'
+                '__contains__'
+                '__getitem__'
+                'Iterator'
+                '__iter__'
+                '_T'
+                'Union'
+                'List'
+                'Any'
+                'get_all'
+                'property'
+                'Dict'
+                'json'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'PackageMetadata'
+                'return'
+                [Code]
+                    File Name: importlib/metadata/_meta.py
+                    Object Name: __len__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      0: None
+                        2       RETURN_VALUE                    
+                'PackageMetadata.__len__'
+                'item'
+                [Code]
+                    File Name: importlib/metadata/_meta.py
+                    Object Name: __contains__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        'item'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      0: None
+                        2       RETURN_VALUE                    
+                'PackageMetadata.__contains__'
+                'key'
+                [Code]
+                    File Name: importlib/metadata/_meta.py
+                    Object Name: __getitem__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        'key'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      0: None
+                        2       RETURN_VALUE                    
+                'PackageMetadata.__getitem__'
+                [Code]
+                    File Name: importlib/metadata/_meta.py
+                    Object Name: __iter__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      0: None
+                        2       RETURN_VALUE                    
+                'PackageMetadata.__iter__'
+                ...
+                'name'
+                'failobj'
+                [Code]
+                    File Name: importlib/metadata/_meta.py
+                    Object Name: get_all
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        'name'
+                        'failobj'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '\n        Return all values associated with a possibly multi-valued key.\n        '
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'PackageMetadata.get_all'
+                [Code]
+                    File Name: importlib/metadata/_meta.py
+                    Object Name: json
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '\n        A JSON-compatible form of the metadata.\n        '
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'PackageMetadata.json'
+                None
+                (
+                    ...
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'PackageMetadata'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'return'
+                10      LOAD_NAME                       3: int
+                12      BUILD_TUPLE                     2
+                14      LOAD_CONST                      2: <CODE> __len__
+                16      LOAD_CONST                      3: 'PackageMetadata.__len__'
+                18      MAKE_FUNCTION                   4
+                20      STORE_NAME                      4: __len__
+                22      LOAD_CONST                      4: 'item'
+                24      LOAD_NAME                       5: str
+                26      LOAD_CONST                      1: 'return'
+                28      LOAD_NAME                       6: bool
+                30      BUILD_TUPLE                     4
+                32      LOAD_CONST                      5: <CODE> __contains__
+                34      LOAD_CONST                      6: 'PackageMetadata.__contains__'
+                36      MAKE_FUNCTION                   4
+                38      STORE_NAME                      7: __contains__
+                40      LOAD_CONST                      7: 'key'
+                42      LOAD_NAME                       5: str
+                44      LOAD_CONST                      1: 'return'
+                46      LOAD_NAME                       5: str
+                48      BUILD_TUPLE                     4
+                50      LOAD_CONST                      8: <CODE> __getitem__
+                52      LOAD_CONST                      9: 'PackageMetadata.__getitem__'
+                54      MAKE_FUNCTION                   4
+                56      STORE_NAME                      8: __getitem__
+                58      LOAD_CONST                      1: 'return'
+                60      LOAD_NAME                       9: Iterator
+                62      LOAD_NAME                       5: str
+                64      BINARY_SUBSCR                   
+                66      BUILD_TUPLE                     2
+                68      LOAD_CONST                      10: <CODE> __iter__
+                70      LOAD_CONST                      11: 'PackageMetadata.__iter__'
+                72      MAKE_FUNCTION                   4
+                74      STORE_NAME                      10: __iter__
+                76      LOAD_CONST                      20: (...,)
+                78      LOAD_CONST                      13: 'name'
+                80      LOAD_NAME                       5: str
+                82      LOAD_CONST                      14: 'failobj'
+                84      LOAD_NAME                       11: _T
+                86      LOAD_CONST                      1: 'return'
+                88      LOAD_NAME                       12: Union
+                90      LOAD_NAME                       13: List
+                92      LOAD_NAME                       14: Any
+                94      BINARY_SUBSCR                   
+                96      LOAD_NAME                       11: _T
+                98      BUILD_TUPLE                     2
+                100     BINARY_SUBSCR                   
+                102     BUILD_TUPLE                     6
+                104     LOAD_CONST                      15: <CODE> get_all
+                106     LOAD_CONST                      16: 'PackageMetadata.get_all'
+                108     MAKE_FUNCTION                   5
+                110     STORE_NAME                      15: get_all
+                112     LOAD_NAME                       16: property
+                114     LOAD_CONST                      1: 'return'
+                116     LOAD_NAME                       17: Dict
+                118     LOAD_NAME                       5: str
+                120     LOAD_NAME                       12: Union
+                122     LOAD_NAME                       5: str
+                124     LOAD_NAME                       13: List
+                126     LOAD_NAME                       5: str
+                128     BINARY_SUBSCR                   
+                130     BUILD_TUPLE                     2
+                132     BINARY_SUBSCR                   
+                134     BUILD_TUPLE                     2
+                136     BINARY_SUBSCR                   
+                138     BUILD_TUPLE                     2
+                140     LOAD_CONST                      17: <CODE> json
+                142     LOAD_CONST                      18: 'PackageMetadata.json'
+                144     MAKE_FUNCTION                   4
+                146     CALL_FUNCTION                   1
+                148     STORE_NAME                      18: json
+                150     LOAD_CONST                      19: None
+                152     RETURN_VALUE                    
+        'PackageMetadata'
+        [Code]
+            File Name: importlib/metadata/_meta.py
+            Object Name: SimplePath
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'joinpath'
+                '__div__'
+                'parent'
+                'str'
+                'read_text'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'SimplePath'
+                '\n    A minimal subset of pathlib.Path required by PathDistribution.\n    '
+                'return'
+                [Code]
+                    File Name: importlib/metadata/_meta.py
+                    Object Name: joinpath
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      0: None
+                        2       RETURN_VALUE                    
+                'SimplePath.joinpath'
+                [Code]
+                    File Name: importlib/metadata/_meta.py
+                    Object Name: __div__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      0: None
+                        2       RETURN_VALUE                    
+                'SimplePath.__div__'
+                [Code]
+                    File Name: importlib/metadata/_meta.py
+                    Object Name: parent
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      0: None
+                        2       RETURN_VALUE                    
+                'SimplePath.parent'
+                [Code]
+                    File Name: importlib/metadata/_meta.py
+                    Object Name: read_text
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      0: None
+                        2       RETURN_VALUE                    
+                'SimplePath.read_text'
+                None
+                (
+                    'return'
+                    'SimplePath'
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'SimplePath'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: '\n    A minimal subset of pathlib.Path required by PathDistribution.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      12: ('return', 'SimplePath')
+                14      LOAD_CONST                      3: <CODE> joinpath
+                16      LOAD_CONST                      4: 'SimplePath.joinpath'
+                18      MAKE_FUNCTION                   4
+                20      STORE_NAME                      4: joinpath
+                22      LOAD_CONST                      12: ('return', 'SimplePath')
+                24      LOAD_CONST                      5: <CODE> __div__
+                26      LOAD_CONST                      6: 'SimplePath.__div__'
+                28      MAKE_FUNCTION                   4
+                30      STORE_NAME                      5: __div__
+                32      LOAD_CONST                      12: ('return', 'SimplePath')
+                34      LOAD_CONST                      7: <CODE> parent
+                36      LOAD_CONST                      8: 'SimplePath.parent'
+                38      MAKE_FUNCTION                   4
+                40      STORE_NAME                      6: parent
+                42      LOAD_CONST                      2: 'return'
+                44      LOAD_NAME                       7: str
+                46      BUILD_TUPLE                     2
+                48      LOAD_CONST                      9: <CODE> read_text
+                50      LOAD_CONST                      10: 'SimplePath.read_text'
+                52      MAKE_FUNCTION                   4
+                54      STORE_NAME                      8: read_text
+                56      LOAD_CONST                      11: None
+                58      RETURN_VALUE                    
+        'SimplePath'
+        None
+    [Disassembly]
+        0       LOAD_CONST                      0: 0
+        2       LOAD_CONST                      1: ('Any', 'Dict', 'Iterator', 'List', 'Protocol', 'TypeVar', 'Union')
+        4       IMPORT_NAME                     0: typing
+        6       IMPORT_FROM                     1: Any
+        8       STORE_NAME                      1: Any
+        10      IMPORT_FROM                     2: Dict
+        12      STORE_NAME                      2: Dict
+        14      IMPORT_FROM                     3: Iterator
+        16      STORE_NAME                      3: Iterator
+        18      IMPORT_FROM                     4: List
+        20      STORE_NAME                      4: List
+        22      IMPORT_FROM                     5: Protocol
+        24      STORE_NAME                      5: Protocol
+        26      IMPORT_FROM                     6: TypeVar
+        28      STORE_NAME                      6: TypeVar
+        30      IMPORT_FROM                     7: Union
+        32      STORE_NAME                      7: Union
+        34      POP_TOP                         
+        36      LOAD_NAME                       6: TypeVar
+        38      LOAD_CONST                      2: '_T'
+        40      CALL_FUNCTION                   1
+        42      STORE_NAME                      8: _T
+        44      LOAD_BUILD_CLASS                
+        46      LOAD_CONST                      3: <CODE> PackageMetadata
+        48      LOAD_CONST                      4: 'PackageMetadata'
+        50      MAKE_FUNCTION                   0
+        52      LOAD_CONST                      4: 'PackageMetadata'
+        54      LOAD_NAME                       5: Protocol
+        56      CALL_FUNCTION                   3
+        58      STORE_NAME                      9: PackageMetadata
+        60      LOAD_BUILD_CLASS                
+        62      LOAD_CONST                      5: <CODE> SimplePath
+        64      LOAD_CONST                      6: 'SimplePath'
+        66      MAKE_FUNCTION                   0
+        68      LOAD_CONST                      6: 'SimplePath'
+        70      LOAD_NAME                       5: Protocol
+        72      CALL_FUNCTION                   3
+        74      STORE_NAME                      10: SimplePath
+        76      LOAD_CONST                      7: None
+        78      RETURN_VALUE                    

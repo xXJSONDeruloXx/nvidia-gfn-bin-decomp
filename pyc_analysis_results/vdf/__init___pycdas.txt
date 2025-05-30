@@ -1,0 +1,2857 @@
+__init__.pyc (Python 3.10)
+[Code]
+    File Name: vdf/__init__.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 12
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__version__'
+        '__author__'
+        're'
+        'sys'
+        'struct'
+        'binascii'
+        'crc32'
+        'io'
+        'BytesIO'
+        'StringIO'
+        'unicodeIO'
+        'collections.abc'
+        'Mapping'
+        'collections'
+        'vdf.vdict'
+        'VDFDict'
+        'version_info'
+        'str'
+        'string_type'
+        'int'
+        'int_type'
+        'BOMS'
+        'strip_bom'
+        'strIO'
+        'basestring'
+        'long'
+        'decode'
+        'BOMS_UNICODE'
+        '_unescape_char_map'
+        'items'
+        '_escape_char_map'
+        '_re_escape_match'
+        '_re_unescape_match'
+        '_escape'
+        '_unescape'
+        'dict'
+        'parse'
+        'loads'
+        'load'
+        'dumps'
+        'dump'
+        '_dump_gen'
+        'BASE_INT'
+        'UINT_64'
+        'INT_64'
+        'POINTER'
+        'COLOR'
+        'BIN_NONE'
+        'BIN_STRING'
+        'BIN_INT32'
+        'BIN_FLOAT32'
+        'BIN_POINTER'
+        'BIN_WIDESTRING'
+        'BIN_COLOR'
+        'BIN_UINT64'
+        'BIN_END'
+        'BIN_INT64'
+        'BIN_END_ALT'
+        'binary_loads'
+        'binary_load'
+        'binary_dumps'
+        'binary_dump'
+        '_binary_dump_gen'
+        'vbkv_loads'
+        'vbkv_dumps'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        '\nModule for deserializing/serializing to and from VDF\n'
+        '3.4'
+        'Rossen Georgiev'
+        0
+        None
+        (
+            'crc32'
+        )
+        (
+            'BytesIO'
+        )
+        (
+            'StringIO'
+        )
+        (
+            'Mapping'
+        )
+        (
+            'VDFDict'
+        )
+        3
+        '￾﻿'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: strip_bom
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'lstrip'
+                'BOMS'
+            [Var Names]
+                'line'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: line
+                2       LOAD_METHOD                     0: lstrip
+                4       LOAD_GLOBAL                     1: BOMS
+                6       CALL_METHOD                     1
+                8       RETURN_VALUE                    
+        'strip_bom'
+        'ï»¿ÿþþÿ'
+        '\\ufffe\\ufeff'
+        'unicode-escape'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: strip_bom
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'lstrip'
+                'isinstance'
+                'str'
+                'BOMS'
+                'BOMS_UNICODE'
+            [Var Names]
+                'line'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: line
+                2       LOAD_METHOD                     0: lstrip
+                4       LOAD_GLOBAL                     1: isinstance
+                6       LOAD_FAST                       0: line
+                8       LOAD_GLOBAL                     2: str
+                10      CALL_FUNCTION                   2
+                12      POP_JUMP_IF_FALSE               10 (to 20)
+                14      LOAD_GLOBAL                     3: BOMS
+                16      CALL_METHOD                     1
+                18      RETURN_VALUE                    
+                20      LOAD_GLOBAL                     4: BOMS_UNICODE
+                22      CALL_METHOD                     1
+                24      RETURN_VALUE                    
+        '\n'
+        '\t'
+        '\x0b'
+        '\x08'
+        '\r'
+        '\x0c'
+        '\x07'
+        '\\'
+        '?'
+        '"'
+        "'"
+        (
+            '\\n'
+            '\\t'
+            '\\v'
+            '\\b'
+            '\\r'
+            '\\f'
+            '\\a'
+            '\\\\'
+            '\\?'
+            '\\"'
+            "\\'"
+        )
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: <dictcomp>
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+            [Var Names]
+                '.0'
+                'k'
+                'v'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+            [Disassembly]
+                0       BUILD_MAP                       0
+                2       LOAD_FAST                       0: .0
+                4       FOR_ITER                        7 (to 20)
+                6       UNPACK_SEQUENCE                 2
+                8       STORE_FAST                      1: k
+                10      STORE_FAST                      2: v
+                12      LOAD_FAST                       2: v
+                14      LOAD_FAST                       1: k
+                16      MAP_ADD                         2
+                18      JUMP_ABSOLUTE                   2 (to 4)
+                20      RETURN_VALUE                    
+        '<dictcomp>'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: _re_escape_match
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_escape_char_map'
+                'group'
+            [Var Names]
+                'm'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _escape_char_map
+                2       LOAD_FAST                       0: m
+                4       LOAD_METHOD                     1: group
+                6       CALL_METHOD                     0
+                8       BINARY_SUBSCR                   
+                10      RETURN_VALUE                    
+        '_re_escape_match'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: _re_unescape_match
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_unescape_char_map'
+                'group'
+            [Var Names]
+                'm'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _unescape_char_map
+                2       LOAD_FAST                       0: m
+                4       LOAD_METHOD                     1: group
+                6       CALL_METHOD                     0
+                8       BINARY_SUBSCR                   
+                10      RETURN_VALUE                    
+        '_re_unescape_match'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: _escape
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                're'
+                'sub'
+                '_re_escape_match'
+            [Var Names]
+                'text'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                '[\\n\\t\\v\\b\\r\\f\\a\\\\\\?\\"\']'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: re
+                2       LOAD_METHOD                     1: sub
+                4       LOAD_CONST                      1: '[\\n\\t\\v\\b\\r\\f\\a\\\\\\?\\"\']'
+                6       LOAD_GLOBAL                     2: _re_escape_match
+                8       LOAD_FAST                       0: text
+                10      CALL_METHOD                     3
+                12      RETURN_VALUE                    
+        '_escape'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: _unescape
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                're'
+                'sub'
+                '_re_unescape_match'
+            [Var Names]
+                'text'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                '(\\\\n|\\\\t|\\\\v|\\\\b|\\\\r|\\\\f|\\\\a|\\\\\\\\|\\\\\\?|\\\\\\"|\\\\\')'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: re
+                2       LOAD_METHOD                     1: sub
+                4       LOAD_CONST                      1: '(\\\\n|\\\\t|\\\\v|\\\\b|\\\\r|\\\\f|\\\\a|\\\\\\\\|\\\\\\?|\\\\\\"|\\\\\')'
+                6       LOAD_GLOBAL                     2: _re_unescape_match
+                8       LOAD_FAST                       0: text
+                10      CALL_METHOD                     3
+                12      RETURN_VALUE                    
+        '_unescape'
+        True
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: parse
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 13
+            Stack Size: 11
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'issubclass'
+                'Mapping'
+                'TypeError'
+                'type'
+                'hasattr'
+                're'
+                'compile'
+                'I'
+                'enumerate'
+                'strip_bom'
+                'lstrip'
+                'SyntaxError'
+                'getattr'
+                '__class__'
+                '__name__'
+                'len'
+                'pop'
+                'match'
+                'next'
+                'StopIteration'
+                'group'
+                'rstrip'
+                '_unescape'
+                'isinstance'
+                'append'
+            [Var Names]
+                'fp'
+                'mapper'
+                'merge_duplicate_keys'
+                'escaped'
+                'stack'
+                'expect_bracket'
+                're_keyvalue'
+                'lineno'
+                'line'
+                'match'
+                'key'
+                'val'
+                '_m'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '\n    Deserialize ``s`` (a ``str`` or ``unicode`` instance containing a VDF)\n    to a Python object.\n\n    ``mapper`` specifies the Python object used after deserializetion. ``dict` is\n    used by default. Alternatively, ``collections.OrderedDict`` can be used if you\n    wish to preserve key order. Or any object that acts like a ``dict``.\n\n    ``merge_duplicate_keys`` when ``True`` will merge multiple KeyValue lists with the\n    same key into one instead of overwriting. You can se this to ``False`` if you are\n    using ``VDFDict`` and need to preserve the duplicates.\n    '
+                'Expected mapper to be subclass of dict, got %s'
+                'readline'
+                'Expected fp to be a file-like object supporting line iteration'
+                False
+                '^("(?P<qkey>(?:\\\\.|[^\\\\"])*)"|(?P<key>#?[a-z0-9\\-\\_\\\\\\?$%<>]+))([ \\t]*("(?P<qval>(?:\\\\.|[^\\\\"])*)(?P<vq_end>")?|(?P<val>(?:(?<!/)/(?!/)|[a-z0-9\\-\\_\\\\\\?\\*\\.$<> ])+)|(?P<sblock>{[ \\t]*)(?P<eblock>})?))?'
+                (
+                    'flags'
+                )
+                1
+                ''
+                0
+                '/'
+                '{'
+                'vdf.parse: expected openning bracket'
+                'name'
+                '<%s>'
+                '}'
+                'vdf.parse: one too many closing parenthasis'
+                True
+                'vdf.parse: unexpected EOF (open key quote?)'
+                'qkey'
+                None
+                'key'
+                'qval'
+                'val'
+                -1
+                'eblock'
+                'sblock'
+                'vq_end'
+                'vdf.parse: unexpected EOF (open quote for value?)'
+                'vdf.parse: unclosed parenthasis or quotes (EOF)'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: issubclass
+                2       LOAD_FAST                       1: mapper
+                4       LOAD_GLOBAL                     1: Mapping
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_TRUE                13 (to 26)
+                10      LOAD_GLOBAL                     2: TypeError
+                12      LOAD_CONST                      1: 'Expected mapper to be subclass of dict, got %s'
+                14      LOAD_GLOBAL                     3: type
+                16      LOAD_FAST                       1: mapper
+                18      CALL_FUNCTION                   1
+                20      BINARY_MODULO                   
+                22      CALL_FUNCTION                   1
+                24      RAISE_VARARGS                   1
+                26      LOAD_GLOBAL                     4: hasattr
+                28      LOAD_FAST                       0: fp
+                30      LOAD_CONST                      2: 'readline'
+                32      CALL_FUNCTION                   2
+                34      POP_JUMP_IF_TRUE                22 (to 44)
+                36      LOAD_GLOBAL                     2: TypeError
+                38      LOAD_CONST                      3: 'Expected fp to be a file-like object supporting line iteration'
+                40      CALL_FUNCTION                   1
+                42      RAISE_VARARGS                   1
+                44      LOAD_FAST                       1: mapper
+                46      CALL_FUNCTION                   0
+                48      BUILD_LIST                      1
+                50      STORE_FAST                      4: stack
+                52      LOAD_CONST                      4: False
+                54      STORE_FAST                      5: expect_bracket
+                56      LOAD_GLOBAL                     5: re
+                58      LOAD_ATTR                       6: compile
+                60      LOAD_CONST                      5: '^("(?P<qkey>(?:\\\\.|[^\\\\"])*)"|(?P<key>#?[a-z0-9\\-\\_\\\\\\?$%<>]+))([ \\t]*("(?P<qval>(?:\\\\.|[^\\\\"])*)(?P<vq_end>")?|(?P<val>(?:(?<!/)/(?!/)|[a-z0-9\\-\\_\\\\\\?\\*\\.$<> ])+)|(?P<sblock>{[ \\t]*)(?P<eblock>})?))?'
+                62      LOAD_GLOBAL                     5: re
+                64      LOAD_ATTR                       7: I
+                66      LOAD_CONST                      6: ('flags',)
+                68      CALL_FUNCTION_KW                2
+                70      STORE_FAST                      6: re_keyvalue
+                72      LOAD_GLOBAL                     8: enumerate
+                74      LOAD_FAST                       0: fp
+                76      LOAD_CONST                      7: 1
+                78      CALL_FUNCTION                   2
+                80      GET_ITER                        
+                82      FOR_ITER                        315 (to 716)
+                86      UNPACK_SEQUENCE                 2
+                88      STORE_FAST                      7: lineno
+                90      STORE_FAST                      8: line
+                92      LOAD_FAST                       7: lineno
+                94      LOAD_CONST                      7: 1
+                96      COMPARE_OP                      2 (==)
+                98      POP_JUMP_IF_FALSE               54 (to 108)
+                100     LOAD_GLOBAL                     9: strip_bom
+                102     LOAD_FAST                       8: line
+                104     CALL_FUNCTION                   1
+                106     STORE_FAST                      8: line
+                108     LOAD_FAST                       8: line
+                110     LOAD_METHOD                     10: lstrip
+                112     CALL_METHOD                     0
+                114     STORE_FAST                      8: line
+                116     LOAD_FAST                       8: line
+                118     LOAD_CONST                      8: ''
+                120     COMPARE_OP                      2 (==)
+                122     POP_JUMP_IF_TRUE                68 (to 136)
+                124     LOAD_FAST                       8: line
+                126     LOAD_CONST                      9: 0
+                128     BINARY_SUBSCR                   
+                130     LOAD_CONST                      10: '/'
+                132     COMPARE_OP                      2 (==)
+                134     POP_JUMP_IF_FALSE               69 (to 138)
+                136     JUMP_ABSOLUTE                   41 (to 82)
+                138     LOAD_FAST                       8: line
+                140     LOAD_CONST                      9: 0
+                142     BINARY_SUBSCR                   
+                144     LOAD_CONST                      11: '{'
+                146     COMPARE_OP                      2 (==)
+                148     POP_JUMP_IF_FALSE               78 (to 156)
+                150     LOAD_CONST                      4: False
+                152     STORE_FAST                      5: expect_bracket
+                154     JUMP_ABSOLUTE                   41 (to 82)
+                156     LOAD_FAST                       5: expect_bracket
+                158     POP_JUMP_IF_FALSE               97 (to 194)
+                160     LOAD_GLOBAL                     11: SyntaxError
+                162     LOAD_CONST                      12: 'vdf.parse: expected openning bracket'
+                164     LOAD_GLOBAL                     12: getattr
+                166     LOAD_FAST                       0: fp
+                168     LOAD_CONST                      13: 'name'
+                170     LOAD_CONST                      14: '<%s>'
+                172     LOAD_FAST                       0: fp
+                174     LOAD_ATTR                       13: __class__
+                176     LOAD_ATTR                       14: __name__
+                178     BINARY_MODULO                   
+                180     CALL_FUNCTION                   3
+                182     LOAD_FAST                       7: lineno
+                184     LOAD_CONST                      7: 1
+                186     LOAD_FAST                       8: line
+                188     BUILD_TUPLE                     4
+                190     CALL_FUNCTION                   2
+                192     RAISE_VARARGS                   1
+                194     LOAD_FAST                       8: line
+                196     LOAD_CONST                      9: 0
+                198     BINARY_SUBSCR                   
+                200     LOAD_CONST                      15: '}'
+                202     COMPARE_OP                      2 (==)
+                204     POP_JUMP_IF_FALSE               131 (to 262)
+                206     LOAD_GLOBAL                     15: len
+                208     LOAD_FAST                       4: stack
+                210     CALL_FUNCTION                   1
+                212     LOAD_CONST                      7: 1
+                214     COMPARE_OP                      4 (>)
+                216     POP_JUMP_IF_FALSE               114 (to 228)
+                218     LOAD_FAST                       4: stack
+                220     LOAD_METHOD                     16: pop
+                222     CALL_METHOD                     0
+                224     POP_TOP                         
+                226     JUMP_ABSOLUTE                   41 (to 82)
+                228     LOAD_GLOBAL                     11: SyntaxError
+                230     LOAD_CONST                      16: 'vdf.parse: one too many closing parenthasis'
+                232     LOAD_GLOBAL                     12: getattr
+                234     LOAD_FAST                       0: fp
+                236     LOAD_CONST                      13: 'name'
+                238     LOAD_CONST                      14: '<%s>'
+                240     LOAD_FAST                       0: fp
+                242     LOAD_ATTR                       13: __class__
+                244     LOAD_ATTR                       14: __name__
+                246     BINARY_MODULO                   
+                248     CALL_FUNCTION                   3
+                250     LOAD_FAST                       7: lineno
+                252     LOAD_CONST                      9: 0
+                254     LOAD_FAST                       8: line
+                256     BUILD_TUPLE                     4
+                258     CALL_FUNCTION                   2
+                260     RAISE_VARARGS                   1
+                262     NOP                             
+                264     LOAD_FAST                       6: re_keyvalue
+                266     LOAD_METHOD                     17: match
+                268     LOAD_FAST                       8: line
+                270     CALL_METHOD                     1
+                272     STORE_FAST                      9: match
+                274     LOAD_FAST                       9: match
+                276     POP_JUMP_IF_TRUE                172 (to 344)
+                278     SETUP_FINALLY                   8 (to 296)
+                280     LOAD_FAST                       8: line
+                282     LOAD_GLOBAL                     18: next
+                284     LOAD_FAST                       0: fp
+                286     CALL_FUNCTION                   1
+                288     INPLACE_ADD                     
+                290     STORE_FAST                      8: line
+                292     POP_BLOCK                       
+                294     JUMP_ABSOLUTE                   131 (to 262)
+                296     DUP_TOP                         
+                298     LOAD_GLOBAL                     19: StopIteration
+                300     JUMP_IF_NOT_EXC_MATCH           171 (to 342)
+                302     POP_TOP                         
+                304     POP_TOP                         
+                306     POP_TOP                         
+                308     LOAD_GLOBAL                     11: SyntaxError
+                310     LOAD_CONST                      18: 'vdf.parse: unexpected EOF (open key quote?)'
+                312     LOAD_GLOBAL                     12: getattr
+                314     LOAD_FAST                       0: fp
+                316     LOAD_CONST                      13: 'name'
+                318     LOAD_CONST                      14: '<%s>'
+                320     LOAD_FAST                       0: fp
+                322     LOAD_ATTR                       13: __class__
+                324     LOAD_ATTR                       14: __name__
+                326     BINARY_MODULO                   
+                328     CALL_FUNCTION                   3
+                330     LOAD_FAST                       7: lineno
+                332     LOAD_CONST                      9: 0
+                334     LOAD_FAST                       8: line
+                336     BUILD_TUPLE                     4
+                338     CALL_FUNCTION                   2
+                340     RAISE_VARARGS                   1
+                342     RERAISE                         0
+                344     LOAD_FAST                       9: match
+                346     LOAD_METHOD                     20: group
+                348     LOAD_CONST                      19: 'qkey'
+                350     CALL_METHOD                     1
+                352     LOAD_CONST                      20: None
+                354     IS_OP                           0 (is)
+                356     POP_JUMP_IF_FALSE               184 (to 368)
+                358     LOAD_FAST                       9: match
+                360     LOAD_METHOD                     20: group
+                362     LOAD_CONST                      21: 'key'
+                364     CALL_METHOD                     1
+                366     JUMP_FORWARD                    4 (to 376)
+                368     LOAD_FAST                       9: match
+                370     LOAD_METHOD                     20: group
+                372     LOAD_CONST                      19: 'qkey'
+                374     CALL_METHOD                     1
+                376     STORE_FAST                      10: key
+                378     LOAD_FAST                       9: match
+                380     LOAD_METHOD                     20: group
+                382     LOAD_CONST                      22: 'qval'
+                384     CALL_METHOD                     1
+                386     STORE_FAST                      11: val
+                388     LOAD_FAST                       11: val
+                390     LOAD_CONST                      20: None
+                392     IS_OP                           0 (is)
+                394     POP_JUMP_IF_FALSE               217 (to 434)
+                396     LOAD_FAST                       9: match
+                398     LOAD_METHOD                     20: group
+                400     LOAD_CONST                      23: 'val'
+                402     CALL_METHOD                     1
+                404     STORE_FAST                      11: val
+                406     LOAD_FAST                       11: val
+                408     LOAD_CONST                      20: None
+                410     IS_OP                           1 (is not)
+                412     POP_JUMP_IF_FALSE               217 (to 434)
+                414     LOAD_FAST                       11: val
+                416     LOAD_METHOD                     21: rstrip
+                418     CALL_METHOD                     0
+                420     STORE_FAST                      11: val
+                422     LOAD_FAST                       11: val
+                424     LOAD_CONST                      8: ''
+                426     COMPARE_OP                      2 (==)
+                428     POP_JUMP_IF_FALSE               217 (to 434)
+                430     LOAD_CONST                      20: None
+                432     STORE_FAST                      11: val
+                434     LOAD_FAST                       3: escaped
+                436     POP_JUMP_IF_FALSE               223 (to 446)
+                438     LOAD_GLOBAL                     22: _unescape
+                440     LOAD_FAST                       10: key
+                442     CALL_FUNCTION                   1
+                444     STORE_FAST                      10: key
+                446     LOAD_FAST                       11: val
+                448     LOAD_CONST                      20: None
+                450     IS_OP                           0 (is)
+                452     POP_JUMP_IF_FALSE               293 (to 586)
+                456     LOAD_FAST                       2: merge_duplicate_keys
+                458     POP_JUMP_IF_FALSE               260 (to 520)
+                462     LOAD_FAST                       10: key
+                464     LOAD_FAST                       4: stack
+                466     LOAD_CONST                      24: -1
+                468     BINARY_SUBSCR                   
+                470     CONTAINS_OP                     0 (in)
+                472     POP_JUMP_IF_FALSE               260 (to 520)
+                476     LOAD_FAST                       4: stack
+                478     LOAD_CONST                      24: -1
+                480     BINARY_SUBSCR                   
+                482     LOAD_FAST                       10: key
+                484     BINARY_SUBSCR                   
+                486     STORE_FAST                      12: _m
+                488     LOAD_GLOBAL                     23: isinstance
+                490     LOAD_FAST                       12: _m
+                492     LOAD_FAST                       1: mapper
+                494     CALL_FUNCTION                   2
+                496     POP_JUMP_IF_TRUE                259 (to 518)
+                500     LOAD_FAST                       1: mapper
+                502     CALL_FUNCTION                   0
+                504     DUP_TOP                         
+                506     STORE_FAST                      12: _m
+                508     LOAD_FAST                       4: stack
+                510     LOAD_CONST                      24: -1
+                512     BINARY_SUBSCR                   
+                514     LOAD_FAST                       10: key
+                516     STORE_SUBSCR                    
+                518     JUMP_FORWARD                    9 (to 538)
+                520     LOAD_FAST                       1: mapper
+                522     CALL_FUNCTION                   0
+                524     STORE_FAST                      12: _m
+                526     LOAD_FAST                       12: _m
+                528     LOAD_FAST                       4: stack
+                530     LOAD_CONST                      24: -1
+                532     BINARY_SUBSCR                   
+                534     LOAD_FAST                       10: key
+                536     STORE_SUBSCR                    
+                538     LOAD_FAST                       9: match
+                540     LOAD_METHOD                     20: group
+                542     LOAD_CONST                      25: 'eblock'
+                544     CALL_METHOD                     1
+                546     LOAD_CONST                      20: None
+                548     IS_OP                           0 (is)
+                550     POP_JUMP_IF_FALSE               292 (to 584)
+                554     LOAD_FAST                       4: stack
+                556     LOAD_METHOD                     24: append
+                558     LOAD_FAST                       12: _m
+                560     CALL_METHOD                     1
+                562     POP_TOP                         
+                564     LOAD_FAST                       9: match
+                566     LOAD_METHOD                     20: group
+                568     LOAD_CONST                      26: 'sblock'
+                570     CALL_METHOD                     1
+                572     LOAD_CONST                      20: None
+                574     IS_OP                           0 (is)
+                576     POP_JUMP_IF_FALSE               292 (to 584)
+                580     LOAD_CONST                      17: True
+                582     STORE_FAST                      5: expect_bracket
+                584     JUMP_FORWARD                    63 (to 712)
+                586     LOAD_FAST                       9: match
+                588     LOAD_METHOD                     20: group
+                590     LOAD_CONST                      27: 'vq_end'
+                592     CALL_METHOD                     1
+                594     LOAD_CONST                      20: None
+                596     IS_OP                           0 (is)
+                598     POP_JUMP_IF_FALSE               343 (to 686)
+                602     LOAD_FAST                       9: match
+                604     LOAD_METHOD                     20: group
+                606     LOAD_CONST                      22: 'qval'
+                608     CALL_METHOD                     1
+                610     LOAD_CONST                      20: None
+                612     IS_OP                           1 (is not)
+                614     POP_JUMP_IF_FALSE               343 (to 686)
+                618     SETUP_FINALLY                   8 (to 636)
+                620     LOAD_FAST                       8: line
+                622     LOAD_GLOBAL                     18: next
+                624     LOAD_FAST                       0: fp
+                626     CALL_FUNCTION                   1
+                628     INPLACE_ADD                     
+                630     STORE_FAST                      8: line
+                632     POP_BLOCK                       
+                634     JUMP_ABSOLUTE                   131 (to 262)
+                636     DUP_TOP                         
+                638     LOAD_GLOBAL                     19: StopIteration
+                640     JUMP_IF_NOT_EXC_MATCH           342 (to 684)
+                644     POP_TOP                         
+                646     POP_TOP                         
+                648     POP_TOP                         
+                650     LOAD_GLOBAL                     11: SyntaxError
+                652     LOAD_CONST                      28: 'vdf.parse: unexpected EOF (open quote for value?)'
+                654     LOAD_GLOBAL                     12: getattr
+                656     LOAD_FAST                       0: fp
+                658     LOAD_CONST                      13: 'name'
+                660     LOAD_CONST                      14: '<%s>'
+                662     LOAD_FAST                       0: fp
+                664     LOAD_ATTR                       13: __class__
+                666     LOAD_ATTR                       14: __name__
+                668     BINARY_MODULO                   
+                670     CALL_FUNCTION                   3
+                672     LOAD_FAST                       7: lineno
+                674     LOAD_CONST                      9: 0
+                676     LOAD_FAST                       8: line
+                678     BUILD_TUPLE                     4
+                680     CALL_FUNCTION                   2
+                682     RAISE_VARARGS                   1
+                684     RERAISE                         0
+                686     LOAD_FAST                       3: escaped
+                688     POP_JUMP_IF_FALSE               350 (to 700)
+                692     LOAD_GLOBAL                     22: _unescape
+                694     LOAD_FAST                       11: val
+                696     CALL_FUNCTION                   1
+                698     JUMP_FORWARD                    1 (to 702)
+                700     LOAD_FAST                       11: val
+                702     LOAD_FAST                       4: stack
+                704     LOAD_CONST                      24: -1
+                706     BINARY_SUBSCR                   
+                708     LOAD_FAST                       10: key
+                710     STORE_SUBSCR                    
+                712     NOP                             
+                714     JUMP_ABSOLUTE                   41 (to 82)
+                716     LOAD_GLOBAL                     15: len
+                718     LOAD_FAST                       4: stack
+                720     CALL_FUNCTION                   1
+                722     LOAD_CONST                      7: 1
+                724     COMPARE_OP                      3 (!=)
+                726     POP_JUMP_IF_FALSE               382 (to 764)
+                730     LOAD_GLOBAL                     11: SyntaxError
+                732     LOAD_CONST                      29: 'vdf.parse: unclosed parenthasis or quotes (EOF)'
+                734     LOAD_GLOBAL                     12: getattr
+                736     LOAD_FAST                       0: fp
+                738     LOAD_CONST                      13: 'name'
+                740     LOAD_CONST                      14: '<%s>'
+                742     LOAD_FAST                       0: fp
+                744     LOAD_ATTR                       13: __class__
+                746     LOAD_ATTR                       14: __name__
+                748     BINARY_MODULO                   
+                750     CALL_FUNCTION                   3
+                752     LOAD_FAST                       7: lineno
+                754     LOAD_CONST                      9: 0
+                756     LOAD_FAST                       8: line
+                758     BUILD_TUPLE                     4
+                760     CALL_FUNCTION                   2
+                762     RAISE_VARARGS                   1
+                764     LOAD_FAST                       4: stack
+                766     LOAD_METHOD                     16: pop
+                768     CALL_METHOD                     0
+                770     RETURN_VALUE                    
+        'parse'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: loads
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 8
+            Flags: 0x0000004B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'string_type'
+                'TypeError'
+                'type'
+                'unicodeIO'
+                'strIO'
+                'parse'
+            [Var Names]
+                's'
+                'kwargs'
+                'fp'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '\n    Deserialize ``s`` (a ``str`` or ``unicode`` instance containing a JSON\n    document) to a Python object.\n    '
+                'Expected s to be a str, got %s'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: s
+                4       LOAD_GLOBAL                     1: string_type
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_TRUE                13 (to 26)
+                10      LOAD_GLOBAL                     2: TypeError
+                12      LOAD_CONST                      1: 'Expected s to be a str, got %s'
+                14      LOAD_GLOBAL                     3: type
+                16      LOAD_FAST                       0: s
+                18      CALL_FUNCTION                   1
+                20      BINARY_MODULO                   
+                22      CALL_FUNCTION                   1
+                24      RAISE_VARARGS                   1
+                26      SETUP_FINALLY                   6 (to 40)
+                28      LOAD_GLOBAL                     4: unicodeIO
+                30      LOAD_FAST                       0: s
+                32      CALL_FUNCTION                   1
+                34      STORE_FAST                      2: fp
+                36      POP_BLOCK                       
+                38      JUMP_FORWARD                    13 (to 66)
+                40      DUP_TOP                         
+                42      LOAD_GLOBAL                     2: TypeError
+                44      JUMP_IF_NOT_EXC_MATCH           32 (to 64)
+                46      POP_TOP                         
+                48      POP_TOP                         
+                50      POP_TOP                         
+                52      LOAD_GLOBAL                     5: strIO
+                54      LOAD_FAST                       0: s
+                56      CALL_FUNCTION                   1
+                58      STORE_FAST                      2: fp
+                60      POP_EXCEPT                      
+                62      JUMP_FORWARD                    1 (to 66)
+                64      RERAISE                         0
+                66      LOAD_GLOBAL                     6: parse
+                68      LOAD_FAST                       2: fp
+                70      BUILD_TUPLE                     1
+                72      BUILD_MAP                       0
+                74      LOAD_FAST                       1: kwargs
+                76      DICT_MERGE                      1
+                78      CALL_FUNCTION_EX                1
+                80      RETURN_VALUE                    
+        'loads'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: load
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x0000004B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                'parse'
+            [Var Names]
+                'fp'
+                'kwargs'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '\n    Deserialize ``fp`` (a ``.readline()``-supporting file-like object containing\n    a JSON document) to a Python object.\n    '
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: parse
+                2       LOAD_FAST                       0: fp
+                4       BUILD_TUPLE                     1
+                6       BUILD_MAP                       0
+                8       LOAD_FAST                       1: kwargs
+                10      DICT_MERGE                      1
+                12      CALL_FUNCTION_EX                1
+                14      RETURN_VALUE                    
+        'load'
+        False
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: dumps
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'Mapping'
+                'TypeError'
+                'bool'
+                'join'
+                '_dump_gen'
+            [Var Names]
+                'obj'
+                'pretty'
+                'escaped'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '\n    Serialize ``obj`` to a VDF formatted ``str``.\n    '
+                'Expected data to be an instance of``dict``'
+                'Expected pretty to be of type bool'
+                'Expected escaped to be of type bool'
+                ''
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: obj
+                4       LOAD_GLOBAL                     1: Mapping
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_TRUE                9 (to 18)
+                10      LOAD_GLOBAL                     2: TypeError
+                12      LOAD_CONST                      1: 'Expected data to be an instance of``dict``'
+                14      CALL_FUNCTION                   1
+                16      RAISE_VARARGS                   1
+                18      LOAD_GLOBAL                     0: isinstance
+                20      LOAD_FAST                       1: pretty
+                22      LOAD_GLOBAL                     3: bool
+                24      CALL_FUNCTION                   2
+                26      POP_JUMP_IF_TRUE                18 (to 36)
+                28      LOAD_GLOBAL                     2: TypeError
+                30      LOAD_CONST                      2: 'Expected pretty to be of type bool'
+                32      CALL_FUNCTION                   1
+                34      RAISE_VARARGS                   1
+                36      LOAD_GLOBAL                     0: isinstance
+                38      LOAD_FAST                       2: escaped
+                40      LOAD_GLOBAL                     3: bool
+                42      CALL_FUNCTION                   2
+                44      POP_JUMP_IF_TRUE                27 (to 54)
+                46      LOAD_GLOBAL                     2: TypeError
+                48      LOAD_CONST                      3: 'Expected escaped to be of type bool'
+                50      CALL_FUNCTION                   1
+                52      RAISE_VARARGS                   1
+                54      LOAD_CONST                      4: ''
+                56      LOAD_METHOD                     4: join
+                58      LOAD_GLOBAL                     5: _dump_gen
+                60      LOAD_FAST                       0: obj
+                62      LOAD_FAST                       1: pretty
+                64      LOAD_FAST                       2: escaped
+                66      CALL_FUNCTION                   3
+                68      CALL_METHOD                     1
+                70      RETURN_VALUE                    
+        'dumps'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: dump
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'Mapping'
+                'TypeError'
+                'hasattr'
+                'bool'
+                '_dump_gen'
+                'write'
+            [Var Names]
+                'obj'
+                'fp'
+                'pretty'
+                'escaped'
+                'chunk'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '\n    Serialize ``obj`` as a VDF formatted stream to ``fp`` (a\n    ``.write()``-supporting file-like object).\n    '
+                'Expected data to be an instance of``dict``'
+                'write'
+                'Expected fp to have write() method'
+                'Expected pretty to be of type bool'
+                'Expected escaped to be of type bool'
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: obj
+                4       LOAD_GLOBAL                     1: Mapping
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_TRUE                9 (to 18)
+                10      LOAD_GLOBAL                     2: TypeError
+                12      LOAD_CONST                      1: 'Expected data to be an instance of``dict``'
+                14      CALL_FUNCTION                   1
+                16      RAISE_VARARGS                   1
+                18      LOAD_GLOBAL                     3: hasattr
+                20      LOAD_FAST                       1: fp
+                22      LOAD_CONST                      2: 'write'
+                24      CALL_FUNCTION                   2
+                26      POP_JUMP_IF_TRUE                18 (to 36)
+                28      LOAD_GLOBAL                     2: TypeError
+                30      LOAD_CONST                      3: 'Expected fp to have write() method'
+                32      CALL_FUNCTION                   1
+                34      RAISE_VARARGS                   1
+                36      LOAD_GLOBAL                     0: isinstance
+                38      LOAD_FAST                       2: pretty
+                40      LOAD_GLOBAL                     4: bool
+                42      CALL_FUNCTION                   2
+                44      POP_JUMP_IF_TRUE                27 (to 54)
+                46      LOAD_GLOBAL                     2: TypeError
+                48      LOAD_CONST                      4: 'Expected pretty to be of type bool'
+                50      CALL_FUNCTION                   1
+                52      RAISE_VARARGS                   1
+                54      LOAD_GLOBAL                     0: isinstance
+                56      LOAD_FAST                       3: escaped
+                58      LOAD_GLOBAL                     4: bool
+                60      CALL_FUNCTION                   2
+                62      POP_JUMP_IF_TRUE                36 (to 72)
+                64      LOAD_GLOBAL                     2: TypeError
+                66      LOAD_CONST                      5: 'Expected escaped to be of type bool'
+                68      CALL_FUNCTION                   1
+                70      RAISE_VARARGS                   1
+                72      LOAD_GLOBAL                     5: _dump_gen
+                74      LOAD_FAST                       0: obj
+                76      LOAD_FAST                       2: pretty
+                78      LOAD_FAST                       3: escaped
+                80      CALL_FUNCTION                   3
+                82      GET_ITER                        
+                84      FOR_ITER                        7 (to 100)
+                86      STORE_FAST                      4: chunk
+                88      LOAD_FAST                       1: fp
+                90      LOAD_METHOD                     6: write
+                92      LOAD_FAST                       4: chunk
+                94      CALL_METHOD                     1
+                96      POP_TOP                         
+                98      JUMP_ABSOLUTE                   42 (to 84)
+                100     LOAD_CONST                      6: None
+                102     RETURN_VALUE                    
+        'dump'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: _dump_gen
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 9
+            Stack Size: 7
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                'items'
+                'isinstance'
+                'string_type'
+                '_escape'
+                'Mapping'
+                '_dump_gen'
+            [Var Names]
+                'data'
+                'pretty'
+                'escaped'
+                'level'
+                'indent'
+                'line_indent'
+                'key'
+                'value'
+                'chunk'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                '\t'
+                ''
+                '%s"%s"\n%s{\n'
+                1
+                '%s}\n'
+                '%s"%s" "%s"\n'
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_CONST                      1: '\t'
+                4       STORE_FAST                      4: indent
+                6       LOAD_CONST                      2: ''
+                8       STORE_FAST                      5: line_indent
+                10      LOAD_FAST                       1: pretty
+                12      POP_JUMP_IF_FALSE               11 (to 22)
+                14      LOAD_FAST                       4: indent
+                16      LOAD_FAST                       3: level
+                18      BINARY_MULTIPLY                 
+                20      STORE_FAST                      5: line_indent
+                22      LOAD_FAST                       0: data
+                24      LOAD_METHOD                     0: items
+                26      CALL_METHOD                     0
+                28      GET_ITER                        
+                30      FOR_ITER                        68 (to 168)
+                32      UNPACK_SEQUENCE                 2
+                34      STORE_FAST                      6: key
+                36      STORE_FAST                      7: value
+                38      LOAD_FAST                       2: escaped
+                40      POP_JUMP_IF_FALSE               30 (to 60)
+                42      LOAD_GLOBAL                     1: isinstance
+                44      LOAD_FAST                       6: key
+                46      LOAD_GLOBAL                     2: string_type
+                48      CALL_FUNCTION                   2
+                50      POP_JUMP_IF_FALSE               30 (to 60)
+                52      LOAD_GLOBAL                     3: _escape
+                54      LOAD_FAST                       6: key
+                56      CALL_FUNCTION                   1
+                58      STORE_FAST                      6: key
+                60      LOAD_GLOBAL                     1: isinstance
+                62      LOAD_FAST                       7: value
+                64      LOAD_GLOBAL                     4: Mapping
+                66      CALL_FUNCTION                   2
+                68      POP_JUMP_IF_FALSE               64 (to 128)
+                70      LOAD_CONST                      3: '%s"%s"\n%s{\n'
+                72      LOAD_FAST                       5: line_indent
+                74      LOAD_FAST                       6: key
+                76      LOAD_FAST                       5: line_indent
+                78      BUILD_TUPLE                     3
+                80      BINARY_MODULO                   
+                82      YIELD_VALUE                     
+                84      POP_TOP                         
+                86      LOAD_GLOBAL                     5: _dump_gen
+                88      LOAD_FAST                       7: value
+                90      LOAD_FAST                       1: pretty
+                92      LOAD_FAST                       2: escaped
+                94      LOAD_FAST                       3: level
+                96      LOAD_CONST                      4: 1
+                98      BINARY_ADD                      
+                100     CALL_FUNCTION                   4
+                102     GET_ITER                        
+                104     FOR_ITER                        5 (to 116)
+                106     STORE_FAST                      8: chunk
+                108     LOAD_FAST                       8: chunk
+                110     YIELD_VALUE                     
+                112     POP_TOP                         
+                114     JUMP_ABSOLUTE                   52 (to 104)
+                116     LOAD_CONST                      5: '%s}\n'
+                118     LOAD_FAST                       5: line_indent
+                120     BINARY_MODULO                   
+                122     YIELD_VALUE                     
+                124     POP_TOP                         
+                126     JUMP_ABSOLUTE                   15 (to 30)
+                128     LOAD_FAST                       2: escaped
+                130     POP_JUMP_IF_FALSE               75 (to 150)
+                132     LOAD_GLOBAL                     1: isinstance
+                134     LOAD_FAST                       7: value
+                136     LOAD_GLOBAL                     2: string_type
+                138     CALL_FUNCTION                   2
+                140     POP_JUMP_IF_FALSE               75 (to 150)
+                142     LOAD_GLOBAL                     3: _escape
+                144     LOAD_FAST                       7: value
+                146     CALL_FUNCTION                   1
+                148     STORE_FAST                      7: value
+                150     LOAD_CONST                      6: '%s"%s" "%s"\n'
+                152     LOAD_FAST                       5: line_indent
+                154     LOAD_FAST                       6: key
+                156     LOAD_FAST                       7: value
+                158     BUILD_TUPLE                     3
+                160     BINARY_MODULO                   
+                162     YIELD_VALUE                     
+                164     POP_TOP                         
+                166     JUMP_ABSOLUTE                   15 (to 30)
+                168     LOAD_CONST                      0: None
+                170     RETURN_VALUE                    
+        '_dump_gen'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: BASE_INT
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__repr__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'BASE_INT'
+                [Code]
+                    File Name: vdf/__init__.py
+                    Object Name: __repr__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '__class__'
+                        '__name__'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '%s(%d)'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: '%s(%d)'
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       0: __class__
+                        6       LOAD_ATTR                       1: __name__
+                        8       LOAD_FAST                       0: self
+                        10      BUILD_TUPLE                     2
+                        12      BINARY_MODULO                   
+                        14      RETURN_VALUE                    
+                'BASE_INT.__repr__'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'BASE_INT'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: <CODE> __repr__
+                10      LOAD_CONST                      2: 'BASE_INT.__repr__'
+                12      MAKE_FUNCTION                   0
+                14      STORE_NAME                      3: __repr__
+                16      LOAD_CONST                      3: None
+                18      RETURN_VALUE                    
+        'BASE_INT'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: UINT_64
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'UINT_64'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'UINT_64'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: None
+                10      RETURN_VALUE                    
+        'UINT_64'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: INT_64
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'INT_64'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'INT_64'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: None
+                10      RETURN_VALUE                    
+        'INT_64'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: POINTER
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'POINTER'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'POINTER'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: None
+                10      RETURN_VALUE                    
+        'POINTER'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: COLOR
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'COLOR'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'COLOR'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: None
+                10      RETURN_VALUE                    
+        'COLOR'
+        b'\x00'
+        b'\x01'
+        b'\x02'
+        b'\x03'
+        b'\x04'
+        b'\x05'
+        b'\x06'
+        b'\x07'
+        b'\x08'
+        b'\n'
+        b'\x0b'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: binary_loads
+            Arg Count: 5
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'bytes'
+                'TypeError'
+                'type'
+                'binary_load'
+                'BytesIO'
+            [Var Names]
+                'b'
+                'mapper'
+                'merge_duplicate_keys'
+                'alt_format'
+                'raise_on_remaining'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '\n    Deserialize ``b`` (``bytes`` containing a VDF in "binary form")\n    to a Python object.\n\n    ``mapper`` specifies the Python object used after deserializetion. ``dict` is\n    used by default. Alternatively, ``collections.OrderedDict`` can be used if you\n    wish to preserve key order. Or any object that acts like a ``dict``.\n\n    ``merge_duplicate_keys`` when ``True`` will merge multiple KeyValue lists with the\n    same key into one instead of overwriting. You can se this to ``False`` if you are\n    using ``VDFDict`` and need to preserve the duplicates.\n    '
+                'Expected s to be bytes, got %s'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: b
+                4       LOAD_GLOBAL                     1: bytes
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_TRUE                13 (to 26)
+                10      LOAD_GLOBAL                     2: TypeError
+                12      LOAD_CONST                      1: 'Expected s to be bytes, got %s'
+                14      LOAD_GLOBAL                     3: type
+                16      LOAD_FAST                       0: b
+                18      CALL_FUNCTION                   1
+                20      BINARY_MODULO                   
+                22      CALL_FUNCTION                   1
+                24      RAISE_VARARGS                   1
+                26      LOAD_GLOBAL                     4: binary_load
+                28      LOAD_GLOBAL                     5: BytesIO
+                30      LOAD_FAST                       0: b
+                32      CALL_FUNCTION                   1
+                34      LOAD_FAST                       1: mapper
+                36      LOAD_FAST                       2: merge_duplicate_keys
+                38      LOAD_FAST                       3: alt_format
+                40      LOAD_FAST                       4: raise_on_remaining
+                42      CALL_FUNCTION                   5
+                44      RETURN_VALUE                    
+        'binary_loads'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: binary_load
+            Arg Count: 5
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 16
+            Stack Size: 7
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'hasattr'
+                'TypeError'
+                'issubclass'
+                'Mapping'
+                'type'
+                'struct'
+                'Struct'
+                'BIN_END'
+                'BIN_END_ALT'
+                'iter'
+                'len'
+                'pop'
+                'BIN_NONE'
+                'append'
+                'BIN_STRING'
+                'BIN_WIDESTRING'
+                'BIN_INT32'
+                'BIN_POINTER'
+                'BIN_COLOR'
+                'unpack'
+                'read'
+                'size'
+                'POINTER'
+                'COLOR'
+                'BIN_UINT64'
+                'UINT_64'
+                'BIN_INT64'
+                'INT_64'
+                'BIN_FLOAT32'
+                'SyntaxError'
+                'tell'
+                'repr'
+                'seek'
+            [Var Names]
+                'fp'
+                'mapper'
+                'merge_duplicate_keys'
+                'alt_format'
+                'raise_on_remaining'
+                'int32'
+                'uint64'
+                'int64'
+                'float32'
+                'read_string'
+                'stack'
+                'CURRENT_BIN_END'
+                't'
+                'key'
+                '_m'
+                'val'
+            [Free Vars]
+            [Cell Vars]
+                'fp'
+            [Constants]
+                '\n    Deserialize ``fp`` (a ``.read()``-supporting file-like object containing\n    binary VDF) to a Python object.\n\n    ``mapper`` specifies the Python object used after deserializetion. ``dict` is\n    used by default. Alternatively, ``collections.OrderedDict`` can be used if you\n    wish to preserve key order. Or any object that acts like a ``dict``.\n\n    ``merge_duplicate_keys`` when ``True`` will merge multiple KeyValue lists with the\n    same key into one instead of overwriting. You can se this to ``False`` if you are\n    using ``VDFDict`` and need to preserve the duplicates.\n    '
+                'read'
+                'tell'
+                'seek'
+                'Expected fp to be a file-like object with tell()/seek() and read() returning bytes'
+                'Expected mapper to be subclass of dict, got %s'
+                '<i'
+                '<Q'
+                '<q'
+                '<f'
+                False
+                [Code]
+                    File Name: vdf/__init__.py
+                    Object Name: read_string
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 7
+                    Stack Size: 7
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        'tell'
+                        'read'
+                        'SyntaxError'
+                        'find'
+                        'seek'
+                        'len'
+                        'decode'
+                        'bytes'
+                        'str'
+                    [Var Names]
+                        'fp'
+                        'wide'
+                        'buf'
+                        'end'
+                        'offset'
+                        'chunk'
+                        'result'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        (
+                            b''
+                            -1
+                        )
+                        -1
+                        64
+                        b''
+                        'Unterminated cstring (offset: %d)'
+                        b'\x00\x00'
+                        b'\x00'
+                        2
+                        1
+                        'utf-16'
+                        'utf-8'
+                        'replace'
+                        'ascii'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: (b'', -1)
+                        2       UNPACK_SEQUENCE                 2
+                        4       STORE_FAST                      2: buf
+                        6       STORE_FAST                      3: end
+                        8       LOAD_FAST                       0: fp
+                        10      LOAD_METHOD                     0: tell
+                        12      CALL_METHOD                     0
+                        14      STORE_FAST                      4: offset
+                        16      LOAD_FAST                       3: end
+                        18      LOAD_CONST                      2: -1
+                        20      COMPARE_OP                      2 (==)
+                        22      POP_JUMP_IF_FALSE               44 (to 88)
+                        24      LOAD_FAST                       0: fp
+                        26      LOAD_METHOD                     1: read
+                        28      LOAD_CONST                      3: 64
+                        30      CALL_METHOD                     1
+                        32      STORE_FAST                      5: chunk
+                        34      LOAD_FAST                       5: chunk
+                        36      LOAD_CONST                      4: b''
+                        38      COMPARE_OP                      2 (==)
+                        40      POP_JUMP_IF_FALSE               27 (to 54)
+                        42      LOAD_GLOBAL                     2: SyntaxError
+                        44      LOAD_CONST                      5: 'Unterminated cstring (offset: %d)'
+                        46      LOAD_FAST                       4: offset
+                        48      BINARY_MODULO                   
+                        50      CALL_FUNCTION                   1
+                        52      RAISE_VARARGS                   1
+                        54      LOAD_FAST                       2: buf
+                        56      LOAD_FAST                       5: chunk
+                        58      INPLACE_ADD                     
+                        60      STORE_FAST                      2: buf
+                        62      LOAD_FAST                       2: buf
+                        64      LOAD_METHOD                     3: find
+                        66      LOAD_FAST                       1: wide
+                        68      POP_JUMP_IF_FALSE               37 (to 74)
+                        70      LOAD_CONST                      6: b'\x00\x00'
+                        72      JUMP_FORWARD                    1 (to 76)
+                        74      LOAD_CONST                      7: b'\x00'
+                        76      CALL_METHOD                     1
+                        78      STORE_FAST                      3: end
+                        80      LOAD_FAST                       3: end
+                        82      LOAD_CONST                      2: -1
+                        84      COMPARE_OP                      2 (==)
+                        86      POP_JUMP_IF_TRUE                12 (to 24)
+                        88      LOAD_FAST                       1: wide
+                        90      POP_JUMP_IF_FALSE               52 (to 104)
+                        92      LOAD_FAST                       3: end
+                        94      LOAD_FAST                       3: end
+                        96      LOAD_CONST                      8: 2
+                        98      BINARY_MODULO                   
+                        100     INPLACE_ADD                     
+                        102     STORE_FAST                      3: end
+                        104     LOAD_FAST                       0: fp
+                        106     LOAD_METHOD                     4: seek
+                        108     LOAD_FAST                       3: end
+                        110     LOAD_GLOBAL                     5: len
+                        112     LOAD_FAST                       2: buf
+                        114     CALL_FUNCTION                   1
+                        116     BINARY_SUBTRACT                 
+                        118     LOAD_FAST                       1: wide
+                        120     POP_JUMP_IF_FALSE               63 (to 126)
+                        122     LOAD_CONST                      8: 2
+                        124     JUMP_FORWARD                    1 (to 128)
+                        126     LOAD_CONST                      9: 1
+                        128     BINARY_ADD                      
+                        130     LOAD_CONST                      9: 1
+                        132     CALL_METHOD                     2
+                        134     POP_TOP                         
+                        136     LOAD_FAST                       2: buf
+                        138     LOAD_CONST                      0: None
+                        140     LOAD_FAST                       3: end
+                        142     BUILD_SLICE                     2
+                        144     BINARY_SUBSCR                   
+                        146     STORE_FAST                      6: result
+                        148     LOAD_FAST                       1: wide
+                        150     POP_JUMP_IF_FALSE               83 (to 166)
+                        152     LOAD_FAST                       6: result
+                        154     LOAD_METHOD                     6: decode
+                        156     LOAD_CONST                      10: 'utf-16'
+                        158     CALL_METHOD                     1
+                        160     STORE_FAST                      6: result
+                        162     LOAD_FAST                       6: result
+                        164     RETURN_VALUE                    
+                        166     LOAD_GLOBAL                     7: bytes
+                        168     LOAD_GLOBAL                     8: str
+                        170     IS_OP                           1 (is not)
+                        172     POP_JUMP_IF_FALSE               95 (to 190)
+                        174     LOAD_FAST                       6: result
+                        176     LOAD_METHOD                     6: decode
+                        178     LOAD_CONST                      11: 'utf-8'
+                        180     LOAD_CONST                      12: 'replace'
+                        182     CALL_METHOD                     2
+                        184     STORE_FAST                      6: result
+                        186     LOAD_FAST                       6: result
+                        188     RETURN_VALUE                    
+                        190     SETUP_FINALLY                   8 (to 208)
+                        192     LOAD_FAST                       6: result
+                        194     LOAD_METHOD                     6: decode
+                        196     LOAD_CONST                      13: 'ascii'
+                        198     CALL_METHOD                     1
+                        200     POP_TOP                         
+                        202     POP_BLOCK                       
+                        204     LOAD_FAST                       6: result
+                        206     RETURN_VALUE                    
+                        208     POP_TOP                         
+                        210     POP_TOP                         
+                        212     POP_TOP                         
+                        214     LOAD_FAST                       6: result
+                        216     LOAD_METHOD                     6: decode
+                        218     LOAD_CONST                      11: 'utf-8'
+                        220     LOAD_CONST                      12: 'replace'
+                        222     CALL_METHOD                     2
+                        224     STORE_FAST                      6: result
+                        226     POP_EXCEPT                      
+                        228     LOAD_FAST                       6: result
+                        230     RETURN_VALUE                    
+                'binary_load.<locals>.read_string'
+                [Code]
+                    File Name: vdf/__init__.py
+                    Object Name: <lambda>
+                    Arg Count: 0
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 0
+                    Stack Size: 3
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                        'read'
+                    [Var Names]
+                    [Free Vars]
+                        'fp'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        1
+                    [Disassembly]
+                        0       LOAD_DEREF                      0: fp
+                        2       LOAD_METHOD                     0: read
+                        4       LOAD_CONST                      1: 1
+                        6       CALL_METHOD                     1
+                        8       RETURN_VALUE                    
+                'binary_load.<locals>.<lambda>'
+                b''
+                1
+                -1
+                True
+                (
+                    'wide'
+                )
+                0
+                'Unknown data type at offset %d: %s'
+                'Reached EOF, but Binary VDF is incomplete'
+                'Binary VDF ended at offset %d, but there is more data remaining'
+                None
+                (
+                    False
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: hasattr
+                2       LOAD_DEREF                      0: fp
+                4       LOAD_CONST                      1: 'read'
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_FALSE               15 (to 30)
+                10      LOAD_GLOBAL                     0: hasattr
+                12      LOAD_DEREF                      0: fp
+                14      LOAD_CONST                      2: 'tell'
+                16      CALL_FUNCTION                   2
+                18      POP_JUMP_IF_FALSE               15 (to 30)
+                20      LOAD_GLOBAL                     0: hasattr
+                22      LOAD_DEREF                      0: fp
+                24      LOAD_CONST                      3: 'seek'
+                26      CALL_FUNCTION                   2
+                28      POP_JUMP_IF_TRUE                19 (to 38)
+                30      LOAD_GLOBAL                     1: TypeError
+                32      LOAD_CONST                      4: 'Expected fp to be a file-like object with tell()/seek() and read() returning bytes'
+                34      CALL_FUNCTION                   1
+                36      RAISE_VARARGS                   1
+                38      LOAD_GLOBAL                     2: issubclass
+                40      LOAD_FAST                       1: mapper
+                42      LOAD_GLOBAL                     3: Mapping
+                44      CALL_FUNCTION                   2
+                46      POP_JUMP_IF_TRUE                32 (to 64)
+                48      LOAD_GLOBAL                     1: TypeError
+                50      LOAD_CONST                      5: 'Expected mapper to be subclass of dict, got %s'
+                52      LOAD_GLOBAL                     4: type
+                54      LOAD_FAST                       1: mapper
+                56      CALL_FUNCTION                   1
+                58      BINARY_MODULO                   
+                60      CALL_FUNCTION                   1
+                62      RAISE_VARARGS                   1
+                64      LOAD_GLOBAL                     5: struct
+                66      LOAD_METHOD                     6: Struct
+                68      LOAD_CONST                      6: '<i'
+                70      CALL_METHOD                     1
+                72      STORE_FAST                      5: int32
+                74      LOAD_GLOBAL                     5: struct
+                76      LOAD_METHOD                     6: Struct
+                78      LOAD_CONST                      7: '<Q'
+                80      CALL_METHOD                     1
+                82      STORE_FAST                      6: uint64
+                84      LOAD_GLOBAL                     5: struct
+                86      LOAD_METHOD                     6: Struct
+                88      LOAD_CONST                      8: '<q'
+                90      CALL_METHOD                     1
+                92      STORE_FAST                      7: int64
+                94      LOAD_GLOBAL                     5: struct
+                96      LOAD_METHOD                     6: Struct
+                98      LOAD_CONST                      9: '<f'
+                100     CALL_METHOD                     1
+                102     STORE_FAST                      8: float32
+                104     LOAD_CONST                      25: (False,)
+                106     LOAD_CONST                      11: <CODE> read_string
+                108     LOAD_CONST                      12: 'binary_load.<locals>.read_string'
+                110     MAKE_FUNCTION                   1
+                112     STORE_FAST                      9: read_string
+                114     LOAD_FAST                       1: mapper
+                116     CALL_FUNCTION                   0
+                118     BUILD_LIST                      1
+                120     STORE_FAST                      10: stack
+                122     LOAD_FAST                       3: alt_format
+                124     POP_JUMP_IF_TRUE                65 (to 130)
+                126     LOAD_GLOBAL                     7: BIN_END
+                128     JUMP_FORWARD                    1 (to 132)
+                130     LOAD_GLOBAL                     8: BIN_END_ALT
+                132     STORE_FAST                      11: CURRENT_BIN_END
+                134     LOAD_GLOBAL                     9: iter
+                136     LOAD_CLOSURE                    0: fp
+                138     BUILD_TUPLE                     1
+                140     LOAD_CONST                      13: <CODE> <lambda>
+                142     LOAD_CONST                      14: 'binary_load.<locals>.<lambda>'
+                144     MAKE_FUNCTION                   8
+                146     LOAD_CONST                      15: b''
+                148     CALL_FUNCTION                   2
+                150     GET_ITER                        
+                152     FOR_ITER                        205 (to 564)
+                154     STORE_FAST                      12: t
+                156     LOAD_FAST                       12: t
+                158     LOAD_FAST                       11: CURRENT_BIN_END
+                160     COMPARE_OP                      2 (==)
+                162     POP_JUMP_IF_FALSE               95 (to 190)
+                164     LOAD_GLOBAL                     10: len
+                166     LOAD_FAST                       10: stack
+                168     CALL_FUNCTION                   1
+                170     LOAD_CONST                      16: 1
+                172     COMPARE_OP                      4 (>)
+                174     POP_JUMP_IF_FALSE               93 (to 186)
+                176     LOAD_FAST                       10: stack
+                178     LOAD_METHOD                     11: pop
+                180     CALL_METHOD                     0
+                182     POP_TOP                         
+                184     JUMP_ABSOLUTE                   76 (to 152)
+                186     POP_TOP                         
+                188     JUMP_FORWARD                    187 (to 564)
+                190     LOAD_FAST                       9: read_string
+                192     LOAD_DEREF                      0: fp
+                194     CALL_FUNCTION                   1
+                196     STORE_FAST                      13: key
+                198     LOAD_FAST                       12: t
+                200     LOAD_GLOBAL                     12: BIN_NONE
+                202     COMPARE_OP                      2 (==)
+                204     POP_JUMP_IF_FALSE               133 (to 266)
+                206     LOAD_FAST                       2: merge_duplicate_keys
+                208     POP_JUMP_IF_FALSE               118 (to 236)
+                210     LOAD_FAST                       13: key
+                212     LOAD_FAST                       10: stack
+                214     LOAD_CONST                      17: -1
+                216     BINARY_SUBSCR                   
+                218     CONTAINS_OP                     0 (in)
+                220     POP_JUMP_IF_FALSE               118 (to 236)
+                222     LOAD_FAST                       10: stack
+                224     LOAD_CONST                      17: -1
+                226     BINARY_SUBSCR                   
+                228     LOAD_FAST                       13: key
+                230     BINARY_SUBSCR                   
+                232     STORE_FAST                      14: _m
+                234     JUMP_FORWARD                    9 (to 254)
+                236     LOAD_FAST                       1: mapper
+                238     CALL_FUNCTION                   0
+                240     STORE_FAST                      14: _m
+                242     LOAD_FAST                       14: _m
+                244     LOAD_FAST                       10: stack
+                246     LOAD_CONST                      17: -1
+                248     BINARY_SUBSCR                   
+                250     LOAD_FAST                       13: key
+                252     STORE_SUBSCR                    
+                254     LOAD_FAST                       10: stack
+                256     LOAD_METHOD                     13: append
+                258     LOAD_FAST                       14: _m
+                260     CALL_METHOD                     1
+                262     POP_TOP                         
+                264     JUMP_ABSOLUTE                   76 (to 152)
+                266     LOAD_FAST                       12: t
+                268     LOAD_GLOBAL                     14: BIN_STRING
+                270     COMPARE_OP                      2 (==)
+                272     POP_JUMP_IF_FALSE               146 (to 292)
+                274     LOAD_FAST                       9: read_string
+                276     LOAD_DEREF                      0: fp
+                278     CALL_FUNCTION                   1
+                280     LOAD_FAST                       10: stack
+                282     LOAD_CONST                      17: -1
+                284     BINARY_SUBSCR                   
+                286     LOAD_FAST                       13: key
+                288     STORE_SUBSCR                    
+                290     JUMP_ABSOLUTE                   76 (to 152)
+                292     LOAD_FAST                       12: t
+                294     LOAD_GLOBAL                     15: BIN_WIDESTRING
+                296     COMPARE_OP                      2 (==)
+                298     POP_JUMP_IF_FALSE               161 (to 322)
+                300     LOAD_FAST                       9: read_string
+                302     LOAD_DEREF                      0: fp
+                304     LOAD_CONST                      18: True
+                306     LOAD_CONST                      19: ('wide',)
+                308     CALL_FUNCTION_KW                2
+                310     LOAD_FAST                       10: stack
+                312     LOAD_CONST                      17: -1
+                314     BINARY_SUBSCR                   
+                316     LOAD_FAST                       13: key
+                318     STORE_SUBSCR                    
+                320     JUMP_ABSOLUTE                   76 (to 152)
+                322     LOAD_FAST                       12: t
+                324     LOAD_GLOBAL                     16: BIN_INT32
+                326     LOAD_GLOBAL                     17: BIN_POINTER
+                328     LOAD_GLOBAL                     18: BIN_COLOR
+                330     BUILD_TUPLE                     3
+                332     CONTAINS_OP                     0 (in)
+                334     POP_JUMP_IF_FALSE               203 (to 406)
+                336     LOAD_FAST                       5: int32
+                338     LOAD_METHOD                     19: unpack
+                340     LOAD_DEREF                      0: fp
+                342     LOAD_METHOD                     20: read
+                344     LOAD_FAST                       5: int32
+                346     LOAD_ATTR                       21: size
+                348     CALL_METHOD                     1
+                350     CALL_METHOD                     1
+                352     LOAD_CONST                      20: 0
+                354     BINARY_SUBSCR                   
+                356     STORE_FAST                      15: val
+                358     LOAD_FAST                       12: t
+                360     LOAD_GLOBAL                     17: BIN_POINTER
+                362     COMPARE_OP                      2 (==)
+                364     POP_JUMP_IF_FALSE               188 (to 376)
+                366     LOAD_GLOBAL                     22: POINTER
+                368     LOAD_FAST                       15: val
+                370     CALL_FUNCTION                   1
+                372     STORE_FAST                      15: val
+                374     JUMP_FORWARD                    8 (to 392)
+                376     LOAD_FAST                       12: t
+                378     LOAD_GLOBAL                     18: BIN_COLOR
+                380     COMPARE_OP                      2 (==)
+                382     POP_JUMP_IF_FALSE               196 (to 392)
+                384     LOAD_GLOBAL                     23: COLOR
+                386     LOAD_FAST                       15: val
+                388     CALL_FUNCTION                   1
+                390     STORE_FAST                      15: val
+                392     LOAD_FAST                       15: val
+                394     LOAD_FAST                       10: stack
+                396     LOAD_CONST                      17: -1
+                398     BINARY_SUBSCR                   
+                400     LOAD_FAST                       13: key
+                402     STORE_SUBSCR                    
+                404     JUMP_ABSOLUTE                   76 (to 152)
+                406     LOAD_FAST                       12: t
+                408     LOAD_GLOBAL                     24: BIN_UINT64
+                410     COMPARE_OP                      2 (==)
+                412     POP_JUMP_IF_FALSE               225 (to 450)
+                414     LOAD_GLOBAL                     25: UINT_64
+                416     LOAD_FAST                       6: uint64
+                418     LOAD_METHOD                     19: unpack
+                420     LOAD_DEREF                      0: fp
+                422     LOAD_METHOD                     20: read
+                424     LOAD_FAST                       7: int64
+                426     LOAD_ATTR                       21: size
+                428     CALL_METHOD                     1
+                430     CALL_METHOD                     1
+                432     LOAD_CONST                      20: 0
+                434     BINARY_SUBSCR                   
+                436     CALL_FUNCTION                   1
+                438     LOAD_FAST                       10: stack
+                440     LOAD_CONST                      17: -1
+                442     BINARY_SUBSCR                   
+                444     LOAD_FAST                       13: key
+                446     STORE_SUBSCR                    
+                448     JUMP_ABSOLUTE                   76 (to 152)
+                450     LOAD_FAST                       12: t
+                452     LOAD_GLOBAL                     26: BIN_INT64
+                454     COMPARE_OP                      2 (==)
+                456     POP_JUMP_IF_FALSE               247 (to 494)
+                458     LOAD_GLOBAL                     27: INT_64
+                460     LOAD_FAST                       7: int64
+                462     LOAD_METHOD                     19: unpack
+                464     LOAD_DEREF                      0: fp
+                466     LOAD_METHOD                     20: read
+                468     LOAD_FAST                       7: int64
+                470     LOAD_ATTR                       21: size
+                472     CALL_METHOD                     1
+                474     CALL_METHOD                     1
+                476     LOAD_CONST                      20: 0
+                478     BINARY_SUBSCR                   
+                480     CALL_FUNCTION                   1
+                482     LOAD_FAST                       10: stack
+                484     LOAD_CONST                      17: -1
+                486     BINARY_SUBSCR                   
+                488     LOAD_FAST                       13: key
+                490     STORE_SUBSCR                    
+                492     JUMP_ABSOLUTE                   76 (to 152)
+                494     LOAD_FAST                       12: t
+                496     LOAD_GLOBAL                     28: BIN_FLOAT32
+                498     COMPARE_OP                      2 (==)
+                500     POP_JUMP_IF_FALSE               268 (to 536)
+                504     LOAD_FAST                       8: float32
+                506     LOAD_METHOD                     19: unpack
+                508     LOAD_DEREF                      0: fp
+                510     LOAD_METHOD                     20: read
+                512     LOAD_FAST                       8: float32
+                514     LOAD_ATTR                       21: size
+                516     CALL_METHOD                     1
+                518     CALL_METHOD                     1
+                520     LOAD_CONST                      20: 0
+                522     BINARY_SUBSCR                   
+                524     LOAD_FAST                       10: stack
+                526     LOAD_CONST                      17: -1
+                528     BINARY_SUBSCR                   
+                530     LOAD_FAST                       13: key
+                532     STORE_SUBSCR                    
+                534     JUMP_ABSOLUTE                   76 (to 152)
+                536     LOAD_GLOBAL                     29: SyntaxError
+                538     LOAD_CONST                      21: 'Unknown data type at offset %d: %s'
+                540     LOAD_DEREF                      0: fp
+                542     LOAD_METHOD                     30: tell
+                544     CALL_METHOD                     0
+                546     LOAD_CONST                      16: 1
+                548     BINARY_SUBTRACT                 
+                550     LOAD_GLOBAL                     31: repr
+                552     LOAD_FAST                       12: t
+                554     CALL_FUNCTION                   1
+                556     BUILD_TUPLE                     2
+                558     BINARY_MODULO                   
+                560     CALL_FUNCTION                   1
+                562     RAISE_VARARGS                   1
+                564     LOAD_GLOBAL                     10: len
+                566     LOAD_FAST                       10: stack
+                568     CALL_FUNCTION                   1
+                570     LOAD_CONST                      16: 1
+                572     COMPARE_OP                      3 (!=)
+                574     POP_JUMP_IF_FALSE               293 (to 586)
+                578     LOAD_GLOBAL                     29: SyntaxError
+                580     LOAD_CONST                      22: 'Reached EOF, but Binary VDF is incomplete'
+                582     CALL_FUNCTION                   1
+                584     RAISE_VARARGS                   1
+                586     LOAD_FAST                       4: raise_on_remaining
+                588     POP_JUMP_IF_FALSE               320 (to 640)
+                592     LOAD_DEREF                      0: fp
+                594     LOAD_METHOD                     20: read
+                596     LOAD_CONST                      16: 1
+                598     CALL_METHOD                     1
+                600     LOAD_CONST                      15: b''
+                602     COMPARE_OP                      3 (!=)
+                604     POP_JUMP_IF_FALSE               320 (to 640)
+                608     LOAD_DEREF                      0: fp
+                610     LOAD_METHOD                     32: seek
+                612     LOAD_CONST                      17: -1
+                614     LOAD_CONST                      16: 1
+                616     CALL_METHOD                     2
+                618     POP_TOP                         
+                620     LOAD_GLOBAL                     29: SyntaxError
+                622     LOAD_CONST                      23: 'Binary VDF ended at offset %d, but there is more data remaining'
+                624     LOAD_DEREF                      0: fp
+                626     LOAD_METHOD                     30: tell
+                628     CALL_METHOD                     0
+                630     LOAD_CONST                      16: 1
+                632     BINARY_SUBTRACT                 
+                634     BINARY_MODULO                   
+                636     CALL_FUNCTION                   1
+                638     RAISE_VARARGS                   1
+                640     LOAD_FAST                       10: stack
+                642     LOAD_METHOD                     11: pop
+                644     CALL_METHOD                     0
+                646     RETURN_VALUE                    
+        'binary_load'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: binary_dumps
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'BytesIO'
+                'binary_dump'
+                'getvalue'
+            [Var Names]
+                'obj'
+                'alt_format'
+                'buf'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '\n    Serialize ``obj`` to a binary VDF formatted ``bytes``.\n    '
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: BytesIO
+                2       CALL_FUNCTION                   0
+                4       STORE_FAST                      2: buf
+                6       LOAD_GLOBAL                     1: binary_dump
+                8       LOAD_FAST                       0: obj
+                10      LOAD_FAST                       2: buf
+                12      LOAD_FAST                       1: alt_format
+                14      CALL_FUNCTION                   3
+                16      POP_TOP                         
+                18      LOAD_FAST                       2: buf
+                20      LOAD_METHOD                     2: getvalue
+                22      CALL_METHOD                     0
+                24      RETURN_VALUE                    
+        'binary_dumps'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: binary_dump
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'Mapping'
+                'TypeError'
+                'hasattr'
+                '_binary_dump_gen'
+                'write'
+            [Var Names]
+                'obj'
+                'fp'
+                'alt_format'
+                'chunk'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '\n    Serialize ``obj`` to a binary VDF formatted ``bytes`` and write it to ``fp`` filelike object\n    '
+                'Expected obj to be type of Mapping'
+                'write'
+                'Expected fp to have write() method'
+                (
+                    'alt_format'
+                )
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: obj
+                4       LOAD_GLOBAL                     1: Mapping
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_TRUE                9 (to 18)
+                10      LOAD_GLOBAL                     2: TypeError
+                12      LOAD_CONST                      1: 'Expected obj to be type of Mapping'
+                14      CALL_FUNCTION                   1
+                16      RAISE_VARARGS                   1
+                18      LOAD_GLOBAL                     3: hasattr
+                20      LOAD_FAST                       1: fp
+                22      LOAD_CONST                      2: 'write'
+                24      CALL_FUNCTION                   2
+                26      POP_JUMP_IF_TRUE                18 (to 36)
+                28      LOAD_GLOBAL                     2: TypeError
+                30      LOAD_CONST                      3: 'Expected fp to have write() method'
+                32      CALL_FUNCTION                   1
+                34      RAISE_VARARGS                   1
+                36      LOAD_GLOBAL                     4: _binary_dump_gen
+                38      LOAD_FAST                       0: obj
+                40      LOAD_FAST                       2: alt_format
+                42      LOAD_CONST                      4: ('alt_format',)
+                44      CALL_FUNCTION_KW                2
+                46      GET_ITER                        
+                48      FOR_ITER                        7 (to 64)
+                50      STORE_FAST                      3: chunk
+                52      LOAD_FAST                       1: fp
+                54      LOAD_METHOD                     5: write
+                56      LOAD_FAST                       3: chunk
+                58      CALL_METHOD                     1
+                60      POP_TOP                         
+                62      JUMP_ABSOLUTE                   24 (to 48)
+                64      LOAD_CONST                      5: None
+                66      RETURN_VALUE                    
+        'binary_dump'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: _binary_dump_gen
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 10
+            Stack Size: 7
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                'len'
+                'struct'
+                'Struct'
+                'items'
+                'isinstance'
+                'string_type'
+                'encode'
+                'TypeError'
+                'type'
+                'Mapping'
+                'BIN_NONE'
+                '_binary_dump_gen'
+                'UINT_64'
+                'BIN_UINT64'
+                'pack'
+                'INT_64'
+                'BIN_INT64'
+                'BIN_STRING'
+                'BIN_WIDESTRING'
+                'float'
+                'BIN_FLOAT32'
+                'COLOR'
+                'POINTER'
+                'int'
+                'int_type'
+                'BIN_COLOR'
+                'BIN_POINTER'
+                'BIN_INT32'
+                'BIN_END'
+                'BIN_END_ALT'
+            [Var Names]
+                'obj'
+                'level'
+                'alt_format'
+                'int32'
+                'uint64'
+                'int64'
+                'float32'
+                'key'
+                'value'
+                'chunk'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                0
+                '<i'
+                '<Q'
+                '<q'
+                '<f'
+                'utf-8'
+                'dict keys must be of type str, got %s'
+                1
+                (
+                    'alt_format'
+                )
+                'utf-16'
+                2
+                'Unsupported type: %s'
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_FAST                       1: level
+                4       LOAD_CONST                      1: 0
+                6       COMPARE_OP                      2 (==)
+                8       POP_JUMP_IF_FALSE               13 (to 26)
+                10      LOAD_GLOBAL                     0: len
+                12      LOAD_FAST                       0: obj
+                14      CALL_FUNCTION                   1
+                16      LOAD_CONST                      1: 0
+                18      COMPARE_OP                      2 (==)
+                20      POP_JUMP_IF_FALSE               13 (to 26)
+                22      LOAD_CONST                      0: None
+                24      RETURN_VALUE                    
+                26      LOAD_GLOBAL                     1: struct
+                28      LOAD_METHOD                     2: Struct
+                30      LOAD_CONST                      2: '<i'
+                32      CALL_METHOD                     1
+                34      STORE_FAST                      3: int32
+                36      LOAD_GLOBAL                     1: struct
+                38      LOAD_METHOD                     2: Struct
+                40      LOAD_CONST                      3: '<Q'
+                42      CALL_METHOD                     1
+                44      STORE_FAST                      4: uint64
+                46      LOAD_GLOBAL                     1: struct
+                48      LOAD_METHOD                     2: Struct
+                50      LOAD_CONST                      4: '<q'
+                52      CALL_METHOD                     1
+                54      STORE_FAST                      5: int64
+                56      LOAD_GLOBAL                     1: struct
+                58      LOAD_METHOD                     2: Struct
+                60      LOAD_CONST                      5: '<f'
+                62      CALL_METHOD                     1
+                64      STORE_FAST                      6: float32
+                66      LOAD_FAST                       0: obj
+                68      LOAD_METHOD                     3: items
+                70      CALL_METHOD                     0
+                72      GET_ITER                        
+                74      FOR_ITER                        196 (to 468)
+                76      UNPACK_SEQUENCE                 2
+                78      STORE_FAST                      7: key
+                80      STORE_FAST                      8: value
+                82      LOAD_GLOBAL                     4: isinstance
+                84      LOAD_FAST                       7: key
+                86      LOAD_GLOBAL                     5: string_type
+                88      CALL_FUNCTION                   2
+                90      POP_JUMP_IF_FALSE               52 (to 104)
+                92      LOAD_FAST                       7: key
+                94      LOAD_METHOD                     6: encode
+                96      LOAD_CONST                      6: 'utf-8'
+                98      CALL_METHOD                     1
+                100     STORE_FAST                      7: key
+                102     JUMP_FORWARD                    8 (to 120)
+                104     LOAD_GLOBAL                     7: TypeError
+                106     LOAD_CONST                      7: 'dict keys must be of type str, got %s'
+                108     LOAD_GLOBAL                     8: type
+                110     LOAD_FAST                       7: key
+                112     CALL_FUNCTION                   1
+                114     BINARY_MODULO                   
+                116     CALL_FUNCTION                   1
+                118     RAISE_VARARGS                   1
+                120     LOAD_GLOBAL                     4: isinstance
+                122     LOAD_FAST                       8: value
+                124     LOAD_GLOBAL                     9: Mapping
+                126     CALL_FUNCTION                   2
+                128     POP_JUMP_IF_FALSE               88 (to 176)
+                130     LOAD_GLOBAL                     10: BIN_NONE
+                132     LOAD_FAST                       7: key
+                134     BINARY_ADD                      
+                136     LOAD_GLOBAL                     10: BIN_NONE
+                138     BINARY_ADD                      
+                140     YIELD_VALUE                     
+                142     POP_TOP                         
+                144     LOAD_GLOBAL                     11: _binary_dump_gen
+                146     LOAD_FAST                       8: value
+                148     LOAD_FAST                       1: level
+                150     LOAD_CONST                      8: 1
+                152     BINARY_ADD                      
+                154     LOAD_FAST                       2: alt_format
+                156     LOAD_CONST                      9: ('alt_format',)
+                158     CALL_FUNCTION_KW                3
+                160     GET_ITER                        
+                162     FOR_ITER                        5 (to 174)
+                164     STORE_FAST                      9: chunk
+                166     LOAD_FAST                       9: chunk
+                168     YIELD_VALUE                     
+                170     POP_TOP                         
+                172     JUMP_ABSOLUTE                   81 (to 162)
+                174     JUMP_ABSOLUTE                   37 (to 74)
+                176     LOAD_GLOBAL                     4: isinstance
+                178     LOAD_FAST                       8: value
+                180     LOAD_GLOBAL                     12: UINT_64
+                182     CALL_FUNCTION                   2
+                184     POP_JUMP_IF_FALSE               106 (to 212)
+                186     LOAD_GLOBAL                     13: BIN_UINT64
+                188     LOAD_FAST                       7: key
+                190     BINARY_ADD                      
+                192     LOAD_GLOBAL                     10: BIN_NONE
+                194     BINARY_ADD                      
+                196     LOAD_FAST                       4: uint64
+                198     LOAD_METHOD                     14: pack
+                200     LOAD_FAST                       8: value
+                202     CALL_METHOD                     1
+                204     BINARY_ADD                      
+                206     YIELD_VALUE                     
+                208     POP_TOP                         
+                210     JUMP_ABSOLUTE                   37 (to 74)
+                212     LOAD_GLOBAL                     4: isinstance
+                214     LOAD_FAST                       8: value
+                216     LOAD_GLOBAL                     15: INT_64
+                218     CALL_FUNCTION                   2
+                220     POP_JUMP_IF_FALSE               124 (to 248)
+                222     LOAD_GLOBAL                     16: BIN_INT64
+                224     LOAD_FAST                       7: key
+                226     BINARY_ADD                      
+                228     LOAD_GLOBAL                     10: BIN_NONE
+                230     BINARY_ADD                      
+                232     LOAD_FAST                       5: int64
+                234     LOAD_METHOD                     14: pack
+                236     LOAD_FAST                       8: value
+                238     CALL_METHOD                     1
+                240     BINARY_ADD                      
+                242     YIELD_VALUE                     
+                244     POP_TOP                         
+                246     JUMP_ABSOLUTE                   37 (to 74)
+                248     LOAD_GLOBAL                     4: isinstance
+                250     LOAD_FAST                       8: value
+                252     LOAD_GLOBAL                     5: string_type
+                254     CALL_FUNCTION                   2
+                256     POP_JUMP_IF_FALSE               166 (to 332)
+                258     SETUP_FINALLY                   12 (to 284)
+                260     LOAD_FAST                       8: value
+                262     LOAD_METHOD                     6: encode
+                264     LOAD_CONST                      6: 'utf-8'
+                266     CALL_METHOD                     1
+                268     LOAD_GLOBAL                     10: BIN_NONE
+                270     BINARY_ADD                      
+                272     STORE_FAST                      8: value
+                274     LOAD_GLOBAL                     17: BIN_STRING
+                276     YIELD_VALUE                     
+                278     POP_TOP                         
+                280     POP_BLOCK                       
+                282     JUMP_FORWARD                    16 (to 316)
+                284     POP_TOP                         
+                286     POP_TOP                         
+                288     POP_TOP                         
+                290     LOAD_FAST                       8: value
+                292     LOAD_METHOD                     6: encode
+                294     LOAD_CONST                      10: 'utf-16'
+                296     CALL_METHOD                     1
+                298     LOAD_GLOBAL                     10: BIN_NONE
+                300     LOAD_CONST                      11: 2
+                302     BINARY_MULTIPLY                 
+                304     BINARY_ADD                      
+                306     STORE_FAST                      8: value
+                308     LOAD_GLOBAL                     18: BIN_WIDESTRING
+                310     YIELD_VALUE                     
+                312     POP_TOP                         
+                314     POP_EXCEPT                      
+                316     LOAD_FAST                       7: key
+                318     LOAD_GLOBAL                     10: BIN_NONE
+                320     BINARY_ADD                      
+                322     LOAD_FAST                       8: value
+                324     BINARY_ADD                      
+                326     YIELD_VALUE                     
+                328     POP_TOP                         
+                330     JUMP_ABSOLUTE                   37 (to 74)
+                332     LOAD_GLOBAL                     4: isinstance
+                334     LOAD_FAST                       8: value
+                336     LOAD_GLOBAL                     19: float
+                338     CALL_FUNCTION                   2
+                340     POP_JUMP_IF_FALSE               184 (to 368)
+                342     LOAD_GLOBAL                     20: BIN_FLOAT32
+                344     LOAD_FAST                       7: key
+                346     BINARY_ADD                      
+                348     LOAD_GLOBAL                     10: BIN_NONE
+                350     BINARY_ADD                      
+                352     LOAD_FAST                       6: float32
+                354     LOAD_METHOD                     14: pack
+                356     LOAD_FAST                       8: value
+                358     CALL_METHOD                     1
+                360     BINARY_ADD                      
+                362     YIELD_VALUE                     
+                364     POP_TOP                         
+                366     JUMP_ABSOLUTE                   37 (to 74)
+                368     LOAD_GLOBAL                     4: isinstance
+                370     LOAD_FAST                       8: value
+                372     LOAD_GLOBAL                     21: COLOR
+                374     LOAD_GLOBAL                     22: POINTER
+                376     LOAD_GLOBAL                     23: int
+                378     LOAD_GLOBAL                     24: int_type
+                380     BUILD_TUPLE                     4
+                382     CALL_FUNCTION                   2
+                384     POP_JUMP_IF_FALSE               226 (to 452)
+                386     LOAD_GLOBAL                     4: isinstance
+                388     LOAD_FAST                       8: value
+                390     LOAD_GLOBAL                     21: COLOR
+                392     CALL_FUNCTION                   2
+                394     POP_JUMP_IF_FALSE               202 (to 404)
+                396     LOAD_GLOBAL                     25: BIN_COLOR
+                398     YIELD_VALUE                     
+                400     POP_TOP                         
+                402     JUMP_FORWARD                    12 (to 428)
+                404     LOAD_GLOBAL                     4: isinstance
+                406     LOAD_FAST                       8: value
+                408     LOAD_GLOBAL                     22: POINTER
+                410     CALL_FUNCTION                   2
+                412     POP_JUMP_IF_FALSE               211 (to 422)
+                414     LOAD_GLOBAL                     26: BIN_POINTER
+                416     YIELD_VALUE                     
+                418     POP_TOP                         
+                420     JUMP_FORWARD                    3 (to 428)
+                422     LOAD_GLOBAL                     27: BIN_INT32
+                424     YIELD_VALUE                     
+                426     POP_TOP                         
+                428     LOAD_FAST                       7: key
+                430     LOAD_GLOBAL                     10: BIN_NONE
+                432     BINARY_ADD                      
+                434     YIELD_VALUE                     
+                436     POP_TOP                         
+                438     LOAD_FAST                       3: int32
+                440     LOAD_METHOD                     14: pack
+                442     LOAD_FAST                       8: value
+                444     CALL_METHOD                     1
+                446     YIELD_VALUE                     
+                448     POP_TOP                         
+                450     JUMP_ABSOLUTE                   37 (to 74)
+                452     LOAD_GLOBAL                     7: TypeError
+                454     LOAD_CONST                      12: 'Unsupported type: %s'
+                456     LOAD_GLOBAL                     8: type
+                458     LOAD_FAST                       8: value
+                460     CALL_FUNCTION                   1
+                462     BINARY_MODULO                   
+                464     CALL_FUNCTION                   1
+                466     RAISE_VARARGS                   1
+                468     LOAD_FAST                       2: alt_format
+                470     POP_JUMP_IF_TRUE                241 (to 482)
+                472     LOAD_GLOBAL                     28: BIN_END
+                474     YIELD_VALUE                     
+                476     POP_TOP                         
+                478     LOAD_CONST                      0: None
+                480     RETURN_VALUE                    
+                482     LOAD_GLOBAL                     29: BIN_END_ALT
+                484     YIELD_VALUE                     
+                486     POP_TOP                         
+                488     LOAD_CONST                      0: None
+                490     RETURN_VALUE                    
+        '_binary_dump_gen'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: vbkv_loads
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ValueError'
+                'struct'
+                'unpack'
+                'crc32'
+                'binary_loads'
+            [Var Names]
+                's'
+                'mapper'
+                'merge_duplicate_keys'
+                'checksum'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '\n    Deserialize ``s`` (``bytes`` containing a VBKV to a Python object.\n\n    ``mapper`` specifies the Python object used after deserializetion. ``dict` is\n    used by default. Alternatively, ``collections.OrderedDict`` can be used if you\n    wish to preserve key order. Or any object that acts like a ``dict``.\n\n    ``merge_duplicate_keys`` when ``True`` will merge multiple KeyValue lists with the\n    same key into one instead of overwriting. You can se this to ``False`` if you are\n    using ``VDFDict`` and need to preserve the duplicates.\n    '
+                None
+                4
+                b'VBKV'
+                'Invalid header'
+                '<i'
+                8
+                'Invalid checksum'
+                True
+                (
+                    'alt_format'
+                )
+            [Disassembly]
+                0       LOAD_FAST                       0: s
+                2       LOAD_CONST                      1: None
+                4       LOAD_CONST                      2: 4
+                6       BUILD_SLICE                     2
+                8       BINARY_SUBSCR                   
+                10      LOAD_CONST                      3: b'VBKV'
+                12      COMPARE_OP                      3 (!=)
+                14      POP_JUMP_IF_FALSE               12 (to 24)
+                16      LOAD_GLOBAL                     0: ValueError
+                18      LOAD_CONST                      4: 'Invalid header'
+                20      CALL_FUNCTION                   1
+                22      RAISE_VARARGS                   1
+                24      LOAD_GLOBAL                     1: struct
+                26      LOAD_METHOD                     2: unpack
+                28      LOAD_CONST                      5: '<i'
+                30      LOAD_FAST                       0: s
+                32      LOAD_CONST                      2: 4
+                34      LOAD_CONST                      6: 8
+                36      BUILD_SLICE                     2
+                38      BINARY_SUBSCR                   
+                40      CALL_METHOD                     2
+                42      UNPACK_SEQUENCE                 1
+                44      STORE_FAST                      3: checksum
+                46      LOAD_FAST                       3: checksum
+                48      LOAD_GLOBAL                     3: crc32
+                50      LOAD_FAST                       0: s
+                52      LOAD_CONST                      6: 8
+                54      LOAD_CONST                      1: None
+                56      BUILD_SLICE                     2
+                58      BINARY_SUBSCR                   
+                60      CALL_FUNCTION                   1
+                62      COMPARE_OP                      3 (!=)
+                64      POP_JUMP_IF_FALSE               37 (to 74)
+                66      LOAD_GLOBAL                     0: ValueError
+                68      LOAD_CONST                      7: 'Invalid checksum'
+                70      CALL_FUNCTION                   1
+                72      RAISE_VARARGS                   1
+                74      LOAD_GLOBAL                     4: binary_loads
+                76      LOAD_FAST                       0: s
+                78      LOAD_CONST                      6: 8
+                80      LOAD_CONST                      1: None
+                82      BUILD_SLICE                     2
+                84      BINARY_SUBSCR                   
+                86      LOAD_FAST                       1: mapper
+                88      LOAD_FAST                       2: merge_duplicate_keys
+                90      LOAD_CONST                      8: True
+                92      LOAD_CONST                      9: ('alt_format',)
+                94      CALL_FUNCTION_KW                4
+                96      RETURN_VALUE                    
+        'vbkv_loads'
+        [Code]
+            File Name: vdf/__init__.py
+            Object Name: vbkv_dumps
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'join'
+                '_binary_dump_gen'
+                'crc32'
+                'struct'
+                'pack'
+            [Var Names]
+                'obj'
+                'data'
+                'checksum'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '\n    Serialize ``obj`` to a VBKV formatted ``bytes``.\n    '
+                b''
+                True
+                (
+                    'alt_format'
+                )
+                b'VBKV'
+                '<i'
+            [Disassembly]
+                0       LOAD_CONST                      1: b''
+                2       LOAD_METHOD                     0: join
+                4       LOAD_GLOBAL                     1: _binary_dump_gen
+                6       LOAD_FAST                       0: obj
+                8       LOAD_CONST                      2: True
+                10      LOAD_CONST                      3: ('alt_format',)
+                12      CALL_FUNCTION_KW                2
+                14      CALL_METHOD                     1
+                16      STORE_FAST                      1: data
+                18      LOAD_GLOBAL                     2: crc32
+                20      LOAD_FAST                       1: data
+                22      CALL_FUNCTION                   1
+                24      STORE_FAST                      2: checksum
+                26      LOAD_CONST                      4: b'VBKV'
+                28      LOAD_GLOBAL                     3: struct
+                30      LOAD_METHOD                     4: pack
+                32      LOAD_CONST                      5: '<i'
+                34      LOAD_FAST                       2: checksum
+                36      CALL_METHOD                     2
+                38      BINARY_ADD                      
+                40      LOAD_FAST                       1: data
+                42      BINARY_ADD                      
+                44      RETURN_VALUE                    
+        'vbkv_dumps'
+        (
+            False
+            True
+        )
+        (
+            False
+            True
+            0
+        )
+        (
+            False
+        )
+        (
+            0
+            False
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: '\nModule for deserializing/serializing to and from VDF\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: '3.4'
+        6       STORE_NAME                      1: __version__
+        8       LOAD_CONST                      2: 'Rossen Georgiev'
+        10      STORE_NAME                      2: __author__
+        12      LOAD_CONST                      3: 0
+        14      LOAD_CONST                      4: None
+        16      IMPORT_NAME                     3: re
+        18      STORE_NAME                      3: re
+        20      LOAD_CONST                      3: 0
+        22      LOAD_CONST                      4: None
+        24      IMPORT_NAME                     4: sys
+        26      STORE_NAME                      4: sys
+        28      LOAD_CONST                      3: 0
+        30      LOAD_CONST                      4: None
+        32      IMPORT_NAME                     5: struct
+        34      STORE_NAME                      5: struct
+        36      LOAD_CONST                      3: 0
+        38      LOAD_CONST                      5: ('crc32',)
+        40      IMPORT_NAME                     6: binascii
+        42      IMPORT_FROM                     7: crc32
+        44      STORE_NAME                      7: crc32
+        46      POP_TOP                         
+        48      LOAD_CONST                      3: 0
+        50      LOAD_CONST                      6: ('BytesIO',)
+        52      IMPORT_NAME                     8: io
+        54      IMPORT_FROM                     9: BytesIO
+        56      STORE_NAME                      9: BytesIO
+        58      POP_TOP                         
+        60      LOAD_CONST                      3: 0
+        62      LOAD_CONST                      7: ('StringIO',)
+        64      IMPORT_NAME                     8: io
+        66      IMPORT_FROM                     10: StringIO
+        68      STORE_NAME                      11: unicodeIO
+        70      POP_TOP                         
+        72      SETUP_FINALLY                   8 (to 90)
+        74      LOAD_CONST                      3: 0
+        76      LOAD_CONST                      8: ('Mapping',)
+        78      IMPORT_NAME                     12: collections.abc
+        80      IMPORT_FROM                     13: Mapping
+        82      STORE_NAME                      13: Mapping
+        84      POP_TOP                         
+        86      POP_BLOCK                       
+        88      JUMP_FORWARD                    10 (to 110)
+        90      POP_TOP                         
+        92      POP_TOP                         
+        94      POP_TOP                         
+        96      LOAD_CONST                      3: 0
+        98      LOAD_CONST                      8: ('Mapping',)
+        100     IMPORT_NAME                     14: collections
+        102     IMPORT_FROM                     13: Mapping
+        104     STORE_NAME                      13: Mapping
+        106     POP_TOP                         
+        108     POP_EXCEPT                      
+        110     LOAD_CONST                      3: 0
+        112     LOAD_CONST                      9: ('VDFDict',)
+        114     IMPORT_NAME                     15: vdf.vdict
+        116     IMPORT_FROM                     16: VDFDict
+        118     STORE_NAME                      16: VDFDict
+        120     POP_TOP                         
+        122     LOAD_NAME                       4: sys
+        124     LOAD_ATTR                       17: version_info
+        126     LOAD_CONST                      3: 0
+        128     BINARY_SUBSCR                   
+        130     LOAD_CONST                      10: 3
+        132     COMPARE_OP                      5 (>=)
+        134     POP_JUMP_IF_FALSE               79 (to 158)
+        136     LOAD_NAME                       18: str
+        138     STORE_NAME                      19: string_type
+        140     LOAD_NAME                       20: int
+        142     STORE_NAME                      21: int_type
+        144     LOAD_CONST                      11: '￾﻿'
+        146     STORE_NAME                      22: BOMS
+        148     LOAD_CONST                      12: <CODE> strip_bom
+        150     LOAD_CONST                      13: 'strip_bom'
+        152     MAKE_FUNCTION                   0
+        154     STORE_NAME                      23: strip_bom
+        156     JUMP_FORWARD                    21 (to 200)
+        158     LOAD_CONST                      3: 0
+        160     LOAD_CONST                      7: ('StringIO',)
+        162     IMPORT_NAME                     10: StringIO
+        164     IMPORT_FROM                     10: StringIO
+        166     STORE_NAME                      24: strIO
+        168     POP_TOP                         
+        170     LOAD_NAME                       25: basestring
+        172     STORE_NAME                      19: string_type
+        174     LOAD_NAME                       26: long
+        176     STORE_NAME                      21: int_type
+        178     LOAD_CONST                      14: 'ï»¿ÿþþÿ'
+        180     STORE_NAME                      22: BOMS
+        182     LOAD_CONST                      15: '\\ufffe\\ufeff'
+        184     LOAD_METHOD                     27: decode
+        186     LOAD_CONST                      16: 'unicode-escape'
+        188     CALL_METHOD                     1
+        190     STORE_NAME                      28: BOMS_UNICODE
+        192     LOAD_CONST                      17: <CODE> strip_bom
+        194     LOAD_CONST                      13: 'strip_bom'
+        196     MAKE_FUNCTION                   0
+        198     STORE_NAME                      23: strip_bom
+        200     LOAD_CONST                      18: '\n'
+        202     LOAD_CONST                      19: '\t'
+        204     LOAD_CONST                      20: '\x0b'
+        206     LOAD_CONST                      21: '\x08'
+        208     LOAD_CONST                      22: '\r'
+        210     LOAD_CONST                      23: '\x0c'
+        212     LOAD_CONST                      24: '\x07'
+        214     LOAD_CONST                      25: '\\'
+        216     LOAD_CONST                      26: '?'
+        218     LOAD_CONST                      27: '"'
+        220     LOAD_CONST                      28: "'"
+        222     LOAD_CONST                      29: ('\\n', '\\t', '\\v', '\\b', '\\r', '\\f', '\\a', '\\\\', '\\?', '\\"', "\\'")
+        224     BUILD_CONST_KEY_MAP             11
+        226     STORE_NAME                      29: _unescape_char_map
+        228     LOAD_CONST                      30: <CODE> <dictcomp>
+        230     LOAD_CONST                      31: '<dictcomp>'
+        232     MAKE_FUNCTION                   0
+        234     LOAD_NAME                       29: _unescape_char_map
+        236     LOAD_METHOD                     30: items
+        238     CALL_METHOD                     0
+        240     GET_ITER                        
+        242     CALL_FUNCTION                   1
+        244     STORE_NAME                      31: _escape_char_map
+        246     LOAD_CONST                      32: <CODE> _re_escape_match
+        248     LOAD_CONST                      33: '_re_escape_match'
+        250     MAKE_FUNCTION                   0
+        252     STORE_NAME                      32: _re_escape_match
+        254     LOAD_CONST                      34: <CODE> _re_unescape_match
+        256     LOAD_CONST                      35: '_re_unescape_match'
+        258     MAKE_FUNCTION                   0
+        260     STORE_NAME                      33: _re_unescape_match
+        262     LOAD_CONST                      36: <CODE> _escape
+        264     LOAD_CONST                      37: '_escape'
+        266     MAKE_FUNCTION                   0
+        268     STORE_NAME                      34: _escape
+        270     LOAD_CONST                      38: <CODE> _unescape
+        272     LOAD_CONST                      39: '_unescape'
+        274     MAKE_FUNCTION                   0
+        276     STORE_NAME                      35: _unescape
+        278     LOAD_NAME                       36: dict
+        280     LOAD_CONST                      40: True
+        282     LOAD_CONST                      40: True
+        284     BUILD_TUPLE                     3
+        286     LOAD_CONST                      41: <CODE> parse
+        288     LOAD_CONST                      42: 'parse'
+        290     MAKE_FUNCTION                   1
+        292     STORE_NAME                      37: parse
+        294     LOAD_CONST                      43: <CODE> loads
+        296     LOAD_CONST                      44: 'loads'
+        298     MAKE_FUNCTION                   0
+        300     STORE_NAME                      38: loads
+        302     LOAD_CONST                      45: <CODE> load
+        304     LOAD_CONST                      46: 'load'
+        306     MAKE_FUNCTION                   0
+        308     STORE_NAME                      39: load
+        310     LOAD_CONST                      89: (False, True)
+        312     LOAD_CONST                      48: <CODE> dumps
+        314     LOAD_CONST                      49: 'dumps'
+        316     MAKE_FUNCTION                   1
+        318     STORE_NAME                      40: dumps
+        320     LOAD_CONST                      89: (False, True)
+        322     LOAD_CONST                      50: <CODE> dump
+        324     LOAD_CONST                      51: 'dump'
+        326     MAKE_FUNCTION                   1
+        328     STORE_NAME                      41: dump
+        330     LOAD_CONST                      90: (False, True, 0)
+        332     LOAD_CONST                      52: <CODE> _dump_gen
+        334     LOAD_CONST                      53: '_dump_gen'
+        336     MAKE_FUNCTION                   1
+        338     STORE_NAME                      42: _dump_gen
+        340     LOAD_BUILD_CLASS                
+        342     LOAD_CONST                      54: <CODE> BASE_INT
+        344     LOAD_CONST                      55: 'BASE_INT'
+        346     MAKE_FUNCTION                   0
+        348     LOAD_CONST                      55: 'BASE_INT'
+        350     LOAD_NAME                       21: int_type
+        352     CALL_FUNCTION                   3
+        354     STORE_NAME                      43: BASE_INT
+        356     LOAD_BUILD_CLASS                
+        358     LOAD_CONST                      56: <CODE> UINT_64
+        360     LOAD_CONST                      57: 'UINT_64'
+        362     MAKE_FUNCTION                   0
+        364     LOAD_CONST                      57: 'UINT_64'
+        366     LOAD_NAME                       43: BASE_INT
+        368     CALL_FUNCTION                   3
+        370     STORE_NAME                      44: UINT_64
+        372     LOAD_BUILD_CLASS                
+        374     LOAD_CONST                      58: <CODE> INT_64
+        376     LOAD_CONST                      59: 'INT_64'
+        378     MAKE_FUNCTION                   0
+        380     LOAD_CONST                      59: 'INT_64'
+        382     LOAD_NAME                       43: BASE_INT
+        384     CALL_FUNCTION                   3
+        386     STORE_NAME                      45: INT_64
+        388     LOAD_BUILD_CLASS                
+        390     LOAD_CONST                      60: <CODE> POINTER
+        392     LOAD_CONST                      61: 'POINTER'
+        394     MAKE_FUNCTION                   0
+        396     LOAD_CONST                      61: 'POINTER'
+        398     LOAD_NAME                       43: BASE_INT
+        400     CALL_FUNCTION                   3
+        402     STORE_NAME                      46: POINTER
+        404     LOAD_BUILD_CLASS                
+        406     LOAD_CONST                      62: <CODE> COLOR
+        408     LOAD_CONST                      63: 'COLOR'
+        410     MAKE_FUNCTION                   0
+        412     LOAD_CONST                      63: 'COLOR'
+        414     LOAD_NAME                       43: BASE_INT
+        416     CALL_FUNCTION                   3
+        418     STORE_NAME                      47: COLOR
+        420     LOAD_CONST                      64: b'\x00'
+        422     STORE_NAME                      48: BIN_NONE
+        424     LOAD_CONST                      65: b'\x01'
+        426     STORE_NAME                      49: BIN_STRING
+        428     LOAD_CONST                      66: b'\x02'
+        430     STORE_NAME                      50: BIN_INT32
+        432     LOAD_CONST                      67: b'\x03'
+        434     STORE_NAME                      51: BIN_FLOAT32
+        436     LOAD_CONST                      68: b'\x04'
+        438     STORE_NAME                      52: BIN_POINTER
+        440     LOAD_CONST                      69: b'\x05'
+        442     STORE_NAME                      53: BIN_WIDESTRING
+        444     LOAD_CONST                      70: b'\x06'
+        446     STORE_NAME                      54: BIN_COLOR
+        448     LOAD_CONST                      71: b'\x07'
+        450     STORE_NAME                      55: BIN_UINT64
+        452     LOAD_CONST                      72: b'\x08'
+        454     STORE_NAME                      56: BIN_END
+        456     LOAD_CONST                      73: b'\n'
+        458     STORE_NAME                      57: BIN_INT64
+        460     LOAD_CONST                      74: b'\x0b'
+        462     STORE_NAME                      58: BIN_END_ALT
+        464     LOAD_NAME                       36: dict
+        466     LOAD_CONST                      40: True
+        468     LOAD_CONST                      47: False
+        470     LOAD_CONST                      40: True
+        472     BUILD_TUPLE                     4
+        474     LOAD_CONST                      75: <CODE> binary_loads
+        476     LOAD_CONST                      76: 'binary_loads'
+        478     MAKE_FUNCTION                   1
+        480     STORE_NAME                      59: binary_loads
+        482     LOAD_NAME                       36: dict
+        484     LOAD_CONST                      40: True
+        486     LOAD_CONST                      47: False
+        488     LOAD_CONST                      47: False
+        490     BUILD_TUPLE                     4
+        492     LOAD_CONST                      77: <CODE> binary_load
+        494     LOAD_CONST                      78: 'binary_load'
+        496     MAKE_FUNCTION                   1
+        498     STORE_NAME                      60: binary_load
+        500     LOAD_CONST                      91: (False,)
+        502     LOAD_CONST                      79: <CODE> binary_dumps
+        504     LOAD_CONST                      80: 'binary_dumps'
+        506     MAKE_FUNCTION                   1
+        508     STORE_NAME                      61: binary_dumps
+        510     LOAD_CONST                      91: (False,)
+        512     LOAD_CONST                      81: <CODE> binary_dump
+        514     LOAD_CONST                      82: 'binary_dump'
+        516     MAKE_FUNCTION                   1
+        518     STORE_NAME                      62: binary_dump
+        520     LOAD_CONST                      92: (0, False)
+        522     LOAD_CONST                      83: <CODE> _binary_dump_gen
+        524     LOAD_CONST                      84: '_binary_dump_gen'
+        526     MAKE_FUNCTION                   1
+        528     STORE_NAME                      63: _binary_dump_gen
+        530     LOAD_NAME                       36: dict
+        532     LOAD_CONST                      40: True
+        534     BUILD_TUPLE                     2
+        536     LOAD_CONST                      85: <CODE> vbkv_loads
+        538     LOAD_CONST                      86: 'vbkv_loads'
+        540     MAKE_FUNCTION                   1
+        542     STORE_NAME                      64: vbkv_loads
+        544     LOAD_CONST                      87: <CODE> vbkv_dumps
+        546     LOAD_CONST                      88: 'vbkv_dumps'
+        548     MAKE_FUNCTION                   0
+        550     STORE_NAME                      65: vbkv_dumps
+        552     LOAD_CONST                      4: None
+        554     RETURN_VALUE                    

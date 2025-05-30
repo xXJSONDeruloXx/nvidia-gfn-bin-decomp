@@ -1,0 +1,243 @@
+__init__.pyc (Python 3.10)
+[Code]
+    File Name: email/__init__.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 2
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        'message_from_string'
+        'message_from_bytes'
+        'message_from_file'
+        'message_from_binary_file'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'A package for parsing, handling, and generating email messages.'
+        (
+            'base64mime'
+            'charset'
+            'encoders'
+            'errors'
+            'feedparser'
+            'generator'
+            'header'
+            'iterators'
+            'message'
+            'message_from_file'
+            'message_from_binary_file'
+            'message_from_string'
+            'message_from_bytes'
+            'mime'
+            'parser'
+            'quoprimime'
+            'utils'
+        )
+        [Code]
+            File Name: email/__init__.py
+            Object Name: message_from_string
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 4
+            Flags: 0x0000004F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                'email.parser'
+                'Parser'
+                'parsestr'
+            [Var Names]
+                's'
+                'args'
+                'kws'
+                'Parser'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Parse a string into a Message object model.\n\n    Optional _class and strict are passed to the Parser constructor.\n    '
+                0
+                (
+                    'Parser'
+                )
+            [Disassembly]
+                0       LOAD_CONST                      1: 0
+                2       LOAD_CONST                      2: ('Parser',)
+                4       IMPORT_NAME                     0: email.parser
+                6       IMPORT_FROM                     1: Parser
+                8       STORE_FAST                      3: Parser
+                10      POP_TOP                         
+                12      LOAD_FAST                       3: Parser
+                14      LOAD_FAST                       1: args
+                16      BUILD_MAP                       0
+                18      LOAD_FAST                       2: kws
+                20      DICT_MERGE                      1
+                22      CALL_FUNCTION_EX                1
+                24      LOAD_METHOD                     2: parsestr
+                26      LOAD_FAST                       0: s
+                28      CALL_METHOD                     1
+                30      RETURN_VALUE                    
+        'message_from_string'
+        [Code]
+            File Name: email/__init__.py
+            Object Name: message_from_bytes
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 4
+            Flags: 0x0000004F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                'email.parser'
+                'BytesParser'
+                'parsebytes'
+            [Var Names]
+                's'
+                'args'
+                'kws'
+                'BytesParser'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Parse a bytes string into a Message object model.\n\n    Optional _class and strict are passed to the Parser constructor.\n    '
+                0
+                (
+                    'BytesParser'
+                )
+            [Disassembly]
+                0       LOAD_CONST                      1: 0
+                2       LOAD_CONST                      2: ('BytesParser',)
+                4       IMPORT_NAME                     0: email.parser
+                6       IMPORT_FROM                     1: BytesParser
+                8       STORE_FAST                      3: BytesParser
+                10      POP_TOP                         
+                12      LOAD_FAST                       3: BytesParser
+                14      LOAD_FAST                       1: args
+                16      BUILD_MAP                       0
+                18      LOAD_FAST                       2: kws
+                20      DICT_MERGE                      1
+                22      CALL_FUNCTION_EX                1
+                24      LOAD_METHOD                     2: parsebytes
+                26      LOAD_FAST                       0: s
+                28      CALL_METHOD                     1
+                30      RETURN_VALUE                    
+        'message_from_bytes'
+        [Code]
+            File Name: email/__init__.py
+            Object Name: message_from_file
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 4
+            Flags: 0x0000004F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                'email.parser'
+                'Parser'
+                'parse'
+            [Var Names]
+                'fp'
+                'args'
+                'kws'
+                'Parser'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Read a file and parse its contents into a Message object model.\n\n    Optional _class and strict are passed to the Parser constructor.\n    '
+                0
+                (
+                    'Parser'
+                )
+            [Disassembly]
+                0       LOAD_CONST                      1: 0
+                2       LOAD_CONST                      2: ('Parser',)
+                4       IMPORT_NAME                     0: email.parser
+                6       IMPORT_FROM                     1: Parser
+                8       STORE_FAST                      3: Parser
+                10      POP_TOP                         
+                12      LOAD_FAST                       3: Parser
+                14      LOAD_FAST                       1: args
+                16      BUILD_MAP                       0
+                18      LOAD_FAST                       2: kws
+                20      DICT_MERGE                      1
+                22      CALL_FUNCTION_EX                1
+                24      LOAD_METHOD                     2: parse
+                26      LOAD_FAST                       0: fp
+                28      CALL_METHOD                     1
+                30      RETURN_VALUE                    
+        'message_from_file'
+        [Code]
+            File Name: email/__init__.py
+            Object Name: message_from_binary_file
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 4
+            Flags: 0x0000004F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                'email.parser'
+                'BytesParser'
+                'parse'
+            [Var Names]
+                'fp'
+                'args'
+                'kws'
+                'BytesParser'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Read a binary file and parse its contents into a Message object model.\n\n    Optional _class and strict are passed to the Parser constructor.\n    '
+                0
+                (
+                    'BytesParser'
+                )
+            [Disassembly]
+                0       LOAD_CONST                      1: 0
+                2       LOAD_CONST                      2: ('BytesParser',)
+                4       IMPORT_NAME                     0: email.parser
+                6       IMPORT_FROM                     1: BytesParser
+                8       STORE_FAST                      3: BytesParser
+                10      POP_TOP                         
+                12      LOAD_FAST                       3: BytesParser
+                14      LOAD_FAST                       1: args
+                16      BUILD_MAP                       0
+                18      LOAD_FAST                       2: kws
+                20      DICT_MERGE                      1
+                22      CALL_FUNCTION_EX                1
+                24      LOAD_METHOD                     2: parse
+                26      LOAD_FAST                       0: fp
+                28      CALL_METHOD                     1
+                30      RETURN_VALUE                    
+        'message_from_binary_file'
+        None
+    [Disassembly]
+        0       LOAD_CONST                      0: 'A package for parsing, handling, and generating email messages.'
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('base64mime', 'charset', 'encoders', 'errors', 'feedparser', 'generator', 'header', 'iterators', 'message', 'message_from_file', 'message_from_binary_file', 'message_from_string', 'message_from_bytes', 'mime', 'parser', 'quoprimime', 'utils')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: <CODE> message_from_string
+        14      LOAD_CONST                      3: 'message_from_string'
+        16      MAKE_FUNCTION                   0
+        18      STORE_NAME                      2: message_from_string
+        20      LOAD_CONST                      4: <CODE> message_from_bytes
+        22      LOAD_CONST                      5: 'message_from_bytes'
+        24      MAKE_FUNCTION                   0
+        26      STORE_NAME                      3: message_from_bytes
+        28      LOAD_CONST                      6: <CODE> message_from_file
+        30      LOAD_CONST                      7: 'message_from_file'
+        32      MAKE_FUNCTION                   0
+        34      STORE_NAME                      4: message_from_file
+        36      LOAD_CONST                      8: <CODE> message_from_binary_file
+        38      LOAD_CONST                      9: 'message_from_binary_file'
+        40      MAKE_FUNCTION                   0
+        42      STORE_NAME                      5: message_from_binary_file
+        44      LOAD_CONST                      10: None
+        46      RETURN_VALUE                    

@@ -1,0 +1,1003 @@
+uu.pyc (Python 3.10)
+[Code]
+    File Name: uu.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'binascii'
+        'os'
+        'sys'
+        '__all__'
+        'Exception'
+        'Error'
+        'encode'
+        'decode'
+        'test'
+        '__name__'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Implementation of the UUencode and UUdecode functions.\n\nencode(in_file, out_file [,name, mode], *, backtick=False)\ndecode(in_file [, out_file, mode, quiet])\n'
+        0
+        None
+        (
+            'Error'
+            'encode'
+            'decode'
+        )
+        [Code]
+            File Name: uu.py
+            Object Name: Error
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Error'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Error'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: None
+                10      RETURN_VALUE                    
+        'Error'
+        False
+        (
+            'backtick'
+        )
+        [Code]
+            File Name: uu.py
+            Object Name: encode
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 1
+            Locals: 8
+            Stack Size: 9
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'sys'
+                'stdin'
+                'buffer'
+                'isinstance'
+                'str'
+                'os'
+                'path'
+                'basename'
+                'stat'
+                'st_mode'
+                'AttributeError'
+                'open'
+                'append'
+                'stdout'
+                'replace'
+                'write'
+                'encode'
+                'read'
+                'len'
+                'binascii'
+                'b2a_uu'
+                'close'
+            [Var Names]
+                'in_file'
+                'out_file'
+                'name'
+                'mode'
+                'backtick'
+                'opened_files'
+                'data'
+                'f'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Uuencode file'
+                '-'
+                None
+                'rb'
+                'wb'
+                438
+                '\n'
+                '\\n'
+                '\r'
+                '\\r'
+                'begin %o %s\n'
+                511
+                'ascii'
+                45
+                0
+                (
+                    'backtick'
+                )
+                b'`\nend\n'
+                b' \nend\n'
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       STORE_FAST                      5: opened_files
+                4       SETUP_FINALLY                   175 (to 356)
+                6       LOAD_FAST                       0: in_file
+                8       LOAD_CONST                      1: '-'
+                10      COMPARE_OP                      2 (==)
+                12      POP_JUMP_IF_FALSE               12 (to 24)
+                14      LOAD_GLOBAL                     0: sys
+                16      LOAD_ATTR                       1: stdin
+                18      LOAD_ATTR                       2: buffer
+                20      STORE_FAST                      0: in_file
+                22      JUMP_FORWARD                    47 (to 118)
+                24      LOAD_GLOBAL                     3: isinstance
+                26      LOAD_FAST                       0: in_file
+                28      LOAD_GLOBAL                     4: str
+                30      CALL_FUNCTION                   2
+                32      POP_JUMP_IF_FALSE               59 (to 118)
+                34      LOAD_FAST                       2: name
+                36      LOAD_CONST                      2: None
+                38      IS_OP                           0 (is)
+                40      POP_JUMP_IF_FALSE               27 (to 54)
+                42      LOAD_GLOBAL                     5: os
+                44      LOAD_ATTR                       6: path
+                46      LOAD_METHOD                     7: basename
+                48      LOAD_FAST                       0: in_file
+                50      CALL_METHOD                     1
+                52      STORE_FAST                      2: name
+                54      LOAD_FAST                       3: mode
+                56      LOAD_CONST                      2: None
+                58      IS_OP                           0 (is)
+                60      POP_JUMP_IF_FALSE               49 (to 98)
+                62      SETUP_FINALLY                   8 (to 80)
+                64      LOAD_GLOBAL                     5: os
+                66      LOAD_METHOD                     8: stat
+                68      LOAD_FAST                       0: in_file
+                70      CALL_METHOD                     1
+                72      LOAD_ATTR                       9: st_mode
+                74      STORE_FAST                      3: mode
+                76      POP_BLOCK                       
+                78      JUMP_FORWARD                    9 (to 98)
+                80      DUP_TOP                         
+                82      LOAD_GLOBAL                     10: AttributeError
+                84      JUMP_IF_NOT_EXC_MATCH           48 (to 96)
+                86      POP_TOP                         
+                88      POP_TOP                         
+                90      POP_TOP                         
+                92      POP_EXCEPT                      
+                94      JUMP_FORWARD                    1 (to 98)
+                96      RERAISE                         0
+                98      LOAD_GLOBAL                     11: open
+                100     LOAD_FAST                       0: in_file
+                102     LOAD_CONST                      3: 'rb'
+                104     CALL_FUNCTION                   2
+                106     STORE_FAST                      0: in_file
+                108     LOAD_FAST                       5: opened_files
+                110     LOAD_METHOD                     12: append
+                112     LOAD_FAST                       0: in_file
+                114     CALL_METHOD                     1
+                116     POP_TOP                         
+                118     LOAD_FAST                       1: out_file
+                120     LOAD_CONST                      1: '-'
+                122     COMPARE_OP                      2 (==)
+                124     POP_JUMP_IF_FALSE               68 (to 136)
+                126     LOAD_GLOBAL                     0: sys
+                128     LOAD_ATTR                       13: stdout
+                130     LOAD_ATTR                       2: buffer
+                132     STORE_FAST                      1: out_file
+                134     JUMP_FORWARD                    15 (to 166)
+                136     LOAD_GLOBAL                     3: isinstance
+                138     LOAD_FAST                       1: out_file
+                140     LOAD_GLOBAL                     4: str
+                142     CALL_FUNCTION                   2
+                144     POP_JUMP_IF_FALSE               83 (to 166)
+                146     LOAD_GLOBAL                     11: open
+                148     LOAD_FAST                       1: out_file
+                150     LOAD_CONST                      4: 'wb'
+                152     CALL_FUNCTION                   2
+                154     STORE_FAST                      1: out_file
+                156     LOAD_FAST                       5: opened_files
+                158     LOAD_METHOD                     12: append
+                160     LOAD_FAST                       1: out_file
+                162     CALL_METHOD                     1
+                164     POP_TOP                         
+                166     LOAD_FAST                       2: name
+                168     LOAD_CONST                      2: None
+                170     IS_OP                           0 (is)
+                172     POP_JUMP_IF_FALSE               89 (to 178)
+                174     LOAD_CONST                      1: '-'
+                176     STORE_FAST                      2: name
+                178     LOAD_FAST                       3: mode
+                180     LOAD_CONST                      2: None
+                182     IS_OP                           0 (is)
+                184     POP_JUMP_IF_FALSE               95 (to 190)
+                186     LOAD_CONST                      5: 438
+                188     STORE_FAST                      3: mode
+                190     LOAD_FAST                       2: name
+                192     LOAD_METHOD                     14: replace
+                194     LOAD_CONST                      6: '\n'
+                196     LOAD_CONST                      7: '\\n'
+                198     CALL_METHOD                     2
+                200     STORE_FAST                      2: name
+                202     LOAD_FAST                       2: name
+                204     LOAD_METHOD                     14: replace
+                206     LOAD_CONST                      8: '\r'
+                208     LOAD_CONST                      9: '\\r'
+                210     CALL_METHOD                     2
+                212     STORE_FAST                      2: name
+                214     LOAD_FAST                       1: out_file
+                216     LOAD_METHOD                     15: write
+                218     LOAD_CONST                      10: 'begin %o %s\n'
+                220     LOAD_FAST                       3: mode
+                222     LOAD_CONST                      11: 511
+                224     BINARY_AND                      
+                226     LOAD_FAST                       2: name
+                228     BUILD_TUPLE                     2
+                230     BINARY_MODULO                   
+                232     LOAD_METHOD                     16: encode
+                234     LOAD_CONST                      12: 'ascii'
+                236     CALL_METHOD                     1
+                238     CALL_METHOD                     1
+                240     POP_TOP                         
+                242     LOAD_FAST                       0: in_file
+                244     LOAD_METHOD                     17: read
+                246     LOAD_CONST                      13: 45
+                248     CALL_METHOD                     1
+                250     STORE_FAST                      6: data
+                252     LOAD_GLOBAL                     18: len
+                254     LOAD_FAST                       6: data
+                256     CALL_FUNCTION                   1
+                258     LOAD_CONST                      14: 0
+                260     COMPARE_OP                      4 (>)
+                262     POP_JUMP_IF_FALSE               153 (to 306)
+                264     LOAD_FAST                       1: out_file
+                266     LOAD_METHOD                     15: write
+                268     LOAD_GLOBAL                     19: binascii
+                270     LOAD_ATTR                       20: b2a_uu
+                272     LOAD_FAST                       6: data
+                274     LOAD_FAST                       4: backtick
+                276     LOAD_CONST                      15: ('backtick',)
+                278     CALL_FUNCTION_KW                2
+                280     CALL_METHOD                     1
+                282     POP_TOP                         
+                284     LOAD_FAST                       0: in_file
+                286     LOAD_METHOD                     17: read
+                288     LOAD_CONST                      13: 45
+                290     CALL_METHOD                     1
+                292     STORE_FAST                      6: data
+                294     LOAD_GLOBAL                     18: len
+                296     LOAD_FAST                       6: data
+                298     CALL_FUNCTION                   1
+                300     LOAD_CONST                      14: 0
+                302     COMPARE_OP                      4 (>)
+                304     POP_JUMP_IF_TRUE                132 (to 264)
+                306     LOAD_FAST                       4: backtick
+                308     POP_JUMP_IF_FALSE               161 (to 322)
+                310     LOAD_FAST                       1: out_file
+                312     LOAD_METHOD                     15: write
+                314     LOAD_CONST                      16: b'`\nend\n'
+                316     CALL_METHOD                     1
+                318     POP_TOP                         
+                320     JUMP_FORWARD                    5 (to 332)
+                322     LOAD_FAST                       1: out_file
+                324     LOAD_METHOD                     15: write
+                326     LOAD_CONST                      17: b' \nend\n'
+                328     CALL_METHOD                     1
+                330     POP_TOP                         
+                332     POP_BLOCK                       
+                334     LOAD_FAST                       5: opened_files
+                336     GET_ITER                        
+                338     FOR_ITER                        6 (to 352)
+                340     STORE_FAST                      7: f
+                342     LOAD_FAST                       7: f
+                344     LOAD_METHOD                     21: close
+                346     CALL_METHOD                     0
+                348     POP_TOP                         
+                350     JUMP_ABSOLUTE                   169 (to 338)
+                352     LOAD_CONST                      2: None
+                354     RETURN_VALUE                    
+                356     LOAD_FAST                       5: opened_files
+                358     GET_ITER                        
+                360     FOR_ITER                        6 (to 374)
+                362     STORE_FAST                      7: f
+                364     LOAD_FAST                       7: f
+                366     LOAD_METHOD                     21: close
+                368     CALL_METHOD                     0
+                370     POP_TOP                         
+                372     JUMP_ABSOLUTE                   180 (to 360)
+                374     RERAISE                         0
+        'encode'
+        [Code]
+            File Name: uu.py
+            Object Name: decode
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 13
+            Stack Size: 10
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'sys'
+                'stdin'
+                'buffer'
+                'isinstance'
+                'str'
+                'open'
+                'append'
+                'readline'
+                'Error'
+                'startswith'
+                'split'
+                'len'
+                'int'
+                'ValueError'
+                'rstrip'
+                'decode'
+                'os'
+                'path'
+                'exists'
+                'sep'
+                'altsep'
+                'stdout'
+                'chmod'
+                'strip'
+                'binascii'
+                'a2b_uu'
+                'stderr'
+                'write'
+                'close'
+            [Var Names]
+                'in_file'
+                'out_file'
+                'mode'
+                'quiet'
+                'opened_files'
+                'hdr'
+                'hdrfields'
+                'fp'
+                's'
+                'data'
+                'v'
+                'nbytes'
+                'f'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Decode uuencoded file'
+                '-'
+                'rb'
+                True
+                'No valid begin line found in input file'
+                b'begin'
+                b' '
+                2
+                3
+                0
+                1
+                8
+                None
+                b' \t\r\n\x0c'
+                'ascii'
+                'Cannot overwrite existing file: '
+                '..'
+                'Refusing to write to '
+                ' due to directory traversal'
+                'wb'
+                b'end'
+                32
+                63
+                4
+                5
+                'Warning: %s\n'
+                'Truncated input file'
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       STORE_FAST                      4: opened_files
+                4       LOAD_FAST                       0: in_file
+                6       LOAD_CONST                      1: '-'
+                8       COMPARE_OP                      2 (==)
+                10      POP_JUMP_IF_FALSE               11 (to 22)
+                12      LOAD_GLOBAL                     0: sys
+                14      LOAD_ATTR                       1: stdin
+                16      LOAD_ATTR                       2: buffer
+                18      STORE_FAST                      0: in_file
+                20      JUMP_FORWARD                    15 (to 52)
+                22      LOAD_GLOBAL                     3: isinstance
+                24      LOAD_FAST                       0: in_file
+                26      LOAD_GLOBAL                     4: str
+                28      CALL_FUNCTION                   2
+                30      POP_JUMP_IF_FALSE               26 (to 52)
+                32      LOAD_GLOBAL                     5: open
+                34      LOAD_FAST                       0: in_file
+                36      LOAD_CONST                      2: 'rb'
+                38      CALL_FUNCTION                   2
+                40      STORE_FAST                      0: in_file
+                42      LOAD_FAST                       4: opened_files
+                44      LOAD_METHOD                     6: append
+                46      LOAD_FAST                       0: in_file
+                48      CALL_METHOD                     1
+                50      POP_TOP                         
+                52      SETUP_FINALLY                   280 (to 616)
+                56      NOP                             
+                58      LOAD_FAST                       0: in_file
+                60      LOAD_METHOD                     7: readline
+                62      CALL_METHOD                     0
+                64      STORE_FAST                      5: hdr
+                66      LOAD_FAST                       5: hdr
+                68      POP_JUMP_IF_TRUE                39 (to 78)
+                70      LOAD_GLOBAL                     8: Error
+                72      LOAD_CONST                      4: 'No valid begin line found in input file'
+                74      CALL_FUNCTION                   1
+                76      RAISE_VARARGS                   1
+                78      LOAD_FAST                       5: hdr
+                80      LOAD_METHOD                     9: startswith
+                82      LOAD_CONST                      5: b'begin'
+                84      CALL_METHOD                     1
+                86      POP_JUMP_IF_TRUE                45 (to 90)
+                88      JUMP_ABSOLUTE                   28 (to 56)
+                90      LOAD_FAST                       5: hdr
+                92      LOAD_METHOD                     10: split
+                94      LOAD_CONST                      6: b' '
+                96      LOAD_CONST                      7: 2
+                98      CALL_METHOD                     2
+                100     STORE_FAST                      6: hdrfields
+                102     LOAD_GLOBAL                     11: len
+                104     LOAD_FAST                       6: hdrfields
+                106     CALL_FUNCTION                   1
+                108     LOAD_CONST                      8: 3
+                110     COMPARE_OP                      2 (==)
+                112     POP_JUMP_IF_FALSE               82 (to 164)
+                114     LOAD_FAST                       6: hdrfields
+                116     LOAD_CONST                      9: 0
+                118     BINARY_SUBSCR                   
+                120     LOAD_CONST                      5: b'begin'
+                122     COMPARE_OP                      2 (==)
+                124     POP_JUMP_IF_FALSE               82 (to 164)
+                126     SETUP_FINALLY                   9 (to 146)
+                128     LOAD_GLOBAL                     12: int
+                130     LOAD_FAST                       6: hdrfields
+                132     LOAD_CONST                      10: 1
+                134     BINARY_SUBSCR                   
+                136     LOAD_CONST                      11: 8
+                138     CALL_FUNCTION                   2
+                140     POP_TOP                         
+                142     POP_BLOCK                       
+                144     JUMP_FORWARD                    10 (to 166)
+                146     DUP_TOP                         
+                148     LOAD_GLOBAL                     13: ValueError
+                150     JUMP_IF_NOT_EXC_MATCH           81 (to 162)
+                152     POP_TOP                         
+                154     POP_TOP                         
+                156     POP_TOP                         
+                158     POP_EXCEPT                      
+                160     JUMP_FORWARD                    1 (to 164)
+                162     RERAISE                         0
+                164     JUMP_ABSOLUTE                   29 (to 58)
+                166     LOAD_FAST                       1: out_file
+                168     LOAD_CONST                      12: None
+                170     IS_OP                           0 (is)
+                172     POP_JUMP_IF_FALSE               149 (to 298)
+                174     LOAD_FAST                       6: hdrfields
+                176     LOAD_CONST                      7: 2
+                178     BINARY_SUBSCR                   
+                180     LOAD_METHOD                     14: rstrip
+                182     LOAD_CONST                      13: b' \t\r\n\x0c'
+                184     CALL_METHOD                     1
+                186     LOAD_METHOD                     15: decode
+                188     LOAD_CONST                      14: 'ascii'
+                190     CALL_METHOD                     1
+                192     STORE_FAST                      1: out_file
+                194     LOAD_GLOBAL                     16: os
+                196     LOAD_ATTR                       17: path
+                198     LOAD_METHOD                     18: exists
+                200     LOAD_FAST                       1: out_file
+                202     CALL_METHOD                     1
+                204     POP_JUMP_IF_FALSE               110 (to 220)
+                206     LOAD_GLOBAL                     8: Error
+                208     LOAD_CONST                      15: 'Cannot overwrite existing file: '
+                210     LOAD_FAST                       1: out_file
+                212     FORMAT_VALUE                    0 (FVC_NONE)
+                214     BUILD_STRING                    2
+                216     CALL_FUNCTION                   1
+                218     RAISE_VARARGS                   1
+                220     LOAD_FAST                       1: out_file
+                222     LOAD_METHOD                     9: startswith
+                224     LOAD_GLOBAL                     16: os
+                226     LOAD_ATTR                       19: sep
+                228     CALL_METHOD                     1
+                230     POP_JUMP_IF_TRUE                141 (to 282)
+                232     LOAD_CONST                      16: '..'
+                234     LOAD_GLOBAL                     16: os
+                236     LOAD_ATTR                       19: sep
+                238     FORMAT_VALUE                    0 (FVC_NONE)
+                240     BUILD_STRING                    2
+                242     LOAD_FAST                       1: out_file
+                244     CONTAINS_OP                     0 (in)
+                246     POP_JUMP_IF_TRUE                141 (to 282)
+                248     LOAD_GLOBAL                     16: os
+                250     LOAD_ATTR                       20: altsep
+                252     POP_JUMP_IF_FALSE               149 (to 298)
+                254     LOAD_FAST                       1: out_file
+                256     LOAD_METHOD                     9: startswith
+                258     LOAD_GLOBAL                     16: os
+                260     LOAD_ATTR                       20: altsep
+                262     CALL_METHOD                     1
+                264     POP_JUMP_IF_TRUE                141 (to 282)
+                266     LOAD_CONST                      16: '..'
+                268     LOAD_GLOBAL                     16: os
+                270     LOAD_ATTR                       20: altsep
+                272     FORMAT_VALUE                    0 (FVC_NONE)
+                274     BUILD_STRING                    2
+                276     LOAD_FAST                       1: out_file
+                278     CONTAINS_OP                     0 (in)
+                280     POP_JUMP_IF_FALSE               149 (to 298)
+                282     LOAD_GLOBAL                     8: Error
+                284     LOAD_CONST                      17: 'Refusing to write to '
+                286     LOAD_FAST                       1: out_file
+                288     FORMAT_VALUE                    0 (FVC_NONE)
+                290     LOAD_CONST                      18: ' due to directory traversal'
+                292     BUILD_STRING                    3
+                294     CALL_FUNCTION                   1
+                296     RAISE_VARARGS                   1
+                298     LOAD_FAST                       2: mode
+                300     LOAD_CONST                      12: None
+                302     IS_OP                           0 (is)
+                304     POP_JUMP_IF_FALSE               160 (to 320)
+                306     LOAD_GLOBAL                     12: int
+                308     LOAD_FAST                       6: hdrfields
+                310     LOAD_CONST                      10: 1
+                312     BINARY_SUBSCR                   
+                314     LOAD_CONST                      11: 8
+                316     CALL_FUNCTION                   2
+                318     STORE_FAST                      2: mode
+                320     LOAD_FAST                       1: out_file
+                322     LOAD_CONST                      1: '-'
+                324     COMPARE_OP                      2 (==)
+                326     POP_JUMP_IF_FALSE               169 (to 338)
+                328     LOAD_GLOBAL                     0: sys
+                330     LOAD_ATTR                       21: stdout
+                332     LOAD_ATTR                       2: buffer
+                334     STORE_FAST                      1: out_file
+                336     JUMP_FORWARD                    23 (to 384)
+                338     LOAD_GLOBAL                     3: isinstance
+                340     LOAD_FAST                       1: out_file
+                342     LOAD_GLOBAL                     4: str
+                344     CALL_FUNCTION                   2
+                346     POP_JUMP_IF_FALSE               192 (to 384)
+                348     LOAD_GLOBAL                     5: open
+                350     LOAD_FAST                       1: out_file
+                352     LOAD_CONST                      19: 'wb'
+                354     CALL_FUNCTION                   2
+                356     STORE_FAST                      7: fp
+                358     LOAD_GLOBAL                     16: os
+                360     LOAD_METHOD                     22: chmod
+                362     LOAD_FAST                       1: out_file
+                364     LOAD_FAST                       2: mode
+                366     CALL_METHOD                     2
+                368     POP_TOP                         
+                370     LOAD_FAST                       7: fp
+                372     STORE_FAST                      1: out_file
+                374     LOAD_FAST                       4: opened_files
+                376     LOAD_METHOD                     6: append
+                378     LOAD_FAST                       1: out_file
+                380     CALL_METHOD                     1
+                382     POP_TOP                         
+                384     LOAD_FAST                       0: in_file
+                386     LOAD_METHOD                     7: readline
+                388     CALL_METHOD                     0
+                390     STORE_FAST                      8: s
+                392     LOAD_FAST                       8: s
+                394     POP_JUMP_IF_FALSE               288 (to 576)
+                398     LOAD_FAST                       8: s
+                400     LOAD_METHOD                     23: strip
+                402     LOAD_CONST                      13: b' \t\r\n\x0c'
+                404     CALL_METHOD                     1
+                406     LOAD_CONST                      20: b'end'
+                408     COMPARE_OP                      3 (!=)
+                410     POP_JUMP_IF_FALSE               288 (to 576)
+                414     SETUP_FINALLY                   7 (to 430)
+                416     LOAD_GLOBAL                     24: binascii
+                418     LOAD_METHOD                     25: a2b_uu
+                420     LOAD_FAST                       8: s
+                422     CALL_METHOD                     1
+                424     STORE_FAST                      9: data
+                426     POP_BLOCK                       
+                428     JUMP_FORWARD                    54 (to 538)
+                430     DUP_TOP                         
+                432     LOAD_GLOBAL                     24: binascii
+                434     LOAD_ATTR                       8: Error
+                436     JUMP_IF_NOT_EXC_MATCH           268 (to 536)
+                440     POP_TOP                         
+                442     STORE_FAST                      10: v
+                444     POP_TOP                         
+                446     SETUP_FINALLY                   40 (to 528)
+                448     LOAD_FAST                       8: s
+                450     LOAD_CONST                      9: 0
+                452     BINARY_SUBSCR                   
+                454     LOAD_CONST                      21: 32
+                456     BINARY_SUBTRACT                 
+                458     LOAD_CONST                      22: 63
+                460     BINARY_AND                      
+                462     LOAD_CONST                      23: 4
+                464     BINARY_MULTIPLY                 
+                466     LOAD_CONST                      24: 5
+                468     BINARY_ADD                      
+                470     LOAD_CONST                      8: 3
+                472     BINARY_FLOOR_DIVIDE             
+                474     STORE_FAST                      11: nbytes
+                476     LOAD_GLOBAL                     24: binascii
+                478     LOAD_METHOD                     25: a2b_uu
+                480     LOAD_FAST                       8: s
+                482     LOAD_CONST                      12: None
+                484     LOAD_FAST                       11: nbytes
+                486     BUILD_SLICE                     2
+                488     BINARY_SUBSCR                   
+                490     CALL_METHOD                     1
+                492     STORE_FAST                      9: data
+                494     LOAD_FAST                       3: quiet
+                496     POP_JUMP_IF_TRUE                258 (to 516)
+                500     LOAD_GLOBAL                     0: sys
+                502     LOAD_ATTR                       26: stderr
+                504     LOAD_METHOD                     27: write
+                506     LOAD_CONST                      25: 'Warning: %s\n'
+                508     LOAD_FAST                       10: v
+                510     BINARY_MODULO                   
+                512     CALL_METHOD                     1
+                514     POP_TOP                         
+                516     POP_BLOCK                       
+                518     POP_EXCEPT                      
+                520     LOAD_CONST                      12: None
+                522     STORE_FAST                      10: v
+                524     DELETE_FAST                     10: v
+                526     JUMP_FORWARD                    5 (to 538)
+                528     LOAD_CONST                      12: None
+                530     STORE_FAST                      10: v
+                532     DELETE_FAST                     10: v
+                534     RERAISE                         1
+                536     RERAISE                         0
+                538     LOAD_FAST                       1: out_file
+                540     LOAD_METHOD                     27: write
+                542     LOAD_FAST                       9: data
+                544     CALL_METHOD                     1
+                546     POP_TOP                         
+                548     LOAD_FAST                       0: in_file
+                550     LOAD_METHOD                     7: readline
+                552     CALL_METHOD                     0
+                554     STORE_FAST                      8: s
+                556     LOAD_FAST                       8: s
+                558     POP_JUMP_IF_FALSE               288 (to 576)
+                562     LOAD_FAST                       8: s
+                564     LOAD_METHOD                     23: strip
+                566     LOAD_CONST                      13: b' \t\r\n\x0c'
+                568     CALL_METHOD                     1
+                570     LOAD_CONST                      20: b'end'
+                572     COMPARE_OP                      3 (!=)
+                574     POP_JUMP_IF_TRUE                207 (to 414)
+                576     LOAD_FAST                       8: s
+                578     POP_JUMP_IF_TRUE                295 (to 590)
+                582     LOAD_GLOBAL                     8: Error
+                584     LOAD_CONST                      26: 'Truncated input file'
+                586     CALL_FUNCTION                   1
+                588     RAISE_VARARGS                   1
+                590     POP_BLOCK                       
+                592     LOAD_FAST                       4: opened_files
+                594     GET_ITER                        
+                596     FOR_ITER                        7 (to 612)
+                598     STORE_FAST                      12: f
+                600     LOAD_FAST                       12: f
+                602     LOAD_METHOD                     28: close
+                604     CALL_METHOD                     0
+                606     POP_TOP                         
+                608     JUMP_ABSOLUTE                   298 (to 596)
+                612     LOAD_CONST                      12: None
+                614     RETURN_VALUE                    
+                616     LOAD_FAST                       4: opened_files
+                618     GET_ITER                        
+                620     FOR_ITER                        7 (to 636)
+                622     STORE_FAST                      12: f
+                624     LOAD_FAST                       12: f
+                626     LOAD_METHOD                     28: close
+                628     CALL_METHOD                     0
+                630     POP_TOP                         
+                632     JUMP_ABSOLUTE                   310 (to 620)
+                636     RERAISE                         0
+        'decode'
+        [Code]
+            File Name: uu.py
+            Object Name: test
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'optparse'
+                'OptionParser'
+                'add_option'
+                'parse_args'
+                'len'
+                'error'
+                'sys'
+                'exit'
+                'stdin'
+                'buffer'
+                'stdout'
+                'decode'
+                'text'
+                'isinstance'
+                'str'
+                'open'
+                'print'
+                'argv'
+                'encode'
+            [Var Names]
+                'optparse'
+                'parser'
+                'options'
+                'args'
+                'input'
+                'output'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'uuencode/uudecode main program'
+                0
+                None
+                'usage: %prog [-d] [-t] [input [output]]'
+                (
+                    'usage'
+                )
+                '-d'
+                '--decode'
+                'decode'
+                'Decode (instead of encode)?'
+                False
+                'store_true'
+                (
+                    'dest'
+                    'help'
+                    'default'
+                    'action'
+                )
+                '-t'
+                '--text'
+                'text'
+                'data is text, encoded format unix-compatible text?'
+                2
+                'incorrect number of arguments'
+                1
+                'wb'
+                ': cannot do -t to stdout'
+                'rb'
+                ': cannot do -t from stdin'
+            [Disassembly]
+                0       LOAD_CONST                      1: 0
+                2       LOAD_CONST                      2: None
+                4       IMPORT_NAME                     0: optparse
+                6       STORE_FAST                      0: optparse
+                8       LOAD_FAST                       0: optparse
+                10      LOAD_ATTR                       1: OptionParser
+                12      LOAD_CONST                      3: 'usage: %prog [-d] [-t] [input [output]]'
+                14      LOAD_CONST                      4: ('usage',)
+                16      CALL_FUNCTION_KW                1
+                18      STORE_FAST                      1: parser
+                20      LOAD_FAST                       1: parser
+                22      LOAD_ATTR                       2: add_option
+                24      LOAD_CONST                      5: '-d'
+                26      LOAD_CONST                      6: '--decode'
+                28      LOAD_CONST                      7: 'decode'
+                30      LOAD_CONST                      8: 'Decode (instead of encode)?'
+                32      LOAD_CONST                      9: False
+                34      LOAD_CONST                      10: 'store_true'
+                36      LOAD_CONST                      11: ('dest', 'help', 'default', 'action')
+                38      CALL_FUNCTION_KW                6
+                40      POP_TOP                         
+                42      LOAD_FAST                       1: parser
+                44      LOAD_ATTR                       2: add_option
+                46      LOAD_CONST                      12: '-t'
+                48      LOAD_CONST                      13: '--text'
+                50      LOAD_CONST                      14: 'text'
+                52      LOAD_CONST                      15: 'data is text, encoded format unix-compatible text?'
+                54      LOAD_CONST                      9: False
+                56      LOAD_CONST                      10: 'store_true'
+                58      LOAD_CONST                      11: ('dest', 'help', 'default', 'action')
+                60      CALL_FUNCTION_KW                6
+                62      POP_TOP                         
+                64      LOAD_FAST                       1: parser
+                66      LOAD_METHOD                     3: parse_args
+                68      CALL_METHOD                     0
+                70      UNPACK_SEQUENCE                 2
+                72      STORE_FAST                      2: options
+                74      STORE_FAST                      3: args
+                76      LOAD_GLOBAL                     4: len
+                78      LOAD_FAST                       3: args
+                80      CALL_FUNCTION                   1
+                82      LOAD_CONST                      16: 2
+                84      COMPARE_OP                      4 (>)
+                86      POP_JUMP_IF_FALSE               54 (to 108)
+                88      LOAD_FAST                       1: parser
+                90      LOAD_METHOD                     5: error
+                92      LOAD_CONST                      17: 'incorrect number of arguments'
+                94      CALL_METHOD                     1
+                96      POP_TOP                         
+                98      LOAD_GLOBAL                     6: sys
+                100     LOAD_METHOD                     7: exit
+                102     LOAD_CONST                      18: 1
+                104     CALL_METHOD                     1
+                106     POP_TOP                         
+                108     LOAD_GLOBAL                     6: sys
+                110     LOAD_ATTR                       8: stdin
+                112     LOAD_ATTR                       9: buffer
+                114     STORE_FAST                      4: input
+                116     LOAD_GLOBAL                     6: sys
+                118     LOAD_ATTR                       10: stdout
+                120     LOAD_ATTR                       9: buffer
+                122     STORE_FAST                      5: output
+                124     LOAD_GLOBAL                     4: len
+                126     LOAD_FAST                       3: args
+                128     CALL_FUNCTION                   1
+                130     LOAD_CONST                      1: 0
+                132     COMPARE_OP                      4 (>)
+                134     POP_JUMP_IF_FALSE               72 (to 144)
+                136     LOAD_FAST                       3: args
+                138     LOAD_CONST                      1: 0
+                140     BINARY_SUBSCR                   
+                142     STORE_FAST                      4: input
+                144     LOAD_GLOBAL                     4: len
+                146     LOAD_FAST                       3: args
+                148     CALL_FUNCTION                   1
+                150     LOAD_CONST                      18: 1
+                152     COMPARE_OP                      4 (>)
+                154     POP_JUMP_IF_FALSE               82 (to 164)
+                156     LOAD_FAST                       3: args
+                158     LOAD_CONST                      18: 1
+                160     BINARY_SUBSCR                   
+                162     STORE_FAST                      5: output
+                164     LOAD_FAST                       2: options
+                166     LOAD_ATTR                       11: decode
+                168     POP_JUMP_IF_FALSE               119 (to 238)
+                170     LOAD_FAST                       2: options
+                172     LOAD_ATTR                       12: text
+                174     POP_JUMP_IF_FALSE               112 (to 224)
+                176     LOAD_GLOBAL                     13: isinstance
+                178     LOAD_FAST                       5: output
+                180     LOAD_GLOBAL                     14: str
+                182     CALL_FUNCTION                   2
+                184     POP_JUMP_IF_FALSE               99 (to 198)
+                186     LOAD_GLOBAL                     15: open
+                188     LOAD_FAST                       5: output
+                190     LOAD_CONST                      19: 'wb'
+                192     CALL_FUNCTION                   2
+                194     STORE_FAST                      5: output
+                196     JUMP_FORWARD                    13 (to 224)
+                198     LOAD_GLOBAL                     16: print
+                200     LOAD_GLOBAL                     6: sys
+                202     LOAD_ATTR                       17: argv
+                204     LOAD_CONST                      1: 0
+                206     BINARY_SUBSCR                   
+                208     LOAD_CONST                      20: ': cannot do -t to stdout'
+                210     CALL_FUNCTION                   2
+                212     POP_TOP                         
+                214     LOAD_GLOBAL                     6: sys
+                216     LOAD_METHOD                     7: exit
+                218     LOAD_CONST                      18: 1
+                220     CALL_METHOD                     1
+                222     POP_TOP                         
+                224     LOAD_GLOBAL                     11: decode
+                226     LOAD_FAST                       4: input
+                228     LOAD_FAST                       5: output
+                230     CALL_FUNCTION                   2
+                232     POP_TOP                         
+                234     LOAD_CONST                      2: None
+                236     RETURN_VALUE                    
+                238     LOAD_FAST                       2: options
+                240     LOAD_ATTR                       12: text
+                242     POP_JUMP_IF_FALSE               146 (to 292)
+                244     LOAD_GLOBAL                     13: isinstance
+                246     LOAD_FAST                       4: input
+                248     LOAD_GLOBAL                     14: str
+                250     CALL_FUNCTION                   2
+                252     POP_JUMP_IF_FALSE               133 (to 266)
+                254     LOAD_GLOBAL                     15: open
+                256     LOAD_FAST                       4: input
+                258     LOAD_CONST                      21: 'rb'
+                260     CALL_FUNCTION                   2
+                262     STORE_FAST                      4: input
+                264     JUMP_FORWARD                    13 (to 292)
+                266     LOAD_GLOBAL                     16: print
+                268     LOAD_GLOBAL                     6: sys
+                270     LOAD_ATTR                       17: argv
+                272     LOAD_CONST                      1: 0
+                274     BINARY_SUBSCR                   
+                276     LOAD_CONST                      22: ': cannot do -t from stdin'
+                278     CALL_FUNCTION                   2
+                280     POP_TOP                         
+                282     LOAD_GLOBAL                     6: sys
+                284     LOAD_METHOD                     7: exit
+                286     LOAD_CONST                      18: 1
+                288     CALL_METHOD                     1
+                290     POP_TOP                         
+                292     LOAD_GLOBAL                     18: encode
+                294     LOAD_FAST                       4: input
+                296     LOAD_FAST                       5: output
+                298     CALL_FUNCTION                   2
+                300     POP_TOP                         
+                302     LOAD_CONST                      2: None
+                304     RETURN_VALUE                    
+        'test'
+        '__main__'
+        (
+            None
+            None
+        )
+        (
+            None
+            None
+            False
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Implementation of the UUencode and UUdecode functions.\n\nencode(in_file, out_file [,name, mode], *, backtick=False)\ndecode(in_file [, out_file, mode, quiet])\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: binascii
+        10      STORE_NAME                      1: binascii
+        12      LOAD_CONST                      1: 0
+        14      LOAD_CONST                      2: None
+        16      IMPORT_NAME                     2: os
+        18      STORE_NAME                      2: os
+        20      LOAD_CONST                      1: 0
+        22      LOAD_CONST                      2: None
+        24      IMPORT_NAME                     3: sys
+        26      STORE_NAME                      3: sys
+        28      BUILD_LIST                      0
+        30      LOAD_CONST                      3: ('Error', 'encode', 'decode')
+        32      LIST_EXTEND                     1
+        34      STORE_NAME                      4: __all__
+        36      LOAD_BUILD_CLASS                
+        38      LOAD_CONST                      4: <CODE> Error
+        40      LOAD_CONST                      5: 'Error'
+        42      MAKE_FUNCTION                   0
+        44      LOAD_CONST                      5: 'Error'
+        46      LOAD_NAME                       5: Exception
+        48      CALL_FUNCTION                   3
+        50      STORE_NAME                      6: Error
+        52      LOAD_CONST                      15: (None, None)
+        54      LOAD_CONST                      6: False
+        56      LOAD_CONST                      7: ('backtick',)
+        58      BUILD_CONST_KEY_MAP             1
+        60      LOAD_CONST                      8: <CODE> encode
+        62      LOAD_CONST                      9: 'encode'
+        64      MAKE_FUNCTION                   3
+        66      STORE_NAME                      7: encode
+        68      LOAD_CONST                      16: (None, None, False)
+        70      LOAD_CONST                      10: <CODE> decode
+        72      LOAD_CONST                      11: 'decode'
+        74      MAKE_FUNCTION                   1
+        76      STORE_NAME                      8: decode
+        78      LOAD_CONST                      12: <CODE> test
+        80      LOAD_CONST                      13: 'test'
+        82      MAKE_FUNCTION                   0
+        84      STORE_NAME                      9: test
+        86      LOAD_NAME                       10: __name__
+        88      LOAD_CONST                      14: '__main__'
+        90      COMPARE_OP                      2 (==)
+        92      POP_JUMP_IF_FALSE               52 (to 104)
+        94      LOAD_NAME                       9: test
+        96      CALL_FUNCTION                   0
+        98      POP_TOP                         
+        100     LOAD_CONST                      2: None
+        102     RETURN_VALUE                    
+        104     LOAD_CONST                      2: None
+        106     RETURN_VALUE                    

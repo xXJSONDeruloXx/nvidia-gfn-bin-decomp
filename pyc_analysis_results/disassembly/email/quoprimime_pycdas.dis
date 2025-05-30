@@ -1,0 +1,1142 @@
+quoprimime.pyc (Python 3.10)
+[Code]
+    File Name: email/quoprimime.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        're'
+        'string'
+        'ascii_letters'
+        'digits'
+        'hexdigits'
+        'CRLF'
+        'NL'
+        'EMPTYSTRING'
+        'range'
+        '_QUOPRI_MAP'
+        '_QUOPRI_HEADER_MAP'
+        '_QUOPRI_BODY_MAP'
+        'encode'
+        'c'
+        'chr'
+        'ord'
+        'header_check'
+        'body_check'
+        'header_length'
+        'body_length'
+        '_max_append'
+        'unquote'
+        'quote'
+        'header_encode'
+        '_QUOPRI_BODY_ENCODE_MAP'
+        'body_encode'
+        'decode'
+        'body_decode'
+        'decodestring'
+        '_unquote_match'
+        'header_decode'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        "Quoted-printable content transfer encoding per RFCs 2045-2047.\n\nThis module handles the content transfer encoding method defined in RFC 2045\nto encode US ASCII-like 8-bit data called `quoted-printable'.  It is used to\nsafely encode text that is in a character set similar to the 7-bit US ASCII\ncharacter set, but that includes some 8-bit characters that are normally not\nallowed in email bodies or headers.\n\nQuoted-printable is very space-inefficient for encoding binary files; use the\nemail.base64mime module for that instead.\n\nThis module provides an interface to encode and decode both headers and bodies\nwith quoted-printable encoding.\n\nRFC 2045 defines a method for including character set information in an\n`encoded-word' in a header.  This method is commonly used for 8-bit real names\nin To:/From:/Cc: etc. fields, as well as Subject: lines.\n\nThis module does not do the line wrapping or end-of-line character\nconversion necessary for proper internationalized headers; it only\ndoes dumb encoding and decoding.  To deal with the various line\nwrapping issues, use the email.header module.\n"
+        (
+            'body_decode'
+            'body_encode'
+            'body_length'
+            'decode'
+            'decodestring'
+            'header_decode'
+            'header_encode'
+            'header_length'
+            'quote'
+            'unquote'
+        )
+        0
+        None
+        (
+            'ascii_letters'
+            'digits'
+            'hexdigits'
+        )
+        '\r\n'
+        '\n'
+        ''
+        [Code]
+            File Name: email/quoprimime.py
+            Object Name: <listcomp>
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+            [Var Names]
+                '.0'
+                'c'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '=%02X'
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       LOAD_FAST                       0: .0
+                4       FOR_ITER                        6 (to 18)
+                6       STORE_FAST                      1: c
+                8       LOAD_CONST                      0: '=%02X'
+                10      LOAD_FAST                       1: c
+                12      BINARY_MODULO                   
+                14      LIST_APPEND                     2
+                16      JUMP_ABSOLUTE                   2 (to 4)
+                18      RETURN_VALUE                    
+        '<listcomp>'
+        256
+        b'-!*+/'
+        'ascii'
+        '_'
+        ' '
+        b' !"#$%&\'()*+,-./0123456789:;<>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\t'
+        [Code]
+            File Name: email/quoprimime.py
+            Object Name: header_check
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'chr'
+                '_QUOPRI_HEADER_MAP'
+            [Var Names]
+                'octet'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return True if the octet should be escaped with header quopri.'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: chr
+                2       LOAD_FAST                       0: octet
+                4       CALL_FUNCTION                   1
+                6       LOAD_GLOBAL                     1: _QUOPRI_HEADER_MAP
+                8       LOAD_FAST                       0: octet
+                10      BINARY_SUBSCR                   
+                12      COMPARE_OP                      3 (!=)
+                14      RETURN_VALUE                    
+        'header_check'
+        [Code]
+            File Name: email/quoprimime.py
+            Object Name: body_check
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'chr'
+                '_QUOPRI_BODY_MAP'
+            [Var Names]
+                'octet'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return True if the octet should be escaped with body quopri.'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: chr
+                2       LOAD_FAST                       0: octet
+                4       CALL_FUNCTION                   1
+                6       LOAD_GLOBAL                     1: _QUOPRI_BODY_MAP
+                8       LOAD_FAST                       0: octet
+                10      BINARY_SUBSCR                   
+                12      COMPARE_OP                      3 (!=)
+                14      RETURN_VALUE                    
+        'body_check'
+        [Code]
+            File Name: email/quoprimime.py
+            Object Name: header_length
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'sum'
+            [Var Names]
+                'bytearray'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return a header quoted-printable encoding length.\n\n    Note that this does not include any RFC 2047 chrome added by\n    `header_encode()`.\n\n    :param bytearray: An array of bytes (a.k.a. octets).\n    :return: The length in bytes of the byte array when it is encoded with\n        quoted-printable for headers.\n    '
+                [Code]
+                    File Name: email/quoprimime.py
+                    Object Name: <genexpr>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                    [Names]
+                        'len'
+                        '_QUOPRI_HEADER_MAP'
+                    [Var Names]
+                        '.0'
+                        'octet'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        9 (to 24)
+                        6       STORE_FAST                      1: octet
+                        8       LOAD_GLOBAL                     0: len
+                        10      LOAD_GLOBAL                     1: _QUOPRI_HEADER_MAP
+                        12      LOAD_FAST                       1: octet
+                        14      BINARY_SUBSCR                   
+                        16      CALL_FUNCTION                   1
+                        18      YIELD_VALUE                     
+                        20      POP_TOP                         
+                        22      JUMP_ABSOLUTE                   2 (to 4)
+                        24      LOAD_CONST                      0: None
+                        26      RETURN_VALUE                    
+                'header_length.<locals>.<genexpr>'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: sum
+                2       LOAD_CONST                      1: <CODE> <genexpr>
+                4       LOAD_CONST                      2: 'header_length.<locals>.<genexpr>'
+                6       MAKE_FUNCTION                   0
+                8       LOAD_FAST                       0: bytearray
+                10      GET_ITER                        
+                12      CALL_FUNCTION                   1
+                14      CALL_FUNCTION                   1
+                16      RETURN_VALUE                    
+        'header_length'
+        [Code]
+            File Name: email/quoprimime.py
+            Object Name: body_length
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'sum'
+            [Var Names]
+                'bytearray'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return a body quoted-printable encoding length.\n\n    :param bytearray: An array of bytes (a.k.a. octets).\n    :return: The length in bytes of the byte array when it is encoded with\n        quoted-printable for bodies.\n    '
+                [Code]
+                    File Name: email/quoprimime.py
+                    Object Name: <genexpr>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                    [Names]
+                        'len'
+                        '_QUOPRI_BODY_MAP'
+                    [Var Names]
+                        '.0'
+                        'octet'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        9 (to 24)
+                        6       STORE_FAST                      1: octet
+                        8       LOAD_GLOBAL                     0: len
+                        10      LOAD_GLOBAL                     1: _QUOPRI_BODY_MAP
+                        12      LOAD_FAST                       1: octet
+                        14      BINARY_SUBSCR                   
+                        16      CALL_FUNCTION                   1
+                        18      YIELD_VALUE                     
+                        20      POP_TOP                         
+                        22      JUMP_ABSOLUTE                   2 (to 4)
+                        24      LOAD_CONST                      0: None
+                        26      RETURN_VALUE                    
+                'body_length.<locals>.<genexpr>'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: sum
+                2       LOAD_CONST                      1: <CODE> <genexpr>
+                4       LOAD_CONST                      2: 'body_length.<locals>.<genexpr>'
+                6       MAKE_FUNCTION                   0
+                8       LOAD_FAST                       0: bytearray
+                10      GET_ITER                        
+                12      CALL_FUNCTION                   1
+                14      CALL_FUNCTION                   1
+                16      RETURN_VALUE                    
+        'body_length'
+        [Code]
+            File Name: email/quoprimime.py
+            Object Name: _max_append
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'str'
+                'chr'
+                'append'
+                'lstrip'
+                'len'
+            [Var Names]
+                'L'
+                's'
+                'maxlen'
+                'extra'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                -1
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       1: s
+                4       LOAD_GLOBAL                     1: str
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_TRUE                9 (to 18)
+                10      LOAD_GLOBAL                     2: chr
+                12      LOAD_FAST                       1: s
+                14      CALL_FUNCTION                   1
+                16      STORE_FAST                      1: s
+                18      LOAD_FAST                       0: L
+                20      POP_JUMP_IF_TRUE                20 (to 40)
+                22      LOAD_FAST                       0: L
+                24      LOAD_METHOD                     3: append
+                26      LOAD_FAST                       1: s
+                28      LOAD_METHOD                     4: lstrip
+                30      CALL_METHOD                     0
+                32      CALL_METHOD                     1
+                34      POP_TOP                         
+                36      LOAD_CONST                      0: None
+                38      RETURN_VALUE                    
+                40      LOAD_GLOBAL                     5: len
+                42      LOAD_FAST                       0: L
+                44      LOAD_CONST                      1: -1
+                46      BINARY_SUBSCR                   
+                48      CALL_FUNCTION                   1
+                50      LOAD_GLOBAL                     5: len
+                52      LOAD_FAST                       1: s
+                54      CALL_FUNCTION                   1
+                56      BINARY_ADD                      
+                58      LOAD_FAST                       2: maxlen
+                60      COMPARE_OP                      1 (<=)
+                62      POP_JUMP_IF_FALSE               44 (to 88)
+                64      LOAD_FAST                       0: L
+                66      LOAD_CONST                      1: -1
+                68      DUP_TOP_TWO                     
+                70      BINARY_SUBSCR                   
+                72      LOAD_FAST                       3: extra
+                74      LOAD_FAST                       1: s
+                76      BINARY_ADD                      
+                78      INPLACE_ADD                     
+                80      ROT_THREE                       
+                82      STORE_SUBSCR                    
+                84      LOAD_CONST                      0: None
+                86      RETURN_VALUE                    
+                88      LOAD_FAST                       0: L
+                90      LOAD_METHOD                     3: append
+                92      LOAD_FAST                       1: s
+                94      LOAD_METHOD                     4: lstrip
+                96      CALL_METHOD                     0
+                98      CALL_METHOD                     1
+                100     POP_TOP                         
+                102     LOAD_CONST                      0: None
+                104     RETURN_VALUE                    
+        '_max_append'
+        [Code]
+            File Name: email/quoprimime.py
+            Object Name: unquote
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'chr'
+                'int'
+            [Var Names]
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Turn a string in the form =AB to the ASCII character with value 0xab'
+                1
+                3
+                16
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: chr
+                2       LOAD_GLOBAL                     1: int
+                4       LOAD_FAST                       0: s
+                6       LOAD_CONST                      1: 1
+                8       LOAD_CONST                      2: 3
+                10      BUILD_SLICE                     2
+                12      BINARY_SUBSCR                   
+                14      LOAD_CONST                      3: 16
+                16      CALL_FUNCTION                   2
+                18      CALL_FUNCTION                   1
+                20      RETURN_VALUE                    
+        'unquote'
+        [Code]
+            File Name: email/quoprimime.py
+            Object Name: quote
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_QUOPRI_MAP'
+                'ord'
+            [Var Names]
+                'c'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _QUOPRI_MAP
+                2       LOAD_GLOBAL                     1: ord
+                4       LOAD_FAST                       0: c
+                6       CALL_FUNCTION                   1
+                8       BINARY_SUBSCR                   
+                10      RETURN_VALUE                    
+        'quote'
+        'iso-8859-1'
+        [Code]
+            File Name: email/quoprimime.py
+            Object Name: header_encode
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'decode'
+                'translate'
+                '_QUOPRI_HEADER_MAP'
+            [Var Names]
+                'header_bytes'
+                'charset'
+                'encoded'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Encode a single header line with quoted-printable (like) encoding.\n\n    Defined in RFC 2045, this `Q' encoding is similar to quoted-printable, but\n    used specifically for email header fields to allow charsets with mostly 7\n    bit characters (and some 8 bit) to remain more or less readable in non-RFC\n    2045 aware mail clients.\n\n    charset names the character set to use in the RFC 2046 header.  It\n    defaults to iso-8859-1.\n    "
+                ''
+                'latin1'
+                '=?%s?q?%s?='
+            [Disassembly]
+                0       LOAD_FAST                       0: header_bytes
+                2       POP_JUMP_IF_TRUE                4 (to 8)
+                4       LOAD_CONST                      1: ''
+                6       RETURN_VALUE                    
+                8       LOAD_FAST                       0: header_bytes
+                10      LOAD_METHOD                     0: decode
+                12      LOAD_CONST                      2: 'latin1'
+                14      CALL_METHOD                     1
+                16      LOAD_METHOD                     1: translate
+                18      LOAD_GLOBAL                     2: _QUOPRI_HEADER_MAP
+                20      CALL_METHOD                     1
+                22      STORE_FAST                      2: encoded
+                24      LOAD_CONST                      3: '=?%s?q?%s?='
+                26      LOAD_FAST                       1: charset
+                28      LOAD_FAST                       2: encoded
+                30      BUILD_TUPLE                     2
+                32      BINARY_MODULO                   
+                34      RETURN_VALUE                    
+        'header_encode'
+        b'\r\n'
+        76
+        [Code]
+            File Name: email/quoprimime.py
+            Object Name: body_encode
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 13
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ValueError'
+                'translate'
+                '_QUOPRI_BODY_ENCODE_MAP'
+                'append'
+                'splitlines'
+                'len'
+                'quote'
+                'CRLF'
+                'join'
+            [Var Names]
+                'body'
+                'maxlinelen'
+                'eol'
+                'soft_break'
+                'maxlinelen1'
+                'encoded_body'
+                'append'
+                'line'
+                'start'
+                'laststart'
+                'stop'
+                'room'
+                'q'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Encode with quoted-printable, wrapping at maxlinelen characters.\n\n    Each line of encoded text will end with eol, which defaults to "\\n".  Set\n    this to "\\r\\n" if you will be using the result of this function directly\n    in an email.\n\n    Each line will be wrapped at, at most, maxlinelen characters before the\n    eol string (maxlinelen defaults to 76 characters, the maximum value\n    permitted by RFC 2045).  Long lines will have the \'soft line break\'\n    quoted-printable character "=" appended to them, so the decoded text will\n    be identical to the original text.\n\n    The minimum maxlinelen is 4 to have room for a quoted character ("=XX")\n    followed by a soft line break.  Smaller values will generate a\n    ValueError.\n\n    '
+                4
+                'maxlinelen must be at least 4'
+                '='
+                1
+                0
+                2
+                -1
+                ' \t'
+                3
+                None
+                ''
+            [Disassembly]
+                0       LOAD_FAST                       1: maxlinelen
+                2       LOAD_CONST                      1: 4
+                4       COMPARE_OP                      0 (<)
+                6       POP_JUMP_IF_FALSE               8 (to 16)
+                8       LOAD_GLOBAL                     0: ValueError
+                10      LOAD_CONST                      2: 'maxlinelen must be at least 4'
+                12      CALL_FUNCTION                   1
+                14      RAISE_VARARGS                   1
+                16      LOAD_FAST                       0: body
+                18      POP_JUMP_IF_TRUE                12 (to 24)
+                20      LOAD_FAST                       0: body
+                22      RETURN_VALUE                    
+                24      LOAD_FAST                       0: body
+                26      LOAD_METHOD                     1: translate
+                28      LOAD_GLOBAL                     2: _QUOPRI_BODY_ENCODE_MAP
+                30      CALL_METHOD                     1
+                32      STORE_FAST                      0: body
+                34      LOAD_CONST                      3: '='
+                36      LOAD_FAST                       2: eol
+                38      BINARY_ADD                      
+                40      STORE_FAST                      3: soft_break
+                42      LOAD_FAST                       1: maxlinelen
+                44      LOAD_CONST                      4: 1
+                46      BINARY_SUBTRACT                 
+                48      STORE_FAST                      4: maxlinelen1
+                50      BUILD_LIST                      0
+                52      STORE_FAST                      5: encoded_body
+                54      LOAD_FAST                       5: encoded_body
+                56      LOAD_ATTR                       3: append
+                58      STORE_FAST                      6: append
+                60      LOAD_FAST                       0: body
+                62      LOAD_METHOD                     4: splitlines
+                64      CALL_METHOD                     0
+                66      GET_ITER                        
+                68      FOR_ITER                        141 (to 352)
+                70      STORE_FAST                      7: line
+                72      LOAD_CONST                      5: 0
+                74      STORE_FAST                      8: start
+                76      LOAD_GLOBAL                     5: len
+                78      LOAD_FAST                       7: line
+                80      CALL_FUNCTION                   1
+                82      LOAD_CONST                      4: 1
+                84      BINARY_SUBTRACT                 
+                86      LOAD_FAST                       1: maxlinelen
+                88      BINARY_SUBTRACT                 
+                90      STORE_FAST                      9: laststart
+                92      LOAD_FAST                       8: start
+                94      LOAD_FAST                       9: laststart
+                96      COMPARE_OP                      1 (<=)
+                98      POP_JUMP_IF_FALSE               114 (to 228)
+                100     LOAD_FAST                       8: start
+                102     LOAD_FAST                       4: maxlinelen1
+                104     BINARY_ADD                      
+                106     STORE_FAST                      10: stop
+                108     LOAD_FAST                       7: line
+                110     LOAD_FAST                       10: stop
+                112     LOAD_CONST                      6: 2
+                114     BINARY_SUBTRACT                 
+                116     BINARY_SUBSCR                   
+                118     LOAD_CONST                      3: '='
+                120     COMPARE_OP                      2 (==)
+                122     POP_JUMP_IF_FALSE               77 (to 154)
+                124     LOAD_FAST                       6: append
+                126     LOAD_FAST                       7: line
+                128     LOAD_FAST                       8: start
+                130     LOAD_FAST                       10: stop
+                132     LOAD_CONST                      4: 1
+                134     BINARY_SUBTRACT                 
+                136     BUILD_SLICE                     2
+                138     BINARY_SUBSCR                   
+                140     CALL_FUNCTION                   1
+                142     POP_TOP                         
+                144     LOAD_FAST                       10: stop
+                146     LOAD_CONST                      6: 2
+                148     BINARY_SUBTRACT                 
+                150     STORE_FAST                      8: start
+                152     JUMP_FORWARD                    33 (to 220)
+                154     LOAD_FAST                       7: line
+                156     LOAD_FAST                       10: stop
+                158     LOAD_CONST                      4: 1
+                160     BINARY_SUBTRACT                 
+                162     BINARY_SUBSCR                   
+                164     LOAD_CONST                      3: '='
+                166     COMPARE_OP                      2 (==)
+                168     POP_JUMP_IF_FALSE               98 (to 196)
+                170     LOAD_FAST                       6: append
+                172     LOAD_FAST                       7: line
+                174     LOAD_FAST                       8: start
+                176     LOAD_FAST                       10: stop
+                178     BUILD_SLICE                     2
+                180     BINARY_SUBSCR                   
+                182     CALL_FUNCTION                   1
+                184     POP_TOP                         
+                186     LOAD_FAST                       10: stop
+                188     LOAD_CONST                      4: 1
+                190     BINARY_SUBTRACT                 
+                192     STORE_FAST                      8: start
+                194     JUMP_FORWARD                    12 (to 220)
+                196     LOAD_FAST                       6: append
+                198     LOAD_FAST                       7: line
+                200     LOAD_FAST                       8: start
+                202     LOAD_FAST                       10: stop
+                204     BUILD_SLICE                     2
+                206     BINARY_SUBSCR                   
+                208     LOAD_CONST                      3: '='
+                210     BINARY_ADD                      
+                212     CALL_FUNCTION                   1
+                214     POP_TOP                         
+                216     LOAD_FAST                       10: stop
+                218     STORE_FAST                      8: start
+                220     LOAD_FAST                       8: start
+                222     LOAD_FAST                       9: laststart
+                224     COMPARE_OP                      1 (<=)
+                226     POP_JUMP_IF_TRUE                50 (to 100)
+                228     LOAD_FAST                       7: line
+                230     POP_JUMP_IF_FALSE               167 (to 334)
+                232     LOAD_FAST                       7: line
+                234     LOAD_CONST                      7: -1
+                236     BINARY_SUBSCR                   
+                238     LOAD_CONST                      8: ' \t'
+                240     CONTAINS_OP                     0 (in)
+                242     POP_JUMP_IF_FALSE               167 (to 334)
+                244     LOAD_FAST                       8: start
+                246     LOAD_FAST                       9: laststart
+                248     BINARY_SUBTRACT                 
+                250     STORE_FAST                      11: room
+                252     LOAD_FAST                       11: room
+                254     LOAD_CONST                      9: 3
+                256     COMPARE_OP                      5 (>=)
+                258     POP_JUMP_IF_FALSE               137 (to 274)
+                260     LOAD_GLOBAL                     6: quote
+                262     LOAD_FAST                       7: line
+                264     LOAD_CONST                      7: -1
+                266     BINARY_SUBSCR                   
+                268     CALL_FUNCTION                   1
+                270     STORE_FAST                      12: q
+                272     JUMP_FORWARD                    19 (to 312)
+                274     LOAD_FAST                       11: room
+                276     LOAD_CONST                      6: 2
+                278     COMPARE_OP                      2 (==)
+                280     POP_JUMP_IF_FALSE               148 (to 296)
+                282     LOAD_FAST                       7: line
+                284     LOAD_CONST                      7: -1
+                286     BINARY_SUBSCR                   
+                288     LOAD_FAST                       3: soft_break
+                290     BINARY_ADD                      
+                292     STORE_FAST                      12: q
+                294     JUMP_FORWARD                    8 (to 312)
+                296     LOAD_FAST                       3: soft_break
+                298     LOAD_GLOBAL                     6: quote
+                300     LOAD_FAST                       7: line
+                302     LOAD_CONST                      7: -1
+                304     BINARY_SUBSCR                   
+                306     CALL_FUNCTION                   1
+                308     BINARY_ADD                      
+                310     STORE_FAST                      12: q
+                312     LOAD_FAST                       6: append
+                314     LOAD_FAST                       7: line
+                316     LOAD_FAST                       8: start
+                318     LOAD_CONST                      7: -1
+                320     BUILD_SLICE                     2
+                322     BINARY_SUBSCR                   
+                324     LOAD_FAST                       12: q
+                326     BINARY_ADD                      
+                328     CALL_FUNCTION                   1
+                330     POP_TOP                         
+                332     JUMP_ABSOLUTE                   34 (to 68)
+                334     LOAD_FAST                       6: append
+                336     LOAD_FAST                       7: line
+                338     LOAD_FAST                       8: start
+                340     LOAD_CONST                      10: None
+                342     BUILD_SLICE                     2
+                344     BINARY_SUBSCR                   
+                346     CALL_FUNCTION                   1
+                348     POP_TOP                         
+                350     JUMP_ABSOLUTE                   34 (to 68)
+                352     LOAD_FAST                       0: body
+                354     LOAD_CONST                      7: -1
+                356     BINARY_SUBSCR                   
+                358     LOAD_GLOBAL                     7: CRLF
+                360     CONTAINS_OP                     0 (in)
+                362     POP_JUMP_IF_FALSE               186 (to 372)
+                364     LOAD_FAST                       6: append
+                366     LOAD_CONST                      11: ''
+                368     CALL_FUNCTION                   1
+                370     POP_TOP                         
+                372     LOAD_FAST                       2: eol
+                374     LOAD_METHOD                     8: join
+                376     LOAD_FAST                       5: encoded_body
+                378     CALL_METHOD                     1
+                380     RETURN_VALUE                    
+        'body_encode'
+        [Code]
+            File Name: email/quoprimime.py
+            Object Name: decode
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 7
+            Stack Size: 7
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'splitlines'
+                'rstrip'
+                'len'
+                'hexdigits'
+                'unquote'
+                'endswith'
+            [Var Names]
+                'encoded'
+                'eol'
+                'decoded'
+                'line'
+                'i'
+                'n'
+                'c'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Decode a quoted-printable string.\n\n    Lines are separated with eol, which defaults to \\n.\n    '
+                ''
+                0
+                '='
+                1
+                2
+                3
+                -1
+                '\r\n'
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: encoded
+                2       POP_JUMP_IF_TRUE                4 (to 8)
+                4       LOAD_FAST                       0: encoded
+                6       RETURN_VALUE                    
+                8       LOAD_CONST                      1: ''
+                10      STORE_FAST                      2: decoded
+                12      LOAD_FAST                       0: encoded
+                14      LOAD_METHOD                     0: splitlines
+                16      CALL_METHOD                     0
+                18      GET_ITER                        
+                20      FOR_ITER                        110 (to 242)
+                22      STORE_FAST                      3: line
+                24      LOAD_FAST                       3: line
+                26      LOAD_METHOD                     1: rstrip
+                28      CALL_METHOD                     0
+                30      STORE_FAST                      3: line
+                32      LOAD_FAST                       3: line
+                34      POP_JUMP_IF_TRUE                23 (to 46)
+                36      LOAD_FAST                       2: decoded
+                38      LOAD_FAST                       1: eol
+                40      INPLACE_ADD                     
+                42      STORE_FAST                      2: decoded
+                44      JUMP_ABSOLUTE                   10 (to 20)
+                46      LOAD_CONST                      2: 0
+                48      STORE_FAST                      4: i
+                50      LOAD_GLOBAL                     2: len
+                52      LOAD_FAST                       3: line
+                54      CALL_FUNCTION                   1
+                56      STORE_FAST                      5: n
+                58      LOAD_FAST                       4: i
+                60      LOAD_FAST                       5: n
+                62      COMPARE_OP                      0 (<)
+                64      POP_JUMP_IF_FALSE               120 (to 240)
+                66      LOAD_FAST                       3: line
+                68      LOAD_FAST                       4: i
+                70      BINARY_SUBSCR                   
+                72      STORE_FAST                      6: c
+                74      LOAD_FAST                       6: c
+                76      LOAD_CONST                      3: '='
+                78      COMPARE_OP                      3 (!=)
+                80      POP_JUMP_IF_FALSE               50 (to 100)
+                82      LOAD_FAST                       2: decoded
+                84      LOAD_FAST                       6: c
+                86      INPLACE_ADD                     
+                88      STORE_FAST                      2: decoded
+                90      LOAD_FAST                       4: i
+                92      LOAD_CONST                      4: 1
+                94      INPLACE_ADD                     
+                96      STORE_FAST                      4: i
+                98      JUMP_FORWARD                    58 (to 216)
+                100     LOAD_FAST                       4: i
+                102     LOAD_CONST                      4: 1
+                104     BINARY_ADD                      
+                106     LOAD_FAST                       5: n
+                108     COMPARE_OP                      2 (==)
+                110     POP_JUMP_IF_FALSE               61 (to 122)
+                112     LOAD_FAST                       4: i
+                114     LOAD_CONST                      4: 1
+                116     INPLACE_ADD                     
+                118     STORE_FAST                      4: i
+                120     JUMP_ABSOLUTE                   29 (to 58)
+                122     LOAD_FAST                       4: i
+                124     LOAD_CONST                      5: 2
+                126     BINARY_ADD                      
+                128     LOAD_FAST                       5: n
+                130     COMPARE_OP                      0 (<)
+                132     POP_JUMP_IF_FALSE               100 (to 200)
+                134     LOAD_FAST                       3: line
+                136     LOAD_FAST                       4: i
+                138     LOAD_CONST                      4: 1
+                140     BINARY_ADD                      
+                142     BINARY_SUBSCR                   
+                144     LOAD_GLOBAL                     3: hexdigits
+                146     CONTAINS_OP                     0 (in)
+                148     POP_JUMP_IF_FALSE               100 (to 200)
+                150     LOAD_FAST                       3: line
+                152     LOAD_FAST                       4: i
+                154     LOAD_CONST                      5: 2
+                156     BINARY_ADD                      
+                158     BINARY_SUBSCR                   
+                160     LOAD_GLOBAL                     3: hexdigits
+                162     CONTAINS_OP                     0 (in)
+                164     POP_JUMP_IF_FALSE               100 (to 200)
+                166     LOAD_FAST                       2: decoded
+                168     LOAD_GLOBAL                     4: unquote
+                170     LOAD_FAST                       3: line
+                172     LOAD_FAST                       4: i
+                174     LOAD_FAST                       4: i
+                176     LOAD_CONST                      6: 3
+                178     BINARY_ADD                      
+                180     BUILD_SLICE                     2
+                182     BINARY_SUBSCR                   
+                184     CALL_FUNCTION                   1
+                186     INPLACE_ADD                     
+                188     STORE_FAST                      2: decoded
+                190     LOAD_FAST                       4: i
+                192     LOAD_CONST                      6: 3
+                194     INPLACE_ADD                     
+                196     STORE_FAST                      4: i
+                198     JUMP_FORWARD                    8 (to 216)
+                200     LOAD_FAST                       2: decoded
+                202     LOAD_FAST                       6: c
+                204     INPLACE_ADD                     
+                206     STORE_FAST                      2: decoded
+                208     LOAD_FAST                       4: i
+                210     LOAD_CONST                      4: 1
+                212     INPLACE_ADD                     
+                214     STORE_FAST                      4: i
+                216     LOAD_FAST                       4: i
+                218     LOAD_FAST                       5: n
+                220     COMPARE_OP                      2 (==)
+                222     POP_JUMP_IF_FALSE               116 (to 232)
+                224     LOAD_FAST                       2: decoded
+                226     LOAD_FAST                       1: eol
+                228     INPLACE_ADD                     
+                230     STORE_FAST                      2: decoded
+                232     LOAD_FAST                       4: i
+                234     LOAD_FAST                       5: n
+                236     COMPARE_OP                      0 (<)
+                238     POP_JUMP_IF_TRUE                33 (to 66)
+                240     JUMP_ABSOLUTE                   10 (to 20)
+                242     LOAD_FAST                       0: encoded
+                244     LOAD_CONST                      7: -1
+                246     BINARY_SUBSCR                   
+                248     LOAD_CONST                      8: '\r\n'
+                250     CONTAINS_OP                     1 (not in)
+                252     POP_JUMP_IF_FALSE               138 (to 276)
+                254     LOAD_FAST                       2: decoded
+                256     LOAD_METHOD                     5: endswith
+                258     LOAD_FAST                       1: eol
+                260     CALL_METHOD                     1
+                262     POP_JUMP_IF_FALSE               138 (to 276)
+                264     LOAD_FAST                       2: decoded
+                266     LOAD_CONST                      9: None
+                268     LOAD_CONST                      7: -1
+                270     BUILD_SLICE                     2
+                272     BINARY_SUBSCR                   
+                274     STORE_FAST                      2: decoded
+                276     LOAD_FAST                       2: decoded
+                278     RETURN_VALUE                    
+        'decode'
+        [Code]
+            File Name: email/quoprimime.py
+            Object Name: _unquote_match
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'group'
+                'unquote'
+            [Var Names]
+                'match'
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Turn a match in the form =AB to the ASCII character with value 0xab'
+                0
+            [Disassembly]
+                0       LOAD_FAST                       0: match
+                2       LOAD_METHOD                     0: group
+                4       LOAD_CONST                      1: 0
+                6       CALL_METHOD                     1
+                8       STORE_FAST                      1: s
+                10      LOAD_GLOBAL                     1: unquote
+                12      LOAD_FAST                       1: s
+                14      CALL_FUNCTION                   1
+                16      RETURN_VALUE                    
+        '_unquote_match'
+        [Code]
+            File Name: email/quoprimime.py
+            Object Name: header_decode
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'replace'
+                're'
+                'sub'
+                '_unquote_match'
+                'ASCII'
+            [Var Names]
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Decode a string encoded with RFC 2045 MIME header `Q' encoding.\n\n    This function does not parse a full MIME header value encoded with\n    quoted-printable (like =?iso-8859-1?q?Hello_World?=) -- please use\n    the high level email.header class for that functionality.\n    "
+                '_'
+                ' '
+                '=[a-fA-F0-9]{2}'
+                (
+                    'flags'
+                )
+            [Disassembly]
+                0       LOAD_FAST                       0: s
+                2       LOAD_METHOD                     0: replace
+                4       LOAD_CONST                      1: '_'
+                6       LOAD_CONST                      2: ' '
+                8       CALL_METHOD                     2
+                10      STORE_FAST                      0: s
+                12      LOAD_GLOBAL                     1: re
+                14      LOAD_ATTR                       2: sub
+                16      LOAD_CONST                      3: '=[a-fA-F0-9]{2}'
+                18      LOAD_GLOBAL                     3: _unquote_match
+                20      LOAD_FAST                       0: s
+                22      LOAD_GLOBAL                     1: re
+                24      LOAD_ATTR                       4: ASCII
+                26      LOAD_CONST                      4: ('flags',)
+                28      CALL_FUNCTION_KW                4
+                30      RETURN_VALUE                    
+        'header_decode'
+        (
+            ''
+        )
+        (
+            'iso-8859-1'
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: "Quoted-printable content transfer encoding per RFCs 2045-2047.\n\nThis module handles the content transfer encoding method defined in RFC 2045\nto encode US ASCII-like 8-bit data called `quoted-printable'.  It is used to\nsafely encode text that is in a character set similar to the 7-bit US ASCII\ncharacter set, but that includes some 8-bit characters that are normally not\nallowed in email bodies or headers.\n\nQuoted-printable is very space-inefficient for encoding binary files; use the\nemail.base64mime module for that instead.\n\nThis module provides an interface to encode and decode both headers and bodies\nwith quoted-printable encoding.\n\nRFC 2045 defines a method for including character set information in an\n`encoded-word' in a header.  This method is commonly used for 8-bit real names\nin To:/From:/Cc: etc. fields, as well as Subject: lines.\n\nThis module does not do the line wrapping or end-of-line character\nconversion necessary for proper internationalized headers; it only\ndoes dumb encoding and decoding.  To deal with the various line\nwrapping issues, use the email.header module.\n"
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('body_decode', 'body_encode', 'body_length', 'decode', 'decodestring', 'header_decode', 'header_encode', 'header_length', 'quote', 'unquote')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: 0
+        14      LOAD_CONST                      3: None
+        16      IMPORT_NAME                     2: re
+        18      STORE_NAME                      2: re
+        20      LOAD_CONST                      2: 0
+        22      LOAD_CONST                      4: ('ascii_letters', 'digits', 'hexdigits')
+        24      IMPORT_NAME                     3: string
+        26      IMPORT_FROM                     4: ascii_letters
+        28      STORE_NAME                      4: ascii_letters
+        30      IMPORT_FROM                     5: digits
+        32      STORE_NAME                      5: digits
+        34      IMPORT_FROM                     6: hexdigits
+        36      STORE_NAME                      6: hexdigits
+        38      POP_TOP                         
+        40      LOAD_CONST                      5: '\r\n'
+        42      STORE_NAME                      7: CRLF
+        44      LOAD_CONST                      6: '\n'
+        46      STORE_NAME                      8: NL
+        48      LOAD_CONST                      7: ''
+        50      STORE_NAME                      9: EMPTYSTRING
+        52      LOAD_CONST                      8: <CODE> <listcomp>
+        54      LOAD_CONST                      9: '<listcomp>'
+        56      MAKE_FUNCTION                   0
+        58      LOAD_NAME                       10: range
+        60      LOAD_CONST                      10: 256
+        62      CALL_FUNCTION                   1
+        64      GET_ITER                        
+        66      CALL_FUNCTION                   1
+        68      STORE_NAME                      11: _QUOPRI_MAP
+        70      LOAD_NAME                       11: _QUOPRI_MAP
+        72      LOAD_CONST                      3: None
+        74      LOAD_CONST                      3: None
+        76      BUILD_SLICE                     2
+        78      BINARY_SUBSCR                   
+        80      STORE_NAME                      12: _QUOPRI_HEADER_MAP
+        82      LOAD_NAME                       11: _QUOPRI_MAP
+        84      LOAD_CONST                      3: None
+        86      LOAD_CONST                      3: None
+        88      BUILD_SLICE                     2
+        90      BINARY_SUBSCR                   
+        92      STORE_NAME                      13: _QUOPRI_BODY_MAP
+        94      LOAD_CONST                      11: b'-!*+/'
+        96      LOAD_NAME                       4: ascii_letters
+        98      LOAD_METHOD                     14: encode
+        100     LOAD_CONST                      12: 'ascii'
+        102     CALL_METHOD                     1
+        104     BINARY_ADD                      
+        106     LOAD_NAME                       5: digits
+        108     LOAD_METHOD                     14: encode
+        110     LOAD_CONST                      12: 'ascii'
+        112     CALL_METHOD                     1
+        114     BINARY_ADD                      
+        116     GET_ITER                        
+        118     FOR_ITER                        8 (to 136)
+        120     STORE_NAME                      15: c
+        122     LOAD_NAME                       16: chr
+        124     LOAD_NAME                       15: c
+        126     CALL_FUNCTION                   1
+        128     LOAD_NAME                       12: _QUOPRI_HEADER_MAP
+        130     LOAD_NAME                       15: c
+        132     STORE_SUBSCR                    
+        134     JUMP_ABSOLUTE                   59 (to 118)
+        136     LOAD_CONST                      13: '_'
+        138     LOAD_NAME                       12: _QUOPRI_HEADER_MAP
+        140     LOAD_NAME                       17: ord
+        142     LOAD_CONST                      14: ' '
+        144     CALL_FUNCTION                   1
+        146     STORE_SUBSCR                    
+        148     LOAD_CONST                      15: b' !"#$%&\'()*+,-./0123456789:;<>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\t'
+        150     GET_ITER                        
+        152     FOR_ITER                        8 (to 170)
+        154     STORE_NAME                      15: c
+        156     LOAD_NAME                       16: chr
+        158     LOAD_NAME                       15: c
+        160     CALL_FUNCTION                   1
+        162     LOAD_NAME                       13: _QUOPRI_BODY_MAP
+        164     LOAD_NAME                       15: c
+        166     STORE_SUBSCR                    
+        168     JUMP_ABSOLUTE                   76 (to 152)
+        170     LOAD_CONST                      16: <CODE> header_check
+        172     LOAD_CONST                      17: 'header_check'
+        174     MAKE_FUNCTION                   0
+        176     STORE_NAME                      18: header_check
+        178     LOAD_CONST                      18: <CODE> body_check
+        180     LOAD_CONST                      19: 'body_check'
+        182     MAKE_FUNCTION                   0
+        184     STORE_NAME                      19: body_check
+        186     LOAD_CONST                      20: <CODE> header_length
+        188     LOAD_CONST                      21: 'header_length'
+        190     MAKE_FUNCTION                   0
+        192     STORE_NAME                      20: header_length
+        194     LOAD_CONST                      22: <CODE> body_length
+        196     LOAD_CONST                      23: 'body_length'
+        198     MAKE_FUNCTION                   0
+        200     STORE_NAME                      21: body_length
+        202     LOAD_CONST                      43: ('',)
+        204     LOAD_CONST                      24: <CODE> _max_append
+        206     LOAD_CONST                      25: '_max_append'
+        208     MAKE_FUNCTION                   1
+        210     STORE_NAME                      22: _max_append
+        212     LOAD_CONST                      26: <CODE> unquote
+        214     LOAD_CONST                      27: 'unquote'
+        216     MAKE_FUNCTION                   0
+        218     STORE_NAME                      23: unquote
+        220     LOAD_CONST                      28: <CODE> quote
+        222     LOAD_CONST                      29: 'quote'
+        224     MAKE_FUNCTION                   0
+        226     STORE_NAME                      24: quote
+        228     LOAD_CONST                      44: ('iso-8859-1',)
+        230     LOAD_CONST                      31: <CODE> header_encode
+        232     LOAD_CONST                      32: 'header_encode'
+        234     MAKE_FUNCTION                   1
+        236     STORE_NAME                      25: header_encode
+        238     LOAD_NAME                       13: _QUOPRI_BODY_MAP
+        240     LOAD_CONST                      3: None
+        242     LOAD_CONST                      3: None
+        244     BUILD_SLICE                     2
+        246     BINARY_SUBSCR                   
+        248     STORE_NAME                      26: _QUOPRI_BODY_ENCODE_MAP
+        250     LOAD_CONST                      33: b'\r\n'
+        252     GET_ITER                        
+        254     FOR_ITER                        8 (to 272)
+        256     STORE_NAME                      15: c
+        258     LOAD_NAME                       16: chr
+        260     LOAD_NAME                       15: c
+        262     CALL_FUNCTION                   1
+        264     LOAD_NAME                       26: _QUOPRI_BODY_ENCODE_MAP
+        266     LOAD_NAME                       15: c
+        268     STORE_SUBSCR                    
+        270     JUMP_ABSOLUTE                   127 (to 254)
+        272     LOAD_CONST                      34: 76
+        274     LOAD_NAME                       8: NL
+        276     BUILD_TUPLE                     2
+        278     LOAD_CONST                      35: <CODE> body_encode
+        280     LOAD_CONST                      36: 'body_encode'
+        282     MAKE_FUNCTION                   1
+        284     STORE_NAME                      27: body_encode
+        286     LOAD_NAME                       8: NL
+        288     BUILD_TUPLE                     1
+        290     LOAD_CONST                      37: <CODE> decode
+        292     LOAD_CONST                      38: 'decode'
+        294     MAKE_FUNCTION                   1
+        296     STORE_NAME                      28: decode
+        298     LOAD_NAME                       28: decode
+        300     STORE_NAME                      29: body_decode
+        302     LOAD_NAME                       28: decode
+        304     STORE_NAME                      30: decodestring
+        306     LOAD_CONST                      39: <CODE> _unquote_match
+        308     LOAD_CONST                      40: '_unquote_match'
+        310     MAKE_FUNCTION                   0
+        312     STORE_NAME                      31: _unquote_match
+        314     LOAD_CONST                      41: <CODE> header_decode
+        316     LOAD_CONST                      42: 'header_decode'
+        318     MAKE_FUNCTION                   0
+        320     STORE_NAME                      32: header_decode
+        322     LOAD_CONST                      3: None
+        324     RETURN_VALUE                    

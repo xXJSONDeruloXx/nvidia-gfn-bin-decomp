@@ -1,0 +1,3136 @@
+_strptime.pyc (Python 3.10)
+[Code]
+    File Name: _strptime.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'time'
+        'locale'
+        'calendar'
+        're'
+        'compile'
+        're_compile'
+        'IGNORECASE'
+        'escape'
+        're_escape'
+        'datetime'
+        'date'
+        'datetime_date'
+        'timedelta'
+        'datetime_timedelta'
+        'timezone'
+        'datetime_timezone'
+        '_thread'
+        'allocate_lock'
+        '_thread_allocate_lock'
+        '__all__'
+        '_getlang'
+        'object'
+        'LocaleTime'
+        'dict'
+        'TimeRE'
+        '_cache_lock'
+        '_TimeRE_cache'
+        '_CACHE_MAX_SIZE'
+        '_regex_cache'
+        '_calc_julian_from_U_or_W'
+        '_calc_julian_from_V'
+        '_strptime'
+        '_strptime_time'
+        '_strptime_datetime'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Strptime-related classes and functions.\n\nCLASSES:\n    LocaleTime -- Discovers and stores locale-specific time information\n    TimeRE -- Creates regexes for pattern matching a string of text containing\n                time information\n\nFUNCTIONS:\n    _getlang -- Figure out what language is being used for the locale\n    strptime -- Calculates the time struct represented by the passed-in string\n\n'
+        0
+        None
+        (
+            'compile'
+        )
+        (
+            'IGNORECASE'
+        )
+        (
+            'escape'
+        )
+        (
+            'date'
+            'timedelta'
+            'timezone'
+        )
+        (
+            'allocate_lock'
+        )
+        [Code]
+            File Name: _strptime.py
+            Object Name: _getlang
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'locale'
+                'getlocale'
+                'LC_TIME'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: locale
+                2       LOAD_METHOD                     1: getlocale
+                4       LOAD_GLOBAL                     0: locale
+                6       LOAD_ATTR                       2: LC_TIME
+                8       CALL_METHOD                     1
+                10      RETURN_VALUE                    
+        '_getlang'
+        [Code]
+            File Name: _strptime.py
+            Object Name: LocaleTime
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                '_LocaleTime__calc_weekday'
+                '_LocaleTime__calc_month'
+                '_LocaleTime__calc_am_pm'
+                '_LocaleTime__calc_date_time'
+                '_LocaleTime__calc_timezone'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'LocaleTime'
+                'Stores and handles locale-specific information related to time.\n\n    ATTRIBUTES:\n        f_weekday -- full weekday names (7-item list)\n        a_weekday -- abbreviated weekday names (7-item list)\n        f_month -- full month names (13-item list; dummy value in [0], which\n                    is added by code)\n        a_month -- abbreviated month names (13-item list, dummy value in\n                    [0], which is added by code)\n        am_pm -- AM/PM representation (2-item list)\n        LC_date_time -- format string for date/time representation (string)\n        LC_date -- format string for date representation (string)\n        LC_time -- format string for time representation (string)\n        timezone -- daylight- and non-daylight-savings timezone representation\n                    (2-item list of sets)\n        lang -- Language used by instance (2-item tuple)\n    '
+                [Code]
+                    File Name: _strptime.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_getlang'
+                        'lang'
+                        '_LocaleTime__calc_weekday'
+                        '_LocaleTime__calc_month'
+                        '_LocaleTime__calc_am_pm'
+                        '_LocaleTime__calc_timezone'
+                        '_LocaleTime__calc_date_time'
+                        'ValueError'
+                        'time'
+                        'tzname'
+                        'daylight'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Set all attributes.\n\n        Order of methods called matters for dependency reasons.\n\n        The locale language is set at the offset and then checked again before\n        exiting.  This is to make sure that the attributes were not set with a\n        mix of information from more than one locale.  This would most likely\n        happen when using threads where one thread calls a locale-dependent\n        function while another thread changes the locale while the function in\n        the other thread is still running.  Proper coding would call for\n        locks to prevent changing the locale while locale-dependent code is\n        running.  The check here is done in case someone does not think about\n        doing this.\n\n        Only other possible issue is if someone changed the timezone and did\n        not call tz.tzset .  That is an issue for the programmer, though,\n        since changing the timezone is worthless without that call.\n\n        '
+                        'locale changed during initialization'
+                        'timezone changed during initialization'
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: _getlang
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_FAST                       0: self
+                        6       STORE_ATTR                      1: lang
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_METHOD                     2: _LocaleTime__calc_weekday
+                        12      CALL_METHOD                     0
+                        14      POP_TOP                         
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_METHOD                     3: _LocaleTime__calc_month
+                        20      CALL_METHOD                     0
+                        22      POP_TOP                         
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_METHOD                     4: _LocaleTime__calc_am_pm
+                        28      CALL_METHOD                     0
+                        30      POP_TOP                         
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_METHOD                     5: _LocaleTime__calc_timezone
+                        36      CALL_METHOD                     0
+                        38      POP_TOP                         
+                        40      LOAD_FAST                       0: self
+                        42      LOAD_METHOD                     6: _LocaleTime__calc_date_time
+                        44      CALL_METHOD                     0
+                        46      POP_TOP                         
+                        48      LOAD_GLOBAL                     0: _getlang
+                        50      CALL_FUNCTION                   0
+                        52      LOAD_FAST                       0: self
+                        54      LOAD_ATTR                       1: lang
+                        56      COMPARE_OP                      3 (!=)
+                        58      POP_JUMP_IF_FALSE               34 (to 68)
+                        60      LOAD_GLOBAL                     7: ValueError
+                        62      LOAD_CONST                      1: 'locale changed during initialization'
+                        64      CALL_FUNCTION                   1
+                        66      RAISE_VARARGS                   1
+                        68      LOAD_GLOBAL                     8: time
+                        70      LOAD_ATTR                       9: tzname
+                        72      LOAD_FAST                       0: self
+                        74      LOAD_ATTR                       9: tzname
+                        76      COMPARE_OP                      3 (!=)
+                        78      POP_JUMP_IF_TRUE                46 (to 92)
+                        80      LOAD_GLOBAL                     8: time
+                        82      LOAD_ATTR                       10: daylight
+                        84      LOAD_FAST                       0: self
+                        86      LOAD_ATTR                       10: daylight
+                        88      COMPARE_OP                      3 (!=)
+                        90      POP_JUMP_IF_FALSE               50 (to 100)
+                        92      LOAD_GLOBAL                     7: ValueError
+                        94      LOAD_CONST                      2: 'timezone changed during initialization'
+                        96      CALL_FUNCTION                   1
+                        98      RAISE_VARARGS                   1
+                        100     LOAD_CONST                      3: None
+                        102     RETURN_VALUE                    
+                'LocaleTime.__init__'
+                [Code]
+                    File Name: _strptime.py
+                    Object Name: __calc_weekday
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'range'
+                        'a_weekday'
+                        'f_weekday'
+                    [Var Names]
+                        'self'
+                        'a_weekday'
+                        'f_weekday'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        [Code]
+                            File Name: _strptime.py
+                            Object Name: <listcomp>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 4
+                            Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                            [Names]
+                                'calendar'
+                                'day_abbr'
+                                'lower'
+                            [Var Names]
+                                '.0'
+                                'i'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                            [Disassembly]
+                                0       BUILD_LIST                      0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        9 (to 24)
+                                6       STORE_FAST                      1: i
+                                8       LOAD_GLOBAL                     0: calendar
+                                10      LOAD_ATTR                       1: day_abbr
+                                12      LOAD_FAST                       1: i
+                                14      BINARY_SUBSCR                   
+                                16      LOAD_METHOD                     2: lower
+                                18      CALL_METHOD                     0
+                                20      LIST_APPEND                     2
+                                22      JUMP_ABSOLUTE                   2 (to 4)
+                                24      RETURN_VALUE                    
+                        'LocaleTime.__calc_weekday.<locals>.<listcomp>'
+                        7
+                        [Code]
+                            File Name: _strptime.py
+                            Object Name: <listcomp>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 4
+                            Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                            [Names]
+                                'calendar'
+                                'day_name'
+                                'lower'
+                            [Var Names]
+                                '.0'
+                                'i'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                            [Disassembly]
+                                0       BUILD_LIST                      0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        9 (to 24)
+                                6       STORE_FAST                      1: i
+                                8       LOAD_GLOBAL                     0: calendar
+                                10      LOAD_ATTR                       1: day_name
+                                12      LOAD_FAST                       1: i
+                                14      BINARY_SUBSCR                   
+                                16      LOAD_METHOD                     2: lower
+                                18      CALL_METHOD                     0
+                                20      LIST_APPEND                     2
+                                22      JUMP_ABSOLUTE                   2 (to 4)
+                                24      RETURN_VALUE                    
+                    [Disassembly]
+                        0       LOAD_CONST                      1: <CODE> <listcomp>
+                        2       LOAD_CONST                      2: 'LocaleTime.__calc_weekday.<locals>.<listcomp>'
+                        4       MAKE_FUNCTION                   0
+                        6       LOAD_GLOBAL                     0: range
+                        8       LOAD_CONST                      3: 7
+                        10      CALL_FUNCTION                   1
+                        12      GET_ITER                        
+                        14      CALL_FUNCTION                   1
+                        16      STORE_FAST                      1: a_weekday
+                        18      LOAD_CONST                      4: <CODE> <listcomp>
+                        20      LOAD_CONST                      2: 'LocaleTime.__calc_weekday.<locals>.<listcomp>'
+                        22      MAKE_FUNCTION                   0
+                        24      LOAD_GLOBAL                     0: range
+                        26      LOAD_CONST                      3: 7
+                        28      CALL_FUNCTION                   1
+                        30      GET_ITER                        
+                        32      CALL_FUNCTION                   1
+                        34      STORE_FAST                      2: f_weekday
+                        36      LOAD_FAST                       1: a_weekday
+                        38      LOAD_FAST                       0: self
+                        40      STORE_ATTR                      1: a_weekday
+                        42      LOAD_FAST                       2: f_weekday
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      2: f_weekday
+                        48      LOAD_CONST                      0: None
+                        50      RETURN_VALUE                    
+                'LocaleTime.__calc_weekday'
+                [Code]
+                    File Name: _strptime.py
+                    Object Name: __calc_month
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'range'
+                        'a_month'
+                        'f_month'
+                    [Var Names]
+                        'self'
+                        'a_month'
+                        'f_month'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        [Code]
+                            File Name: _strptime.py
+                            Object Name: <listcomp>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 4
+                            Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                            [Names]
+                                'calendar'
+                                'month_abbr'
+                                'lower'
+                            [Var Names]
+                                '.0'
+                                'i'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                            [Disassembly]
+                                0       BUILD_LIST                      0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        9 (to 24)
+                                6       STORE_FAST                      1: i
+                                8       LOAD_GLOBAL                     0: calendar
+                                10      LOAD_ATTR                       1: month_abbr
+                                12      LOAD_FAST                       1: i
+                                14      BINARY_SUBSCR                   
+                                16      LOAD_METHOD                     2: lower
+                                18      CALL_METHOD                     0
+                                20      LIST_APPEND                     2
+                                22      JUMP_ABSOLUTE                   2 (to 4)
+                                24      RETURN_VALUE                    
+                        'LocaleTime.__calc_month.<locals>.<listcomp>'
+                        13
+                        [Code]
+                            File Name: _strptime.py
+                            Object Name: <listcomp>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 4
+                            Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                            [Names]
+                                'calendar'
+                                'month_name'
+                                'lower'
+                            [Var Names]
+                                '.0'
+                                'i'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                            [Disassembly]
+                                0       BUILD_LIST                      0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        9 (to 24)
+                                6       STORE_FAST                      1: i
+                                8       LOAD_GLOBAL                     0: calendar
+                                10      LOAD_ATTR                       1: month_name
+                                12      LOAD_FAST                       1: i
+                                14      BINARY_SUBSCR                   
+                                16      LOAD_METHOD                     2: lower
+                                18      CALL_METHOD                     0
+                                20      LIST_APPEND                     2
+                                22      JUMP_ABSOLUTE                   2 (to 4)
+                                24      RETURN_VALUE                    
+                    [Disassembly]
+                        0       LOAD_CONST                      1: <CODE> <listcomp>
+                        2       LOAD_CONST                      2: 'LocaleTime.__calc_month.<locals>.<listcomp>'
+                        4       MAKE_FUNCTION                   0
+                        6       LOAD_GLOBAL                     0: range
+                        8       LOAD_CONST                      3: 13
+                        10      CALL_FUNCTION                   1
+                        12      GET_ITER                        
+                        14      CALL_FUNCTION                   1
+                        16      STORE_FAST                      1: a_month
+                        18      LOAD_CONST                      4: <CODE> <listcomp>
+                        20      LOAD_CONST                      2: 'LocaleTime.__calc_month.<locals>.<listcomp>'
+                        22      MAKE_FUNCTION                   0
+                        24      LOAD_GLOBAL                     0: range
+                        26      LOAD_CONST                      3: 13
+                        28      CALL_FUNCTION                   1
+                        30      GET_ITER                        
+                        32      CALL_FUNCTION                   1
+                        34      STORE_FAST                      2: f_month
+                        36      LOAD_FAST                       1: a_month
+                        38      LOAD_FAST                       0: self
+                        40      STORE_ATTR                      1: a_month
+                        42      LOAD_FAST                       2: f_month
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      2: f_month
+                        48      LOAD_CONST                      0: None
+                        50      RETURN_VALUE                    
+                'LocaleTime.__calc_month'
+                [Code]
+                    File Name: _strptime.py
+                    Object Name: __calc_am_pm
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 12
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'time'
+                        'struct_time'
+                        'append'
+                        'strftime'
+                        'lower'
+                        'am_pm'
+                    [Var Names]
+                        'self'
+                        'am_pm'
+                        'hour'
+                        'time_tuple'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        (
+                            1
+                            22
+                        )
+                        1999
+                        3
+                        17
+                        44
+                        55
+                        2
+                        76
+                        0
+                        '%p'
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       STORE_FAST                      1: am_pm
+                        4       LOAD_CONST                      1: (1, 22)
+                        6       GET_ITER                        
+                        8       FOR_ITER                        27 (to 64)
+                        10      STORE_FAST                      2: hour
+                        12      LOAD_GLOBAL                     0: time
+                        14      LOAD_METHOD                     1: struct_time
+                        16      LOAD_CONST                      2: 1999
+                        18      LOAD_CONST                      3: 3
+                        20      LOAD_CONST                      4: 17
+                        22      LOAD_FAST                       2: hour
+                        24      LOAD_CONST                      5: 44
+                        26      LOAD_CONST                      6: 55
+                        28      LOAD_CONST                      7: 2
+                        30      LOAD_CONST                      8: 76
+                        32      LOAD_CONST                      9: 0
+                        34      BUILD_TUPLE                     9
+                        36      CALL_METHOD                     1
+                        38      STORE_FAST                      3: time_tuple
+                        40      LOAD_FAST                       1: am_pm
+                        42      LOAD_METHOD                     2: append
+                        44      LOAD_GLOBAL                     0: time
+                        46      LOAD_METHOD                     3: strftime
+                        48      LOAD_CONST                      10: '%p'
+                        50      LOAD_FAST                       3: time_tuple
+                        52      CALL_METHOD                     2
+                        54      LOAD_METHOD                     4: lower
+                        56      CALL_METHOD                     0
+                        58      CALL_METHOD                     1
+                        60      POP_TOP                         
+                        62      JUMP_ABSOLUTE                   4 (to 8)
+                        64      LOAD_FAST                       1: am_pm
+                        66      LOAD_FAST                       0: self
+                        68      STORE_ATTR                      5: am_pm
+                        70      LOAD_CONST                      0: None
+                        72      RETURN_VALUE                    
+                'LocaleTime.__calc_am_pm'
+                [Code]
+                    File Name: _strptime.py
+                    Object Name: __calc_date_time
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 10
+                    Stack Size: 17
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'time'
+                        'struct_time'
+                        'strftime'
+                        'lower'
+                        'f_weekday'
+                        'f_month'
+                        'a_weekday'
+                        'a_month'
+                        'am_pm'
+                        'extend'
+                        'timezone'
+                        'replace'
+                        'LC_date_time'
+                        'LC_date'
+                        'LC_time'
+                    [Var Names]
+                        'self'
+                        'time_tuple'
+                        'date_time'
+                        'replacement_pairs'
+                        'offset'
+                        'directive'
+                        'current_format'
+                        'old'
+                        'new'
+                        'U_W'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        (
+                            1999
+                            3
+                            17
+                            22
+                            44
+                            55
+                            2
+                            76
+                            0
+                        )
+                        (
+                            None
+                            None
+                            None
+                        )
+                        '%c'
+                        0
+                        '%x'
+                        1
+                        '%X'
+                        2
+                        (
+                            '%'
+                            '%%'
+                        )
+                        '%A'
+                        3
+                        '%B'
+                        '%a'
+                        '%b'
+                        '%p'
+                        (
+                            '1999'
+                            '%Y'
+                        )
+                        (
+                            '99'
+                            '%y'
+                        )
+                        (
+                            '22'
+                            '%H'
+                        )
+                        (
+                            '44'
+                            '%M'
+                        )
+                        (
+                            '55'
+                            '%S'
+                        )
+                        (
+                            '76'
+                            '%j'
+                        )
+                        (
+                            '17'
+                            '%d'
+                        )
+                        (
+                            '03'
+                            '%m'
+                        )
+                        (
+                            '3'
+                            '%m'
+                        )
+                        (
+                            '2'
+                            '%w'
+                        )
+                        (
+                            '10'
+                            '%I'
+                        )
+                        [Code]
+                            File Name: _strptime.py
+                            Object Name: <listcomp>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 3
+                            Stack Size: 5
+                            Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                            [Names]
+                            [Var Names]
+                                '.0'
+                                'tz_values'
+                                'tz'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                '%Z'
+                            [Disassembly]
+                                0       BUILD_LIST                      0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        11 (to 28)
+                                6       STORE_FAST                      1: tz_values
+                                8       LOAD_FAST                       1: tz_values
+                                10      GET_ITER                        
+                                12      FOR_ITER                        6 (to 26)
+                                14      STORE_FAST                      2: tz
+                                16      LOAD_FAST                       2: tz
+                                18      LOAD_CONST                      0: '%Z'
+                                20      BUILD_TUPLE                     2
+                                22      LIST_APPEND                     3
+                                24      JUMP_ABSOLUTE                   6 (to 12)
+                                26      JUMP_ABSOLUTE                   2 (to 4)
+                                28      RETURN_VALUE                    
+                        'LocaleTime.__calc_date_time.<locals>.<listcomp>'
+                        (
+                            (
+                                0
+                                '%c'
+                            )
+                            (
+                                1
+                                '%x'
+                            )
+                            (
+                                2
+                                '%X'
+                            )
+                        )
+                        (
+                            1999
+                            1
+                            3
+                            1
+                            1
+                            1
+                            6
+                            3
+                            0
+                        )
+                        '00'
+                        '%W'
+                        '%U'
+                        '11'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: time
+                        2       LOAD_METHOD                     1: struct_time
+                        4       LOAD_CONST                      1: (1999, 3, 17, 22, 44, 55, 2, 76, 0)
+                        6       CALL_METHOD                     1
+                        8       STORE_FAST                      1: time_tuple
+                        10      BUILD_LIST                      0
+                        12      LOAD_CONST                      2: (None, None, None)
+                        14      LIST_EXTEND                     1
+                        16      STORE_FAST                      2: date_time
+                        18      LOAD_GLOBAL                     0: time
+                        20      LOAD_METHOD                     2: strftime
+                        22      LOAD_CONST                      3: '%c'
+                        24      LOAD_FAST                       1: time_tuple
+                        26      CALL_METHOD                     2
+                        28      LOAD_METHOD                     3: lower
+                        30      CALL_METHOD                     0
+                        32      LOAD_FAST                       2: date_time
+                        34      LOAD_CONST                      4: 0
+                        36      STORE_SUBSCR                    
+                        38      LOAD_GLOBAL                     0: time
+                        40      LOAD_METHOD                     2: strftime
+                        42      LOAD_CONST                      5: '%x'
+                        44      LOAD_FAST                       1: time_tuple
+                        46      CALL_METHOD                     2
+                        48      LOAD_METHOD                     3: lower
+                        50      CALL_METHOD                     0
+                        52      LOAD_FAST                       2: date_time
+                        54      LOAD_CONST                      6: 1
+                        56      STORE_SUBSCR                    
+                        58      LOAD_GLOBAL                     0: time
+                        60      LOAD_METHOD                     2: strftime
+                        62      LOAD_CONST                      7: '%X'
+                        64      LOAD_FAST                       1: time_tuple
+                        66      CALL_METHOD                     2
+                        68      LOAD_METHOD                     3: lower
+                        70      CALL_METHOD                     0
+                        72      LOAD_FAST                       2: date_time
+                        74      LOAD_CONST                      8: 2
+                        76      STORE_SUBSCR                    
+                        78      LOAD_CONST                      9: ('%', '%%')
+                        80      LOAD_FAST                       0: self
+                        82      LOAD_ATTR                       4: f_weekday
+                        84      LOAD_CONST                      8: 2
+                        86      BINARY_SUBSCR                   
+                        88      LOAD_CONST                      10: '%A'
+                        90      BUILD_TUPLE                     2
+                        92      LOAD_FAST                       0: self
+                        94      LOAD_ATTR                       5: f_month
+                        96      LOAD_CONST                      11: 3
+                        98      BINARY_SUBSCR                   
+                        100     LOAD_CONST                      12: '%B'
+                        102     BUILD_TUPLE                     2
+                        104     LOAD_FAST                       0: self
+                        106     LOAD_ATTR                       6: a_weekday
+                        108     LOAD_CONST                      8: 2
+                        110     BINARY_SUBSCR                   
+                        112     LOAD_CONST                      13: '%a'
+                        114     BUILD_TUPLE                     2
+                        116     LOAD_FAST                       0: self
+                        118     LOAD_ATTR                       7: a_month
+                        120     LOAD_CONST                      11: 3
+                        122     BINARY_SUBSCR                   
+                        124     LOAD_CONST                      14: '%b'
+                        126     BUILD_TUPLE                     2
+                        128     LOAD_FAST                       0: self
+                        130     LOAD_ATTR                       8: am_pm
+                        132     LOAD_CONST                      6: 1
+                        134     BINARY_SUBSCR                   
+                        136     LOAD_CONST                      15: '%p'
+                        138     BUILD_TUPLE                     2
+                        140     LOAD_CONST                      16: ('1999', '%Y')
+                        142     LOAD_CONST                      17: ('99', '%y')
+                        144     LOAD_CONST                      18: ('22', '%H')
+                        146     LOAD_CONST                      19: ('44', '%M')
+                        148     LOAD_CONST                      20: ('55', '%S')
+                        150     LOAD_CONST                      21: ('76', '%j')
+                        152     LOAD_CONST                      22: ('17', '%d')
+                        154     LOAD_CONST                      23: ('03', '%m')
+                        156     LOAD_CONST                      24: ('3', '%m')
+                        158     LOAD_CONST                      25: ('2', '%w')
+                        160     LOAD_CONST                      26: ('10', '%I')
+                        162     BUILD_LIST                      17
+                        164     STORE_FAST                      3: replacement_pairs
+                        166     LOAD_FAST                       3: replacement_pairs
+                        168     LOAD_METHOD                     9: extend
+                        170     LOAD_CONST                      27: <CODE> <listcomp>
+                        172     LOAD_CONST                      28: 'LocaleTime.__calc_date_time.<locals>.<listcomp>'
+                        174     MAKE_FUNCTION                   0
+                        176     LOAD_FAST                       0: self
+                        178     LOAD_ATTR                       10: timezone
+                        180     GET_ITER                        
+                        182     CALL_FUNCTION                   1
+                        184     CALL_METHOD                     1
+                        186     POP_TOP                         
+                        188     LOAD_CONST                      29: ((0, '%c'), (1, '%x'), (2, '%X'))
+                        190     GET_ITER                        
+                        192     FOR_ITER                        49 (to 292)
+                        194     UNPACK_SEQUENCE                 2
+                        196     STORE_FAST                      4: offset
+                        198     STORE_FAST                      5: directive
+                        200     LOAD_FAST                       2: date_time
+                        202     LOAD_FAST                       4: offset
+                        204     BINARY_SUBSCR                   
+                        206     STORE_FAST                      6: current_format
+                        208     LOAD_FAST                       3: replacement_pairs
+                        210     GET_ITER                        
+                        212     FOR_ITER                        12 (to 238)
+                        214     UNPACK_SEQUENCE                 2
+                        216     STORE_FAST                      7: old
+                        218     STORE_FAST                      8: new
+                        220     LOAD_FAST                       7: old
+                        222     POP_JUMP_IF_FALSE               118 (to 236)
+                        224     LOAD_FAST                       6: current_format
+                        226     LOAD_METHOD                     11: replace
+                        228     LOAD_FAST                       7: old
+                        230     LOAD_FAST                       8: new
+                        232     CALL_METHOD                     2
+                        234     STORE_FAST                      6: current_format
+                        236     JUMP_ABSOLUTE                   106 (to 212)
+                        238     LOAD_GLOBAL                     0: time
+                        240     LOAD_METHOD                     1: struct_time
+                        242     LOAD_CONST                      30: (1999, 1, 3, 1, 1, 1, 6, 3, 0)
+                        244     CALL_METHOD                     1
+                        246     STORE_FAST                      1: time_tuple
+                        248     LOAD_CONST                      31: '00'
+                        250     LOAD_GLOBAL                     0: time
+                        252     LOAD_METHOD                     2: strftime
+                        254     LOAD_FAST                       5: directive
+                        256     LOAD_FAST                       1: time_tuple
+                        258     CALL_METHOD                     2
+                        260     CONTAINS_OP                     0 (in)
+                        262     POP_JUMP_IF_FALSE               135 (to 270)
+                        264     LOAD_CONST                      32: '%W'
+                        266     STORE_FAST                      9: U_W
+                        268     JUMP_FORWARD                    2 (to 274)
+                        270     LOAD_CONST                      33: '%U'
+                        272     STORE_FAST                      9: U_W
+                        274     LOAD_FAST                       6: current_format
+                        276     LOAD_METHOD                     11: replace
+                        278     LOAD_CONST                      34: '11'
+                        280     LOAD_FAST                       9: U_W
+                        282     CALL_METHOD                     2
+                        284     LOAD_FAST                       2: date_time
+                        286     LOAD_FAST                       4: offset
+                        288     STORE_SUBSCR                    
+                        290     JUMP_ABSOLUTE                   96 (to 192)
+                        292     LOAD_FAST                       2: date_time
+                        294     LOAD_CONST                      4: 0
+                        296     BINARY_SUBSCR                   
+                        298     LOAD_FAST                       0: self
+                        300     STORE_ATTR                      12: LC_date_time
+                        302     LOAD_FAST                       2: date_time
+                        304     LOAD_CONST                      6: 1
+                        306     BINARY_SUBSCR                   
+                        308     LOAD_FAST                       0: self
+                        310     STORE_ATTR                      13: LC_date
+                        312     LOAD_FAST                       2: date_time
+                        314     LOAD_CONST                      8: 2
+                        316     BINARY_SUBSCR                   
+                        318     LOAD_FAST                       0: self
+                        320     STORE_ATTR                      14: LC_time
+                        322     LOAD_CONST                      0: None
+                        324     RETURN_VALUE                    
+                'LocaleTime.__calc_date_time'
+                [Code]
+                    File Name: _strptime.py
+                    Object Name: __calc_timezone
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'time'
+                        'tzset'
+                        'AttributeError'
+                        'tzname'
+                        'daylight'
+                        'frozenset'
+                        'lower'
+                        'timezone'
+                    [Var Names]
+                        'self'
+                        'no_saving'
+                        'has_saving'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'utc'
+                        'gmt'
+                        0
+                        1
+                    [Disassembly]
+                        0       SETUP_FINALLY                   6 (to 14)
+                        2       LOAD_GLOBAL                     0: time
+                        4       LOAD_METHOD                     1: tzset
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      POP_BLOCK                       
+                        12      JUMP_FORWARD                    9 (to 32)
+                        14      DUP_TOP                         
+                        16      LOAD_GLOBAL                     2: AttributeError
+                        18      JUMP_IF_NOT_EXC_MATCH           15 (to 30)
+                        20      POP_TOP                         
+                        22      POP_TOP                         
+                        24      POP_TOP                         
+                        26      POP_EXCEPT                      
+                        28      JUMP_FORWARD                    1 (to 32)
+                        30      RERAISE                         0
+                        32      LOAD_GLOBAL                     0: time
+                        34      LOAD_ATTR                       3: tzname
+                        36      LOAD_FAST                       0: self
+                        38      STORE_ATTR                      3: tzname
+                        40      LOAD_GLOBAL                     0: time
+                        42      LOAD_ATTR                       4: daylight
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      4: daylight
+                        48      LOAD_GLOBAL                     5: frozenset
+                        50      LOAD_CONST                      1: 'utc'
+                        52      LOAD_CONST                      2: 'gmt'
+                        54      LOAD_FAST                       0: self
+                        56      LOAD_ATTR                       3: tzname
+                        58      LOAD_CONST                      3: 0
+                        60      BINARY_SUBSCR                   
+                        62      LOAD_METHOD                     6: lower
+                        64      CALL_METHOD                     0
+                        66      BUILD_SET                       3
+                        68      CALL_FUNCTION                   1
+                        70      STORE_FAST                      1: no_saving
+                        72      LOAD_FAST                       0: self
+                        74      LOAD_ATTR                       4: daylight
+                        76      POP_JUMP_IF_FALSE               50 (to 100)
+                        78      LOAD_GLOBAL                     5: frozenset
+                        80      LOAD_FAST                       0: self
+                        82      LOAD_ATTR                       3: tzname
+                        84      LOAD_CONST                      4: 1
+                        86      BINARY_SUBSCR                   
+                        88      LOAD_METHOD                     6: lower
+                        90      CALL_METHOD                     0
+                        92      BUILD_SET                       1
+                        94      CALL_FUNCTION                   1
+                        96      STORE_FAST                      2: has_saving
+                        98      JUMP_FORWARD                    3 (to 106)
+                        100     LOAD_GLOBAL                     5: frozenset
+                        102     CALL_FUNCTION                   0
+                        104     STORE_FAST                      2: has_saving
+                        106     LOAD_FAST                       1: no_saving
+                        108     LOAD_FAST                       2: has_saving
+                        110     BUILD_TUPLE                     2
+                        112     LOAD_FAST                       0: self
+                        114     STORE_ATTR                      7: timezone
+                        116     LOAD_CONST                      0: None
+                        118     RETURN_VALUE                    
+                'LocaleTime.__calc_timezone'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'LocaleTime'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Stores and handles locale-specific information related to time.\n\n    ATTRIBUTES:\n        f_weekday -- full weekday names (7-item list)\n        a_weekday -- abbreviated weekday names (7-item list)\n        f_month -- full month names (13-item list; dummy value in [0], which\n                    is added by code)\n        a_month -- abbreviated month names (13-item list, dummy value in\n                    [0], which is added by code)\n        am_pm -- AM/PM representation (2-item list)\n        LC_date_time -- format string for date/time representation (string)\n        LC_date -- format string for date representation (string)\n        LC_time -- format string for time representation (string)\n        timezone -- daylight- and non-daylight-savings timezone representation\n                    (2-item list of sets)\n        lang -- Language used by instance (2-item tuple)\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> __init__
+                14      LOAD_CONST                      3: 'LocaleTime.__init__'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: __init__
+                20      LOAD_CONST                      4: <CODE> __calc_weekday
+                22      LOAD_CONST                      5: 'LocaleTime.__calc_weekday'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: _LocaleTime__calc_weekday
+                28      LOAD_CONST                      6: <CODE> __calc_month
+                30      LOAD_CONST                      7: 'LocaleTime.__calc_month'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      6: _LocaleTime__calc_month
+                36      LOAD_CONST                      8: <CODE> __calc_am_pm
+                38      LOAD_CONST                      9: 'LocaleTime.__calc_am_pm'
+                40      MAKE_FUNCTION                   0
+                42      STORE_NAME                      7: _LocaleTime__calc_am_pm
+                44      LOAD_CONST                      10: <CODE> __calc_date_time
+                46      LOAD_CONST                      11: 'LocaleTime.__calc_date_time'
+                48      MAKE_FUNCTION                   0
+                50      STORE_NAME                      8: _LocaleTime__calc_date_time
+                52      LOAD_CONST                      12: <CODE> __calc_timezone
+                54      LOAD_CONST                      13: 'LocaleTime.__calc_timezone'
+                56      MAKE_FUNCTION                   0
+                58      STORE_NAME                      9: _LocaleTime__calc_timezone
+                60      LOAD_CONST                      14: None
+                62      RETURN_VALUE                    
+        'LocaleTime'
+        [Code]
+            File Name: _strptime.py
+            Object Name: TimeRE
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                '_TimeRE__seqToRE'
+                'pattern'
+                'compile'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'TimeRE'
+                'Handle conversion from format directives to regexes.'
+                None
+                [Code]
+                    File Name: _strptime.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 11
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'locale_time'
+                        'LocaleTime'
+                        'super'
+                        '__init__'
+                        '_TimeRE__seqToRE'
+                        'f_weekday'
+                        'a_weekday'
+                        'f_month'
+                        'a_month'
+                        'am_pm'
+                        'timezone'
+                        '__setitem__'
+                        '__getitem__'
+                        'replace'
+                        'pattern'
+                        'LC_date_time'
+                        'LC_date'
+                        'LC_time'
+                    [Var Names]
+                        'self'
+                        'locale_time'
+                        'base'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        'Create keys/values.\n\n        Order of execution is important for dependency reasons.\n\n        '
+                        'd'
+                        '(?P<d>3[0-1]|[1-2]\\d|0[1-9]|[1-9]| [1-9])'
+                        'f'
+                        '(?P<f>[0-9]{1,6})'
+                        'H'
+                        '(?P<H>2[0-3]|[0-1]\\d|\\d)'
+                        'I'
+                        '(?P<I>1[0-2]|0[1-9]|[1-9])'
+                        'G'
+                        '(?P<G>\\d\\d\\d\\d)'
+                        'j'
+                        '(?P<j>36[0-6]|3[0-5]\\d|[1-2]\\d\\d|0[1-9]\\d|00[1-9]|[1-9]\\d|0[1-9]|[1-9])'
+                        'm'
+                        '(?P<m>1[0-2]|0[1-9]|[1-9])'
+                        'M'
+                        '(?P<M>[0-5]\\d|\\d)'
+                        'S'
+                        '(?P<S>6[0-1]|[0-5]\\d|\\d)'
+                        'U'
+                        '(?P<U>5[0-3]|[0-4]\\d|\\d)'
+                        'w'
+                        '(?P<w>[0-6])'
+                        'u'
+                        '(?P<u>[1-7])'
+                        'V'
+                        '(?P<V>5[0-3]|0[1-9]|[1-4]\\d|\\d)'
+                        'y'
+                        '(?P<y>\\d\\d)'
+                        'Y'
+                        '(?P<Y>\\d\\d\\d\\d)'
+                        'z'
+                        '(?P<z>[+-]\\d\\d:?[0-5]\\d(:?[0-5]\\d(\\.\\d{1,6})?)?|(?-i:Z))'
+                        'A'
+                        'a'
+                        1
+                        None
+                        'B'
+                        'b'
+                        'p'
+                        [Code]
+                            File Name: _strptime.py
+                            Object Name: <genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 3
+                            Stack Size: 3
+                            Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                            [Names]
+                            [Var Names]
+                                '.0'
+                                'tz_names'
+                                'tz'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       GEN_START                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        10 (to 26)
+                                6       STORE_FAST                      1: tz_names
+                                8       LOAD_FAST                       1: tz_names
+                                10      GET_ITER                        
+                                12      FOR_ITER                        5 (to 24)
+                                14      STORE_FAST                      2: tz
+                                16      LOAD_FAST                       2: tz
+                                18      YIELD_VALUE                     
+                                20      POP_TOP                         
+                                22      JUMP_ABSOLUTE                   6 (to 12)
+                                24      JUMP_ABSOLUTE                   2 (to 4)
+                                26      LOAD_CONST                      0: None
+                                28      RETURN_VALUE                    
+                        'TimeRE.__init__.<locals>.<genexpr>'
+                        'Z'
+                        '%'
+                        (
+                            'a'
+                            'B'
+                            'b'
+                            'p'
+                            'Z'
+                            '%'
+                        )
+                        'W'
+                        'c'
+                        'x'
+                        'X'
+                    [Disassembly]
+                        0       LOAD_FAST                       1: locale_time
+                        2       POP_JUMP_IF_FALSE               6 (to 12)
+                        4       LOAD_FAST                       1: locale_time
+                        6       LOAD_FAST                       0: self
+                        8       STORE_ATTR                      0: locale_time
+                        10      JUMP_FORWARD                    4 (to 20)
+                        12      LOAD_GLOBAL                     1: LocaleTime
+                        14      CALL_FUNCTION                   0
+                        16      LOAD_FAST                       0: self
+                        18      STORE_ATTR                      0: locale_time
+                        20      LOAD_GLOBAL                     2: super
+                        22      CALL_FUNCTION                   0
+                        24      STORE_FAST                      2: base
+                        26      LOAD_FAST                       2: base
+                        28      LOAD_METHOD                     3: __init__
+                        30      BUILD_MAP                       0
+                        32      LOAD_CONST                      1: 'd'
+                        34      LOAD_CONST                      2: '(?P<d>3[0-1]|[1-2]\\d|0[1-9]|[1-9]| [1-9])'
+                        36      MAP_ADD                         1
+                        38      LOAD_CONST                      3: 'f'
+                        40      LOAD_CONST                      4: '(?P<f>[0-9]{1,6})'
+                        42      MAP_ADD                         1
+                        44      LOAD_CONST                      5: 'H'
+                        46      LOAD_CONST                      6: '(?P<H>2[0-3]|[0-1]\\d|\\d)'
+                        48      MAP_ADD                         1
+                        50      LOAD_CONST                      7: 'I'
+                        52      LOAD_CONST                      8: '(?P<I>1[0-2]|0[1-9]|[1-9])'
+                        54      MAP_ADD                         1
+                        56      LOAD_CONST                      9: 'G'
+                        58      LOAD_CONST                      10: '(?P<G>\\d\\d\\d\\d)'
+                        60      MAP_ADD                         1
+                        62      LOAD_CONST                      11: 'j'
+                        64      LOAD_CONST                      12: '(?P<j>36[0-6]|3[0-5]\\d|[1-2]\\d\\d|0[1-9]\\d|00[1-9]|[1-9]\\d|0[1-9]|[1-9])'
+                        66      MAP_ADD                         1
+                        68      LOAD_CONST                      13: 'm'
+                        70      LOAD_CONST                      14: '(?P<m>1[0-2]|0[1-9]|[1-9])'
+                        72      MAP_ADD                         1
+                        74      LOAD_CONST                      15: 'M'
+                        76      LOAD_CONST                      16: '(?P<M>[0-5]\\d|\\d)'
+                        78      MAP_ADD                         1
+                        80      LOAD_CONST                      17: 'S'
+                        82      LOAD_CONST                      18: '(?P<S>6[0-1]|[0-5]\\d|\\d)'
+                        84      MAP_ADD                         1
+                        86      LOAD_CONST                      19: 'U'
+                        88      LOAD_CONST                      20: '(?P<U>5[0-3]|[0-4]\\d|\\d)'
+                        90      MAP_ADD                         1
+                        92      LOAD_CONST                      21: 'w'
+                        94      LOAD_CONST                      22: '(?P<w>[0-6])'
+                        96      MAP_ADD                         1
+                        98      LOAD_CONST                      23: 'u'
+                        100     LOAD_CONST                      24: '(?P<u>[1-7])'
+                        102     MAP_ADD                         1
+                        104     LOAD_CONST                      25: 'V'
+                        106     LOAD_CONST                      26: '(?P<V>5[0-3]|0[1-9]|[1-4]\\d|\\d)'
+                        108     MAP_ADD                         1
+                        110     LOAD_CONST                      27: 'y'
+                        112     LOAD_CONST                      28: '(?P<y>\\d\\d)'
+                        114     MAP_ADD                         1
+                        116     LOAD_CONST                      29: 'Y'
+                        118     LOAD_CONST                      30: '(?P<Y>\\d\\d\\d\\d)'
+                        120     MAP_ADD                         1
+                        122     LOAD_CONST                      31: 'z'
+                        124     LOAD_CONST                      32: '(?P<z>[+-]\\d\\d:?[0-5]\\d(:?[0-5]\\d(\\.\\d{1,6})?)?|(?-i:Z))'
+                        126     MAP_ADD                         1
+                        128     LOAD_CONST                      33: 'A'
+                        130     LOAD_FAST                       0: self
+                        132     LOAD_METHOD                     4: _TimeRE__seqToRE
+                        134     LOAD_FAST                       0: self
+                        136     LOAD_ATTR                       0: locale_time
+                        138     LOAD_ATTR                       5: f_weekday
+                        140     LOAD_CONST                      33: 'A'
+                        142     CALL_METHOD                     2
+                        144     MAP_ADD                         1
+                        146     LOAD_FAST                       0: self
+                        148     LOAD_METHOD                     4: _TimeRE__seqToRE
+                        150     LOAD_FAST                       0: self
+                        152     LOAD_ATTR                       0: locale_time
+                        154     LOAD_ATTR                       6: a_weekday
+                        156     LOAD_CONST                      34: 'a'
+                        158     CALL_METHOD                     2
+                        160     LOAD_FAST                       0: self
+                        162     LOAD_METHOD                     4: _TimeRE__seqToRE
+                        164     LOAD_FAST                       0: self
+                        166     LOAD_ATTR                       0: locale_time
+                        168     LOAD_ATTR                       7: f_month
+                        170     LOAD_CONST                      35: 1
+                        172     LOAD_CONST                      36: None
+                        174     BUILD_SLICE                     2
+                        176     BINARY_SUBSCR                   
+                        178     LOAD_CONST                      37: 'B'
+                        180     CALL_METHOD                     2
+                        182     LOAD_FAST                       0: self
+                        184     LOAD_METHOD                     4: _TimeRE__seqToRE
+                        186     LOAD_FAST                       0: self
+                        188     LOAD_ATTR                       0: locale_time
+                        190     LOAD_ATTR                       8: a_month
+                        192     LOAD_CONST                      35: 1
+                        194     LOAD_CONST                      36: None
+                        196     BUILD_SLICE                     2
+                        198     BINARY_SUBSCR                   
+                        200     LOAD_CONST                      38: 'b'
+                        202     CALL_METHOD                     2
+                        204     LOAD_FAST                       0: self
+                        206     LOAD_METHOD                     4: _TimeRE__seqToRE
+                        208     LOAD_FAST                       0: self
+                        210     LOAD_ATTR                       0: locale_time
+                        212     LOAD_ATTR                       9: am_pm
+                        214     LOAD_CONST                      39: 'p'
+                        216     CALL_METHOD                     2
+                        218     LOAD_FAST                       0: self
+                        220     LOAD_METHOD                     4: _TimeRE__seqToRE
+                        222     LOAD_CONST                      40: <CODE> <genexpr>
+                        224     LOAD_CONST                      41: 'TimeRE.__init__.<locals>.<genexpr>'
+                        226     MAKE_FUNCTION                   0
+                        228     LOAD_FAST                       0: self
+                        230     LOAD_ATTR                       0: locale_time
+                        232     LOAD_ATTR                       10: timezone
+                        234     GET_ITER                        
+                        236     CALL_FUNCTION                   1
+                        238     LOAD_CONST                      42: 'Z'
+                        240     CALL_METHOD                     2
+                        242     LOAD_CONST                      43: '%'
+                        244     LOAD_CONST                      44: ('a', 'B', 'b', 'p', 'Z', '%')
+                        246     BUILD_CONST_KEY_MAP             6
+                        248     DICT_UPDATE                     1
+                        250     CALL_METHOD                     1
+                        252     POP_TOP                         
+                        254     LOAD_FAST                       2: base
+                        256     LOAD_METHOD                     11: __setitem__
+                        258     LOAD_CONST                      45: 'W'
+                        260     LOAD_FAST                       2: base
+                        262     LOAD_METHOD                     12: __getitem__
+                        264     LOAD_CONST                      19: 'U'
+                        266     CALL_METHOD                     1
+                        268     LOAD_METHOD                     13: replace
+                        270     LOAD_CONST                      19: 'U'
+                        272     LOAD_CONST                      45: 'W'
+                        274     CALL_METHOD                     2
+                        276     CALL_METHOD                     2
+                        278     POP_TOP                         
+                        280     LOAD_FAST                       2: base
+                        282     LOAD_METHOD                     11: __setitem__
+                        284     LOAD_CONST                      46: 'c'
+                        286     LOAD_FAST                       0: self
+                        288     LOAD_METHOD                     14: pattern
+                        290     LOAD_FAST                       0: self
+                        292     LOAD_ATTR                       0: locale_time
+                        294     LOAD_ATTR                       15: LC_date_time
+                        296     CALL_METHOD                     1
+                        298     CALL_METHOD                     2
+                        300     POP_TOP                         
+                        302     LOAD_FAST                       2: base
+                        304     LOAD_METHOD                     11: __setitem__
+                        306     LOAD_CONST                      47: 'x'
+                        308     LOAD_FAST                       0: self
+                        310     LOAD_METHOD                     14: pattern
+                        312     LOAD_FAST                       0: self
+                        314     LOAD_ATTR                       0: locale_time
+                        316     LOAD_ATTR                       16: LC_date
+                        318     CALL_METHOD                     1
+                        320     CALL_METHOD                     2
+                        322     POP_TOP                         
+                        324     LOAD_FAST                       2: base
+                        326     LOAD_METHOD                     11: __setitem__
+                        328     LOAD_CONST                      48: 'X'
+                        330     LOAD_FAST                       0: self
+                        332     LOAD_METHOD                     14: pattern
+                        334     LOAD_FAST                       0: self
+                        336     LOAD_ATTR                       0: locale_time
+                        338     LOAD_ATTR                       17: LC_time
+                        340     CALL_METHOD                     1
+                        342     CALL_METHOD                     2
+                        344     POP_TOP                         
+                        346     LOAD_CONST                      36: None
+                        348     RETURN_VALUE                    
+                'TimeRE.__init__'
+                [Code]
+                    File Name: _strptime.py
+                    Object Name: __seqToRE
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'sorted'
+                        'len'
+                        'join'
+                    [Var Names]
+                        'self'
+                        'to_convert'
+                        'directive'
+                        'value'
+                        'regex'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Convert a list to a regex string for matching a directive.\n\n        Want possible matching values to be from longest to shortest.  This\n        prevents the possibility of a match occurring for a value that also\n        a substring of a larger value that should have matched (e.g., 'abc'\n        matching when 'abcdef' should have been the match).\n\n        "
+                        True
+                        (
+                            'key'
+                            'reverse'
+                        )
+                        ''
+                        '|'
+                        [Code]
+                            File Name: _strptime.py
+                            Object Name: <genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 3
+                            Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                            [Names]
+                                're_escape'
+                            [Var Names]
+                                '.0'
+                                'stuff'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       GEN_START                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        7 (to 20)
+                                6       STORE_FAST                      1: stuff
+                                8       LOAD_GLOBAL                     0: re_escape
+                                10      LOAD_FAST                       1: stuff
+                                12      CALL_FUNCTION                   1
+                                14      YIELD_VALUE                     
+                                16      POP_TOP                         
+                                18      JUMP_ABSOLUTE                   2 (to 4)
+                                20      LOAD_CONST                      0: None
+                                22      RETURN_VALUE                    
+                        'TimeRE.__seqToRE.<locals>.<genexpr>'
+                        '(?P<%s>%s'
+                        '%s)'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: sorted
+                        2       LOAD_FAST                       1: to_convert
+                        4       LOAD_GLOBAL                     1: len
+                        6       LOAD_CONST                      1: True
+                        8       LOAD_CONST                      2: ('key', 'reverse')
+                        10      CALL_FUNCTION_KW                3
+                        12      STORE_FAST                      1: to_convert
+                        14      LOAD_FAST                       1: to_convert
+                        16      GET_ITER                        
+                        18      FOR_ITER                        8 (to 36)
+                        20      STORE_FAST                      3: value
+                        22      LOAD_FAST                       3: value
+                        24      LOAD_CONST                      3: ''
+                        26      COMPARE_OP                      3 (!=)
+                        28      POP_JUMP_IF_FALSE               17 (to 34)
+                        30      POP_TOP                         
+                        32      JUMP_FORWARD                    3 (to 40)
+                        34      JUMP_ABSOLUTE                   9 (to 18)
+                        36      LOAD_CONST                      3: ''
+                        38      RETURN_VALUE                    
+                        40      LOAD_CONST                      4: '|'
+                        42      LOAD_METHOD                     2: join
+                        44      LOAD_CONST                      5: <CODE> <genexpr>
+                        46      LOAD_CONST                      6: 'TimeRE.__seqToRE.<locals>.<genexpr>'
+                        48      MAKE_FUNCTION                   0
+                        50      LOAD_FAST                       1: to_convert
+                        52      GET_ITER                        
+                        54      CALL_FUNCTION                   1
+                        56      CALL_METHOD                     1
+                        58      STORE_FAST                      4: regex
+                        60      LOAD_CONST                      7: '(?P<%s>%s'
+                        62      LOAD_FAST                       2: directive
+                        64      LOAD_FAST                       4: regex
+                        66      BUILD_TUPLE                     2
+                        68      BINARY_MODULO                   
+                        70      STORE_FAST                      4: regex
+                        72      LOAD_CONST                      8: '%s)'
+                        74      LOAD_FAST                       4: regex
+                        76      BINARY_MODULO                   
+                        78      RETURN_VALUE                    
+                'TimeRE.__seqToRE'
+                [Code]
+                    File Name: _strptime.py
+                    Object Name: pattern
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        're_compile'
+                        'sub'
+                        'index'
+                    [Var Names]
+                        'self'
+                        'format'
+                        'processed_format'
+                        'regex_chars'
+                        'whitespace_replacement'
+                        'directive_index'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return regex pattern for the format string.\n\n        Need to make sure that any characters that might be interpreted as\n        regex syntax are escaped.\n\n        '
+                        ''
+                        '([\\\\.^$*+?\\(\\){}\\[\\]|])'
+                        '\\\\\\1'
+                        '\\s+'
+                        '\\\\s+'
+                        '%'
+                        1
+                        '%s%s%s'
+                        None
+                        '%s%s'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: ''
+                        2       STORE_FAST                      2: processed_format
+                        4       LOAD_GLOBAL                     0: re_compile
+                        6       LOAD_CONST                      2: '([\\\\.^$*+?\\(\\){}\\[\\]|])'
+                        8       CALL_FUNCTION                   1
+                        10      STORE_FAST                      3: regex_chars
+                        12      LOAD_FAST                       3: regex_chars
+                        14      LOAD_METHOD                     1: sub
+                        16      LOAD_CONST                      3: '\\\\\\1'
+                        18      LOAD_FAST                       1: format
+                        20      CALL_METHOD                     2
+                        22      STORE_FAST                      1: format
+                        24      LOAD_GLOBAL                     0: re_compile
+                        26      LOAD_CONST                      4: '\\s+'
+                        28      CALL_FUNCTION                   1
+                        30      STORE_FAST                      4: whitespace_replacement
+                        32      LOAD_FAST                       4: whitespace_replacement
+                        34      LOAD_METHOD                     1: sub
+                        36      LOAD_CONST                      5: '\\\\s+'
+                        38      LOAD_FAST                       1: format
+                        40      CALL_METHOD                     2
+                        42      STORE_FAST                      1: format
+                        44      LOAD_CONST                      6: '%'
+                        46      LOAD_FAST                       1: format
+                        48      CONTAINS_OP                     0 (in)
+                        50      POP_JUMP_IF_FALSE               62 (to 124)
+                        52      LOAD_FAST                       1: format
+                        54      LOAD_METHOD                     2: index
+                        56      LOAD_CONST                      6: '%'
+                        58      CALL_METHOD                     1
+                        60      LOAD_CONST                      7: 1
+                        62      BINARY_ADD                      
+                        64      STORE_FAST                      5: directive_index
+                        66      LOAD_CONST                      8: '%s%s%s'
+                        68      LOAD_FAST                       2: processed_format
+                        70      LOAD_FAST                       1: format
+                        72      LOAD_CONST                      9: None
+                        74      LOAD_FAST                       5: directive_index
+                        76      LOAD_CONST                      7: 1
+                        78      BINARY_SUBTRACT                 
+                        80      BUILD_SLICE                     2
+                        82      BINARY_SUBSCR                   
+                        84      LOAD_FAST                       0: self
+                        86      LOAD_FAST                       1: format
+                        88      LOAD_FAST                       5: directive_index
+                        90      BINARY_SUBSCR                   
+                        92      BINARY_SUBSCR                   
+                        94      BUILD_TUPLE                     3
+                        96      BINARY_MODULO                   
+                        98      STORE_FAST                      2: processed_format
+                        100     LOAD_FAST                       1: format
+                        102     LOAD_FAST                       5: directive_index
+                        104     LOAD_CONST                      7: 1
+                        106     BINARY_ADD                      
+                        108     LOAD_CONST                      9: None
+                        110     BUILD_SLICE                     2
+                        112     BINARY_SUBSCR                   
+                        114     STORE_FAST                      1: format
+                        116     LOAD_CONST                      6: '%'
+                        118     LOAD_FAST                       1: format
+                        120     CONTAINS_OP                     0 (in)
+                        122     POP_JUMP_IF_TRUE                26 (to 52)
+                        124     LOAD_CONST                      10: '%s%s'
+                        126     LOAD_FAST                       2: processed_format
+                        128     LOAD_FAST                       1: format
+                        130     BUILD_TUPLE                     2
+                        132     BINARY_MODULO                   
+                        134     RETURN_VALUE                    
+                'TimeRE.pattern'
+                [Code]
+                    File Name: _strptime.py
+                    Object Name: compile
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        're_compile'
+                        'pattern'
+                        'IGNORECASE'
+                    [Var Names]
+                        'self'
+                        'format'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return a compiled re object for the format string.'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: re_compile
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_METHOD                     1: pattern
+                        6       LOAD_FAST                       1: format
+                        8       CALL_METHOD                     1
+                        10      LOAD_GLOBAL                     2: IGNORECASE
+                        12      CALL_FUNCTION                   2
+                        14      RETURN_VALUE                    
+                'TimeRE.compile'
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'TimeRE'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Handle conversion from format directives to regexes.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      11: (None,)
+                14      LOAD_CLOSURE                    0: __class__
+                16      BUILD_TUPLE                     1
+                18      LOAD_CONST                      3: <CODE> __init__
+                20      LOAD_CONST                      4: 'TimeRE.__init__'
+                22      MAKE_FUNCTION                   9
+                24      STORE_NAME                      4: __init__
+                26      LOAD_CONST                      5: <CODE> __seqToRE
+                28      LOAD_CONST                      6: 'TimeRE.__seqToRE'
+                30      MAKE_FUNCTION                   0
+                32      STORE_NAME                      5: _TimeRE__seqToRE
+                34      LOAD_CONST                      7: <CODE> pattern
+                36      LOAD_CONST                      8: 'TimeRE.pattern'
+                38      MAKE_FUNCTION                   0
+                40      STORE_NAME                      6: pattern
+                42      LOAD_CONST                      9: <CODE> compile
+                44      LOAD_CONST                      10: 'TimeRE.compile'
+                46      MAKE_FUNCTION                   0
+                48      STORE_NAME                      7: compile
+                50      LOAD_CLOSURE                    0: __class__
+                52      DUP_TOP                         
+                54      STORE_NAME                      8: __classcell__
+                56      RETURN_VALUE                    
+        'TimeRE'
+        5
+        [Code]
+            File Name: _strptime.py
+            Object Name: _calc_julian_from_U_or_W
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 7
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'datetime_date'
+                'weekday'
+            [Var Names]
+                'year'
+                'week_of_year'
+                'day_of_week'
+                'week_starts_Mon'
+                'first_weekday'
+                'week_0_length'
+                'days_to_week'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Calculate the Julian day based on the year, week of the year, and day of\n    the week, with week_start_day representing whether the week of the year\n    assumes the week starts on Sunday or Monday (6 or 0).'
+                1
+                7
+                0
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: datetime_date
+                2       LOAD_FAST                       0: year
+                4       LOAD_CONST                      1: 1
+                6       LOAD_CONST                      1: 1
+                8       CALL_FUNCTION                   3
+                10      LOAD_METHOD                     1: weekday
+                12      CALL_METHOD                     0
+                14      STORE_FAST                      4: first_weekday
+                16      LOAD_FAST                       3: week_starts_Mon
+                18      POP_JUMP_IF_TRUE                22 (to 44)
+                20      LOAD_FAST                       4: first_weekday
+                22      LOAD_CONST                      1: 1
+                24      BINARY_ADD                      
+                26      LOAD_CONST                      2: 7
+                28      BINARY_MODULO                   
+                30      STORE_FAST                      4: first_weekday
+                32      LOAD_FAST                       2: day_of_week
+                34      LOAD_CONST                      1: 1
+                36      BINARY_ADD                      
+                38      LOAD_CONST                      2: 7
+                40      BINARY_MODULO                   
+                42      STORE_FAST                      2: day_of_week
+                44      LOAD_CONST                      2: 7
+                46      LOAD_FAST                       4: first_weekday
+                48      BINARY_SUBTRACT                 
+                50      LOAD_CONST                      2: 7
+                52      BINARY_MODULO                   
+                54      STORE_FAST                      5: week_0_length
+                56      LOAD_FAST                       1: week_of_year
+                58      LOAD_CONST                      3: 0
+                60      COMPARE_OP                      2 (==)
+                62      POP_JUMP_IF_FALSE               38 (to 76)
+                64      LOAD_CONST                      1: 1
+                66      LOAD_FAST                       2: day_of_week
+                68      BINARY_ADD                      
+                70      LOAD_FAST                       4: first_weekday
+                72      BINARY_SUBTRACT                 
+                74      RETURN_VALUE                    
+                76      LOAD_FAST                       5: week_0_length
+                78      LOAD_CONST                      2: 7
+                80      LOAD_FAST                       1: week_of_year
+                82      LOAD_CONST                      1: 1
+                84      BINARY_SUBTRACT                 
+                86      BINARY_MULTIPLY                 
+                88      BINARY_ADD                      
+                90      STORE_FAST                      6: days_to_week
+                92      LOAD_CONST                      1: 1
+                94      LOAD_FAST                       6: days_to_week
+                96      BINARY_ADD                      
+                98      LOAD_FAST                       2: day_of_week
+                100     BINARY_ADD                      
+                102     RETURN_VALUE                    
+        '_calc_julian_from_U_or_W'
+        [Code]
+            File Name: _strptime.py
+            Object Name: _calc_julian_from_V
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'datetime_date'
+                'isoweekday'
+                'toordinal'
+            [Var Names]
+                'iso_year'
+                'iso_week'
+                'iso_weekday'
+                'correction'
+                'ordinal'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Calculate the Julian day based on the ISO 8601 year, week, and weekday.\n    ISO weeks start on Mondays, with week 01 being the week containing 4 Jan.\n    ISO week days range from 1 (Monday) to 7 (Sunday).\n    '
+                1
+                4
+                3
+                7
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: datetime_date
+                2       LOAD_FAST                       0: iso_year
+                4       LOAD_CONST                      1: 1
+                6       LOAD_CONST                      2: 4
+                8       CALL_FUNCTION                   3
+                10      LOAD_METHOD                     1: isoweekday
+                12      CALL_METHOD                     0
+                14      LOAD_CONST                      3: 3
+                16      BINARY_ADD                      
+                18      STORE_FAST                      3: correction
+                20      LOAD_FAST                       1: iso_week
+                22      LOAD_CONST                      4: 7
+                24      BINARY_MULTIPLY                 
+                26      LOAD_FAST                       2: iso_weekday
+                28      BINARY_ADD                      
+                30      LOAD_FAST                       3: correction
+                32      BINARY_SUBTRACT                 
+                34      STORE_FAST                      4: ordinal
+                36      LOAD_FAST                       4: ordinal
+                38      LOAD_CONST                      1: 1
+                40      COMPARE_OP                      0 (<)
+                42      POP_JUMP_IF_FALSE               46 (to 92)
+                44      LOAD_FAST                       4: ordinal
+                46      LOAD_GLOBAL                     0: datetime_date
+                48      LOAD_FAST                       0: iso_year
+                50      LOAD_CONST                      1: 1
+                52      LOAD_CONST                      1: 1
+                54      CALL_FUNCTION                   3
+                56      LOAD_METHOD                     2: toordinal
+                58      CALL_METHOD                     0
+                60      INPLACE_ADD                     
+                62      STORE_FAST                      4: ordinal
+                64      LOAD_FAST                       0: iso_year
+                66      LOAD_CONST                      1: 1
+                68      INPLACE_SUBTRACT                
+                70      STORE_FAST                      0: iso_year
+                72      LOAD_FAST                       4: ordinal
+                74      LOAD_GLOBAL                     0: datetime_date
+                76      LOAD_FAST                       0: iso_year
+                78      LOAD_CONST                      1: 1
+                80      LOAD_CONST                      1: 1
+                82      CALL_FUNCTION                   3
+                84      LOAD_METHOD                     2: toordinal
+                86      CALL_METHOD                     0
+                88      INPLACE_SUBTRACT                
+                90      STORE_FAST                      4: ordinal
+                92      LOAD_FAST                       0: iso_year
+                94      LOAD_FAST                       4: ordinal
+                96      BUILD_TUPLE                     2
+                98      RETURN_VALUE                    
+        '_calc_julian_from_V'
+        '%a %b %d %H:%M:%S %Y'
+        [Code]
+            File Name: _strptime.py
+            Object Name: _strptime
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 44
+            Stack Size: 11
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'enumerate'
+                'isinstance'
+                'str'
+                'TypeError'
+                'format'
+                'type'
+                '_cache_lock'
+                '_TimeRE_cache'
+                'locale_time'
+                '_getlang'
+                'lang'
+                'time'
+                'tzname'
+                'daylight'
+                'TimeRE'
+                '_regex_cache'
+                'clear'
+                'len'
+                '_CACHE_MAX_SIZE'
+                'get'
+                'compile'
+                'KeyError'
+                'args'
+                'ValueError'
+                'IndexError'
+                'match'
+                'end'
+                'groupdict'
+                'keys'
+                'int'
+                'f_month'
+                'index'
+                'lower'
+                'a_month'
+                'am_pm'
+                'f_weekday'
+                'a_weekday'
+                'startswith'
+                'timezone'
+                '_calc_julian_from_U_or_W'
+                '_calc_julian_from_V'
+                'calendar'
+                'isleap'
+                'datetime_date'
+                'toordinal'
+                'fromordinal'
+                'year'
+                'month'
+                'day'
+                'weekday'
+            [Var Names]
+                'data_string'
+                'format'
+                'index'
+                'arg'
+                'msg'
+                'locale_time'
+                'format_regex'
+                'err'
+                'bad_directive'
+                'found'
+                'iso_year'
+                'year'
+                'month'
+                'day'
+                'hour'
+                'minute'
+                'second'
+                'fraction'
+                'tz'
+                'gmtoff'
+                'gmtoff_fraction'
+                'iso_week'
+                'week_of_year'
+                'week_of_year_start'
+                'weekday'
+                'julian'
+                'found_dict'
+                'group_key'
+                'ampm'
+                's'
+                'z'
+                'hours'
+                'minutes'
+                'seconds'
+                'gmtoff_remainder'
+                'gmtoff_remainder_padding'
+                'found_zone'
+                'value'
+                'tz_values'
+                'leap_year_fix'
+                'week_starts_Mon'
+                'yday'
+                'datetime_result'
+                'tzname'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return a 2-tuple consisting of a time struct and an int containing\n    the number of microseconds based on the input string and the\n    format string.'
+                'strptime() argument {} must be str, not {}'
+                0
+                '\\'
+                '%'
+                "'%s' is a bad directive in format '%s'"
+                None
+                "stray %% in format '%s'"
+                'time data %r does not match format %r'
+                'unconverted data remains: %s'
+                1
+                -1
+                'y'
+                68
+                2000
+                1900
+                'Y'
+                'G'
+                'm'
+                'B'
+                'b'
+                'd'
+                'H'
+                'I'
+                'p'
+                ''
+                12
+                'M'
+                'S'
+                'f'
+                '0'
+                6
+                'A'
+                'a'
+                'w'
+                'u'
+                'j'
+                (
+                    'U'
+                    'W'
+                )
+                'U'
+                'V'
+                'z'
+                'Z'
+                3
+                ':'
+                4
+                5
+                'Inconsistent use of : in '
+                7
+                60
+                8
+                '-'
+                (
+                    'utc'
+                    'gmt'
+                )
+                "ISO year directive '%G' must be used with the ISO week directive '%V' and a weekday directive ('%A', '%a', '%w', or '%u')."
+                "Day of the year directive '%j' is not compatible with ISO year directive '%G'. Use '%Y' instead."
+                "ISO week directive '%V' must be used with the ISO year directive '%G' and a weekday directive ('%A', '%a', '%w', or '%u')."
+                "ISO week directive '%V' is incompatible with the year directive '%Y'. Use the ISO year '%G' instead."
+                False
+                2
+                29
+                1904
+                True
+                366
+                365
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: enumerate
+                2       LOAD_FAST                       0: data_string
+                4       LOAD_FAST                       1: format
+                6       BUILD_LIST                      2
+                8       CALL_FUNCTION                   1
+                10      GET_ITER                        
+                12      FOR_ITER                        21 (to 56)
+                14      UNPACK_SEQUENCE                 2
+                16      STORE_FAST                      2: index
+                18      STORE_FAST                      3: arg
+                20      LOAD_GLOBAL                     1: isinstance
+                22      LOAD_FAST                       3: arg
+                24      LOAD_GLOBAL                     2: str
+                26      CALL_FUNCTION                   2
+                28      POP_JUMP_IF_TRUE                27 (to 54)
+                30      LOAD_CONST                      1: 'strptime() argument {} must be str, not {}'
+                32      STORE_FAST                      4: msg
+                34      LOAD_GLOBAL                     3: TypeError
+                36      LOAD_FAST                       4: msg
+                38      LOAD_METHOD                     4: format
+                40      LOAD_FAST                       2: index
+                42      LOAD_GLOBAL                     5: type
+                44      LOAD_FAST                       3: arg
+                46      CALL_FUNCTION                   1
+                48      CALL_METHOD                     2
+                50      CALL_FUNCTION                   1
+                52      RAISE_VARARGS                   1
+                54      JUMP_ABSOLUTE                   6 (to 12)
+                56      LOAD_GLOBAL                     6: _cache_lock
+                58      SETUP_WITH                      114 (to 288)
+                60      POP_TOP                         
+                62      LOAD_GLOBAL                     7: _TimeRE_cache
+                64      LOAD_ATTR                       8: locale_time
+                66      STORE_FAST                      5: locale_time
+                68      LOAD_GLOBAL                     9: _getlang
+                70      CALL_FUNCTION                   0
+                72      LOAD_FAST                       5: locale_time
+                74      LOAD_ATTR                       10: lang
+                76      COMPARE_OP                      3 (!=)
+                78      POP_JUMP_IF_TRUE                52 (to 104)
+                80      LOAD_GLOBAL                     11: time
+                82      LOAD_ATTR                       12: tzname
+                84      LOAD_FAST                       5: locale_time
+                86      LOAD_ATTR                       12: tzname
+                88      COMPARE_OP                      3 (!=)
+                90      POP_JUMP_IF_TRUE                52 (to 104)
+                92      LOAD_GLOBAL                     11: time
+                94      LOAD_ATTR                       13: daylight
+                96      LOAD_FAST                       5: locale_time
+                98      LOAD_ATTR                       13: daylight
+                100     COMPARE_OP                      3 (!=)
+                102     POP_JUMP_IF_FALSE               62 (to 124)
+                104     LOAD_GLOBAL                     14: TimeRE
+                106     CALL_FUNCTION                   0
+                108     STORE_GLOBAL                    7: _TimeRE_cache
+                110     LOAD_GLOBAL                     15: _regex_cache
+                112     LOAD_METHOD                     16: clear
+                114     CALL_METHOD                     0
+                116     POP_TOP                         
+                118     LOAD_GLOBAL                     7: _TimeRE_cache
+                120     LOAD_ATTR                       8: locale_time
+                122     STORE_FAST                      5: locale_time
+                124     LOAD_GLOBAL                     17: len
+                126     LOAD_GLOBAL                     15: _regex_cache
+                128     CALL_FUNCTION                   1
+                130     LOAD_GLOBAL                     18: _CACHE_MAX_SIZE
+                132     COMPARE_OP                      4 (>)
+                134     POP_JUMP_IF_FALSE               72 (to 144)
+                136     LOAD_GLOBAL                     15: _regex_cache
+                138     LOAD_METHOD                     16: clear
+                140     CALL_METHOD                     0
+                142     POP_TOP                         
+                144     LOAD_GLOBAL                     15: _regex_cache
+                146     LOAD_METHOD                     19: get
+                148     LOAD_FAST                       1: format
+                150     CALL_METHOD                     1
+                152     STORE_FAST                      6: format_regex
+                154     LOAD_FAST                       6: format_regex
+                156     POP_JUMP_IF_TRUE                137 (to 274)
+                158     SETUP_FINALLY                   7 (to 174)
+                160     LOAD_GLOBAL                     7: _TimeRE_cache
+                162     LOAD_METHOD                     20: compile
+                164     LOAD_FAST                       1: format
+                166     CALL_METHOD                     1
+                168     STORE_FAST                      6: format_regex
+                170     POP_BLOCK                       
+                172     JUMP_FORWARD                    46 (to 266)
+                174     DUP_TOP                         
+                176     LOAD_GLOBAL                     21: KeyError
+                178     JUMP_IF_NOT_EXC_MATCH           119 (to 238)
+                180     POP_TOP                         
+                182     STORE_FAST                      7: err
+                184     POP_TOP                         
+                186     SETUP_FINALLY                   21 (to 230)
+                188     LOAD_FAST                       7: err
+                190     LOAD_ATTR                       22: args
+                192     LOAD_CONST                      2: 0
+                194     BINARY_SUBSCR                   
+                196     STORE_FAST                      8: bad_directive
+                198     LOAD_FAST                       8: bad_directive
+                200     LOAD_CONST                      3: '\\'
+                202     COMPARE_OP                      2 (==)
+                204     POP_JUMP_IF_FALSE               105 (to 210)
+                206     LOAD_CONST                      4: '%'
+                208     STORE_FAST                      8: bad_directive
+                210     DELETE_FAST                     7: err
+                212     LOAD_GLOBAL                     23: ValueError
+                214     LOAD_CONST                      5: "'%s' is a bad directive in format '%s'"
+                216     LOAD_FAST                       8: bad_directive
+                218     LOAD_FAST                       1: format
+                220     BUILD_TUPLE                     2
+                222     BINARY_MODULO                   
+                224     CALL_FUNCTION                   1
+                226     LOAD_CONST                      6: None
+                228     RAISE_VARARGS                   2
+                230     LOAD_CONST                      6: None
+                232     STORE_FAST                      7: err
+                234     DELETE_FAST                     7: err
+                236     RERAISE                         1
+                238     DUP_TOP                         
+                240     LOAD_GLOBAL                     24: IndexError
+                242     JUMP_IF_NOT_EXC_MATCH           132 (to 264)
+                244     POP_TOP                         
+                246     POP_TOP                         
+                248     POP_TOP                         
+                250     LOAD_GLOBAL                     23: ValueError
+                252     LOAD_CONST                      7: "stray %% in format '%s'"
+                254     LOAD_FAST                       1: format
+                256     BINARY_MODULO                   
+                258     CALL_FUNCTION                   1
+                260     LOAD_CONST                      6: None
+                262     RAISE_VARARGS                   2
+                264     RERAISE                         0
+                266     LOAD_FAST                       6: format_regex
+                268     LOAD_GLOBAL                     15: _regex_cache
+                270     LOAD_FAST                       1: format
+                272     STORE_SUBSCR                    
+                274     POP_BLOCK                       
+                276     LOAD_CONST                      6: None
+                278     DUP_TOP                         
+                280     DUP_TOP                         
+                282     CALL_FUNCTION                   3
+                284     POP_TOP                         
+                286     JUMP_FORWARD                    8 (to 304)
+                288     WITH_EXCEPT_START               
+                290     POP_JUMP_IF_TRUE                147 (to 294)
+                292     RERAISE                         1
+                294     POP_TOP                         
+                296     POP_TOP                         
+                298     POP_TOP                         
+                300     POP_EXCEPT                      
+                302     POP_TOP                         
+                304     LOAD_FAST                       6: format_regex
+                306     LOAD_METHOD                     25: match
+                308     LOAD_FAST                       0: data_string
+                310     CALL_METHOD                     1
+                312     STORE_FAST                      9: found
+                314     LOAD_FAST                       9: found
+                316     POP_JUMP_IF_TRUE                167 (to 334)
+                318     LOAD_GLOBAL                     23: ValueError
+                320     LOAD_CONST                      8: 'time data %r does not match format %r'
+                322     LOAD_FAST                       0: data_string
+                324     LOAD_FAST                       1: format
+                326     BUILD_TUPLE                     2
+                328     BINARY_MODULO                   
+                330     CALL_FUNCTION                   1
+                332     RAISE_VARARGS                   1
+                334     LOAD_GLOBAL                     17: len
+                336     LOAD_FAST                       0: data_string
+                338     CALL_FUNCTION                   1
+                340     LOAD_FAST                       9: found
+                342     LOAD_METHOD                     26: end
+                344     CALL_METHOD                     0
+                346     COMPARE_OP                      3 (!=)
+                348     POP_JUMP_IF_FALSE               187 (to 374)
+                350     LOAD_GLOBAL                     23: ValueError
+                352     LOAD_CONST                      9: 'unconverted data remains: %s'
+                354     LOAD_FAST                       0: data_string
+                356     LOAD_FAST                       9: found
+                358     LOAD_METHOD                     26: end
+                360     CALL_METHOD                     0
+                362     LOAD_CONST                      6: None
+                364     BUILD_SLICE                     2
+                366     BINARY_SUBSCR                   
+                368     BINARY_MODULO                   
+                370     CALL_FUNCTION                   1
+                372     RAISE_VARARGS                   1
+                374     LOAD_CONST                      6: None
+                376     DUP_TOP                         
+                378     STORE_FAST                      10: iso_year
+                380     STORE_FAST                      11: year
+                382     LOAD_CONST                      10: 1
+                384     DUP_TOP                         
+                386     STORE_FAST                      12: month
+                388     STORE_FAST                      13: day
+                390     LOAD_CONST                      2: 0
+                392     DUP_TOP                         
+                394     STORE_FAST                      14: hour
+                396     DUP_TOP                         
+                398     STORE_FAST                      15: minute
+                400     DUP_TOP                         
+                402     STORE_FAST                      16: second
+                404     STORE_FAST                      17: fraction
+                406     LOAD_CONST                      11: -1
+                408     STORE_FAST                      18: tz
+                410     LOAD_CONST                      6: None
+                412     STORE_FAST                      19: gmtoff
+                414     LOAD_CONST                      2: 0
+                416     STORE_FAST                      20: gmtoff_fraction
+                418     LOAD_CONST                      6: None
+                420     DUP_TOP                         
+                422     STORE_FAST                      21: iso_week
+                424     STORE_FAST                      22: week_of_year
+                426     LOAD_CONST                      6: None
+                428     STORE_FAST                      23: week_of_year_start
+                430     LOAD_CONST                      6: None
+                432     DUP_TOP                         
+                434     STORE_FAST                      24: weekday
+                436     STORE_FAST                      25: julian
+                438     LOAD_FAST                       9: found
+                440     LOAD_METHOD                     27: groupdict
+                442     CALL_METHOD                     0
+                444     STORE_FAST                      26: found_dict
+                446     LOAD_FAST                       26: found_dict
+                448     LOAD_METHOD                     28: keys
+                450     CALL_METHOD                     0
+                452     GET_ITER                        
+                454     FOR_ITER                        537 (to 1532)
+                458     STORE_FAST                      27: group_key
+                460     LOAD_FAST                       27: group_key
+                462     LOAD_CONST                      12: 'y'
+                464     COMPARE_OP                      2 (==)
+                466     POP_JUMP_IF_FALSE               254 (to 508)
+                468     LOAD_GLOBAL                     29: int
+                470     LOAD_FAST                       26: found_dict
+                472     LOAD_CONST                      12: 'y'
+                474     BINARY_SUBSCR                   
+                476     CALL_FUNCTION                   1
+                478     STORE_FAST                      11: year
+                480     LOAD_FAST                       11: year
+                482     LOAD_CONST                      13: 68
+                484     COMPARE_OP                      1 (<=)
+                486     POP_JUMP_IF_FALSE               249 (to 498)
+                488     LOAD_FAST                       11: year
+                490     LOAD_CONST                      14: 2000
+                492     INPLACE_ADD                     
+                494     STORE_FAST                      11: year
+                496     JUMP_ABSOLUTE                   227 (to 454)
+                498     LOAD_FAST                       11: year
+                500     LOAD_CONST                      15: 1900
+                502     INPLACE_ADD                     
+                504     STORE_FAST                      11: year
+                506     JUMP_ABSOLUTE                   227 (to 454)
+                508     LOAD_FAST                       27: group_key
+                510     LOAD_CONST                      16: 'Y'
+                512     COMPARE_OP                      2 (==)
+                514     POP_JUMP_IF_FALSE               266 (to 532)
+                518     LOAD_GLOBAL                     29: int
+                520     LOAD_FAST                       26: found_dict
+                522     LOAD_CONST                      16: 'Y'
+                524     BINARY_SUBSCR                   
+                526     CALL_FUNCTION                   1
+                528     STORE_FAST                      11: year
+                530     JUMP_ABSOLUTE                   227 (to 454)
+                532     LOAD_FAST                       27: group_key
+                534     LOAD_CONST                      17: 'G'
+                536     COMPARE_OP                      2 (==)
+                538     POP_JUMP_IF_FALSE               278 (to 556)
+                542     LOAD_GLOBAL                     29: int
+                544     LOAD_FAST                       26: found_dict
+                546     LOAD_CONST                      17: 'G'
+                548     BINARY_SUBSCR                   
+                550     CALL_FUNCTION                   1
+                552     STORE_FAST                      10: iso_year
+                554     JUMP_ABSOLUTE                   227 (to 454)
+                556     LOAD_FAST                       27: group_key
+                558     LOAD_CONST                      18: 'm'
+                560     COMPARE_OP                      2 (==)
+                562     POP_JUMP_IF_FALSE               290 (to 580)
+                566     LOAD_GLOBAL                     29: int
+                568     LOAD_FAST                       26: found_dict
+                570     LOAD_CONST                      18: 'm'
+                572     BINARY_SUBSCR                   
+                574     CALL_FUNCTION                   1
+                576     STORE_FAST                      12: month
+                578     JUMP_ABSOLUTE                   227 (to 454)
+                580     LOAD_FAST                       27: group_key
+                582     LOAD_CONST                      19: 'B'
+                584     COMPARE_OP                      2 (==)
+                586     POP_JUMP_IF_FALSE               306 (to 612)
+                590     LOAD_FAST                       5: locale_time
+                592     LOAD_ATTR                       30: f_month
+                594     LOAD_METHOD                     31: index
+                596     LOAD_FAST                       26: found_dict
+                598     LOAD_CONST                      19: 'B'
+                600     BINARY_SUBSCR                   
+                602     LOAD_METHOD                     32: lower
+                604     CALL_METHOD                     0
+                606     CALL_METHOD                     1
+                608     STORE_FAST                      12: month
+                610     JUMP_ABSOLUTE                   227 (to 454)
+                612     LOAD_FAST                       27: group_key
+                614     LOAD_CONST                      20: 'b'
+                616     COMPARE_OP                      2 (==)
+                618     POP_JUMP_IF_FALSE               322 (to 644)
+                622     LOAD_FAST                       5: locale_time
+                624     LOAD_ATTR                       33: a_month
+                626     LOAD_METHOD                     31: index
+                628     LOAD_FAST                       26: found_dict
+                630     LOAD_CONST                      20: 'b'
+                632     BINARY_SUBSCR                   
+                634     LOAD_METHOD                     32: lower
+                636     CALL_METHOD                     0
+                638     CALL_METHOD                     1
+                640     STORE_FAST                      12: month
+                642     JUMP_ABSOLUTE                   227 (to 454)
+                644     LOAD_FAST                       27: group_key
+                646     LOAD_CONST                      21: 'd'
+                648     COMPARE_OP                      2 (==)
+                650     POP_JUMP_IF_FALSE               334 (to 668)
+                654     LOAD_GLOBAL                     29: int
+                656     LOAD_FAST                       26: found_dict
+                658     LOAD_CONST                      21: 'd'
+                660     BINARY_SUBSCR                   
+                662     CALL_FUNCTION                   1
+                664     STORE_FAST                      13: day
+                666     JUMP_ABSOLUTE                   227 (to 454)
+                668     LOAD_FAST                       27: group_key
+                670     LOAD_CONST                      22: 'H'
+                672     COMPARE_OP                      2 (==)
+                674     POP_JUMP_IF_FALSE               346 (to 692)
+                678     LOAD_GLOBAL                     29: int
+                680     LOAD_FAST                       26: found_dict
+                682     LOAD_CONST                      22: 'H'
+                684     BINARY_SUBSCR                   
+                686     CALL_FUNCTION                   1
+                688     STORE_FAST                      14: hour
+                690     JUMP_ABSOLUTE                   227 (to 454)
+                692     LOAD_FAST                       27: group_key
+                694     LOAD_CONST                      23: 'I'
+                696     COMPARE_OP                      2 (==)
+                698     POP_JUMP_IF_FALSE               401 (to 802)
+                702     LOAD_GLOBAL                     29: int
+                704     LOAD_FAST                       26: found_dict
+                706     LOAD_CONST                      23: 'I'
+                708     BINARY_SUBSCR                   
+                710     CALL_FUNCTION                   1
+                712     STORE_FAST                      14: hour
+                714     LOAD_FAST                       26: found_dict
+                716     LOAD_METHOD                     19: get
+                718     LOAD_CONST                      24: 'p'
+                720     LOAD_CONST                      25: ''
+                722     CALL_METHOD                     2
+                724     LOAD_METHOD                     32: lower
+                726     CALL_METHOD                     0
+                728     STORE_FAST                      28: ampm
+                730     LOAD_FAST                       28: ampm
+                732     LOAD_CONST                      25: ''
+                734     LOAD_FAST                       5: locale_time
+                736     LOAD_ATTR                       34: am_pm
+                738     LOAD_CONST                      2: 0
+                740     BINARY_SUBSCR                   
+                742     BUILD_TUPLE                     2
+                744     CONTAINS_OP                     0 (in)
+                746     POP_JUMP_IF_FALSE               383 (to 766)
+                750     LOAD_FAST                       14: hour
+                752     LOAD_CONST                      26: 12
+                754     COMPARE_OP                      2 (==)
+                756     POP_JUMP_IF_FALSE               382 (to 764)
+                760     LOAD_CONST                      2: 0
+                762     STORE_FAST                      14: hour
+                764     JUMP_ABSOLUTE                   227 (to 454)
+                766     LOAD_FAST                       28: ampm
+                768     LOAD_FAST                       5: locale_time
+                770     LOAD_ATTR                       34: am_pm
+                772     LOAD_CONST                      10: 1
+                774     BINARY_SUBSCR                   
+                776     COMPARE_OP                      2 (==)
+                778     POP_JUMP_IF_FALSE               400 (to 800)
+                782     LOAD_FAST                       14: hour
+                784     LOAD_CONST                      26: 12
+                786     COMPARE_OP                      3 (!=)
+                788     POP_JUMP_IF_FALSE               400 (to 800)
+                792     LOAD_FAST                       14: hour
+                794     LOAD_CONST                      26: 12
+                796     INPLACE_ADD                     
+                798     STORE_FAST                      14: hour
+                800     JUMP_ABSOLUTE                   227 (to 454)
+                802     LOAD_FAST                       27: group_key
+                804     LOAD_CONST                      27: 'M'
+                806     COMPARE_OP                      2 (==)
+                808     POP_JUMP_IF_FALSE               413 (to 826)
+                812     LOAD_GLOBAL                     29: int
+                814     LOAD_FAST                       26: found_dict
+                816     LOAD_CONST                      27: 'M'
+                818     BINARY_SUBSCR                   
+                820     CALL_FUNCTION                   1
+                822     STORE_FAST                      15: minute
+                824     JUMP_ABSOLUTE                   227 (to 454)
+                826     LOAD_FAST                       27: group_key
+                828     LOAD_CONST                      28: 'S'
+                830     COMPARE_OP                      2 (==)
+                832     POP_JUMP_IF_FALSE               425 (to 850)
+                836     LOAD_GLOBAL                     29: int
+                838     LOAD_FAST                       26: found_dict
+                840     LOAD_CONST                      28: 'S'
+                842     BINARY_SUBSCR                   
+                844     CALL_FUNCTION                   1
+                846     STORE_FAST                      16: second
+                848     JUMP_ABSOLUTE                   227 (to 454)
+                850     LOAD_FAST                       27: group_key
+                852     LOAD_CONST                      29: 'f'
+                854     COMPARE_OP                      2 (==)
+                856     POP_JUMP_IF_FALSE               449 (to 898)
+                860     LOAD_FAST                       26: found_dict
+                862     LOAD_CONST                      29: 'f'
+                864     BINARY_SUBSCR                   
+                866     STORE_FAST                      29: s
+                868     LOAD_FAST                       29: s
+                870     LOAD_CONST                      30: '0'
+                872     LOAD_CONST                      31: 6
+                874     LOAD_GLOBAL                     17: len
+                876     LOAD_FAST                       29: s
+                878     CALL_FUNCTION                   1
+                880     BINARY_SUBTRACT                 
+                882     BINARY_MULTIPLY                 
+                884     INPLACE_ADD                     
+                886     STORE_FAST                      29: s
+                888     LOAD_GLOBAL                     29: int
+                890     LOAD_FAST                       29: s
+                892     CALL_FUNCTION                   1
+                894     STORE_FAST                      17: fraction
+                896     JUMP_ABSOLUTE                   227 (to 454)
+                898     LOAD_FAST                       27: group_key
+                900     LOAD_CONST                      32: 'A'
+                902     COMPARE_OP                      2 (==)
+                904     POP_JUMP_IF_FALSE               465 (to 930)
+                908     LOAD_FAST                       5: locale_time
+                910     LOAD_ATTR                       35: f_weekday
+                912     LOAD_METHOD                     31: index
+                914     LOAD_FAST                       26: found_dict
+                916     LOAD_CONST                      32: 'A'
+                918     BINARY_SUBSCR                   
+                920     LOAD_METHOD                     32: lower
+                922     CALL_METHOD                     0
+                924     CALL_METHOD                     1
+                926     STORE_FAST                      24: weekday
+                928     JUMP_ABSOLUTE                   227 (to 454)
+                930     LOAD_FAST                       27: group_key
+                932     LOAD_CONST                      33: 'a'
+                934     COMPARE_OP                      2 (==)
+                936     POP_JUMP_IF_FALSE               481 (to 962)
+                940     LOAD_FAST                       5: locale_time
+                942     LOAD_ATTR                       36: a_weekday
+                944     LOAD_METHOD                     31: index
+                946     LOAD_FAST                       26: found_dict
+                948     LOAD_CONST                      33: 'a'
+                950     BINARY_SUBSCR                   
+                952     LOAD_METHOD                     32: lower
+                954     CALL_METHOD                     0
+                956     CALL_METHOD                     1
+                958     STORE_FAST                      24: weekday
+                960     JUMP_ABSOLUTE                   227 (to 454)
+                962     LOAD_FAST                       27: group_key
+                964     LOAD_CONST                      34: 'w'
+                966     COMPARE_OP                      2 (==)
+                968     POP_JUMP_IF_FALSE               505 (to 1010)
+                972     LOAD_GLOBAL                     29: int
+                974     LOAD_FAST                       26: found_dict
+                976     LOAD_CONST                      34: 'w'
+                978     BINARY_SUBSCR                   
+                980     CALL_FUNCTION                   1
+                982     STORE_FAST                      24: weekday
+                984     LOAD_FAST                       24: weekday
+                986     LOAD_CONST                      2: 0
+                988     COMPARE_OP                      2 (==)
+                990     POP_JUMP_IF_FALSE               500 (to 1000)
+                994     LOAD_CONST                      31: 6
+                996     STORE_FAST                      24: weekday
+                998     JUMP_ABSOLUTE                   227 (to 454)
+                1000    LOAD_FAST                       24: weekday
+                1002    LOAD_CONST                      10: 1
+                1004    INPLACE_SUBTRACT                
+                1006    STORE_FAST                      24: weekday
+                1008    JUMP_ABSOLUTE                   227 (to 454)
+                1010    LOAD_FAST                       27: group_key
+                1012    LOAD_CONST                      35: 'u'
+                1014    COMPARE_OP                      2 (==)
+                1016    POP_JUMP_IF_FALSE               521 (to 1042)
+                1020    LOAD_GLOBAL                     29: int
+                1022    LOAD_FAST                       26: found_dict
+                1024    LOAD_CONST                      35: 'u'
+                1026    BINARY_SUBSCR                   
+                1028    CALL_FUNCTION                   1
+                1030    STORE_FAST                      24: weekday
+                1032    LOAD_FAST                       24: weekday
+                1034    LOAD_CONST                      10: 1
+                1036    INPLACE_SUBTRACT                
+                1038    STORE_FAST                      24: weekday
+                1040    JUMP_ABSOLUTE                   227 (to 454)
+                1042    LOAD_FAST                       27: group_key
+                1044    LOAD_CONST                      36: 'j'
+                1046    COMPARE_OP                      2 (==)
+                1048    POP_JUMP_IF_FALSE               533 (to 1066)
+                1052    LOAD_GLOBAL                     29: int
+                1054    LOAD_FAST                       26: found_dict
+                1056    LOAD_CONST                      36: 'j'
+                1058    BINARY_SUBSCR                   
+                1060    CALL_FUNCTION                   1
+                1062    STORE_FAST                      25: julian
+                1064    JUMP_ABSOLUTE                   227 (to 454)
+                1066    LOAD_FAST                       27: group_key
+                1068    LOAD_CONST                      37: ('U', 'W')
+                1070    CONTAINS_OP                     0 (in)
+                1072    POP_JUMP_IF_FALSE               555 (to 1110)
+                1076    LOAD_GLOBAL                     29: int
+                1078    LOAD_FAST                       26: found_dict
+                1080    LOAD_FAST                       27: group_key
+                1082    BINARY_SUBSCR                   
+                1084    CALL_FUNCTION                   1
+                1086    STORE_FAST                      22: week_of_year
+                1088    LOAD_FAST                       27: group_key
+                1090    LOAD_CONST                      38: 'U'
+                1092    COMPARE_OP                      2 (==)
+                1094    POP_JUMP_IF_FALSE               552 (to 1104)
+                1098    LOAD_CONST                      31: 6
+                1100    STORE_FAST                      23: week_of_year_start
+                1102    JUMP_ABSOLUTE                   227 (to 454)
+                1104    LOAD_CONST                      2: 0
+                1106    STORE_FAST                      23: week_of_year_start
+                1108    JUMP_ABSOLUTE                   227 (to 454)
+                1110    LOAD_FAST                       27: group_key
+                1112    LOAD_CONST                      39: 'V'
+                1114    COMPARE_OP                      2 (==)
+                1116    POP_JUMP_IF_FALSE               567 (to 1134)
+                1120    LOAD_GLOBAL                     29: int
+                1122    LOAD_FAST                       26: found_dict
+                1124    LOAD_CONST                      39: 'V'
+                1126    BINARY_SUBSCR                   
+                1128    CALL_FUNCTION                   1
+                1130    STORE_FAST                      21: iso_week
+                1132    JUMP_ABSOLUTE                   227 (to 454)
+                1134    LOAD_FAST                       27: group_key
+                1136    LOAD_CONST                      40: 'z'
+                1138    COMPARE_OP                      2 (==)
+                1140    POP_JUMP_IF_FALSE               712 (to 1424)
+                1144    LOAD_FAST                       26: found_dict
+                1146    LOAD_CONST                      40: 'z'
+                1148    BINARY_SUBSCR                   
+                1150    STORE_FAST                      30: z
+                1152    LOAD_FAST                       30: z
+                1154    LOAD_CONST                      41: 'Z'
+                1156    COMPARE_OP                      2 (==)
+                1158    POP_JUMP_IF_FALSE               584 (to 1168)
+                1162    LOAD_CONST                      2: 0
+                1164    STORE_FAST                      19: gmtoff
+                1166    JUMP_ABSOLUTE                   227 (to 454)
+                1168    LOAD_FAST                       30: z
+                1170    LOAD_CONST                      42: 3
+                1172    BINARY_SUBSCR                   
+                1174    LOAD_CONST                      43: ':'
+                1176    COMPARE_OP                      2 (==)
+                1178    POP_JUMP_IF_FALSE               640 (to 1280)
+                1182    LOAD_FAST                       30: z
+                1184    LOAD_CONST                      6: None
+                1186    LOAD_CONST                      42: 3
+                1188    BUILD_SLICE                     2
+                1190    BINARY_SUBSCR                   
+                1192    LOAD_FAST                       30: z
+                1194    LOAD_CONST                      44: 4
+                1196    LOAD_CONST                      6: None
+                1198    BUILD_SLICE                     2
+                1200    BINARY_SUBSCR                   
+                1202    BINARY_ADD                      
+                1204    STORE_FAST                      30: z
+                1206    LOAD_GLOBAL                     17: len
+                1208    LOAD_FAST                       30: z
+                1210    CALL_FUNCTION                   1
+                1212    LOAD_CONST                      45: 5
+                1214    COMPARE_OP                      4 (>)
+                1216    POP_JUMP_IF_FALSE               640 (to 1280)
+                1220    LOAD_FAST                       30: z
+                1222    LOAD_CONST                      45: 5
+                1224    BINARY_SUBSCR                   
+                1226    LOAD_CONST                      43: ':'
+                1228    COMPARE_OP                      3 (!=)
+                1230    POP_JUMP_IF_FALSE               628 (to 1256)
+                1234    LOAD_CONST                      46: 'Inconsistent use of : in '
+                1236    LOAD_FAST                       26: found_dict
+                1238    LOAD_CONST                      40: 'z'
+                1240    BINARY_SUBSCR                   
+                1242    FORMAT_VALUE                    0 (FVC_NONE)
+                1244    BUILD_STRING                    2
+                1246    STORE_FAST                      4: msg
+                1248    LOAD_GLOBAL                     23: ValueError
+                1250    LOAD_FAST                       4: msg
+                1252    CALL_FUNCTION                   1
+                1254    RAISE_VARARGS                   1
+                1256    LOAD_FAST                       30: z
+                1258    LOAD_CONST                      6: None
+                1260    LOAD_CONST                      45: 5
+                1262    BUILD_SLICE                     2
+                1264    BINARY_SUBSCR                   
+                1266    LOAD_FAST                       30: z
+                1268    LOAD_CONST                      31: 6
+                1270    LOAD_CONST                      6: None
+                1272    BUILD_SLICE                     2
+                1274    BINARY_SUBSCR                   
+                1276    BINARY_ADD                      
+                1278    STORE_FAST                      30: z
+                1280    LOAD_GLOBAL                     29: int
+                1282    LOAD_FAST                       30: z
+                1284    LOAD_CONST                      10: 1
+                1286    LOAD_CONST                      42: 3
+                1288    BUILD_SLICE                     2
+                1290    BINARY_SUBSCR                   
+                1292    CALL_FUNCTION                   1
+                1294    STORE_FAST                      31: hours
+                1296    LOAD_GLOBAL                     29: int
+                1298    LOAD_FAST                       30: z
+                1300    LOAD_CONST                      42: 3
+                1302    LOAD_CONST                      45: 5
+                1304    BUILD_SLICE                     2
+                1306    BINARY_SUBSCR                   
+                1308    CALL_FUNCTION                   1
+                1310    STORE_FAST                      32: minutes
+                1312    LOAD_GLOBAL                     29: int
+                1314    LOAD_FAST                       30: z
+                1316    LOAD_CONST                      45: 5
+                1318    LOAD_CONST                      47: 7
+                1320    BUILD_SLICE                     2
+                1322    BINARY_SUBSCR                   
+                1324    JUMP_IF_TRUE_OR_POP             665 (to 1330)
+                1328    LOAD_CONST                      2: 0
+                1330    CALL_FUNCTION                   1
+                1332    STORE_FAST                      33: seconds
+                1334    LOAD_FAST                       31: hours
+                1336    LOAD_CONST                      48: 60
+                1338    BINARY_MULTIPLY                 
+                1340    LOAD_CONST                      48: 60
+                1342    BINARY_MULTIPLY                 
+                1344    LOAD_FAST                       32: minutes
+                1346    LOAD_CONST                      48: 60
+                1348    BINARY_MULTIPLY                 
+                1350    BINARY_ADD                      
+                1352    LOAD_FAST                       33: seconds
+                1354    BINARY_ADD                      
+                1356    STORE_FAST                      19: gmtoff
+                1358    LOAD_FAST                       30: z
+                1360    LOAD_CONST                      49: 8
+                1362    LOAD_CONST                      6: None
+                1364    BUILD_SLICE                     2
+                1366    BINARY_SUBSCR                   
+                1368    STORE_FAST                      34: gmtoff_remainder
+                1370    LOAD_CONST                      30: '0'
+                1372    LOAD_CONST                      31: 6
+                1374    LOAD_GLOBAL                     17: len
+                1376    LOAD_FAST                       34: gmtoff_remainder
+                1378    CALL_FUNCTION                   1
+                1380    BINARY_SUBTRACT                 
+                1382    BINARY_MULTIPLY                 
+                1384    STORE_FAST                      35: gmtoff_remainder_padding
+                1386    LOAD_GLOBAL                     29: int
+                1388    LOAD_FAST                       34: gmtoff_remainder
+                1390    LOAD_FAST                       35: gmtoff_remainder_padding
+                1392    BINARY_ADD                      
+                1394    CALL_FUNCTION                   1
+                1396    STORE_FAST                      20: gmtoff_fraction
+                1398    LOAD_FAST                       30: z
+                1400    LOAD_METHOD                     37: startswith
+                1402    LOAD_CONST                      50: '-'
+                1404    CALL_METHOD                     1
+                1406    POP_JUMP_IF_FALSE               711 (to 1422)
+                1410    LOAD_FAST                       19: gmtoff
+                1412    UNARY_NEGATIVE                  
+                1414    STORE_FAST                      19: gmtoff
+                1416    LOAD_FAST                       20: gmtoff_fraction
+                1418    UNARY_NEGATIVE                  
+                1420    STORE_FAST                      20: gmtoff_fraction
+                1422    JUMP_ABSOLUTE                   227 (to 454)
+                1424    LOAD_FAST                       27: group_key
+                1426    LOAD_CONST                      41: 'Z'
+                1428    COMPARE_OP                      2 (==)
+                1430    POP_JUMP_IF_FALSE               765 (to 1530)
+                1434    LOAD_FAST                       26: found_dict
+                1436    LOAD_CONST                      41: 'Z'
+                1438    BINARY_SUBSCR                   
+                1440    LOAD_METHOD                     32: lower
+                1442    CALL_METHOD                     0
+                1444    STORE_FAST                      36: found_zone
+                1446    LOAD_GLOBAL                     0: enumerate
+                1448    LOAD_FAST                       5: locale_time
+                1450    LOAD_ATTR                       38: timezone
+                1452    CALL_FUNCTION                   1
+                1454    GET_ITER                        
+                1456    FOR_ITER                        36 (to 1530)
+                1458    UNPACK_SEQUENCE                 2
+                1460    STORE_FAST                      37: value
+                1462    STORE_FAST                      38: tz_values
+                1464    LOAD_FAST                       36: found_zone
+                1466    LOAD_FAST                       38: tz_values
+                1468    CONTAINS_OP                     0 (in)
+                1470    POP_JUMP_IF_FALSE               763 (to 1526)
+                1474    LOAD_GLOBAL                     11: time
+                1476    LOAD_ATTR                       12: tzname
+                1478    LOAD_CONST                      2: 0
+                1480    BINARY_SUBSCR                   
+                1482    LOAD_GLOBAL                     11: time
+                1484    LOAD_ATTR                       12: tzname
+                1486    LOAD_CONST                      10: 1
+                1488    BINARY_SUBSCR                   
+                1490    COMPARE_OP                      2 (==)
+                1492    POP_JUMP_IF_FALSE               759 (to 1518)
+                1496    LOAD_GLOBAL                     11: time
+                1498    LOAD_ATTR                       13: daylight
+                1500    POP_JUMP_IF_FALSE               759 (to 1518)
+                1504    LOAD_FAST                       36: found_zone
+                1506    LOAD_CONST                      51: ('utc', 'gmt')
+                1508    CONTAINS_OP                     1 (not in)
+                1510    POP_JUMP_IF_FALSE               759 (to 1518)
+                1514    POP_TOP                         
+                1516    JUMP_FORWARD                    6 (to 1530)
+                1518    LOAD_FAST                       37: value
+                1520    STORE_FAST                      18: tz
+                1522    POP_TOP                         
+                1524    JUMP_FORWARD                    2 (to 1530)
+                1526    JUMP_ABSOLUTE                   728 (to 1456)
+                1530    JUMP_ABSOLUTE                   227 (to 454)
+                1532    LOAD_FAST                       11: year
+                1534    LOAD_CONST                      6: None
+                1536    IS_OP                           0 (is)
+                1538    POP_JUMP_IF_FALSE               800 (to 1600)
+                1542    LOAD_FAST                       10: iso_year
+                1544    LOAD_CONST                      6: None
+                1546    IS_OP                           1 (is not)
+                1548    POP_JUMP_IF_FALSE               800 (to 1600)
+                1552    LOAD_FAST                       21: iso_week
+                1554    LOAD_CONST                      6: None
+                1556    IS_OP                           0 (is)
+                1558    POP_JUMP_IF_TRUE                786 (to 1572)
+                1562    LOAD_FAST                       24: weekday
+                1564    LOAD_CONST                      6: None
+                1566    IS_OP                           0 (is)
+                1568    POP_JUMP_IF_FALSE               790 (to 1580)
+                1572    LOAD_GLOBAL                     23: ValueError
+                1574    LOAD_CONST                      52: "ISO year directive '%G' must be used with the ISO week directive '%V' and a weekday directive ('%A', '%a', '%w', or '%u')."
+                1576    CALL_FUNCTION                   1
+                1578    RAISE_VARARGS                   1
+                1580    LOAD_FAST                       25: julian
+                1582    LOAD_CONST                      6: None
+                1584    IS_OP                           1 (is not)
+                1586    POP_JUMP_IF_FALSE               799 (to 1598)
+                1590    LOAD_GLOBAL                     23: ValueError
+                1592    LOAD_CONST                      53: "Day of the year directive '%j' is not compatible with ISO year directive '%G'. Use '%Y' instead."
+                1594    CALL_FUNCTION                   1
+                1596    RAISE_VARARGS                   1
+                1598    JUMP_FORWARD                    23 (to 1646)
+                1600    LOAD_FAST                       22: week_of_year
+                1602    LOAD_CONST                      6: None
+                1604    IS_OP                           0 (is)
+                1606    POP_JUMP_IF_FALSE               823 (to 1646)
+                1610    LOAD_FAST                       21: iso_week
+                1612    LOAD_CONST                      6: None
+                1614    IS_OP                           1 (is not)
+                1616    POP_JUMP_IF_FALSE               823 (to 1646)
+                1620    LOAD_FAST                       24: weekday
+                1622    LOAD_CONST                      6: None
+                1624    IS_OP                           0 (is)
+                1626    POP_JUMP_IF_FALSE               819 (to 1638)
+                1630    LOAD_GLOBAL                     23: ValueError
+                1632    LOAD_CONST                      54: "ISO week directive '%V' must be used with the ISO year directive '%G' and a weekday directive ('%A', '%a', '%w', or '%u')."
+                1634    CALL_FUNCTION                   1
+                1636    RAISE_VARARGS                   1
+                1638    LOAD_GLOBAL                     23: ValueError
+                1640    LOAD_CONST                      55: "ISO week directive '%V' is incompatible with the year directive '%Y'. Use the ISO year '%G' instead."
+                1642    CALL_FUNCTION                   1
+                1644    RAISE_VARARGS                   1
+                1646    LOAD_CONST                      56: False
+                1648    STORE_FAST                      39: leap_year_fix
+                1650    LOAD_FAST                       11: year
+                1652    LOAD_CONST                      6: None
+                1654    IS_OP                           0 (is)
+                1656    POP_JUMP_IF_FALSE               845 (to 1690)
+                1660    LOAD_FAST                       12: month
+                1662    LOAD_CONST                      57: 2
+                1664    COMPARE_OP                      2 (==)
+                1666    POP_JUMP_IF_FALSE               845 (to 1690)
+                1670    LOAD_FAST                       13: day
+                1672    LOAD_CONST                      58: 29
+                1674    COMPARE_OP                      2 (==)
+                1676    POP_JUMP_IF_FALSE               845 (to 1690)
+                1680    LOAD_CONST                      59: 1904
+                1682    STORE_FAST                      11: year
+                1684    LOAD_CONST                      60: True
+                1686    STORE_FAST                      39: leap_year_fix
+                1688    JUMP_FORWARD                    7 (to 1704)
+                1690    LOAD_FAST                       11: year
+                1692    LOAD_CONST                      6: None
+                1694    IS_OP                           0 (is)
+                1696    POP_JUMP_IF_FALSE               852 (to 1704)
+                1700    LOAD_CONST                      15: 1900
+                1702    STORE_FAST                      11: year
+                1704    LOAD_FAST                       25: julian
+                1706    LOAD_CONST                      6: None
+                1708    IS_OP                           0 (is)
+                1710    POP_JUMP_IF_FALSE               932 (to 1864)
+                1714    LOAD_FAST                       24: weekday
+                1716    LOAD_CONST                      6: None
+                1718    IS_OP                           1 (is not)
+                1720    POP_JUMP_IF_FALSE               932 (to 1864)
+                1724    LOAD_FAST                       22: week_of_year
+                1726    LOAD_CONST                      6: None
+                1728    IS_OP                           1 (is not)
+                1730    POP_JUMP_IF_FALSE               884 (to 1768)
+                1734    LOAD_FAST                       23: week_of_year_start
+                1736    LOAD_CONST                      2: 0
+                1738    COMPARE_OP                      2 (==)
+                1740    POP_JUMP_IF_FALSE               874 (to 1748)
+                1744    LOAD_CONST                      60: True
+                1746    JUMP_FORWARD                    1 (to 1750)
+                1748    LOAD_CONST                      56: False
+                1750    STORE_FAST                      40: week_starts_Mon
+                1752    LOAD_GLOBAL                     39: _calc_julian_from_U_or_W
+                1754    LOAD_FAST                       11: year
+                1756    LOAD_FAST                       22: week_of_year
+                1758    LOAD_FAST                       24: weekday
+                1760    LOAD_FAST                       40: week_starts_Mon
+                1762    CALL_FUNCTION                   4
+                1764    STORE_FAST                      25: julian
+                1766    JUMP_FORWARD                    20 (to 1808)
+                1768    LOAD_FAST                       10: iso_year
+                1770    LOAD_CONST                      6: None
+                1772    IS_OP                           1 (is not)
+                1774    POP_JUMP_IF_FALSE               904 (to 1808)
+                1778    LOAD_FAST                       21: iso_week
+                1780    LOAD_CONST                      6: None
+                1782    IS_OP                           1 (is not)
+                1784    POP_JUMP_IF_FALSE               904 (to 1808)
+                1788    LOAD_GLOBAL                     40: _calc_julian_from_V
+                1790    LOAD_FAST                       10: iso_year
+                1792    LOAD_FAST                       21: iso_week
+                1794    LOAD_FAST                       24: weekday
+                1796    LOAD_CONST                      10: 1
+                1798    BINARY_ADD                      
+                1800    CALL_FUNCTION                   3
+                1802    UNPACK_SEQUENCE                 2
+                1804    STORE_FAST                      11: year
+                1806    STORE_FAST                      25: julian
+                1808    LOAD_FAST                       25: julian
+                1810    LOAD_CONST                      6: None
+                1812    IS_OP                           1 (is not)
+                1814    POP_JUMP_IF_FALSE               932 (to 1864)
+                1818    LOAD_FAST                       25: julian
+                1820    LOAD_CONST                      2: 0
+                1822    COMPARE_OP                      1 (<=)
+                1824    POP_JUMP_IF_FALSE               932 (to 1864)
+                1828    LOAD_FAST                       11: year
+                1830    LOAD_CONST                      10: 1
+                1832    INPLACE_SUBTRACT                
+                1834    STORE_FAST                      11: year
+                1836    LOAD_GLOBAL                     41: calendar
+                1838    LOAD_METHOD                     42: isleap
+                1840    LOAD_FAST                       11: year
+                1842    CALL_METHOD                     1
+                1844    POP_JUMP_IF_FALSE               926 (to 1852)
+                1848    LOAD_CONST                      61: 366
+                1850    JUMP_FORWARD                    1 (to 1854)
+                1852    LOAD_CONST                      62: 365
+                1854    STORE_FAST                      41: yday
+                1856    LOAD_FAST                       25: julian
+                1858    LOAD_FAST                       41: yday
+                1860    INPLACE_ADD                     
+                1862    STORE_FAST                      25: julian
+                1864    LOAD_FAST                       25: julian
+                1866    LOAD_CONST                      6: None
+                1868    IS_OP                           0 (is)
+                1870    POP_JUMP_IF_FALSE               956 (to 1912)
+                1874    LOAD_GLOBAL                     43: datetime_date
+                1876    LOAD_FAST                       11: year
+                1878    LOAD_FAST                       12: month
+                1880    LOAD_FAST                       13: day
+                1882    CALL_FUNCTION                   3
+                1884    LOAD_METHOD                     44: toordinal
+                1886    CALL_METHOD                     0
+                1888    LOAD_GLOBAL                     43: datetime_date
+                1890    LOAD_FAST                       11: year
+                1892    LOAD_CONST                      10: 1
+                1894    LOAD_CONST                      10: 1
+                1896    CALL_FUNCTION                   3
+                1898    LOAD_METHOD                     44: toordinal
+                1900    CALL_METHOD                     0
+                1902    BINARY_SUBTRACT                 
+                1904    LOAD_CONST                      10: 1
+                1906    BINARY_ADD                      
+                1908    STORE_FAST                      25: julian
+                1910    JUMP_FORWARD                    24 (to 1960)
+                1912    LOAD_GLOBAL                     43: datetime_date
+                1914    LOAD_METHOD                     45: fromordinal
+                1916    LOAD_FAST                       25: julian
+                1918    LOAD_CONST                      10: 1
+                1920    BINARY_SUBTRACT                 
+                1922    LOAD_GLOBAL                     43: datetime_date
+                1924    LOAD_FAST                       11: year
+                1926    LOAD_CONST                      10: 1
+                1928    LOAD_CONST                      10: 1
+                1930    CALL_FUNCTION                   3
+                1932    LOAD_METHOD                     44: toordinal
+                1934    CALL_METHOD                     0
+                1936    BINARY_ADD                      
+                1938    CALL_METHOD                     1
+                1940    STORE_FAST                      42: datetime_result
+                1942    LOAD_FAST                       42: datetime_result
+                1944    LOAD_ATTR                       46: year
+                1946    STORE_FAST                      11: year
+                1948    LOAD_FAST                       42: datetime_result
+                1950    LOAD_ATTR                       47: month
+                1952    STORE_FAST                      12: month
+                1954    LOAD_FAST                       42: datetime_result
+                1956    LOAD_ATTR                       48: day
+                1958    STORE_FAST                      13: day
+                1960    LOAD_FAST                       24: weekday
+                1962    LOAD_CONST                      6: None
+                1964    IS_OP                           0 (is)
+                1966    POP_JUMP_IF_FALSE               993 (to 1986)
+                1970    LOAD_GLOBAL                     43: datetime_date
+                1972    LOAD_FAST                       11: year
+                1974    LOAD_FAST                       12: month
+                1976    LOAD_FAST                       13: day
+                1978    CALL_FUNCTION                   3
+                1980    LOAD_METHOD                     49: weekday
+                1982    CALL_METHOD                     0
+                1984    STORE_FAST                      24: weekday
+                1986    LOAD_FAST                       26: found_dict
+                1988    LOAD_METHOD                     19: get
+                1990    LOAD_CONST                      41: 'Z'
+                1992    CALL_METHOD                     1
+                1994    STORE_FAST                      43: tzname
+                1996    LOAD_FAST                       39: leap_year_fix
+                1998    POP_JUMP_IF_FALSE               1003 (to 2006)
+                2002    LOAD_CONST                      15: 1900
+                2004    STORE_FAST                      11: year
+                2006    LOAD_FAST                       11: year
+                2008    LOAD_FAST                       12: month
+                2010    LOAD_FAST                       13: day
+                2012    LOAD_FAST                       14: hour
+                2014    LOAD_FAST                       15: minute
+                2016    LOAD_FAST                       16: second
+                2018    LOAD_FAST                       24: weekday
+                2020    LOAD_FAST                       25: julian
+                2022    LOAD_FAST                       18: tz
+                2024    LOAD_FAST                       43: tzname
+                2026    LOAD_FAST                       19: gmtoff
+                2028    BUILD_TUPLE                     11
+                2030    LOAD_FAST                       17: fraction
+                2032    LOAD_FAST                       20: gmtoff_fraction
+                2034    BUILD_TUPLE                     3
+                2036    RETURN_VALUE                    
+        '_strptime'
+        [Code]
+            File Name: _strptime.py
+            Object Name: _strptime_time
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_strptime'
+                'time'
+                'struct_time'
+                '_STRUCT_TM_ITEMS'
+            [Var Names]
+                'data_string'
+                'format'
+                'tt'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return a time struct based on the input string and the\n    format string.'
+                0
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _strptime
+                2       LOAD_FAST                       0: data_string
+                4       LOAD_FAST                       1: format
+                6       CALL_FUNCTION                   2
+                8       LOAD_CONST                      1: 0
+                10      BINARY_SUBSCR                   
+                12      STORE_FAST                      2: tt
+                14      LOAD_GLOBAL                     1: time
+                16      LOAD_METHOD                     2: struct_time
+                18      LOAD_FAST                       2: tt
+                20      LOAD_CONST                      2: None
+                22      LOAD_GLOBAL                     1: time
+                24      LOAD_ATTR                       3: _STRUCT_TM_ITEMS
+                26      BUILD_SLICE                     2
+                28      BINARY_SUBSCR                   
+                30      CALL_METHOD                     1
+                32      RETURN_VALUE                    
+        '_strptime_time'
+        [Code]
+            File Name: _strptime.py
+            Object Name: _strptime_datetime
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 11
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_strptime'
+                'datetime_timedelta'
+                'datetime_timezone'
+            [Var Names]
+                'cls'
+                'data_string'
+                'format'
+                'tt'
+                'fraction'
+                'gmtoff_fraction'
+                'tzname'
+                'gmtoff'
+                'args'
+                'tzdelta'
+                'tz'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return a class cls instance based on the input string and the\n    format string.'
+                -2
+                None
+                6
+                (
+                    'seconds'
+                    'microseconds'
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _strptime
+                2       LOAD_FAST                       1: data_string
+                4       LOAD_FAST                       2: format
+                6       CALL_FUNCTION                   2
+                8       UNPACK_SEQUENCE                 3
+                10      STORE_FAST                      3: tt
+                12      STORE_FAST                      4: fraction
+                14      STORE_FAST                      5: gmtoff_fraction
+                16      LOAD_FAST                       3: tt
+                18      LOAD_CONST                      1: -2
+                20      LOAD_CONST                      2: None
+                22      BUILD_SLICE                     2
+                24      BINARY_SUBSCR                   
+                26      UNPACK_SEQUENCE                 2
+                28      STORE_FAST                      6: tzname
+                30      STORE_FAST                      7: gmtoff
+                32      LOAD_FAST                       3: tt
+                34      LOAD_CONST                      2: None
+                36      LOAD_CONST                      3: 6
+                38      BUILD_SLICE                     2
+                40      BINARY_SUBSCR                   
+                42      LOAD_FAST                       4: fraction
+                44      BUILD_TUPLE                     1
+                46      BINARY_ADD                      
+                48      STORE_FAST                      8: args
+                50      LOAD_FAST                       7: gmtoff
+                52      LOAD_CONST                      2: None
+                54      IS_OP                           1 (is not)
+                56      POP_JUMP_IF_FALSE               52 (to 104)
+                58      LOAD_GLOBAL                     1: datetime_timedelta
+                60      LOAD_FAST                       7: gmtoff
+                62      LOAD_FAST                       5: gmtoff_fraction
+                64      LOAD_CONST                      4: ('seconds', 'microseconds')
+                66      CALL_FUNCTION_KW                2
+                68      STORE_FAST                      9: tzdelta
+                70      LOAD_FAST                       6: tzname
+                72      POP_JUMP_IF_FALSE               43 (to 86)
+                74      LOAD_GLOBAL                     2: datetime_timezone
+                76      LOAD_FAST                       9: tzdelta
+                78      LOAD_FAST                       6: tzname
+                80      CALL_FUNCTION                   2
+                82      STORE_FAST                      10: tz
+                84      JUMP_FORWARD                    4 (to 94)
+                86      LOAD_GLOBAL                     2: datetime_timezone
+                88      LOAD_FAST                       9: tzdelta
+                90      CALL_FUNCTION                   1
+                92      STORE_FAST                      10: tz
+                94      LOAD_FAST                       8: args
+                96      LOAD_FAST                       10: tz
+                98      BUILD_TUPLE                     1
+                100     INPLACE_ADD                     
+                102     STORE_FAST                      8: args
+                104     LOAD_FAST                       0: cls
+                106     LOAD_FAST                       8: args
+                108     CALL_FUNCTION_EX                0
+                110     RETURN_VALUE                    
+        '_strptime_datetime'
+        (
+            '%a %b %d %H:%M:%S %Y'
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Strptime-related classes and functions.\n\nCLASSES:\n    LocaleTime -- Discovers and stores locale-specific time information\n    TimeRE -- Creates regexes for pattern matching a string of text containing\n                time information\n\nFUNCTIONS:\n    _getlang -- Figure out what language is being used for the locale\n    strptime -- Calculates the time struct represented by the passed-in string\n\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: time
+        10      STORE_NAME                      1: time
+        12      LOAD_CONST                      1: 0
+        14      LOAD_CONST                      2: None
+        16      IMPORT_NAME                     2: locale
+        18      STORE_NAME                      2: locale
+        20      LOAD_CONST                      1: 0
+        22      LOAD_CONST                      2: None
+        24      IMPORT_NAME                     3: calendar
+        26      STORE_NAME                      3: calendar
+        28      LOAD_CONST                      1: 0
+        30      LOAD_CONST                      3: ('compile',)
+        32      IMPORT_NAME                     4: re
+        34      IMPORT_FROM                     5: compile
+        36      STORE_NAME                      6: re_compile
+        38      POP_TOP                         
+        40      LOAD_CONST                      1: 0
+        42      LOAD_CONST                      4: ('IGNORECASE',)
+        44      IMPORT_NAME                     4: re
+        46      IMPORT_FROM                     7: IGNORECASE
+        48      STORE_NAME                      7: IGNORECASE
+        50      POP_TOP                         
+        52      LOAD_CONST                      1: 0
+        54      LOAD_CONST                      5: ('escape',)
+        56      IMPORT_NAME                     4: re
+        58      IMPORT_FROM                     8: escape
+        60      STORE_NAME                      9: re_escape
+        62      POP_TOP                         
+        64      LOAD_CONST                      1: 0
+        66      LOAD_CONST                      6: ('date', 'timedelta', 'timezone')
+        68      IMPORT_NAME                     10: datetime
+        70      IMPORT_FROM                     11: date
+        72      STORE_NAME                      12: datetime_date
+        74      IMPORT_FROM                     13: timedelta
+        76      STORE_NAME                      14: datetime_timedelta
+        78      IMPORT_FROM                     15: timezone
+        80      STORE_NAME                      16: datetime_timezone
+        82      POP_TOP                         
+        84      LOAD_CONST                      1: 0
+        86      LOAD_CONST                      7: ('allocate_lock',)
+        88      IMPORT_NAME                     17: _thread
+        90      IMPORT_FROM                     18: allocate_lock
+        92      STORE_NAME                      19: _thread_allocate_lock
+        94      POP_TOP                         
+        96      BUILD_LIST                      0
+        98      STORE_NAME                      20: __all__
+        100     LOAD_CONST                      8: <CODE> _getlang
+        102     LOAD_CONST                      9: '_getlang'
+        104     MAKE_FUNCTION                   0
+        106     STORE_NAME                      21: _getlang
+        108     LOAD_BUILD_CLASS                
+        110     LOAD_CONST                      10: <CODE> LocaleTime
+        112     LOAD_CONST                      11: 'LocaleTime'
+        114     MAKE_FUNCTION                   0
+        116     LOAD_CONST                      11: 'LocaleTime'
+        118     LOAD_NAME                       22: object
+        120     CALL_FUNCTION                   3
+        122     STORE_NAME                      23: LocaleTime
+        124     LOAD_BUILD_CLASS                
+        126     LOAD_CONST                      12: <CODE> TimeRE
+        128     LOAD_CONST                      13: 'TimeRE'
+        130     MAKE_FUNCTION                   0
+        132     LOAD_CONST                      13: 'TimeRE'
+        134     LOAD_NAME                       24: dict
+        136     CALL_FUNCTION                   3
+        138     STORE_NAME                      25: TimeRE
+        140     LOAD_NAME                       19: _thread_allocate_lock
+        142     CALL_FUNCTION                   0
+        144     STORE_NAME                      26: _cache_lock
+        146     LOAD_NAME                       25: TimeRE
+        148     CALL_FUNCTION                   0
+        150     STORE_GLOBAL                    27: _TimeRE_cache
+        152     LOAD_CONST                      14: 5
+        154     STORE_NAME                      28: _CACHE_MAX_SIZE
+        156     BUILD_MAP                       0
+        158     STORE_GLOBAL                    29: _regex_cache
+        160     LOAD_CONST                      15: <CODE> _calc_julian_from_U_or_W
+        162     LOAD_CONST                      16: '_calc_julian_from_U_or_W'
+        164     MAKE_FUNCTION                   0
+        166     STORE_NAME                      30: _calc_julian_from_U_or_W
+        168     LOAD_CONST                      17: <CODE> _calc_julian_from_V
+        170     LOAD_CONST                      18: '_calc_julian_from_V'
+        172     MAKE_FUNCTION                   0
+        174     STORE_NAME                      31: _calc_julian_from_V
+        176     LOAD_CONST                      26: ('%a %b %d %H:%M:%S %Y',)
+        178     LOAD_CONST                      20: <CODE> _strptime
+        180     LOAD_CONST                      21: '_strptime'
+        182     MAKE_FUNCTION                   1
+        184     STORE_NAME                      32: _strptime
+        186     LOAD_CONST                      26: ('%a %b %d %H:%M:%S %Y',)
+        188     LOAD_CONST                      22: <CODE> _strptime_time
+        190     LOAD_CONST                      23: '_strptime_time'
+        192     MAKE_FUNCTION                   1
+        194     STORE_NAME                      33: _strptime_time
+        196     LOAD_CONST                      26: ('%a %b %d %H:%M:%S %Y',)
+        198     LOAD_CONST                      24: <CODE> _strptime_datetime
+        200     LOAD_CONST                      25: '_strptime_datetime'
+        202     MAKE_FUNCTION                   1
+        204     STORE_NAME                      34: _strptime_datetime
+        206     LOAD_CONST                      2: None
+        208     RETURN_VALUE                    

@@ -1,0 +1,46 @@
+contextvars.pyc (Python 3.10)
+[Code]
+    File Name: contextvars.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 2
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '_contextvars'
+        'Context'
+        'ContextVar'
+        'Token'
+        'copy_context'
+        '__all__'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        (
+            'Context'
+            'ContextVar'
+            'Token'
+            'copy_context'
+        )
+        None
+    [Disassembly]
+        0       LOAD_CONST                      0: 0
+        2       LOAD_CONST                      1: ('Context', 'ContextVar', 'Token', 'copy_context')
+        4       IMPORT_NAME                     0: _contextvars
+        6       IMPORT_FROM                     1: Context
+        8       STORE_NAME                      1: Context
+        10      IMPORT_FROM                     2: ContextVar
+        12      STORE_NAME                      2: ContextVar
+        14      IMPORT_FROM                     3: Token
+        16      STORE_NAME                      3: Token
+        18      IMPORT_FROM                     4: copy_context
+        20      STORE_NAME                      4: copy_context
+        22      POP_TOP                         
+        24      LOAD_CONST                      1: ('Context', 'ContextVar', 'Token', 'copy_context')
+        26      STORE_NAME                      5: __all__
+        28      LOAD_CONST                      2: None
+        30      RETURN_VALUE                    

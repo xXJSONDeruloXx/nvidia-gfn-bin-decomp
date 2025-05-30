@@ -1,0 +1,1901 @@
+shlex.pyc (Python 3.10)
+[Code]
+    File Name: shlex.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 8
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'os'
+        're'
+        'sys'
+        'collections'
+        'deque'
+        'io'
+        'StringIO'
+        '__all__'
+        'shlex'
+        'split'
+        'join'
+        'compile'
+        'ASCII'
+        'search'
+        '_find_unsafe'
+        'quote'
+        '_print_tokens'
+        '__name__'
+        'len'
+        'argv'
+        'fn'
+        'open'
+        'f'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'A lexical analyzer class for simple shell-like syntaxes.'
+        0
+        None
+        (
+            'deque'
+        )
+        (
+            'StringIO'
+        )
+        (
+            'shlex'
+            'split'
+            'quote'
+            'join'
+        )
+        [Code]
+            File Name: shlex.py
+            Object Name: shlex
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                'property'
+                'punctuation_chars'
+                'push_token'
+                'push_source'
+                'pop_source'
+                'get_token'
+                'read_token'
+                'sourcehook'
+                'error_leader'
+                '__iter__'
+                '__next__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'shlex'
+                'A lexical analyzer class for simple shell-like syntaxes.'
+                None
+                False
+                [Code]
+                    File Name: shlex.py
+                    Object Name: __init__
+                    Arg Count: 5
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        'str'
+                        'StringIO'
+                        'instream'
+                        'infile'
+                        'sys'
+                        'stdin'
+                        'posix'
+                        'eof'
+                        'commenters'
+                        'wordchars'
+                        'whitespace'
+                        'whitespace_split'
+                        'quotes'
+                        'escape'
+                        'escapedquotes'
+                        'state'
+                        'deque'
+                        'pushback'
+                        'lineno'
+                        'debug'
+                        'token'
+                        'filestack'
+                        'source'
+                        '_punctuation_chars'
+                        '_pushback_chars'
+                        'maketrans'
+                        'dict'
+                        'fromkeys'
+                        'translate'
+                    [Var Names]
+                        'self'
+                        'instream'
+                        'infile'
+                        'posix'
+                        'punctuation_chars'
+                        't'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        ''
+                        '#'
+                        'abcdfeghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_'
+                        'ßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞ'
+                        ' \t\r\n'
+                        False
+                        '\'"'
+                        '\\'
+                        '"'
+                        ' '
+                        1
+                        0
+                        True
+                        '();<>|&'
+                        '~-./*?='
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_FAST                       1: instream
+                        4       LOAD_GLOBAL                     1: str
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_FALSE               9 (to 18)
+                        10      LOAD_GLOBAL                     2: StringIO
+                        12      LOAD_FAST                       1: instream
+                        14      CALL_FUNCTION                   1
+                        16      STORE_FAST                      1: instream
+                        18      LOAD_FAST                       1: instream
+                        20      LOAD_CONST                      0: None
+                        22      IS_OP                           1 (is not)
+                        24      POP_JUMP_IF_FALSE               20 (to 40)
+                        26      LOAD_FAST                       1: instream
+                        28      LOAD_FAST                       0: self
+                        30      STORE_ATTR                      3: instream
+                        32      LOAD_FAST                       2: infile
+                        34      LOAD_FAST                       0: self
+                        36      STORE_ATTR                      4: infile
+                        38      JUMP_FORWARD                    7 (to 54)
+                        40      LOAD_GLOBAL                     5: sys
+                        42      LOAD_ATTR                       6: stdin
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      3: instream
+                        48      LOAD_CONST                      0: None
+                        50      LOAD_FAST                       0: self
+                        52      STORE_ATTR                      4: infile
+                        54      LOAD_FAST                       3: posix
+                        56      LOAD_FAST                       0: self
+                        58      STORE_ATTR                      7: posix
+                        60      LOAD_FAST                       3: posix
+                        62      POP_JUMP_IF_FALSE               36 (to 72)
+                        64      LOAD_CONST                      0: None
+                        66      LOAD_FAST                       0: self
+                        68      STORE_ATTR                      8: eof
+                        70      JUMP_FORWARD                    3 (to 78)
+                        72      LOAD_CONST                      1: ''
+                        74      LOAD_FAST                       0: self
+                        76      STORE_ATTR                      8: eof
+                        78      LOAD_CONST                      2: '#'
+                        80      LOAD_FAST                       0: self
+                        82      STORE_ATTR                      9: commenters
+                        84      LOAD_CONST                      3: 'abcdfeghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_'
+                        86      LOAD_FAST                       0: self
+                        88      STORE_ATTR                      10: wordchars
+                        90      LOAD_FAST                       0: self
+                        92      LOAD_ATTR                       7: posix
+                        94      POP_JUMP_IF_FALSE               55 (to 110)
+                        96      LOAD_FAST                       0: self
+                        98      DUP_TOP                         
+                        100     LOAD_ATTR                       10: wordchars
+                        102     LOAD_CONST                      4: 'ßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞ'
+                        104     INPLACE_ADD                     
+                        106     ROT_TWO                         
+                        108     STORE_ATTR                      10: wordchars
+                        110     LOAD_CONST                      5: ' \t\r\n'
+                        112     LOAD_FAST                       0: self
+                        114     STORE_ATTR                      11: whitespace
+                        116     LOAD_CONST                      6: False
+                        118     LOAD_FAST                       0: self
+                        120     STORE_ATTR                      12: whitespace_split
+                        122     LOAD_CONST                      7: '\'"'
+                        124     LOAD_FAST                       0: self
+                        126     STORE_ATTR                      13: quotes
+                        128     LOAD_CONST                      8: '\\'
+                        130     LOAD_FAST                       0: self
+                        132     STORE_ATTR                      14: escape
+                        134     LOAD_CONST                      9: '"'
+                        136     LOAD_FAST                       0: self
+                        138     STORE_ATTR                      15: escapedquotes
+                        140     LOAD_CONST                      10: ' '
+                        142     LOAD_FAST                       0: self
+                        144     STORE_ATTR                      16: state
+                        146     LOAD_GLOBAL                     17: deque
+                        148     CALL_FUNCTION                   0
+                        150     LOAD_FAST                       0: self
+                        152     STORE_ATTR                      18: pushback
+                        154     LOAD_CONST                      11: 1
+                        156     LOAD_FAST                       0: self
+                        158     STORE_ATTR                      19: lineno
+                        160     LOAD_CONST                      12: 0
+                        162     LOAD_FAST                       0: self
+                        164     STORE_ATTR                      20: debug
+                        166     LOAD_CONST                      1: ''
+                        168     LOAD_FAST                       0: self
+                        170     STORE_ATTR                      21: token
+                        172     LOAD_GLOBAL                     17: deque
+                        174     CALL_FUNCTION                   0
+                        176     LOAD_FAST                       0: self
+                        178     STORE_ATTR                      22: filestack
+                        180     LOAD_CONST                      0: None
+                        182     LOAD_FAST                       0: self
+                        184     STORE_ATTR                      23: source
+                        186     LOAD_FAST                       4: punctuation_chars
+                        188     POP_JUMP_IF_TRUE                98 (to 196)
+                        190     LOAD_CONST                      1: ''
+                        192     STORE_FAST                      4: punctuation_chars
+                        194     JUMP_FORWARD                    6 (to 208)
+                        196     LOAD_FAST                       4: punctuation_chars
+                        198     LOAD_CONST                      13: True
+                        200     IS_OP                           0 (is)
+                        202     POP_JUMP_IF_FALSE               104 (to 208)
+                        204     LOAD_CONST                      14: '();<>|&'
+                        206     STORE_FAST                      4: punctuation_chars
+                        208     LOAD_FAST                       4: punctuation_chars
+                        210     LOAD_FAST                       0: self
+                        212     STORE_ATTR                      24: _punctuation_chars
+                        214     LOAD_FAST                       4: punctuation_chars
+                        216     POP_JUMP_IF_FALSE               138 (to 276)
+                        218     LOAD_GLOBAL                     17: deque
+                        220     CALL_FUNCTION                   0
+                        222     LOAD_FAST                       0: self
+                        224     STORE_ATTR                      25: _pushback_chars
+                        226     LOAD_FAST                       0: self
+                        228     DUP_TOP                         
+                        230     LOAD_ATTR                       10: wordchars
+                        232     LOAD_CONST                      15: '~-./*?='
+                        234     INPLACE_ADD                     
+                        236     ROT_TWO                         
+                        238     STORE_ATTR                      10: wordchars
+                        240     LOAD_FAST                       0: self
+                        242     LOAD_ATTR                       10: wordchars
+                        244     LOAD_METHOD                     26: maketrans
+                        246     LOAD_GLOBAL                     27: dict
+                        248     LOAD_METHOD                     28: fromkeys
+                        250     LOAD_FAST                       4: punctuation_chars
+                        252     CALL_METHOD                     1
+                        254     CALL_METHOD                     1
+                        256     STORE_FAST                      5: t
+                        258     LOAD_FAST                       0: self
+                        260     LOAD_ATTR                       10: wordchars
+                        262     LOAD_METHOD                     29: translate
+                        264     LOAD_FAST                       5: t
+                        266     CALL_METHOD                     1
+                        268     LOAD_FAST                       0: self
+                        270     STORE_ATTR                      10: wordchars
+                        272     LOAD_CONST                      0: None
+                        274     RETURN_VALUE                    
+                        276     LOAD_CONST                      0: None
+                        278     RETURN_VALUE                    
+                'shlex.__init__'
+                [Code]
+                    File Name: shlex.py
+                    Object Name: punctuation_chars
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_punctuation_chars'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _punctuation_chars
+                        4       RETURN_VALUE                    
+                'shlex.punctuation_chars'
+                [Code]
+                    File Name: shlex.py
+                    Object Name: push_token
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'debug'
+                        'print'
+                        'repr'
+                        'pushback'
+                        'appendleft'
+                    [Var Names]
+                        'self'
+                        'tok'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Push a token onto the stack popped by the get_token method'
+                        1
+                        'shlex: pushing token '
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: debug
+                        4       LOAD_CONST                      1: 1
+                        6       COMPARE_OP                      5 (>=)
+                        8       POP_JUMP_IF_FALSE               13 (to 26)
+                        10      LOAD_GLOBAL                     1: print
+                        12      LOAD_CONST                      2: 'shlex: pushing token '
+                        14      LOAD_GLOBAL                     2: repr
+                        16      LOAD_FAST                       1: tok
+                        18      CALL_FUNCTION                   1
+                        20      BINARY_ADD                      
+                        22      CALL_FUNCTION                   1
+                        24      POP_TOP                         
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_ATTR                       3: pushback
+                        30      LOAD_METHOD                     4: appendleft
+                        32      LOAD_FAST                       1: tok
+                        34      CALL_METHOD                     1
+                        36      POP_TOP                         
+                        38      LOAD_CONST                      3: None
+                        40      RETURN_VALUE                    
+                'shlex.push_token'
+                [Code]
+                    File Name: shlex.py
+                    Object Name: push_source
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        'str'
+                        'StringIO'
+                        'filestack'
+                        'appendleft'
+                        'infile'
+                        'instream'
+                        'lineno'
+                        'debug'
+                        'print'
+                    [Var Names]
+                        'self'
+                        'newstream'
+                        'newfile'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Push an input source onto the lexer's input source stack."
+                        1
+                        None
+                        'shlex: pushing to file %s'
+                        'shlex: pushing to stream %s'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_FAST                       1: newstream
+                        4       LOAD_GLOBAL                     1: str
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_FALSE               9 (to 18)
+                        10      LOAD_GLOBAL                     2: StringIO
+                        12      LOAD_FAST                       1: newstream
+                        14      CALL_FUNCTION                   1
+                        16      STORE_FAST                      1: newstream
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_ATTR                       3: filestack
+                        22      LOAD_METHOD                     4: appendleft
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       5: infile
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       6: instream
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       7: lineno
+                        36      BUILD_TUPLE                     3
+                        38      CALL_METHOD                     1
+                        40      POP_TOP                         
+                        42      LOAD_FAST                       2: newfile
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      5: infile
+                        48      LOAD_FAST                       1: newstream
+                        50      LOAD_FAST                       0: self
+                        52      STORE_ATTR                      6: instream
+                        54      LOAD_CONST                      1: 1
+                        56      LOAD_FAST                       0: self
+                        58      STORE_ATTR                      7: lineno
+                        60      LOAD_FAST                       0: self
+                        62      LOAD_ATTR                       8: debug
+                        64      POP_JUMP_IF_FALSE               57 (to 114)
+                        66      LOAD_FAST                       2: newfile
+                        68      LOAD_CONST                      2: None
+                        70      IS_OP                           1 (is not)
+                        72      POP_JUMP_IF_FALSE               47 (to 94)
+                        74      LOAD_GLOBAL                     9: print
+                        76      LOAD_CONST                      3: 'shlex: pushing to file %s'
+                        78      LOAD_FAST                       0: self
+                        80      LOAD_ATTR                       5: infile
+                        82      BUILD_TUPLE                     1
+                        84      BINARY_MODULO                   
+                        86      CALL_FUNCTION                   1
+                        88      POP_TOP                         
+                        90      LOAD_CONST                      2: None
+                        92      RETURN_VALUE                    
+                        94      LOAD_GLOBAL                     9: print
+                        96      LOAD_CONST                      4: 'shlex: pushing to stream %s'
+                        98      LOAD_FAST                       0: self
+                        100     LOAD_ATTR                       6: instream
+                        102     BUILD_TUPLE                     1
+                        104     BINARY_MODULO                   
+                        106     CALL_FUNCTION                   1
+                        108     POP_TOP                         
+                        110     LOAD_CONST                      2: None
+                        112     RETURN_VALUE                    
+                        114     LOAD_CONST                      2: None
+                        116     RETURN_VALUE                    
+                'shlex.push_source'
+                [Code]
+                    File Name: shlex.py
+                    Object Name: pop_source
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'instream'
+                        'close'
+                        'filestack'
+                        'popleft'
+                        'infile'
+                        'lineno'
+                        'debug'
+                        'print'
+                        'state'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Pop the input source stack.'
+                        'shlex: popping to %s, line %d'
+                        ' '
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: instream
+                        4       LOAD_METHOD                     1: close
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       2: filestack
+                        14      LOAD_METHOD                     3: popleft
+                        16      CALL_METHOD                     0
+                        18      UNPACK_SEQUENCE                 3
+                        20      LOAD_FAST                       0: self
+                        22      STORE_ATTR                      4: infile
+                        24      LOAD_FAST                       0: self
+                        26      STORE_ATTR                      0: instream
+                        28      LOAD_FAST                       0: self
+                        30      STORE_ATTR                      5: lineno
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       6: debug
+                        36      POP_JUMP_IF_FALSE               29 (to 58)
+                        38      LOAD_GLOBAL                     7: print
+                        40      LOAD_CONST                      1: 'shlex: popping to %s, line %d'
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_ATTR                       0: instream
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_ATTR                       5: lineno
+                        50      BUILD_TUPLE                     2
+                        52      BINARY_MODULO                   
+                        54      CALL_FUNCTION                   1
+                        56      POP_TOP                         
+                        58      LOAD_CONST                      2: ' '
+                        60      LOAD_FAST                       0: self
+                        62      STORE_ATTR                      8: state
+                        64      LOAD_CONST                      3: None
+                        66      RETURN_VALUE                    
+                'shlex.pop_source'
+                [Code]
+                    File Name: shlex.py
+                    Object Name: get_token
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'pushback'
+                        'popleft'
+                        'debug'
+                        'print'
+                        'repr'
+                        'read_token'
+                        'source'
+                        'sourcehook'
+                        'push_source'
+                        'get_token'
+                        'eof'
+                        'filestack'
+                        'pop_source'
+                    [Var Names]
+                        'self'
+                        'tok'
+                        'raw'
+                        'spec'
+                        'newfile'
+                        'newstream'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Get a token from the input stream (or from stack if it's nonempty)"
+                        1
+                        'shlex: popping token '
+                        None
+                        'shlex: token='
+                        'shlex: token=EOF'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: pushback
+                        4       POP_JUMP_IF_FALSE               23 (to 46)
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_ATTR                       0: pushback
+                        10      LOAD_METHOD                     1: popleft
+                        12      CALL_METHOD                     0
+                        14      STORE_FAST                      1: tok
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       2: debug
+                        20      LOAD_CONST                      1: 1
+                        22      COMPARE_OP                      5 (>=)
+                        24      POP_JUMP_IF_FALSE               21 (to 42)
+                        26      LOAD_GLOBAL                     3: print
+                        28      LOAD_CONST                      2: 'shlex: popping token '
+                        30      LOAD_GLOBAL                     4: repr
+                        32      LOAD_FAST                       1: tok
+                        34      CALL_FUNCTION                   1
+                        36      BINARY_ADD                      
+                        38      CALL_FUNCTION                   1
+                        40      POP_TOP                         
+                        42      LOAD_FAST                       1: tok
+                        44      RETURN_VALUE                    
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_METHOD                     5: read_token
+                        50      CALL_METHOD                     0
+                        52      STORE_FAST                      2: raw
+                        54      LOAD_FAST                       0: self
+                        56      LOAD_ATTR                       6: source
+                        58      LOAD_CONST                      3: None
+                        60      IS_OP                           1 (is not)
+                        62      POP_JUMP_IF_FALSE               65 (to 130)
+                        64      LOAD_FAST                       2: raw
+                        66      LOAD_FAST                       0: self
+                        68      LOAD_ATTR                       6: source
+                        70      COMPARE_OP                      2 (==)
+                        72      POP_JUMP_IF_FALSE               65 (to 130)
+                        74      LOAD_FAST                       0: self
+                        76      LOAD_METHOD                     7: sourcehook
+                        78      LOAD_FAST                       0: self
+                        80      LOAD_METHOD                     5: read_token
+                        82      CALL_METHOD                     0
+                        84      CALL_METHOD                     1
+                        86      STORE_FAST                      3: spec
+                        88      LOAD_FAST                       3: spec
+                        90      POP_JUMP_IF_FALSE               56 (to 112)
+                        92      LOAD_FAST                       3: spec
+                        94      UNPACK_SEQUENCE                 2
+                        96      STORE_FAST                      4: newfile
+                        98      STORE_FAST                      5: newstream
+                        100     LOAD_FAST                       0: self
+                        102     LOAD_METHOD                     8: push_source
+                        104     LOAD_FAST                       5: newstream
+                        106     LOAD_FAST                       4: newfile
+                        108     CALL_METHOD                     2
+                        110     POP_TOP                         
+                        112     LOAD_FAST                       0: self
+                        114     LOAD_METHOD                     9: get_token
+                        116     CALL_METHOD                     0
+                        118     STORE_FAST                      2: raw
+                        120     LOAD_FAST                       2: raw
+                        122     LOAD_FAST                       0: self
+                        124     LOAD_ATTR                       6: source
+                        126     COMPARE_OP                      2 (==)
+                        128     POP_JUMP_IF_TRUE                37 (to 74)
+                        130     LOAD_FAST                       2: raw
+                        132     LOAD_FAST                       0: self
+                        134     LOAD_ATTR                       10: eof
+                        136     COMPARE_OP                      2 (==)
+                        138     POP_JUMP_IF_FALSE               89 (to 178)
+                        140     LOAD_FAST                       0: self
+                        142     LOAD_ATTR                       11: filestack
+                        144     POP_JUMP_IF_TRUE                76 (to 152)
+                        146     LOAD_FAST                       0: self
+                        148     LOAD_ATTR                       10: eof
+                        150     RETURN_VALUE                    
+                        152     LOAD_FAST                       0: self
+                        154     LOAD_METHOD                     12: pop_source
+                        156     CALL_METHOD                     0
+                        158     POP_TOP                         
+                        160     LOAD_FAST                       0: self
+                        162     LOAD_METHOD                     9: get_token
+                        164     CALL_METHOD                     0
+                        166     STORE_FAST                      2: raw
+                        168     LOAD_FAST                       2: raw
+                        170     LOAD_FAST                       0: self
+                        172     LOAD_ATTR                       10: eof
+                        174     COMPARE_OP                      2 (==)
+                        176     POP_JUMP_IF_TRUE                70 (to 140)
+                        178     LOAD_FAST                       0: self
+                        180     LOAD_ATTR                       2: debug
+                        182     LOAD_CONST                      1: 1
+                        184     COMPARE_OP                      5 (>=)
+                        186     POP_JUMP_IF_FALSE               113 (to 226)
+                        188     LOAD_FAST                       2: raw
+                        190     LOAD_FAST                       0: self
+                        192     LOAD_ATTR                       10: eof
+                        194     COMPARE_OP                      3 (!=)
+                        196     POP_JUMP_IF_FALSE               109 (to 218)
+                        198     LOAD_GLOBAL                     3: print
+                        200     LOAD_CONST                      4: 'shlex: token='
+                        202     LOAD_GLOBAL                     4: repr
+                        204     LOAD_FAST                       2: raw
+                        206     CALL_FUNCTION                   1
+                        208     BINARY_ADD                      
+                        210     CALL_FUNCTION                   1
+                        212     POP_TOP                         
+                        214     LOAD_FAST                       2: raw
+                        216     RETURN_VALUE                    
+                        218     LOAD_GLOBAL                     3: print
+                        220     LOAD_CONST                      5: 'shlex: token=EOF'
+                        222     CALL_FUNCTION                   1
+                        224     POP_TOP                         
+                        226     LOAD_FAST                       2: raw
+                        228     RETURN_VALUE                    
+                'shlex.get_token'
+                [Code]
+                    File Name: shlex.py
+                    Object Name: read_token
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'punctuation_chars'
+                        '_pushback_chars'
+                        'pop'
+                        'instream'
+                        'read'
+                        'lineno'
+                        'debug'
+                        'print'
+                        'state'
+                        'token'
+                        'whitespace'
+                        'posix'
+                        'commenters'
+                        'readline'
+                        'escape'
+                        'wordchars'
+                        'quotes'
+                        'whitespace_split'
+                        'ValueError'
+                        'escapedquotes'
+                        'append'
+                        'pushback'
+                        'appendleft'
+                        'repr'
+                    [Var Names]
+                        'self'
+                        'quoted'
+                        'escapedstate'
+                        'nextchar'
+                        'result'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        False
+                        ' '
+                        True
+                        1
+                        '\n'
+                        3
+                        'shlex: in state %r I see character: %r'
+                        ''
+                        2
+                        'shlex: I see whitespace in whitespace state'
+                        'a'
+                        'c'
+                        'shlex: I see EOF in quotes state'
+                        'No closing quotation'
+                        'shlex: I see EOF in escape state'
+                        'No escaped character'
+                        (
+                            'a'
+                            'c'
+                        )
+                        'shlex: I see whitespace in word state'
+                        'shlex: I see punctuation in word state'
+                        'shlex: raw token='
+                        'shlex: raw token=EOF'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: False
+                        2       STORE_FAST                      1: quoted
+                        4       LOAD_CONST                      2: ' '
+                        6       STORE_FAST                      2: escapedstate
+                        8       NOP                             
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       0: punctuation_chars
+                        14      POP_JUMP_IF_FALSE               17 (to 34)
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       1: _pushback_chars
+                        20      POP_JUMP_IF_FALSE               17 (to 34)
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       1: _pushback_chars
+                        26      LOAD_METHOD                     2: pop
+                        28      CALL_METHOD                     0
+                        30      STORE_FAST                      3: nextchar
+                        32      JUMP_FORWARD                    6 (to 46)
+                        34      LOAD_FAST                       0: self
+                        36      LOAD_ATTR                       3: instream
+                        38      LOAD_METHOD                     4: read
+                        40      LOAD_CONST                      4: 1
+                        42      CALL_METHOD                     1
+                        44      STORE_FAST                      3: nextchar
+                        46      LOAD_FAST                       3: nextchar
+                        48      LOAD_CONST                      5: '\n'
+                        50      COMPARE_OP                      2 (==)
+                        52      POP_JUMP_IF_FALSE               34 (to 68)
+                        54      LOAD_FAST                       0: self
+                        56      DUP_TOP                         
+                        58      LOAD_ATTR                       5: lineno
+                        60      LOAD_CONST                      4: 1
+                        62      INPLACE_ADD                     
+                        64      ROT_TWO                         
+                        66      STORE_ATTR                      5: lineno
+                        68      LOAD_FAST                       0: self
+                        70      LOAD_ATTR                       6: debug
+                        72      LOAD_CONST                      6: 3
+                        74      COMPARE_OP                      5 (>=)
+                        76      POP_JUMP_IF_FALSE               48 (to 96)
+                        78      LOAD_GLOBAL                     7: print
+                        80      LOAD_CONST                      7: 'shlex: in state %r I see character: %r'
+                        82      LOAD_FAST                       0: self
+                        84      LOAD_ATTR                       8: state
+                        86      LOAD_FAST                       3: nextchar
+                        88      BUILD_TUPLE                     2
+                        90      BINARY_MODULO                   
+                        92      CALL_FUNCTION                   1
+                        94      POP_TOP                         
+                        96      LOAD_FAST                       0: self
+                        98      LOAD_ATTR                       8: state
+                        100     LOAD_CONST                      0: None
+                        102     IS_OP                           0 (is)
+                        104     POP_JUMP_IF_FALSE               58 (to 116)
+                        106     LOAD_CONST                      8: ''
+                        108     LOAD_FAST                       0: self
+                        110     STORE_ATTR                      9: token
+                        112     JUMP_FORWARD                    505 (to 1126)
+                        116     LOAD_FAST                       0: self
+                        118     LOAD_ATTR                       8: state
+                        120     LOAD_CONST                      2: ' '
+                        122     COMPARE_OP                      2 (==)
+                        124     POP_JUMP_IF_FALSE               196 (to 392)
+                        126     LOAD_FAST                       3: nextchar
+                        128     POP_JUMP_IF_TRUE                70 (to 140)
+                        130     LOAD_CONST                      0: None
+                        132     LOAD_FAST                       0: self
+                        134     STORE_ATTR                      8: state
+                        136     JUMP_FORWARD                    493 (to 1126)
+                        140     LOAD_FAST                       3: nextchar
+                        142     LOAD_FAST                       0: self
+                        144     LOAD_ATTR                       10: whitespace
+                        146     CONTAINS_OP                     0 (in)
+                        148     POP_JUMP_IF_FALSE               95 (to 190)
+                        150     LOAD_FAST                       0: self
+                        152     LOAD_ATTR                       6: debug
+                        154     LOAD_CONST                      9: 2
+                        156     COMPARE_OP                      5 (>=)
+                        158     POP_JUMP_IF_FALSE               84 (to 168)
+                        160     LOAD_GLOBAL                     7: print
+                        162     LOAD_CONST                      10: 'shlex: I see whitespace in whitespace state'
+                        164     CALL_FUNCTION                   1
+                        166     POP_TOP                         
+                        168     LOAD_FAST                       0: self
+                        170     LOAD_ATTR                       9: token
+                        172     POP_JUMP_IF_TRUE                92 (to 184)
+                        174     LOAD_FAST                       0: self
+                        176     LOAD_ATTR                       11: posix
+                        178     POP_JUMP_IF_FALSE               94 (to 188)
+                        180     LOAD_FAST                       1: quoted
+                        182     POP_JUMP_IF_FALSE               94 (to 188)
+                        184     JUMP_FORWARD                    469 (to 1126)
+                        188     JUMP_ABSOLUTE                   4 (to 8)
+                        190     LOAD_FAST                       3: nextchar
+                        192     LOAD_FAST                       0: self
+                        194     LOAD_ATTR                       12: commenters
+                        196     CONTAINS_OP                     0 (in)
+                        198     POP_JUMP_IF_FALSE               114 (to 228)
+                        200     LOAD_FAST                       0: self
+                        202     LOAD_ATTR                       3: instream
+                        204     LOAD_METHOD                     13: readline
+                        206     CALL_METHOD                     0
+                        208     POP_TOP                         
+                        210     LOAD_FAST                       0: self
+                        212     DUP_TOP                         
+                        214     LOAD_ATTR                       5: lineno
+                        216     LOAD_CONST                      4: 1
+                        218     INPLACE_ADD                     
+                        220     ROT_TWO                         
+                        222     STORE_ATTR                      5: lineno
+                        224     JUMP_FORWARD                    448 (to 1124)
+                        228     LOAD_FAST                       0: self
+                        230     LOAD_ATTR                       11: posix
+                        232     POP_JUMP_IF_FALSE               129 (to 258)
+                        234     LOAD_FAST                       3: nextchar
+                        236     LOAD_FAST                       0: self
+                        238     LOAD_ATTR                       14: escape
+                        240     CONTAINS_OP                     0 (in)
+                        242     POP_JUMP_IF_FALSE               129 (to 258)
+                        244     LOAD_CONST                      11: 'a'
+                        246     STORE_FAST                      2: escapedstate
+                        248     LOAD_FAST                       3: nextchar
+                        250     LOAD_FAST                       0: self
+                        252     STORE_ATTR                      8: state
+                        254     JUMP_FORWARD                    433 (to 1124)
+                        258     LOAD_FAST                       3: nextchar
+                        260     LOAD_FAST                       0: self
+                        262     LOAD_ATTR                       15: wordchars
+                        264     CONTAINS_OP                     0 (in)
+                        266     POP_JUMP_IF_FALSE               142 (to 284)
+                        268     LOAD_FAST                       3: nextchar
+                        270     LOAD_FAST                       0: self
+                        272     STORE_ATTR                      9: token
+                        274     LOAD_CONST                      11: 'a'
+                        276     LOAD_FAST                       0: self
+                        278     STORE_ATTR                      8: state
+                        280     JUMP_FORWARD                    420 (to 1124)
+                        284     LOAD_FAST                       3: nextchar
+                        286     LOAD_FAST                       0: self
+                        288     LOAD_ATTR                       0: punctuation_chars
+                        290     CONTAINS_OP                     0 (in)
+                        292     POP_JUMP_IF_FALSE               155 (to 310)
+                        294     LOAD_FAST                       3: nextchar
+                        296     LOAD_FAST                       0: self
+                        298     STORE_ATTR                      9: token
+                        300     LOAD_CONST                      12: 'c'
+                        302     LOAD_FAST                       0: self
+                        304     STORE_ATTR                      8: state
+                        306     JUMP_FORWARD                    407 (to 1124)
+                        310     LOAD_FAST                       3: nextchar
+                        312     LOAD_FAST                       0: self
+                        314     LOAD_ATTR                       16: quotes
+                        316     CONTAINS_OP                     0 (in)
+                        318     POP_JUMP_IF_FALSE               171 (to 342)
+                        320     LOAD_FAST                       0: self
+                        322     LOAD_ATTR                       11: posix
+                        324     POP_JUMP_IF_TRUE                166 (to 332)
+                        326     LOAD_FAST                       3: nextchar
+                        328     LOAD_FAST                       0: self
+                        330     STORE_ATTR                      9: token
+                        332     LOAD_FAST                       3: nextchar
+                        334     LOAD_FAST                       0: self
+                        336     STORE_ATTR                      8: state
+                        338     JUMP_FORWARD                    391 (to 1124)
+                        342     LOAD_FAST                       0: self
+                        344     LOAD_ATTR                       17: whitespace_split
+                        346     POP_JUMP_IF_FALSE               182 (to 364)
+                        348     LOAD_FAST                       3: nextchar
+                        350     LOAD_FAST                       0: self
+                        352     STORE_ATTR                      9: token
+                        354     LOAD_CONST                      11: 'a'
+                        356     LOAD_FAST                       0: self
+                        358     STORE_ATTR                      8: state
+                        360     JUMP_FORWARD                    380 (to 1124)
+                        364     LOAD_FAST                       3: nextchar
+                        366     LOAD_FAST                       0: self
+                        368     STORE_ATTR                      9: token
+                        370     LOAD_FAST                       0: self
+                        372     LOAD_ATTR                       9: token
+                        374     POP_JUMP_IF_TRUE                193 (to 386)
+                        376     LOAD_FAST                       0: self
+                        378     LOAD_ATTR                       11: posix
+                        380     POP_JUMP_IF_FALSE               195 (to 390)
+                        382     LOAD_FAST                       1: quoted
+                        384     POP_JUMP_IF_FALSE               195 (to 390)
+                        386     JUMP_FORWARD                    368 (to 1126)
+                        390     JUMP_ABSOLUTE                   4 (to 8)
+                        392     LOAD_FAST                       0: self
+                        394     LOAD_ATTR                       8: state
+                        396     LOAD_FAST                       0: self
+                        398     LOAD_ATTR                       16: quotes
+                        400     CONTAINS_OP                     0 (in)
+                        402     POP_JUMP_IF_FALSE               279 (to 558)
+                        406     LOAD_CONST                      3: True
+                        408     STORE_FAST                      1: quoted
+                        410     LOAD_FAST                       3: nextchar
+                        412     POP_JUMP_IF_TRUE                220 (to 440)
+                        414     LOAD_FAST                       0: self
+                        416     LOAD_ATTR                       6: debug
+                        418     LOAD_CONST                      9: 2
+                        420     COMPARE_OP                      5 (>=)
+                        422     POP_JUMP_IF_FALSE               216 (to 432)
+                        424     LOAD_GLOBAL                     7: print
+                        426     LOAD_CONST                      13: 'shlex: I see EOF in quotes state'
+                        428     CALL_FUNCTION                   1
+                        430     POP_TOP                         
+                        432     LOAD_GLOBAL                     18: ValueError
+                        434     LOAD_CONST                      14: 'No closing quotation'
+                        436     CALL_FUNCTION                   1
+                        438     RAISE_VARARGS                   1
+                        440     LOAD_FAST                       3: nextchar
+                        442     LOAD_FAST                       0: self
+                        444     LOAD_ATTR                       8: state
+                        446     COMPARE_OP                      2 (==)
+                        448     POP_JUMP_IF_FALSE               245 (to 490)
+                        450     LOAD_FAST                       0: self
+                        452     LOAD_ATTR                       11: posix
+                        454     POP_JUMP_IF_TRUE                240 (to 480)
+                        456     LOAD_FAST                       0: self
+                        458     DUP_TOP                         
+                        460     LOAD_ATTR                       9: token
+                        462     LOAD_FAST                       3: nextchar
+                        464     INPLACE_ADD                     
+                        466     ROT_TWO                         
+                        468     STORE_ATTR                      9: token
+                        470     LOAD_CONST                      2: ' '
+                        472     LOAD_FAST                       0: self
+                        474     STORE_ATTR                      8: state
+                        476     JUMP_FORWARD                    323 (to 1126)
+                        480     LOAD_CONST                      11: 'a'
+                        482     LOAD_FAST                       0: self
+                        484     STORE_ATTR                      8: state
+                        486     JUMP_FORWARD                    317 (to 1124)
+                        490     LOAD_FAST                       0: self
+                        492     LOAD_ATTR                       11: posix
+                        494     POP_JUMP_IF_FALSE               270 (to 540)
+                        498     LOAD_FAST                       3: nextchar
+                        500     LOAD_FAST                       0: self
+                        502     LOAD_ATTR                       14: escape
+                        504     CONTAINS_OP                     0 (in)
+                        506     POP_JUMP_IF_FALSE               270 (to 540)
+                        510     LOAD_FAST                       0: self
+                        512     LOAD_ATTR                       8: state
+                        514     LOAD_FAST                       0: self
+                        516     LOAD_ATTR                       19: escapedquotes
+                        518     CONTAINS_OP                     0 (in)
+                        520     POP_JUMP_IF_FALSE               270 (to 540)
+                        524     LOAD_FAST                       0: self
+                        526     LOAD_ATTR                       8: state
+                        528     STORE_FAST                      2: escapedstate
+                        530     LOAD_FAST                       3: nextchar
+                        532     LOAD_FAST                       0: self
+                        534     STORE_ATTR                      8: state
+                        536     JUMP_FORWARD                    292 (to 1124)
+                        540     LOAD_FAST                       0: self
+                        542     DUP_TOP                         
+                        544     LOAD_ATTR                       9: token
+                        546     LOAD_FAST                       3: nextchar
+                        548     INPLACE_ADD                     
+                        550     ROT_TWO                         
+                        552     STORE_ATTR                      9: token
+                        554     JUMP_FORWARD                    283 (to 1124)
+                        558     LOAD_FAST                       0: self
+                        560     LOAD_ATTR                       8: state
+                        562     LOAD_FAST                       0: self
+                        564     LOAD_ATTR                       14: escape
+                        566     CONTAINS_OP                     0 (in)
+                        568     POP_JUMP_IF_FALSE               339 (to 678)
+                        572     LOAD_FAST                       3: nextchar
+                        574     POP_JUMP_IF_TRUE                303 (to 606)
+                        578     LOAD_FAST                       0: self
+                        580     LOAD_ATTR                       6: debug
+                        582     LOAD_CONST                      9: 2
+                        584     COMPARE_OP                      5 (>=)
+                        586     POP_JUMP_IF_FALSE               299 (to 598)
+                        590     LOAD_GLOBAL                     7: print
+                        592     LOAD_CONST                      15: 'shlex: I see EOF in escape state'
+                        594     CALL_FUNCTION                   1
+                        596     POP_TOP                         
+                        598     LOAD_GLOBAL                     18: ValueError
+                        600     LOAD_CONST                      16: 'No escaped character'
+                        602     CALL_FUNCTION                   1
+                        604     RAISE_VARARGS                   1
+                        606     LOAD_FAST                       2: escapedstate
+                        608     LOAD_FAST                       0: self
+                        610     LOAD_ATTR                       16: quotes
+                        612     CONTAINS_OP                     0 (in)
+                        614     POP_JUMP_IF_FALSE               328 (to 656)
+                        618     LOAD_FAST                       3: nextchar
+                        620     LOAD_FAST                       0: self
+                        622     LOAD_ATTR                       8: state
+                        624     COMPARE_OP                      3 (!=)
+                        626     POP_JUMP_IF_FALSE               328 (to 656)
+                        630     LOAD_FAST                       3: nextchar
+                        632     LOAD_FAST                       2: escapedstate
+                        634     COMPARE_OP                      3 (!=)
+                        636     POP_JUMP_IF_FALSE               328 (to 656)
+                        640     LOAD_FAST                       0: self
+                        642     DUP_TOP                         
+                        644     LOAD_ATTR                       9: token
+                        646     LOAD_FAST                       0: self
+                        648     LOAD_ATTR                       8: state
+                        650     INPLACE_ADD                     
+                        652     ROT_TWO                         
+                        654     STORE_ATTR                      9: token
+                        656     LOAD_FAST                       0: self
+                        658     DUP_TOP                         
+                        660     LOAD_ATTR                       9: token
+                        662     LOAD_FAST                       3: nextchar
+                        664     INPLACE_ADD                     
+                        666     ROT_TWO                         
+                        668     STORE_ATTR                      9: token
+                        670     LOAD_FAST                       2: escapedstate
+                        672     LOAD_FAST                       0: self
+                        674     STORE_ATTR                      8: state
+                        676     JUMP_FORWARD                    223 (to 1124)
+                        678     LOAD_FAST                       0: self
+                        680     LOAD_ATTR                       8: state
+                        682     LOAD_CONST                      17: ('a', 'c')
+                        684     CONTAINS_OP                     0 (in)
+                        686     POP_JUMP_IF_FALSE               562 (to 1124)
+                        690     LOAD_FAST                       3: nextchar
+                        692     POP_JUMP_IF_TRUE                352 (to 704)
+                        696     LOAD_CONST                      0: None
+                        698     LOAD_FAST                       0: self
+                        700     STORE_ATTR                      8: state
+                        702     JUMP_FORWARD                    211 (to 1126)
+                        704     LOAD_FAST                       3: nextchar
+                        706     LOAD_FAST                       0: self
+                        708     LOAD_ATTR                       10: whitespace
+                        710     CONTAINS_OP                     0 (in)
+                        712     POP_JUMP_IF_FALSE               384 (to 768)
+                        716     LOAD_FAST                       0: self
+                        718     LOAD_ATTR                       6: debug
+                        720     LOAD_CONST                      9: 2
+                        722     COMPARE_OP                      5 (>=)
+                        724     POP_JUMP_IF_FALSE               368 (to 736)
+                        728     LOAD_GLOBAL                     7: print
+                        730     LOAD_CONST                      18: 'shlex: I see whitespace in word state'
+                        732     CALL_FUNCTION                   1
+                        734     POP_TOP                         
+                        736     LOAD_CONST                      2: ' '
+                        738     LOAD_FAST                       0: self
+                        740     STORE_ATTR                      8: state
+                        742     LOAD_FAST                       0: self
+                        744     LOAD_ATTR                       9: token
+                        746     POP_JUMP_IF_TRUE                382 (to 764)
+                        750     LOAD_FAST                       0: self
+                        752     LOAD_ATTR                       11: posix
+                        754     POP_JUMP_IF_FALSE               383 (to 766)
+                        758     LOAD_FAST                       1: quoted
+                        760     POP_JUMP_IF_FALSE               383 (to 766)
+                        764     JUMP_FORWARD                    180 (to 1126)
+                        766     JUMP_ABSOLUTE                   4 (to 8)
+                        768     LOAD_FAST                       3: nextchar
+                        770     LOAD_FAST                       0: self
+                        772     LOAD_ATTR                       12: commenters
+                        774     CONTAINS_OP                     0 (in)
+                        776     POP_JUMP_IF_FALSE               423 (to 846)
+                        780     LOAD_FAST                       0: self
+                        782     LOAD_ATTR                       3: instream
+                        784     LOAD_METHOD                     13: readline
+                        786     CALL_METHOD                     0
+                        788     POP_TOP                         
+                        790     LOAD_FAST                       0: self
+                        792     DUP_TOP                         
+                        794     LOAD_ATTR                       5: lineno
+                        796     LOAD_CONST                      4: 1
+                        798     INPLACE_ADD                     
+                        800     ROT_TWO                         
+                        802     STORE_ATTR                      5: lineno
+                        804     LOAD_FAST                       0: self
+                        806     LOAD_ATTR                       11: posix
+                        808     POP_JUMP_IF_FALSE               422 (to 844)
+                        812     LOAD_CONST                      2: ' '
+                        814     LOAD_FAST                       0: self
+                        816     STORE_ATTR                      8: state
+                        818     LOAD_FAST                       0: self
+                        820     LOAD_ATTR                       9: token
+                        822     POP_JUMP_IF_TRUE                420 (to 840)
+                        826     LOAD_FAST                       0: self
+                        828     LOAD_ATTR                       11: posix
+                        830     POP_JUMP_IF_FALSE               421 (to 842)
+                        834     LOAD_FAST                       1: quoted
+                        836     POP_JUMP_IF_FALSE               421 (to 842)
+                        840     JUMP_FORWARD                    142 (to 1126)
+                        842     JUMP_ABSOLUTE                   4 (to 8)
+                        844     JUMP_FORWARD                    139 (to 1124)
+                        846     LOAD_FAST                       0: self
+                        848     LOAD_ATTR                       8: state
+                        850     LOAD_CONST                      12: 'c'
+                        852     COMPARE_OP                      2 (==)
+                        854     POP_JUMP_IF_FALSE               459 (to 918)
+                        858     LOAD_FAST                       3: nextchar
+                        860     LOAD_FAST                       0: self
+                        862     LOAD_ATTR                       0: punctuation_chars
+                        864     CONTAINS_OP                     0 (in)
+                        866     POP_JUMP_IF_FALSE               443 (to 886)
+                        870     LOAD_FAST                       0: self
+                        872     DUP_TOP                         
+                        874     LOAD_ATTR                       9: token
+                        876     LOAD_FAST                       3: nextchar
+                        878     INPLACE_ADD                     
+                        880     ROT_TWO                         
+                        882     STORE_ATTR                      9: token
+                        884     JUMP_FORWARD                    119 (to 1124)
+                        886     LOAD_FAST                       3: nextchar
+                        888     LOAD_FAST                       0: self
+                        890     LOAD_ATTR                       10: whitespace
+                        892     CONTAINS_OP                     1 (not in)
+                        894     POP_JUMP_IF_FALSE               455 (to 910)
+                        898     LOAD_FAST                       0: self
+                        900     LOAD_ATTR                       1: _pushback_chars
+                        902     LOAD_METHOD                     20: append
+                        904     LOAD_FAST                       3: nextchar
+                        906     CALL_METHOD                     1
+                        908     POP_TOP                         
+                        910     LOAD_CONST                      2: ' '
+                        912     LOAD_FAST                       0: self
+                        914     STORE_ATTR                      8: state
+                        916     JUMP_FORWARD                    104 (to 1126)
+                        918     LOAD_FAST                       0: self
+                        920     LOAD_ATTR                       11: posix
+                        922     POP_JUMP_IF_FALSE               473 (to 946)
+                        926     LOAD_FAST                       3: nextchar
+                        928     LOAD_FAST                       0: self
+                        930     LOAD_ATTR                       16: quotes
+                        932     CONTAINS_OP                     0 (in)
+                        934     POP_JUMP_IF_FALSE               473 (to 946)
+                        938     LOAD_FAST                       3: nextchar
+                        940     LOAD_FAST                       0: self
+                        942     STORE_ATTR                      8: state
+                        944     JUMP_FORWARD                    89 (to 1124)
+                        946     LOAD_FAST                       0: self
+                        948     LOAD_ATTR                       11: posix
+                        950     POP_JUMP_IF_FALSE               489 (to 978)
+                        954     LOAD_FAST                       3: nextchar
+                        956     LOAD_FAST                       0: self
+                        958     LOAD_ATTR                       14: escape
+                        960     CONTAINS_OP                     0 (in)
+                        962     POP_JUMP_IF_FALSE               489 (to 978)
+                        966     LOAD_CONST                      11: 'a'
+                        968     STORE_FAST                      2: escapedstate
+                        970     LOAD_FAST                       3: nextchar
+                        972     LOAD_FAST                       0: self
+                        974     STORE_ATTR                      8: state
+                        976     JUMP_FORWARD                    73 (to 1124)
+                        978     LOAD_FAST                       3: nextchar
+                        980     LOAD_FAST                       0: self
+                        982     LOAD_ATTR                       15: wordchars
+                        984     CONTAINS_OP                     0 (in)
+                        986     POP_JUMP_IF_TRUE                511 (to 1022)
+                        990     LOAD_FAST                       3: nextchar
+                        992     LOAD_FAST                       0: self
+                        994     LOAD_ATTR                       16: quotes
+                        996     CONTAINS_OP                     0 (in)
+                        998     POP_JUMP_IF_TRUE                511 (to 1022)
+                        1002    LOAD_FAST                       0: self
+                        1004    LOAD_ATTR                       17: whitespace_split
+                        1006    POP_JUMP_IF_FALSE               519 (to 1038)
+                        1010    LOAD_FAST                       3: nextchar
+                        1012    LOAD_FAST                       0: self
+                        1014    LOAD_ATTR                       0: punctuation_chars
+                        1016    CONTAINS_OP                     1 (not in)
+                        1018    POP_JUMP_IF_FALSE               519 (to 1038)
+                        1022    LOAD_FAST                       0: self
+                        1024    DUP_TOP                         
+                        1026    LOAD_ATTR                       9: token
+                        1028    LOAD_FAST                       3: nextchar
+                        1030    INPLACE_ADD                     
+                        1032    ROT_TWO                         
+                        1034    STORE_ATTR                      9: token
+                        1036    JUMP_FORWARD                    43 (to 1124)
+                        1038    LOAD_FAST                       0: self
+                        1040    LOAD_ATTR                       0: punctuation_chars
+                        1042    POP_JUMP_IF_FALSE               530 (to 1060)
+                        1046    LOAD_FAST                       0: self
+                        1048    LOAD_ATTR                       1: _pushback_chars
+                        1050    LOAD_METHOD                     20: append
+                        1052    LOAD_FAST                       3: nextchar
+                        1054    CALL_METHOD                     1
+                        1056    POP_TOP                         
+                        1058    JUMP_FORWARD                    6 (to 1072)
+                        1060    LOAD_FAST                       0: self
+                        1062    LOAD_ATTR                       21: pushback
+                        1064    LOAD_METHOD                     22: appendleft
+                        1066    LOAD_FAST                       3: nextchar
+                        1068    CALL_METHOD                     1
+                        1070    POP_TOP                         
+                        1072    LOAD_FAST                       0: self
+                        1074    LOAD_ATTR                       6: debug
+                        1076    LOAD_CONST                      9: 2
+                        1078    COMPARE_OP                      5 (>=)
+                        1080    POP_JUMP_IF_FALSE               546 (to 1092)
+                        1084    LOAD_GLOBAL                     7: print
+                        1086    LOAD_CONST                      19: 'shlex: I see punctuation in word state'
+                        1088    CALL_FUNCTION                   1
+                        1090    POP_TOP                         
+                        1092    LOAD_CONST                      2: ' '
+                        1094    LOAD_FAST                       0: self
+                        1096    STORE_ATTR                      8: state
+                        1098    LOAD_FAST                       0: self
+                        1100    LOAD_ATTR                       9: token
+                        1102    POP_JUMP_IF_TRUE                560 (to 1120)
+                        1106    LOAD_FAST                       0: self
+                        1108    LOAD_ATTR                       11: posix
+                        1110    POP_JUMP_IF_FALSE               561 (to 1122)
+                        1114    LOAD_FAST                       1: quoted
+                        1116    POP_JUMP_IF_FALSE               561 (to 1122)
+                        1120    JUMP_FORWARD                    2 (to 1126)
+                        1122    JUMP_ABSOLUTE                   4 (to 8)
+                        1124    JUMP_ABSOLUTE                   5 (to 10)
+                        1126    LOAD_FAST                       0: self
+                        1128    LOAD_ATTR                       9: token
+                        1130    STORE_FAST                      4: result
+                        1132    LOAD_CONST                      8: ''
+                        1134    LOAD_FAST                       0: self
+                        1136    STORE_ATTR                      9: token
+                        1138    LOAD_FAST                       0: self
+                        1140    LOAD_ATTR                       11: posix
+                        1142    POP_JUMP_IF_FALSE               583 (to 1166)
+                        1146    LOAD_FAST                       1: quoted
+                        1148    POP_JUMP_IF_TRUE                583 (to 1166)
+                        1152    LOAD_FAST                       4: result
+                        1154    LOAD_CONST                      8: ''
+                        1156    COMPARE_OP                      2 (==)
+                        1158    POP_JUMP_IF_FALSE               583 (to 1166)
+                        1162    LOAD_CONST                      0: None
+                        1164    STORE_FAST                      4: result
+                        1166    LOAD_FAST                       0: self
+                        1168    LOAD_ATTR                       6: debug
+                        1170    LOAD_CONST                      4: 1
+                        1172    COMPARE_OP                      4 (>)
+                        1174    POP_JUMP_IF_FALSE               606 (to 1212)
+                        1178    LOAD_FAST                       4: result
+                        1180    POP_JUMP_IF_FALSE               602 (to 1204)
+                        1184    LOAD_GLOBAL                     7: print
+                        1186    LOAD_CONST                      20: 'shlex: raw token='
+                        1188    LOAD_GLOBAL                     23: repr
+                        1190    LOAD_FAST                       4: result
+                        1192    CALL_FUNCTION                   1
+                        1194    BINARY_ADD                      
+                        1196    CALL_FUNCTION                   1
+                        1198    POP_TOP                         
+                        1200    LOAD_FAST                       4: result
+                        1202    RETURN_VALUE                    
+                        1204    LOAD_GLOBAL                     7: print
+                        1206    LOAD_CONST                      21: 'shlex: raw token=EOF'
+                        1208    CALL_FUNCTION                   1
+                        1210    POP_TOP                         
+                        1212    LOAD_FAST                       4: result
+                        1214    RETURN_VALUE                    
+                'shlex.read_token'
+                [Code]
+                    File Name: shlex.py
+                    Object Name: sourcehook
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        'infile'
+                        'str'
+                        'os'
+                        'path'
+                        'isabs'
+                        'join'
+                        'dirname'
+                        'open'
+                    [Var Names]
+                        'self'
+                        'newfile'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Hook called on a filename to be sourced.'
+                        0
+                        '"'
+                        1
+                        -1
+                        'r'
+                    [Disassembly]
+                        0       LOAD_FAST                       1: newfile
+                        2       LOAD_CONST                      1: 0
+                        4       BINARY_SUBSCR                   
+                        6       LOAD_CONST                      2: '"'
+                        8       COMPARE_OP                      2 (==)
+                        10      POP_JUMP_IF_FALSE               12 (to 24)
+                        12      LOAD_FAST                       1: newfile
+                        14      LOAD_CONST                      3: 1
+                        16      LOAD_CONST                      4: -1
+                        18      BUILD_SLICE                     2
+                        20      BINARY_SUBSCR                   
+                        22      STORE_FAST                      1: newfile
+                        24      LOAD_GLOBAL                     0: isinstance
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_ATTR                       1: infile
+                        30      LOAD_GLOBAL                     2: str
+                        32      CALL_FUNCTION                   2
+                        34      POP_JUMP_IF_FALSE               36 (to 72)
+                        36      LOAD_GLOBAL                     3: os
+                        38      LOAD_ATTR                       4: path
+                        40      LOAD_METHOD                     5: isabs
+                        42      LOAD_FAST                       1: newfile
+                        44      CALL_METHOD                     1
+                        46      POP_JUMP_IF_TRUE                36 (to 72)
+                        48      LOAD_GLOBAL                     3: os
+                        50      LOAD_ATTR                       4: path
+                        52      LOAD_METHOD                     6: join
+                        54      LOAD_GLOBAL                     3: os
+                        56      LOAD_ATTR                       4: path
+                        58      LOAD_METHOD                     7: dirname
+                        60      LOAD_FAST                       0: self
+                        62      LOAD_ATTR                       1: infile
+                        64      CALL_METHOD                     1
+                        66      LOAD_FAST                       1: newfile
+                        68      CALL_METHOD                     2
+                        70      STORE_FAST                      1: newfile
+                        72      LOAD_FAST                       1: newfile
+                        74      LOAD_GLOBAL                     8: open
+                        76      LOAD_FAST                       1: newfile
+                        78      LOAD_CONST                      5: 'r'
+                        80      CALL_FUNCTION                   2
+                        82      BUILD_TUPLE                     2
+                        84      RETURN_VALUE                    
+                'shlex.sourcehook'
+                [Code]
+                    File Name: shlex.py
+                    Object Name: error_leader
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'infile'
+                        'lineno'
+                    [Var Names]
+                        'self'
+                        'infile'
+                        'lineno'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Emit a C-compiler-like, Emacs-friendly error-message leader.'
+                        None
+                        '"%s", line %d: '
+                    [Disassembly]
+                        0       LOAD_FAST                       1: infile
+                        2       LOAD_CONST                      1: None
+                        4       IS_OP                           0 (is)
+                        6       POP_JUMP_IF_FALSE               7 (to 14)
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       0: infile
+                        12      STORE_FAST                      1: infile
+                        14      LOAD_FAST                       2: lineno
+                        16      LOAD_CONST                      1: None
+                        18      IS_OP                           0 (is)
+                        20      POP_JUMP_IF_FALSE               14 (to 28)
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       1: lineno
+                        26      STORE_FAST                      2: lineno
+                        28      LOAD_CONST                      2: '"%s", line %d: '
+                        30      LOAD_FAST                       1: infile
+                        32      LOAD_FAST                       2: lineno
+                        34      BUILD_TUPLE                     2
+                        36      BINARY_MODULO                   
+                        38      RETURN_VALUE                    
+                'shlex.error_leader'
+                [Code]
+                    File Name: shlex.py
+                    Object Name: __iter__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       RETURN_VALUE                    
+                'shlex.__iter__'
+                [Code]
+                    File Name: shlex.py
+                    Object Name: __next__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'get_token'
+                        'eof'
+                        'StopIteration'
+                    [Var Names]
+                        'self'
+                        'token'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: get_token
+                        4       CALL_METHOD                     0
+                        6       STORE_FAST                      1: token
+                        8       LOAD_FAST                       1: token
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       1: eof
+                        14      COMPARE_OP                      2 (==)
+                        16      POP_JUMP_IF_FALSE               11 (to 22)
+                        18      LOAD_GLOBAL                     2: StopIteration
+                        20      RAISE_VARARGS                   1
+                        22      LOAD_FAST                       1: token
+                        24      RETURN_VALUE                    
+                'shlex.__next__'
+                (
+                    None
+                    None
+                    False
+                    False
+                )
+                (
+                    None
+                )
+                (
+                    None
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'shlex'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'A lexical analyzer class for simple shell-like syntaxes.'
+                10      STORE_NAME                      3: __doc__
+                12      NOP                             
+                14      NOP                             
+                16      LOAD_CONST                      26: (None, None, False, False)
+                18      LOAD_CONST                      4: <CODE> __init__
+                20      LOAD_CONST                      5: 'shlex.__init__'
+                22      MAKE_FUNCTION                   1
+                24      STORE_NAME                      4: __init__
+                26      LOAD_NAME                       5: property
+                28      LOAD_CONST                      6: <CODE> punctuation_chars
+                30      LOAD_CONST                      7: 'shlex.punctuation_chars'
+                32      MAKE_FUNCTION                   0
+                34      CALL_FUNCTION                   1
+                36      STORE_NAME                      6: punctuation_chars
+                38      LOAD_CONST                      8: <CODE> push_token
+                40      LOAD_CONST                      9: 'shlex.push_token'
+                42      MAKE_FUNCTION                   0
+                44      STORE_NAME                      7: push_token
+                46      LOAD_CONST                      27: (None,)
+                48      LOAD_CONST                      10: <CODE> push_source
+                50      LOAD_CONST                      11: 'shlex.push_source'
+                52      MAKE_FUNCTION                   1
+                54      STORE_NAME                      8: push_source
+                56      LOAD_CONST                      12: <CODE> pop_source
+                58      LOAD_CONST                      13: 'shlex.pop_source'
+                60      MAKE_FUNCTION                   0
+                62      STORE_NAME                      9: pop_source
+                64      LOAD_CONST                      14: <CODE> get_token
+                66      LOAD_CONST                      15: 'shlex.get_token'
+                68      MAKE_FUNCTION                   0
+                70      STORE_NAME                      10: get_token
+                72      LOAD_CONST                      16: <CODE> read_token
+                74      LOAD_CONST                      17: 'shlex.read_token'
+                76      MAKE_FUNCTION                   0
+                78      STORE_NAME                      11: read_token
+                80      LOAD_CONST                      18: <CODE> sourcehook
+                82      LOAD_CONST                      19: 'shlex.sourcehook'
+                84      MAKE_FUNCTION                   0
+                86      STORE_NAME                      12: sourcehook
+                88      LOAD_CONST                      28: (None, None)
+                90      LOAD_CONST                      20: <CODE> error_leader
+                92      LOAD_CONST                      21: 'shlex.error_leader'
+                94      MAKE_FUNCTION                   1
+                96      STORE_NAME                      13: error_leader
+                98      LOAD_CONST                      22: <CODE> __iter__
+                100     LOAD_CONST                      23: 'shlex.__iter__'
+                102     MAKE_FUNCTION                   0
+                104     STORE_NAME                      14: __iter__
+                106     LOAD_CONST                      24: <CODE> __next__
+                108     LOAD_CONST                      25: 'shlex.__next__'
+                110     MAKE_FUNCTION                   0
+                112     STORE_NAME                      15: __next__
+                114     LOAD_CONST                      2: None
+                116     RETURN_VALUE                    
+        'shlex'
+        False
+        True
+        [Code]
+            File Name: shlex.py
+            Object Name: split
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'warnings'
+                'warn'
+                'DeprecationWarning'
+                'shlex'
+                'whitespace_split'
+                'commenters'
+                'list'
+            [Var Names]
+                's'
+                'comments'
+                'posix'
+                'warnings'
+                'lex'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Split the string *s* using shell-like syntax.'
+                None
+                0
+                "Passing None for 's' to shlex.split() is deprecated."
+                2
+                (
+                    'stacklevel'
+                )
+                (
+                    'posix'
+                )
+                True
+                ''
+            [Disassembly]
+                0       LOAD_FAST                       0: s
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               16 (to 32)
+                8       LOAD_CONST                      2: 0
+                10      LOAD_CONST                      1: None
+                12      IMPORT_NAME                     0: warnings
+                14      STORE_FAST                      3: warnings
+                16      LOAD_FAST                       3: warnings
+                18      LOAD_ATTR                       1: warn
+                20      LOAD_CONST                      3: "Passing None for 's' to shlex.split() is deprecated."
+                22      LOAD_GLOBAL                     2: DeprecationWarning
+                24      LOAD_CONST                      4: 2
+                26      LOAD_CONST                      5: ('stacklevel',)
+                28      CALL_FUNCTION_KW                3
+                30      POP_TOP                         
+                32      LOAD_GLOBAL                     3: shlex
+                34      LOAD_FAST                       0: s
+                36      LOAD_FAST                       2: posix
+                38      LOAD_CONST                      6: ('posix',)
+                40      CALL_FUNCTION_KW                2
+                42      STORE_FAST                      4: lex
+                44      LOAD_CONST                      7: True
+                46      LOAD_FAST                       4: lex
+                48      STORE_ATTR                      4: whitespace_split
+                50      LOAD_FAST                       1: comments
+                52      POP_JUMP_IF_TRUE                30 (to 60)
+                54      LOAD_CONST                      8: ''
+                56      LOAD_FAST                       4: lex
+                58      STORE_ATTR                      5: commenters
+                60      LOAD_GLOBAL                     6: list
+                62      LOAD_FAST                       4: lex
+                64      CALL_FUNCTION                   1
+                66      RETURN_VALUE                    
+        'split'
+        [Code]
+            File Name: shlex.py
+            Object Name: join
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'join'
+            [Var Names]
+                'split_command'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return a shell-escaped string from *split_command*.'
+                ' '
+                [Code]
+                    File Name: shlex.py
+                    Object Name: <genexpr>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                    [Names]
+                        'quote'
+                    [Var Names]
+                        '.0'
+                        'arg'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        7 (to 20)
+                        6       STORE_FAST                      1: arg
+                        8       LOAD_GLOBAL                     0: quote
+                        10      LOAD_FAST                       1: arg
+                        12      CALL_FUNCTION                   1
+                        14      YIELD_VALUE                     
+                        16      POP_TOP                         
+                        18      JUMP_ABSOLUTE                   2 (to 4)
+                        20      LOAD_CONST                      0: None
+                        22      RETURN_VALUE                    
+                'join.<locals>.<genexpr>'
+            [Disassembly]
+                0       LOAD_CONST                      1: ' '
+                2       LOAD_METHOD                     0: join
+                4       LOAD_CONST                      2: <CODE> <genexpr>
+                6       LOAD_CONST                      3: 'join.<locals>.<genexpr>'
+                8       MAKE_FUNCTION                   0
+                10      LOAD_FAST                       0: split_command
+                12      GET_ITER                        
+                14      CALL_FUNCTION                   1
+                16      CALL_METHOD                     1
+                18      RETURN_VALUE                    
+        'join'
+        '[^\\w@%+=:,./-]'
+        [Code]
+            File Name: shlex.py
+            Object Name: quote
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_find_unsafe'
+                'replace'
+            [Var Names]
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return a shell-escaped version of the string *s*.'
+                "''"
+                None
+                "'"
+                '\'"\'"\''
+            [Disassembly]
+                0       LOAD_FAST                       0: s
+                2       POP_JUMP_IF_TRUE                4 (to 8)
+                4       LOAD_CONST                      1: "''"
+                6       RETURN_VALUE                    
+                8       LOAD_GLOBAL                     0: _find_unsafe
+                10      LOAD_FAST                       0: s
+                12      CALL_FUNCTION                   1
+                14      LOAD_CONST                      2: None
+                16      IS_OP                           0 (is)
+                18      POP_JUMP_IF_FALSE               12 (to 24)
+                20      LOAD_FAST                       0: s
+                22      RETURN_VALUE                    
+                24      LOAD_CONST                      3: "'"
+                26      LOAD_FAST                       0: s
+                28      LOAD_METHOD                     1: replace
+                30      LOAD_CONST                      3: "'"
+                32      LOAD_CONST                      4: '\'"\'"\''
+                34      CALL_METHOD                     2
+                36      BINARY_ADD                      
+                38      LOAD_CONST                      3: "'"
+                40      BINARY_ADD                      
+                42      RETURN_VALUE                    
+        'quote'
+        [Code]
+            File Name: shlex.py
+            Object Name: _print_tokens
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'get_token'
+                'print'
+                'repr'
+            [Var Names]
+                'lexer'
+                'tt'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                1
+                'Token: '
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_FAST                       0: lexer
+                4       LOAD_METHOD                     0: get_token
+                6       CALL_METHOD                     0
+                8       STORE_FAST                      1: tt
+                10      LOAD_FAST                       1: tt
+                12      POP_JUMP_IF_TRUE                9 (to 18)
+                14      LOAD_CONST                      0: None
+                16      RETURN_VALUE                    
+                18      LOAD_GLOBAL                     1: print
+                20      LOAD_CONST                      2: 'Token: '
+                22      LOAD_GLOBAL                     2: repr
+                24      LOAD_FAST                       1: tt
+                26      CALL_FUNCTION                   1
+                28      BINARY_ADD                      
+                30      CALL_FUNCTION                   1
+                32      POP_TOP                         
+                34      JUMP_ABSOLUTE                   1 (to 2)
+        '_print_tokens'
+        '__main__'
+        1
+        (
+            False
+            True
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'A lexical analyzer class for simple shell-like syntaxes.'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: os
+        10      STORE_NAME                      1: os
+        12      LOAD_CONST                      1: 0
+        14      LOAD_CONST                      2: None
+        16      IMPORT_NAME                     2: re
+        18      STORE_NAME                      2: re
+        20      LOAD_CONST                      1: 0
+        22      LOAD_CONST                      2: None
+        24      IMPORT_NAME                     3: sys
+        26      STORE_NAME                      3: sys
+        28      LOAD_CONST                      1: 0
+        30      LOAD_CONST                      3: ('deque',)
+        32      IMPORT_NAME                     4: collections
+        34      IMPORT_FROM                     5: deque
+        36      STORE_NAME                      5: deque
+        38      POP_TOP                         
+        40      LOAD_CONST                      1: 0
+        42      LOAD_CONST                      4: ('StringIO',)
+        44      IMPORT_NAME                     6: io
+        46      IMPORT_FROM                     7: StringIO
+        48      STORE_NAME                      7: StringIO
+        50      POP_TOP                         
+        52      BUILD_LIST                      0
+        54      LOAD_CONST                      5: ('shlex', 'split', 'quote', 'join')
+        56      LIST_EXTEND                     1
+        58      STORE_NAME                      8: __all__
+        60      LOAD_BUILD_CLASS                
+        62      LOAD_CONST                      6: <CODE> shlex
+        64      LOAD_CONST                      7: 'shlex'
+        66      MAKE_FUNCTION                   0
+        68      LOAD_CONST                      7: 'shlex'
+        70      CALL_FUNCTION                   2
+        72      STORE_NAME                      9: shlex
+        74      LOAD_CONST                      21: (False, True)
+        76      LOAD_CONST                      10: <CODE> split
+        78      LOAD_CONST                      11: 'split'
+        80      MAKE_FUNCTION                   1
+        82      STORE_NAME                      10: split
+        84      LOAD_CONST                      12: <CODE> join
+        86      LOAD_CONST                      13: 'join'
+        88      MAKE_FUNCTION                   0
+        90      STORE_NAME                      11: join
+        92      LOAD_NAME                       2: re
+        94      LOAD_METHOD                     12: compile
+        96      LOAD_CONST                      14: '[^\\w@%+=:,./-]'
+        98      LOAD_NAME                       2: re
+        100     LOAD_ATTR                       13: ASCII
+        102     CALL_METHOD                     2
+        104     LOAD_ATTR                       14: search
+        106     STORE_NAME                      15: _find_unsafe
+        108     LOAD_CONST                      15: <CODE> quote
+        110     LOAD_CONST                      16: 'quote'
+        112     MAKE_FUNCTION                   0
+        114     STORE_NAME                      16: quote
+        116     LOAD_CONST                      17: <CODE> _print_tokens
+        118     LOAD_CONST                      18: '_print_tokens'
+        120     MAKE_FUNCTION                   0
+        122     STORE_NAME                      17: _print_tokens
+        124     LOAD_NAME                       18: __name__
+        126     LOAD_CONST                      19: '__main__'
+        128     COMPARE_OP                      2 (==)
+        130     POP_JUMP_IF_FALSE               115 (to 230)
+        132     LOAD_NAME                       19: len
+        134     LOAD_NAME                       3: sys
+        136     LOAD_ATTR                       20: argv
+        138     CALL_FUNCTION                   1
+        140     LOAD_CONST                      20: 1
+        142     COMPARE_OP                      2 (==)
+        144     POP_JUMP_IF_FALSE               80 (to 160)
+        146     LOAD_NAME                       17: _print_tokens
+        148     LOAD_NAME                       9: shlex
+        150     CALL_FUNCTION                   0
+        152     CALL_FUNCTION                   1
+        154     POP_TOP                         
+        156     LOAD_CONST                      2: None
+        158     RETURN_VALUE                    
+        160     LOAD_NAME                       3: sys
+        162     LOAD_ATTR                       20: argv
+        164     LOAD_CONST                      20: 1
+        166     BINARY_SUBSCR                   
+        168     STORE_NAME                      21: fn
+        170     LOAD_NAME                       22: open
+        172     LOAD_NAME                       21: fn
+        174     CALL_FUNCTION                   1
+        176     SETUP_WITH                      16 (to 210)
+        178     STORE_NAME                      23: f
+        180     LOAD_NAME                       17: _print_tokens
+        182     LOAD_NAME                       9: shlex
+        184     LOAD_NAME                       23: f
+        186     LOAD_NAME                       21: fn
+        188     CALL_FUNCTION                   2
+        190     CALL_FUNCTION                   1
+        192     POP_TOP                         
+        194     POP_BLOCK                       
+        196     LOAD_CONST                      2: None
+        198     DUP_TOP                         
+        200     DUP_TOP                         
+        202     CALL_FUNCTION                   3
+        204     POP_TOP                         
+        206     LOAD_CONST                      2: None
+        208     RETURN_VALUE                    
+        210     WITH_EXCEPT_START               
+        212     POP_JUMP_IF_TRUE                108 (to 216)
+        214     RERAISE                         1
+        216     POP_TOP                         
+        218     POP_TOP                         
+        220     POP_TOP                         
+        222     POP_EXCEPT                      
+        224     POP_TOP                         
+        226     LOAD_CONST                      2: None
+        228     RETURN_VALUE                    
+        230     LOAD_CONST                      2: None
+        232     RETURN_VALUE                    

@@ -1,0 +1,4 @@
+File: /Users/kurt/Desktop/PYZ-00.pyz_extracted/webbrowser.pyc
+Size: 16973 bytes
+Modified: Thu May 29 21:01:58 2025
+Python Version: 3.12+

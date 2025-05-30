@@ -1,0 +1,698 @@
+signal.pyc (Python 3.10)
+[Code]
+    File Name: signal.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 6
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '_signal'
+        'enum'
+        'IntEnum'
+        '_IntEnum'
+        'globals'
+        '_globals'
+        '_convert_'
+        '__name__'
+        '_int_to_enum'
+        '_enum_to_int'
+        '_wraps'
+        'signal'
+        'getsignal'
+        'pthread_sigmask'
+        'sigpending'
+        'sigwait'
+        'valid_signals'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        None
+        (
+            '*'
+        )
+        (
+            'IntEnum'
+        )
+        'Signals'
+        [Code]
+            File Name: signal.py
+            Object Name: <lambda>
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isupper'
+                'startswith'
+            [Var Names]
+                'name'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'SIG'
+                'SIG_'
+                'CTRL_'
+            [Disassembly]
+                0       LOAD_FAST                       0: name
+                2       LOAD_METHOD                     0: isupper
+                4       CALL_METHOD                     0
+                6       POP_JUMP_IF_FALSE               15 (to 30)
+                8       LOAD_FAST                       0: name
+                10      LOAD_METHOD                     1: startswith
+                12      LOAD_CONST                      1: 'SIG'
+                14      CALL_METHOD                     1
+                16      JUMP_IF_FALSE_OR_POP            14 (to 28)
+                18      LOAD_FAST                       0: name
+                20      LOAD_METHOD                     1: startswith
+                22      LOAD_CONST                      2: 'SIG_'
+                24      CALL_METHOD                     1
+                26      UNARY_NOT                       
+                28      JUMP_IF_TRUE_OR_POP             19 (to 38)
+                30      LOAD_FAST                       0: name
+                32      LOAD_METHOD                     1: startswith
+                34      LOAD_CONST                      3: 'CTRL_'
+                36      CALL_METHOD                     1
+                38      RETURN_VALUE                    
+        '<lambda>'
+        'Handlers'
+        [Code]
+            File Name: signal.py
+            Object Name: <lambda>
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+            [Var Names]
+                'name'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                (
+                    'SIG_DFL'
+                    'SIG_IGN'
+                )
+            [Disassembly]
+                0       LOAD_FAST                       0: name
+                2       LOAD_CONST                      1: ('SIG_DFL', 'SIG_IGN')
+                4       CONTAINS_OP                     0 (in)
+                6       RETURN_VALUE                    
+        'pthread_sigmask'
+        'Sigmasks'
+        [Code]
+            File Name: signal.py
+            Object Name: <lambda>
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+            [Var Names]
+                'name'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                (
+                    'SIG_BLOCK'
+                    'SIG_UNBLOCK'
+                    'SIG_SETMASK'
+                )
+            [Disassembly]
+                0       LOAD_FAST                       0: name
+                2       LOAD_CONST                      1: ('SIG_BLOCK', 'SIG_UNBLOCK', 'SIG_SETMASK')
+                4       CONTAINS_OP                     0 (in)
+                6       RETURN_VALUE                    
+        [Code]
+            File Name: signal.py
+            Object Name: _int_to_enum
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ValueError'
+            [Var Names]
+                'value'
+                'enum_klass'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Convert a numeric value to an IntEnum member.\n    If it's not a known member, return the numeric value itself.\n    "
+            [Disassembly]
+                0       SETUP_FINALLY                   5 (to 12)
+                2       LOAD_FAST                       1: enum_klass
+                4       LOAD_FAST                       0: value
+                6       CALL_FUNCTION                   1
+                8       POP_BLOCK                       
+                10      RETURN_VALUE                    
+                12      DUP_TOP                         
+                14      LOAD_GLOBAL                     0: ValueError
+                16      JUMP_IF_NOT_EXC_MATCH           16 (to 32)
+                18      POP_TOP                         
+                20      POP_TOP                         
+                22      POP_TOP                         
+                24      LOAD_FAST                       0: value
+                26      ROT_FOUR                        
+                28      POP_EXCEPT                      
+                30      RETURN_VALUE                    
+                32      RERAISE                         0
+        '_int_to_enum'
+        [Code]
+            File Name: signal.py
+            Object Name: _enum_to_int
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 9
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'int'
+                'ValueError'
+                'TypeError'
+            [Var Names]
+                'value'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Convert an IntEnum member to a numeric value.\n    If it's not an IntEnum member return the value itself.\n    "
+            [Disassembly]
+                0       SETUP_FINALLY                   5 (to 12)
+                2       LOAD_GLOBAL                     0: int
+                4       LOAD_FAST                       0: value
+                6       CALL_FUNCTION                   1
+                8       POP_BLOCK                       
+                10      RETURN_VALUE                    
+                12      DUP_TOP                         
+                14      LOAD_GLOBAL                     1: ValueError
+                16      LOAD_GLOBAL                     2: TypeError
+                18      BUILD_TUPLE                     2
+                20      JUMP_IF_NOT_EXC_MATCH           18 (to 36)
+                22      POP_TOP                         
+                24      POP_TOP                         
+                26      POP_TOP                         
+                28      LOAD_FAST                       0: value
+                30      ROT_FOUR                        
+                32      POP_EXCEPT                      
+                34      RETURN_VALUE                    
+                36      RERAISE                         0
+        '_enum_to_int'
+        [Code]
+            File Name: signal.py
+            Object Name: _wraps
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+            [Var Names]
+                'wrapped'
+                'decorator'
+            [Free Vars]
+            [Cell Vars]
+                'wrapped'
+            [Constants]
+                None
+                [Code]
+                    File Name: signal.py
+                    Object Name: decorator
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                        '__doc__'
+                    [Var Names]
+                        'wrapper'
+                    [Free Vars]
+                        'wrapped'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_DEREF                      0: wrapped
+                        2       LOAD_ATTR                       0: __doc__
+                        4       LOAD_FAST                       0: wrapper
+                        6       STORE_ATTR                      0: __doc__
+                        8       LOAD_FAST                       0: wrapper
+                        10      RETURN_VALUE                    
+                '_wraps.<locals>.decorator'
+            [Disassembly]
+                0       LOAD_CLOSURE                    0: wrapped
+                2       BUILD_TUPLE                     1
+                4       LOAD_CONST                      1: <CODE> decorator
+                6       LOAD_CONST                      2: '_wraps.<locals>.decorator'
+                8       MAKE_FUNCTION                   8
+                10      STORE_FAST                      1: decorator
+                12      LOAD_FAST                       1: decorator
+                14      RETURN_VALUE                    
+        '_wraps'
+        [Code]
+            File Name: signal.py
+            Object Name: signal
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_signal'
+                'signal'
+                '_enum_to_int'
+                '_int_to_enum'
+                'Handlers'
+            [Var Names]
+                'signalnum'
+                'handler'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _signal
+                2       LOAD_METHOD                     1: signal
+                4       LOAD_GLOBAL                     2: _enum_to_int
+                6       LOAD_FAST                       0: signalnum
+                8       CALL_FUNCTION                   1
+                10      LOAD_GLOBAL                     2: _enum_to_int
+                12      LOAD_FAST                       1: handler
+                14      CALL_FUNCTION                   1
+                16      CALL_METHOD                     2
+                18      STORE_FAST                      1: handler
+                20      LOAD_GLOBAL                     3: _int_to_enum
+                22      LOAD_FAST                       1: handler
+                24      LOAD_GLOBAL                     4: Handlers
+                26      CALL_FUNCTION                   2
+                28      RETURN_VALUE                    
+        'signal'
+        [Code]
+            File Name: signal.py
+            Object Name: getsignal
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_signal'
+                'getsignal'
+                '_int_to_enum'
+                'Handlers'
+            [Var Names]
+                'signalnum'
+                'handler'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _signal
+                2       LOAD_METHOD                     1: getsignal
+                4       LOAD_FAST                       0: signalnum
+                6       CALL_METHOD                     1
+                8       STORE_FAST                      1: handler
+                10      LOAD_GLOBAL                     2: _int_to_enum
+                12      LOAD_FAST                       1: handler
+                14      LOAD_GLOBAL                     3: Handlers
+                16      CALL_FUNCTION                   2
+                18      RETURN_VALUE                    
+        'getsignal'
+        [Code]
+            File Name: signal.py
+            Object Name: pthread_sigmask
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_signal'
+                'pthread_sigmask'
+                'set'
+            [Var Names]
+                'how'
+                'mask'
+                'sigs_set'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                [Code]
+                    File Name: signal.py
+                    Object Name: <genexpr>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                    [Names]
+                        '_int_to_enum'
+                        'Signals'
+                    [Var Names]
+                        '.0'
+                        'x'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        8 (to 22)
+                        6       STORE_FAST                      1: x
+                        8       LOAD_GLOBAL                     0: _int_to_enum
+                        10      LOAD_FAST                       1: x
+                        12      LOAD_GLOBAL                     1: Signals
+                        14      CALL_FUNCTION                   2
+                        16      YIELD_VALUE                     
+                        18      POP_TOP                         
+                        20      JUMP_ABSOLUTE                   2 (to 4)
+                        22      LOAD_CONST                      0: None
+                        24      RETURN_VALUE                    
+                'pthread_sigmask.<locals>.<genexpr>'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _signal
+                2       LOAD_METHOD                     1: pthread_sigmask
+                4       LOAD_FAST                       0: how
+                6       LOAD_FAST                       1: mask
+                8       CALL_METHOD                     2
+                10      STORE_FAST                      2: sigs_set
+                12      LOAD_GLOBAL                     2: set
+                14      LOAD_CONST                      1: <CODE> <genexpr>
+                16      LOAD_CONST                      2: 'pthread_sigmask.<locals>.<genexpr>'
+                18      MAKE_FUNCTION                   0
+                20      LOAD_FAST                       2: sigs_set
+                22      GET_ITER                        
+                24      CALL_FUNCTION                   1
+                26      CALL_FUNCTION                   1
+                28      RETURN_VALUE                    
+        'sigpending'
+        [Code]
+            File Name: signal.py
+            Object Name: sigpending
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_signal'
+                'sigpending'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                [Code]
+                    File Name: signal.py
+                    Object Name: <setcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        '_int_to_enum'
+                        'Signals'
+                    [Var Names]
+                        '.0'
+                        'x'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_SET                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        7 (to 20)
+                        6       STORE_FAST                      1: x
+                        8       LOAD_GLOBAL                     0: _int_to_enum
+                        10      LOAD_FAST                       1: x
+                        12      LOAD_GLOBAL                     1: Signals
+                        14      CALL_FUNCTION                   2
+                        16      SET_ADD                         2
+                        18      JUMP_ABSOLUTE                   2 (to 4)
+                        20      RETURN_VALUE                    
+                'sigpending.<locals>.<setcomp>'
+            [Disassembly]
+                0       LOAD_CONST                      1: <CODE> <setcomp>
+                2       LOAD_CONST                      2: 'sigpending.<locals>.<setcomp>'
+                4       MAKE_FUNCTION                   0
+                6       LOAD_GLOBAL                     0: _signal
+                8       LOAD_METHOD                     1: sigpending
+                10      CALL_METHOD                     0
+                12      GET_ITER                        
+                14      CALL_FUNCTION                   1
+                16      RETURN_VALUE                    
+        'sigwait'
+        [Code]
+            File Name: signal.py
+            Object Name: sigwait
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_signal'
+                'sigwait'
+                '_int_to_enum'
+                'Signals'
+            [Var Names]
+                'sigset'
+                'retsig'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _signal
+                2       LOAD_METHOD                     1: sigwait
+                4       LOAD_FAST                       0: sigset
+                6       CALL_METHOD                     1
+                8       STORE_FAST                      1: retsig
+                10      LOAD_GLOBAL                     2: _int_to_enum
+                12      LOAD_FAST                       1: retsig
+                14      LOAD_GLOBAL                     3: Signals
+                16      CALL_FUNCTION                   2
+                18      RETURN_VALUE                    
+        'valid_signals'
+        [Code]
+            File Name: signal.py
+            Object Name: valid_signals
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_signal'
+                'valid_signals'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                [Code]
+                    File Name: signal.py
+                    Object Name: <setcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        '_int_to_enum'
+                        'Signals'
+                    [Var Names]
+                        '.0'
+                        'x'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_SET                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        7 (to 20)
+                        6       STORE_FAST                      1: x
+                        8       LOAD_GLOBAL                     0: _int_to_enum
+                        10      LOAD_FAST                       1: x
+                        12      LOAD_GLOBAL                     1: Signals
+                        14      CALL_FUNCTION                   2
+                        16      SET_ADD                         2
+                        18      JUMP_ABSOLUTE                   2 (to 4)
+                        20      RETURN_VALUE                    
+                'valid_signals.<locals>.<setcomp>'
+            [Disassembly]
+                0       LOAD_CONST                      1: <CODE> <setcomp>
+                2       LOAD_CONST                      2: 'valid_signals.<locals>.<setcomp>'
+                4       MAKE_FUNCTION                   0
+                6       LOAD_GLOBAL                     0: _signal
+                8       LOAD_METHOD                     1: valid_signals
+                10      CALL_METHOD                     0
+                12      GET_ITER                        
+                14      CALL_FUNCTION                   1
+                16      RETURN_VALUE                    
+    [Disassembly]
+        0       LOAD_CONST                      0: 0
+        2       LOAD_CONST                      1: None
+        4       IMPORT_NAME                     0: _signal
+        6       STORE_NAME                      0: _signal
+        8       LOAD_CONST                      0: 0
+        10      LOAD_CONST                      2: ('*',)
+        12      IMPORT_NAME                     0: _signal
+        14      IMPORT_STAR                     
+        16      LOAD_CONST                      0: 0
+        18      LOAD_CONST                      3: ('IntEnum',)
+        20      IMPORT_NAME                     1: enum
+        22      IMPORT_FROM                     2: IntEnum
+        24      STORE_NAME                      3: _IntEnum
+        26      POP_TOP                         
+        28      LOAD_NAME                       4: globals
+        30      CALL_FUNCTION                   0
+        32      STORE_NAME                      5: _globals
+        34      LOAD_NAME                       3: _IntEnum
+        36      LOAD_METHOD                     6: _convert_
+        38      LOAD_CONST                      4: 'Signals'
+        40      LOAD_NAME                       7: __name__
+        42      LOAD_CONST                      5: <CODE> <lambda>
+        44      LOAD_CONST                      6: '<lambda>'
+        46      MAKE_FUNCTION                   0
+        48      CALL_METHOD                     3
+        50      POP_TOP                         
+        52      LOAD_NAME                       3: _IntEnum
+        54      LOAD_METHOD                     6: _convert_
+        56      LOAD_CONST                      7: 'Handlers'
+        58      LOAD_NAME                       7: __name__
+        60      LOAD_CONST                      8: <CODE> <lambda>
+        62      LOAD_CONST                      6: '<lambda>'
+        64      MAKE_FUNCTION                   0
+        66      CALL_METHOD                     3
+        68      POP_TOP                         
+        70      LOAD_CONST                      9: 'pthread_sigmask'
+        72      LOAD_NAME                       5: _globals
+        74      CONTAINS_OP                     0 (in)
+        76      POP_JUMP_IF_FALSE               48 (to 96)
+        78      LOAD_NAME                       3: _IntEnum
+        80      LOAD_METHOD                     6: _convert_
+        82      LOAD_CONST                      10: 'Sigmasks'
+        84      LOAD_NAME                       7: __name__
+        86      LOAD_CONST                      11: <CODE> <lambda>
+        88      LOAD_CONST                      6: '<lambda>'
+        90      MAKE_FUNCTION                   0
+        92      CALL_METHOD                     3
+        94      POP_TOP                         
+        96      LOAD_CONST                      12: <CODE> _int_to_enum
+        98      LOAD_CONST                      13: '_int_to_enum'
+        100     MAKE_FUNCTION                   0
+        102     STORE_NAME                      8: _int_to_enum
+        104     LOAD_CONST                      14: <CODE> _enum_to_int
+        106     LOAD_CONST                      15: '_enum_to_int'
+        108     MAKE_FUNCTION                   0
+        110     STORE_NAME                      9: _enum_to_int
+        112     LOAD_CONST                      16: <CODE> _wraps
+        114     LOAD_CONST                      17: '_wraps'
+        116     MAKE_FUNCTION                   0
+        118     STORE_NAME                      10: _wraps
+        120     LOAD_NAME                       10: _wraps
+        122     LOAD_NAME                       0: _signal
+        124     LOAD_ATTR                       11: signal
+        126     CALL_FUNCTION                   1
+        128     LOAD_CONST                      18: <CODE> signal
+        130     LOAD_CONST                      19: 'signal'
+        132     MAKE_FUNCTION                   0
+        134     CALL_FUNCTION                   1
+        136     STORE_NAME                      11: signal
+        138     LOAD_NAME                       10: _wraps
+        140     LOAD_NAME                       0: _signal
+        142     LOAD_ATTR                       12: getsignal
+        144     CALL_FUNCTION                   1
+        146     LOAD_CONST                      20: <CODE> getsignal
+        148     LOAD_CONST                      21: 'getsignal'
+        150     MAKE_FUNCTION                   0
+        152     CALL_FUNCTION                   1
+        154     STORE_NAME                      12: getsignal
+        156     LOAD_CONST                      9: 'pthread_sigmask'
+        158     LOAD_NAME                       5: _globals
+        160     CONTAINS_OP                     0 (in)
+        162     POP_JUMP_IF_FALSE               91 (to 182)
+        164     LOAD_NAME                       10: _wraps
+        166     LOAD_NAME                       0: _signal
+        168     LOAD_ATTR                       13: pthread_sigmask
+        170     CALL_FUNCTION                   1
+        172     LOAD_CONST                      22: <CODE> pthread_sigmask
+        174     LOAD_CONST                      9: 'pthread_sigmask'
+        176     MAKE_FUNCTION                   0
+        178     CALL_FUNCTION                   1
+        180     STORE_NAME                      13: pthread_sigmask
+        182     LOAD_CONST                      23: 'sigpending'
+        184     LOAD_NAME                       5: _globals
+        186     CONTAINS_OP                     0 (in)
+        188     POP_JUMP_IF_FALSE               104 (to 208)
+        190     LOAD_NAME                       10: _wraps
+        192     LOAD_NAME                       0: _signal
+        194     LOAD_ATTR                       14: sigpending
+        196     CALL_FUNCTION                   1
+        198     LOAD_CONST                      24: <CODE> sigpending
+        200     LOAD_CONST                      23: 'sigpending'
+        202     MAKE_FUNCTION                   0
+        204     CALL_FUNCTION                   1
+        206     STORE_NAME                      14: sigpending
+        208     LOAD_CONST                      25: 'sigwait'
+        210     LOAD_NAME                       5: _globals
+        212     CONTAINS_OP                     0 (in)
+        214     POP_JUMP_IF_FALSE               117 (to 234)
+        216     LOAD_NAME                       10: _wraps
+        218     LOAD_NAME                       0: _signal
+        220     LOAD_ATTR                       15: sigwait
+        222     CALL_FUNCTION                   1
+        224     LOAD_CONST                      26: <CODE> sigwait
+        226     LOAD_CONST                      25: 'sigwait'
+        228     MAKE_FUNCTION                   0
+        230     CALL_FUNCTION                   1
+        232     STORE_NAME                      15: sigwait
+        234     LOAD_CONST                      27: 'valid_signals'
+        236     LOAD_NAME                       5: _globals
+        238     CONTAINS_OP                     0 (in)
+        240     POP_JUMP_IF_FALSE               130 (to 260)
+        242     LOAD_NAME                       10: _wraps
+        244     LOAD_NAME                       0: _signal
+        246     LOAD_ATTR                       16: valid_signals
+        248     CALL_FUNCTION                   1
+        250     LOAD_CONST                      28: <CODE> valid_signals
+        252     LOAD_CONST                      27: 'valid_signals'
+        254     MAKE_FUNCTION                   0
+        256     CALL_FUNCTION                   1
+        258     STORE_NAME                      16: valid_signals
+        260     DELETE_NAME                     5: _globals
+        262     DELETE_NAME                     10: _wraps
+        264     LOAD_CONST                      1: None
+        266     RETURN_VALUE                    

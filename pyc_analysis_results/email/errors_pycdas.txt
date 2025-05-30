@@ -1,0 +1,1283 @@
+errors.pyc (Python 3.10)
+[Code]
+    File Name: email/errors.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 5
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'Exception'
+        'MessageError'
+        'MessageParseError'
+        'HeaderParseError'
+        'BoundaryError'
+        'TypeError'
+        'MultipartConversionError'
+        'CharsetError'
+        'HeaderWriteError'
+        'ValueError'
+        'MessageDefect'
+        'NoBoundaryInMultipartDefect'
+        'StartBoundaryNotFoundDefect'
+        'CloseBoundaryNotFoundDefect'
+        'FirstHeaderLineIsContinuationDefect'
+        'MisplacedEnvelopeHeaderDefect'
+        'MissingHeaderBodySeparatorDefect'
+        'MalformedHeaderDefect'
+        'MultipartInvariantViolationDefect'
+        'InvalidMultipartContentTransferEncodingDefect'
+        'UndecodableBytesDefect'
+        'InvalidBase64PaddingDefect'
+        'InvalidBase64CharactersDefect'
+        'InvalidBase64LengthDefect'
+        'HeaderDefect'
+        'InvalidHeaderDefect'
+        'HeaderMissingRequiredValue'
+        'NonPrintableDefect'
+        'ObsoleteHeaderDefect'
+        'NonASCIILocalPartDefect'
+        'InvalidDateDefect'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'email package exception classes.'
+        [Code]
+            File Name: email/errors.py
+            Object Name: MessageError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'MessageError'
+                'Base class for errors in the email package.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'MessageError'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Base class for errors in the email package.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'MessageError'
+        [Code]
+            File Name: email/errors.py
+            Object Name: MessageParseError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'MessageParseError'
+                'Base class for message parsing errors.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'MessageParseError'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Base class for message parsing errors.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'MessageParseError'
+        [Code]
+            File Name: email/errors.py
+            Object Name: HeaderParseError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'HeaderParseError'
+                'Error while parsing headers.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'HeaderParseError'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Error while parsing headers.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'HeaderParseError'
+        [Code]
+            File Name: email/errors.py
+            Object Name: BoundaryError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'BoundaryError'
+                "Couldn't find terminating boundary."
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'BoundaryError'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: "Couldn't find terminating boundary."
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'BoundaryError'
+        [Code]
+            File Name: email/errors.py
+            Object Name: MultipartConversionError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'MultipartConversionError'
+                'Conversion to a multipart is prohibited.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'MultipartConversionError'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Conversion to a multipart is prohibited.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'MultipartConversionError'
+        [Code]
+            File Name: email/errors.py
+            Object Name: CharsetError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'CharsetError'
+                'An illegal charset was given.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'CharsetError'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'An illegal charset was given.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'CharsetError'
+        [Code]
+            File Name: email/errors.py
+            Object Name: HeaderWriteError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'HeaderWriteError'
+                'Error while writing headers.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'HeaderWriteError'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Error while writing headers.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'HeaderWriteError'
+        [Code]
+            File Name: email/errors.py
+            Object Name: MessageDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'MessageDefect'
+                'Base class for a message defect.'
+                None
+                [Code]
+                    File Name: email/errors.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        '__init__'
+                        'line'
+                    [Var Names]
+                        'self'
+                        'line'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: line
+                        2       LOAD_CONST                      0: None
+                        4       IS_OP                           1 (is not)
+                        6       POP_JUMP_IF_FALSE               10 (to 20)
+                        8       LOAD_GLOBAL                     0: super
+                        10      CALL_FUNCTION                   0
+                        12      LOAD_METHOD                     1: __init__
+                        14      LOAD_FAST                       1: line
+                        16      CALL_METHOD                     1
+                        18      POP_TOP                         
+                        20      LOAD_FAST                       1: line
+                        22      LOAD_FAST                       0: self
+                        24      STORE_ATTR                      2: line
+                        26      LOAD_CONST                      0: None
+                        28      RETURN_VALUE                    
+                'MessageDefect.__init__'
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'MessageDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Base class for a message defect.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      5: (None,)
+                14      LOAD_CLOSURE                    0: __class__
+                16      BUILD_TUPLE                     1
+                18      LOAD_CONST                      3: <CODE> __init__
+                20      LOAD_CONST                      4: 'MessageDefect.__init__'
+                22      MAKE_FUNCTION                   9
+                24      STORE_NAME                      4: __init__
+                26      LOAD_CLOSURE                    0: __class__
+                28      DUP_TOP                         
+                30      STORE_NAME                      5: __classcell__
+                32      RETURN_VALUE                    
+        'MessageDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: NoBoundaryInMultipartDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'NoBoundaryInMultipartDefect'
+                'A message claimed to be a multipart but had no boundary parameter.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'NoBoundaryInMultipartDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'A message claimed to be a multipart but had no boundary parameter.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'NoBoundaryInMultipartDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: StartBoundaryNotFoundDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'StartBoundaryNotFoundDefect'
+                'The claimed start boundary was never found.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'StartBoundaryNotFoundDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'The claimed start boundary was never found.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'StartBoundaryNotFoundDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: CloseBoundaryNotFoundDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'CloseBoundaryNotFoundDefect'
+                'A start boundary was found, but not the corresponding close boundary.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'CloseBoundaryNotFoundDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'A start boundary was found, but not the corresponding close boundary.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'CloseBoundaryNotFoundDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: FirstHeaderLineIsContinuationDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'FirstHeaderLineIsContinuationDefect'
+                'A message had a continuation line as its first header line.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'FirstHeaderLineIsContinuationDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'A message had a continuation line as its first header line.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'FirstHeaderLineIsContinuationDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: MisplacedEnvelopeHeaderDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'MisplacedEnvelopeHeaderDefect'
+                "A 'Unix-from' header was found in the middle of a header block."
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'MisplacedEnvelopeHeaderDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: "A 'Unix-from' header was found in the middle of a header block."
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'MisplacedEnvelopeHeaderDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: MissingHeaderBodySeparatorDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'MissingHeaderBodySeparatorDefect'
+                'Found line with no leading whitespace and no colon before blank line.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'MissingHeaderBodySeparatorDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Found line with no leading whitespace and no colon before blank line.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'MissingHeaderBodySeparatorDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: MultipartInvariantViolationDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'MultipartInvariantViolationDefect'
+                'A message claimed to be a multipart but no subparts were found.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'MultipartInvariantViolationDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'A message claimed to be a multipart but no subparts were found.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'MultipartInvariantViolationDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: InvalidMultipartContentTransferEncodingDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'InvalidMultipartContentTransferEncodingDefect'
+                'An invalid content transfer encoding was set on the multipart itself.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'InvalidMultipartContentTransferEncodingDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'An invalid content transfer encoding was set on the multipart itself.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'InvalidMultipartContentTransferEncodingDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: UndecodableBytesDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'UndecodableBytesDefect'
+                'Header contained bytes that could not be decoded'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'UndecodableBytesDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Header contained bytes that could not be decoded'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'UndecodableBytesDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: InvalidBase64PaddingDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'InvalidBase64PaddingDefect'
+                'base64 encoded sequence had an incorrect length'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'InvalidBase64PaddingDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'base64 encoded sequence had an incorrect length'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'InvalidBase64PaddingDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: InvalidBase64CharactersDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'InvalidBase64CharactersDefect'
+                'base64 encoded sequence had characters not in base64 alphabet'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'InvalidBase64CharactersDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'base64 encoded sequence had characters not in base64 alphabet'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'InvalidBase64CharactersDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: InvalidBase64LengthDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'InvalidBase64LengthDefect'
+                'base64 encoded sequence had invalid length (1 mod 4)'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'InvalidBase64LengthDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'base64 encoded sequence had invalid length (1 mod 4)'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'InvalidBase64LengthDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: HeaderDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'HeaderDefect'
+                'Base class for a header defect.'
+                [Code]
+                    File Name: email/errors.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x0000000F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS)
+                    [Names]
+                        'super'
+                        '__init__'
+                    [Var Names]
+                        'self'
+                        'args'
+                        'kw'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_ATTR                       1: __init__
+                        6       LOAD_FAST                       1: args
+                        8       BUILD_MAP                       0
+                        10      LOAD_FAST                       2: kw
+                        12      DICT_MERGE                      1
+                        14      CALL_FUNCTION_EX                1
+                        16      POP_TOP                         
+                        18      LOAD_CONST                      0: None
+                        20      RETURN_VALUE                    
+                'HeaderDefect.__init__'
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'HeaderDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Base class for a header defect.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CLOSURE                    0: __class__
+                14      BUILD_TUPLE                     1
+                16      LOAD_CONST                      2: <CODE> __init__
+                18      LOAD_CONST                      3: 'HeaderDefect.__init__'
+                20      MAKE_FUNCTION                   8
+                22      STORE_NAME                      4: __init__
+                24      LOAD_CLOSURE                    0: __class__
+                26      DUP_TOP                         
+                28      STORE_NAME                      5: __classcell__
+                30      RETURN_VALUE                    
+        'HeaderDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: InvalidHeaderDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'InvalidHeaderDefect'
+                'Header is not valid, message gives details.'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'InvalidHeaderDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Header is not valid, message gives details.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'InvalidHeaderDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: HeaderMissingRequiredValue
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'HeaderMissingRequiredValue'
+                'A header that must have a value had none'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'HeaderMissingRequiredValue'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'A header that must have a value had none'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'HeaderMissingRequiredValue'
+        [Code]
+            File Name: email/errors.py
+            Object Name: NonPrintableDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                '__str__'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'NonPrintableDefect'
+                'ASCII characters outside the ascii-printable range found'
+                [Code]
+                    File Name: email/errors.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        '__init__'
+                        'non_printables'
+                    [Var Names]
+                        'self'
+                        'non_printables'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_METHOD                     1: __init__
+                        6       LOAD_FAST                       1: non_printables
+                        8       CALL_METHOD                     1
+                        10      POP_TOP                         
+                        12      LOAD_FAST                       1: non_printables
+                        14      LOAD_FAST                       0: self
+                        16      STORE_ATTR                      2: non_printables
+                        18      LOAD_CONST                      0: None
+                        20      RETURN_VALUE                    
+                'NonPrintableDefect.__init__'
+                [Code]
+                    File Name: email/errors.py
+                    Object Name: __str__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'format'
+                        'non_printables'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'the following ASCII non-printables found in header: {}'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: 'the following ASCII non-printables found in header: {}'
+                        2       LOAD_METHOD                     0: format
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       1: non_printables
+                        8       CALL_METHOD                     1
+                        10      RETURN_VALUE                    
+                'NonPrintableDefect.__str__'
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'NonPrintableDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'ASCII characters outside the ascii-printable range found'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CLOSURE                    0: __class__
+                14      BUILD_TUPLE                     1
+                16      LOAD_CONST                      2: <CODE> __init__
+                18      LOAD_CONST                      3: 'NonPrintableDefect.__init__'
+                20      MAKE_FUNCTION                   8
+                22      STORE_NAME                      4: __init__
+                24      LOAD_CONST                      4: <CODE> __str__
+                26      LOAD_CONST                      5: 'NonPrintableDefect.__str__'
+                28      MAKE_FUNCTION                   0
+                30      STORE_NAME                      5: __str__
+                32      LOAD_CLOSURE                    0: __class__
+                34      DUP_TOP                         
+                36      STORE_NAME                      6: __classcell__
+                38      RETURN_VALUE                    
+        'NonPrintableDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: ObsoleteHeaderDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'ObsoleteHeaderDefect'
+                'Header uses syntax declared obsolete by RFC 5322'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'ObsoleteHeaderDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Header uses syntax declared obsolete by RFC 5322'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'ObsoleteHeaderDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: NonASCIILocalPartDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'NonASCIILocalPartDefect'
+                'local_part contains non-ASCII characters'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'NonASCIILocalPartDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'local_part contains non-ASCII characters'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'NonASCIILocalPartDefect'
+        [Code]
+            File Name: email/errors.py
+            Object Name: InvalidDateDefect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'InvalidDateDefect'
+                'Header has unparsable or invalid date'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'InvalidDateDefect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Header has unparsable or invalid date'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      RETURN_VALUE                    
+        'InvalidDateDefect'
+        None
+    [Disassembly]
+        0       LOAD_CONST                      0: 'email package exception classes.'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_BUILD_CLASS                
+        6       LOAD_CONST                      1: <CODE> MessageError
+        8       LOAD_CONST                      2: 'MessageError'
+        10      MAKE_FUNCTION                   0
+        12      LOAD_CONST                      2: 'MessageError'
+        14      LOAD_NAME                       1: Exception
+        16      CALL_FUNCTION                   3
+        18      STORE_NAME                      2: MessageError
+        20      LOAD_BUILD_CLASS                
+        22      LOAD_CONST                      3: <CODE> MessageParseError
+        24      LOAD_CONST                      4: 'MessageParseError'
+        26      MAKE_FUNCTION                   0
+        28      LOAD_CONST                      4: 'MessageParseError'
+        30      LOAD_NAME                       2: MessageError
+        32      CALL_FUNCTION                   3
+        34      STORE_NAME                      3: MessageParseError
+        36      LOAD_BUILD_CLASS                
+        38      LOAD_CONST                      5: <CODE> HeaderParseError
+        40      LOAD_CONST                      6: 'HeaderParseError'
+        42      MAKE_FUNCTION                   0
+        44      LOAD_CONST                      6: 'HeaderParseError'
+        46      LOAD_NAME                       3: MessageParseError
+        48      CALL_FUNCTION                   3
+        50      STORE_NAME                      4: HeaderParseError
+        52      LOAD_BUILD_CLASS                
+        54      LOAD_CONST                      7: <CODE> BoundaryError
+        56      LOAD_CONST                      8: 'BoundaryError'
+        58      MAKE_FUNCTION                   0
+        60      LOAD_CONST                      8: 'BoundaryError'
+        62      LOAD_NAME                       3: MessageParseError
+        64      CALL_FUNCTION                   3
+        66      STORE_NAME                      5: BoundaryError
+        68      LOAD_BUILD_CLASS                
+        70      LOAD_CONST                      9: <CODE> MultipartConversionError
+        72      LOAD_CONST                      10: 'MultipartConversionError'
+        74      MAKE_FUNCTION                   0
+        76      LOAD_CONST                      10: 'MultipartConversionError'
+        78      LOAD_NAME                       2: MessageError
+        80      LOAD_NAME                       6: TypeError
+        82      CALL_FUNCTION                   4
+        84      STORE_NAME                      7: MultipartConversionError
+        86      LOAD_BUILD_CLASS                
+        88      LOAD_CONST                      11: <CODE> CharsetError
+        90      LOAD_CONST                      12: 'CharsetError'
+        92      MAKE_FUNCTION                   0
+        94      LOAD_CONST                      12: 'CharsetError'
+        96      LOAD_NAME                       2: MessageError
+        98      CALL_FUNCTION                   3
+        100     STORE_NAME                      8: CharsetError
+        102     LOAD_BUILD_CLASS                
+        104     LOAD_CONST                      13: <CODE> HeaderWriteError
+        106     LOAD_CONST                      14: 'HeaderWriteError'
+        108     MAKE_FUNCTION                   0
+        110     LOAD_CONST                      14: 'HeaderWriteError'
+        112     LOAD_NAME                       2: MessageError
+        114     CALL_FUNCTION                   3
+        116     STORE_NAME                      9: HeaderWriteError
+        118     LOAD_BUILD_CLASS                
+        120     LOAD_CONST                      15: <CODE> MessageDefect
+        122     LOAD_CONST                      16: 'MessageDefect'
+        124     MAKE_FUNCTION                   0
+        126     LOAD_CONST                      16: 'MessageDefect'
+        128     LOAD_NAME                       10: ValueError
+        130     CALL_FUNCTION                   3
+        132     STORE_NAME                      11: MessageDefect
+        134     LOAD_BUILD_CLASS                
+        136     LOAD_CONST                      17: <CODE> NoBoundaryInMultipartDefect
+        138     LOAD_CONST                      18: 'NoBoundaryInMultipartDefect'
+        140     MAKE_FUNCTION                   0
+        142     LOAD_CONST                      18: 'NoBoundaryInMultipartDefect'
+        144     LOAD_NAME                       11: MessageDefect
+        146     CALL_FUNCTION                   3
+        148     STORE_NAME                      12: NoBoundaryInMultipartDefect
+        150     LOAD_BUILD_CLASS                
+        152     LOAD_CONST                      19: <CODE> StartBoundaryNotFoundDefect
+        154     LOAD_CONST                      20: 'StartBoundaryNotFoundDefect'
+        156     MAKE_FUNCTION                   0
+        158     LOAD_CONST                      20: 'StartBoundaryNotFoundDefect'
+        160     LOAD_NAME                       11: MessageDefect
+        162     CALL_FUNCTION                   3
+        164     STORE_NAME                      13: StartBoundaryNotFoundDefect
+        166     LOAD_BUILD_CLASS                
+        168     LOAD_CONST                      21: <CODE> CloseBoundaryNotFoundDefect
+        170     LOAD_CONST                      22: 'CloseBoundaryNotFoundDefect'
+        172     MAKE_FUNCTION                   0
+        174     LOAD_CONST                      22: 'CloseBoundaryNotFoundDefect'
+        176     LOAD_NAME                       11: MessageDefect
+        178     CALL_FUNCTION                   3
+        180     STORE_NAME                      14: CloseBoundaryNotFoundDefect
+        182     LOAD_BUILD_CLASS                
+        184     LOAD_CONST                      23: <CODE> FirstHeaderLineIsContinuationDefect
+        186     LOAD_CONST                      24: 'FirstHeaderLineIsContinuationDefect'
+        188     MAKE_FUNCTION                   0
+        190     LOAD_CONST                      24: 'FirstHeaderLineIsContinuationDefect'
+        192     LOAD_NAME                       11: MessageDefect
+        194     CALL_FUNCTION                   3
+        196     STORE_NAME                      15: FirstHeaderLineIsContinuationDefect
+        198     LOAD_BUILD_CLASS                
+        200     LOAD_CONST                      25: <CODE> MisplacedEnvelopeHeaderDefect
+        202     LOAD_CONST                      26: 'MisplacedEnvelopeHeaderDefect'
+        204     MAKE_FUNCTION                   0
+        206     LOAD_CONST                      26: 'MisplacedEnvelopeHeaderDefect'
+        208     LOAD_NAME                       11: MessageDefect
+        210     CALL_FUNCTION                   3
+        212     STORE_NAME                      16: MisplacedEnvelopeHeaderDefect
+        214     LOAD_BUILD_CLASS                
+        216     LOAD_CONST                      27: <CODE> MissingHeaderBodySeparatorDefect
+        218     LOAD_CONST                      28: 'MissingHeaderBodySeparatorDefect'
+        220     MAKE_FUNCTION                   0
+        222     LOAD_CONST                      28: 'MissingHeaderBodySeparatorDefect'
+        224     LOAD_NAME                       11: MessageDefect
+        226     CALL_FUNCTION                   3
+        228     STORE_NAME                      17: MissingHeaderBodySeparatorDefect
+        230     LOAD_NAME                       17: MissingHeaderBodySeparatorDefect
+        232     STORE_NAME                      18: MalformedHeaderDefect
+        234     LOAD_BUILD_CLASS                
+        236     LOAD_CONST                      29: <CODE> MultipartInvariantViolationDefect
+        238     LOAD_CONST                      30: 'MultipartInvariantViolationDefect'
+        240     MAKE_FUNCTION                   0
+        242     LOAD_CONST                      30: 'MultipartInvariantViolationDefect'
+        244     LOAD_NAME                       11: MessageDefect
+        246     CALL_FUNCTION                   3
+        248     STORE_NAME                      19: MultipartInvariantViolationDefect
+        250     LOAD_BUILD_CLASS                
+        252     LOAD_CONST                      31: <CODE> InvalidMultipartContentTransferEncodingDefect
+        254     LOAD_CONST                      32: 'InvalidMultipartContentTransferEncodingDefect'
+        256     MAKE_FUNCTION                   0
+        258     LOAD_CONST                      32: 'InvalidMultipartContentTransferEncodingDefect'
+        260     LOAD_NAME                       11: MessageDefect
+        262     CALL_FUNCTION                   3
+        264     STORE_NAME                      20: InvalidMultipartContentTransferEncodingDefect
+        266     LOAD_BUILD_CLASS                
+        268     LOAD_CONST                      33: <CODE> UndecodableBytesDefect
+        270     LOAD_CONST                      34: 'UndecodableBytesDefect'
+        272     MAKE_FUNCTION                   0
+        274     LOAD_CONST                      34: 'UndecodableBytesDefect'
+        276     LOAD_NAME                       11: MessageDefect
+        278     CALL_FUNCTION                   3
+        280     STORE_NAME                      21: UndecodableBytesDefect
+        282     LOAD_BUILD_CLASS                
+        284     LOAD_CONST                      35: <CODE> InvalidBase64PaddingDefect
+        286     LOAD_CONST                      36: 'InvalidBase64PaddingDefect'
+        288     MAKE_FUNCTION                   0
+        290     LOAD_CONST                      36: 'InvalidBase64PaddingDefect'
+        292     LOAD_NAME                       11: MessageDefect
+        294     CALL_FUNCTION                   3
+        296     STORE_NAME                      22: InvalidBase64PaddingDefect
+        298     LOAD_BUILD_CLASS                
+        300     LOAD_CONST                      37: <CODE> InvalidBase64CharactersDefect
+        302     LOAD_CONST                      38: 'InvalidBase64CharactersDefect'
+        304     MAKE_FUNCTION                   0
+        306     LOAD_CONST                      38: 'InvalidBase64CharactersDefect'
+        308     LOAD_NAME                       11: MessageDefect
+        310     CALL_FUNCTION                   3
+        312     STORE_NAME                      23: InvalidBase64CharactersDefect
+        314     LOAD_BUILD_CLASS                
+        316     LOAD_CONST                      39: <CODE> InvalidBase64LengthDefect
+        318     LOAD_CONST                      40: 'InvalidBase64LengthDefect'
+        320     MAKE_FUNCTION                   0
+        322     LOAD_CONST                      40: 'InvalidBase64LengthDefect'
+        324     LOAD_NAME                       11: MessageDefect
+        326     CALL_FUNCTION                   3
+        328     STORE_NAME                      24: InvalidBase64LengthDefect
+        330     LOAD_BUILD_CLASS                
+        332     LOAD_CONST                      41: <CODE> HeaderDefect
+        334     LOAD_CONST                      42: 'HeaderDefect'
+        336     MAKE_FUNCTION                   0
+        338     LOAD_CONST                      42: 'HeaderDefect'
+        340     LOAD_NAME                       11: MessageDefect
+        342     CALL_FUNCTION                   3
+        344     STORE_NAME                      25: HeaderDefect
+        346     LOAD_BUILD_CLASS                
+        348     LOAD_CONST                      43: <CODE> InvalidHeaderDefect
+        350     LOAD_CONST                      44: 'InvalidHeaderDefect'
+        352     MAKE_FUNCTION                   0
+        354     LOAD_CONST                      44: 'InvalidHeaderDefect'
+        356     LOAD_NAME                       25: HeaderDefect
+        358     CALL_FUNCTION                   3
+        360     STORE_NAME                      26: InvalidHeaderDefect
+        362     LOAD_BUILD_CLASS                
+        364     LOAD_CONST                      45: <CODE> HeaderMissingRequiredValue
+        366     LOAD_CONST                      46: 'HeaderMissingRequiredValue'
+        368     MAKE_FUNCTION                   0
+        370     LOAD_CONST                      46: 'HeaderMissingRequiredValue'
+        372     LOAD_NAME                       25: HeaderDefect
+        374     CALL_FUNCTION                   3
+        376     STORE_NAME                      27: HeaderMissingRequiredValue
+        378     LOAD_BUILD_CLASS                
+        380     LOAD_CONST                      47: <CODE> NonPrintableDefect
+        382     LOAD_CONST                      48: 'NonPrintableDefect'
+        384     MAKE_FUNCTION                   0
+        386     LOAD_CONST                      48: 'NonPrintableDefect'
+        388     LOAD_NAME                       25: HeaderDefect
+        390     CALL_FUNCTION                   3
+        392     STORE_NAME                      28: NonPrintableDefect
+        394     LOAD_BUILD_CLASS                
+        396     LOAD_CONST                      49: <CODE> ObsoleteHeaderDefect
+        398     LOAD_CONST                      50: 'ObsoleteHeaderDefect'
+        400     MAKE_FUNCTION                   0
+        402     LOAD_CONST                      50: 'ObsoleteHeaderDefect'
+        404     LOAD_NAME                       25: HeaderDefect
+        406     CALL_FUNCTION                   3
+        408     STORE_NAME                      29: ObsoleteHeaderDefect
+        410     LOAD_BUILD_CLASS                
+        412     LOAD_CONST                      51: <CODE> NonASCIILocalPartDefect
+        414     LOAD_CONST                      52: 'NonASCIILocalPartDefect'
+        416     MAKE_FUNCTION                   0
+        418     LOAD_CONST                      52: 'NonASCIILocalPartDefect'
+        420     LOAD_NAME                       25: HeaderDefect
+        422     CALL_FUNCTION                   3
+        424     STORE_NAME                      30: NonASCIILocalPartDefect
+        426     LOAD_BUILD_CLASS                
+        428     LOAD_CONST                      53: <CODE> InvalidDateDefect
+        430     LOAD_CONST                      54: 'InvalidDateDefect'
+        432     MAKE_FUNCTION                   0
+        434     LOAD_CONST                      54: 'InvalidDateDefect'
+        436     LOAD_NAME                       25: HeaderDefect
+        438     CALL_FUNCTION                   3
+        440     STORE_NAME                      31: InvalidDateDefect
+        442     LOAD_CONST                      55: None
+        444     RETURN_VALUE                    

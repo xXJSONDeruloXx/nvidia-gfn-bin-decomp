@@ -1,0 +1,326 @@
+encoders.pyc (Python 3.10)
+[Code]
+    File Name: email/encoders.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 2
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        'base64'
+        'encodebytes'
+        '_bencode'
+        'quopri'
+        'encodestring'
+        '_encodestring'
+        '_qencode'
+        'encode_base64'
+        'encode_quopri'
+        'encode_7or8bit'
+        'encode_noop'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Encodings and related functions.'
+        (
+            'encode_7or8bit'
+            'encode_base64'
+            'encode_noop'
+            'encode_quopri'
+        )
+        0
+        (
+            'encodebytes'
+        )
+        (
+            'encodestring'
+        )
+        [Code]
+            File Name: email/encoders.py
+            Object Name: _qencode
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_encodestring'
+                'replace'
+            [Var Names]
+                's'
+                'enc'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                True
+                (
+                    'quotetabs'
+                )
+                b' '
+                b'=20'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _encodestring
+                2       LOAD_FAST                       0: s
+                4       LOAD_CONST                      1: True
+                6       LOAD_CONST                      2: ('quotetabs',)
+                8       CALL_FUNCTION_KW                2
+                10      STORE_FAST                      1: enc
+                12      LOAD_FAST                       1: enc
+                14      LOAD_METHOD                     1: replace
+                16      LOAD_CONST                      3: b' '
+                18      LOAD_CONST                      4: b'=20'
+                20      CALL_METHOD                     2
+                22      RETURN_VALUE                    
+        '_qencode'
+        [Code]
+            File Name: email/encoders.py
+            Object Name: encode_base64
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'get_payload'
+                'str'
+                '_bencode'
+                'set_payload'
+            [Var Names]
+                'msg'
+                'orig'
+                'encdata'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Encode the message's payload in Base64.\n\n    Also, add an appropriate Content-Transfer-Encoding header.\n    "
+                True
+                (
+                    'decode'
+                )
+                'ascii'
+                'base64'
+                'Content-Transfer-Encoding'
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: msg
+                2       LOAD_ATTR                       0: get_payload
+                4       LOAD_CONST                      1: True
+                6       LOAD_CONST                      2: ('decode',)
+                8       CALL_FUNCTION_KW                1
+                10      STORE_FAST                      1: orig
+                12      LOAD_GLOBAL                     1: str
+                14      LOAD_GLOBAL                     2: _bencode
+                16      LOAD_FAST                       1: orig
+                18      CALL_FUNCTION                   1
+                20      LOAD_CONST                      3: 'ascii'
+                22      CALL_FUNCTION                   2
+                24      STORE_FAST                      2: encdata
+                26      LOAD_FAST                       0: msg
+                28      LOAD_METHOD                     3: set_payload
+                30      LOAD_FAST                       2: encdata
+                32      CALL_METHOD                     1
+                34      POP_TOP                         
+                36      LOAD_CONST                      4: 'base64'
+                38      LOAD_FAST                       0: msg
+                40      LOAD_CONST                      5: 'Content-Transfer-Encoding'
+                42      STORE_SUBSCR                    
+                44      LOAD_CONST                      6: None
+                46      RETURN_VALUE                    
+        'encode_base64'
+        [Code]
+            File Name: email/encoders.py
+            Object Name: encode_quopri
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'get_payload'
+                '_qencode'
+                'set_payload'
+            [Var Names]
+                'msg'
+                'orig'
+                'encdata'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Encode the message's payload in quoted-printable.\n\n    Also, add an appropriate Content-Transfer-Encoding header.\n    "
+                True
+                (
+                    'decode'
+                )
+                'quoted-printable'
+                'Content-Transfer-Encoding'
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: msg
+                2       LOAD_ATTR                       0: get_payload
+                4       LOAD_CONST                      1: True
+                6       LOAD_CONST                      2: ('decode',)
+                8       CALL_FUNCTION_KW                1
+                10      STORE_FAST                      1: orig
+                12      LOAD_GLOBAL                     1: _qencode
+                14      LOAD_FAST                       1: orig
+                16      CALL_FUNCTION                   1
+                18      STORE_FAST                      2: encdata
+                20      LOAD_FAST                       0: msg
+                22      LOAD_METHOD                     2: set_payload
+                24      LOAD_FAST                       2: encdata
+                26      CALL_METHOD                     1
+                28      POP_TOP                         
+                30      LOAD_CONST                      3: 'quoted-printable'
+                32      LOAD_FAST                       0: msg
+                34      LOAD_CONST                      4: 'Content-Transfer-Encoding'
+                36      STORE_SUBSCR                    
+                38      LOAD_CONST                      5: None
+                40      RETURN_VALUE                    
+        'encode_quopri'
+        [Code]
+            File Name: email/encoders.py
+            Object Name: encode_7or8bit
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'get_payload'
+                'decode'
+                'UnicodeError'
+            [Var Names]
+                'msg'
+                'orig'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Set the Content-Transfer-Encoding header to 7bit or 8bit.'
+                True
+                (
+                    'decode'
+                )
+                None
+                '7bit'
+                'Content-Transfer-Encoding'
+                'ascii'
+                '8bit'
+            [Disassembly]
+                0       LOAD_FAST                       0: msg
+                2       LOAD_ATTR                       0: get_payload
+                4       LOAD_CONST                      1: True
+                6       LOAD_CONST                      2: ('decode',)
+                8       CALL_FUNCTION_KW                1
+                10      STORE_FAST                      1: orig
+                12      LOAD_FAST                       1: orig
+                14      LOAD_CONST                      3: None
+                16      IS_OP                           0 (is)
+                18      POP_JUMP_IF_FALSE               16 (to 32)
+                20      LOAD_CONST                      4: '7bit'
+                22      LOAD_FAST                       0: msg
+                24      LOAD_CONST                      5: 'Content-Transfer-Encoding'
+                26      STORE_SUBSCR                    
+                28      LOAD_CONST                      3: None
+                30      RETURN_VALUE                    
+                32      SETUP_FINALLY                   7 (to 48)
+                34      LOAD_FAST                       1: orig
+                36      LOAD_METHOD                     1: decode
+                38      LOAD_CONST                      6: 'ascii'
+                40      CALL_METHOD                     1
+                42      POP_TOP                         
+                44      POP_BLOCK                       
+                46      JUMP_FORWARD                    14 (to 76)
+                48      DUP_TOP                         
+                50      LOAD_GLOBAL                     2: UnicodeError
+                52      JUMP_IF_NOT_EXC_MATCH           37 (to 74)
+                54      POP_TOP                         
+                56      POP_TOP                         
+                58      POP_TOP                         
+                60      LOAD_CONST                      7: '8bit'
+                62      LOAD_FAST                       0: msg
+                64      LOAD_CONST                      5: 'Content-Transfer-Encoding'
+                66      STORE_SUBSCR                    
+                68      POP_EXCEPT                      
+                70      LOAD_CONST                      3: None
+                72      RETURN_VALUE                    
+                74      RERAISE                         0
+                76      LOAD_CONST                      4: '7bit'
+                78      LOAD_FAST                       0: msg
+                80      LOAD_CONST                      5: 'Content-Transfer-Encoding'
+                82      STORE_SUBSCR                    
+                84      LOAD_CONST                      3: None
+                86      RETURN_VALUE                    
+        'encode_7or8bit'
+        [Code]
+            File Name: email/encoders.py
+            Object Name: encode_noop
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 1
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+            [Var Names]
+                'msg'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Do nothing.'
+                None
+            [Disassembly]
+                0       LOAD_CONST                      1: None
+                2       RETURN_VALUE                    
+        'encode_noop'
+        None
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Encodings and related functions.'
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('encode_7or8bit', 'encode_base64', 'encode_noop', 'encode_quopri')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: 0
+        14      LOAD_CONST                      3: ('encodebytes',)
+        16      IMPORT_NAME                     2: base64
+        18      IMPORT_FROM                     3: encodebytes
+        20      STORE_NAME                      4: _bencode
+        22      POP_TOP                         
+        24      LOAD_CONST                      2: 0
+        26      LOAD_CONST                      4: ('encodestring',)
+        28      IMPORT_NAME                     5: quopri
+        30      IMPORT_FROM                     6: encodestring
+        32      STORE_NAME                      7: _encodestring
+        34      POP_TOP                         
+        36      LOAD_CONST                      5: <CODE> _qencode
+        38      LOAD_CONST                      6: '_qencode'
+        40      MAKE_FUNCTION                   0
+        42      STORE_NAME                      8: _qencode
+        44      LOAD_CONST                      7: <CODE> encode_base64
+        46      LOAD_CONST                      8: 'encode_base64'
+        48      MAKE_FUNCTION                   0
+        50      STORE_NAME                      9: encode_base64
+        52      LOAD_CONST                      9: <CODE> encode_quopri
+        54      LOAD_CONST                      10: 'encode_quopri'
+        56      MAKE_FUNCTION                   0
+        58      STORE_NAME                      10: encode_quopri
+        60      LOAD_CONST                      11: <CODE> encode_7or8bit
+        62      LOAD_CONST                      12: 'encode_7or8bit'
+        64      MAKE_FUNCTION                   0
+        66      STORE_NAME                      11: encode_7or8bit
+        68      LOAD_CONST                      13: <CODE> encode_noop
+        70      LOAD_CONST                      14: 'encode_noop'
+        72      MAKE_FUNCTION                   0
+        74      STORE_NAME                      12: encode_noop
+        76      LOAD_CONST                      15: None
+        78      RETURN_VALUE                    

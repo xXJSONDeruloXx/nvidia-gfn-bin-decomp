@@ -1,0 +1,2544 @@
+csv.pyc (Python 3.10)
+[Code]
+    File Name: csv.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 8
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        're'
+        '_csv'
+        'Error'
+        '__version__'
+        'writer'
+        'reader'
+        'register_dialect'
+        'unregister_dialect'
+        'get_dialect'
+        'list_dialects'
+        'field_size_limit'
+        'QUOTE_MINIMAL'
+        'QUOTE_ALL'
+        'QUOTE_NONNUMERIC'
+        'QUOTE_NONE'
+        'Dialect'
+        '_Dialect'
+        'io'
+        'StringIO'
+        '__all__'
+        'excel'
+        'excel_tab'
+        'unix_dialect'
+        'DictReader'
+        'DictWriter'
+        'complex'
+        'NameError'
+        'float'
+        'Sniffer'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        '\ncsv.py - read/write/investigate CSV files\n'
+        0
+        None
+        (
+            'Error'
+            '__version__'
+            'writer'
+            'reader'
+            'register_dialect'
+            'unregister_dialect'
+            'get_dialect'
+            'list_dialects'
+            'field_size_limit'
+            'QUOTE_MINIMAL'
+            'QUOTE_ALL'
+            'QUOTE_NONNUMERIC'
+            'QUOTE_NONE'
+            '__doc__'
+        )
+        (
+            'Dialect'
+        )
+        (
+            'StringIO'
+        )
+        (
+            'QUOTE_MINIMAL'
+            'QUOTE_ALL'
+            'QUOTE_NONNUMERIC'
+            'QUOTE_NONE'
+            'Error'
+            'Dialect'
+            '__doc__'
+            'excel'
+            'excel_tab'
+            'field_size_limit'
+            'reader'
+            'writer'
+            'register_dialect'
+            'get_dialect'
+            'list_dialects'
+            'Sniffer'
+            'unregister_dialect'
+            '__version__'
+            'DictReader'
+            'DictWriter'
+            'unix_dialect'
+        )
+        [Code]
+            File Name: csv.py
+            Object Name: Dialect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '_name'
+                '_valid'
+                'delimiter'
+                'quotechar'
+                'escapechar'
+                'doublequote'
+                'skipinitialspace'
+                'lineterminator'
+                'quoting'
+                '__init__'
+                '_validate'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Dialect'
+                'Describe a CSV dialect.\n\n    This must be subclassed (see csv.excel).  Valid attributes are:\n    delimiter, quotechar, escapechar, doublequote, skipinitialspace,\n    lineterminator, quoting.\n\n    '
+                ''
+                False
+                None
+                [Code]
+                    File Name: csv.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '__class__'
+                        'Dialect'
+                        '_valid'
+                        '_validate'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        True
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: __class__
+                        4       LOAD_GLOBAL                     1: Dialect
+                        6       COMPARE_OP                      3 (!=)
+                        8       POP_JUMP_IF_FALSE               8 (to 16)
+                        10      LOAD_CONST                      1: True
+                        12      LOAD_FAST                       0: self
+                        14      STORE_ATTR                      2: _valid
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_METHOD                     3: _validate
+                        20      CALL_METHOD                     0
+                        22      POP_TOP                         
+                        24      LOAD_CONST                      0: None
+                        26      RETURN_VALUE                    
+                'Dialect.__init__'
+                [Code]
+                    File Name: csv.py
+                    Object Name: _validate
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 10
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_Dialect'
+                        'TypeError'
+                        'Error'
+                        'str'
+                    [Var Names]
+                        'self'
+                        'e'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       SETUP_FINALLY                   7 (to 16)
+                        2       LOAD_GLOBAL                     0: _Dialect
+                        4       LOAD_FAST                       0: self
+                        6       CALL_FUNCTION                   1
+                        8       POP_TOP                         
+                        10      POP_BLOCK                       
+                        12      LOAD_CONST                      0: None
+                        14      RETURN_VALUE                    
+                        16      DUP_TOP                         
+                        18      LOAD_GLOBAL                     1: TypeError
+                        20      JUMP_IF_NOT_EXC_MATCH           25 (to 50)
+                        22      POP_TOP                         
+                        24      STORE_FAST                      1: e
+                        26      POP_TOP                         
+                        28      SETUP_FINALLY                   6 (to 42)
+                        30      LOAD_GLOBAL                     2: Error
+                        32      LOAD_GLOBAL                     3: str
+                        34      LOAD_FAST                       1: e
+                        36      CALL_FUNCTION                   1
+                        38      CALL_FUNCTION                   1
+                        40      RAISE_VARARGS                   1
+                        42      LOAD_CONST                      0: None
+                        44      STORE_FAST                      1: e
+                        46      DELETE_FAST                     1: e
+                        48      RERAISE                         1
+                        50      RERAISE                         0
+                'Dialect._validate'
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Dialect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Describe a CSV dialect.\n\n    This must be subclassed (see csv.excel).  Valid attributes are:\n    delimiter, quotechar, escapechar, doublequote, skipinitialspace,\n    lineterminator, quoting.\n\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: ''
+                14      STORE_NAME                      4: _name
+                16      LOAD_CONST                      3: False
+                18      STORE_NAME                      5: _valid
+                20      LOAD_CONST                      4: None
+                22      STORE_NAME                      6: delimiter
+                24      LOAD_CONST                      4: None
+                26      STORE_NAME                      7: quotechar
+                28      LOAD_CONST                      4: None
+                30      STORE_NAME                      8: escapechar
+                32      LOAD_CONST                      4: None
+                34      STORE_NAME                      9: doublequote
+                36      LOAD_CONST                      4: None
+                38      STORE_NAME                      10: skipinitialspace
+                40      LOAD_CONST                      4: None
+                42      STORE_NAME                      11: lineterminator
+                44      LOAD_CONST                      4: None
+                46      STORE_NAME                      12: quoting
+                48      LOAD_CONST                      5: <CODE> __init__
+                50      LOAD_CONST                      6: 'Dialect.__init__'
+                52      MAKE_FUNCTION                   0
+                54      STORE_NAME                      13: __init__
+                56      LOAD_CONST                      7: <CODE> _validate
+                58      LOAD_CONST                      8: 'Dialect._validate'
+                60      MAKE_FUNCTION                   0
+                62      STORE_NAME                      14: _validate
+                64      LOAD_CONST                      4: None
+                66      RETURN_VALUE                    
+        'Dialect'
+        [Code]
+            File Name: csv.py
+            Object Name: excel
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'delimiter'
+                'quotechar'
+                'doublequote'
+                'skipinitialspace'
+                'lineterminator'
+                'QUOTE_MINIMAL'
+                'quoting'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'excel'
+                'Describe the usual properties of Excel-generated CSV files.'
+                ','
+                '"'
+                True
+                False
+                '\r\n'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'excel'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Describe the usual properties of Excel-generated CSV files.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: ','
+                14      STORE_NAME                      4: delimiter
+                16      LOAD_CONST                      3: '"'
+                18      STORE_NAME                      5: quotechar
+                20      LOAD_CONST                      4: True
+                22      STORE_NAME                      6: doublequote
+                24      LOAD_CONST                      5: False
+                26      STORE_NAME                      7: skipinitialspace
+                28      LOAD_CONST                      6: '\r\n'
+                30      STORE_NAME                      8: lineterminator
+                32      LOAD_NAME                       9: QUOTE_MINIMAL
+                34      STORE_NAME                      10: quoting
+                36      LOAD_CONST                      7: None
+                38      RETURN_VALUE                    
+        'excel'
+        [Code]
+            File Name: csv.py
+            Object Name: excel_tab
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'delimiter'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'excel_tab'
+                'Describe the usual properties of Excel-generated TAB-delimited files.'
+                '\t'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'excel_tab'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Describe the usual properties of Excel-generated TAB-delimited files.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: '\t'
+                14      STORE_NAME                      4: delimiter
+                16      LOAD_CONST                      3: None
+                18      RETURN_VALUE                    
+        'excel_tab'
+        'excel-tab'
+        [Code]
+            File Name: csv.py
+            Object Name: unix_dialect
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'delimiter'
+                'quotechar'
+                'doublequote'
+                'skipinitialspace'
+                'lineterminator'
+                'QUOTE_ALL'
+                'quoting'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'unix_dialect'
+                'Describe the usual properties of Unix-generated CSV files.'
+                ','
+                '"'
+                True
+                False
+                '\n'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'unix_dialect'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Describe the usual properties of Unix-generated CSV files.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: ','
+                14      STORE_NAME                      4: delimiter
+                16      LOAD_CONST                      3: '"'
+                18      STORE_NAME                      5: quotechar
+                20      LOAD_CONST                      4: True
+                22      STORE_NAME                      6: doublequote
+                24      LOAD_CONST                      5: False
+                26      STORE_NAME                      7: skipinitialspace
+                28      LOAD_CONST                      6: '\n'
+                30      STORE_NAME                      8: lineterminator
+                32      LOAD_NAME                       9: QUOTE_ALL
+                34      STORE_NAME                      10: quoting
+                36      LOAD_CONST                      7: None
+                38      RETURN_VALUE                    
+        'unix_dialect'
+        'unix'
+        [Code]
+            File Name: csv.py
+            Object Name: DictReader
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__init__'
+                '__iter__'
+                'property'
+                'fieldnames'
+                'setter'
+                '__next__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'DictReader'
+                None
+                'excel'
+                [Code]
+                    File Name: csv.py
+                    Object Name: __init__
+                    Arg Count: 6
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 8
+                    Stack Size: 4
+                    Flags: 0x0000004F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NOFREE)
+                    [Names]
+                        '_fieldnames'
+                        'restkey'
+                        'restval'
+                        'reader'
+                        'dialect'
+                        'line_num'
+                    [Var Names]
+                        'self'
+                        'f'
+                        'fieldnames'
+                        'restkey'
+                        'restval'
+                        'dialect'
+                        'args'
+                        'kwds'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                    [Disassembly]
+                        0       LOAD_FAST                       2: fieldnames
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: _fieldnames
+                        6       LOAD_FAST                       3: restkey
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: restkey
+                        12      LOAD_FAST                       4: restval
+                        14      LOAD_FAST                       0: self
+                        16      STORE_ATTR                      2: restval
+                        18      LOAD_GLOBAL                     3: reader
+                        20      LOAD_FAST                       1: f
+                        22      LOAD_FAST                       5: dialect
+                        24      BUILD_LIST                      2
+                        26      LOAD_FAST                       6: args
+                        28      LIST_EXTEND                     1
+                        30      LIST_TO_TUPLE                   
+                        32      BUILD_MAP                       0
+                        34      LOAD_FAST                       7: kwds
+                        36      DICT_MERGE                      1
+                        38      CALL_FUNCTION_EX                1
+                        40      LOAD_FAST                       0: self
+                        42      STORE_ATTR                      3: reader
+                        44      LOAD_FAST                       5: dialect
+                        46      LOAD_FAST                       0: self
+                        48      STORE_ATTR                      4: dialect
+                        50      LOAD_CONST                      1: 0
+                        52      LOAD_FAST                       0: self
+                        54      STORE_ATTR                      5: line_num
+                        56      LOAD_CONST                      0: None
+                        58      RETURN_VALUE                    
+                'DictReader.__init__'
+                [Code]
+                    File Name: csv.py
+                    Object Name: __iter__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       RETURN_VALUE                    
+                'DictReader.__iter__'
+                [Code]
+                    File Name: csv.py
+                    Object Name: fieldnames
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fieldnames'
+                        'next'
+                        'reader'
+                        'StopIteration'
+                        'line_num'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _fieldnames
+                        4       LOAD_CONST                      0: None
+                        6       IS_OP                           0 (is)
+                        8       POP_JUMP_IF_FALSE               23 (to 46)
+                        10      SETUP_FINALLY                   8 (to 28)
+                        12      LOAD_GLOBAL                     1: next
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_ATTR                       2: reader
+                        18      CALL_FUNCTION                   1
+                        20      LOAD_FAST                       0: self
+                        22      STORE_ATTR                      0: _fieldnames
+                        24      POP_BLOCK                       
+                        26      JUMP_FORWARD                    9 (to 46)
+                        28      DUP_TOP                         
+                        30      LOAD_GLOBAL                     3: StopIteration
+                        32      JUMP_IF_NOT_EXC_MATCH           22 (to 44)
+                        34      POP_TOP                         
+                        36      POP_TOP                         
+                        38      POP_TOP                         
+                        40      POP_EXCEPT                      
+                        42      JUMP_FORWARD                    1 (to 46)
+                        44      RERAISE                         0
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_ATTR                       2: reader
+                        50      LOAD_ATTR                       4: line_num
+                        52      LOAD_FAST                       0: self
+                        54      STORE_ATTR                      4: line_num
+                        56      LOAD_FAST                       0: self
+                        58      LOAD_ATTR                       0: _fieldnames
+                        60      RETURN_VALUE                    
+                'DictReader.fieldnames'
+                [Code]
+                    File Name: csv.py
+                    Object Name: fieldnames
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fieldnames'
+                    [Var Names]
+                        'self'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: value
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: _fieldnames
+                        6       LOAD_CONST                      0: None
+                        8       RETURN_VALUE                    
+                [Code]
+                    File Name: csv.py
+                    Object Name: __next__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'line_num'
+                        'fieldnames'
+                        'next'
+                        'reader'
+                        'dict'
+                        'zip'
+                        'len'
+                        'restkey'
+                        'restval'
+                    [Var Names]
+                        'self'
+                        'row'
+                        'd'
+                        'lf'
+                        'lr'
+                        'key'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: line_num
+                        4       LOAD_CONST                      1: 0
+                        6       COMPARE_OP                      2 (==)
+                        8       POP_JUMP_IF_FALSE               8 (to 16)
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       1: fieldnames
+                        14      POP_TOP                         
+                        16      LOAD_GLOBAL                     2: next
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_ATTR                       3: reader
+                        22      CALL_FUNCTION                   1
+                        24      STORE_FAST                      1: row
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_ATTR                       3: reader
+                        30      LOAD_ATTR                       0: line_num
+                        32      LOAD_FAST                       0: self
+                        34      STORE_ATTR                      0: line_num
+                        36      LOAD_FAST                       1: row
+                        38      BUILD_LIST                      0
+                        40      COMPARE_OP                      2 (==)
+                        42      POP_JUMP_IF_FALSE               31 (to 62)
+                        44      LOAD_GLOBAL                     2: next
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_ATTR                       3: reader
+                        50      CALL_FUNCTION                   1
+                        52      STORE_FAST                      1: row
+                        54      LOAD_FAST                       1: row
+                        56      BUILD_LIST                      0
+                        58      COMPARE_OP                      2 (==)
+                        60      POP_JUMP_IF_TRUE                22 (to 44)
+                        62      LOAD_GLOBAL                     4: dict
+                        64      LOAD_GLOBAL                     5: zip
+                        66      LOAD_FAST                       0: self
+                        68      LOAD_ATTR                       1: fieldnames
+                        70      LOAD_FAST                       1: row
+                        72      CALL_FUNCTION                   2
+                        74      CALL_FUNCTION                   1
+                        76      STORE_FAST                      2: d
+                        78      LOAD_GLOBAL                     6: len
+                        80      LOAD_FAST                       0: self
+                        82      LOAD_ATTR                       1: fieldnames
+                        84      CALL_FUNCTION                   1
+                        86      STORE_FAST                      3: lf
+                        88      LOAD_GLOBAL                     6: len
+                        90      LOAD_FAST                       1: row
+                        92      CALL_FUNCTION                   1
+                        94      STORE_FAST                      4: lr
+                        96      LOAD_FAST                       3: lf
+                        98      LOAD_FAST                       4: lr
+                        100     COMPARE_OP                      0 (<)
+                        102     POP_JUMP_IF_FALSE               63 (to 126)
+                        104     LOAD_FAST                       1: row
+                        106     LOAD_FAST                       3: lf
+                        108     LOAD_CONST                      0: None
+                        110     BUILD_SLICE                     2
+                        112     BINARY_SUBSCR                   
+                        114     LOAD_FAST                       2: d
+                        116     LOAD_FAST                       0: self
+                        118     LOAD_ATTR                       7: restkey
+                        120     STORE_SUBSCR                    
+                        122     LOAD_FAST                       2: d
+                        124     RETURN_VALUE                    
+                        126     LOAD_FAST                       3: lf
+                        128     LOAD_FAST                       4: lr
+                        130     COMPARE_OP                      4 (>)
+                        132     POP_JUMP_IF_FALSE               82 (to 164)
+                        134     LOAD_FAST                       0: self
+                        136     LOAD_ATTR                       1: fieldnames
+                        138     LOAD_FAST                       4: lr
+                        140     LOAD_CONST                      0: None
+                        142     BUILD_SLICE                     2
+                        144     BINARY_SUBSCR                   
+                        146     GET_ITER                        
+                        148     FOR_ITER                        7 (to 164)
+                        150     STORE_FAST                      5: key
+                        152     LOAD_FAST                       0: self
+                        154     LOAD_ATTR                       8: restval
+                        156     LOAD_FAST                       2: d
+                        158     LOAD_FAST                       5: key
+                        160     STORE_SUBSCR                    
+                        162     JUMP_ABSOLUTE                   74 (to 148)
+                        164     LOAD_FAST                       2: d
+                        166     RETURN_VALUE                    
+                'DictReader.__next__'
+                (
+                    None
+                    None
+                    None
+                    'excel'
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'DictReader'
+                6       STORE_NAME                      2: __qualname__
+                8       NOP                             
+                10      NOP                             
+                12      LOAD_CONST                      12: (None, None, None, 'excel')
+                14      LOAD_CONST                      3: <CODE> __init__
+                16      LOAD_CONST                      4: 'DictReader.__init__'
+                18      MAKE_FUNCTION                   1
+                20      STORE_NAME                      3: __init__
+                22      LOAD_CONST                      5: <CODE> __iter__
+                24      LOAD_CONST                      6: 'DictReader.__iter__'
+                26      MAKE_FUNCTION                   0
+                28      STORE_NAME                      4: __iter__
+                30      LOAD_NAME                       5: property
+                32      LOAD_CONST                      7: <CODE> fieldnames
+                34      LOAD_CONST                      8: 'DictReader.fieldnames'
+                36      MAKE_FUNCTION                   0
+                38      CALL_FUNCTION                   1
+                40      STORE_NAME                      6: fieldnames
+                42      LOAD_NAME                       6: fieldnames
+                44      LOAD_ATTR                       7: setter
+                46      LOAD_CONST                      9: <CODE> fieldnames
+                48      LOAD_CONST                      8: 'DictReader.fieldnames'
+                50      MAKE_FUNCTION                   0
+                52      CALL_FUNCTION                   1
+                54      STORE_NAME                      6: fieldnames
+                56      LOAD_CONST                      10: <CODE> __next__
+                58      LOAD_CONST                      11: 'DictReader.__next__'
+                60      MAKE_FUNCTION                   0
+                62      STORE_NAME                      8: __next__
+                64      LOAD_CONST                      1: None
+                66      RETURN_VALUE                    
+        'DictReader'
+        [Code]
+            File Name: csv.py
+            Object Name: DictWriter
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__init__'
+                'writeheader'
+                '_dict_to_list'
+                'writerow'
+                'writerows'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'DictWriter'
+                ''
+                'raise'
+                'excel'
+                [Code]
+                    File Name: csv.py
+                    Object Name: __init__
+                    Arg Count: 6
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 8
+                    Stack Size: 4
+                    Flags: 0x0000004F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NOFREE)
+                    [Names]
+                        'fieldnames'
+                        'restval'
+                        'lower'
+                        'ValueError'
+                        'extrasaction'
+                        'writer'
+                    [Var Names]
+                        'self'
+                        'f'
+                        'fieldnames'
+                        'restval'
+                        'extrasaction'
+                        'dialect'
+                        'args'
+                        'kwds'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        (
+                            'raise'
+                            'ignore'
+                        )
+                        "extrasaction (%s) must be 'raise' or 'ignore'"
+                    [Disassembly]
+                        0       LOAD_FAST                       2: fieldnames
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: fieldnames
+                        6       LOAD_FAST                       3: restval
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: restval
+                        12      LOAD_FAST                       4: extrasaction
+                        14      LOAD_METHOD                     2: lower
+                        16      CALL_METHOD                     0
+                        18      LOAD_CONST                      1: ('raise', 'ignore')
+                        20      CONTAINS_OP                     1 (not in)
+                        22      POP_JUMP_IF_FALSE               18 (to 36)
+                        24      LOAD_GLOBAL                     3: ValueError
+                        26      LOAD_CONST                      2: "extrasaction (%s) must be 'raise' or 'ignore'"
+                        28      LOAD_FAST                       4: extrasaction
+                        30      BINARY_MODULO                   
+                        32      CALL_FUNCTION                   1
+                        34      RAISE_VARARGS                   1
+                        36      LOAD_FAST                       4: extrasaction
+                        38      LOAD_FAST                       0: self
+                        40      STORE_ATTR                      4: extrasaction
+                        42      LOAD_GLOBAL                     5: writer
+                        44      LOAD_FAST                       1: f
+                        46      LOAD_FAST                       5: dialect
+                        48      BUILD_LIST                      2
+                        50      LOAD_FAST                       6: args
+                        52      LIST_EXTEND                     1
+                        54      LIST_TO_TUPLE                   
+                        56      BUILD_MAP                       0
+                        58      LOAD_FAST                       7: kwds
+                        60      DICT_MERGE                      1
+                        62      CALL_FUNCTION_EX                1
+                        64      LOAD_FAST                       0: self
+                        66      STORE_ATTR                      5: writer
+                        68      LOAD_CONST                      0: None
+                        70      RETURN_VALUE                    
+                'DictWriter.__init__'
+                [Code]
+                    File Name: csv.py
+                    Object Name: writeheader
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'dict'
+                        'zip'
+                        'fieldnames'
+                        'writerow'
+                    [Var Names]
+                        'self'
+                        'header'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: dict
+                        2       LOAD_GLOBAL                     1: zip
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       2: fieldnames
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       2: fieldnames
+                        12      CALL_FUNCTION                   2
+                        14      CALL_FUNCTION                   1
+                        16      STORE_FAST                      1: header
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_METHOD                     3: writerow
+                        22      LOAD_FAST                       1: header
+                        24      CALL_METHOD                     1
+                        26      RETURN_VALUE                    
+                'DictWriter.writeheader'
+                [Code]
+                    File Name: csv.py
+                    Object Name: _dict_to_list
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 6
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'extrasaction'
+                        'keys'
+                        'fieldnames'
+                        'ValueError'
+                        'join'
+                    [Var Names]
+                        'self'
+                        'rowdict'
+                        'wrong_fields'
+                    [Free Vars]
+                    [Cell Vars]
+                        'rowdict'
+                        'self'
+                    [Constants]
+                        None
+                        'raise'
+                        'dict contains fields not in fieldnames: '
+                        ', '
+                        [Code]
+                            File Name: csv.py
+                            Object Name: <listcomp>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 4
+                            Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                            [Names]
+                                'repr'
+                            [Var Names]
+                                '.0'
+                                'x'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                            [Disassembly]
+                                0       BUILD_LIST                      0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        6 (to 18)
+                                6       STORE_FAST                      1: x
+                                8       LOAD_GLOBAL                     0: repr
+                                10      LOAD_FAST                       1: x
+                                12      CALL_FUNCTION                   1
+                                14      LIST_APPEND                     2
+                                16      JUMP_ABSOLUTE                   2 (to 4)
+                                18      RETURN_VALUE                    
+                        'DictWriter._dict_to_list.<locals>.<listcomp>'
+                        [Code]
+                            File Name: csv.py
+                            Object Name: <genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 5
+                            Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                            [Names]
+                                'get'
+                                'restval'
+                            [Var Names]
+                                '.0'
+                                'key'
+                            [Free Vars]
+                                'rowdict'
+                                'self'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       GEN_START                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        10 (to 26)
+                                6       STORE_FAST                      1: key
+                                8       LOAD_DEREF                      0: rowdict
+                                10      LOAD_METHOD                     0: get
+                                12      LOAD_FAST                       1: key
+                                14      LOAD_DEREF                      1: self
+                                16      LOAD_ATTR                       1: restval
+                                18      CALL_METHOD                     2
+                                20      YIELD_VALUE                     
+                                22      POP_TOP                         
+                                24      JUMP_ABSOLUTE                   2 (to 4)
+                                26      LOAD_CONST                      0: None
+                                28      RETURN_VALUE                    
+                        'DictWriter._dict_to_list.<locals>.<genexpr>'
+                    [Disassembly]
+                        0       LOAD_DEREF                      1: self
+                        2       LOAD_ATTR                       0: extrasaction
+                        4       LOAD_CONST                      1: 'raise'
+                        6       COMPARE_OP                      2 (==)
+                        8       POP_JUMP_IF_FALSE               28 (to 56)
+                        10      LOAD_DEREF                      0: rowdict
+                        12      LOAD_METHOD                     1: keys
+                        14      CALL_METHOD                     0
+                        16      LOAD_DEREF                      1: self
+                        18      LOAD_ATTR                       2: fieldnames
+                        20      BINARY_SUBTRACT                 
+                        22      STORE_FAST                      2: wrong_fields
+                        24      LOAD_FAST                       2: wrong_fields
+                        26      POP_JUMP_IF_FALSE               28 (to 56)
+                        28      LOAD_GLOBAL                     3: ValueError
+                        30      LOAD_CONST                      2: 'dict contains fields not in fieldnames: '
+                        32      LOAD_CONST                      3: ', '
+                        34      LOAD_METHOD                     4: join
+                        36      LOAD_CONST                      4: <CODE> <listcomp>
+                        38      LOAD_CONST                      5: 'DictWriter._dict_to_list.<locals>.<listcomp>'
+                        40      MAKE_FUNCTION                   0
+                        42      LOAD_FAST                       2: wrong_fields
+                        44      GET_ITER                        
+                        46      CALL_FUNCTION                   1
+                        48      CALL_METHOD                     1
+                        50      BINARY_ADD                      
+                        52      CALL_FUNCTION                   1
+                        54      RAISE_VARARGS                   1
+                        56      LOAD_CLOSURE                    0: rowdict
+                        58      LOAD_CLOSURE                    1: self
+                        60      BUILD_TUPLE                     2
+                        62      LOAD_CONST                      6: <CODE> <genexpr>
+                        64      LOAD_CONST                      7: 'DictWriter._dict_to_list.<locals>.<genexpr>'
+                        66      MAKE_FUNCTION                   8
+                        68      LOAD_DEREF                      1: self
+                        70      LOAD_ATTR                       2: fieldnames
+                        72      GET_ITER                        
+                        74      CALL_FUNCTION                   1
+                        76      RETURN_VALUE                    
+                'DictWriter._dict_to_list'
+                [Code]
+                    File Name: csv.py
+                    Object Name: writerow
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'writer'
+                        'writerow'
+                        '_dict_to_list'
+                    [Var Names]
+                        'self'
+                        'rowdict'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: writer
+                        4       LOAD_METHOD                     1: writerow
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_METHOD                     2: _dict_to_list
+                        10      LOAD_FAST                       1: rowdict
+                        12      CALL_METHOD                     1
+                        14      CALL_METHOD                     1
+                        16      RETURN_VALUE                    
+                'DictWriter.writerow'
+                [Code]
+                    File Name: csv.py
+                    Object Name: writerows
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'writer'
+                        'writerows'
+                        'map'
+                        '_dict_to_list'
+                    [Var Names]
+                        'self'
+                        'rowdicts'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: writer
+                        4       LOAD_METHOD                     1: writerows
+                        6       LOAD_GLOBAL                     2: map
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       3: _dict_to_list
+                        12      LOAD_FAST                       1: rowdicts
+                        14      CALL_FUNCTION                   2
+                        16      CALL_METHOD                     1
+                        18      RETURN_VALUE                    
+                'DictWriter.writerows'
+                None
+                (
+                    ''
+                    'raise'
+                    'excel'
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'DictWriter'
+                6       STORE_NAME                      2: __qualname__
+                8       NOP                             
+                10      NOP                             
+                12      LOAD_CONST                      15: ('', 'raise', 'excel')
+                14      LOAD_CONST                      4: <CODE> __init__
+                16      LOAD_CONST                      5: 'DictWriter.__init__'
+                18      MAKE_FUNCTION                   1
+                20      STORE_NAME                      3: __init__
+                22      LOAD_CONST                      6: <CODE> writeheader
+                24      LOAD_CONST                      7: 'DictWriter.writeheader'
+                26      MAKE_FUNCTION                   0
+                28      STORE_NAME                      4: writeheader
+                30      LOAD_CONST                      8: <CODE> _dict_to_list
+                32      LOAD_CONST                      9: 'DictWriter._dict_to_list'
+                34      MAKE_FUNCTION                   0
+                36      STORE_NAME                      5: _dict_to_list
+                38      LOAD_CONST                      10: <CODE> writerow
+                40      LOAD_CONST                      11: 'DictWriter.writerow'
+                42      MAKE_FUNCTION                   0
+                44      STORE_NAME                      6: writerow
+                46      LOAD_CONST                      12: <CODE> writerows
+                48      LOAD_CONST                      13: 'DictWriter.writerows'
+                50      MAKE_FUNCTION                   0
+                52      STORE_NAME                      7: writerows
+                54      LOAD_CONST                      14: None
+                56      RETURN_VALUE                    
+        'DictWriter'
+        [Code]
+            File Name: csv.py
+            Object Name: Sniffer
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                'sniff'
+                '_guess_quote_and_delimiter'
+                '_guess_delimiter'
+                'has_header'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Sniffer'
+                '\n    "Sniffs" the format of a CSV file (i.e. delimiter, quotechar)\n    Returns a Dialect object.\n    '
+                [Code]
+                    File Name: csv.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'preferred'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        (
+                            ','
+                            '\t'
+                            ';'
+                            ' '
+                            ':'
+                        )
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_CONST                      1: (',', '\t', ';', ' ', ':')
+                        4       LIST_EXTEND                     1
+                        6       LOAD_FAST                       0: self
+                        8       STORE_ATTR                      0: preferred
+                        10      LOAD_CONST                      0: None
+                        12      RETURN_VALUE                    
+                'Sniffer.__init__'
+                None
+                [Code]
+                    File Name: csv.py
+                    Object Name: sniff
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 8
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_guess_quote_and_delimiter'
+                        '_guess_delimiter'
+                        'Error'
+                        'Dialect'
+                        'doublequote'
+                        'delimiter'
+                        'quotechar'
+                        'skipinitialspace'
+                    [Var Names]
+                        'self'
+                        'sample'
+                        'delimiters'
+                        'quotechar'
+                        'doublequote'
+                        'delimiter'
+                        'skipinitialspace'
+                        'dialect'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '\n        Returns a dialect (or None) corresponding to the sample\n        '
+                        'Could not determine delimiter'
+                        [Code]
+                            File Name: csv.py
+                            Object Name: dialect
+                            Arg Count: 0
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 0
+                            Stack Size: 1
+                            Flags: 0x00000040 (CO_NOFREE)
+                            [Names]
+                                '__name__'
+                                '__module__'
+                                '__qualname__'
+                                '_name'
+                                'lineterminator'
+                                'QUOTE_MINIMAL'
+                                'quoting'
+                            [Var Names]
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                'Sniffer.sniff.<locals>.dialect'
+                                'sniffed'
+                                '\r\n'
+                                None
+                            [Disassembly]
+                                0       LOAD_NAME                       0: __name__
+                                2       STORE_NAME                      1: __module__
+                                4       LOAD_CONST                      0: 'Sniffer.sniff.<locals>.dialect'
+                                6       STORE_NAME                      2: __qualname__
+                                8       LOAD_CONST                      1: 'sniffed'
+                                10      STORE_NAME                      3: _name
+                                12      LOAD_CONST                      2: '\r\n'
+                                14      STORE_NAME                      4: lineterminator
+                                16      LOAD_NAME                       5: QUOTE_MINIMAL
+                                18      STORE_NAME                      6: quoting
+                                20      LOAD_CONST                      3: None
+                                22      RETURN_VALUE                    
+                        'dialect'
+                        '"'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _guess_quote_and_delimiter
+                        4       LOAD_FAST                       1: sample
+                        6       LOAD_FAST                       2: delimiters
+                        8       CALL_METHOD                     2
+                        10      UNPACK_SEQUENCE                 4
+                        12      STORE_FAST                      3: quotechar
+                        14      STORE_FAST                      4: doublequote
+                        16      STORE_FAST                      5: delimiter
+                        18      STORE_FAST                      6: skipinitialspace
+                        20      LOAD_FAST                       5: delimiter
+                        22      POP_JUMP_IF_TRUE                20 (to 40)
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_METHOD                     1: _guess_delimiter
+                        28      LOAD_FAST                       1: sample
+                        30      LOAD_FAST                       2: delimiters
+                        32      CALL_METHOD                     2
+                        34      UNPACK_SEQUENCE                 2
+                        36      STORE_FAST                      5: delimiter
+                        38      STORE_FAST                      6: skipinitialspace
+                        40      LOAD_FAST                       5: delimiter
+                        42      POP_JUMP_IF_TRUE                26 (to 52)
+                        44      LOAD_GLOBAL                     2: Error
+                        46      LOAD_CONST                      1: 'Could not determine delimiter'
+                        48      CALL_FUNCTION                   1
+                        50      RAISE_VARARGS                   1
+                        52      LOAD_BUILD_CLASS                
+                        54      LOAD_CONST                      2: <CODE> dialect
+                        56      LOAD_CONST                      3: 'dialect'
+                        58      MAKE_FUNCTION                   0
+                        60      LOAD_CONST                      3: 'dialect'
+                        62      LOAD_GLOBAL                     3: Dialect
+                        64      CALL_FUNCTION                   3
+                        66      STORE_FAST                      7: dialect
+                        68      LOAD_FAST                       4: doublequote
+                        70      LOAD_FAST                       7: dialect
+                        72      STORE_ATTR                      4: doublequote
+                        74      LOAD_FAST                       5: delimiter
+                        76      LOAD_FAST                       7: dialect
+                        78      STORE_ATTR                      5: delimiter
+                        80      LOAD_FAST                       3: quotechar
+                        82      JUMP_IF_TRUE_OR_POP             43 (to 86)
+                        84      LOAD_CONST                      4: '"'
+                        86      LOAD_FAST                       7: dialect
+                        88      STORE_ATTR                      6: quotechar
+                        90      LOAD_FAST                       6: skipinitialspace
+                        92      LOAD_FAST                       7: dialect
+                        94      STORE_ATTR                      7: skipinitialspace
+                        96      LOAD_FAST                       7: dialect
+                        98      RETURN_VALUE                    
+                'Sniffer.sniff'
+                [Code]
+                    File Name: csv.py
+                    Object Name: _guess_quote_and_delimiter
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 18
+                    Stack Size: 9
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        're'
+                        'compile'
+                        'DOTALL'
+                        'MULTILINE'
+                        'findall'
+                        'groupindex'
+                        'get'
+                        'KeyError'
+                        'max'
+                        'escape'
+                        'search'
+                    [Var Names]
+                        'self'
+                        'data'
+                        'delimiters'
+                        'matches'
+                        'restr'
+                        'regexp'
+                        'quotes'
+                        'delims'
+                        'spaces'
+                        'groupindex'
+                        'm'
+                        'n'
+                        'key'
+                        'quotechar'
+                        'delim'
+                        'skipinitialspace'
+                        'dq_regexp'
+                        'doublequote'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "\n        Looks for text enclosed between two identical quotes\n        (the probable quotechar) which are preceded and followed\n        by the same character (the probable delimiter).\n        For example:\n                         ,'some text',\n        The quote with the most wins, same with the delimiter.\n        If there is no quotechar the delimiter can't be determined\n        this way.\n        "
+                        (
+                            '(?P<delim>[^\\w\\n"\\\'])(?P<space> ?)(?P<quote>["\\\']).*?(?P=quote)(?P=delim)'
+                            '(?:^|\\n)(?P<quote>["\\\']).*?(?P=quote)(?P<delim>[^\\w\\n"\\\'])(?P<space> ?)'
+                            '(?P<delim>[^\\w\\n"\\\'])(?P<space> ?)(?P<quote>["\\\']).*?(?P=quote)(?:$|\\n)'
+                            '(?:^|\\n)(?P<quote>["\\\']).*?(?P=quote)(?:$|\\n)'
+                        )
+                        (
+                            ''
+                            False
+                            None
+                            0
+                        )
+                        0
+                        'quote'
+                        1
+                        'delim'
+                        None
+                        'space'
+                        (
+                            'key'
+                        )
+                        '\n'
+                        ''
+                        '((%(delim)s)|^)\\W*%(quote)s[^%(delim)s\\n]*%(quote)s[^%(delim)s\\n]*%(quote)s\\W*((%(delim)s)|$)'
+                        (
+                            'delim'
+                            'quote'
+                        )
+                        True
+                        False
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       STORE_FAST                      3: matches
+                        4       LOAD_CONST                      1: ('(?P<delim>[^\\w\\n"\\\'])(?P<space> ?)(?P<quote>["\\\']).*?(?P=quote)(?P=delim)', '(?:^|\\n)(?P<quote>["\\\']).*?(?P=quote)(?P<delim>[^\\w\\n"\\\'])(?P<space> ?)', '(?P<delim>[^\\w\\n"\\\'])(?P<space> ?)(?P<quote>["\\\']).*?(?P=quote)(?:$|\\n)', '(?:^|\\n)(?P<quote>["\\\']).*?(?P=quote)(?:$|\\n)')
+                        6       GET_ITER                        
+                        8       FOR_ITER                        21 (to 52)
+                        10      STORE_FAST                      4: restr
+                        12      LOAD_GLOBAL                     0: re
+                        14      LOAD_METHOD                     1: compile
+                        16      LOAD_FAST                       4: restr
+                        18      LOAD_GLOBAL                     0: re
+                        20      LOAD_ATTR                       2: DOTALL
+                        22      LOAD_GLOBAL                     0: re
+                        24      LOAD_ATTR                       3: MULTILINE
+                        26      BINARY_OR                       
+                        28      CALL_METHOD                     2
+                        30      STORE_FAST                      5: regexp
+                        32      LOAD_FAST                       5: regexp
+                        34      LOAD_METHOD                     4: findall
+                        36      LOAD_FAST                       1: data
+                        38      CALL_METHOD                     1
+                        40      STORE_FAST                      3: matches
+                        42      LOAD_FAST                       3: matches
+                        44      POP_JUMP_IF_FALSE               25 (to 50)
+                        46      POP_TOP                         
+                        48      JUMP_FORWARD                    1 (to 52)
+                        50      JUMP_ABSOLUTE                   4 (to 8)
+                        52      LOAD_FAST                       3: matches
+                        54      POP_JUMP_IF_TRUE                30 (to 60)
+                        56      LOAD_CONST                      2: ('', False, None, 0)
+                        58      RETURN_VALUE                    
+                        60      BUILD_MAP                       0
+                        62      STORE_FAST                      6: quotes
+                        64      BUILD_MAP                       0
+                        66      STORE_FAST                      7: delims
+                        68      LOAD_CONST                      3: 0
+                        70      STORE_FAST                      8: spaces
+                        72      LOAD_FAST                       5: regexp
+                        74      LOAD_ATTR                       5: groupindex
+                        76      STORE_FAST                      9: groupindex
+                        78      LOAD_FAST                       3: matches
+                        80      GET_ITER                        
+                        82      FOR_ITER                        92 (to 268)
+                        84      STORE_FAST                      10: m
+                        86      LOAD_FAST                       9: groupindex
+                        88      LOAD_CONST                      4: 'quote'
+                        90      BINARY_SUBSCR                   
+                        92      LOAD_CONST                      5: 1
+                        94      BINARY_SUBTRACT                 
+                        96      STORE_FAST                      11: n
+                        98      LOAD_FAST                       10: m
+                        100     LOAD_FAST                       11: n
+                        102     BINARY_SUBSCR                   
+                        104     STORE_FAST                      12: key
+                        106     LOAD_FAST                       12: key
+                        108     POP_JUMP_IF_FALSE               65 (to 130)
+                        110     LOAD_FAST                       6: quotes
+                        112     LOAD_METHOD                     6: get
+                        114     LOAD_FAST                       12: key
+                        116     LOAD_CONST                      3: 0
+                        118     CALL_METHOD                     2
+                        120     LOAD_CONST                      5: 1
+                        122     BINARY_ADD                      
+                        124     LOAD_FAST                       6: quotes
+                        126     LOAD_FAST                       12: key
+                        128     STORE_SUBSCR                    
+                        130     SETUP_FINALLY                   12 (to 156)
+                        132     LOAD_FAST                       9: groupindex
+                        134     LOAD_CONST                      6: 'delim'
+                        136     BINARY_SUBSCR                   
+                        138     LOAD_CONST                      5: 1
+                        140     BINARY_SUBTRACT                 
+                        142     STORE_FAST                      11: n
+                        144     LOAD_FAST                       10: m
+                        146     LOAD_FAST                       11: n
+                        148     BINARY_SUBSCR                   
+                        150     STORE_FAST                      12: key
+                        152     POP_BLOCK                       
+                        154     JUMP_FORWARD                    9 (to 174)
+                        156     DUP_TOP                         
+                        158     LOAD_GLOBAL                     7: KeyError
+                        160     JUMP_IF_NOT_EXC_MATCH           86 (to 172)
+                        162     POP_TOP                         
+                        164     POP_TOP                         
+                        166     POP_TOP                         
+                        168     POP_EXCEPT                      
+                        170     JUMP_ABSOLUTE                   41 (to 82)
+                        172     RERAISE                         0
+                        174     LOAD_FAST                       12: key
+                        176     POP_JUMP_IF_FALSE               107 (to 214)
+                        178     LOAD_FAST                       2: delimiters
+                        180     LOAD_CONST                      7: None
+                        182     IS_OP                           0 (is)
+                        184     POP_JUMP_IF_TRUE                97 (to 194)
+                        186     LOAD_FAST                       12: key
+                        188     LOAD_FAST                       2: delimiters
+                        190     CONTAINS_OP                     0 (in)
+                        192     POP_JUMP_IF_FALSE               107 (to 214)
+                        194     LOAD_FAST                       7: delims
+                        196     LOAD_METHOD                     6: get
+                        198     LOAD_FAST                       12: key
+                        200     LOAD_CONST                      3: 0
+                        202     CALL_METHOD                     2
+                        204     LOAD_CONST                      5: 1
+                        206     BINARY_ADD                      
+                        208     LOAD_FAST                       7: delims
+                        210     LOAD_FAST                       12: key
+                        212     STORE_SUBSCR                    
+                        214     SETUP_FINALLY                   8 (to 232)
+                        216     LOAD_FAST                       9: groupindex
+                        218     LOAD_CONST                      8: 'space'
+                        220     BINARY_SUBSCR                   
+                        222     LOAD_CONST                      5: 1
+                        224     BINARY_SUBTRACT                 
+                        226     STORE_FAST                      11: n
+                        228     POP_BLOCK                       
+                        230     JUMP_FORWARD                    9 (to 250)
+                        232     DUP_TOP                         
+                        234     LOAD_GLOBAL                     7: KeyError
+                        236     JUMP_IF_NOT_EXC_MATCH           124 (to 248)
+                        238     POP_TOP                         
+                        240     POP_TOP                         
+                        242     POP_TOP                         
+                        244     POP_EXCEPT                      
+                        246     JUMP_ABSOLUTE                   41 (to 82)
+                        248     RERAISE                         0
+                        250     LOAD_FAST                       10: m
+                        252     LOAD_FAST                       11: n
+                        254     BINARY_SUBSCR                   
+                        256     POP_JUMP_IF_FALSE               133 (to 266)
+                        258     LOAD_FAST                       8: spaces
+                        260     LOAD_CONST                      5: 1
+                        262     INPLACE_ADD                     
+                        264     STORE_FAST                      8: spaces
+                        266     JUMP_ABSOLUTE                   41 (to 82)
+                        268     LOAD_GLOBAL                     8: max
+                        270     LOAD_FAST                       6: quotes
+                        272     LOAD_FAST                       6: quotes
+                        274     LOAD_ATTR                       6: get
+                        276     LOAD_CONST                      9: ('key',)
+                        278     CALL_FUNCTION_KW                2
+                        280     STORE_FAST                      13: quotechar
+                        282     LOAD_FAST                       7: delims
+                        284     POP_JUMP_IF_FALSE               163 (to 326)
+                        286     LOAD_GLOBAL                     8: max
+                        288     LOAD_FAST                       7: delims
+                        290     LOAD_FAST                       7: delims
+                        292     LOAD_ATTR                       6: get
+                        294     LOAD_CONST                      9: ('key',)
+                        296     CALL_FUNCTION_KW                2
+                        298     STORE_FAST                      14: delim
+                        300     LOAD_FAST                       7: delims
+                        302     LOAD_FAST                       14: delim
+                        304     BINARY_SUBSCR                   
+                        306     LOAD_FAST                       8: spaces
+                        308     COMPARE_OP                      2 (==)
+                        310     STORE_FAST                      15: skipinitialspace
+                        312     LOAD_FAST                       14: delim
+                        314     LOAD_CONST                      10: '\n'
+                        316     COMPARE_OP                      2 (==)
+                        318     POP_JUMP_IF_FALSE               162 (to 324)
+                        320     LOAD_CONST                      11: ''
+                        322     STORE_FAST                      14: delim
+                        324     JUMP_FORWARD                    4 (to 334)
+                        326     LOAD_CONST                      11: ''
+                        328     STORE_FAST                      14: delim
+                        330     LOAD_CONST                      3: 0
+                        332     STORE_FAST                      15: skipinitialspace
+                        334     LOAD_GLOBAL                     0: re
+                        336     LOAD_METHOD                     1: compile
+                        338     LOAD_CONST                      12: '((%(delim)s)|^)\\W*%(quote)s[^%(delim)s\\n]*%(quote)s[^%(delim)s\\n]*%(quote)s\\W*((%(delim)s)|$)'
+                        340     LOAD_GLOBAL                     0: re
+                        342     LOAD_METHOD                     9: escape
+                        344     LOAD_FAST                       14: delim
+                        346     CALL_METHOD                     1
+                        348     LOAD_FAST                       13: quotechar
+                        350     LOAD_CONST                      13: ('delim', 'quote')
+                        352     BUILD_CONST_KEY_MAP             2
+                        354     BINARY_MODULO                   
+                        356     LOAD_GLOBAL                     0: re
+                        358     LOAD_ATTR                       3: MULTILINE
+                        360     CALL_METHOD                     2
+                        362     STORE_FAST                      16: dq_regexp
+                        364     LOAD_FAST                       16: dq_regexp
+                        366     LOAD_METHOD                     10: search
+                        368     LOAD_FAST                       1: data
+                        370     CALL_METHOD                     1
+                        372     POP_JUMP_IF_FALSE               190 (to 380)
+                        374     LOAD_CONST                      14: True
+                        376     STORE_FAST                      17: doublequote
+                        378     JUMP_FORWARD                    2 (to 384)
+                        380     LOAD_CONST                      15: False
+                        382     STORE_FAST                      17: doublequote
+                        384     LOAD_FAST                       13: quotechar
+                        386     LOAD_FAST                       17: doublequote
+                        388     LOAD_FAST                       14: delim
+                        390     LOAD_FAST                       15: skipinitialspace
+                        392     BUILD_TUPLE                     4
+                        394     RETURN_VALUE                    
+                'Sniffer._guess_quote_and_delimiter'
+                [Code]
+                    File Name: csv.py
+                    Object Name: _guess_delimiter
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 25
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'list'
+                        'filter'
+                        'split'
+                        'range'
+                        'min'
+                        'len'
+                        'get'
+                        'count'
+                        'keys'
+                        'items'
+                        'max'
+                        'remove'
+                        'sum'
+                        'float'
+                        'preferred'
+                        'sort'
+                    [Var Names]
+                        'self'
+                        'data'
+                        'delimiters'
+                        'ascii'
+                        'chunkLength'
+                        'iteration'
+                        'charFrequency'
+                        'modes'
+                        'delims'
+                        'start'
+                        'end'
+                        'line'
+                        'char'
+                        'metaFrequency'
+                        'freq'
+                        'items'
+                        'modeList'
+                        'total'
+                        'consistency'
+                        'threshold'
+                        'k'
+                        'v'
+                        'delim'
+                        'skipinitialspace'
+                        'd'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "\n        The delimiter /should/ occur the same number of times on\n        each row. However, due to malformed data, it may not. We don't want\n        an all or nothing approach, so we allow for small variations in this\n        number.\n          1) build a table of the frequency of each character on every line.\n          2) build a table of frequencies of this frequency (meta-frequency?),\n             e.g.  'x occurred 5 times in 10 rows, 6 times in 1000 rows,\n             7 times in 2 rows'\n          3) use the mode of the meta-frequency to determine the /expected/\n             frequency for that character\n          4) find out how often the character actually meets that goal\n          5) the character that best meets its goal is the delimiter\n        For performance reasons, the data is evaluated in chunks, so it can\n        try and evaluate the smallest portion of the data possible, evaluating\n        additional chunks as necessary.\n        "
+                        None
+                        '\n'
+                        [Code]
+                            File Name: csv.py
+                            Object Name: <listcomp>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 4
+                            Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                            [Names]
+                                'chr'
+                            [Var Names]
+                                '.0'
+                                'c'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                            [Disassembly]
+                                0       BUILD_LIST                      0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        6 (to 18)
+                                6       STORE_FAST                      1: c
+                                8       LOAD_GLOBAL                     0: chr
+                                10      LOAD_FAST                       1: c
+                                12      CALL_FUNCTION                   1
+                                14      LIST_APPEND                     2
+                                16      JUMP_ABSOLUTE                   2 (to 4)
+                                18      RETURN_VALUE                    
+                        'Sniffer._guess_delimiter.<locals>.<listcomp>'
+                        127
+                        10
+                        0
+                        1
+                        [Code]
+                            File Name: csv.py
+                            Object Name: <lambda>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 1
+                            Stack Size: 2
+                            Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                            [Names]
+                            [Var Names]
+                                'x'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                None
+                                1
+                            [Disassembly]
+                                0       LOAD_FAST                       0: x
+                                2       LOAD_CONST                      1: 1
+                                4       BINARY_SUBSCR                   
+                                6       RETURN_VALUE                    
+                        'Sniffer._guess_delimiter.<locals>.<lambda>'
+                        (
+                            'key'
+                        )
+                        [Code]
+                            File Name: csv.py
+                            Object Name: <genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 3
+                            Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                            [Names]
+                            [Var Names]
+                                '.0'
+                                'item'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                1
+                                None
+                            [Disassembly]
+                                0       GEN_START                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        7 (to 20)
+                                6       STORE_FAST                      1: item
+                                8       LOAD_FAST                       1: item
+                                10      LOAD_CONST                      0: 1
+                                12      BINARY_SUBSCR                   
+                                14      YIELD_VALUE                     
+                                16      POP_TOP                         
+                                18      JUMP_ABSOLUTE                   2 (to 4)
+                                20      LOAD_CONST                      1: None
+                                22      RETURN_VALUE                    
+                        'Sniffer._guess_delimiter.<locals>.<genexpr>'
+                        1
+                        0.9
+                        0.01
+                        '%c '
+                        (
+                            ''
+                            0
+                        )
+                        [Code]
+                            File Name: csv.py
+                            Object Name: <listcomp>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 3
+                            Stack Size: 4
+                            Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                            [Names]
+                            [Var Names]
+                                '.0'
+                                'k'
+                                'v'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                            [Disassembly]
+                                0       BUILD_LIST                      0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        8 (to 22)
+                                6       UNPACK_SEQUENCE                 2
+                                8       STORE_FAST                      1: k
+                                10      STORE_FAST                      2: v
+                                12      LOAD_FAST                       2: v
+                                14      LOAD_FAST                       1: k
+                                16      BUILD_TUPLE                     2
+                                18      LIST_APPEND                     2
+                                20      JUMP_ABSOLUTE                   2 (to 4)
+                                22      RETURN_VALUE                    
+                        -1
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: list
+                        2       LOAD_GLOBAL                     1: filter
+                        4       LOAD_CONST                      1: None
+                        6       LOAD_FAST                       1: data
+                        8       LOAD_METHOD                     2: split
+                        10      LOAD_CONST                      2: '\n'
+                        12      CALL_METHOD                     1
+                        14      CALL_FUNCTION                   2
+                        16      CALL_FUNCTION                   1
+                        18      STORE_FAST                      1: data
+                        20      LOAD_CONST                      3: <CODE> <listcomp>
+                        22      LOAD_CONST                      4: 'Sniffer._guess_delimiter.<locals>.<listcomp>'
+                        24      MAKE_FUNCTION                   0
+                        26      LOAD_GLOBAL                     3: range
+                        28      LOAD_CONST                      5: 127
+                        30      CALL_FUNCTION                   1
+                        32      GET_ITER                        
+                        34      CALL_FUNCTION                   1
+                        36      STORE_FAST                      3: ascii
+                        38      LOAD_GLOBAL                     4: min
+                        40      LOAD_CONST                      6: 10
+                        42      LOAD_GLOBAL                     5: len
+                        44      LOAD_FAST                       1: data
+                        46      CALL_FUNCTION                   1
+                        48      CALL_FUNCTION                   2
+                        50      STORE_FAST                      4: chunkLength
+                        52      LOAD_CONST                      7: 0
+                        54      STORE_FAST                      5: iteration
+                        56      BUILD_MAP                       0
+                        58      STORE_FAST                      6: charFrequency
+                        60      BUILD_MAP                       0
+                        62      STORE_FAST                      7: modes
+                        64      BUILD_MAP                       0
+                        66      STORE_FAST                      8: delims
+                        68      LOAD_CONST                      7: 0
+                        70      LOAD_FAST                       4: chunkLength
+                        72      ROT_TWO                         
+                        74      STORE_FAST                      9: start
+                        76      STORE_FAST                      10: end
+                        78      LOAD_FAST                       9: start
+                        80      LOAD_GLOBAL                     5: len
+                        82      LOAD_FAST                       1: data
+                        84      CALL_FUNCTION                   1
+                        86      COMPARE_OP                      0 (<)
+                        88      POP_JUMP_IF_FALSE               301 (to 602)
+                        92      LOAD_FAST                       5: iteration
+                        94      LOAD_CONST                      8: 1
+                        96      INPLACE_ADD                     
+                        98      STORE_FAST                      5: iteration
+                        100     LOAD_FAST                       1: data
+                        102     LOAD_FAST                       9: start
+                        104     LOAD_FAST                       10: end
+                        106     BUILD_SLICE                     2
+                        108     BINARY_SUBSCR                   
+                        110     GET_ITER                        
+                        112     FOR_ITER                        32 (to 178)
+                        114     STORE_FAST                      11: line
+                        116     LOAD_FAST                       3: ascii
+                        118     GET_ITER                        
+                        120     FOR_ITER                        27 (to 176)
+                        122     STORE_FAST                      12: char
+                        124     LOAD_FAST                       6: charFrequency
+                        126     LOAD_METHOD                     6: get
+                        128     LOAD_FAST                       12: char
+                        130     BUILD_MAP                       0
+                        132     CALL_METHOD                     2
+                        134     STORE_FAST                      13: metaFrequency
+                        136     LOAD_FAST                       11: line
+                        138     LOAD_METHOD                     7: count
+                        140     LOAD_FAST                       12: char
+                        142     CALL_METHOD                     1
+                        144     STORE_FAST                      14: freq
+                        146     LOAD_FAST                       13: metaFrequency
+                        148     LOAD_METHOD                     6: get
+                        150     LOAD_FAST                       14: freq
+                        152     LOAD_CONST                      7: 0
+                        154     CALL_METHOD                     2
+                        156     LOAD_CONST                      8: 1
+                        158     BINARY_ADD                      
+                        160     LOAD_FAST                       13: metaFrequency
+                        162     LOAD_FAST                       14: freq
+                        164     STORE_SUBSCR                    
+                        166     LOAD_FAST                       13: metaFrequency
+                        168     LOAD_FAST                       6: charFrequency
+                        170     LOAD_FAST                       12: char
+                        172     STORE_SUBSCR                    
+                        174     JUMP_ABSOLUTE                   60 (to 120)
+                        176     JUMP_ABSOLUTE                   56 (to 112)
+                        178     LOAD_FAST                       6: charFrequency
+                        180     LOAD_METHOD                     8: keys
+                        182     CALL_METHOD                     0
+                        184     GET_ITER                        
+                        186     FOR_ITER                        78 (to 344)
+                        188     STORE_FAST                      12: char
+                        190     LOAD_GLOBAL                     0: list
+                        192     LOAD_FAST                       6: charFrequency
+                        194     LOAD_FAST                       12: char
+                        196     BINARY_SUBSCR                   
+                        198     LOAD_METHOD                     9: items
+                        200     CALL_METHOD                     0
+                        202     CALL_FUNCTION                   1
+                        204     STORE_FAST                      15: items
+                        206     LOAD_GLOBAL                     5: len
+                        208     LOAD_FAST                       15: items
+                        210     CALL_FUNCTION                   1
+                        212     LOAD_CONST                      8: 1
+                        214     COMPARE_OP                      2 (==)
+                        216     POP_JUMP_IF_FALSE               118 (to 236)
+                        218     LOAD_FAST                       15: items
+                        220     LOAD_CONST                      7: 0
+                        222     BINARY_SUBSCR                   
+                        224     LOAD_CONST                      7: 0
+                        226     BINARY_SUBSCR                   
+                        228     LOAD_CONST                      7: 0
+                        230     COMPARE_OP                      2 (==)
+                        232     POP_JUMP_IF_FALSE               118 (to 236)
+                        234     JUMP_ABSOLUTE                   93 (to 186)
+                        236     LOAD_GLOBAL                     5: len
+                        238     LOAD_FAST                       15: items
+                        240     CALL_FUNCTION                   1
+                        242     LOAD_CONST                      8: 1
+                        244     COMPARE_OP                      4 (>)
+                        246     POP_JUMP_IF_FALSE               165 (to 330)
+                        248     LOAD_GLOBAL                     10: max
+                        250     LOAD_FAST                       15: items
+                        252     LOAD_CONST                      9: <CODE> <lambda>
+                        254     LOAD_CONST                      10: 'Sniffer._guess_delimiter.<locals>.<lambda>'
+                        256     MAKE_FUNCTION                   0
+                        258     LOAD_CONST                      11: ('key',)
+                        260     CALL_FUNCTION_KW                2
+                        262     LOAD_FAST                       7: modes
+                        264     LOAD_FAST                       12: char
+                        266     STORE_SUBSCR                    
+                        268     LOAD_FAST                       15: items
+                        270     LOAD_METHOD                     11: remove
+                        272     LOAD_FAST                       7: modes
+                        274     LOAD_FAST                       12: char
+                        276     BINARY_SUBSCR                   
+                        278     CALL_METHOD                     1
+                        280     POP_TOP                         
+                        282     LOAD_FAST                       7: modes
+                        284     LOAD_FAST                       12: char
+                        286     BINARY_SUBSCR                   
+                        288     LOAD_CONST                      7: 0
+                        290     BINARY_SUBSCR                   
+                        292     LOAD_FAST                       7: modes
+                        294     LOAD_FAST                       12: char
+                        296     BINARY_SUBSCR                   
+                        298     LOAD_CONST                      8: 1
+                        300     BINARY_SUBSCR                   
+                        302     LOAD_GLOBAL                     12: sum
+                        304     LOAD_CONST                      12: <CODE> <genexpr>
+                        306     LOAD_CONST                      13: 'Sniffer._guess_delimiter.<locals>.<genexpr>'
+                        308     MAKE_FUNCTION                   0
+                        310     LOAD_FAST                       15: items
+                        312     GET_ITER                        
+                        314     CALL_FUNCTION                   1
+                        316     CALL_FUNCTION                   1
+                        318     BINARY_SUBTRACT                 
+                        320     BUILD_TUPLE                     2
+                        322     LOAD_FAST                       7: modes
+                        324     LOAD_FAST                       12: char
+                        326     STORE_SUBSCR                    
+                        328     JUMP_ABSOLUTE                   93 (to 186)
+                        330     LOAD_FAST                       15: items
+                        332     LOAD_CONST                      7: 0
+                        334     BINARY_SUBSCR                   
+                        336     LOAD_FAST                       7: modes
+                        338     LOAD_FAST                       12: char
+                        340     STORE_SUBSCR                    
+                        342     JUMP_ABSOLUTE                   93 (to 186)
+                        344     LOAD_FAST                       7: modes
+                        346     LOAD_METHOD                     9: items
+                        348     CALL_METHOD                     0
+                        350     STORE_FAST                      16: modeList
+                        352     LOAD_GLOBAL                     13: float
+                        354     LOAD_GLOBAL                     4: min
+                        356     LOAD_FAST                       4: chunkLength
+                        358     LOAD_FAST                       5: iteration
+                        360     BINARY_MULTIPLY                 
+                        362     LOAD_GLOBAL                     5: len
+                        364     LOAD_FAST                       1: data
+                        366     CALL_FUNCTION                   1
+                        368     CALL_FUNCTION                   2
+                        370     CALL_FUNCTION                   1
+                        372     STORE_FAST                      17: total
+                        374     LOAD_CONST                      14: 1
+                        376     STORE_FAST                      18: consistency
+                        378     LOAD_CONST                      15: 0.9
+                        380     STORE_FAST                      19: threshold
+                        382     LOAD_GLOBAL                     5: len
+                        384     LOAD_FAST                       8: delims
+                        386     CALL_FUNCTION                   1
+                        388     LOAD_CONST                      7: 0
+                        390     COMPARE_OP                      2 (==)
+                        392     POP_JUMP_IF_FALSE               254 (to 508)
+                        394     LOAD_FAST                       18: consistency
+                        396     LOAD_FAST                       19: threshold
+                        398     COMPARE_OP                      5 (>=)
+                        400     POP_JUMP_IF_FALSE               254 (to 508)
+                        402     LOAD_FAST                       16: modeList
+                        404     GET_ITER                        
+                        406     FOR_ITER                        36 (to 480)
+                        408     UNPACK_SEQUENCE                 2
+                        410     STORE_FAST                      20: k
+                        412     STORE_FAST                      21: v
+                        414     LOAD_FAST                       21: v
+                        416     LOAD_CONST                      7: 0
+                        418     BINARY_SUBSCR                   
+                        420     LOAD_CONST                      7: 0
+                        422     COMPARE_OP                      4 (>)
+                        424     POP_JUMP_IF_FALSE               239 (to 478)
+                        426     LOAD_FAST                       21: v
+                        428     LOAD_CONST                      8: 1
+                        430     BINARY_SUBSCR                   
+                        432     LOAD_CONST                      7: 0
+                        434     COMPARE_OP                      4 (>)
+                        436     POP_JUMP_IF_FALSE               239 (to 478)
+                        438     LOAD_FAST                       21: v
+                        440     LOAD_CONST                      8: 1
+                        442     BINARY_SUBSCR                   
+                        444     LOAD_FAST                       17: total
+                        446     BINARY_TRUE_DIVIDE              
+                        448     LOAD_FAST                       18: consistency
+                        450     COMPARE_OP                      5 (>=)
+                        452     POP_JUMP_IF_FALSE               239 (to 478)
+                        454     LOAD_FAST                       2: delimiters
+                        456     LOAD_CONST                      1: None
+                        458     IS_OP                           0 (is)
+                        460     POP_JUMP_IF_TRUE                235 (to 470)
+                        462     LOAD_FAST                       20: k
+                        464     LOAD_FAST                       2: delimiters
+                        466     CONTAINS_OP                     0 (in)
+                        468     POP_JUMP_IF_FALSE               239 (to 478)
+                        470     LOAD_FAST                       21: v
+                        472     LOAD_FAST                       8: delims
+                        474     LOAD_FAST                       20: k
+                        476     STORE_SUBSCR                    
+                        478     JUMP_ABSOLUTE                   203 (to 406)
+                        480     LOAD_FAST                       18: consistency
+                        482     LOAD_CONST                      16: 0.01
+                        484     INPLACE_SUBTRACT                
+                        486     STORE_FAST                      18: consistency
+                        488     LOAD_GLOBAL                     5: len
+                        490     LOAD_FAST                       8: delims
+                        492     CALL_FUNCTION                   1
+                        494     LOAD_CONST                      7: 0
+                        496     COMPARE_OP                      2 (==)
+                        498     POP_JUMP_IF_FALSE               254 (to 508)
+                        500     LOAD_FAST                       18: consistency
+                        502     LOAD_FAST                       19: threshold
+                        504     COMPARE_OP                      5 (>=)
+                        506     POP_JUMP_IF_TRUE                201 (to 402)
+                        508     LOAD_GLOBAL                     5: len
+                        510     LOAD_FAST                       8: delims
+                        512     CALL_FUNCTION                   1
+                        514     LOAD_CONST                      8: 1
+                        516     COMPARE_OP                      2 (==)
+                        518     POP_JUMP_IF_FALSE               289 (to 578)
+                        522     LOAD_GLOBAL                     0: list
+                        524     LOAD_FAST                       8: delims
+                        526     LOAD_METHOD                     8: keys
+                        528     CALL_METHOD                     0
+                        530     CALL_FUNCTION                   1
+                        532     LOAD_CONST                      7: 0
+                        534     BINARY_SUBSCR                   
+                        536     STORE_FAST                      22: delim
+                        538     LOAD_FAST                       1: data
+                        540     LOAD_CONST                      7: 0
+                        542     BINARY_SUBSCR                   
+                        544     LOAD_METHOD                     7: count
+                        546     LOAD_FAST                       22: delim
+                        548     CALL_METHOD                     1
+                        550     LOAD_FAST                       1: data
+                        552     LOAD_CONST                      7: 0
+                        554     BINARY_SUBSCR                   
+                        556     LOAD_METHOD                     7: count
+                        558     LOAD_CONST                      17: '%c '
+                        560     LOAD_FAST                       22: delim
+                        562     BINARY_MODULO                   
+                        564     CALL_METHOD                     1
+                        566     COMPARE_OP                      2 (==)
+                        568     STORE_FAST                      23: skipinitialspace
+                        570     LOAD_FAST                       22: delim
+                        572     LOAD_FAST                       23: skipinitialspace
+                        574     BUILD_TUPLE                     2
+                        576     RETURN_VALUE                    
+                        578     LOAD_FAST                       10: end
+                        580     STORE_FAST                      9: start
+                        582     LOAD_FAST                       10: end
+                        584     LOAD_FAST                       4: chunkLength
+                        586     INPLACE_ADD                     
+                        588     STORE_FAST                      10: end
+                        590     LOAD_FAST                       9: start
+                        592     LOAD_GLOBAL                     5: len
+                        594     LOAD_FAST                       1: data
+                        596     CALL_FUNCTION                   1
+                        598     COMPARE_OP                      0 (<)
+                        600     POP_JUMP_IF_TRUE                46 (to 92)
+                        602     LOAD_FAST                       8: delims
+                        604     POP_JUMP_IF_TRUE                306 (to 612)
+                        608     LOAD_CONST                      18: ('', 0)
+                        610     RETURN_VALUE                    
+                        612     LOAD_GLOBAL                     5: len
+                        614     LOAD_FAST                       8: delims
+                        616     CALL_FUNCTION                   1
+                        618     LOAD_CONST                      8: 1
+                        620     COMPARE_OP                      4 (>)
+                        622     POP_JUMP_IF_FALSE               349 (to 698)
+                        626     LOAD_FAST                       0: self
+                        628     LOAD_ATTR                       14: preferred
+                        630     GET_ITER                        
+                        632     FOR_ITER                        32 (to 698)
+                        634     STORE_FAST                      24: d
+                        636     LOAD_FAST                       24: d
+                        638     LOAD_FAST                       8: delims
+                        640     LOAD_METHOD                     8: keys
+                        642     CALL_METHOD                     0
+                        644     CONTAINS_OP                     0 (in)
+                        646     POP_JUMP_IF_FALSE               347 (to 694)
+                        650     LOAD_FAST                       1: data
+                        652     LOAD_CONST                      7: 0
+                        654     BINARY_SUBSCR                   
+                        656     LOAD_METHOD                     7: count
+                        658     LOAD_FAST                       24: d
+                        660     CALL_METHOD                     1
+                        662     LOAD_FAST                       1: data
+                        664     LOAD_CONST                      7: 0
+                        666     BINARY_SUBSCR                   
+                        668     LOAD_METHOD                     7: count
+                        670     LOAD_CONST                      17: '%c '
+                        672     LOAD_FAST                       24: d
+                        674     BINARY_MODULO                   
+                        676     CALL_METHOD                     1
+                        678     COMPARE_OP                      2 (==)
+                        680     STORE_FAST                      23: skipinitialspace
+                        682     LOAD_FAST                       24: d
+                        684     LOAD_FAST                       23: skipinitialspace
+                        686     BUILD_TUPLE                     2
+                        688     ROT_TWO                         
+                        690     POP_TOP                         
+                        692     RETURN_VALUE                    
+                        694     JUMP_ABSOLUTE                   316 (to 632)
+                        698     LOAD_CONST                      19: <CODE> <listcomp>
+                        700     LOAD_CONST                      4: 'Sniffer._guess_delimiter.<locals>.<listcomp>'
+                        702     MAKE_FUNCTION                   0
+                        704     LOAD_FAST                       8: delims
+                        706     LOAD_METHOD                     9: items
+                        708     CALL_METHOD                     0
+                        710     GET_ITER                        
+                        712     CALL_FUNCTION                   1
+                        714     STORE_FAST                      15: items
+                        716     LOAD_FAST                       15: items
+                        718     LOAD_METHOD                     15: sort
+                        720     CALL_METHOD                     0
+                        722     POP_TOP                         
+                        724     LOAD_FAST                       15: items
+                        726     LOAD_CONST                      20: -1
+                        728     BINARY_SUBSCR                   
+                        730     LOAD_CONST                      8: 1
+                        732     BINARY_SUBSCR                   
+                        734     STORE_FAST                      22: delim
+                        736     LOAD_FAST                       1: data
+                        738     LOAD_CONST                      7: 0
+                        740     BINARY_SUBSCR                   
+                        742     LOAD_METHOD                     7: count
+                        744     LOAD_FAST                       22: delim
+                        746     CALL_METHOD                     1
+                        748     LOAD_FAST                       1: data
+                        750     LOAD_CONST                      7: 0
+                        752     BINARY_SUBSCR                   
+                        754     LOAD_METHOD                     7: count
+                        756     LOAD_CONST                      17: '%c '
+                        758     LOAD_FAST                       22: delim
+                        760     BINARY_MODULO                   
+                        762     CALL_METHOD                     1
+                        764     COMPARE_OP                      2 (==)
+                        766     STORE_FAST                      23: skipinitialspace
+                        768     LOAD_FAST                       22: delim
+                        770     LOAD_FAST                       23: skipinitialspace
+                        772     BUILD_TUPLE                     2
+                        774     RETURN_VALUE                    
+                'Sniffer._guess_delimiter'
+                [Code]
+                    File Name: csv.py
+                    Object Name: has_header
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 13
+                    Stack Size: 11
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'reader'
+                        'StringIO'
+                        'sniff'
+                        'next'
+                        'len'
+                        'range'
+                        'list'
+                        'keys'
+                        'complex'
+                        'ValueError'
+                        'OverflowError'
+                        'items'
+                        'type'
+                        'TypeError'
+                    [Var Names]
+                        'self'
+                        'sample'
+                        'rdr'
+                        'header'
+                        'columns'
+                        'columnTypes'
+                        'i'
+                        'checked'
+                        'row'
+                        'col'
+                        'thisType'
+                        'hasHeader'
+                        'colType'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                        20
+                        1
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: reader
+                        2       LOAD_GLOBAL                     1: StringIO
+                        4       LOAD_FAST                       1: sample
+                        6       CALL_FUNCTION                   1
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_METHOD                     2: sniff
+                        12      LOAD_FAST                       1: sample
+                        14      CALL_METHOD                     1
+                        16      CALL_FUNCTION                   2
+                        18      STORE_FAST                      2: rdr
+                        20      LOAD_GLOBAL                     3: next
+                        22      LOAD_FAST                       2: rdr
+                        24      CALL_FUNCTION                   1
+                        26      STORE_FAST                      3: header
+                        28      LOAD_GLOBAL                     4: len
+                        30      LOAD_FAST                       3: header
+                        32      CALL_FUNCTION                   1
+                        34      STORE_FAST                      4: columns
+                        36      BUILD_MAP                       0
+                        38      STORE_FAST                      5: columnTypes
+                        40      LOAD_GLOBAL                     5: range
+                        42      LOAD_FAST                       4: columns
+                        44      CALL_FUNCTION                   1
+                        46      GET_ITER                        
+                        48      FOR_ITER                        6 (to 62)
+                        50      STORE_FAST                      6: i
+                        52      LOAD_CONST                      0: None
+                        54      LOAD_FAST                       5: columnTypes
+                        56      LOAD_FAST                       6: i
+                        58      STORE_SUBSCR                    
+                        60      JUMP_ABSOLUTE                   24 (to 48)
+                        62      LOAD_CONST                      1: 0
+                        64      STORE_FAST                      7: checked
+                        66      LOAD_FAST                       2: rdr
+                        68      GET_ITER                        
+                        70      FOR_ITER                        76 (to 224)
+                        72      STORE_FAST                      8: row
+                        74      LOAD_FAST                       7: checked
+                        76      LOAD_CONST                      2: 20
+                        78      COMPARE_OP                      4 (>)
+                        80      POP_JUMP_IF_FALSE               43 (to 86)
+                        82      POP_TOP                         
+                        84      JUMP_FORWARD                    69 (to 224)
+                        86      LOAD_FAST                       7: checked
+                        88      LOAD_CONST                      3: 1
+                        90      INPLACE_ADD                     
+                        92      STORE_FAST                      7: checked
+                        94      LOAD_GLOBAL                     4: len
+                        96      LOAD_FAST                       8: row
+                        98      CALL_FUNCTION                   1
+                        100     LOAD_FAST                       4: columns
+                        102     COMPARE_OP                      3 (!=)
+                        104     POP_JUMP_IF_FALSE               54 (to 108)
+                        106     JUMP_ABSOLUTE                   35 (to 70)
+                        108     LOAD_GLOBAL                     6: list
+                        110     LOAD_FAST                       5: columnTypes
+                        112     LOAD_METHOD                     7: keys
+                        114     CALL_METHOD                     0
+                        116     CALL_FUNCTION                   1
+                        118     GET_ITER                        
+                        120     FOR_ITER                        50 (to 222)
+                        122     STORE_FAST                      9: col
+                        124     LOAD_GLOBAL                     8: complex
+                        126     STORE_FAST                      10: thisType
+                        128     SETUP_FINALLY                   8 (to 146)
+                        130     LOAD_FAST                       10: thisType
+                        132     LOAD_FAST                       8: row
+                        134     LOAD_FAST                       9: col
+                        136     BINARY_SUBSCR                   
+                        138     CALL_FUNCTION                   1
+                        140     POP_TOP                         
+                        142     POP_BLOCK                       
+                        144     JUMP_FORWARD                    17 (to 180)
+                        146     DUP_TOP                         
+                        148     LOAD_GLOBAL                     9: ValueError
+                        150     LOAD_GLOBAL                     10: OverflowError
+                        152     BUILD_TUPLE                     2
+                        154     JUMP_IF_NOT_EXC_MATCH           89 (to 178)
+                        156     POP_TOP                         
+                        158     POP_TOP                         
+                        160     POP_TOP                         
+                        162     LOAD_GLOBAL                     4: len
+                        164     LOAD_FAST                       8: row
+                        166     LOAD_FAST                       9: col
+                        168     BINARY_SUBSCR                   
+                        170     CALL_FUNCTION                   1
+                        172     STORE_FAST                      10: thisType
+                        174     POP_EXCEPT                      
+                        176     JUMP_FORWARD                    1 (to 180)
+                        178     RERAISE                         0
+                        180     LOAD_FAST                       10: thisType
+                        182     LOAD_FAST                       5: columnTypes
+                        184     LOAD_FAST                       9: col
+                        186     BINARY_SUBSCR                   
+                        188     COMPARE_OP                      3 (!=)
+                        190     POP_JUMP_IF_FALSE               110 (to 220)
+                        192     LOAD_FAST                       5: columnTypes
+                        194     LOAD_FAST                       9: col
+                        196     BINARY_SUBSCR                   
+                        198     LOAD_CONST                      0: None
+                        200     IS_OP                           0 (is)
+                        202     POP_JUMP_IF_FALSE               107 (to 214)
+                        204     LOAD_FAST                       10: thisType
+                        206     LOAD_FAST                       5: columnTypes
+                        208     LOAD_FAST                       9: col
+                        210     STORE_SUBSCR                    
+                        212     JUMP_ABSOLUTE                   60 (to 120)
+                        214     LOAD_FAST                       5: columnTypes
+                        216     LOAD_FAST                       9: col
+                        218     DELETE_SUBSCR                   
+                        220     JUMP_ABSOLUTE                   60 (to 120)
+                        222     JUMP_ABSOLUTE                   35 (to 70)
+                        224     LOAD_CONST                      1: 0
+                        226     STORE_FAST                      11: hasHeader
+                        228     LOAD_FAST                       5: columnTypes
+                        230     LOAD_METHOD                     11: items
+                        232     CALL_METHOD                     0
+                        234     GET_ITER                        
+                        236     FOR_ITER                        58 (to 354)
+                        238     UNPACK_SEQUENCE                 2
+                        240     STORE_FAST                      9: col
+                        242     STORE_FAST                      12: colType
+                        244     LOAD_GLOBAL                     12: type
+                        246     LOAD_FAST                       12: colType
+                        248     CALL_FUNCTION                   1
+                        250     LOAD_GLOBAL                     12: type
+                        252     LOAD_CONST                      1: 0
+                        254     CALL_FUNCTION                   1
+                        256     COMPARE_OP                      2 (==)
+                        258     POP_JUMP_IF_FALSE               148 (to 296)
+                        260     LOAD_GLOBAL                     4: len
+                        262     LOAD_FAST                       3: header
+                        264     LOAD_FAST                       9: col
+                        266     BINARY_SUBSCR                   
+                        268     CALL_FUNCTION                   1
+                        270     LOAD_FAST                       12: colType
+                        272     COMPARE_OP                      3 (!=)
+                        274     POP_JUMP_IF_FALSE               143 (to 286)
+                        276     LOAD_FAST                       11: hasHeader
+                        278     LOAD_CONST                      3: 1
+                        280     INPLACE_ADD                     
+                        282     STORE_FAST                      11: hasHeader
+                        284     JUMP_ABSOLUTE                   118 (to 236)
+                        286     LOAD_FAST                       11: hasHeader
+                        288     LOAD_CONST                      3: 1
+                        290     INPLACE_SUBTRACT                
+                        292     STORE_FAST                      11: hasHeader
+                        294     JUMP_ABSOLUTE                   118 (to 236)
+                        296     SETUP_FINALLY                   8 (to 314)
+                        298     LOAD_FAST                       12: colType
+                        300     LOAD_FAST                       3: header
+                        302     LOAD_FAST                       9: col
+                        304     BINARY_SUBSCR                   
+                        306     CALL_FUNCTION                   1
+                        308     POP_TOP                         
+                        310     POP_BLOCK                       
+                        312     JUMP_FORWARD                    15 (to 344)
+                        314     DUP_TOP                         
+                        316     LOAD_GLOBAL                     9: ValueError
+                        318     LOAD_GLOBAL                     13: TypeError
+                        320     BUILD_TUPLE                     2
+                        322     JUMP_IF_NOT_EXC_MATCH           171 (to 342)
+                        324     POP_TOP                         
+                        326     POP_TOP                         
+                        328     POP_TOP                         
+                        330     LOAD_FAST                       11: hasHeader
+                        332     LOAD_CONST                      3: 1
+                        334     INPLACE_ADD                     
+                        336     STORE_FAST                      11: hasHeader
+                        338     POP_EXCEPT                      
+                        340     JUMP_ABSOLUTE                   118 (to 236)
+                        342     RERAISE                         0
+                        344     LOAD_FAST                       11: hasHeader
+                        346     LOAD_CONST                      3: 1
+                        348     INPLACE_SUBTRACT                
+                        350     STORE_FAST                      11: hasHeader
+                        352     JUMP_ABSOLUTE                   118 (to 236)
+                        354     LOAD_FAST                       11: hasHeader
+                        356     LOAD_CONST                      1: 0
+                        358     COMPARE_OP                      4 (>)
+                        360     RETURN_VALUE                    
+                'Sniffer.has_header'
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Sniffer'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: '\n    "Sniffs" the format of a CSV file (i.e. delimiter, quotechar)\n    Returns a Dialect object.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> __init__
+                14      LOAD_CONST                      3: 'Sniffer.__init__'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: __init__
+                20      LOAD_CONST                      13: (None,)
+                22      LOAD_CONST                      5: <CODE> sniff
+                24      LOAD_CONST                      6: 'Sniffer.sniff'
+                26      MAKE_FUNCTION                   1
+                28      STORE_NAME                      5: sniff
+                30      LOAD_CONST                      7: <CODE> _guess_quote_and_delimiter
+                32      LOAD_CONST                      8: 'Sniffer._guess_quote_and_delimiter'
+                34      MAKE_FUNCTION                   0
+                36      STORE_NAME                      6: _guess_quote_and_delimiter
+                38      LOAD_CONST                      9: <CODE> _guess_delimiter
+                40      LOAD_CONST                      10: 'Sniffer._guess_delimiter'
+                42      MAKE_FUNCTION                   0
+                44      STORE_NAME                      7: _guess_delimiter
+                46      LOAD_CONST                      11: <CODE> has_header
+                48      LOAD_CONST                      12: 'Sniffer.has_header'
+                50      MAKE_FUNCTION                   0
+                52      STORE_NAME                      8: has_header
+                54      LOAD_CONST                      4: None
+                56      RETURN_VALUE                    
+        'Sniffer'
+    [Disassembly]
+        0       LOAD_CONST                      0: '\ncsv.py - read/write/investigate CSV files\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: re
+        10      STORE_NAME                      1: re
+        12      LOAD_CONST                      1: 0
+        14      LOAD_CONST                      3: ('Error', '__version__', 'writer', 'reader', 'register_dialect', 'unregister_dialect', 'get_dialect', 'list_dialects', 'field_size_limit', 'QUOTE_MINIMAL', 'QUOTE_ALL', 'QUOTE_NONNUMERIC', 'QUOTE_NONE', '__doc__')
+        16      IMPORT_NAME                     2: _csv
+        18      IMPORT_FROM                     3: Error
+        20      STORE_NAME                      3: Error
+        22      IMPORT_FROM                     4: __version__
+        24      STORE_NAME                      4: __version__
+        26      IMPORT_FROM                     5: writer
+        28      STORE_NAME                      5: writer
+        30      IMPORT_FROM                     6: reader
+        32      STORE_NAME                      6: reader
+        34      IMPORT_FROM                     7: register_dialect
+        36      STORE_NAME                      7: register_dialect
+        38      IMPORT_FROM                     8: unregister_dialect
+        40      STORE_NAME                      8: unregister_dialect
+        42      IMPORT_FROM                     9: get_dialect
+        44      STORE_NAME                      9: get_dialect
+        46      IMPORT_FROM                     10: list_dialects
+        48      STORE_NAME                      10: list_dialects
+        50      IMPORT_FROM                     11: field_size_limit
+        52      STORE_NAME                      11: field_size_limit
+        54      IMPORT_FROM                     12: QUOTE_MINIMAL
+        56      STORE_NAME                      12: QUOTE_MINIMAL
+        58      IMPORT_FROM                     13: QUOTE_ALL
+        60      STORE_NAME                      13: QUOTE_ALL
+        62      IMPORT_FROM                     14: QUOTE_NONNUMERIC
+        64      STORE_NAME                      14: QUOTE_NONNUMERIC
+        66      IMPORT_FROM                     15: QUOTE_NONE
+        68      STORE_NAME                      15: QUOTE_NONE
+        70      IMPORT_FROM                     0: __doc__
+        72      STORE_NAME                      0: __doc__
+        74      POP_TOP                         
+        76      LOAD_CONST                      1: 0
+        78      LOAD_CONST                      4: ('Dialect',)
+        80      IMPORT_NAME                     2: _csv
+        82      IMPORT_FROM                     16: Dialect
+        84      STORE_NAME                      17: _Dialect
+        86      POP_TOP                         
+        88      LOAD_CONST                      1: 0
+        90      LOAD_CONST                      5: ('StringIO',)
+        92      IMPORT_NAME                     18: io
+        94      IMPORT_FROM                     19: StringIO
+        96      STORE_NAME                      19: StringIO
+        98      POP_TOP                         
+        100     BUILD_LIST                      0
+        102     LOAD_CONST                      6: ('QUOTE_MINIMAL', 'QUOTE_ALL', 'QUOTE_NONNUMERIC', 'QUOTE_NONE', 'Error', 'Dialect', '__doc__', 'excel', 'excel_tab', 'field_size_limit', 'reader', 'writer', 'register_dialect', 'get_dialect', 'list_dialects', 'Sniffer', 'unregister_dialect', '__version__', 'DictReader', 'DictWriter', 'unix_dialect')
+        104     LIST_EXTEND                     1
+        106     STORE_NAME                      20: __all__
+        108     LOAD_BUILD_CLASS                
+        110     LOAD_CONST                      7: <CODE> Dialect
+        112     LOAD_CONST                      8: 'Dialect'
+        114     MAKE_FUNCTION                   0
+        116     LOAD_CONST                      8: 'Dialect'
+        118     CALL_FUNCTION                   2
+        120     STORE_NAME                      16: Dialect
+        122     LOAD_BUILD_CLASS                
+        124     LOAD_CONST                      9: <CODE> excel
+        126     LOAD_CONST                      10: 'excel'
+        128     MAKE_FUNCTION                   0
+        130     LOAD_CONST                      10: 'excel'
+        132     LOAD_NAME                       16: Dialect
+        134     CALL_FUNCTION                   3
+        136     STORE_NAME                      21: excel
+        138     LOAD_NAME                       7: register_dialect
+        140     LOAD_CONST                      10: 'excel'
+        142     LOAD_NAME                       21: excel
+        144     CALL_FUNCTION                   2
+        146     POP_TOP                         
+        148     LOAD_BUILD_CLASS                
+        150     LOAD_CONST                      11: <CODE> excel_tab
+        152     LOAD_CONST                      12: 'excel_tab'
+        154     MAKE_FUNCTION                   0
+        156     LOAD_CONST                      12: 'excel_tab'
+        158     LOAD_NAME                       21: excel
+        160     CALL_FUNCTION                   3
+        162     STORE_NAME                      22: excel_tab
+        164     LOAD_NAME                       7: register_dialect
+        166     LOAD_CONST                      13: 'excel-tab'
+        168     LOAD_NAME                       22: excel_tab
+        170     CALL_FUNCTION                   2
+        172     POP_TOP                         
+        174     LOAD_BUILD_CLASS                
+        176     LOAD_CONST                      14: <CODE> unix_dialect
+        178     LOAD_CONST                      15: 'unix_dialect'
+        180     MAKE_FUNCTION                   0
+        182     LOAD_CONST                      15: 'unix_dialect'
+        184     LOAD_NAME                       16: Dialect
+        186     CALL_FUNCTION                   3
+        188     STORE_NAME                      23: unix_dialect
+        190     LOAD_NAME                       7: register_dialect
+        192     LOAD_CONST                      16: 'unix'
+        194     LOAD_NAME                       23: unix_dialect
+        196     CALL_FUNCTION                   2
+        198     POP_TOP                         
+        200     LOAD_BUILD_CLASS                
+        202     LOAD_CONST                      17: <CODE> DictReader
+        204     LOAD_CONST                      18: 'DictReader'
+        206     MAKE_FUNCTION                   0
+        208     LOAD_CONST                      18: 'DictReader'
+        210     CALL_FUNCTION                   2
+        212     STORE_NAME                      24: DictReader
+        214     LOAD_BUILD_CLASS                
+        216     LOAD_CONST                      19: <CODE> DictWriter
+        218     LOAD_CONST                      20: 'DictWriter'
+        220     MAKE_FUNCTION                   0
+        222     LOAD_CONST                      20: 'DictWriter'
+        224     CALL_FUNCTION                   2
+        226     STORE_NAME                      25: DictWriter
+        228     SETUP_FINALLY                   4 (to 238)
+        230     LOAD_NAME                       26: complex
+        232     POP_TOP                         
+        234     POP_BLOCK                       
+        236     JUMP_FORWARD                    11 (to 260)
+        238     DUP_TOP                         
+        240     LOAD_NAME                       27: NameError
+        242     JUMP_IF_NOT_EXC_MATCH           129 (to 258)
+        244     POP_TOP                         
+        246     POP_TOP                         
+        248     POP_TOP                         
+        250     LOAD_NAME                       28: float
+        252     STORE_NAME                      26: complex
+        254     POP_EXCEPT                      
+        256     JUMP_FORWARD                    1 (to 260)
+        258     RERAISE                         0
+        260     LOAD_BUILD_CLASS                
+        262     LOAD_CONST                      21: <CODE> Sniffer
+        264     LOAD_CONST                      22: 'Sniffer'
+        266     MAKE_FUNCTION                   0
+        268     LOAD_CONST                      22: 'Sniffer'
+        270     CALL_FUNCTION                   2
+        272     STORE_NAME                      29: Sniffer
+        274     LOAD_CONST                      2: None
+        276     RETURN_VALUE                    

@@ -1,0 +1,198 @@
+_abc.pyc (Python 3.10)
+[Code]
+    File Name: importlib/_abc.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 5
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        ''
+        '_bootstrap'
+        'abc'
+        'warnings'
+        'ABCMeta'
+        'Loader'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Subset of importlib.abc used to reduce importlib.util imports.'
+        1
+        (
+            '_bootstrap'
+        )
+        0
+        None
+        [Code]
+            File Name: importlib/_abc.py
+            Object Name: Loader
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'create_module'
+                'load_module'
+                'module_repr'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Loader'
+                'Abstract base class for import loaders.'
+                [Code]
+                    File Name: importlib/_abc.py
+                    Object Name: create_module
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        'spec'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return a module to initialize and into which to load.\n\n        This method should raise ImportError if anything prevents it\n        from creating a new module.  It may return None to indicate\n        that the spec should create the new module.\n        '
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'Loader.create_module'
+                [Code]
+                    File Name: importlib/_abc.py
+                    Object Name: load_module
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'hasattr'
+                        'ImportError'
+                        '_bootstrap'
+                        '_load_module_shim'
+                    [Var Names]
+                        'self'
+                        'fullname'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return the loaded module.\n\n        The module must be added to sys.modules and have import-related\n        attributes set properly.  The fullname is a str.\n\n        ImportError is raised on failure.\n\n        This method is deprecated in favor of loader.exec_module(). If\n        exec_module() exists then it is used to provide a backwards-compatible\n        functionality for this method.\n\n        '
+                        'exec_module'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: hasattr
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_CONST                      1: 'exec_module'
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_TRUE                7 (to 14)
+                        10      LOAD_GLOBAL                     1: ImportError
+                        12      RAISE_VARARGS                   1
+                        14      LOAD_GLOBAL                     2: _bootstrap
+                        16      LOAD_METHOD                     3: _load_module_shim
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_FAST                       1: fullname
+                        22      CALL_METHOD                     2
+                        24      RETURN_VALUE                    
+                'Loader.load_module'
+                [Code]
+                    File Name: importlib/_abc.py
+                    Object Name: module_repr
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'warnings'
+                        'warn'
+                        'DeprecationWarning'
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'module'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Return a module's repr.\n\n        Used by the module type when the method does not raise\n        NotImplementedError.\n\n        This method is deprecated.\n\n        "
+                        'importlib.abc.Loader.module_repr() is deprecated and slated for removal in Python 3.12'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: warnings
+                        2       LOAD_METHOD                     1: warn
+                        4       LOAD_CONST                      1: 'importlib.abc.Loader.module_repr() is deprecated and slated for removal in Python 3.12'
+                        6       LOAD_GLOBAL                     2: DeprecationWarning
+                        8       CALL_METHOD                     2
+                        10      POP_TOP                         
+                        12      LOAD_GLOBAL                     3: NotImplementedError
+                        14      RAISE_VARARGS                   1
+                'Loader.module_repr'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Loader'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Abstract base class for import loaders.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> create_module
+                14      LOAD_CONST                      3: 'Loader.create_module'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: create_module
+                20      LOAD_CONST                      4: <CODE> load_module
+                22      LOAD_CONST                      5: 'Loader.load_module'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: load_module
+                28      LOAD_CONST                      6: <CODE> module_repr
+                30      LOAD_CONST                      7: 'Loader.module_repr'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      6: module_repr
+                36      LOAD_CONST                      8: None
+                38      RETURN_VALUE                    
+        'Loader'
+        (
+            'metaclass'
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Subset of importlib.abc used to reduce importlib.util imports.'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 1
+        6       LOAD_CONST                      2: ('_bootstrap',)
+        8       IMPORT_NAME                     1: 
+        10      IMPORT_FROM                     2: _bootstrap
+        12      STORE_NAME                      2: _bootstrap
+        14      POP_TOP                         
+        16      LOAD_CONST                      3: 0
+        18      LOAD_CONST                      4: None
+        20      IMPORT_NAME                     3: abc
+        22      STORE_NAME                      3: abc
+        24      LOAD_CONST                      3: 0
+        26      LOAD_CONST                      4: None
+        28      IMPORT_NAME                     4: warnings
+        30      STORE_NAME                      4: warnings
+        32      LOAD_BUILD_CLASS                
+        34      LOAD_CONST                      5: <CODE> Loader
+        36      LOAD_CONST                      6: 'Loader'
+        38      MAKE_FUNCTION                   0
+        40      LOAD_CONST                      6: 'Loader'
+        42      LOAD_NAME                       3: abc
+        44      LOAD_ATTR                       5: ABCMeta
+        46      LOAD_CONST                      7: ('metaclass',)
+        48      CALL_FUNCTION_KW                3
+        50      STORE_NAME                      6: Loader
+        52      LOAD_CONST                      4: None
+        54      RETURN_VALUE                    

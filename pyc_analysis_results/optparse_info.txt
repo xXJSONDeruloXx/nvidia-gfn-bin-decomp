@@ -1,0 +1,4 @@
+File: /Users/kurt/Desktop/PYZ-00.pyz_extracted/optparse.pyc
+Size: 47664 bytes
+Modified: Thu May 29 21:01:56 2025
+Python Version: 3.12+

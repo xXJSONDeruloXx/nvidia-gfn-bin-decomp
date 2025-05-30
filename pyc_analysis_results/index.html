@@ -1,0 +1,1684 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PYC Decompilation Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .success { color: green; }
+        .failure { color: red; }
+    </style>
+</head>
+<body>
+    <h1>PYC Decompilation Results</h1>
+    <p>Generated on: Thu May 29 21:43:59 2025</p>
+    <table>
+        <tr>
+            <th>File</th>
+            <th>Python Version</th>
+            <th>Summary</th>
+            <th>Decompiled Source</th>
+            <th>Disassembly</th>
+            <th>Metadata</th>
+        </tr>
+
+        <tr>
+            <td>typing.pyc</td>
+            <td>3.12+</td>
+            <td><a href="typing_summary.txt">Summary</a></td>
+            <td>
+                <a href="typing_uncompyle6.py">uncompyle6</a> | 
+                <a href="typing_decompyle3.py">decompyle3</a> | 
+                <a href="typing_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="typing_pycdas.txt">pycdas</a> | 
+                <a href="typing_dis.txt">dis</a>
+            </td>
+            <td><a href="typing_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>bz2.pyc</td>
+            <td>3.12+</td>
+            <td><a href="bz2_summary.txt">Summary</a></td>
+            <td>
+                <a href="bz2_uncompyle6.py">uncompyle6</a> | 
+                <a href="bz2_decompyle3.py">decompyle3</a> | 
+                <a href="bz2_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="bz2_pycdas.txt">pycdas</a> | 
+                <a href="bz2_dis.txt">dis</a>
+            </td>
+            <td><a href="bz2_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>hashlib.pyc</td>
+            <td>3.12+</td>
+            <td><a href="hashlib_summary.txt">Summary</a></td>
+            <td>
+                <a href="hashlib_uncompyle6.py">uncompyle6</a> | 
+                <a href="hashlib_decompyle3.py">decompyle3</a> | 
+                <a href="hashlib_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="hashlib_pycdas.txt">pycdas</a> | 
+                <a href="hashlib_dis.txt">dis</a>
+            </td>
+            <td><a href="hashlib_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>install.pyc</td>
+            <td>3.12+</td>
+            <td><a href="install_summary.txt">Summary</a></td>
+            <td>
+                <a href="install_uncompyle6.py">uncompyle6</a> | 
+                <a href="install_decompyle3.py">decompyle3</a> | 
+                <a href="install_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="install_pycdas.txt">pycdas</a> | 
+                <a href="install_dis.txt">dis</a>
+            </td>
+            <td><a href="install_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>token.pyc</td>
+            <td>3.12+</td>
+            <td><a href="token_summary.txt">Summary</a></td>
+            <td>
+                <a href="token_uncompyle6.py">uncompyle6</a> | 
+                <a href="token_decompyle3.py">decompyle3</a> | 
+                <a href="token_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="token_pycdas.txt">pycdas</a> | 
+                <a href="token_dis.txt">dis</a>
+            </td>
+            <td><a href="token_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>pickle.pyc</td>
+            <td>3.12+</td>
+            <td><a href="pickle_summary.txt">Summary</a></td>
+            <td>
+                <a href="pickle_uncompyle6.py">uncompyle6</a> | 
+                <a href="pickle_decompyle3.py">decompyle3</a> | 
+                <a href="pickle_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="pickle_pycdas.txt">pycdas</a> | 
+                <a href="pickle_dis.txt">dis</a>
+            </td>
+            <td><a href="pickle_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>_compression.pyc</td>
+            <td>3.12+</td>
+            <td><a href="_compression_summary.txt">Summary</a></td>
+            <td>
+                <a href="_compression_uncompyle6.py">uncompyle6</a> | 
+                <a href="_compression_decompyle3.py">decompyle3</a> | 
+                <a href="_compression_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="_compression_pycdas.txt">pycdas</a> | 
+                <a href="_compression_dis.txt">dis</a>
+            </td>
+            <td><a href="_compression_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>stringprep.pyc</td>
+            <td>3.12+</td>
+            <td><a href="stringprep_summary.txt">Summary</a></td>
+            <td>
+                <a href="stringprep_uncompyle6.py">uncompyle6</a> | 
+                <a href="stringprep_decompyle3.py">decompyle3</a> | 
+                <a href="stringprep_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="stringprep_pycdas.txt">pycdas</a> | 
+                <a href="stringprep_dis.txt">dis</a>
+            </td>
+            <td><a href="stringprep_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>bisect.pyc</td>
+            <td>3.12+</td>
+            <td><a href="bisect_summary.txt">Summary</a></td>
+            <td>
+                <a href="bisect_uncompyle6.py">uncompyle6</a> | 
+                <a href="bisect_decompyle3.py">decompyle3</a> | 
+                <a href="bisect_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="bisect_pycdas.txt">pycdas</a> | 
+                <a href="bisect_dis.txt">dis</a>
+            </td>
+            <td><a href="bisect_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>threading.pyc</td>
+            <td>3.12+</td>
+            <td><a href="threading_summary.txt">Summary</a></td>
+            <td>
+                <a href="threading_uncompyle6.py">uncompyle6</a> | 
+                <a href="threading_decompyle3.py">decompyle3</a> | 
+                <a href="threading_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="threading_pycdas.txt">pycdas</a> | 
+                <a href="threading_dis.txt">dis</a>
+            </td>
+            <td><a href="threading_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>datetime.pyc</td>
+            <td>3.12+</td>
+            <td><a href="datetime_summary.txt">Summary</a></td>
+            <td>
+                <a href="datetime_uncompyle6.py">uncompyle6</a> | 
+                <a href="datetime_decompyle3.py">decompyle3</a> | 
+                <a href="datetime_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="datetime_pycdas.txt">pycdas</a> | 
+                <a href="datetime_dis.txt">dis</a>
+            </td>
+            <td><a href="datetime_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>uu.pyc</td>
+            <td>3.12+</td>
+            <td><a href="uu_summary.txt">Summary</a></td>
+            <td>
+                <a href="uu_uncompyle6.py">uncompyle6</a> | 
+                <a href="uu_decompyle3.py">decompyle3</a> | 
+                <a href="uu_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="uu_pycdas.txt">pycdas</a> | 
+                <a href="uu_dis.txt">dis</a>
+            </td>
+            <td><a href="uu_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>shlex.pyc</td>
+            <td>3.12+</td>
+            <td><a href="shlex_summary.txt">Summary</a></td>
+            <td>
+                <a href="shlex_uncompyle6.py">uncompyle6</a> | 
+                <a href="shlex_decompyle3.py">decompyle3</a> | 
+                <a href="shlex_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="shlex_pycdas.txt">pycdas</a> | 
+                <a href="shlex_dis.txt">dis</a>
+            </td>
+            <td><a href="shlex_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>subprocess.pyc</td>
+            <td>3.12+</td>
+            <td><a href="subprocess_summary.txt">Summary</a></td>
+            <td>
+                <a href="subprocess_uncompyle6.py">uncompyle6</a> | 
+                <a href="subprocess_decompyle3.py">decompyle3</a> | 
+                <a href="subprocess_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="subprocess_pycdas.txt">pycdas</a> | 
+                <a href="subprocess_dis.txt">dis</a>
+            </td>
+            <td><a href="subprocess_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>inspect.pyc</td>
+            <td>3.12+</td>
+            <td><a href="inspect_summary.txt">Summary</a></td>
+            <td>
+                <a href="inspect_uncompyle6.py">uncompyle6</a> | 
+                <a href="inspect_decompyle3.py">decompyle3</a> | 
+                <a href="inspect_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="inspect_pycdas.txt">pycdas</a> | 
+                <a href="inspect_dis.txt">dis</a>
+            </td>
+            <td><a href="inspect_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>opcode.pyc</td>
+            <td>3.12+</td>
+            <td><a href="opcode_summary.txt">Summary</a></td>
+            <td>
+                <a href="opcode_uncompyle6.py">uncompyle6</a> | 
+                <a href="opcode_decompyle3.py">decompyle3</a> | 
+                <a href="opcode_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="opcode_pycdas.txt">pycdas</a> | 
+                <a href="opcode_dis.txt">dis</a>
+            </td>
+            <td><a href="opcode_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>tarfile.pyc</td>
+            <td>3.12+</td>
+            <td><a href="tarfile_summary.txt">Summary</a></td>
+            <td>
+                <a href="tarfile_uncompyle6.py">uncompyle6</a> | 
+                <a href="tarfile_decompyle3.py">decompyle3</a> | 
+                <a href="tarfile_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="tarfile_pycdas.txt">pycdas</a> | 
+                <a href="tarfile_dis.txt">dis</a>
+            </td>
+            <td><a href="tarfile_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>_threading_local.pyc</td>
+            <td>3.12+</td>
+            <td><a href="_threading_local_summary.txt">Summary</a></td>
+            <td>
+                <a href="_threading_local_uncompyle6.py">uncompyle6</a> | 
+                <a href="_threading_local_decompyle3.py">decompyle3</a> | 
+                <a href="_threading_local_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="_threading_local_pycdas.txt">pycdas</a> | 
+                <a href="_threading_local_dis.txt">dis</a>
+            </td>
+            <td><a href="_threading_local_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>getopt.pyc</td>
+            <td>3.12+</td>
+            <td><a href="getopt_summary.txt">Summary</a></td>
+            <td>
+                <a href="getopt_uncompyle6.py">uncompyle6</a> | 
+                <a href="getopt_decompyle3.py">decompyle3</a> | 
+                <a href="getopt_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="getopt_pycdas.txt">pycdas</a> | 
+                <a href="getopt_dis.txt">dis</a>
+            </td>
+            <td><a href="getopt_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>zipfile.pyc</td>
+            <td>3.12+</td>
+            <td><a href="zipfile_summary.txt">Summary</a></td>
+            <td>
+                <a href="zipfile_uncompyle6.py">uncompyle6</a> | 
+                <a href="zipfile_decompyle3.py">decompyle3</a> | 
+                <a href="zipfile_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="zipfile_pycdas.txt">pycdas</a> | 
+                <a href="zipfile_dis.txt">dis</a>
+            </td>
+            <td><a href="zipfile_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>glob.pyc</td>
+            <td>3.12+</td>
+            <td><a href="glob_summary.txt">Summary</a></td>
+            <td>
+                <a href="glob_uncompyle6.py">uncompyle6</a> | 
+                <a href="glob_decompyle3.py">decompyle3</a> | 
+                <a href="glob_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="glob_pycdas.txt">pycdas</a> | 
+                <a href="glob_dis.txt">dis</a>
+            </td>
+            <td><a href="glob_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>fnmatch.pyc</td>
+            <td>3.12+</td>
+            <td><a href="fnmatch_summary.txt">Summary</a></td>
+            <td>
+                <a href="fnmatch_uncompyle6.py">uncompyle6</a> | 
+                <a href="fnmatch_decompyle3.py">decompyle3</a> | 
+                <a href="fnmatch_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="fnmatch_pycdas.txt">pycdas</a> | 
+                <a href="fnmatch_dis.txt">dis</a>
+            </td>
+            <td><a href="fnmatch_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>platform.pyc</td>
+            <td>3.12+</td>
+            <td><a href="platform_summary.txt">Summary</a></td>
+            <td>
+                <a href="platform_uncompyle6.py">uncompyle6</a> | 
+                <a href="platform_decompyle3.py">decompyle3</a> | 
+                <a href="platform_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="platform_pycdas.txt">pycdas</a> | 
+                <a href="platform_dis.txt">dis</a>
+            </td>
+            <td><a href="platform_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>dataclasses.pyc</td>
+            <td>3.12+</td>
+            <td><a href="dataclasses_summary.txt">Summary</a></td>
+            <td>
+                <a href="dataclasses_uncompyle6.py">uncompyle6</a> | 
+                <a href="dataclasses_decompyle3.py">decompyle3</a> | 
+                <a href="dataclasses_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="dataclasses_pycdas.txt">pycdas</a> | 
+                <a href="dataclasses_dis.txt">dis</a>
+            </td>
+            <td><a href="dataclasses_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>numbers.pyc</td>
+            <td>3.12+</td>
+            <td><a href="numbers_summary.txt">Summary</a></td>
+            <td>
+                <a href="numbers_uncompyle6.py">uncompyle6</a> | 
+                <a href="numbers_decompyle3.py">decompyle3</a> | 
+                <a href="numbers_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="numbers_pycdas.txt">pycdas</a> | 
+                <a href="numbers_dis.txt">dis</a>
+            </td>
+            <td><a href="numbers_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>tempfile.pyc</td>
+            <td>3.12+</td>
+            <td><a href="tempfile_summary.txt">Summary</a></td>
+            <td>
+                <a href="tempfile_uncompyle6.py">uncompyle6</a> | 
+                <a href="tempfile_decompyle3.py">decompyle3</a> | 
+                <a href="tempfile_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="tempfile_pycdas.txt">pycdas</a> | 
+                <a href="tempfile_dis.txt">dis</a>
+            </td>
+            <td><a href="tempfile_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>translate.pyc</td>
+            <td>3.12+</td>
+            <td><a href="translate_summary.txt">Summary</a></td>
+            <td>
+                <a href="translate_uncompyle6.py">uncompyle6</a> | 
+                <a href="translate_decompyle3.py">decompyle3</a> | 
+                <a href="translate_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="translate_pycdas.txt">pycdas</a> | 
+                <a href="translate_dis.txt">dis</a>
+            </td>
+            <td><a href="translate_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>selectors.pyc</td>
+            <td>3.12+</td>
+            <td><a href="selectors_summary.txt">Summary</a></td>
+            <td>
+                <a href="selectors_uncompyle6.py">uncompyle6</a> | 
+                <a href="selectors_decompyle3.py">decompyle3</a> | 
+                <a href="selectors_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="selectors_pycdas.txt">pycdas</a> | 
+                <a href="selectors_dis.txt">dis</a>
+            </td>
+            <td><a href="selectors_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>dis.pyc</td>
+            <td>3.12+</td>
+            <td><a href="dis_summary.txt">Summary</a></td>
+            <td>
+                <a href="dis_uncompyle6.py">uncompyle6</a> | 
+                <a href="dis_decompyle3.py">decompyle3</a> | 
+                <a href="dis_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="dis_pycdas.txt">pycdas</a> | 
+                <a href="dis_dis.txt">dis</a>
+            </td>
+            <td><a href="dis_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>textwrap.pyc</td>
+            <td>3.12+</td>
+            <td><a href="textwrap_summary.txt">Summary</a></td>
+            <td>
+                <a href="textwrap_uncompyle6.py">uncompyle6</a> | 
+                <a href="textwrap_decompyle3.py">decompyle3</a> | 
+                <a href="textwrap_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="textwrap_pycdas.txt">pycdas</a> | 
+                <a href="textwrap_dis.txt">dis</a>
+            </td>
+            <td><a href="textwrap_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>tracemalloc.pyc</td>
+            <td>3.12+</td>
+            <td><a href="tracemalloc_summary.txt">Summary</a></td>
+            <td>
+                <a href="tracemalloc_uncompyle6.py">uncompyle6</a> | 
+                <a href="tracemalloc_decompyle3.py">decompyle3</a> | 
+                <a href="tracemalloc_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="tracemalloc_pycdas.txt">pycdas</a> | 
+                <a href="tracemalloc_dis.txt">dis</a>
+            </td>
+            <td><a href="tracemalloc_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>signal.pyc</td>
+            <td>3.12+</td>
+            <td><a href="signal_summary.txt">Summary</a></td>
+            <td>
+                <a href="signal_uncompyle6.py">uncompyle6</a> | 
+                <a href="signal_decompyle3.py">decompyle3</a> | 
+                <a href="signal_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="signal_pycdas.txt">pycdas</a> | 
+                <a href="signal_dis.txt">dis</a>
+            </td>
+            <td><a href="signal_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>string.pyc</td>
+            <td>3.12+</td>
+            <td><a href="string_summary.txt">Summary</a></td>
+            <td>
+                <a href="string_uncompyle6.py">uncompyle6</a> | 
+                <a href="string_decompyle3.py">decompyle3</a> | 
+                <a href="string_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="string_pycdas.txt">pycdas</a> | 
+                <a href="string_dis.txt">dis</a>
+            </td>
+            <td><a href="string_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>argparse.pyc</td>
+            <td>3.12+</td>
+            <td><a href="argparse_summary.txt">Summary</a></td>
+            <td>
+                <a href="argparse_uncompyle6.py">uncompyle6</a> | 
+                <a href="argparse_decompyle3.py">decompyle3</a> | 
+                <a href="argparse_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="argparse_pycdas.txt">pycdas</a> | 
+                <a href="argparse_dis.txt">dis</a>
+            </td>
+            <td><a href="argparse_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>contextvars.pyc</td>
+            <td>3.12+</td>
+            <td><a href="contextvars_summary.txt">Summary</a></td>
+            <td>
+                <a href="contextvars_uncompyle6.py">uncompyle6</a> | 
+                <a href="contextvars_decompyle3.py">decompyle3</a> | 
+                <a href="contextvars_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="contextvars_pycdas.txt">pycdas</a> | 
+                <a href="contextvars_dis.txt">dis</a>
+            </td>
+            <td><a href="contextvars_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>_strptime.pyc</td>
+            <td>3.12+</td>
+            <td><a href="_strptime_summary.txt">Summary</a></td>
+            <td>
+                <a href="_strptime_uncompyle6.py">uncompyle6</a> | 
+                <a href="_strptime_decompyle3.py">decompyle3</a> | 
+                <a href="_strptime_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="_strptime_pycdas.txt">pycdas</a> | 
+                <a href="_strptime_dis.txt">dis</a>
+            </td>
+            <td><a href="_strptime_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>install_ui.pyc</td>
+            <td>3.12+</td>
+            <td><a href="install_ui_summary.txt">Summary</a></td>
+            <td>
+                <a href="install_ui_uncompyle6.py">uncompyle6</a> | 
+                <a href="install_ui_decompyle3.py">decompyle3</a> | 
+                <a href="install_ui_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="install_ui_pycdas.txt">pycdas</a> | 
+                <a href="install_ui_dis.txt">dis</a>
+            </td>
+            <td><a href="install_ui_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>pathlib.pyc</td>
+            <td>3.12+</td>
+            <td><a href="pathlib_summary.txt">Summary</a></td>
+            <td>
+                <a href="pathlib_uncompyle6.py">uncompyle6</a> | 
+                <a href="pathlib_decompyle3.py">decompyle3</a> | 
+                <a href="pathlib_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="pathlib_pycdas.txt">pycdas</a> | 
+                <a href="pathlib_dis.txt">dis</a>
+            </td>
+            <td><a href="pathlib_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>calendar.pyc</td>
+            <td>3.12+</td>
+            <td><a href="calendar_summary.txt">Summary</a></td>
+            <td>
+                <a href="calendar_uncompyle6.py">uncompyle6</a> | 
+                <a href="calendar_decompyle3.py">decompyle3</a> | 
+                <a href="calendar_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="calendar_pycdas.txt">pycdas</a> | 
+                <a href="calendar_dis.txt">dis</a>
+            </td>
+            <td><a href="calendar_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>gzip.pyc</td>
+            <td>3.12+</td>
+            <td><a href="gzip_summary.txt">Summary</a></td>
+            <td>
+                <a href="gzip_uncompyle6.py">uncompyle6</a> | 
+                <a href="gzip_decompyle3.py">decompyle3</a> | 
+                <a href="gzip_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="gzip_pycdas.txt">pycdas</a> | 
+                <a href="gzip_dis.txt">dis</a>
+            </td>
+            <td><a href="gzip_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>random.pyc</td>
+            <td>3.12+</td>
+            <td><a href="random_summary.txt">Summary</a></td>
+            <td>
+                <a href="random_uncompyle6.py">uncompyle6</a> | 
+                <a href="random_decompyle3.py">decompyle3</a> | 
+                <a href="random_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="random_pycdas.txt">pycdas</a> | 
+                <a href="random_dis.txt">dis</a>
+            </td>
+            <td><a href="random_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>ipaddress.pyc</td>
+            <td>3.12+</td>
+            <td><a href="ipaddress_summary.txt">Summary</a></td>
+            <td>
+                <a href="ipaddress_uncompyle6.py">uncompyle6</a> | 
+                <a href="ipaddress_decompyle3.py">decompyle3</a> | 
+                <a href="ipaddress_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="ipaddress_pycdas.txt">pycdas</a> | 
+                <a href="ipaddress_dis.txt">dis</a>
+            </td>
+            <td><a href="ipaddress_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>gettext.pyc</td>
+            <td>3.12+</td>
+            <td><a href="gettext_summary.txt">Summary</a></td>
+            <td>
+                <a href="gettext_uncompyle6.py">uncompyle6</a> | 
+                <a href="gettext_decompyle3.py">decompyle3</a> | 
+                <a href="gettext_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="gettext_pycdas.txt">pycdas</a> | 
+                <a href="gettext_dis.txt">dis</a>
+            </td>
+            <td><a href="gettext_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>py_compile.pyc</td>
+            <td>3.12+</td>
+            <td><a href="py_compile_summary.txt">Summary</a></td>
+            <td>
+                <a href="py_compile_uncompyle6.py">uncompyle6</a> | 
+                <a href="py_compile_decompyle3.py">decompyle3</a> | 
+                <a href="py_compile_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="py_compile_pycdas.txt">pycdas</a> | 
+                <a href="py_compile_dis.txt">dis</a>
+            </td>
+            <td><a href="py_compile_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>socket.pyc</td>
+            <td>3.12+</td>
+            <td><a href="socket_summary.txt">Summary</a></td>
+            <td>
+                <a href="socket_uncompyle6.py">uncompyle6</a> | 
+                <a href="socket_decompyle3.py">decompyle3</a> | 
+                <a href="socket_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="socket_pycdas.txt">pycdas</a> | 
+                <a href="socket_dis.txt">dis</a>
+            </td>
+            <td><a href="socket_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>quopri.pyc</td>
+            <td>3.12+</td>
+            <td><a href="quopri_summary.txt">Summary</a></td>
+            <td>
+                <a href="quopri_uncompyle6.py">uncompyle6</a> | 
+                <a href="quopri_decompyle3.py">decompyle3</a> | 
+                <a href="quopri_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="quopri_pycdas.txt">pycdas</a> | 
+                <a href="quopri_dis.txt">dis</a>
+            </td>
+            <td><a href="quopri_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>_pydecimal.pyc</td>
+            <td>3.12+</td>
+            <td><a href="_pydecimal_summary.txt">Summary</a></td>
+            <td>
+                <a href="_pydecimal_uncompyle6.py">uncompyle6</a> | 
+                <a href="_pydecimal_decompyle3.py">decompyle3</a> | 
+                <a href="_pydecimal_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="_pydecimal_pycdas.txt">pycdas</a> | 
+                <a href="_pydecimal_dis.txt">dis</a>
+            </td>
+            <td><a href="_pydecimal_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>statistics.pyc</td>
+            <td>3.12+</td>
+            <td><a href="statistics_summary.txt">Summary</a></td>
+            <td>
+                <a href="statistics_uncompyle6.py">uncompyle6</a> | 
+                <a href="statistics_decompyle3.py">decompyle3</a> | 
+                <a href="statistics_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="statistics_pycdas.txt">pycdas</a> | 
+                <a href="statistics_dis.txt">dis</a>
+            </td>
+            <td><a href="statistics_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>optparse.pyc</td>
+            <td>3.12+</td>
+            <td><a href="optparse_summary.txt">Summary</a></td>
+            <td>
+                <a href="optparse_uncompyle6.py">uncompyle6</a> | 
+                <a href="optparse_decompyle3.py">decompyle3</a> | 
+                <a href="optparse_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="optparse_pycdas.txt">pycdas</a> | 
+                <a href="optparse_dis.txt">dis</a>
+            </td>
+            <td><a href="optparse_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>decimal.pyc</td>
+            <td>3.12+</td>
+            <td><a href="decimal_summary.txt">Summary</a></td>
+            <td>
+                <a href="decimal_uncompyle6.py">uncompyle6</a> | 
+                <a href="decimal_decompyle3.py">decompyle3</a> | 
+                <a href="decimal_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="decimal_pycdas.txt">pycdas</a> | 
+                <a href="decimal_dis.txt">dis</a>
+            </td>
+            <td><a href="decimal_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>pprint.pyc</td>
+            <td>3.12+</td>
+            <td><a href="pprint_summary.txt">Summary</a></td>
+            <td>
+                <a href="pprint_uncompyle6.py">uncompyle6</a> | 
+                <a href="pprint_decompyle3.py">decompyle3</a> | 
+                <a href="pprint_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="pprint_pycdas.txt">pycdas</a> | 
+                <a href="pprint_dis.txt">dis</a>
+            </td>
+            <td><a href="pprint_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>shutil.pyc</td>
+            <td>3.12+</td>
+            <td><a href="shutil_summary.txt">Summary</a></td>
+            <td>
+                <a href="shutil_uncompyle6.py">uncompyle6</a> | 
+                <a href="shutil_decompyle3.py">decompyle3</a> | 
+                <a href="shutil_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="shutil_pycdas.txt">pycdas</a> | 
+                <a href="shutil_dis.txt">dis</a>
+            </td>
+            <td><a href="shutil_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>copy.pyc</td>
+            <td>3.12+</td>
+            <td><a href="copy_summary.txt">Summary</a></td>
+            <td>
+                <a href="copy_uncompyle6.py">uncompyle6</a> | 
+                <a href="copy_decompyle3.py">decompyle3</a> | 
+                <a href="copy_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="copy_pycdas.txt">pycdas</a> | 
+                <a href="copy_dis.txt">dis</a>
+            </td>
+            <td><a href="copy_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>tokenize.pyc</td>
+            <td>3.12+</td>
+            <td><a href="tokenize_summary.txt">Summary</a></td>
+            <td>
+                <a href="tokenize_uncompyle6.py">uncompyle6</a> | 
+                <a href="tokenize_decompyle3.py">decompyle3</a> | 
+                <a href="tokenize_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="tokenize_pycdas.txt">pycdas</a> | 
+                <a href="tokenize_dis.txt">dis</a>
+            </td>
+            <td><a href="tokenize_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>fractions.pyc</td>
+            <td>3.12+</td>
+            <td><a href="fractions_summary.txt">Summary</a></td>
+            <td>
+                <a href="fractions_uncompyle6.py">uncompyle6</a> | 
+                <a href="fractions_decompyle3.py">decompyle3</a> | 
+                <a href="fractions_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="fractions_pycdas.txt">pycdas</a> | 
+                <a href="fractions_dis.txt">dis</a>
+            </td>
+            <td><a href="fractions_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>csv.pyc</td>
+            <td>3.12+</td>
+            <td><a href="csv_summary.txt">Summary</a></td>
+            <td>
+                <a href="csv_uncompyle6.py">uncompyle6</a> | 
+                <a href="csv_decompyle3.py">decompyle3</a> | 
+                <a href="csv_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="csv_pycdas.txt">pycdas</a> | 
+                <a href="csv_dis.txt">dis</a>
+            </td>
+            <td><a href="csv_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>ast.pyc</td>
+            <td>3.12+</td>
+            <td><a href="ast_summary.txt">Summary</a></td>
+            <td>
+                <a href="ast_uncompyle6.py">uncompyle6</a> | 
+                <a href="ast_decompyle3.py">decompyle3</a> | 
+                <a href="ast_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="ast_pycdas.txt">pycdas</a> | 
+                <a href="ast_dis.txt">dis</a>
+            </td>
+            <td><a href="ast_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>base64.pyc</td>
+            <td>3.12+</td>
+            <td><a href="base64_summary.txt">Summary</a></td>
+            <td>
+                <a href="base64_uncompyle6.py">uncompyle6</a> | 
+                <a href="base64_decompyle3.py">decompyle3</a> | 
+                <a href="base64_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="base64_pycdas.txt">pycdas</a> | 
+                <a href="base64_dis.txt">dis</a>
+            </td>
+            <td><a href="base64_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>contextlib.pyc</td>
+            <td>3.12+</td>
+            <td><a href="contextlib_summary.txt">Summary</a></td>
+            <td>
+                <a href="contextlib_uncompyle6.py">uncompyle6</a> | 
+                <a href="contextlib_decompyle3.py">decompyle3</a> | 
+                <a href="contextlib_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="contextlib_pycdas.txt">pycdas</a> | 
+                <a href="contextlib_dis.txt">dis</a>
+            </td>
+            <td><a href="contextlib_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>lzma.pyc</td>
+            <td>3.12+</td>
+            <td><a href="lzma_summary.txt">Summary</a></td>
+            <td>
+                <a href="lzma_uncompyle6.py">uncompyle6</a> | 
+                <a href="lzma_decompyle3.py">decompyle3</a> | 
+                <a href="lzma_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="lzma_pycdas.txt">pycdas</a> | 
+                <a href="lzma_dis.txt">dis</a>
+            </td>
+            <td><a href="lzma_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>webbrowser.pyc</td>
+            <td>3.12+</td>
+            <td><a href="webbrowser_summary.txt">Summary</a></td>
+            <td>
+                <a href="webbrowser_uncompyle6.py">uncompyle6</a> | 
+                <a href="webbrowser_decompyle3.py">decompyle3</a> | 
+                <a href="webbrowser_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="webbrowser_pycdas.txt">pycdas</a> | 
+                <a href="webbrowser_dis.txt">dis</a>
+            </td>
+            <td><a href="webbrowser_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>_compat_pickle.pyc</td>
+            <td>3.12+</td>
+            <td><a href="_compat_pickle_summary.txt">Summary</a></td>
+            <td>
+                <a href="_compat_pickle_uncompyle6.py">uncompyle6</a> | 
+                <a href="_compat_pickle_decompyle3.py">decompyle3</a> | 
+                <a href="_compat_pickle_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="_compat_pickle_pycdas.txt">pycdas</a> | 
+                <a href="_compat_pickle_dis.txt">dis</a>
+            </td>
+            <td><a href="_compat_pickle_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>_py_abc.pyc</td>
+            <td>3.12+</td>
+            <td><a href="_py_abc_summary.txt">Summary</a></td>
+            <td>
+                <a href="_py_abc_uncompyle6.py">uncompyle6</a> | 
+                <a href="_py_abc_decompyle3.py">decompyle3</a> | 
+                <a href="_py_abc_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="_py_abc_pycdas.txt">pycdas</a> | 
+                <a href="_py_abc_dis.txt">dis</a>
+            </td>
+            <td><a href="_py_abc_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>urllib/__init__.pyc</td>
+            <td>3.12+</td>
+            <td><a href="urllib/__init___summary.txt">Summary</a></td>
+            <td>
+                <a href="urllib/__init___uncompyle6.py">uncompyle6</a> | 
+                <a href="urllib/__init___decompyle3.py">decompyle3</a> | 
+                <a href="urllib/__init___pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="urllib/__init___pycdas.txt">pycdas</a> | 
+                <a href="urllib/__init___dis.txt">dis</a>
+            </td>
+            <td><a href="urllib/__init___metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>urllib/parse.pyc</td>
+            <td>3.12+</td>
+            <td><a href="urllib/parse_summary.txt">Summary</a></td>
+            <td>
+                <a href="urllib/parse_uncompyle6.py">uncompyle6</a> | 
+                <a href="urllib/parse_decompyle3.py">decompyle3</a> | 
+                <a href="urllib/parse_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="urllib/parse_pycdas.txt">pycdas</a> | 
+                <a href="urllib/parse_dis.txt">dis</a>
+            </td>
+            <td><a href="urllib/parse_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>tkinter/ttk.pyc</td>
+            <td>3.12+</td>
+            <td><a href="tkinter/ttk_summary.txt">Summary</a></td>
+            <td>
+                <a href="tkinter/ttk_uncompyle6.py">uncompyle6</a> | 
+                <a href="tkinter/ttk_decompyle3.py">decompyle3</a> | 
+                <a href="tkinter/ttk_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="tkinter/ttk_pycdas.txt">pycdas</a> | 
+                <a href="tkinter/ttk_dis.txt">dis</a>
+            </td>
+            <td><a href="tkinter/ttk_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>tkinter/constants.pyc</td>
+            <td>3.12+</td>
+            <td><a href="tkinter/constants_summary.txt">Summary</a></td>
+            <td>
+                <a href="tkinter/constants_uncompyle6.py">uncompyle6</a> | 
+                <a href="tkinter/constants_decompyle3.py">decompyle3</a> | 
+                <a href="tkinter/constants_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="tkinter/constants_pycdas.txt">pycdas</a> | 
+                <a href="tkinter/constants_dis.txt">dis</a>
+            </td>
+            <td><a href="tkinter/constants_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>tkinter/__init__.pyc</td>
+            <td>3.12+</td>
+            <td><a href="tkinter/__init___summary.txt">Summary</a></td>
+            <td>
+                <a href="tkinter/__init___uncompyle6.py">uncompyle6</a> | 
+                <a href="tkinter/__init___decompyle3.py">decompyle3</a> | 
+                <a href="tkinter/__init___pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="tkinter/__init___pycdas.txt">pycdas</a> | 
+                <a href="tkinter/__init___dis.txt">dis</a>
+            </td>
+            <td><a href="tkinter/__init___metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>json/encoder.pyc</td>
+            <td>3.12+</td>
+            <td><a href="json/encoder_summary.txt">Summary</a></td>
+            <td>
+                <a href="json/encoder_uncompyle6.py">uncompyle6</a> | 
+                <a href="json/encoder_decompyle3.py">decompyle3</a> | 
+                <a href="json/encoder_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="json/encoder_pycdas.txt">pycdas</a> | 
+                <a href="json/encoder_dis.txt">dis</a>
+            </td>
+            <td><a href="json/encoder_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>json/decoder.pyc</td>
+            <td>3.12+</td>
+            <td><a href="json/decoder_summary.txt">Summary</a></td>
+            <td>
+                <a href="json/decoder_uncompyle6.py">uncompyle6</a> | 
+                <a href="json/decoder_decompyle3.py">decompyle3</a> | 
+                <a href="json/decoder_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="json/decoder_pycdas.txt">pycdas</a> | 
+                <a href="json/decoder_dis.txt">dis</a>
+            </td>
+            <td><a href="json/decoder_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>json/scanner.pyc</td>
+            <td>3.12+</td>
+            <td><a href="json/scanner_summary.txt">Summary</a></td>
+            <td>
+                <a href="json/scanner_uncompyle6.py">uncompyle6</a> | 
+                <a href="json/scanner_decompyle3.py">decompyle3</a> | 
+                <a href="json/scanner_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="json/scanner_pycdas.txt">pycdas</a> | 
+                <a href="json/scanner_dis.txt">dis</a>
+            </td>
+            <td><a href="json/scanner_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>json/__init__.pyc</td>
+            <td>3.12+</td>
+            <td><a href="json/__init___summary.txt">Summary</a></td>
+            <td>
+                <a href="json/__init___uncompyle6.py">uncompyle6</a> | 
+                <a href="json/__init___decompyle3.py">decompyle3</a> | 
+                <a href="json/__init___pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="json/__init___pycdas.txt">pycdas</a> | 
+                <a href="json/__init___dis.txt">dis</a>
+            </td>
+            <td><a href="json/__init___metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>importlib/_bootstrap.pyc</td>
+            <td>3.12+</td>
+            <td><a href="importlib/_bootstrap_summary.txt">Summary</a></td>
+            <td>
+                <a href="importlib/_bootstrap_uncompyle6.py">uncompyle6</a> | 
+                <a href="importlib/_bootstrap_decompyle3.py">decompyle3</a> | 
+                <a href="importlib/_bootstrap_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="importlib/_bootstrap_pycdas.txt">pycdas</a> | 
+                <a href="importlib/_bootstrap_dis.txt">dis</a>
+            </td>
+            <td><a href="importlib/_bootstrap_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>importlib/abc.pyc</td>
+            <td>3.12+</td>
+            <td><a href="importlib/abc_summary.txt">Summary</a></td>
+            <td>
+                <a href="importlib/abc_uncompyle6.py">uncompyle6</a> | 
+                <a href="importlib/abc_decompyle3.py">decompyle3</a> | 
+                <a href="importlib/abc_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="importlib/abc_pycdas.txt">pycdas</a> | 
+                <a href="importlib/abc_dis.txt">dis</a>
+            </td>
+            <td><a href="importlib/abc_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>importlib/_bootstrap_external.pyc</td>
+            <td>3.12+</td>
+            <td><a href="importlib/_bootstrap_external_summary.txt">Summary</a></td>
+            <td>
+                <a href="importlib/_bootstrap_external_uncompyle6.py">uncompyle6</a> | 
+                <a href="importlib/_bootstrap_external_decompyle3.py">decompyle3</a> | 
+                <a href="importlib/_bootstrap_external_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="importlib/_bootstrap_external_pycdas.txt">pycdas</a> | 
+                <a href="importlib/_bootstrap_external_dis.txt">dis</a>
+            </td>
+            <td><a href="importlib/_bootstrap_external_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>importlib/_abc.pyc</td>
+            <td>3.12+</td>
+            <td><a href="importlib/_abc_summary.txt">Summary</a></td>
+            <td>
+                <a href="importlib/_abc_uncompyle6.py">uncompyle6</a> | 
+                <a href="importlib/_abc_decompyle3.py">decompyle3</a> | 
+                <a href="importlib/_abc_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="importlib/_abc_pycdas.txt">pycdas</a> | 
+                <a href="importlib/_abc_dis.txt">dis</a>
+            </td>
+            <td><a href="importlib/_abc_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>importlib/readers.pyc</td>
+            <td>3.12+</td>
+            <td><a href="importlib/readers_summary.txt">Summary</a></td>
+            <td>
+                <a href="importlib/readers_uncompyle6.py">uncompyle6</a> | 
+                <a href="importlib/readers_decompyle3.py">decompyle3</a> | 
+                <a href="importlib/readers_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="importlib/readers_pycdas.txt">pycdas</a> | 
+                <a href="importlib/readers_dis.txt">dis</a>
+            </td>
+            <td><a href="importlib/readers_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>importlib/__init__.pyc</td>
+            <td>3.12+</td>
+            <td><a href="importlib/__init___summary.txt">Summary</a></td>
+            <td>
+                <a href="importlib/__init___uncompyle6.py">uncompyle6</a> | 
+                <a href="importlib/__init___decompyle3.py">decompyle3</a> | 
+                <a href="importlib/__init___pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="importlib/__init___pycdas.txt">pycdas</a> | 
+                <a href="importlib/__init___dis.txt">dis</a>
+            </td>
+            <td><a href="importlib/__init___metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>importlib/machinery.pyc</td>
+            <td>3.12+</td>
+            <td><a href="importlib/machinery_summary.txt">Summary</a></td>
+            <td>
+                <a href="importlib/machinery_uncompyle6.py">uncompyle6</a> | 
+                <a href="importlib/machinery_decompyle3.py">decompyle3</a> | 
+                <a href="importlib/machinery_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="importlib/machinery_pycdas.txt">pycdas</a> | 
+                <a href="importlib/machinery_dis.txt">dis</a>
+            </td>
+            <td><a href="importlib/machinery_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>importlib/util.pyc</td>
+            <td>3.12+</td>
+            <td><a href="importlib/util_summary.txt">Summary</a></td>
+            <td>
+                <a href="importlib/util_uncompyle6.py">uncompyle6</a> | 
+                <a href="importlib/util_decompyle3.py">decompyle3</a> | 
+                <a href="importlib/util_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="importlib/util_pycdas.txt">pycdas</a> | 
+                <a href="importlib/util_dis.txt">dis</a>
+            </td>
+            <td><a href="importlib/util_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>importlib/metadata/_adapters.pyc</td>
+            <td>3.12+</td>
+            <td><a href="importlib/metadata/_adapters_summary.txt">Summary</a></td>
+            <td>
+                <a href="importlib/metadata/_adapters_uncompyle6.py">uncompyle6</a> | 
+                <a href="importlib/metadata/_adapters_decompyle3.py">decompyle3</a> | 
+                <a href="importlib/metadata/_adapters_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="importlib/metadata/_adapters_pycdas.txt">pycdas</a> | 
+                <a href="importlib/metadata/_adapters_dis.txt">dis</a>
+            </td>
+            <td><a href="importlib/metadata/_adapters_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>importlib/metadata/_meta.pyc</td>
+            <td>3.12+</td>
+            <td><a href="importlib/metadata/_meta_summary.txt">Summary</a></td>
+            <td>
+                <a href="importlib/metadata/_meta_uncompyle6.py">uncompyle6</a> | 
+                <a href="importlib/metadata/_meta_decompyle3.py">decompyle3</a> | 
+                <a href="importlib/metadata/_meta_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="importlib/metadata/_meta_pycdas.txt">pycdas</a> | 
+                <a href="importlib/metadata/_meta_dis.txt">dis</a>
+            </td>
+            <td><a href="importlib/metadata/_meta_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>importlib/metadata/_collections.pyc</td>
+            <td>3.12+</td>
+            <td><a href="importlib/metadata/_collections_summary.txt">Summary</a></td>
+            <td>
+                <a href="importlib/metadata/_collections_uncompyle6.py">uncompyle6</a> | 
+                <a href="importlib/metadata/_collections_decompyle3.py">decompyle3</a> | 
+                <a href="importlib/metadata/_collections_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="importlib/metadata/_collections_pycdas.txt">pycdas</a> | 
+                <a href="importlib/metadata/_collections_dis.txt">dis</a>
+            </td>
+            <td><a href="importlib/metadata/_collections_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>importlib/metadata/_text.pyc</td>
+            <td>3.12+</td>
+            <td><a href="importlib/metadata/_text_summary.txt">Summary</a></td>
+            <td>
+                <a href="importlib/metadata/_text_uncompyle6.py">uncompyle6</a> | 
+                <a href="importlib/metadata/_text_decompyle3.py">decompyle3</a> | 
+                <a href="importlib/metadata/_text_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="importlib/metadata/_text_pycdas.txt">pycdas</a> | 
+                <a href="importlib/metadata/_text_dis.txt">dis</a>
+            </td>
+            <td><a href="importlib/metadata/_text_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>importlib/metadata/__init__.pyc</td>
+            <td>3.12+</td>
+            <td><a href="importlib/metadata/__init___summary.txt">Summary</a></td>
+            <td>
+                <a href="importlib/metadata/__init___uncompyle6.py">uncompyle6</a> | 
+                <a href="importlib/metadata/__init___decompyle3.py">decompyle3</a> | 
+                <a href="importlib/metadata/__init___pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="importlib/metadata/__init___pycdas.txt">pycdas</a> | 
+                <a href="importlib/metadata/__init___dis.txt">dis</a>
+            </td>
+            <td><a href="importlib/metadata/__init___metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>importlib/metadata/_functools.pyc</td>
+            <td>3.12+</td>
+            <td><a href="importlib/metadata/_functools_summary.txt">Summary</a></td>
+            <td>
+                <a href="importlib/metadata/_functools_uncompyle6.py">uncompyle6</a> | 
+                <a href="importlib/metadata/_functools_decompyle3.py">decompyle3</a> | 
+                <a href="importlib/metadata/_functools_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="importlib/metadata/_functools_pycdas.txt">pycdas</a> | 
+                <a href="importlib/metadata/_functools_dis.txt">dis</a>
+            </td>
+            <td><a href="importlib/metadata/_functools_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>importlib/metadata/_itertools.pyc</td>
+            <td>3.12+</td>
+            <td><a href="importlib/metadata/_itertools_summary.txt">Summary</a></td>
+            <td>
+                <a href="importlib/metadata/_itertools_uncompyle6.py">uncompyle6</a> | 
+                <a href="importlib/metadata/_itertools_decompyle3.py">decompyle3</a> | 
+                <a href="importlib/metadata/_itertools_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="importlib/metadata/_itertools_pycdas.txt">pycdas</a> | 
+                <a href="importlib/metadata/_itertools_dis.txt">dis</a>
+            </td>
+            <td><a href="importlib/metadata/_itertools_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>logging/__init__.pyc</td>
+            <td>3.12+</td>
+            <td><a href="logging/__init___summary.txt">Summary</a></td>
+            <td>
+                <a href="logging/__init___uncompyle6.py">uncompyle6</a> | 
+                <a href="logging/__init___decompyle3.py">decompyle3</a> | 
+                <a href="logging/__init___pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="logging/__init___pycdas.txt">pycdas</a> | 
+                <a href="logging/__init___dis.txt">dis</a>
+            </td>
+            <td><a href="logging/__init___metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/encoders.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/encoders_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/encoders_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/encoders_decompyle3.py">decompyle3</a> | 
+                <a href="email/encoders_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/encoders_pycdas.txt">pycdas</a> | 
+                <a href="email/encoders_dis.txt">dis</a>
+            </td>
+            <td><a href="email/encoders_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/parser.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/parser_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/parser_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/parser_decompyle3.py">decompyle3</a> | 
+                <a href="email/parser_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/parser_pycdas.txt">pycdas</a> | 
+                <a href="email/parser_dis.txt">dis</a>
+            </td>
+            <td><a href="email/parser_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/policy.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/policy_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/policy_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/policy_decompyle3.py">decompyle3</a> | 
+                <a href="email/policy_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/policy_pycdas.txt">pycdas</a> | 
+                <a href="email/policy_dis.txt">dis</a>
+            </td>
+            <td><a href="email/policy_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/_policybase.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/_policybase_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/_policybase_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/_policybase_decompyle3.py">decompyle3</a> | 
+                <a href="email/_policybase_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/_policybase_pycdas.txt">pycdas</a> | 
+                <a href="email/_policybase_dis.txt">dis</a>
+            </td>
+            <td><a href="email/_policybase_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/charset.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/charset_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/charset_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/charset_decompyle3.py">decompyle3</a> | 
+                <a href="email/charset_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/charset_pycdas.txt">pycdas</a> | 
+                <a href="email/charset_dis.txt">dis</a>
+            </td>
+            <td><a href="email/charset_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/_parseaddr.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/_parseaddr_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/_parseaddr_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/_parseaddr_decompyle3.py">decompyle3</a> | 
+                <a href="email/_parseaddr_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/_parseaddr_pycdas.txt">pycdas</a> | 
+                <a href="email/_parseaddr_dis.txt">dis</a>
+            </td>
+            <td><a href="email/_parseaddr_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/errors.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/errors_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/errors_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/errors_decompyle3.py">decompyle3</a> | 
+                <a href="email/errors_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/errors_pycdas.txt">pycdas</a> | 
+                <a href="email/errors_dis.txt">dis</a>
+            </td>
+            <td><a href="email/errors_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/iterators.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/iterators_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/iterators_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/iterators_decompyle3.py">decompyle3</a> | 
+                <a href="email/iterators_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/iterators_pycdas.txt">pycdas</a> | 
+                <a href="email/iterators_dis.txt">dis</a>
+            </td>
+            <td><a href="email/iterators_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/contentmanager.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/contentmanager_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/contentmanager_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/contentmanager_decompyle3.py">decompyle3</a> | 
+                <a href="email/contentmanager_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/contentmanager_pycdas.txt">pycdas</a> | 
+                <a href="email/contentmanager_dis.txt">dis</a>
+            </td>
+            <td><a href="email/contentmanager_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/base64mime.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/base64mime_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/base64mime_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/base64mime_decompyle3.py">decompyle3</a> | 
+                <a href="email/base64mime_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/base64mime_pycdas.txt">pycdas</a> | 
+                <a href="email/base64mime_dis.txt">dis</a>
+            </td>
+            <td><a href="email/base64mime_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/headerregistry.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/headerregistry_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/headerregistry_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/headerregistry_decompyle3.py">decompyle3</a> | 
+                <a href="email/headerregistry_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/headerregistry_pycdas.txt">pycdas</a> | 
+                <a href="email/headerregistry_dis.txt">dis</a>
+            </td>
+            <td><a href="email/headerregistry_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/_header_value_parser.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/_header_value_parser_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/_header_value_parser_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/_header_value_parser_decompyle3.py">decompyle3</a> | 
+                <a href="email/_header_value_parser_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/_header_value_parser_pycdas.txt">pycdas</a> | 
+                <a href="email/_header_value_parser_dis.txt">dis</a>
+            </td>
+            <td><a href="email/_header_value_parser_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/header.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/header_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/header_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/header_decompyle3.py">decompyle3</a> | 
+                <a href="email/header_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/header_pycdas.txt">pycdas</a> | 
+                <a href="email/header_dis.txt">dis</a>
+            </td>
+            <td><a href="email/header_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/quoprimime.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/quoprimime_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/quoprimime_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/quoprimime_decompyle3.py">decompyle3</a> | 
+                <a href="email/quoprimime_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/quoprimime_pycdas.txt">pycdas</a> | 
+                <a href="email/quoprimime_dis.txt">dis</a>
+            </td>
+            <td><a href="email/quoprimime_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/__init__.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/__init___summary.txt">Summary</a></td>
+            <td>
+                <a href="email/__init___uncompyle6.py">uncompyle6</a> | 
+                <a href="email/__init___decompyle3.py">decompyle3</a> | 
+                <a href="email/__init___pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/__init___pycdas.txt">pycdas</a> | 
+                <a href="email/__init___dis.txt">dis</a>
+            </td>
+            <td><a href="email/__init___metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/feedparser.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/feedparser_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/feedparser_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/feedparser_decompyle3.py">decompyle3</a> | 
+                <a href="email/feedparser_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/feedparser_pycdas.txt">pycdas</a> | 
+                <a href="email/feedparser_dis.txt">dis</a>
+            </td>
+            <td><a href="email/feedparser_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/message.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/message_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/message_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/message_decompyle3.py">decompyle3</a> | 
+                <a href="email/message_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/message_pycdas.txt">pycdas</a> | 
+                <a href="email/message_dis.txt">dis</a>
+            </td>
+            <td><a href="email/message_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/generator.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/generator_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/generator_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/generator_decompyle3.py">decompyle3</a> | 
+                <a href="email/generator_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/generator_pycdas.txt">pycdas</a> | 
+                <a href="email/generator_dis.txt">dis</a>
+            </td>
+            <td><a href="email/generator_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/utils.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/utils_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/utils_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/utils_decompyle3.py">decompyle3</a> | 
+                <a href="email/utils_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/utils_pycdas.txt">pycdas</a> | 
+                <a href="email/utils_dis.txt">dis</a>
+            </td>
+            <td><a href="email/utils_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>email/_encoded_words.pyc</td>
+            <td>3.12+</td>
+            <td><a href="email/_encoded_words_summary.txt">Summary</a></td>
+            <td>
+                <a href="email/_encoded_words_uncompyle6.py">uncompyle6</a> | 
+                <a href="email/_encoded_words_decompyle3.py">decompyle3</a> | 
+                <a href="email/_encoded_words_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="email/_encoded_words_pycdas.txt">pycdas</a> | 
+                <a href="email/_encoded_words_dis.txt">dis</a>
+            </td>
+            <td><a href="email/_encoded_words_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>vdf/vdict.pyc</td>
+            <td>3.12+</td>
+            <td><a href="vdf/vdict_summary.txt">Summary</a></td>
+            <td>
+                <a href="vdf/vdict_uncompyle6.py">uncompyle6</a> | 
+                <a href="vdf/vdict_decompyle3.py">decompyle3</a> | 
+                <a href="vdf/vdict_pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="vdf/vdict_pycdas.txt">pycdas</a> | 
+                <a href="vdf/vdict_dis.txt">dis</a>
+            </td>
+            <td><a href="vdf/vdict_metadata.txt">Metadata</a></td>
+        </tr>
+        <tr>
+            <td>vdf/__init__.pyc</td>
+            <td>3.12+</td>
+            <td><a href="vdf/__init___summary.txt">Summary</a></td>
+            <td>
+                <a href="vdf/__init___uncompyle6.py">uncompyle6</a> | 
+                <a href="vdf/__init___decompyle3.py">decompyle3</a> | 
+                <a href="vdf/__init___pycdc.py">pycdc</a>
+            </td>
+            <td>
+                <a href="vdf/__init___pycdas.txt">pycdas</a> | 
+                <a href="vdf/__init___dis.txt">dis</a>
+            </td>
+            <td><a href="vdf/__init___metadata.txt">Metadata</a></td>
+        </tr>
+    </table>
+    <hr>
+    <p><a href="final_report.txt">View Final Report</a></p>
+</body>
+</html>

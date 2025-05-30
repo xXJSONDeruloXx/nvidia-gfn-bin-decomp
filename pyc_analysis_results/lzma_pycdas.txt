@@ -1,0 +1,1396 @@
+lzma.pyc (Python 3.10)
+[Code]
+    File Name: lzma.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 9
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        'builtins'
+        'io'
+        'os'
+        '_lzma'
+        '_encode_filter_properties'
+        '_decode_filter_properties'
+        '_compression'
+        '_MODE_CLOSED'
+        '_MODE_READ'
+        '_MODE_WRITE'
+        'BaseStream'
+        'LZMAFile'
+        'open'
+        'FORMAT_XZ'
+        'compress'
+        'FORMAT_AUTO'
+        'decompress'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Interface to the liblzma compression library.\n\nThis module provides a class for reading and writing compressed files,\nclasses for incremental (de)compression, and convenience functions for\none-shot (de)compression.\n\nThese classes and functions support both the XZ and legacy LZMA\ncontainer formats, as well as raw compressed data streams.\n'
+        (
+            'CHECK_NONE'
+            'CHECK_CRC32'
+            'CHECK_CRC64'
+            'CHECK_SHA256'
+            'CHECK_ID_MAX'
+            'CHECK_UNKNOWN'
+            'FILTER_LZMA1'
+            'FILTER_LZMA2'
+            'FILTER_DELTA'
+            'FILTER_X86'
+            'FILTER_IA64'
+            'FILTER_ARM'
+            'FILTER_ARMTHUMB'
+            'FILTER_POWERPC'
+            'FILTER_SPARC'
+            'FORMAT_AUTO'
+            'FORMAT_XZ'
+            'FORMAT_ALONE'
+            'FORMAT_RAW'
+            'MF_HC3'
+            'MF_HC4'
+            'MF_BT2'
+            'MF_BT3'
+            'MF_BT4'
+            'MODE_FAST'
+            'MODE_NORMAL'
+            'PRESET_DEFAULT'
+            'PRESET_EXTREME'
+            'LZMACompressor'
+            'LZMADecompressor'
+            'LZMAFile'
+            'LZMAError'
+            'open'
+            'compress'
+            'decompress'
+            'is_check_supported'
+        )
+        0
+        None
+        (
+            '*'
+        )
+        (
+            '_encode_filter_properties'
+            '_decode_filter_properties'
+        )
+        1
+        3
+        [Code]
+            File Name: lzma.py
+            Object Name: LZMAFile
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 6
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                'close'
+                'property'
+                'closed'
+                'fileno'
+                'seekable'
+                'readable'
+                'writable'
+                'peek'
+                'read'
+                'read1'
+                'readline'
+                'write'
+                'io'
+                'SEEK_SET'
+                'seek'
+                'tell'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'LZMAFile'
+                'A file object providing transparent LZMA (de)compression.\n\n    An LZMAFile can act as a wrapper for an existing file object, or\n    refer directly to a named file on disk.\n\n    Note that LZMAFile provides a *binary* file interface - data read\n    is returned as bytes, and data to be written must be given as bytes.\n    '
+                None
+                'r'
+                -1
+                (
+                    'format'
+                    'check'
+                    'preset'
+                    'filters'
+                )
+                [Code]
+                    File Name: lzma.py
+                    Object Name: __init__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 4
+                    Locals: 9
+                    Stack Size: 7
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fp'
+                        '_closefp'
+                        '_MODE_CLOSED'
+                        '_mode'
+                        'ValueError'
+                        'FORMAT_AUTO'
+                        '_MODE_READ'
+                        'FORMAT_XZ'
+                        '_MODE_WRITE'
+                        'LZMACompressor'
+                        '_compressor'
+                        '_pos'
+                        'format'
+                        'isinstance'
+                        'str'
+                        'bytes'
+                        'os'
+                        'PathLike'
+                        'builtins'
+                        'open'
+                        'hasattr'
+                        'TypeError'
+                        '_compression'
+                        'DecompressReader'
+                        'LZMADecompressor'
+                        'LZMAError'
+                        'io'
+                        'BufferedReader'
+                        '_buffer'
+                    [Var Names]
+                        'self'
+                        'filename'
+                        'mode'
+                        'format'
+                        'check'
+                        'preset'
+                        'filters'
+                        'mode_code'
+                        'raw'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Open an LZMA-compressed file in binary mode.\n\n        filename can be either an actual file name (given as a str,\n        bytes, or PathLike object), in which case the named file is\n        opened, or it can be an existing file object to read from or\n        write to.\n\n        mode can be "r" for reading (default), "w" for (over)writing,\n        "x" for creating exclusively, or "a" for appending. These can\n        equivalently be given as "rb", "wb", "xb" and "ab" respectively.\n\n        format specifies the container format to use for the file.\n        If mode is "r", this defaults to FORMAT_AUTO. Otherwise, the\n        default is FORMAT_XZ.\n\n        check specifies the integrity check to use. This argument can\n        only be used when opening a file for writing. For FORMAT_XZ,\n        the default is CHECK_CRC64. FORMAT_ALONE and FORMAT_RAW do not\n        support integrity checks - for these formats, check must be\n        omitted, or be CHECK_NONE.\n\n        When opening a file for reading, the *preset* argument is not\n        meaningful, and should be omitted. The *filters* argument should\n        also be omitted, except when format is FORMAT_RAW (in which case\n        it is required).\n\n        When opening a file for writing, the settings used by the\n        compressor can be specified either as a preset compression\n        level (with the *preset* argument), or in detail as a custom\n        filter chain (with the *filters* argument). For FORMAT_XZ and\n        FORMAT_ALONE, the default is to use the PRESET_DEFAULT preset\n        level. For FORMAT_RAW, the caller must always specify a filter\n        chain; the raw compressor does not support preset compression\n        levels.\n\n        preset (if provided) should be an integer in the range 0-9,\n        optionally OR-ed with the constant PRESET_EXTREME.\n\n        filters (if provided) should be a sequence of dicts. Each dict\n        should have an entry for "id" indicating ID of the filter, plus\n        additional entries for options to the filter.\n        '
+                        None
+                        False
+                        (
+                            'r'
+                            'rb'
+                        )
+                        -1
+                        'Cannot specify an integrity check when opening a file for reading'
+                        'Cannot specify a preset compression level when opening a file for reading'
+                        (
+                            'w'
+                            'wb'
+                            'a'
+                            'ab'
+                            'x'
+                            'xb'
+                        )
+                        (
+                            'format'
+                            'check'
+                            'preset'
+                            'filters'
+                        )
+                        0
+                        'Invalid mode: {!r}'
+                        'b'
+                        True
+                        'read'
+                        'write'
+                        'filename must be a str, bytes, file or PathLike object'
+                        (
+                            'trailing_error'
+                            'format'
+                            'filters'
+                        )
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: _fp
+                        6       LOAD_CONST                      2: False
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: _closefp
+                        12      LOAD_GLOBAL                     2: _MODE_CLOSED
+                        14      LOAD_FAST                       0: self
+                        16      STORE_ATTR                      3: _mode
+                        18      LOAD_FAST                       2: mode
+                        20      LOAD_CONST                      3: ('r', 'rb')
+                        22      CONTAINS_OP                     0 (in)
+                        24      POP_JUMP_IF_FALSE               38 (to 76)
+                        26      LOAD_FAST                       4: check
+                        28      LOAD_CONST                      4: -1
+                        30      COMPARE_OP                      3 (!=)
+                        32      POP_JUMP_IF_FALSE               21 (to 42)
+                        34      LOAD_GLOBAL                     4: ValueError
+                        36      LOAD_CONST                      5: 'Cannot specify an integrity check when opening a file for reading'
+                        38      CALL_FUNCTION                   1
+                        40      RAISE_VARARGS                   1
+                        42      LOAD_FAST                       5: preset
+                        44      LOAD_CONST                      1: None
+                        46      IS_OP                           1 (is not)
+                        48      POP_JUMP_IF_FALSE               29 (to 58)
+                        50      LOAD_GLOBAL                     4: ValueError
+                        52      LOAD_CONST                      6: 'Cannot specify a preset compression level when opening a file for reading'
+                        54      CALL_FUNCTION                   1
+                        56      RAISE_VARARGS                   1
+                        58      LOAD_FAST                       3: format
+                        60      LOAD_CONST                      1: None
+                        62      IS_OP                           0 (is)
+                        64      POP_JUMP_IF_FALSE               35 (to 70)
+                        66      LOAD_GLOBAL                     5: FORMAT_AUTO
+                        68      STORE_FAST                      3: format
+                        70      LOAD_GLOBAL                     6: _MODE_READ
+                        72      STORE_FAST                      7: mode_code
+                        74      JUMP_FORWARD                    32 (to 140)
+                        76      LOAD_FAST                       2: mode
+                        78      LOAD_CONST                      7: ('w', 'wb', 'a', 'ab', 'x', 'xb')
+                        80      CONTAINS_OP                     0 (in)
+                        82      POP_JUMP_IF_FALSE               63 (to 126)
+                        84      LOAD_FAST                       3: format
+                        86      LOAD_CONST                      1: None
+                        88      IS_OP                           0 (is)
+                        90      POP_JUMP_IF_FALSE               48 (to 96)
+                        92      LOAD_GLOBAL                     7: FORMAT_XZ
+                        94      STORE_FAST                      3: format
+                        96      LOAD_GLOBAL                     8: _MODE_WRITE
+                        98      STORE_FAST                      7: mode_code
+                        100     LOAD_GLOBAL                     9: LZMACompressor
+                        102     LOAD_FAST                       3: format
+                        104     LOAD_FAST                       4: check
+                        106     LOAD_FAST                       5: preset
+                        108     LOAD_FAST                       6: filters
+                        110     LOAD_CONST                      8: ('format', 'check', 'preset', 'filters')
+                        112     CALL_FUNCTION_KW                4
+                        114     LOAD_FAST                       0: self
+                        116     STORE_ATTR                      10: _compressor
+                        118     LOAD_CONST                      9: 0
+                        120     LOAD_FAST                       0: self
+                        122     STORE_ATTR                      11: _pos
+                        124     JUMP_FORWARD                    7 (to 140)
+                        126     LOAD_GLOBAL                     4: ValueError
+                        128     LOAD_CONST                      10: 'Invalid mode: {!r}'
+                        130     LOAD_METHOD                     12: format
+                        132     LOAD_FAST                       2: mode
+                        134     CALL_METHOD                     1
+                        136     CALL_FUNCTION                   1
+                        138     RAISE_VARARGS                   1
+                        140     LOAD_GLOBAL                     13: isinstance
+                        142     LOAD_FAST                       1: filename
+                        144     LOAD_GLOBAL                     14: str
+                        146     LOAD_GLOBAL                     15: bytes
+                        148     LOAD_GLOBAL                     16: os
+                        150     LOAD_ATTR                       17: PathLike
+                        152     BUILD_TUPLE                     3
+                        154     CALL_FUNCTION                   2
+                        156     POP_JUMP_IF_FALSE               101 (to 202)
+                        158     LOAD_CONST                      11: 'b'
+                        160     LOAD_FAST                       2: mode
+                        162     CONTAINS_OP                     1 (not in)
+                        164     POP_JUMP_IF_FALSE               87 (to 174)
+                        166     LOAD_FAST                       2: mode
+                        168     LOAD_CONST                      11: 'b'
+                        170     INPLACE_ADD                     
+                        172     STORE_FAST                      2: mode
+                        174     LOAD_GLOBAL                     18: builtins
+                        176     LOAD_METHOD                     19: open
+                        178     LOAD_FAST                       1: filename
+                        180     LOAD_FAST                       2: mode
+                        182     CALL_METHOD                     2
+                        184     LOAD_FAST                       0: self
+                        186     STORE_ATTR                      0: _fp
+                        188     LOAD_CONST                      12: True
+                        190     LOAD_FAST                       0: self
+                        192     STORE_ATTR                      1: _closefp
+                        194     LOAD_FAST                       7: mode_code
+                        196     LOAD_FAST                       0: self
+                        198     STORE_ATTR                      3: _mode
+                        200     JUMP_FORWARD                    21 (to 244)
+                        202     LOAD_GLOBAL                     20: hasattr
+                        204     LOAD_FAST                       1: filename
+                        206     LOAD_CONST                      13: 'read'
+                        208     CALL_FUNCTION                   2
+                        210     POP_JUMP_IF_TRUE                111 (to 222)
+                        212     LOAD_GLOBAL                     20: hasattr
+                        214     LOAD_FAST                       1: filename
+                        216     LOAD_CONST                      14: 'write'
+                        218     CALL_FUNCTION                   2
+                        220     POP_JUMP_IF_FALSE               118 (to 236)
+                        222     LOAD_FAST                       1: filename
+                        224     LOAD_FAST                       0: self
+                        226     STORE_ATTR                      0: _fp
+                        228     LOAD_FAST                       7: mode_code
+                        230     LOAD_FAST                       0: self
+                        232     STORE_ATTR                      3: _mode
+                        234     JUMP_FORWARD                    4 (to 244)
+                        236     LOAD_GLOBAL                     21: TypeError
+                        238     LOAD_CONST                      15: 'filename must be a str, bytes, file or PathLike object'
+                        240     CALL_FUNCTION                   1
+                        242     RAISE_VARARGS                   1
+                        244     LOAD_FAST                       0: self
+                        246     LOAD_ATTR                       3: _mode
+                        248     LOAD_GLOBAL                     6: _MODE_READ
+                        250     COMPARE_OP                      2 (==)
+                        252     POP_JUMP_IF_FALSE               146 (to 292)
+                        254     LOAD_GLOBAL                     22: _compression
+                        256     LOAD_ATTR                       23: DecompressReader
+                        258     LOAD_FAST                       0: self
+                        260     LOAD_ATTR                       0: _fp
+                        262     LOAD_GLOBAL                     24: LZMADecompressor
+                        264     LOAD_GLOBAL                     25: LZMAError
+                        266     LOAD_FAST                       3: format
+                        268     LOAD_FAST                       6: filters
+                        270     LOAD_CONST                      16: ('trailing_error', 'format', 'filters')
+                        272     CALL_FUNCTION_KW                5
+                        274     STORE_FAST                      8: raw
+                        276     LOAD_GLOBAL                     26: io
+                        278     LOAD_METHOD                     27: BufferedReader
+                        280     LOAD_FAST                       8: raw
+                        282     CALL_METHOD                     1
+                        284     LOAD_FAST                       0: self
+                        286     STORE_ATTR                      28: _buffer
+                        288     LOAD_CONST                      1: None
+                        290     RETURN_VALUE                    
+                        292     LOAD_CONST                      1: None
+                        294     RETURN_VALUE                    
+                'LZMAFile.__init__'
+                [Code]
+                    File Name: lzma.py
+                    Object Name: close
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 14
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_mode'
+                        '_MODE_CLOSED'
+                        '_MODE_READ'
+                        '_buffer'
+                        'close'
+                        '_MODE_WRITE'
+                        '_fp'
+                        'write'
+                        '_compressor'
+                        'flush'
+                        '_closefp'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Flush and close the file.\n\n        May be called more than once without error. Once the file is\n        closed, any other operation on it will raise a ValueError.\n        '
+                        None
+                        False
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _mode
+                        4       LOAD_GLOBAL                     1: _MODE_CLOSED
+                        6       COMPARE_OP                      2 (==)
+                        8       POP_JUMP_IF_FALSE               7 (to 14)
+                        10      LOAD_CONST                      1: None
+                        12      RETURN_VALUE                    
+                        14      SETUP_FINALLY                   75 (to 166)
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       0: _mode
+                        20      LOAD_GLOBAL                     2: _MODE_READ
+                        22      COMPARE_OP                      2 (==)
+                        24      POP_JUMP_IF_FALSE               22 (to 44)
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_ATTR                       3: _buffer
+                        30      LOAD_METHOD                     4: close
+                        32      CALL_METHOD                     0
+                        34      POP_TOP                         
+                        36      LOAD_CONST                      1: None
+                        38      LOAD_FAST                       0: self
+                        40      STORE_ATTR                      3: _buffer
+                        42      JUMP_FORWARD                    17 (to 78)
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_ATTR                       0: _mode
+                        48      LOAD_GLOBAL                     5: _MODE_WRITE
+                        50      COMPARE_OP                      2 (==)
+                        52      POP_JUMP_IF_FALSE               39 (to 78)
+                        54      LOAD_FAST                       0: self
+                        56      LOAD_ATTR                       6: _fp
+                        58      LOAD_METHOD                     7: write
+                        60      LOAD_FAST                       0: self
+                        62      LOAD_ATTR                       8: _compressor
+                        64      LOAD_METHOD                     9: flush
+                        66      CALL_METHOD                     0
+                        68      CALL_METHOD                     1
+                        70      POP_TOP                         
+                        72      LOAD_CONST                      1: None
+                        74      LOAD_FAST                       0: self
+                        76      STORE_ATTR                      8: _compressor
+                        78      POP_BLOCK                       
+                        80      SETUP_FINALLY                   32 (to 146)
+                        82      LOAD_FAST                       0: self
+                        84      LOAD_ATTR                       10: _closefp
+                        86      POP_JUMP_IF_FALSE               61 (to 122)
+                        88      LOAD_FAST                       0: self
+                        90      LOAD_ATTR                       6: _fp
+                        92      LOAD_METHOD                     4: close
+                        94      CALL_METHOD                     0
+                        96      POP_TOP                         
+                        98      POP_BLOCK                       
+                        100     LOAD_CONST                      1: None
+                        102     LOAD_FAST                       0: self
+                        104     STORE_ATTR                      6: _fp
+                        106     LOAD_CONST                      2: False
+                        108     LOAD_FAST                       0: self
+                        110     STORE_ATTR                      10: _closefp
+                        112     LOAD_GLOBAL                     1: _MODE_CLOSED
+                        114     LOAD_FAST                       0: self
+                        116     STORE_ATTR                      0: _mode
+                        118     LOAD_CONST                      1: None
+                        120     RETURN_VALUE                    
+                        122     POP_BLOCK                       
+                        124     LOAD_CONST                      1: None
+                        126     LOAD_FAST                       0: self
+                        128     STORE_ATTR                      6: _fp
+                        130     LOAD_CONST                      2: False
+                        132     LOAD_FAST                       0: self
+                        134     STORE_ATTR                      10: _closefp
+                        136     LOAD_GLOBAL                     1: _MODE_CLOSED
+                        138     LOAD_FAST                       0: self
+                        140     STORE_ATTR                      0: _mode
+                        142     LOAD_CONST                      1: None
+                        144     RETURN_VALUE                    
+                        146     LOAD_CONST                      1: None
+                        148     LOAD_FAST                       0: self
+                        150     STORE_ATTR                      6: _fp
+                        152     LOAD_CONST                      2: False
+                        154     LOAD_FAST                       0: self
+                        156     STORE_ATTR                      10: _closefp
+                        158     LOAD_GLOBAL                     1: _MODE_CLOSED
+                        160     LOAD_FAST                       0: self
+                        162     STORE_ATTR                      0: _mode
+                        164     RERAISE                         0
+                        166     SETUP_FINALLY                   30 (to 228)
+                        168     LOAD_FAST                       0: self
+                        170     LOAD_ATTR                       10: _closefp
+                        172     POP_JUMP_IF_FALSE               103 (to 206)
+                        174     LOAD_FAST                       0: self
+                        176     LOAD_ATTR                       6: _fp
+                        178     LOAD_METHOD                     4: close
+                        180     CALL_METHOD                     0
+                        182     POP_TOP                         
+                        184     POP_BLOCK                       
+                        186     LOAD_CONST                      1: None
+                        188     LOAD_FAST                       0: self
+                        190     STORE_ATTR                      6: _fp
+                        192     LOAD_CONST                      2: False
+                        194     LOAD_FAST                       0: self
+                        196     STORE_ATTR                      10: _closefp
+                        198     LOAD_GLOBAL                     1: _MODE_CLOSED
+                        200     LOAD_FAST                       0: self
+                        202     STORE_ATTR                      0: _mode
+                        204     RERAISE                         0
+                        206     POP_BLOCK                       
+                        208     LOAD_CONST                      1: None
+                        210     LOAD_FAST                       0: self
+                        212     STORE_ATTR                      6: _fp
+                        214     LOAD_CONST                      2: False
+                        216     LOAD_FAST                       0: self
+                        218     STORE_ATTR                      10: _closefp
+                        220     LOAD_GLOBAL                     1: _MODE_CLOSED
+                        222     LOAD_FAST                       0: self
+                        224     STORE_ATTR                      0: _mode
+                        226     RERAISE                         0
+                        228     LOAD_CONST                      1: None
+                        230     LOAD_FAST                       0: self
+                        232     STORE_ATTR                      6: _fp
+                        234     LOAD_CONST                      2: False
+                        236     LOAD_FAST                       0: self
+                        238     STORE_ATTR                      10: _closefp
+                        240     LOAD_GLOBAL                     1: _MODE_CLOSED
+                        242     LOAD_FAST                       0: self
+                        244     STORE_ATTR                      0: _mode
+                        246     RERAISE                         0
+                'LZMAFile.close'
+                [Code]
+                    File Name: lzma.py
+                    Object Name: closed
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_mode'
+                        '_MODE_CLOSED'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'True if this file is closed.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _mode
+                        4       LOAD_GLOBAL                     1: _MODE_CLOSED
+                        6       COMPARE_OP                      2 (==)
+                        8       RETURN_VALUE                    
+                'LZMAFile.closed'
+                [Code]
+                    File Name: lzma.py
+                    Object Name: fileno
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_not_closed'
+                        '_fp'
+                        'fileno'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return the file descriptor for the underlying file.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_not_closed
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _fp
+                        12      LOAD_METHOD                     2: fileno
+                        14      CALL_METHOD                     0
+                        16      RETURN_VALUE                    
+                'LZMAFile.fileno'
+                [Code]
+                    File Name: lzma.py
+                    Object Name: seekable
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'readable'
+                        '_buffer'
+                        'seekable'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return whether the file supports seeking.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: readable
+                        4       CALL_METHOD                     0
+                        6       JUMP_IF_FALSE_OR_POP            8 (to 16)
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _buffer
+                        12      LOAD_METHOD                     2: seekable
+                        14      CALL_METHOD                     0
+                        16      RETURN_VALUE                    
+                'LZMAFile.seekable'
+                [Code]
+                    File Name: lzma.py
+                    Object Name: readable
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_not_closed'
+                        '_mode'
+                        '_MODE_READ'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return whether the file was opened for reading.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_not_closed
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _mode
+                        12      LOAD_GLOBAL                     2: _MODE_READ
+                        14      COMPARE_OP                      2 (==)
+                        16      RETURN_VALUE                    
+                'LZMAFile.readable'
+                [Code]
+                    File Name: lzma.py
+                    Object Name: writable
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_not_closed'
+                        '_mode'
+                        '_MODE_WRITE'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return whether the file was opened for writing.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_not_closed
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _mode
+                        12      LOAD_GLOBAL                     2: _MODE_WRITE
+                        14      COMPARE_OP                      2 (==)
+                        16      RETURN_VALUE                    
+                'LZMAFile.writable'
+                [Code]
+                    File Name: lzma.py
+                    Object Name: peek
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_can_read'
+                        '_buffer'
+                        'peek'
+                    [Var Names]
+                        'self'
+                        'size'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return buffered data without advancing the file position.\n\n        Always returns at least one byte of data, unless at EOF.\n        The exact number of bytes returned is unspecified.\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_can_read
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _buffer
+                        12      LOAD_METHOD                     2: peek
+                        14      LOAD_FAST                       1: size
+                        16      CALL_METHOD                     1
+                        18      RETURN_VALUE                    
+                'LZMAFile.peek'
+                [Code]
+                    File Name: lzma.py
+                    Object Name: read
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_can_read'
+                        '_buffer'
+                        'read'
+                    [Var Names]
+                        'self'
+                        'size'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Read up to size uncompressed bytes from the file.\n\n        If size is negative or omitted, read until EOF is reached.\n        Returns b"" if the file is already at EOF.\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_can_read
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _buffer
+                        12      LOAD_METHOD                     2: read
+                        14      LOAD_FAST                       1: size
+                        16      CALL_METHOD                     1
+                        18      RETURN_VALUE                    
+                'LZMAFile.read'
+                [Code]
+                    File Name: lzma.py
+                    Object Name: read1
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_can_read'
+                        'io'
+                        'DEFAULT_BUFFER_SIZE'
+                        '_buffer'
+                        'read1'
+                    [Var Names]
+                        'self'
+                        'size'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Read up to size uncompressed bytes, while trying to avoid\n        making multiple reads from the underlying stream. Reads up to a\n        buffer\'s worth of data if size is negative.\n\n        Returns b"" if the file is at EOF.\n        '
+                        0
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_can_read
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       1: size
+                        10      LOAD_CONST                      1: 0
+                        12      COMPARE_OP                      0 (<)
+                        14      POP_JUMP_IF_FALSE               11 (to 22)
+                        16      LOAD_GLOBAL                     1: io
+                        18      LOAD_ATTR                       2: DEFAULT_BUFFER_SIZE
+                        20      STORE_FAST                      1: size
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       3: _buffer
+                        26      LOAD_METHOD                     4: read1
+                        28      LOAD_FAST                       1: size
+                        30      CALL_METHOD                     1
+                        32      RETURN_VALUE                    
+                'LZMAFile.read1'
+                [Code]
+                    File Name: lzma.py
+                    Object Name: readline
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_can_read'
+                        '_buffer'
+                        'readline'
+                    [Var Names]
+                        'self'
+                        'size'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Read a line of uncompressed bytes from the file.\n\n        The terminating newline (if present) is retained. If size is\n        non-negative, no more than size bytes will be read (in which\n        case the line may be incomplete). Returns b'' if already at EOF.\n        "
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_can_read
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _buffer
+                        12      LOAD_METHOD                     2: readline
+                        14      LOAD_FAST                       1: size
+                        16      CALL_METHOD                     1
+                        18      RETURN_VALUE                    
+                'LZMAFile.readline'
+                [Code]
+                    File Name: lzma.py
+                    Object Name: write
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_can_write'
+                        'isinstance'
+                        'bytes'
+                        'bytearray'
+                        'len'
+                        'memoryview'
+                        'nbytes'
+                        '_compressor'
+                        'compress'
+                        '_fp'
+                        'write'
+                        '_pos'
+                    [Var Names]
+                        'self'
+                        'data'
+                        'length'
+                        'compressed'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Write a bytes object to the file.\n\n        Returns the number of uncompressed bytes written, which is\n        always the length of data in bytes. Note that due to buffering,\n        the file on disk may not reflect the data written until close()\n        is called.\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_can_write
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_GLOBAL                     1: isinstance
+                        10      LOAD_FAST                       1: data
+                        12      LOAD_GLOBAL                     2: bytes
+                        14      LOAD_GLOBAL                     3: bytearray
+                        16      BUILD_TUPLE                     2
+                        18      CALL_FUNCTION                   2
+                        20      POP_JUMP_IF_FALSE               16 (to 32)
+                        22      LOAD_GLOBAL                     4: len
+                        24      LOAD_FAST                       1: data
+                        26      CALL_FUNCTION                   1
+                        28      STORE_FAST                      2: length
+                        30      JUMP_FORWARD                    7 (to 46)
+                        32      LOAD_GLOBAL                     5: memoryview
+                        34      LOAD_FAST                       1: data
+                        36      CALL_FUNCTION                   1
+                        38      STORE_FAST                      1: data
+                        40      LOAD_FAST                       1: data
+                        42      LOAD_ATTR                       6: nbytes
+                        44      STORE_FAST                      2: length
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_ATTR                       7: _compressor
+                        50      LOAD_METHOD                     8: compress
+                        52      LOAD_FAST                       1: data
+                        54      CALL_METHOD                     1
+                        56      STORE_FAST                      3: compressed
+                        58      LOAD_FAST                       0: self
+                        60      LOAD_ATTR                       9: _fp
+                        62      LOAD_METHOD                     10: write
+                        64      LOAD_FAST                       3: compressed
+                        66      CALL_METHOD                     1
+                        68      POP_TOP                         
+                        70      LOAD_FAST                       0: self
+                        72      DUP_TOP                         
+                        74      LOAD_ATTR                       11: _pos
+                        76      LOAD_FAST                       2: length
+                        78      INPLACE_ADD                     
+                        80      ROT_TWO                         
+                        82      STORE_ATTR                      11: _pos
+                        84      LOAD_FAST                       2: length
+                        86      RETURN_VALUE                    
+                'LZMAFile.write'
+                [Code]
+                    File Name: lzma.py
+                    Object Name: seek
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_can_seek'
+                        '_buffer'
+                        'seek'
+                    [Var Names]
+                        'self'
+                        'offset'
+                        'whence'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Change the file position.\n\n        The new position is specified by offset, relative to the\n        position indicated by whence. Possible values for whence are:\n\n            0: start of stream (default): offset must not be negative\n            1: current stream position\n            2: end of stream; offset must not be positive\n\n        Returns the new file position.\n\n        Note that seeking is emulated, so depending on the parameters,\n        this operation may be extremely slow.\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_can_seek
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _buffer
+                        12      LOAD_METHOD                     2: seek
+                        14      LOAD_FAST                       1: offset
+                        16      LOAD_FAST                       2: whence
+                        18      CALL_METHOD                     2
+                        20      RETURN_VALUE                    
+                'LZMAFile.seek'
+                [Code]
+                    File Name: lzma.py
+                    Object Name: tell
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_check_not_closed'
+                        '_mode'
+                        '_MODE_READ'
+                        '_buffer'
+                        'tell'
+                        '_pos'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return the current file position.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _check_not_closed
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: _mode
+                        12      LOAD_GLOBAL                     2: _MODE_READ
+                        14      COMPARE_OP                      2 (==)
+                        16      POP_JUMP_IF_FALSE               14 (to 28)
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_ATTR                       3: _buffer
+                        22      LOAD_METHOD                     4: tell
+                        24      CALL_METHOD                     0
+                        26      RETURN_VALUE                    
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       5: _pos
+                        32      RETURN_VALUE                    
+                'LZMAFile.tell'
+                (
+                    None
+                    'r'
+                )
+                (
+                    -1
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'LZMAFile'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'A file object providing transparent LZMA (de)compression.\n\n    An LZMAFile can act as a wrapper for an existing file object, or\n    refer directly to a named file on disk.\n\n    Note that LZMAFile provides a *binary* file interface - data read\n    is returned as bytes, and data to be written must be given as bytes.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      34: (None, 'r')
+                14      LOAD_CONST                      2: None
+                16      LOAD_CONST                      4: -1
+                18      LOAD_CONST                      2: None
+                20      LOAD_CONST                      2: None
+                22      LOAD_CONST                      5: ('format', 'check', 'preset', 'filters')
+                24      BUILD_CONST_KEY_MAP             4
+                26      LOAD_CONST                      6: <CODE> __init__
+                28      LOAD_CONST                      7: 'LZMAFile.__init__'
+                30      MAKE_FUNCTION                   3
+                32      STORE_NAME                      4: __init__
+                34      LOAD_CONST                      8: <CODE> close
+                36      LOAD_CONST                      9: 'LZMAFile.close'
+                38      MAKE_FUNCTION                   0
+                40      STORE_NAME                      5: close
+                42      LOAD_NAME                       6: property
+                44      LOAD_CONST                      10: <CODE> closed
+                46      LOAD_CONST                      11: 'LZMAFile.closed'
+                48      MAKE_FUNCTION                   0
+                50      CALL_FUNCTION                   1
+                52      STORE_NAME                      7: closed
+                54      LOAD_CONST                      12: <CODE> fileno
+                56      LOAD_CONST                      13: 'LZMAFile.fileno'
+                58      MAKE_FUNCTION                   0
+                60      STORE_NAME                      8: fileno
+                62      LOAD_CONST                      14: <CODE> seekable
+                64      LOAD_CONST                      15: 'LZMAFile.seekable'
+                66      MAKE_FUNCTION                   0
+                68      STORE_NAME                      9: seekable
+                70      LOAD_CONST                      16: <CODE> readable
+                72      LOAD_CONST                      17: 'LZMAFile.readable'
+                74      MAKE_FUNCTION                   0
+                76      STORE_NAME                      10: readable
+                78      LOAD_CONST                      18: <CODE> writable
+                80      LOAD_CONST                      19: 'LZMAFile.writable'
+                82      MAKE_FUNCTION                   0
+                84      STORE_NAME                      11: writable
+                86      LOAD_CONST                      35: (-1,)
+                88      LOAD_CONST                      20: <CODE> peek
+                90      LOAD_CONST                      21: 'LZMAFile.peek'
+                92      MAKE_FUNCTION                   1
+                94      STORE_NAME                      12: peek
+                96      LOAD_CONST                      35: (-1,)
+                98      LOAD_CONST                      22: <CODE> read
+                100     LOAD_CONST                      23: 'LZMAFile.read'
+                102     MAKE_FUNCTION                   1
+                104     STORE_NAME                      13: read
+                106     LOAD_CONST                      35: (-1,)
+                108     LOAD_CONST                      24: <CODE> read1
+                110     LOAD_CONST                      25: 'LZMAFile.read1'
+                112     MAKE_FUNCTION                   1
+                114     STORE_NAME                      14: read1
+                116     LOAD_CONST                      35: (-1,)
+                118     LOAD_CONST                      26: <CODE> readline
+                120     LOAD_CONST                      27: 'LZMAFile.readline'
+                122     MAKE_FUNCTION                   1
+                124     STORE_NAME                      15: readline
+                126     LOAD_CONST                      28: <CODE> write
+                128     LOAD_CONST                      29: 'LZMAFile.write'
+                130     MAKE_FUNCTION                   0
+                132     STORE_NAME                      16: write
+                134     LOAD_NAME                       17: io
+                136     LOAD_ATTR                       18: SEEK_SET
+                138     BUILD_TUPLE                     1
+                140     LOAD_CONST                      30: <CODE> seek
+                142     LOAD_CONST                      31: 'LZMAFile.seek'
+                144     MAKE_FUNCTION                   1
+                146     STORE_NAME                      19: seek
+                148     LOAD_CONST                      32: <CODE> tell
+                150     LOAD_CONST                      33: 'LZMAFile.tell'
+                152     MAKE_FUNCTION                   0
+                154     STORE_NAME                      20: tell
+                156     LOAD_CONST                      2: None
+                158     RETURN_VALUE                    
+        'LZMAFile'
+        'rb'
+        -1
+        (
+            'format'
+            'check'
+            'preset'
+            'filters'
+            'encoding'
+            'errors'
+            'newline'
+        )
+        [Code]
+            File Name: lzma.py
+            Object Name: open
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 7
+            Locals: 11
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ValueError'
+                'replace'
+                'LZMAFile'
+                'io'
+                'text_encoding'
+                'TextIOWrapper'
+            [Var Names]
+                'filename'
+                'mode'
+                'format'
+                'check'
+                'preset'
+                'filters'
+                'encoding'
+                'errors'
+                'newline'
+                'lz_mode'
+                'binary_file'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Open an LZMA-compressed file in binary or text mode.\n\n    filename can be either an actual file name (given as a str, bytes,\n    or PathLike object), in which case the named file is opened, or it\n    can be an existing file object to read from or write to.\n\n    The mode argument can be "r", "rb" (default), "w", "wb", "x", "xb",\n    "a", or "ab" for binary mode, or "rt", "wt", "xt", or "at" for text\n    mode.\n\n    The format, check, preset and filters arguments specify the\n    compression settings, as for LZMACompressor, LZMADecompressor and\n    LZMAFile.\n\n    For binary mode, this function is equivalent to the LZMAFile\n    constructor: LZMAFile(filename, mode, ...). In this case, the\n    encoding, errors and newline arguments must not be provided.\n\n    For text mode, an LZMAFile object is created, and wrapped in an\n    io.TextIOWrapper instance with the specified encoding, error\n    handling behavior, and line ending(s).\n\n    '
+                't'
+                'b'
+                'Invalid mode: %r'
+                None
+                "Argument 'encoding' not supported in binary mode"
+                "Argument 'errors' not supported in binary mode"
+                "Argument 'newline' not supported in binary mode"
+                ''
+                (
+                    'format'
+                    'check'
+                    'preset'
+                    'filters'
+                )
+            [Disassembly]
+                0       LOAD_CONST                      1: 't'
+                2       LOAD_FAST                       1: mode
+                4       CONTAINS_OP                     0 (in)
+                6       POP_JUMP_IF_FALSE               16 (to 32)
+                8       LOAD_CONST                      2: 'b'
+                10      LOAD_FAST                       1: mode
+                12      CONTAINS_OP                     0 (in)
+                14      POP_JUMP_IF_FALSE               15 (to 30)
+                16      LOAD_GLOBAL                     0: ValueError
+                18      LOAD_CONST                      3: 'Invalid mode: %r'
+                20      LOAD_FAST                       1: mode
+                22      BUILD_TUPLE                     1
+                24      BINARY_MODULO                   
+                26      CALL_FUNCTION                   1
+                28      RAISE_VARARGS                   1
+                30      JUMP_FORWARD                    24 (to 80)
+                32      LOAD_FAST                       6: encoding
+                34      LOAD_CONST                      4: None
+                36      IS_OP                           1 (is not)
+                38      POP_JUMP_IF_FALSE               24 (to 48)
+                40      LOAD_GLOBAL                     0: ValueError
+                42      LOAD_CONST                      5: "Argument 'encoding' not supported in binary mode"
+                44      CALL_FUNCTION                   1
+                46      RAISE_VARARGS                   1
+                48      LOAD_FAST                       7: errors
+                50      LOAD_CONST                      4: None
+                52      IS_OP                           1 (is not)
+                54      POP_JUMP_IF_FALSE               32 (to 64)
+                56      LOAD_GLOBAL                     0: ValueError
+                58      LOAD_CONST                      6: "Argument 'errors' not supported in binary mode"
+                60      CALL_FUNCTION                   1
+                62      RAISE_VARARGS                   1
+                64      LOAD_FAST                       8: newline
+                66      LOAD_CONST                      4: None
+                68      IS_OP                           1 (is not)
+                70      POP_JUMP_IF_FALSE               40 (to 80)
+                72      LOAD_GLOBAL                     0: ValueError
+                74      LOAD_CONST                      7: "Argument 'newline' not supported in binary mode"
+                76      CALL_FUNCTION                   1
+                78      RAISE_VARARGS                   1
+                80      LOAD_FAST                       1: mode
+                82      LOAD_METHOD                     1: replace
+                84      LOAD_CONST                      1: 't'
+                86      LOAD_CONST                      8: ''
+                88      CALL_METHOD                     2
+                90      STORE_FAST                      9: lz_mode
+                92      LOAD_GLOBAL                     2: LZMAFile
+                94      LOAD_FAST                       0: filename
+                96      LOAD_FAST                       9: lz_mode
+                98      LOAD_FAST                       2: format
+                100     LOAD_FAST                       3: check
+                102     LOAD_FAST                       4: preset
+                104     LOAD_FAST                       5: filters
+                106     LOAD_CONST                      9: ('format', 'check', 'preset', 'filters')
+                108     CALL_FUNCTION_KW                6
+                110     STORE_FAST                      10: binary_file
+                112     LOAD_CONST                      1: 't'
+                114     LOAD_FAST                       1: mode
+                116     CONTAINS_OP                     0 (in)
+                118     POP_JUMP_IF_FALSE               73 (to 146)
+                120     LOAD_GLOBAL                     3: io
+                122     LOAD_METHOD                     4: text_encoding
+                124     LOAD_FAST                       6: encoding
+                126     CALL_METHOD                     1
+                128     STORE_FAST                      6: encoding
+                130     LOAD_GLOBAL                     3: io
+                132     LOAD_METHOD                     5: TextIOWrapper
+                134     LOAD_FAST                       10: binary_file
+                136     LOAD_FAST                       6: encoding
+                138     LOAD_FAST                       7: errors
+                140     LOAD_FAST                       8: newline
+                142     CALL_METHOD                     4
+                144     RETURN_VALUE                    
+                146     LOAD_FAST                       10: binary_file
+                148     RETURN_VALUE                    
+        'open'
+        [Code]
+            File Name: lzma.py
+            Object Name: compress
+            Arg Count: 5
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'LZMACompressor'
+                'compress'
+                'flush'
+            [Var Names]
+                'data'
+                'format'
+                'check'
+                'preset'
+                'filters'
+                'comp'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Compress a block of data.\n\n    Refer to LZMACompressor's docstring for a description of the\n    optional arguments *format*, *check*, *preset* and *filters*.\n\n    For incremental compression, use an LZMACompressor instead.\n    "
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: LZMACompressor
+                2       LOAD_FAST                       1: format
+                4       LOAD_FAST                       2: check
+                6       LOAD_FAST                       3: preset
+                8       LOAD_FAST                       4: filters
+                10      CALL_FUNCTION                   4
+                12      STORE_FAST                      5: comp
+                14      LOAD_FAST                       5: comp
+                16      LOAD_METHOD                     1: compress
+                18      LOAD_FAST                       0: data
+                20      CALL_METHOD                     1
+                22      LOAD_FAST                       5: comp
+                24      LOAD_METHOD                     2: flush
+                26      CALL_METHOD                     0
+                28      BINARY_ADD                      
+                30      RETURN_VALUE                    
+        'compress'
+        [Code]
+            File Name: lzma.py
+            Object Name: decompress
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 7
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'LZMADecompressor'
+                'decompress'
+                'LZMAError'
+                'append'
+                'eof'
+                'unused_data'
+                'join'
+            [Var Names]
+                'data'
+                'format'
+                'memlimit'
+                'filters'
+                'results'
+                'decomp'
+                'res'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Decompress a block of data.\n\n    Refer to LZMADecompressor's docstring for a description of the\n    optional arguments *format*, *check* and *filters*.\n\n    For incremental decompression, use an LZMADecompressor instead.\n    "
+                True
+                'Compressed data ended before the end-of-stream marker was reached'
+                b''
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       STORE_FAST                      4: results
+                4       NOP                             
+                6       LOAD_GLOBAL                     0: LZMADecompressor
+                8       LOAD_FAST                       1: format
+                10      LOAD_FAST                       2: memlimit
+                12      LOAD_FAST                       3: filters
+                14      CALL_FUNCTION                   3
+                16      STORE_FAST                      5: decomp
+                18      SETUP_FINALLY                   7 (to 34)
+                20      LOAD_FAST                       5: decomp
+                22      LOAD_METHOD                     1: decompress
+                24      LOAD_FAST                       0: data
+                26      CALL_METHOD                     1
+                28      STORE_FAST                      6: res
+                30      POP_BLOCK                       
+                32      JUMP_FORWARD                    12 (to 58)
+                34      DUP_TOP                         
+                36      LOAD_GLOBAL                     2: LZMAError
+                38      JUMP_IF_NOT_EXC_MATCH           28 (to 56)
+                40      POP_TOP                         
+                42      POP_TOP                         
+                44      POP_TOP                         
+                46      LOAD_FAST                       4: results
+                48      POP_JUMP_IF_FALSE               27 (to 54)
+                50      POP_EXCEPT                      
+                52      JUMP_FORWARD                    21 (to 96)
+                54      RAISE_VARARGS                   0
+                56      RERAISE                         0
+                58      LOAD_FAST                       4: results
+                60      LOAD_METHOD                     3: append
+                62      LOAD_FAST                       6: res
+                64      CALL_METHOD                     1
+                66      POP_TOP                         
+                68      LOAD_FAST                       5: decomp
+                70      LOAD_ATTR                       4: eof
+                72      POP_JUMP_IF_TRUE                41 (to 82)
+                74      LOAD_GLOBAL                     2: LZMAError
+                76      LOAD_CONST                      2: 'Compressed data ended before the end-of-stream marker was reached'
+                78      CALL_FUNCTION                   1
+                80      RAISE_VARARGS                   1
+                82      LOAD_FAST                       5: decomp
+                84      LOAD_ATTR                       5: unused_data
+                86      STORE_FAST                      0: data
+                88      LOAD_FAST                       0: data
+                90      POP_JUMP_IF_TRUE                47 (to 94)
+                92      JUMP_FORWARD                    1 (to 96)
+                94      JUMP_ABSOLUTE                   3 (to 6)
+                96      LOAD_CONST                      3: b''
+                98      LOAD_METHOD                     6: join
+                100     LOAD_FAST                       4: results
+                102     CALL_METHOD                     1
+                104     RETURN_VALUE                    
+        'decompress'
+        (
+            'rb'
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Interface to the liblzma compression library.\n\nThis module provides a class for reading and writing compressed files,\nclasses for incremental (de)compression, and convenience functions for\none-shot (de)compression.\n\nThese classes and functions support both the XZ and legacy LZMA\ncontainer formats, as well as raw compressed data streams.\n'
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('CHECK_NONE', 'CHECK_CRC32', 'CHECK_CRC64', 'CHECK_SHA256', 'CHECK_ID_MAX', 'CHECK_UNKNOWN', 'FILTER_LZMA1', 'FILTER_LZMA2', 'FILTER_DELTA', 'FILTER_X86', 'FILTER_IA64', 'FILTER_ARM', 'FILTER_ARMTHUMB', 'FILTER_POWERPC', 'FILTER_SPARC', 'FORMAT_AUTO', 'FORMAT_XZ', 'FORMAT_ALONE', 'FORMAT_RAW', 'MF_HC3', 'MF_HC4', 'MF_BT2', 'MF_BT3', 'MF_BT4', 'MODE_FAST', 'MODE_NORMAL', 'PRESET_DEFAULT', 'PRESET_EXTREME', 'LZMACompressor', 'LZMADecompressor', 'LZMAFile', 'LZMAError', 'open', 'compress', 'decompress', 'is_check_supported')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: 0
+        14      LOAD_CONST                      3: None
+        16      IMPORT_NAME                     2: builtins
+        18      STORE_NAME                      2: builtins
+        20      LOAD_CONST                      2: 0
+        22      LOAD_CONST                      3: None
+        24      IMPORT_NAME                     3: io
+        26      STORE_NAME                      3: io
+        28      LOAD_CONST                      2: 0
+        30      LOAD_CONST                      3: None
+        32      IMPORT_NAME                     4: os
+        34      STORE_NAME                      4: os
+        36      LOAD_CONST                      2: 0
+        38      LOAD_CONST                      4: ('*',)
+        40      IMPORT_NAME                     5: _lzma
+        42      IMPORT_STAR                     
+        44      LOAD_CONST                      2: 0
+        46      LOAD_CONST                      5: ('_encode_filter_properties', '_decode_filter_properties')
+        48      IMPORT_NAME                     5: _lzma
+        50      IMPORT_FROM                     6: _encode_filter_properties
+        52      STORE_NAME                      6: _encode_filter_properties
+        54      IMPORT_FROM                     7: _decode_filter_properties
+        56      STORE_NAME                      7: _decode_filter_properties
+        58      POP_TOP                         
+        60      LOAD_CONST                      2: 0
+        62      LOAD_CONST                      3: None
+        64      IMPORT_NAME                     8: _compression
+        66      STORE_NAME                      8: _compression
+        68      LOAD_CONST                      2: 0
+        70      STORE_NAME                      9: _MODE_CLOSED
+        72      LOAD_CONST                      6: 1
+        74      STORE_NAME                      10: _MODE_READ
+        76      LOAD_CONST                      7: 3
+        78      STORE_NAME                      11: _MODE_WRITE
+        80      LOAD_BUILD_CLASS                
+        82      LOAD_CONST                      8: <CODE> LZMAFile
+        84      LOAD_CONST                      9: 'LZMAFile'
+        86      MAKE_FUNCTION                   0
+        88      LOAD_CONST                      9: 'LZMAFile'
+        90      LOAD_NAME                       8: _compression
+        92      LOAD_ATTR                       12: BaseStream
+        94      CALL_FUNCTION                   3
+        96      STORE_NAME                      13: LZMAFile
+        98      LOAD_CONST                      19: ('rb',)
+        100     LOAD_CONST                      3: None
+        102     LOAD_CONST                      11: -1
+        104     LOAD_CONST                      3: None
+        106     LOAD_CONST                      3: None
+        108     LOAD_CONST                      3: None
+        110     LOAD_CONST                      3: None
+        112     LOAD_CONST                      3: None
+        114     LOAD_CONST                      12: ('format', 'check', 'preset', 'filters', 'encoding', 'errors', 'newline')
+        116     BUILD_CONST_KEY_MAP             7
+        118     LOAD_CONST                      13: <CODE> open
+        120     LOAD_CONST                      14: 'open'
+        122     MAKE_FUNCTION                   3
+        124     STORE_NAME                      14: open
+        126     LOAD_NAME                       15: FORMAT_XZ
+        128     LOAD_CONST                      11: -1
+        130     LOAD_CONST                      3: None
+        132     LOAD_CONST                      3: None
+        134     BUILD_TUPLE                     4
+        136     LOAD_CONST                      15: <CODE> compress
+        138     LOAD_CONST                      16: 'compress'
+        140     MAKE_FUNCTION                   1
+        142     STORE_NAME                      16: compress
+        144     LOAD_NAME                       17: FORMAT_AUTO
+        146     LOAD_CONST                      3: None
+        148     LOAD_CONST                      3: None
+        150     BUILD_TUPLE                     3
+        152     LOAD_CONST                      17: <CODE> decompress
+        154     LOAD_CONST                      18: 'decompress'
+        156     MAKE_FUNCTION                   1
+        158     STORE_NAME                      18: decompress
+        160     LOAD_CONST                      3: None
+        162     RETURN_VALUE                    

@@ -1,0 +1,2799 @@
+header.pyc (Python 3.10)
+[Code]
+    File Name: email/header.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 5
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        're'
+        'binascii'
+        'email.quoprimime'
+        'email'
+        'email.base64mime'
+        'email.errors'
+        'HeaderParseError'
+        'charset'
+        '_charset'
+        'Charset'
+        'NL'
+        'SPACE'
+        'BSPACE'
+        'SPACE8'
+        'EMPTYSTRING'
+        'MAXLINELEN'
+        'FWS'
+        'USASCII'
+        'UTF8'
+        'compile'
+        'VERBOSE'
+        'MULTILINE'
+        'ecre'
+        'fcre'
+        '_embedded_header'
+        'quoprimime'
+        '_max_append'
+        'decode_header'
+        'make_header'
+        'Header'
+        '_ValueFormatter'
+        'list'
+        '_Accumulator'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Header encoding and decoding functionality.'
+        (
+            'Header'
+            'decode_header'
+            'make_header'
+        )
+        0
+        None
+        (
+            'HeaderParseError'
+        )
+        (
+            'charset'
+        )
+        '\n'
+        ' '
+        b' '
+        '        '
+        ''
+        78
+        ' \t'
+        'us-ascii'
+        'utf-8'
+        '\n  =\\?                   # literal =?\n  (?P<charset>[^?]*?)   # non-greedy up to the next ? is the charset\n  \\?                    # literal ?\n  (?P<encoding>[qQbB])  # either a "q" or a "b", case insensitive\n  \\?                    # literal ?\n  (?P<encoded>.*?)      # non-greedy up to the next ?= is the encoded string\n  \\?=                   # literal ?=\n  '
+        '[\\041-\\176]+:$'
+        '\\n[^ \\t]+:'
+        [Code]
+            File Name: email/header.py
+            Object Name: decode_header
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 20
+            Stack Size: 9
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'hasattr'
+                '_chunks'
+                'ecre'
+                'search'
+                'splitlines'
+                'split'
+                'pop'
+                'lstrip'
+                'append'
+                'lower'
+                'enumerate'
+                'isspace'
+                'reversed'
+                'email'
+                'quoprimime'
+                'header_decode'
+                'len'
+                'base64mime'
+                'decode'
+                'binascii'
+                'Error'
+                'HeaderParseError'
+                'AssertionError'
+                'isinstance'
+                'str'
+                'bytes'
+                'BSPACE'
+            [Var Names]
+                'header'
+                'words'
+                'line'
+                'parts'
+                'first'
+                'unencoded'
+                'charset'
+                'encoding'
+                'encoded'
+                'droplist'
+                'n'
+                'w'
+                'd'
+                'decoded_words'
+                'encoded_string'
+                'word'
+                'paderr'
+                'collapsed'
+                'last_word'
+                'last_charset'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Decode a message header value without converting charset.\n\n    Returns a list of (string, charset) pairs containing each of the decoded\n    parts of the header.  Charset is None for non-encoded parts of the header,\n    otherwise a lower-case string containing the name of the character set\n    specified in the encoded string.\n\n    header may be a string that may or may not contain RFC2047 encoded words,\n    or it may be a Header object.\n\n    An email.errors.HeaderParseError may be raised when certain decoding error\n    occurs (e.g. a base64 decoding exception).\n    '
+                '_chunks'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 7
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        '_charset'
+                        '_encode'
+                        'str'
+                    [Var Names]
+                        '.0'
+                        'string'
+                        'charset'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        16 (to 38)
+                        6       UNPACK_SEQUENCE                 2
+                        8       STORE_FAST                      1: string
+                        10      STORE_FAST                      2: charset
+                        12      LOAD_GLOBAL                     0: _charset
+                        14      LOAD_METHOD                     1: _encode
+                        16      LOAD_FAST                       1: string
+                        18      LOAD_GLOBAL                     2: str
+                        20      LOAD_FAST                       2: charset
+                        22      CALL_FUNCTION                   1
+                        24      CALL_METHOD                     2
+                        26      LOAD_GLOBAL                     2: str
+                        28      LOAD_FAST                       2: charset
+                        30      CALL_FUNCTION                   1
+                        32      BUILD_TUPLE                     2
+                        34      LIST_APPEND                     2
+                        36      JUMP_ABSOLUTE                   2 (to 4)
+                        38      RETURN_VALUE                    
+                'decode_header.<locals>.<listcomp>'
+                None
+                True
+                0
+                False
+                1
+                2
+                'q'
+                'b'
+                4
+                '==='
+                'Base64 decoding error'
+                'Unexpected encoding: '
+                'raw-unicode-escape'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: hasattr
+                2       LOAD_FAST                       0: header
+                4       LOAD_CONST                      1: '_chunks'
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_FALSE               13 (to 26)
+                10      LOAD_CONST                      2: <CODE> <listcomp>
+                12      LOAD_CONST                      3: 'decode_header.<locals>.<listcomp>'
+                14      MAKE_FUNCTION                   0
+                16      LOAD_FAST                       0: header
+                18      LOAD_ATTR                       1: _chunks
+                20      GET_ITER                        
+                22      CALL_FUNCTION                   1
+                24      RETURN_VALUE                    
+                26      LOAD_GLOBAL                     2: ecre
+                28      LOAD_METHOD                     3: search
+                30      LOAD_FAST                       0: header
+                32      CALL_METHOD                     1
+                34      POP_JUMP_IF_TRUE                23 (to 46)
+                36      LOAD_FAST                       0: header
+                38      LOAD_CONST                      4: None
+                40      BUILD_TUPLE                     2
+                42      BUILD_LIST                      1
+                44      RETURN_VALUE                    
+                46      BUILD_LIST                      0
+                48      STORE_FAST                      1: words
+                50      LOAD_FAST                       0: header
+                52      LOAD_METHOD                     4: splitlines
+                54      CALL_METHOD                     0
+                56      GET_ITER                        
+                58      FOR_ITER                        65 (to 190)
+                60      STORE_FAST                      2: line
+                62      LOAD_GLOBAL                     2: ecre
+                64      LOAD_METHOD                     5: split
+                66      LOAD_FAST                       2: line
+                68      CALL_METHOD                     1
+                70      STORE_FAST                      3: parts
+                72      LOAD_CONST                      5: True
+                74      STORE_FAST                      4: first
+                76      LOAD_FAST                       3: parts
+                78      POP_JUMP_IF_FALSE               94 (to 188)
+                80      LOAD_FAST                       3: parts
+                82      LOAD_METHOD                     6: pop
+                84      LOAD_CONST                      6: 0
+                86      CALL_METHOD                     1
+                88      STORE_FAST                      5: unencoded
+                90      LOAD_FAST                       4: first
+                92      POP_JUMP_IF_FALSE               53 (to 106)
+                94      LOAD_FAST                       5: unencoded
+                96      LOAD_METHOD                     7: lstrip
+                98      CALL_METHOD                     0
+                100     STORE_FAST                      5: unencoded
+                102     LOAD_CONST                      7: False
+                104     STORE_FAST                      4: first
+                106     LOAD_FAST                       5: unencoded
+                108     POP_JUMP_IF_FALSE               63 (to 126)
+                110     LOAD_FAST                       1: words
+                112     LOAD_METHOD                     8: append
+                114     LOAD_FAST                       5: unencoded
+                116     LOAD_CONST                      4: None
+                118     LOAD_CONST                      4: None
+                120     BUILD_TUPLE                     3
+                122     CALL_METHOD                     1
+                124     POP_TOP                         
+                126     LOAD_FAST                       3: parts
+                128     POP_JUMP_IF_FALSE               92 (to 184)
+                130     LOAD_FAST                       3: parts
+                132     LOAD_METHOD                     6: pop
+                134     LOAD_CONST                      6: 0
+                136     CALL_METHOD                     1
+                138     LOAD_METHOD                     9: lower
+                140     CALL_METHOD                     0
+                142     STORE_FAST                      6: charset
+                144     LOAD_FAST                       3: parts
+                146     LOAD_METHOD                     6: pop
+                148     LOAD_CONST                      6: 0
+                150     CALL_METHOD                     1
+                152     LOAD_METHOD                     9: lower
+                154     CALL_METHOD                     0
+                156     STORE_FAST                      7: encoding
+                158     LOAD_FAST                       3: parts
+                160     LOAD_METHOD                     6: pop
+                162     LOAD_CONST                      6: 0
+                164     CALL_METHOD                     1
+                166     STORE_FAST                      8: encoded
+                168     LOAD_FAST                       1: words
+                170     LOAD_METHOD                     8: append
+                172     LOAD_FAST                       8: encoded
+                174     LOAD_FAST                       7: encoding
+                176     LOAD_FAST                       6: charset
+                178     BUILD_TUPLE                     3
+                180     CALL_METHOD                     1
+                182     POP_TOP                         
+                184     LOAD_FAST                       3: parts
+                186     POP_JUMP_IF_TRUE                40 (to 80)
+                188     JUMP_ABSOLUTE                   29 (to 58)
+                190     BUILD_LIST                      0
+                192     STORE_FAST                      9: droplist
+                194     LOAD_GLOBAL                     10: enumerate
+                196     LOAD_FAST                       1: words
+                198     CALL_FUNCTION                   1
+                200     GET_ITER                        
+                202     FOR_ITER                        37 (to 278)
+                204     UNPACK_SEQUENCE                 2
+                206     STORE_FAST                      10: n
+                208     STORE_FAST                      11: w
+                210     LOAD_FAST                       10: n
+                212     LOAD_CONST                      8: 1
+                214     COMPARE_OP                      4 (>)
+                216     POP_JUMP_IF_FALSE               138 (to 276)
+                218     LOAD_FAST                       11: w
+                220     LOAD_CONST                      8: 1
+                222     BINARY_SUBSCR                   
+                224     POP_JUMP_IF_FALSE               138 (to 276)
+                226     LOAD_FAST                       1: words
+                228     LOAD_FAST                       10: n
+                230     LOAD_CONST                      9: 2
+                232     BINARY_SUBTRACT                 
+                234     BINARY_SUBSCR                   
+                236     LOAD_CONST                      8: 1
+                238     BINARY_SUBSCR                   
+                240     POP_JUMP_IF_FALSE               138 (to 276)
+                242     LOAD_FAST                       1: words
+                244     LOAD_FAST                       10: n
+                246     LOAD_CONST                      8: 1
+                248     BINARY_SUBTRACT                 
+                250     BINARY_SUBSCR                   
+                252     LOAD_CONST                      6: 0
+                254     BINARY_SUBSCR                   
+                256     LOAD_METHOD                     11: isspace
+                258     CALL_METHOD                     0
+                260     POP_JUMP_IF_FALSE               138 (to 276)
+                262     LOAD_FAST                       9: droplist
+                264     LOAD_METHOD                     8: append
+                266     LOAD_FAST                       10: n
+                268     LOAD_CONST                      8: 1
+                270     BINARY_SUBTRACT                 
+                272     CALL_METHOD                     1
+                274     POP_TOP                         
+                276     JUMP_ABSOLUTE                   101 (to 202)
+                278     LOAD_GLOBAL                     12: reversed
+                280     LOAD_FAST                       9: droplist
+                282     CALL_FUNCTION                   1
+                284     GET_ITER                        
+                286     FOR_ITER                        5 (to 298)
+                288     STORE_FAST                      12: d
+                290     LOAD_FAST                       1: words
+                292     LOAD_FAST                       12: d
+                294     DELETE_SUBSCR                   
+                296     JUMP_ABSOLUTE                   143 (to 286)
+                298     BUILD_LIST                      0
+                300     STORE_FAST                      13: decoded_words
+                302     LOAD_FAST                       1: words
+                304     GET_ITER                        
+                306     FOR_ITER                        91 (to 490)
+                308     UNPACK_SEQUENCE                 3
+                310     STORE_FAST                      14: encoded_string
+                312     STORE_FAST                      7: encoding
+                314     STORE_FAST                      6: charset
+                316     LOAD_FAST                       7: encoding
+                318     LOAD_CONST                      4: None
+                320     IS_OP                           0 (is)
+                322     POP_JUMP_IF_FALSE               170 (to 340)
+                324     LOAD_FAST                       13: decoded_words
+                326     LOAD_METHOD                     8: append
+                328     LOAD_FAST                       14: encoded_string
+                330     LOAD_FAST                       6: charset
+                332     BUILD_TUPLE                     2
+                334     CALL_METHOD                     1
+                336     POP_TOP                         
+                338     JUMP_ABSOLUTE                   153 (to 306)
+                340     LOAD_FAST                       7: encoding
+                342     LOAD_CONST                      10: 'q'
+                344     COMPARE_OP                      2 (==)
+                346     POP_JUMP_IF_FALSE               188 (to 376)
+                348     LOAD_GLOBAL                     13: email
+                350     LOAD_ATTR                       14: quoprimime
+                352     LOAD_METHOD                     15: header_decode
+                354     LOAD_FAST                       14: encoded_string
+                356     CALL_METHOD                     1
+                358     STORE_FAST                      15: word
+                360     LOAD_FAST                       13: decoded_words
+                362     LOAD_METHOD                     8: append
+                364     LOAD_FAST                       15: word
+                366     LOAD_FAST                       6: charset
+                368     BUILD_TUPLE                     2
+                370     CALL_METHOD                     1
+                372     POP_TOP                         
+                374     JUMP_ABSOLUTE                   153 (to 306)
+                376     LOAD_FAST                       7: encoding
+                378     LOAD_CONST                      11: 'b'
+                380     COMPARE_OP                      2 (==)
+                382     POP_JUMP_IF_FALSE               239 (to 478)
+                384     LOAD_GLOBAL                     16: len
+                386     LOAD_FAST                       14: encoded_string
+                388     CALL_FUNCTION                   1
+                390     LOAD_CONST                      12: 4
+                392     BINARY_MODULO                   
+                394     STORE_FAST                      16: paderr
+                396     LOAD_FAST                       16: paderr
+                398     POP_JUMP_IF_FALSE               210 (to 420)
+                400     LOAD_FAST                       14: encoded_string
+                402     LOAD_CONST                      13: '==='
+                404     LOAD_CONST                      4: None
+                406     LOAD_CONST                      12: 4
+                408     LOAD_FAST                       16: paderr
+                410     BINARY_SUBTRACT                 
+                412     BUILD_SLICE                     2
+                414     BINARY_SUBSCR                   
+                416     INPLACE_ADD                     
+                418     STORE_FAST                      14: encoded_string
+                420     SETUP_FINALLY                   8 (to 438)
+                422     LOAD_GLOBAL                     13: email
+                424     LOAD_ATTR                       17: base64mime
+                426     LOAD_METHOD                     18: decode
+                428     LOAD_FAST                       14: encoded_string
+                430     CALL_METHOD                     1
+                432     STORE_FAST                      15: word
+                434     POP_BLOCK                       
+                436     JUMP_FORWARD                    12 (to 462)
+                438     DUP_TOP                         
+                440     LOAD_GLOBAL                     19: binascii
+                442     LOAD_ATTR                       20: Error
+                444     JUMP_IF_NOT_EXC_MATCH           230 (to 460)
+                446     POP_TOP                         
+                448     POP_TOP                         
+                450     POP_TOP                         
+                452     LOAD_GLOBAL                     21: HeaderParseError
+                454     LOAD_CONST                      14: 'Base64 decoding error'
+                456     CALL_FUNCTION                   1
+                458     RAISE_VARARGS                   1
+                460     RERAISE                         0
+                462     LOAD_FAST                       13: decoded_words
+                464     LOAD_METHOD                     8: append
+                466     LOAD_FAST                       15: word
+                468     LOAD_FAST                       6: charset
+                470     BUILD_TUPLE                     2
+                472     CALL_METHOD                     1
+                474     POP_TOP                         
+                476     JUMP_ABSOLUTE                   153 (to 306)
+                478     LOAD_GLOBAL                     22: AssertionError
+                480     LOAD_CONST                      15: 'Unexpected encoding: '
+                482     LOAD_FAST                       7: encoding
+                484     BINARY_ADD                      
+                486     CALL_FUNCTION                   1
+                488     RAISE_VARARGS                   1
+                490     BUILD_LIST                      0
+                492     STORE_FAST                      17: collapsed
+                494     LOAD_CONST                      4: None
+                496     DUP_TOP                         
+                498     STORE_FAST                      18: last_word
+                500     STORE_FAST                      19: last_charset
+                502     LOAD_FAST                       13: decoded_words
+                504     GET_ITER                        
+                506     FOR_ITER                        58 (to 624)
+                508     UNPACK_SEQUENCE                 2
+                510     STORE_FAST                      15: word
+                512     STORE_FAST                      6: charset
+                514     LOAD_GLOBAL                     23: isinstance
+                516     LOAD_FAST                       15: word
+                518     LOAD_GLOBAL                     24: str
+                520     CALL_FUNCTION                   2
+                522     POP_JUMP_IF_FALSE               268 (to 536)
+                526     LOAD_GLOBAL                     25: bytes
+                528     LOAD_FAST                       15: word
+                530     LOAD_CONST                      16: 'raw-unicode-escape'
+                532     CALL_FUNCTION                   2
+                534     STORE_FAST                      15: word
+                536     LOAD_FAST                       18: last_word
+                538     LOAD_CONST                      4: None
+                540     IS_OP                           0 (is)
+                542     POP_JUMP_IF_FALSE               278 (to 556)
+                546     LOAD_FAST                       15: word
+                548     STORE_FAST                      18: last_word
+                550     LOAD_FAST                       6: charset
+                552     STORE_FAST                      19: last_charset
+                554     JUMP_ABSOLUTE                   253 (to 506)
+                556     LOAD_FAST                       6: charset
+                558     LOAD_FAST                       19: last_charset
+                560     COMPARE_OP                      3 (!=)
+                562     POP_JUMP_IF_FALSE               295 (to 590)
+                566     LOAD_FAST                       17: collapsed
+                568     LOAD_METHOD                     8: append
+                570     LOAD_FAST                       18: last_word
+                572     LOAD_FAST                       19: last_charset
+                574     BUILD_TUPLE                     2
+                576     CALL_METHOD                     1
+                578     POP_TOP                         
+                580     LOAD_FAST                       15: word
+                582     STORE_FAST                      18: last_word
+                584     LOAD_FAST                       6: charset
+                586     STORE_FAST                      19: last_charset
+                588     JUMP_ABSOLUTE                   253 (to 506)
+                590     LOAD_FAST                       19: last_charset
+                592     LOAD_CONST                      4: None
+                594     IS_OP                           0 (is)
+                596     POP_JUMP_IF_FALSE               307 (to 614)
+                600     LOAD_FAST                       18: last_word
+                602     LOAD_GLOBAL                     26: BSPACE
+                604     LOAD_FAST                       15: word
+                606     BINARY_ADD                      
+                608     INPLACE_ADD                     
+                610     STORE_FAST                      18: last_word
+                612     JUMP_ABSOLUTE                   253 (to 506)
+                614     LOAD_FAST                       18: last_word
+                616     LOAD_FAST                       15: word
+                618     INPLACE_ADD                     
+                620     STORE_FAST                      18: last_word
+                622     JUMP_ABSOLUTE                   253 (to 506)
+                624     LOAD_FAST                       17: collapsed
+                626     LOAD_METHOD                     8: append
+                628     LOAD_FAST                       18: last_word
+                630     LOAD_FAST                       19: last_charset
+                632     BUILD_TUPLE                     2
+                634     CALL_METHOD                     1
+                636     POP_TOP                         
+                638     LOAD_FAST                       17: collapsed
+                640     RETURN_VALUE                    
+        'decode_header'
+        [Code]
+            File Name: email/header.py
+            Object Name: make_header
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 7
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'Header'
+                'isinstance'
+                'Charset'
+                'append'
+            [Var Names]
+                'decoded_seq'
+                'maxlinelen'
+                'header_name'
+                'continuation_ws'
+                'h'
+                's'
+                'charset'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Create a Header from a sequence of pairs as returned by decode_header()\n\n    decode_header() takes a header value string and returns a sequence of\n    pairs of the format (decoded_string, charset) where charset is the string\n    name of the character set.\n\n    This function takes one of those sequence of pairs and returns a Header\n    instance.  Optional maxlinelen, header_name, and continuation_ws are as in\n    the Header constructor.\n    '
+                (
+                    'maxlinelen'
+                    'header_name'
+                    'continuation_ws'
+                )
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: Header
+                2       LOAD_FAST                       1: maxlinelen
+                4       LOAD_FAST                       2: header_name
+                6       LOAD_FAST                       3: continuation_ws
+                8       LOAD_CONST                      1: ('maxlinelen', 'header_name', 'continuation_ws')
+                10      CALL_FUNCTION_KW                3
+                12      STORE_FAST                      4: h
+                14      LOAD_FAST                       0: decoded_seq
+                16      GET_ITER                        
+                18      FOR_ITER                        23 (to 66)
+                20      UNPACK_SEQUENCE                 2
+                22      STORE_FAST                      5: s
+                24      STORE_FAST                      6: charset
+                26      LOAD_FAST                       6: charset
+                28      LOAD_CONST                      2: None
+                30      IS_OP                           1 (is not)
+                32      POP_JUMP_IF_FALSE               26 (to 52)
+                34      LOAD_GLOBAL                     1: isinstance
+                36      LOAD_FAST                       6: charset
+                38      LOAD_GLOBAL                     2: Charset
+                40      CALL_FUNCTION                   2
+                42      POP_JUMP_IF_TRUE                26 (to 52)
+                44      LOAD_GLOBAL                     2: Charset
+                46      LOAD_FAST                       6: charset
+                48      CALL_FUNCTION                   1
+                50      STORE_FAST                      6: charset
+                52      LOAD_FAST                       4: h
+                54      LOAD_METHOD                     3: append
+                56      LOAD_FAST                       5: s
+                58      LOAD_FAST                       6: charset
+                60      CALL_METHOD                     2
+                62      POP_TOP                         
+                64      JUMP_ABSOLUTE                   9 (to 18)
+                66      LOAD_FAST                       4: h
+                68      RETURN_VALUE                    
+        'make_header'
+        [Code]
+            File Name: email/header.py
+            Object Name: Header
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__init__'
+                '__str__'
+                '__eq__'
+                'append'
+                '_nonctext'
+                'encode'
+                '_normalize'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Header'
+                None
+                ' '
+                'strict'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: __init__
+                    Arg Count: 7
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 7
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'USASCII'
+                        'isinstance'
+                        'Charset'
+                        '_charset'
+                        '_continuation_ws'
+                        '_chunks'
+                        'append'
+                        'MAXLINELEN'
+                        '_maxlinelen'
+                        '_headerlen'
+                        'len'
+                    [Var Names]
+                        'self'
+                        's'
+                        'charset'
+                        'maxlinelen'
+                        'header_name'
+                        'continuation_ws'
+                        'errors'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Create a MIME-compliant header that can contain many character sets.\n\n        Optional s is the initial header value.  If None, the initial header\n        value is not set.  You can later append to the header with .append()\n        method calls.  s may be a byte string or a Unicode string, but see the\n        .append() documentation for semantics.\n\n        Optional charset serves two purposes: it has the same meaning as the\n        charset argument to the .append() method.  It also sets the default\n        character set for all subsequent .append() calls that omit the charset\n        argument.  If charset is not provided in the constructor, the us-ascii\n        charset is used both as s's initial charset and as the default for\n        subsequent .append() calls.\n\n        The maximum line length can be specified explicitly via maxlinelen. For\n        splitting the first line to a shorter value (to account for the field\n        header which isn't included in s, e.g. `Subject') pass in the name of\n        the field in header_name.  The default maxlinelen is 78 as recommended\n        by RFC 2822.\n\n        continuation_ws must be RFC 2822 compliant folding whitespace (usually\n        either a space or a hard tab) which will be prepended to continuation\n        lines.\n\n        errors is passed through to the .append() call.\n        "
+                        None
+                        0
+                        2
+                    [Disassembly]
+                        0       LOAD_FAST                       2: charset
+                        2       LOAD_CONST                      1: None
+                        4       IS_OP                           0 (is)
+                        6       POP_JUMP_IF_FALSE               7 (to 14)
+                        8       LOAD_GLOBAL                     0: USASCII
+                        10      STORE_FAST                      2: charset
+                        12      JUMP_FORWARD                    9 (to 32)
+                        14      LOAD_GLOBAL                     1: isinstance
+                        16      LOAD_FAST                       2: charset
+                        18      LOAD_GLOBAL                     2: Charset
+                        20      CALL_FUNCTION                   2
+                        22      POP_JUMP_IF_TRUE                16 (to 32)
+                        24      LOAD_GLOBAL                     2: Charset
+                        26      LOAD_FAST                       2: charset
+                        28      CALL_FUNCTION                   1
+                        30      STORE_FAST                      2: charset
+                        32      LOAD_FAST                       2: charset
+                        34      LOAD_FAST                       0: self
+                        36      STORE_ATTR                      3: _charset
+                        38      LOAD_FAST                       5: continuation_ws
+                        40      LOAD_FAST                       0: self
+                        42      STORE_ATTR                      4: _continuation_ws
+                        44      BUILD_LIST                      0
+                        46      LOAD_FAST                       0: self
+                        48      STORE_ATTR                      5: _chunks
+                        50      LOAD_FAST                       1: s
+                        52      LOAD_CONST                      1: None
+                        54      IS_OP                           1 (is not)
+                        56      POP_JUMP_IF_FALSE               36 (to 72)
+                        58      LOAD_FAST                       0: self
+                        60      LOAD_METHOD                     6: append
+                        62      LOAD_FAST                       1: s
+                        64      LOAD_FAST                       2: charset
+                        66      LOAD_FAST                       6: errors
+                        68      CALL_METHOD                     3
+                        70      POP_TOP                         
+                        72      LOAD_FAST                       3: maxlinelen
+                        74      LOAD_CONST                      1: None
+                        76      IS_OP                           0 (is)
+                        78      POP_JUMP_IF_FALSE               42 (to 84)
+                        80      LOAD_GLOBAL                     7: MAXLINELEN
+                        82      STORE_FAST                      3: maxlinelen
+                        84      LOAD_FAST                       3: maxlinelen
+                        86      LOAD_FAST                       0: self
+                        88      STORE_ATTR                      8: _maxlinelen
+                        90      LOAD_FAST                       4: header_name
+                        92      LOAD_CONST                      1: None
+                        94      IS_OP                           0 (is)
+                        96      POP_JUMP_IF_FALSE               54 (to 108)
+                        98      LOAD_CONST                      2: 0
+                        100     LOAD_FAST                       0: self
+                        102     STORE_ATTR                      9: _headerlen
+                        104     LOAD_CONST                      1: None
+                        106     RETURN_VALUE                    
+                        108     LOAD_GLOBAL                     10: len
+                        110     LOAD_FAST                       4: header_name
+                        112     CALL_FUNCTION                   1
+                        114     LOAD_CONST                      3: 2
+                        116     BINARY_ADD                      
+                        118     LOAD_FAST                       0: self
+                        120     STORE_ATTR                      9: _headerlen
+                        122     LOAD_CONST                      1: None
+                        124     RETURN_VALUE                    
+                'Header.__init__'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: __str__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 9
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_normalize'
+                        '_chunks'
+                        '_charset'
+                        'UNKNOWN8BIT'
+                        'encode'
+                        'decode'
+                        '_nonctext'
+                        'append'
+                        'SPACE'
+                        'EMPTYSTRING'
+                        'join'
+                    [Var Names]
+                        'self'
+                        'uchunks'
+                        'lastcs'
+                        'lastspace'
+                        'string'
+                        'charset'
+                        'nextcs'
+                        'original_bytes'
+                        'hasspace'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return the string value of the header.'
+                        None
+                        'ascii'
+                        'surrogateescape'
+                        'replace'
+                        0
+                        (
+                            None
+                            'us-ascii'
+                        )
+                        -1
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _normalize
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       BUILD_LIST                      0
+                        10      STORE_FAST                      1: uchunks
+                        12      LOAD_CONST                      1: None
+                        14      STORE_FAST                      2: lastcs
+                        16      LOAD_CONST                      1: None
+                        18      STORE_FAST                      3: lastspace
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       1: _chunks
+                        24      GET_ITER                        
+                        26      FOR_ITER                        79 (to 186)
+                        28      UNPACK_SEQUENCE                 2
+                        30      STORE_FAST                      4: string
+                        32      STORE_FAST                      5: charset
+                        34      LOAD_FAST                       5: charset
+                        36      STORE_FAST                      6: nextcs
+                        38      LOAD_FAST                       6: nextcs
+                        40      LOAD_GLOBAL                     2: _charset
+                        42      LOAD_ATTR                       3: UNKNOWN8BIT
+                        44      COMPARE_OP                      2 (==)
+                        46      POP_JUMP_IF_FALSE               36 (to 72)
+                        48      LOAD_FAST                       4: string
+                        50      LOAD_METHOD                     4: encode
+                        52      LOAD_CONST                      2: 'ascii'
+                        54      LOAD_CONST                      3: 'surrogateescape'
+                        56      CALL_METHOD                     2
+                        58      STORE_FAST                      7: original_bytes
+                        60      LOAD_FAST                       7: original_bytes
+                        62      LOAD_METHOD                     5: decode
+                        64      LOAD_CONST                      2: 'ascii'
+                        66      LOAD_CONST                      4: 'replace'
+                        68      CALL_METHOD                     2
+                        70      STORE_FAST                      4: string
+                        72      LOAD_FAST                       1: uchunks
+                        74      POP_JUMP_IF_FALSE               76 (to 152)
+                        76      LOAD_FAST                       4: string
+                        78      JUMP_IF_FALSE_OR_POP            46 (to 92)
+                        80      LOAD_FAST                       0: self
+                        82      LOAD_METHOD                     6: _nonctext
+                        84      LOAD_FAST                       4: string
+                        86      LOAD_CONST                      5: 0
+                        88      BINARY_SUBSCR                   
+                        90      CALL_METHOD                     1
+                        92      STORE_FAST                      8: hasspace
+                        94      LOAD_FAST                       2: lastcs
+                        96      LOAD_CONST                      6: (None, 'us-ascii')
+                        98      CONTAINS_OP                     1 (not in)
+                        100     POP_JUMP_IF_FALSE               65 (to 130)
+                        102     LOAD_FAST                       6: nextcs
+                        104     LOAD_CONST                      6: (None, 'us-ascii')
+                        106     CONTAINS_OP                     0 (in)
+                        108     POP_JUMP_IF_FALSE               64 (to 128)
+                        110     LOAD_FAST                       8: hasspace
+                        112     POP_JUMP_IF_TRUE                64 (to 128)
+                        114     LOAD_FAST                       1: uchunks
+                        116     LOAD_METHOD                     7: append
+                        118     LOAD_GLOBAL                     8: SPACE
+                        120     CALL_METHOD                     1
+                        122     POP_TOP                         
+                        124     LOAD_CONST                      1: None
+                        126     STORE_FAST                      6: nextcs
+                        128     JUMP_FORWARD                    11 (to 152)
+                        130     LOAD_FAST                       6: nextcs
+                        132     LOAD_CONST                      6: (None, 'us-ascii')
+                        134     CONTAINS_OP                     1 (not in)
+                        136     POP_JUMP_IF_FALSE               76 (to 152)
+                        138     LOAD_FAST                       3: lastspace
+                        140     POP_JUMP_IF_TRUE                76 (to 152)
+                        142     LOAD_FAST                       1: uchunks
+                        144     LOAD_METHOD                     7: append
+                        146     LOAD_GLOBAL                     8: SPACE
+                        148     CALL_METHOD                     1
+                        150     POP_TOP                         
+                        152     LOAD_FAST                       4: string
+                        154     JUMP_IF_FALSE_OR_POP            84 (to 168)
+                        156     LOAD_FAST                       0: self
+                        158     LOAD_METHOD                     6: _nonctext
+                        160     LOAD_FAST                       4: string
+                        162     LOAD_CONST                      7: -1
+                        164     BINARY_SUBSCR                   
+                        166     CALL_METHOD                     1
+                        168     STORE_FAST                      3: lastspace
+                        170     LOAD_FAST                       6: nextcs
+                        172     STORE_FAST                      2: lastcs
+                        174     LOAD_FAST                       1: uchunks
+                        176     LOAD_METHOD                     7: append
+                        178     LOAD_FAST                       4: string
+                        180     CALL_METHOD                     1
+                        182     POP_TOP                         
+                        184     JUMP_ABSOLUTE                   13 (to 26)
+                        186     LOAD_GLOBAL                     9: EMPTYSTRING
+                        188     LOAD_METHOD                     10: join
+                        190     LOAD_FAST                       1: uchunks
+                        192     CALL_METHOD                     1
+                        194     RETURN_VALUE                    
+                'Header.__str__'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: __eq__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'str'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: other
+                        2       LOAD_GLOBAL                     0: str
+                        4       LOAD_FAST                       0: self
+                        6       CALL_FUNCTION                   1
+                        8       COMPARE_OP                      2 (==)
+                        10      RETURN_VALUE                    
+                'Header.__eq__'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: append
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_charset'
+                        'isinstance'
+                        'Charset'
+                        'str'
+                        'input_codec'
+                        'UNKNOWN8BIT'
+                        'decode'
+                        'output_codec'
+                        'encode'
+                        'UnicodeEncodeError'
+                        'UTF8'
+                        '_chunks'
+                        'append'
+                    [Var Names]
+                        'self'
+                        's'
+                        'charset'
+                        'errors'
+                        'input_charset'
+                        'output_charset'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Append a string to the MIME header.\n\n        Optional charset, if given, should be a Charset instance or the name\n        of a character set (which will be converted to a Charset instance).  A\n        value of None (the default) means that the charset given in the\n        constructor is used.\n\n        s may be a byte string or a Unicode string.  If it is a byte string\n        (i.e. isinstance(s, str) is false), then charset is the encoding of\n        that byte string, and a UnicodeError will be raised if the string\n        cannot be decoded with that charset.  If s is a Unicode string, then\n        charset is a hint specifying the character set of the characters in\n        the string.  In either case, when producing an RFC 2822 compliant\n        header using RFC 2047 rules, the string will be encoded using the\n        output codec of the charset.  If the string cannot be encoded to the\n        output codec, a UnicodeError will be raised.\n\n        Optional `errors' is passed as the errors argument to the decode\n        call if s is a byte string.\n        "
+                        None
+                        'us-ascii'
+                        'surrogateescape'
+                    [Disassembly]
+                        0       LOAD_FAST                       2: charset
+                        2       LOAD_CONST                      1: None
+                        4       IS_OP                           0 (is)
+                        6       POP_JUMP_IF_FALSE               8 (to 16)
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       0: _charset
+                        12      STORE_FAST                      2: charset
+                        14      JUMP_FORWARD                    9 (to 34)
+                        16      LOAD_GLOBAL                     1: isinstance
+                        18      LOAD_FAST                       2: charset
+                        20      LOAD_GLOBAL                     2: Charset
+                        22      CALL_FUNCTION                   2
+                        24      POP_JUMP_IF_TRUE                17 (to 34)
+                        26      LOAD_GLOBAL                     2: Charset
+                        28      LOAD_FAST                       2: charset
+                        30      CALL_FUNCTION                   1
+                        32      STORE_FAST                      2: charset
+                        34      LOAD_GLOBAL                     1: isinstance
+                        36      LOAD_FAST                       1: s
+                        38      LOAD_GLOBAL                     3: str
+                        40      CALL_FUNCTION                   2
+                        42      POP_JUMP_IF_TRUE                45 (to 90)
+                        44      LOAD_FAST                       2: charset
+                        46      LOAD_ATTR                       4: input_codec
+                        48      JUMP_IF_TRUE_OR_POP             26 (to 52)
+                        50      LOAD_CONST                      2: 'us-ascii'
+                        52      STORE_FAST                      4: input_charset
+                        54      LOAD_FAST                       4: input_charset
+                        56      LOAD_GLOBAL                     0: _charset
+                        58      LOAD_ATTR                       5: UNKNOWN8BIT
+                        60      COMPARE_OP                      2 (==)
+                        62      POP_JUMP_IF_FALSE               39 (to 78)
+                        64      LOAD_FAST                       1: s
+                        66      LOAD_METHOD                     6: decode
+                        68      LOAD_CONST                      2: 'us-ascii'
+                        70      LOAD_CONST                      3: 'surrogateescape'
+                        72      CALL_METHOD                     2
+                        74      STORE_FAST                      1: s
+                        76      JUMP_FORWARD                    6 (to 90)
+                        78      LOAD_FAST                       1: s
+                        80      LOAD_METHOD                     6: decode
+                        82      LOAD_FAST                       4: input_charset
+                        84      LOAD_FAST                       3: errors
+                        86      CALL_METHOD                     2
+                        88      STORE_FAST                      1: s
+                        90      LOAD_FAST                       2: charset
+                        92      LOAD_ATTR                       7: output_codec
+                        94      JUMP_IF_TRUE_OR_POP             49 (to 98)
+                        96      LOAD_CONST                      2: 'us-ascii'
+                        98      STORE_FAST                      5: output_charset
+                        100     LOAD_FAST                       5: output_charset
+                        102     LOAD_GLOBAL                     0: _charset
+                        104     LOAD_ATTR                       5: UNKNOWN8BIT
+                        106     COMPARE_OP                      3 (!=)
+                        108     POP_JUMP_IF_FALSE               80 (to 160)
+                        110     SETUP_FINALLY                   8 (to 128)
+                        112     LOAD_FAST                       1: s
+                        114     LOAD_METHOD                     8: encode
+                        116     LOAD_FAST                       5: output_charset
+                        118     LOAD_FAST                       3: errors
+                        120     CALL_METHOD                     2
+                        122     POP_TOP                         
+                        124     POP_BLOCK                       
+                        126     JUMP_FORWARD                    16 (to 160)
+                        128     DUP_TOP                         
+                        130     LOAD_GLOBAL                     9: UnicodeEncodeError
+                        132     JUMP_IF_NOT_EXC_MATCH           79 (to 158)
+                        134     POP_TOP                         
+                        136     POP_TOP                         
+                        138     POP_TOP                         
+                        140     LOAD_FAST                       5: output_charset
+                        142     LOAD_CONST                      2: 'us-ascii'
+                        144     COMPARE_OP                      3 (!=)
+                        146     POP_JUMP_IF_FALSE               75 (to 150)
+                        148     RAISE_VARARGS                   0
+                        150     LOAD_GLOBAL                     10: UTF8
+                        152     STORE_FAST                      2: charset
+                        154     POP_EXCEPT                      
+                        156     JUMP_FORWARD                    1 (to 160)
+                        158     RERAISE                         0
+                        160     LOAD_FAST                       0: self
+                        162     LOAD_ATTR                       11: _chunks
+                        164     LOAD_METHOD                     12: append
+                        166     LOAD_FAST                       1: s
+                        168     LOAD_FAST                       2: charset
+                        170     BUILD_TUPLE                     2
+                        172     CALL_METHOD                     1
+                        174     POP_TOP                         
+                        176     LOAD_CONST                      1: None
+                        178     RETURN_VALUE                    
+                'Header.append'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: _nonctext
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isspace'
+                    [Var Names]
+                        'self'
+                        's'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'True if string s is not a ctext character of RFC822.\n        '
+                        (
+                            '('
+                            ')'
+                            '\\'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       1: s
+                        2       LOAD_METHOD                     0: isspace
+                        4       CALL_METHOD                     0
+                        6       JUMP_IF_TRUE_OR_POP             7 (to 14)
+                        8       LOAD_FAST                       1: s
+                        10      LOAD_CONST                      1: ('(', ')', '\\')
+                        12      CONTAINS_OP                     0 (in)
+                        14      RETURN_VALUE                    
+                'Header._nonctext'
+                ';, \t'
+                '\n'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: encode
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 15
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_normalize'
+                        '_maxlinelen'
+                        '_ValueFormatter'
+                        '_headerlen'
+                        '_continuation_ws'
+                        '_chunks'
+                        '_nonctext'
+                        'add_transition'
+                        'splitlines'
+                        'feed'
+                        'newline'
+                        'header_encoding'
+                        'lstrip'
+                        'len'
+                        '_str'
+                        '_embedded_header'
+                        'search'
+                        'HeaderParseError'
+                        'format'
+                    [Var Names]
+                        'self'
+                        'splitchars'
+                        'maxlinelen'
+                        'linesep'
+                        'formatter'
+                        'lastcs'
+                        'hasspace'
+                        'lastspace'
+                        'string'
+                        'charset'
+                        'lines'
+                        'line'
+                        'sline'
+                        'fws'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Encode a message header into an RFC-compliant format.\n\n        There are many issues involved in converting a given string for use in\n        an email header.  Only certain character sets are readable in most\n        email clients, and as header strings can only contain a subset of\n        7-bit ASCII, care must be taken to properly convert and encode (with\n        Base64 or quoted-printable) header strings.  In addition, there is a\n        75-character length limit on any given encoded header field, so\n        line-wrapping must be performed, even with double-byte character sets.\n\n        Optional maxlinelen specifies the maximum length of each generated\n        line, exclusive of the linesep string.  Individual lines may be longer\n        than maxlinelen if a folding point cannot be found.  The first line\n        will be shorter by the length of the header name plus ": " if a header\n        name was specified at Header construction time.  The default value for\n        maxlinelen is determined at header construction time.\n\n        Optional splitchars is a string containing characters which should be\n        given extra weight by the splitting algorithm during normal header\n        wrapping.  This is in very rough support of RFC 2822\'s `higher level\n        syntactic breaks\':  split points preceded by a splitchar are preferred\n        during line splitting, with the characters preferred in the order in\n        which they appear in the string.  Space and tab may be included in the\n        string to indicate whether preference should be given to one over the\n        other as a split point when other split chars do not appear in the line\n        being split.  Splitchars does not affect RFC 2047 encoded lines.\n\n        Optional linesep is a string to be used to separate the lines of\n        the value.  The default value is the most useful for typical\n        Python applications, but it can be set to \\r\\n to produce RFC-compliant\n        line separators when needed.\n        '
+                        None
+                        0
+                        1000000
+                        (
+                            None
+                            'us-ascii'
+                        )
+                        -1
+                        False
+                        ''
+                        1
+                        ' '
+                        'header value appears to contain an embedded header: {!r}'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _normalize
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       2: maxlinelen
+                        10      LOAD_CONST                      1: None
+                        12      IS_OP                           0 (is)
+                        14      POP_JUMP_IF_FALSE               11 (to 22)
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       1: _maxlinelen
+                        20      STORE_FAST                      2: maxlinelen
+                        22      LOAD_FAST                       2: maxlinelen
+                        24      LOAD_CONST                      2: 0
+                        26      COMPARE_OP                      2 (==)
+                        28      POP_JUMP_IF_FALSE               17 (to 34)
+                        30      LOAD_CONST                      3: 1000000
+                        32      STORE_FAST                      2: maxlinelen
+                        34      LOAD_GLOBAL                     2: _ValueFormatter
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_ATTR                       3: _headerlen
+                        40      LOAD_FAST                       2: maxlinelen
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_ATTR                       4: _continuation_ws
+                        46      LOAD_FAST                       1: splitchars
+                        48      CALL_FUNCTION                   4
+                        50      STORE_FAST                      4: formatter
+                        52      LOAD_CONST                      1: None
+                        54      STORE_FAST                      5: lastcs
+                        56      LOAD_CONST                      1: None
+                        58      DUP_TOP                         
+                        60      STORE_FAST                      6: hasspace
+                        62      STORE_FAST                      7: lastspace
+                        64      LOAD_FAST                       0: self
+                        66      LOAD_ATTR                       5: _chunks
+                        68      GET_ITER                        
+                        70      FOR_ITER                        142 (to 356)
+                        72      UNPACK_SEQUENCE                 2
+                        74      STORE_FAST                      8: string
+                        76      STORE_FAST                      9: charset
+                        78      LOAD_FAST                       6: hasspace
+                        80      LOAD_CONST                      1: None
+                        82      IS_OP                           1 (is not)
+                        84      POP_JUMP_IF_FALSE               77 (to 154)
+                        86      LOAD_FAST                       8: string
+                        88      JUMP_IF_FALSE_OR_POP            51 (to 102)
+                        90      LOAD_FAST                       0: self
+                        92      LOAD_METHOD                     6: _nonctext
+                        94      LOAD_FAST                       8: string
+                        96      LOAD_CONST                      2: 0
+                        98      BINARY_SUBSCR                   
+                        100     CALL_METHOD                     1
+                        102     STORE_FAST                      6: hasspace
+                        104     LOAD_FAST                       5: lastcs
+                        106     LOAD_CONST                      4: (None, 'us-ascii')
+                        108     CONTAINS_OP                     1 (not in)
+                        110     POP_JUMP_IF_FALSE               67 (to 134)
+                        112     LOAD_FAST                       6: hasspace
+                        114     POP_JUMP_IF_FALSE               62 (to 124)
+                        116     LOAD_FAST                       9: charset
+                        118     LOAD_CONST                      4: (None, 'us-ascii')
+                        120     CONTAINS_OP                     1 (not in)
+                        122     POP_JUMP_IF_FALSE               66 (to 132)
+                        124     LOAD_FAST                       4: formatter
+                        126     LOAD_METHOD                     7: add_transition
+                        128     CALL_METHOD                     0
+                        130     POP_TOP                         
+                        132     JUMP_FORWARD                    10 (to 154)
+                        134     LOAD_FAST                       9: charset
+                        136     LOAD_CONST                      4: (None, 'us-ascii')
+                        138     CONTAINS_OP                     1 (not in)
+                        140     POP_JUMP_IF_FALSE               77 (to 154)
+                        142     LOAD_FAST                       7: lastspace
+                        144     POP_JUMP_IF_TRUE                77 (to 154)
+                        146     LOAD_FAST                       4: formatter
+                        148     LOAD_METHOD                     7: add_transition
+                        150     CALL_METHOD                     0
+                        152     POP_TOP                         
+                        154     LOAD_FAST                       8: string
+                        156     JUMP_IF_FALSE_OR_POP            85 (to 170)
+                        158     LOAD_FAST                       0: self
+                        160     LOAD_METHOD                     6: _nonctext
+                        162     LOAD_FAST                       8: string
+                        164     LOAD_CONST                      5: -1
+                        166     BINARY_SUBSCR                   
+                        168     CALL_METHOD                     1
+                        170     STORE_FAST                      7: lastspace
+                        172     LOAD_FAST                       9: charset
+                        174     STORE_FAST                      5: lastcs
+                        176     LOAD_CONST                      6: False
+                        178     STORE_FAST                      6: hasspace
+                        180     LOAD_FAST                       8: string
+                        182     LOAD_METHOD                     8: splitlines
+                        184     CALL_METHOD                     0
+                        186     STORE_FAST                      10: lines
+                        188     LOAD_FAST                       10: lines
+                        190     POP_JUMP_IF_FALSE               106 (to 212)
+                        192     LOAD_FAST                       4: formatter
+                        194     LOAD_METHOD                     9: feed
+                        196     LOAD_CONST                      7: ''
+                        198     LOAD_FAST                       10: lines
+                        200     LOAD_CONST                      2: 0
+                        202     BINARY_SUBSCR                   
+                        204     LOAD_FAST                       9: charset
+                        206     CALL_METHOD                     3
+                        208     POP_TOP                         
+                        210     JUMP_FORWARD                    7 (to 226)
+                        212     LOAD_FAST                       4: formatter
+                        214     LOAD_METHOD                     9: feed
+                        216     LOAD_CONST                      7: ''
+                        218     LOAD_CONST                      7: ''
+                        220     LOAD_FAST                       9: charset
+                        222     CALL_METHOD                     3
+                        224     POP_TOP                         
+                        226     LOAD_FAST                       10: lines
+                        228     LOAD_CONST                      8: 1
+                        230     LOAD_CONST                      1: None
+                        232     BUILD_SLICE                     2
+                        234     BINARY_SUBSCR                   
+                        236     GET_ITER                        
+                        238     FOR_ITER                        47 (to 334)
+                        240     STORE_FAST                      11: line
+                        242     LOAD_FAST                       4: formatter
+                        244     LOAD_METHOD                     10: newline
+                        246     CALL_METHOD                     0
+                        248     POP_TOP                         
+                        250     LOAD_FAST                       9: charset
+                        252     LOAD_ATTR                       11: header_encoding
+                        254     LOAD_CONST                      1: None
+                        256     IS_OP                           1 (is not)
+                        258     POP_JUMP_IF_FALSE               143 (to 286)
+                        260     LOAD_FAST                       4: formatter
+                        262     LOAD_METHOD                     9: feed
+                        264     LOAD_FAST                       0: self
+                        266     LOAD_ATTR                       4: _continuation_ws
+                        268     LOAD_CONST                      9: ' '
+                        270     LOAD_FAST                       11: line
+                        272     LOAD_METHOD                     12: lstrip
+                        274     CALL_METHOD                     0
+                        276     BINARY_ADD                      
+                        278     LOAD_FAST                       9: charset
+                        280     CALL_METHOD                     3
+                        282     POP_TOP                         
+                        284     JUMP_ABSOLUTE                   119 (to 238)
+                        286     LOAD_FAST                       11: line
+                        288     LOAD_METHOD                     12: lstrip
+                        290     CALL_METHOD                     0
+                        292     STORE_FAST                      12: sline
+                        294     LOAD_FAST                       11: line
+                        296     LOAD_CONST                      1: None
+                        298     LOAD_GLOBAL                     13: len
+                        300     LOAD_FAST                       11: line
+                        302     CALL_FUNCTION                   1
+                        304     LOAD_GLOBAL                     13: len
+                        306     LOAD_FAST                       12: sline
+                        308     CALL_FUNCTION                   1
+                        310     BINARY_SUBTRACT                 
+                        312     BUILD_SLICE                     2
+                        314     BINARY_SUBSCR                   
+                        316     STORE_FAST                      13: fws
+                        318     LOAD_FAST                       4: formatter
+                        320     LOAD_METHOD                     9: feed
+                        322     LOAD_FAST                       13: fws
+                        324     LOAD_FAST                       12: sline
+                        326     LOAD_FAST                       9: charset
+                        328     CALL_METHOD                     3
+                        330     POP_TOP                         
+                        332     JUMP_ABSOLUTE                   119 (to 238)
+                        334     LOAD_GLOBAL                     13: len
+                        336     LOAD_FAST                       10: lines
+                        338     CALL_FUNCTION                   1
+                        340     LOAD_CONST                      8: 1
+                        342     COMPARE_OP                      4 (>)
+                        344     POP_JUMP_IF_FALSE               177 (to 354)
+                        346     LOAD_FAST                       4: formatter
+                        348     LOAD_METHOD                     10: newline
+                        350     CALL_METHOD                     0
+                        352     POP_TOP                         
+                        354     JUMP_ABSOLUTE                   35 (to 70)
+                        356     LOAD_FAST                       0: self
+                        358     LOAD_ATTR                       5: _chunks
+                        360     POP_JUMP_IF_FALSE               185 (to 370)
+                        362     LOAD_FAST                       4: formatter
+                        364     LOAD_METHOD                     7: add_transition
+                        366     CALL_METHOD                     0
+                        368     POP_TOP                         
+                        370     LOAD_FAST                       4: formatter
+                        372     LOAD_METHOD                     14: _str
+                        374     LOAD_FAST                       3: linesep
+                        376     CALL_METHOD                     1
+                        378     STORE_FAST                      14: value
+                        380     LOAD_GLOBAL                     15: _embedded_header
+                        382     LOAD_METHOD                     16: search
+                        384     LOAD_FAST                       14: value
+                        386     CALL_METHOD                     1
+                        388     POP_JUMP_IF_FALSE               202 (to 404)
+                        390     LOAD_GLOBAL                     17: HeaderParseError
+                        392     LOAD_CONST                      10: 'header value appears to contain an embedded header: {!r}'
+                        394     LOAD_METHOD                     18: format
+                        396     LOAD_FAST                       14: value
+                        398     CALL_METHOD                     1
+                        400     CALL_FUNCTION                   1
+                        402     RAISE_VARARGS                   1
+                        404     LOAD_FAST                       14: value
+                        406     RETURN_VALUE                    
+                'Header.encode'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: _normalize
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_chunks'
+                        'append'
+                        'SPACE'
+                        'join'
+                    [Var Names]
+                        'self'
+                        'chunks'
+                        'last_charset'
+                        'last_chunk'
+                        'string'
+                        'charset'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       STORE_FAST                      1: chunks
+                        4       LOAD_CONST                      0: None
+                        6       STORE_FAST                      2: last_charset
+                        8       BUILD_LIST                      0
+                        10      STORE_FAST                      3: last_chunk
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_ATTR                       0: _chunks
+                        16      GET_ITER                        
+                        18      FOR_ITER                        33 (to 86)
+                        20      UNPACK_SEQUENCE                 2
+                        22      STORE_FAST                      4: string
+                        24      STORE_FAST                      5: charset
+                        26      LOAD_FAST                       5: charset
+                        28      LOAD_FAST                       2: last_charset
+                        30      COMPARE_OP                      2 (==)
+                        32      POP_JUMP_IF_FALSE               23 (to 46)
+                        34      LOAD_FAST                       3: last_chunk
+                        36      LOAD_METHOD                     1: append
+                        38      LOAD_FAST                       4: string
+                        40      CALL_METHOD                     1
+                        42      POP_TOP                         
+                        44      JUMP_ABSOLUTE                   9 (to 18)
+                        46      LOAD_FAST                       2: last_charset
+                        48      LOAD_CONST                      0: None
+                        50      IS_OP                           1 (is not)
+                        52      POP_JUMP_IF_FALSE               37 (to 74)
+                        54      LOAD_FAST                       1: chunks
+                        56      LOAD_METHOD                     1: append
+                        58      LOAD_GLOBAL                     2: SPACE
+                        60      LOAD_METHOD                     3: join
+                        62      LOAD_FAST                       3: last_chunk
+                        64      CALL_METHOD                     1
+                        66      LOAD_FAST                       2: last_charset
+                        68      BUILD_TUPLE                     2
+                        70      CALL_METHOD                     1
+                        72      POP_TOP                         
+                        74      LOAD_FAST                       4: string
+                        76      BUILD_LIST                      1
+                        78      STORE_FAST                      3: last_chunk
+                        80      LOAD_FAST                       5: charset
+                        82      STORE_FAST                      2: last_charset
+                        84      JUMP_ABSOLUTE                   9 (to 18)
+                        86      LOAD_FAST                       3: last_chunk
+                        88      POP_JUMP_IF_FALSE               55 (to 110)
+                        90      LOAD_FAST                       1: chunks
+                        92      LOAD_METHOD                     1: append
+                        94      LOAD_GLOBAL                     2: SPACE
+                        96      LOAD_METHOD                     3: join
+                        98      LOAD_FAST                       3: last_chunk
+                        100     CALL_METHOD                     1
+                        102     LOAD_FAST                       2: last_charset
+                        104     BUILD_TUPLE                     2
+                        106     CALL_METHOD                     1
+                        108     POP_TOP                         
+                        110     LOAD_FAST                       1: chunks
+                        112     LOAD_FAST                       0: self
+                        114     STORE_ATTR                      0: _chunks
+                        116     LOAD_CONST                      0: None
+                        118     RETURN_VALUE                    
+                'Header._normalize'
+                (
+                    None
+                    None
+                    None
+                    None
+                    ' '
+                    'strict'
+                )
+                (
+                    None
+                    'strict'
+                )
+                (
+                    ';, \t'
+                    None
+                    '\n'
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Header'
+                6       STORE_NAME                      2: __qualname__
+                8       NOP                             
+                10      NOP                             
+                12      NOP                             
+                14      LOAD_CONST                      20: (None, None, None, None, ' ', 'strict')
+                16      LOAD_CONST                      4: <CODE> __init__
+                18      LOAD_CONST                      5: 'Header.__init__'
+                20      MAKE_FUNCTION                   1
+                22      STORE_NAME                      3: __init__
+                24      LOAD_CONST                      6: <CODE> __str__
+                26      LOAD_CONST                      7: 'Header.__str__'
+                28      MAKE_FUNCTION                   0
+                30      STORE_NAME                      4: __str__
+                32      LOAD_CONST                      8: <CODE> __eq__
+                34      LOAD_CONST                      9: 'Header.__eq__'
+                36      MAKE_FUNCTION                   0
+                38      STORE_NAME                      5: __eq__
+                40      LOAD_CONST                      21: (None, 'strict')
+                42      LOAD_CONST                      10: <CODE> append
+                44      LOAD_CONST                      11: 'Header.append'
+                46      MAKE_FUNCTION                   1
+                48      STORE_NAME                      6: append
+                50      LOAD_CONST                      12: <CODE> _nonctext
+                52      LOAD_CONST                      13: 'Header._nonctext'
+                54      MAKE_FUNCTION                   0
+                56      STORE_NAME                      7: _nonctext
+                58      LOAD_CONST                      22: (';, \t', None, '\n')
+                60      LOAD_CONST                      16: <CODE> encode
+                62      LOAD_CONST                      17: 'Header.encode'
+                64      MAKE_FUNCTION                   1
+                66      STORE_NAME                      8: encode
+                68      LOAD_CONST                      18: <CODE> _normalize
+                70      LOAD_CONST                      19: 'Header._normalize'
+                72      MAKE_FUNCTION                   0
+                74      STORE_NAME                      9: _normalize
+                76      LOAD_CONST                      1: None
+                78      RETURN_VALUE                    
+        'Header'
+        [Code]
+            File Name: email/header.py
+            Object Name: _ValueFormatter
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__init__'
+                '_str'
+                '__str__'
+                'newline'
+                'add_transition'
+                'feed'
+                '_maxlengths'
+                '_ascii_split'
+                '_append_chunk'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '_ValueFormatter'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: __init__
+                    Arg Count: 5
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_maxlen'
+                        '_continuation_ws'
+                        'len'
+                        '_continuation_ws_len'
+                        '_splitchars'
+                        '_lines'
+                        '_Accumulator'
+                        '_current_line'
+                    [Var Names]
+                        'self'
+                        'headerlen'
+                        'maxlen'
+                        'continuation_ws'
+                        'splitchars'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       2: maxlen
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: _maxlen
+                        6       LOAD_FAST                       3: continuation_ws
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: _continuation_ws
+                        12      LOAD_GLOBAL                     2: len
+                        14      LOAD_FAST                       3: continuation_ws
+                        16      CALL_FUNCTION                   1
+                        18      LOAD_FAST                       0: self
+                        20      STORE_ATTR                      3: _continuation_ws_len
+                        22      LOAD_FAST                       4: splitchars
+                        24      LOAD_FAST                       0: self
+                        26      STORE_ATTR                      4: _splitchars
+                        28      BUILD_LIST                      0
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      5: _lines
+                        34      LOAD_GLOBAL                     6: _Accumulator
+                        36      LOAD_FAST                       1: headerlen
+                        38      CALL_FUNCTION                   1
+                        40      LOAD_FAST                       0: self
+                        42      STORE_ATTR                      7: _current_line
+                        44      LOAD_CONST                      0: None
+                        46      RETURN_VALUE                    
+                '_ValueFormatter.__init__'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: _str
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'newline'
+                        'join'
+                        '_lines'
+                    [Var Names]
+                        'self'
+                        'linesep'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: newline
+                        4       CALL_METHOD                     0
+                        6       POP_TOP                         
+                        8       LOAD_FAST                       1: linesep
+                        10      LOAD_METHOD                     1: join
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_ATTR                       2: _lines
+                        16      CALL_METHOD                     1
+                        18      RETURN_VALUE                    
+                '_ValueFormatter._str'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: __str__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_str'
+                        'NL'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _str
+                        4       LOAD_GLOBAL                     1: NL
+                        6       CALL_METHOD                     1
+                        8       RETURN_VALUE                    
+                '_ValueFormatter.__str__'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: newline
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_current_line'
+                        'pop'
+                        'push'
+                        'len'
+                        'is_onlyws'
+                        '_lines'
+                        'str'
+                        'append'
+                        'reset'
+                    [Var Names]
+                        'self'
+                        'end_of_line'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        (
+                            ' '
+                            ''
+                        )
+                        0
+                        -1
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _current_line
+                        4       LOAD_METHOD                     1: pop
+                        6       CALL_METHOD                     0
+                        8       STORE_FAST                      1: end_of_line
+                        10      LOAD_FAST                       1: end_of_line
+                        12      LOAD_CONST                      1: (' ', '')
+                        14      COMPARE_OP                      3 (!=)
+                        16      POP_JUMP_IF_FALSE               15 (to 30)
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_ATTR                       0: _current_line
+                        22      LOAD_ATTR                       2: push
+                        24      LOAD_FAST                       1: end_of_line
+                        26      CALL_FUNCTION_EX                0
+                        28      POP_TOP                         
+                        30      LOAD_GLOBAL                     3: len
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       0: _current_line
+                        36      CALL_FUNCTION                   1
+                        38      LOAD_CONST                      2: 0
+                        40      COMPARE_OP                      4 (>)
+                        42      POP_JUMP_IF_FALSE               52 (to 104)
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_ATTR                       0: _current_line
+                        48      LOAD_METHOD                     4: is_onlyws
+                        50      CALL_METHOD                     0
+                        52      POP_JUMP_IF_FALSE               43 (to 86)
+                        54      LOAD_FAST                       0: self
+                        56      LOAD_ATTR                       5: _lines
+                        58      POP_JUMP_IF_FALSE               43 (to 86)
+                        60      LOAD_FAST                       0: self
+                        62      LOAD_ATTR                       5: _lines
+                        64      LOAD_CONST                      3: -1
+                        66      DUP_TOP_TWO                     
+                        68      BINARY_SUBSCR                   
+                        70      LOAD_GLOBAL                     6: str
+                        72      LOAD_FAST                       0: self
+                        74      LOAD_ATTR                       0: _current_line
+                        76      CALL_FUNCTION                   1
+                        78      INPLACE_ADD                     
+                        80      ROT_THREE                       
+                        82      STORE_SUBSCR                    
+                        84      JUMP_FORWARD                    9 (to 104)
+                        86      LOAD_FAST                       0: self
+                        88      LOAD_ATTR                       5: _lines
+                        90      LOAD_METHOD                     7: append
+                        92      LOAD_GLOBAL                     6: str
+                        94      LOAD_FAST                       0: self
+                        96      LOAD_ATTR                       0: _current_line
+                        98      CALL_FUNCTION                   1
+                        100     CALL_METHOD                     1
+                        102     POP_TOP                         
+                        104     LOAD_FAST                       0: self
+                        106     LOAD_ATTR                       0: _current_line
+                        108     LOAD_METHOD                     8: reset
+                        110     CALL_METHOD                     0
+                        112     POP_TOP                         
+                        114     LOAD_CONST                      0: None
+                        116     RETURN_VALUE                    
+                '_ValueFormatter.newline'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: add_transition
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_current_line'
+                        'push'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        ' '
+                        ''
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _current_line
+                        4       LOAD_METHOD                     1: push
+                        6       LOAD_CONST                      1: ' '
+                        8       LOAD_CONST                      2: ''
+                        10      CALL_METHOD                     2
+                        12      POP_TOP                         
+                        14      LOAD_CONST                      0: None
+                        16      RETURN_VALUE                    
+                '_ValueFormatter.add_transition'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: feed
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 8
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'header_encoding'
+                        '_ascii_split'
+                        '_splitchars'
+                        'header_encode_lines'
+                        '_maxlengths'
+                        'pop'
+                        'IndexError'
+                        '_append_chunk'
+                        'newline'
+                        '_current_line'
+                        'push'
+                        '_continuation_ws'
+                        '_lines'
+                        'append'
+                    [Var Names]
+                        'self'
+                        'fws'
+                        'string'
+                        'charset'
+                        'encoded_lines'
+                        'first_line'
+                        'last_line'
+                        'line'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                    [Disassembly]
+                        0       LOAD_FAST                       3: charset
+                        2       LOAD_ATTR                       0: header_encoding
+                        4       LOAD_CONST                      0: None
+                        6       IS_OP                           0 (is)
+                        8       POP_JUMP_IF_FALSE               15 (to 30)
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_METHOD                     1: _ascii_split
+                        14      LOAD_FAST                       1: fws
+                        16      LOAD_FAST                       2: string
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_ATTR                       2: _splitchars
+                        22      CALL_METHOD                     3
+                        24      POP_TOP                         
+                        26      LOAD_CONST                      0: None
+                        28      RETURN_VALUE                    
+                        30      LOAD_FAST                       3: charset
+                        32      LOAD_METHOD                     3: header_encode_lines
+                        34      LOAD_FAST                       2: string
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_METHOD                     4: _maxlengths
+                        40      CALL_METHOD                     0
+                        42      CALL_METHOD                     2
+                        44      STORE_FAST                      4: encoded_lines
+                        46      SETUP_FINALLY                   7 (to 62)
+                        48      LOAD_FAST                       4: encoded_lines
+                        50      LOAD_METHOD                     5: pop
+                        52      LOAD_CONST                      1: 0
+                        54      CALL_METHOD                     1
+                        56      STORE_FAST                      5: first_line
+                        58      POP_BLOCK                       
+                        60      JUMP_FORWARD                    10 (to 82)
+                        62      DUP_TOP                         
+                        64      LOAD_GLOBAL                     6: IndexError
+                        66      JUMP_IF_NOT_EXC_MATCH           40 (to 80)
+                        68      POP_TOP                         
+                        70      POP_TOP                         
+                        72      POP_TOP                         
+                        74      POP_EXCEPT                      
+                        76      LOAD_CONST                      0: None
+                        78      RETURN_VALUE                    
+                        80      RERAISE                         0
+                        82      LOAD_FAST                       5: first_line
+                        84      LOAD_CONST                      0: None
+                        86      IS_OP                           1 (is not)
+                        88      POP_JUMP_IF_FALSE               51 (to 102)
+                        90      LOAD_FAST                       0: self
+                        92      LOAD_METHOD                     7: _append_chunk
+                        94      LOAD_FAST                       1: fws
+                        96      LOAD_FAST                       5: first_line
+                        98      CALL_METHOD                     2
+                        100     POP_TOP                         
+                        102     SETUP_FINALLY                   6 (to 116)
+                        104     LOAD_FAST                       4: encoded_lines
+                        106     LOAD_METHOD                     5: pop
+                        108     CALL_METHOD                     0
+                        110     STORE_FAST                      6: last_line
+                        112     POP_BLOCK                       
+                        114     JUMP_FORWARD                    10 (to 136)
+                        116     DUP_TOP                         
+                        118     LOAD_GLOBAL                     6: IndexError
+                        120     JUMP_IF_NOT_EXC_MATCH           67 (to 134)
+                        122     POP_TOP                         
+                        124     POP_TOP                         
+                        126     POP_TOP                         
+                        128     POP_EXCEPT                      
+                        130     LOAD_CONST                      0: None
+                        132     RETURN_VALUE                    
+                        134     RERAISE                         0
+                        136     LOAD_FAST                       0: self
+                        138     LOAD_METHOD                     8: newline
+                        140     CALL_METHOD                     0
+                        142     POP_TOP                         
+                        144     LOAD_FAST                       0: self
+                        146     LOAD_ATTR                       9: _current_line
+                        148     LOAD_METHOD                     10: push
+                        150     LOAD_FAST                       0: self
+                        152     LOAD_ATTR                       11: _continuation_ws
+                        154     LOAD_FAST                       6: last_line
+                        156     CALL_METHOD                     2
+                        158     POP_TOP                         
+                        160     LOAD_FAST                       4: encoded_lines
+                        162     GET_ITER                        
+                        164     FOR_ITER                        11 (to 188)
+                        166     STORE_FAST                      7: line
+                        168     LOAD_FAST                       0: self
+                        170     LOAD_ATTR                       12: _lines
+                        172     LOAD_METHOD                     13: append
+                        174     LOAD_FAST                       0: self
+                        176     LOAD_ATTR                       11: _continuation_ws
+                        178     LOAD_FAST                       7: line
+                        180     BINARY_ADD                      
+                        182     CALL_METHOD                     1
+                        184     POP_TOP                         
+                        186     JUMP_ABSOLUTE                   82 (to 164)
+                        188     LOAD_CONST                      0: None
+                        190     RETURN_VALUE                    
+                '_ValueFormatter.feed'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: _maxlengths
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+                    [Names]
+                        '_maxlen'
+                        'len'
+                        '_current_line'
+                        '_continuation_ws_len'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       0: _maxlen
+                        6       LOAD_GLOBAL                     1: len
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       2: _current_line
+                        12      CALL_FUNCTION                   1
+                        14      BINARY_SUBTRACT                 
+                        16      YIELD_VALUE                     
+                        18      POP_TOP                         
+                        20      NOP                             
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       0: _maxlen
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_ATTR                       3: _continuation_ws_len
+                        30      BINARY_SUBTRACT                 
+                        32      YIELD_VALUE                     
+                        34      POP_TOP                         
+                        36      JUMP_ABSOLUTE                   11 (to 22)
+                '_ValueFormatter._maxlengths'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: _ascii_split
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        're'
+                        'split'
+                        'FWS'
+                        'pop'
+                        'zip'
+                        'iter'
+                        '_append_chunk'
+                    [Var Names]
+                        'self'
+                        'fws'
+                        'string'
+                        'splitchars'
+                        'parts'
+                        'part'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '(['
+                        ']+)'
+                        0
+                        ''
+                        2
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: re
+                        2       LOAD_METHOD                     1: split
+                        4       LOAD_CONST                      1: '(['
+                        6       LOAD_GLOBAL                     2: FWS
+                        8       BINARY_ADD                      
+                        10      LOAD_CONST                      2: ']+)'
+                        12      BINARY_ADD                      
+                        14      LOAD_FAST                       1: fws
+                        16      LOAD_FAST                       2: string
+                        18      BINARY_ADD                      
+                        20      CALL_METHOD                     2
+                        22      STORE_FAST                      4: parts
+                        24      LOAD_FAST                       4: parts
+                        26      LOAD_CONST                      3: 0
+                        28      BINARY_SUBSCR                   
+                        30      POP_JUMP_IF_FALSE               24 (to 48)
+                        32      LOAD_CONST                      4: ''
+                        34      BUILD_LIST                      1
+                        36      LOAD_FAST                       4: parts
+                        38      LOAD_CONST                      0: None
+                        40      LOAD_CONST                      3: 0
+                        42      BUILD_SLICE                     2
+                        44      STORE_SUBSCR                    
+                        46      JUMP_FORWARD                    5 (to 58)
+                        48      LOAD_FAST                       4: parts
+                        50      LOAD_METHOD                     3: pop
+                        52      LOAD_CONST                      3: 0
+                        54      CALL_METHOD                     1
+                        56      POP_TOP                         
+                        58      LOAD_GLOBAL                     4: zip
+                        60      LOAD_GLOBAL                     5: iter
+                        62      LOAD_FAST                       4: parts
+                        64      CALL_FUNCTION                   1
+                        66      BUILD_LIST                      1
+                        68      LOAD_CONST                      5: 2
+                        70      BINARY_MULTIPLY                 
+                        72      CALL_FUNCTION_EX                0
+                        74      GET_ITER                        
+                        76      FOR_ITER                        10 (to 98)
+                        78      UNPACK_SEQUENCE                 2
+                        80      STORE_FAST                      1: fws
+                        82      STORE_FAST                      5: part
+                        84      LOAD_FAST                       0: self
+                        86      LOAD_METHOD                     6: _append_chunk
+                        88      LOAD_FAST                       1: fws
+                        90      LOAD_FAST                       5: part
+                        92      CALL_METHOD                     2
+                        94      POP_TOP                         
+                        96      JUMP_ABSOLUTE                   38 (to 76)
+                        98      LOAD_CONST                      0: None
+                        100     RETURN_VALUE                    
+                '_ValueFormatter._ascii_split'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: _append_chunk
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 8
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_current_line'
+                        'push'
+                        'len'
+                        '_maxlen'
+                        '_splitchars'
+                        'range'
+                        'part_count'
+                        'isspace'
+                        'pop'
+                        '_initial_size'
+                        'newline'
+                        'pop_from'
+                        '_lines'
+                        'append'
+                        'str'
+                        'reset'
+                    [Var Names]
+                        'self'
+                        'fws'
+                        'string'
+                        'ch'
+                        'i'
+                        'prevpart'
+                        'part'
+                        'remainder'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        1
+                        0
+                        -1
+                        ' '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _current_line
+                        4       LOAD_METHOD                     1: push
+                        6       LOAD_FAST                       1: fws
+                        8       LOAD_FAST                       2: string
+                        10      CALL_METHOD                     2
+                        12      POP_TOP                         
+                        14      LOAD_GLOBAL                     2: len
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       0: _current_line
+                        20      CALL_FUNCTION                   1
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       3: _maxlen
+                        26      COMPARE_OP                      4 (>)
+                        28      POP_JUMP_IF_FALSE               130 (to 260)
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_ATTR                       4: _splitchars
+                        34      GET_ITER                        
+                        36      FOR_ITER                        58 (to 154)
+                        38      STORE_FAST                      3: ch
+                        40      LOAD_GLOBAL                     5: range
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_ATTR                       0: _current_line
+                        46      LOAD_METHOD                     6: part_count
+                        48      CALL_METHOD                     0
+                        50      LOAD_CONST                      1: 1
+                        52      BINARY_SUBTRACT                 
+                        54      LOAD_CONST                      2: 0
+                        56      LOAD_CONST                      3: -1
+                        58      CALL_FUNCTION                   3
+                        60      GET_ITER                        
+                        62      FOR_ITER                        42 (to 148)
+                        64      STORE_FAST                      4: i
+                        66      LOAD_FAST                       3: ch
+                        68      LOAD_METHOD                     7: isspace
+                        70      CALL_METHOD                     0
+                        72      POP_JUMP_IF_FALSE               54 (to 108)
+                        74      LOAD_FAST                       0: self
+                        76      LOAD_ATTR                       0: _current_line
+                        78      LOAD_FAST                       4: i
+                        80      BINARY_SUBSCR                   
+                        82      LOAD_CONST                      2: 0
+                        84      BINARY_SUBSCR                   
+                        86      STORE_FAST                      1: fws
+                        88      LOAD_FAST                       1: fws
+                        90      POP_JUMP_IF_FALSE               54 (to 108)
+                        92      LOAD_FAST                       1: fws
+                        94      LOAD_CONST                      2: 0
+                        96      BINARY_SUBSCR                   
+                        98      LOAD_FAST                       3: ch
+                        100     COMPARE_OP                      2 (==)
+                        102     POP_JUMP_IF_FALSE               54 (to 108)
+                        104     POP_TOP                         
+                        106     JUMP_FORWARD                    21 (to 150)
+                        108     LOAD_FAST                       0: self
+                        110     LOAD_ATTR                       0: _current_line
+                        112     LOAD_FAST                       4: i
+                        114     LOAD_CONST                      1: 1
+                        116     BINARY_SUBTRACT                 
+                        118     BINARY_SUBSCR                   
+                        120     LOAD_CONST                      1: 1
+                        122     BINARY_SUBSCR                   
+                        124     STORE_FAST                      5: prevpart
+                        126     LOAD_FAST                       5: prevpart
+                        128     POP_JUMP_IF_FALSE               73 (to 146)
+                        130     LOAD_FAST                       5: prevpart
+                        132     LOAD_CONST                      3: -1
+                        134     BINARY_SUBSCR                   
+                        136     LOAD_FAST                       3: ch
+                        138     COMPARE_OP                      2 (==)
+                        140     POP_JUMP_IF_FALSE               73 (to 146)
+                        142     POP_TOP                         
+                        144     JUMP_FORWARD                    2 (to 150)
+                        146     JUMP_ABSOLUTE                   31 (to 62)
+                        148     JUMP_ABSOLUTE                   18 (to 36)
+                        150     POP_TOP                         
+                        152     JUMP_FORWARD                    30 (to 214)
+                        154     LOAD_FAST                       0: self
+                        156     LOAD_ATTR                       0: _current_line
+                        158     LOAD_METHOD                     8: pop
+                        160     CALL_METHOD                     0
+                        162     UNPACK_SEQUENCE                 2
+                        164     STORE_FAST                      1: fws
+                        166     STORE_FAST                      6: part
+                        168     LOAD_FAST                       0: self
+                        170     LOAD_ATTR                       0: _current_line
+                        172     LOAD_ATTR                       9: _initial_size
+                        174     LOAD_CONST                      2: 0
+                        176     COMPARE_OP                      4 (>)
+                        178     POP_JUMP_IF_FALSE               98 (to 196)
+                        180     LOAD_FAST                       0: self
+                        182     LOAD_METHOD                     10: newline
+                        184     CALL_METHOD                     0
+                        186     POP_TOP                         
+                        188     LOAD_FAST                       1: fws
+                        190     POP_JUMP_IF_TRUE                98 (to 196)
+                        192     LOAD_CONST                      4: ' '
+                        194     STORE_FAST                      1: fws
+                        196     LOAD_FAST                       0: self
+                        198     LOAD_ATTR                       0: _current_line
+                        200     LOAD_METHOD                     1: push
+                        202     LOAD_FAST                       1: fws
+                        204     LOAD_FAST                       6: part
+                        206     CALL_METHOD                     2
+                        208     POP_TOP                         
+                        210     LOAD_CONST                      0: None
+                        212     RETURN_VALUE                    
+                        214     LOAD_FAST                       0: self
+                        216     LOAD_ATTR                       0: _current_line
+                        218     LOAD_METHOD                     11: pop_from
+                        220     LOAD_FAST                       4: i
+                        222     CALL_METHOD                     1
+                        224     STORE_FAST                      7: remainder
+                        226     LOAD_FAST                       0: self
+                        228     LOAD_ATTR                       12: _lines
+                        230     LOAD_METHOD                     13: append
+                        232     LOAD_GLOBAL                     14: str
+                        234     LOAD_FAST                       0: self
+                        236     LOAD_ATTR                       0: _current_line
+                        238     CALL_FUNCTION                   1
+                        240     CALL_METHOD                     1
+                        242     POP_TOP                         
+                        244     LOAD_FAST                       0: self
+                        246     LOAD_ATTR                       0: _current_line
+                        248     LOAD_METHOD                     15: reset
+                        250     LOAD_FAST                       7: remainder
+                        252     CALL_METHOD                     1
+                        254     POP_TOP                         
+                        256     LOAD_CONST                      0: None
+                        258     RETURN_VALUE                    
+                        260     LOAD_CONST                      0: None
+                        262     RETURN_VALUE                    
+                '_ValueFormatter._append_chunk'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: '_ValueFormatter'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: <CODE> __init__
+                10      LOAD_CONST                      2: '_ValueFormatter.__init__'
+                12      MAKE_FUNCTION                   0
+                14      STORE_NAME                      3: __init__
+                16      LOAD_CONST                      3: <CODE> _str
+                18      LOAD_CONST                      4: '_ValueFormatter._str'
+                20      MAKE_FUNCTION                   0
+                22      STORE_NAME                      4: _str
+                24      LOAD_CONST                      5: <CODE> __str__
+                26      LOAD_CONST                      6: '_ValueFormatter.__str__'
+                28      MAKE_FUNCTION                   0
+                30      STORE_NAME                      5: __str__
+                32      LOAD_CONST                      7: <CODE> newline
+                34      LOAD_CONST                      8: '_ValueFormatter.newline'
+                36      MAKE_FUNCTION                   0
+                38      STORE_NAME                      6: newline
+                40      LOAD_CONST                      9: <CODE> add_transition
+                42      LOAD_CONST                      10: '_ValueFormatter.add_transition'
+                44      MAKE_FUNCTION                   0
+                46      STORE_NAME                      7: add_transition
+                48      LOAD_CONST                      11: <CODE> feed
+                50      LOAD_CONST                      12: '_ValueFormatter.feed'
+                52      MAKE_FUNCTION                   0
+                54      STORE_NAME                      8: feed
+                56      LOAD_CONST                      13: <CODE> _maxlengths
+                58      LOAD_CONST                      14: '_ValueFormatter._maxlengths'
+                60      MAKE_FUNCTION                   0
+                62      STORE_NAME                      9: _maxlengths
+                64      LOAD_CONST                      15: <CODE> _ascii_split
+                66      LOAD_CONST                      16: '_ValueFormatter._ascii_split'
+                68      MAKE_FUNCTION                   0
+                70      STORE_NAME                      10: _ascii_split
+                72      LOAD_CONST                      17: <CODE> _append_chunk
+                74      LOAD_CONST                      18: '_ValueFormatter._append_chunk'
+                76      MAKE_FUNCTION                   0
+                78      STORE_NAME                      11: _append_chunk
+                80      LOAD_CONST                      19: None
+                82      RETURN_VALUE                    
+        '_ValueFormatter'
+        [Code]
+            File Name: email/header.py
+            Object Name: _Accumulator
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__init__'
+                'push'
+                'pop_from'
+                'pop'
+                '__len__'
+                '__str__'
+                'reset'
+                'is_onlyws'
+                'part_count'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                '_Accumulator'
+                0
+                [Code]
+                    File Name: email/header.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 2
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        '_initial_size'
+                        'super'
+                        '__init__'
+                    [Var Names]
+                        'self'
+                        'initial_size'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: initial_size
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: _initial_size
+                        6       LOAD_GLOBAL                     1: super
+                        8       CALL_FUNCTION                   0
+                        10      LOAD_METHOD                     2: __init__
+                        12      CALL_METHOD                     0
+                        14      POP_TOP                         
+                        16      LOAD_CONST                      0: None
+                        18      RETURN_VALUE                    
+                '_Accumulator.__init__'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: push
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'append'
+                    [Var Names]
+                        'self'
+                        'fws'
+                        'string'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: append
+                        4       LOAD_FAST                       1: fws
+                        6       LOAD_FAST                       2: string
+                        8       BUILD_TUPLE                     2
+                        10      CALL_METHOD                     1
+                        12      POP_TOP                         
+                        14      LOAD_CONST                      0: None
+                        16      RETURN_VALUE                    
+                '_Accumulator.push'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: pop_from
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        'i'
+                        'popped'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_FAST                       1: i
+                        4       LOAD_CONST                      0: None
+                        6       BUILD_SLICE                     2
+                        8       BINARY_SUBSCR                   
+                        10      STORE_FAST                      2: popped
+                        12      BUILD_LIST                      0
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_FAST                       1: i
+                        18      LOAD_CONST                      0: None
+                        20      BUILD_SLICE                     2
+                        22      STORE_SUBSCR                    
+                        24      LOAD_FAST                       2: popped
+                        26      RETURN_VALUE                    
+                '_Accumulator.pop_from'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: pop
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'part_count'
+                        'super'
+                        'pop'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                        (
+                            ''
+                            ''
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: part_count
+                        4       CALL_METHOD                     0
+                        6       LOAD_CONST                      1: 0
+                        8       COMPARE_OP                      2 (==)
+                        10      POP_JUMP_IF_FALSE               8 (to 16)
+                        12      LOAD_CONST                      2: ('', '')
+                        14      RETURN_VALUE                    
+                        16      LOAD_GLOBAL                     1: super
+                        18      CALL_FUNCTION                   0
+                        20      LOAD_METHOD                     2: pop
+                        22      CALL_METHOD                     0
+                        24      RETURN_VALUE                    
+                '_Accumulator.pop'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: __len__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'sum'
+                        '_initial_size'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        [Code]
+                            File Name: email/header.py
+                            Object Name: <genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 3
+                            Stack Size: 4
+                            Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                            [Names]
+                                'len'
+                            [Var Names]
+                                '.0'
+                                'fws'
+                                'part'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       GEN_START                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        13 (to 32)
+                                6       UNPACK_SEQUENCE                 2
+                                8       STORE_FAST                      1: fws
+                                10      STORE_FAST                      2: part
+                                12      LOAD_GLOBAL                     0: len
+                                14      LOAD_FAST                       1: fws
+                                16      CALL_FUNCTION                   1
+                                18      LOAD_GLOBAL                     0: len
+                                20      LOAD_FAST                       2: part
+                                22      CALL_FUNCTION                   1
+                                24      BINARY_ADD                      
+                                26      YIELD_VALUE                     
+                                28      POP_TOP                         
+                                30      JUMP_ABSOLUTE                   2 (to 4)
+                                32      LOAD_CONST                      0: None
+                                34      RETURN_VALUE                    
+                        '_Accumulator.__len__.<locals>.<genexpr>'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: sum
+                        2       LOAD_CONST                      1: <CODE> <genexpr>
+                        4       LOAD_CONST                      2: '_Accumulator.__len__.<locals>.<genexpr>'
+                        6       MAKE_FUNCTION                   0
+                        8       LOAD_FAST                       0: self
+                        10      GET_ITER                        
+                        12      CALL_FUNCTION                   1
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_ATTR                       1: _initial_size
+                        18      CALL_FUNCTION                   2
+                        20      RETURN_VALUE                    
+                '_Accumulator.__len__'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: __str__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'EMPTYSTRING'
+                        'join'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        [Code]
+                            File Name: email/header.py
+                            Object Name: <genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 3
+                            Stack Size: 5
+                            Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                            [Names]
+                                'EMPTYSTRING'
+                                'join'
+                            [Var Names]
+                                '.0'
+                                'fws'
+                                'part'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       GEN_START                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        12 (to 30)
+                                6       UNPACK_SEQUENCE                 2
+                                8       STORE_FAST                      1: fws
+                                10      STORE_FAST                      2: part
+                                12      LOAD_GLOBAL                     0: EMPTYSTRING
+                                14      LOAD_METHOD                     1: join
+                                16      LOAD_FAST                       1: fws
+                                18      LOAD_FAST                       2: part
+                                20      BUILD_TUPLE                     2
+                                22      CALL_METHOD                     1
+                                24      YIELD_VALUE                     
+                                26      POP_TOP                         
+                                28      JUMP_ABSOLUTE                   2 (to 4)
+                                30      LOAD_CONST                      0: None
+                                32      RETURN_VALUE                    
+                        '_Accumulator.__str__.<locals>.<genexpr>'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: EMPTYSTRING
+                        2       LOAD_METHOD                     1: join
+                        4       LOAD_CONST                      1: <CODE> <genexpr>
+                        6       LOAD_CONST                      2: '_Accumulator.__str__.<locals>.<genexpr>'
+                        8       MAKE_FUNCTION                   0
+                        10      LOAD_FAST                       0: self
+                        12      GET_ITER                        
+                        14      CALL_FUNCTION                   1
+                        16      CALL_METHOD                     1
+                        18      RETURN_VALUE                    
+                '_Accumulator.__str__'
+                None
+                [Code]
+                    File Name: email/header.py
+                    Object Name: reset
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_initial_size'
+                    [Var Names]
+                        'self'
+                        'startval'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                    [Disassembly]
+                        0       LOAD_FAST                       1: startval
+                        2       LOAD_CONST                      0: None
+                        4       IS_OP                           0 (is)
+                        6       POP_JUMP_IF_FALSE               6 (to 12)
+                        8       BUILD_LIST                      0
+                        10      STORE_FAST                      1: startval
+                        12      LOAD_FAST                       1: startval
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_CONST                      0: None
+                        18      LOAD_CONST                      0: None
+                        20      BUILD_SLICE                     2
+                        22      STORE_SUBSCR                    
+                        24      LOAD_CONST                      1: 0
+                        26      LOAD_FAST                       0: self
+                        28      STORE_ATTR                      0: _initial_size
+                        30      LOAD_CONST                      0: None
+                        32      RETURN_VALUE                    
+                '_Accumulator.reset'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: is_onlyws
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_initial_size'
+                        'str'
+                        'isspace'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _initial_size
+                        4       LOAD_CONST                      1: 0
+                        6       COMPARE_OP                      2 (==)
+                        8       JUMP_IF_FALSE_OR_POP            13 (to 26)
+                        10      LOAD_FAST                       0: self
+                        12      UNARY_NOT                       
+                        14      JUMP_IF_TRUE_OR_POP             13 (to 26)
+                        16      LOAD_GLOBAL                     1: str
+                        18      LOAD_FAST                       0: self
+                        20      CALL_FUNCTION                   1
+                        22      LOAD_METHOD                     2: isspace
+                        24      CALL_METHOD                     0
+                        26      RETURN_VALUE                    
+                '_Accumulator.is_onlyws'
+                [Code]
+                    File Name: email/header.py
+                    Object Name: part_count
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        '__len__'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_METHOD                     1: __len__
+                        6       CALL_METHOD                     0
+                        8       RETURN_VALUE                    
+                '_Accumulator.part_count'
+                (
+                    0
+                )
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: '_Accumulator'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      21: (0,)
+                10      LOAD_CLOSURE                    0: __class__
+                12      BUILD_TUPLE                     1
+                14      LOAD_CONST                      2: <CODE> __init__
+                16      LOAD_CONST                      3: '_Accumulator.__init__'
+                18      MAKE_FUNCTION                   9
+                20      STORE_NAME                      3: __init__
+                22      LOAD_CONST                      4: <CODE> push
+                24      LOAD_CONST                      5: '_Accumulator.push'
+                26      MAKE_FUNCTION                   0
+                28      STORE_NAME                      4: push
+                30      LOAD_CONST                      21: (0,)
+                32      LOAD_CONST                      6: <CODE> pop_from
+                34      LOAD_CONST                      7: '_Accumulator.pop_from'
+                36      MAKE_FUNCTION                   1
+                38      STORE_NAME                      5: pop_from
+                40      LOAD_CLOSURE                    0: __class__
+                42      BUILD_TUPLE                     1
+                44      LOAD_CONST                      8: <CODE> pop
+                46      LOAD_CONST                      9: '_Accumulator.pop'
+                48      MAKE_FUNCTION                   8
+                50      STORE_NAME                      6: pop
+                52      LOAD_CONST                      10: <CODE> __len__
+                54      LOAD_CONST                      11: '_Accumulator.__len__'
+                56      MAKE_FUNCTION                   0
+                58      STORE_NAME                      7: __len__
+                60      LOAD_CONST                      12: <CODE> __str__
+                62      LOAD_CONST                      13: '_Accumulator.__str__'
+                64      MAKE_FUNCTION                   0
+                66      STORE_NAME                      8: __str__
+                68      LOAD_CONST                      22: (None,)
+                70      LOAD_CONST                      15: <CODE> reset
+                72      LOAD_CONST                      16: '_Accumulator.reset'
+                74      MAKE_FUNCTION                   1
+                76      STORE_NAME                      9: reset
+                78      LOAD_CONST                      17: <CODE> is_onlyws
+                80      LOAD_CONST                      18: '_Accumulator.is_onlyws'
+                82      MAKE_FUNCTION                   0
+                84      STORE_NAME                      10: is_onlyws
+                86      LOAD_CLOSURE                    0: __class__
+                88      BUILD_TUPLE                     1
+                90      LOAD_CONST                      19: <CODE> part_count
+                92      LOAD_CONST                      20: '_Accumulator.part_count'
+                94      MAKE_FUNCTION                   8
+                96      STORE_NAME                      11: part_count
+                98      LOAD_CLOSURE                    0: __class__
+                100     DUP_TOP                         
+                102     STORE_NAME                      12: __classcell__
+                104     RETURN_VALUE                    
+        '_Accumulator'
+        (
+            None
+            None
+            ' '
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Header encoding and decoding functionality.'
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('Header', 'decode_header', 'make_header')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: 0
+        14      LOAD_CONST                      3: None
+        16      IMPORT_NAME                     2: re
+        18      STORE_NAME                      2: re
+        20      LOAD_CONST                      2: 0
+        22      LOAD_CONST                      3: None
+        24      IMPORT_NAME                     3: binascii
+        26      STORE_NAME                      3: binascii
+        28      LOAD_CONST                      2: 0
+        30      LOAD_CONST                      3: None
+        32      IMPORT_NAME                     4: email.quoprimime
+        34      STORE_NAME                      5: email
+        36      LOAD_CONST                      2: 0
+        38      LOAD_CONST                      3: None
+        40      IMPORT_NAME                     6: email.base64mime
+        42      STORE_NAME                      5: email
+        44      LOAD_CONST                      2: 0
+        46      LOAD_CONST                      4: ('HeaderParseError',)
+        48      IMPORT_NAME                     7: email.errors
+        50      IMPORT_FROM                     8: HeaderParseError
+        52      STORE_NAME                      8: HeaderParseError
+        54      POP_TOP                         
+        56      LOAD_CONST                      2: 0
+        58      LOAD_CONST                      5: ('charset',)
+        60      IMPORT_NAME                     5: email
+        62      IMPORT_FROM                     9: charset
+        64      STORE_NAME                      10: _charset
+        66      POP_TOP                         
+        68      LOAD_NAME                       10: _charset
+        70      LOAD_ATTR                       11: Charset
+        72      STORE_NAME                      11: Charset
+        74      LOAD_CONST                      6: '\n'
+        76      STORE_NAME                      12: NL
+        78      LOAD_CONST                      7: ' '
+        80      STORE_NAME                      13: SPACE
+        82      LOAD_CONST                      8: b' '
+        84      STORE_NAME                      14: BSPACE
+        86      LOAD_CONST                      9: '        '
+        88      STORE_NAME                      15: SPACE8
+        90      LOAD_CONST                      10: ''
+        92      STORE_NAME                      16: EMPTYSTRING
+        94      LOAD_CONST                      11: 78
+        96      STORE_NAME                      17: MAXLINELEN
+        98      LOAD_CONST                      12: ' \t'
+        100     STORE_NAME                      18: FWS
+        102     LOAD_NAME                       11: Charset
+        104     LOAD_CONST                      13: 'us-ascii'
+        106     CALL_FUNCTION                   1
+        108     STORE_NAME                      19: USASCII
+        110     LOAD_NAME                       11: Charset
+        112     LOAD_CONST                      14: 'utf-8'
+        114     CALL_FUNCTION                   1
+        116     STORE_NAME                      20: UTF8
+        118     LOAD_NAME                       2: re
+        120     LOAD_METHOD                     21: compile
+        122     LOAD_CONST                      15: '\n  =\\?                   # literal =?\n  (?P<charset>[^?]*?)   # non-greedy up to the next ? is the charset\n  \\?                    # literal ?\n  (?P<encoding>[qQbB])  # either a "q" or a "b", case insensitive\n  \\?                    # literal ?\n  (?P<encoded>.*?)      # non-greedy up to the next ?= is the encoded string\n  \\?=                   # literal ?=\n  '
+        124     LOAD_NAME                       2: re
+        126     LOAD_ATTR                       22: VERBOSE
+        128     LOAD_NAME                       2: re
+        130     LOAD_ATTR                       23: MULTILINE
+        132     BINARY_OR                       
+        134     CALL_METHOD                     2
+        136     STORE_NAME                      24: ecre
+        138     LOAD_NAME                       2: re
+        140     LOAD_METHOD                     21: compile
+        142     LOAD_CONST                      16: '[\\041-\\176]+:$'
+        144     CALL_METHOD                     1
+        146     STORE_NAME                      25: fcre
+        148     LOAD_NAME                       2: re
+        150     LOAD_METHOD                     21: compile
+        152     LOAD_CONST                      17: '\\n[^ \\t]+:'
+        154     CALL_METHOD                     1
+        156     STORE_NAME                      26: _embedded_header
+        158     LOAD_NAME                       5: email
+        160     LOAD_ATTR                       27: quoprimime
+        162     LOAD_ATTR                       28: _max_append
+        164     STORE_NAME                      28: _max_append
+        166     LOAD_CONST                      18: <CODE> decode_header
+        168     LOAD_CONST                      19: 'decode_header'
+        170     MAKE_FUNCTION                   0
+        172     STORE_NAME                      29: decode_header
+        174     NOP                             
+        176     NOP                             
+        178     LOAD_CONST                      28: (None, None, ' ')
+        180     LOAD_CONST                      20: <CODE> make_header
+        182     LOAD_CONST                      21: 'make_header'
+        184     MAKE_FUNCTION                   1
+        186     STORE_NAME                      30: make_header
+        188     LOAD_BUILD_CLASS                
+        190     LOAD_CONST                      22: <CODE> Header
+        192     LOAD_CONST                      23: 'Header'
+        194     MAKE_FUNCTION                   0
+        196     LOAD_CONST                      23: 'Header'
+        198     CALL_FUNCTION                   2
+        200     STORE_NAME                      31: Header
+        202     LOAD_BUILD_CLASS                
+        204     LOAD_CONST                      24: <CODE> _ValueFormatter
+        206     LOAD_CONST                      25: '_ValueFormatter'
+        208     MAKE_FUNCTION                   0
+        210     LOAD_CONST                      25: '_ValueFormatter'
+        212     CALL_FUNCTION                   2
+        214     STORE_NAME                      32: _ValueFormatter
+        216     LOAD_BUILD_CLASS                
+        218     LOAD_CONST                      26: <CODE> _Accumulator
+        220     LOAD_CONST                      27: '_Accumulator'
+        222     MAKE_FUNCTION                   0
+        224     LOAD_CONST                      27: '_Accumulator'
+        226     LOAD_NAME                       33: list
+        228     CALL_FUNCTION                   3
+        230     STORE_NAME                      34: _Accumulator
+        232     LOAD_CONST                      3: None
+        234     RETURN_VALUE                    

@@ -1,0 +1,1140 @@
+readers.pyc (Python 3.10)
+[Code]
+    File Name: importlib/readers.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        'collections'
+        'zipfile'
+        'pathlib'
+        ''
+        'abc'
+        'remove_duplicates'
+        'TraversableResources'
+        'FileReader'
+        'ZipReader'
+        'Traversable'
+        'MultiplexedPath'
+        'NamespaceReader'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        None
+        1
+        (
+            'abc'
+        )
+        [Code]
+            File Name: importlib/readers.py
+            Object Name: remove_duplicates
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'iter'
+                'collections'
+                'OrderedDict'
+                'fromkeys'
+            [Var Names]
+                'items'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: iter
+                2       LOAD_GLOBAL                     1: collections
+                4       LOAD_ATTR                       2: OrderedDict
+                6       LOAD_METHOD                     3: fromkeys
+                8       LOAD_FAST                       0: items
+                10      CALL_METHOD                     1
+                12      CALL_FUNCTION                   1
+                14      RETURN_VALUE                    
+        'remove_duplicates'
+        [Code]
+            File Name: importlib/readers.py
+            Object Name: FileReader
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__init__'
+                'resource_path'
+                'files'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'FileReader'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'pathlib'
+                        'Path'
+                        'path'
+                        'parent'
+                    [Var Names]
+                        'self'
+                        'loader'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: pathlib
+                        2       LOAD_METHOD                     1: Path
+                        4       LOAD_FAST                       1: loader
+                        6       LOAD_ATTR                       2: path
+                        8       CALL_METHOD                     1
+                        10      LOAD_ATTR                       3: parent
+                        12      LOAD_FAST                       0: self
+                        14      STORE_ATTR                      2: path
+                        16      LOAD_CONST                      0: None
+                        18      RETURN_VALUE                    
+                'FileReader.__init__'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: resource_path
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'str'
+                        'path'
+                        'joinpath'
+                    [Var Names]
+                        'self'
+                        'resource'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '\n        Return the file system path to prevent\n        `resources.path()` from creating a temporary\n        copy.\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: str
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       1: path
+                        6       LOAD_METHOD                     2: joinpath
+                        8       LOAD_FAST                       1: resource
+                        10      CALL_METHOD                     1
+                        12      CALL_FUNCTION                   1
+                        14      RETURN_VALUE                    
+                'FileReader.resource_path'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: files
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'path'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: path
+                        4       RETURN_VALUE                    
+                'FileReader.files'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'FileReader'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: <CODE> __init__
+                10      LOAD_CONST                      2: 'FileReader.__init__'
+                12      MAKE_FUNCTION                   0
+                14      STORE_NAME                      3: __init__
+                16      LOAD_CONST                      3: <CODE> resource_path
+                18      LOAD_CONST                      4: 'FileReader.resource_path'
+                20      MAKE_FUNCTION                   0
+                22      STORE_NAME                      4: resource_path
+                24      LOAD_CONST                      5: <CODE> files
+                26      LOAD_CONST                      6: 'FileReader.files'
+                28      MAKE_FUNCTION                   0
+                30      STORE_NAME                      5: files
+                32      LOAD_CONST                      7: None
+                34      RETURN_VALUE                    
+        'FileReader'
+        [Code]
+            File Name: importlib/readers.py
+            Object Name: ZipReader
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__init__'
+                'open_resource'
+                'is_resource'
+                'files'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'ZipReader'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: __init__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'rpartition'
+                        'prefix'
+                        'replace'
+                        'archive'
+                    [Var Names]
+                        'self'
+                        'loader'
+                        'module'
+                        '_'
+                        'name'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '.'
+                        '\\'
+                        '/'
+                    [Disassembly]
+                        0       LOAD_FAST                       2: module
+                        2       LOAD_METHOD                     0: rpartition
+                        4       LOAD_CONST                      1: '.'
+                        6       CALL_METHOD                     1
+                        8       UNPACK_SEQUENCE                 3
+                        10      STORE_FAST                      3: _
+                        12      STORE_FAST                      3: _
+                        14      STORE_FAST                      4: name
+                        16      LOAD_FAST                       1: loader
+                        18      LOAD_ATTR                       1: prefix
+                        20      LOAD_METHOD                     2: replace
+                        22      LOAD_CONST                      2: '\\'
+                        24      LOAD_CONST                      3: '/'
+                        26      CALL_METHOD                     2
+                        28      LOAD_FAST                       4: name
+                        30      BINARY_ADD                      
+                        32      LOAD_CONST                      3: '/'
+                        34      BINARY_ADD                      
+                        36      LOAD_FAST                       0: self
+                        38      STORE_ATTR                      1: prefix
+                        40      LOAD_FAST                       1: loader
+                        42      LOAD_ATTR                       3: archive
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      3: archive
+                        48      LOAD_CONST                      0: None
+                        50      RETURN_VALUE                    
+                'ZipReader.__init__'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: open_resource
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 10
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        'open_resource'
+                        'KeyError'
+                        'FileNotFoundError'
+                        'args'
+                    [Var Names]
+                        'self'
+                        'resource'
+                        'exc'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                    [Disassembly]
+                        0       SETUP_FINALLY                   7 (to 16)
+                        2       LOAD_GLOBAL                     0: super
+                        4       CALL_FUNCTION                   0
+                        6       LOAD_METHOD                     1: open_resource
+                        8       LOAD_FAST                       1: resource
+                        10      CALL_METHOD                     1
+                        12      POP_BLOCK                       
+                        14      RETURN_VALUE                    
+                        16      DUP_TOP                         
+                        18      LOAD_GLOBAL                     2: KeyError
+                        20      JUMP_IF_NOT_EXC_MATCH           26 (to 52)
+                        22      POP_TOP                         
+                        24      STORE_FAST                      2: exc
+                        26      POP_TOP                         
+                        28      SETUP_FINALLY                   7 (to 44)
+                        30      LOAD_GLOBAL                     3: FileNotFoundError
+                        32      LOAD_FAST                       2: exc
+                        34      LOAD_ATTR                       4: args
+                        36      LOAD_CONST                      1: 0
+                        38      BINARY_SUBSCR                   
+                        40      CALL_FUNCTION                   1
+                        42      RAISE_VARARGS                   1
+                        44      LOAD_CONST                      0: None
+                        46      STORE_FAST                      2: exc
+                        48      DELETE_FAST                     2: exc
+                        50      RERAISE                         1
+                        52      RERAISE                         0
+                'ZipReader.open_resource'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: is_resource
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'files'
+                        'joinpath'
+                        'is_file'
+                        'exists'
+                    [Var Names]
+                        'self'
+                        'path'
+                        'target'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: files
+                        4       CALL_METHOD                     0
+                        6       LOAD_METHOD                     1: joinpath
+                        8       LOAD_FAST                       1: path
+                        10      CALL_METHOD                     1
+                        12      STORE_FAST                      2: target
+                        14      LOAD_FAST                       2: target
+                        16      LOAD_METHOD                     2: is_file
+                        18      CALL_METHOD                     0
+                        20      JUMP_IF_FALSE_OR_POP            14 (to 28)
+                        22      LOAD_FAST                       2: target
+                        24      LOAD_METHOD                     3: exists
+                        26      CALL_METHOD                     0
+                        28      RETURN_VALUE                    
+                'ZipReader.is_resource'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: files
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'zipfile'
+                        'Path'
+                        'archive'
+                        'prefix'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: zipfile
+                        2       LOAD_METHOD                     1: Path
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       2: archive
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       3: prefix
+                        12      CALL_METHOD                     2
+                        14      RETURN_VALUE                    
+                'ZipReader.files'
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'ZipReader'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: <CODE> __init__
+                10      LOAD_CONST                      2: 'ZipReader.__init__'
+                12      MAKE_FUNCTION                   0
+                14      STORE_NAME                      3: __init__
+                16      LOAD_CLOSURE                    0: __class__
+                18      BUILD_TUPLE                     1
+                20      LOAD_CONST                      3: <CODE> open_resource
+                22      LOAD_CONST                      4: 'ZipReader.open_resource'
+                24      MAKE_FUNCTION                   8
+                26      STORE_NAME                      4: open_resource
+                28      LOAD_CONST                      5: <CODE> is_resource
+                30      LOAD_CONST                      6: 'ZipReader.is_resource'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      5: is_resource
+                36      LOAD_CONST                      7: <CODE> files
+                38      LOAD_CONST                      8: 'ZipReader.files'
+                40      MAKE_FUNCTION                   0
+                42      STORE_NAME                      6: files
+                44      LOAD_CLOSURE                    0: __class__
+                46      DUP_TOP                         
+                48      STORE_NAME                      7: __classcell__
+                50      RETURN_VALUE                    
+        'ZipReader'
+        [Code]
+            File Name: importlib/readers.py
+            Object Name: MultiplexedPath
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                'iterdir'
+                'read_bytes'
+                'read_text'
+                'is_dir'
+                'is_file'
+                'joinpath'
+                '__truediv__'
+                'open'
+                'property'
+                'name'
+                '__repr__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'MultiplexedPath'
+                '\n    Given a series of Traversable objects, implement a merged\n    version of the interface across all objects. Useful for\n    namespace packages which may be multihomed at a single\n    name.\n    '
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000047 (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_NOFREE)
+                    [Names]
+                        'list'
+                        'map'
+                        'pathlib'
+                        'Path'
+                        'remove_duplicates'
+                        '_paths'
+                        'FileNotFoundError'
+                        'all'
+                        'NotADirectoryError'
+                    [Var Names]
+                        'self'
+                        'paths'
+                        'message'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'MultiplexedPath must contain at least one path'
+                        [Code]
+                            File Name: importlib/readers.py
+                            Object Name: <genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 3
+                            Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                            [Names]
+                                'is_dir'
+                            [Var Names]
+                                '.0'
+                                'path'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       GEN_START                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        7 (to 20)
+                                6       STORE_FAST                      1: path
+                                8       LOAD_FAST                       1: path
+                                10      LOAD_METHOD                     0: is_dir
+                                12      CALL_METHOD                     0
+                                14      YIELD_VALUE                     
+                                16      POP_TOP                         
+                                18      JUMP_ABSOLUTE                   2 (to 4)
+                                20      LOAD_CONST                      0: None
+                                22      RETURN_VALUE                    
+                        'MultiplexedPath.__init__.<locals>.<genexpr>'
+                        'MultiplexedPath only supports directories'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: list
+                        2       LOAD_GLOBAL                     1: map
+                        4       LOAD_GLOBAL                     2: pathlib
+                        6       LOAD_ATTR                       3: Path
+                        8       LOAD_GLOBAL                     4: remove_duplicates
+                        10      LOAD_FAST                       1: paths
+                        12      CALL_FUNCTION                   1
+                        14      CALL_FUNCTION                   2
+                        16      CALL_FUNCTION                   1
+                        18      LOAD_FAST                       0: self
+                        20      STORE_ATTR                      5: _paths
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       5: _paths
+                        26      POP_JUMP_IF_TRUE                20 (to 40)
+                        28      LOAD_CONST                      1: 'MultiplexedPath must contain at least one path'
+                        30      STORE_FAST                      2: message
+                        32      LOAD_GLOBAL                     6: FileNotFoundError
+                        34      LOAD_FAST                       2: message
+                        36      CALL_FUNCTION                   1
+                        38      RAISE_VARARGS                   1
+                        40      LOAD_GLOBAL                     7: all
+                        42      LOAD_CONST                      2: <CODE> <genexpr>
+                        44      LOAD_CONST                      3: 'MultiplexedPath.__init__.<locals>.<genexpr>'
+                        46      MAKE_FUNCTION                   0
+                        48      LOAD_FAST                       0: self
+                        50      LOAD_ATTR                       5: _paths
+                        52      GET_ITER                        
+                        54      CALL_FUNCTION                   1
+                        56      CALL_FUNCTION                   1
+                        58      POP_JUMP_IF_TRUE                34 (to 68)
+                        60      LOAD_GLOBAL                     8: NotADirectoryError
+                        62      LOAD_CONST                      4: 'MultiplexedPath only supports directories'
+                        64      CALL_FUNCTION                   1
+                        66      RAISE_VARARGS                   1
+                        68      LOAD_CONST                      0: None
+                        70      RETURN_VALUE                    
+                'MultiplexedPath.__init__'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: iterdir
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 5
+                    Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+                    [Names]
+                        '_paths'
+                        'iterdir'
+                        'name'
+                        'append'
+                    [Var Names]
+                        'self'
+                        'visited'
+                        'path'
+                        'file'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       BUILD_LIST                      0
+                        4       STORE_FAST                      1: visited
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_ATTR                       0: _paths
+                        10      GET_ITER                        
+                        12      FOR_ITER                        24 (to 62)
+                        14      STORE_FAST                      2: path
+                        16      LOAD_FAST                       2: path
+                        18      LOAD_METHOD                     1: iterdir
+                        20      CALL_METHOD                     0
+                        22      GET_ITER                        
+                        24      FOR_ITER                        17 (to 60)
+                        26      STORE_FAST                      3: file
+                        28      LOAD_FAST                       3: file
+                        30      LOAD_ATTR                       2: name
+                        32      LOAD_FAST                       1: visited
+                        34      CONTAINS_OP                     0 (in)
+                        36      POP_JUMP_IF_FALSE               20 (to 40)
+                        38      JUMP_ABSOLUTE                   12 (to 24)
+                        40      LOAD_FAST                       1: visited
+                        42      LOAD_METHOD                     3: append
+                        44      LOAD_FAST                       3: file
+                        46      LOAD_ATTR                       2: name
+                        48      CALL_METHOD                     1
+                        50      POP_TOP                         
+                        52      LOAD_FAST                       3: file
+                        54      YIELD_VALUE                     
+                        56      POP_TOP                         
+                        58      JUMP_ABSOLUTE                   12 (to 24)
+                        60      JUMP_ABSOLUTE                   6 (to 12)
+                        62      LOAD_CONST                      0: None
+                        64      RETURN_VALUE                    
+                'MultiplexedPath.iterdir'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: read_bytes
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'FileNotFoundError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        ' is not a file'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: FileNotFoundError
+                        2       LOAD_FAST                       0: self
+                        4       FORMAT_VALUE                    0 (FVC_NONE)
+                        6       LOAD_CONST                      1: ' is not a file'
+                        8       BUILD_STRING                    2
+                        10      CALL_FUNCTION                   1
+                        12      RAISE_VARARGS                   1
+                'MultiplexedPath.read_bytes'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: read_text
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x0000004F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NOFREE)
+                    [Names]
+                        'FileNotFoundError'
+                    [Var Names]
+                        'self'
+                        'args'
+                        'kwargs'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        ' is not a file'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: FileNotFoundError
+                        2       LOAD_FAST                       0: self
+                        4       FORMAT_VALUE                    0 (FVC_NONE)
+                        6       LOAD_CONST                      1: ' is not a file'
+                        8       BUILD_STRING                    2
+                        10      CALL_FUNCTION                   1
+                        12      RAISE_VARARGS                   1
+                'MultiplexedPath.read_text'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: is_dir
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        True
+                    [Disassembly]
+                        0       LOAD_CONST                      1: True
+                        2       RETURN_VALUE                    
+                'MultiplexedPath.is_dir'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: is_file
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        False
+                    [Disassembly]
+                        0       LOAD_CONST                      1: False
+                        2       RETURN_VALUE                    
+                'MultiplexedPath.is_file'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: joinpath
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'iterdir'
+                        'name'
+                        '_paths'
+                    [Var Names]
+                        'self'
+                        'child'
+                        'file'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: iterdir
+                        4       CALL_METHOD                     0
+                        6       GET_ITER                        
+                        8       FOR_ITER                        11 (to 32)
+                        10      STORE_FAST                      2: file
+                        12      LOAD_FAST                       2: file
+                        14      LOAD_ATTR                       1: name
+                        16      LOAD_FAST                       1: child
+                        18      COMPARE_OP                      2 (==)
+                        20      POP_JUMP_IF_FALSE               15 (to 30)
+                        22      LOAD_FAST                       2: file
+                        24      ROT_TWO                         
+                        26      POP_TOP                         
+                        28      RETURN_VALUE                    
+                        30      JUMP_ABSOLUTE                   4 (to 8)
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       2: _paths
+                        36      LOAD_CONST                      1: 0
+                        38      BINARY_SUBSCR                   
+                        40      LOAD_FAST                       1: child
+                        42      BINARY_TRUE_DIVIDE              
+                        44      RETURN_VALUE                    
+                'MultiplexedPath.joinpath'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: open
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x0000004F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NOFREE)
+                    [Names]
+                        'FileNotFoundError'
+                    [Var Names]
+                        'self'
+                        'args'
+                        'kwargs'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        ' is not a file'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: FileNotFoundError
+                        2       LOAD_FAST                       0: self
+                        4       FORMAT_VALUE                    0 (FVC_NONE)
+                        6       LOAD_CONST                      1: ' is not a file'
+                        8       BUILD_STRING                    2
+                        10      CALL_FUNCTION                   1
+                        12      RAISE_VARARGS                   1
+                'MultiplexedPath.open'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: name
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_paths'
+                        'name'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _paths
+                        4       LOAD_CONST                      1: 0
+                        6       BINARY_SUBSCR                   
+                        8       LOAD_ATTR                       1: name
+                        10      RETURN_VALUE                    
+                'MultiplexedPath.name'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: __repr__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'join'
+                        '_paths'
+                    [Var Names]
+                        'self'
+                        'paths'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        ', '
+                        [Code]
+                            File Name: importlib/readers.py
+                            Object Name: <genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 4
+                            Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                            [Names]
+                            [Var Names]
+                                '.0'
+                                'path'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                "'"
+                                None
+                            [Disassembly]
+                                0       GEN_START                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        9 (to 24)
+                                6       STORE_FAST                      1: path
+                                8       LOAD_CONST                      0: "'"
+                                10      LOAD_FAST                       1: path
+                                12      FORMAT_VALUE                    0 (FVC_NONE)
+                                14      LOAD_CONST                      0: "'"
+                                16      BUILD_STRING                    3
+                                18      YIELD_VALUE                     
+                                20      POP_TOP                         
+                                22      JUMP_ABSOLUTE                   2 (to 4)
+                                24      LOAD_CONST                      1: None
+                                26      RETURN_VALUE                    
+                        'MultiplexedPath.__repr__.<locals>.<genexpr>'
+                        'MultiplexedPath('
+                        ')'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: ', '
+                        2       LOAD_METHOD                     0: join
+                        4       LOAD_CONST                      2: <CODE> <genexpr>
+                        6       LOAD_CONST                      3: 'MultiplexedPath.__repr__.<locals>.<genexpr>'
+                        8       MAKE_FUNCTION                   0
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       1: _paths
+                        14      GET_ITER                        
+                        16      CALL_FUNCTION                   1
+                        18      CALL_METHOD                     1
+                        20      STORE_FAST                      1: paths
+                        22      LOAD_CONST                      4: 'MultiplexedPath('
+                        24      LOAD_FAST                       1: paths
+                        26      FORMAT_VALUE                    0 (FVC_NONE)
+                        28      LOAD_CONST                      5: ')'
+                        30      BUILD_STRING                    3
+                        32      RETURN_VALUE                    
+                'MultiplexedPath.__repr__'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'MultiplexedPath'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: '\n    Given a series of Traversable objects, implement a merged\n    version of the interface across all objects. Useful for\n    namespace packages which may be multihomed at a single\n    name.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> __init__
+                14      LOAD_CONST                      3: 'MultiplexedPath.__init__'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: __init__
+                20      LOAD_CONST                      4: <CODE> iterdir
+                22      LOAD_CONST                      5: 'MultiplexedPath.iterdir'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: iterdir
+                28      LOAD_CONST                      6: <CODE> read_bytes
+                30      LOAD_CONST                      7: 'MultiplexedPath.read_bytes'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      6: read_bytes
+                36      LOAD_CONST                      8: <CODE> read_text
+                38      LOAD_CONST                      9: 'MultiplexedPath.read_text'
+                40      MAKE_FUNCTION                   0
+                42      STORE_NAME                      7: read_text
+                44      LOAD_CONST                      10: <CODE> is_dir
+                46      LOAD_CONST                      11: 'MultiplexedPath.is_dir'
+                48      MAKE_FUNCTION                   0
+                50      STORE_NAME                      8: is_dir
+                52      LOAD_CONST                      12: <CODE> is_file
+                54      LOAD_CONST                      13: 'MultiplexedPath.is_file'
+                56      MAKE_FUNCTION                   0
+                58      STORE_NAME                      9: is_file
+                60      LOAD_CONST                      14: <CODE> joinpath
+                62      LOAD_CONST                      15: 'MultiplexedPath.joinpath'
+                64      MAKE_FUNCTION                   0
+                66      STORE_NAME                      10: joinpath
+                68      LOAD_NAME                       10: joinpath
+                70      STORE_NAME                      11: __truediv__
+                72      LOAD_CONST                      16: <CODE> open
+                74      LOAD_CONST                      17: 'MultiplexedPath.open'
+                76      MAKE_FUNCTION                   0
+                78      STORE_NAME                      12: open
+                80      LOAD_NAME                       13: property
+                82      LOAD_CONST                      18: <CODE> name
+                84      LOAD_CONST                      19: 'MultiplexedPath.name'
+                86      MAKE_FUNCTION                   0
+                88      CALL_FUNCTION                   1
+                90      STORE_NAME                      14: name
+                92      LOAD_CONST                      20: <CODE> __repr__
+                94      LOAD_CONST                      21: 'MultiplexedPath.__repr__'
+                96      MAKE_FUNCTION                   0
+                98      STORE_NAME                      15: __repr__
+                100     LOAD_CONST                      22: None
+                102     RETURN_VALUE                    
+        'MultiplexedPath'
+        [Code]
+            File Name: importlib/readers.py
+            Object Name: NamespaceReader
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__init__'
+                'resource_path'
+                'files'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'NamespaceReader'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'str'
+                        'ValueError'
+                        'MultiplexedPath'
+                        'list'
+                        'path'
+                    [Var Names]
+                        'self'
+                        'namespace_path'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'NamespacePath'
+                        'Invalid path'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: 'NamespacePath'
+                        2       LOAD_GLOBAL                     0: str
+                        4       LOAD_FAST                       1: namespace_path
+                        6       CALL_FUNCTION                   1
+                        8       CONTAINS_OP                     1 (not in)
+                        10      POP_JUMP_IF_FALSE               10 (to 20)
+                        12      LOAD_GLOBAL                     1: ValueError
+                        14      LOAD_CONST                      2: 'Invalid path'
+                        16      CALL_FUNCTION                   1
+                        18      RAISE_VARARGS                   1
+                        20      LOAD_GLOBAL                     2: MultiplexedPath
+                        22      LOAD_GLOBAL                     3: list
+                        24      LOAD_FAST                       1: namespace_path
+                        26      CALL_FUNCTION                   1
+                        28      CALL_FUNCTION_EX                0
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      4: path
+                        34      LOAD_CONST                      0: None
+                        36      RETURN_VALUE                    
+                'NamespaceReader.__init__'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: resource_path
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'str'
+                        'path'
+                        'joinpath'
+                    [Var Names]
+                        'self'
+                        'resource'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '\n        Return the file system path to prevent\n        `resources.path()` from creating a temporary\n        copy.\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: str
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       1: path
+                        6       LOAD_METHOD                     2: joinpath
+                        8       LOAD_FAST                       1: resource
+                        10      CALL_METHOD                     1
+                        12      CALL_FUNCTION                   1
+                        14      RETURN_VALUE                    
+                'NamespaceReader.resource_path'
+                [Code]
+                    File Name: importlib/readers.py
+                    Object Name: files
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'path'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: path
+                        4       RETURN_VALUE                    
+                'NamespaceReader.files'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'NamespaceReader'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: <CODE> __init__
+                10      LOAD_CONST                      2: 'NamespaceReader.__init__'
+                12      MAKE_FUNCTION                   0
+                14      STORE_NAME                      3: __init__
+                16      LOAD_CONST                      3: <CODE> resource_path
+                18      LOAD_CONST                      4: 'NamespaceReader.resource_path'
+                20      MAKE_FUNCTION                   0
+                22      STORE_NAME                      4: resource_path
+                24      LOAD_CONST                      5: <CODE> files
+                26      LOAD_CONST                      6: 'NamespaceReader.files'
+                28      MAKE_FUNCTION                   0
+                30      STORE_NAME                      5: files
+                32      LOAD_CONST                      7: None
+                34      RETURN_VALUE                    
+        'NamespaceReader'
+    [Disassembly]
+        0       LOAD_CONST                      0: 0
+        2       LOAD_CONST                      1: None
+        4       IMPORT_NAME                     0: collections
+        6       STORE_NAME                      0: collections
+        8       LOAD_CONST                      0: 0
+        10      LOAD_CONST                      1: None
+        12      IMPORT_NAME                     1: zipfile
+        14      STORE_NAME                      1: zipfile
+        16      LOAD_CONST                      0: 0
+        18      LOAD_CONST                      1: None
+        20      IMPORT_NAME                     2: pathlib
+        22      STORE_NAME                      2: pathlib
+        24      LOAD_CONST                      2: 1
+        26      LOAD_CONST                      3: ('abc',)
+        28      IMPORT_NAME                     3: 
+        30      IMPORT_FROM                     4: abc
+        32      STORE_NAME                      4: abc
+        34      POP_TOP                         
+        36      LOAD_CONST                      4: <CODE> remove_duplicates
+        38      LOAD_CONST                      5: 'remove_duplicates'
+        40      MAKE_FUNCTION                   0
+        42      STORE_NAME                      5: remove_duplicates
+        44      LOAD_BUILD_CLASS                
+        46      LOAD_CONST                      6: <CODE> FileReader
+        48      LOAD_CONST                      7: 'FileReader'
+        50      MAKE_FUNCTION                   0
+        52      LOAD_CONST                      7: 'FileReader'
+        54      LOAD_NAME                       4: abc
+        56      LOAD_ATTR                       6: TraversableResources
+        58      CALL_FUNCTION                   3
+        60      STORE_NAME                      7: FileReader
+        62      LOAD_BUILD_CLASS                
+        64      LOAD_CONST                      8: <CODE> ZipReader
+        66      LOAD_CONST                      9: 'ZipReader'
+        68      MAKE_FUNCTION                   0
+        70      LOAD_CONST                      9: 'ZipReader'
+        72      LOAD_NAME                       4: abc
+        74      LOAD_ATTR                       6: TraversableResources
+        76      CALL_FUNCTION                   3
+        78      STORE_NAME                      8: ZipReader
+        80      LOAD_BUILD_CLASS                
+        82      LOAD_CONST                      10: <CODE> MultiplexedPath
+        84      LOAD_CONST                      11: 'MultiplexedPath'
+        86      MAKE_FUNCTION                   0
+        88      LOAD_CONST                      11: 'MultiplexedPath'
+        90      LOAD_NAME                       4: abc
+        92      LOAD_ATTR                       9: Traversable
+        94      CALL_FUNCTION                   3
+        96      STORE_NAME                      10: MultiplexedPath
+        98      LOAD_BUILD_CLASS                
+        100     LOAD_CONST                      12: <CODE> NamespaceReader
+        102     LOAD_CONST                      13: 'NamespaceReader'
+        104     MAKE_FUNCTION                   0
+        106     LOAD_CONST                      13: 'NamespaceReader'
+        108     LOAD_NAME                       4: abc
+        110     LOAD_ATTR                       6: TraversableResources
+        112     CALL_FUNCTION                   3
+        114     STORE_NAME                      11: NamespaceReader
+        116     LOAD_CONST                      1: None
+        118     RETURN_VALUE                    

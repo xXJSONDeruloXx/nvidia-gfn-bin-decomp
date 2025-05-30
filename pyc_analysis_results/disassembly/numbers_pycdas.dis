@@ -1,0 +1,1944 @@
+numbers.pyc (Python 3.10)
+[Code]
+    File Name: numbers.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 5
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'abc'
+        'ABCMeta'
+        'abstractmethod'
+        '__all__'
+        'Number'
+        'Complex'
+        'register'
+        'complex'
+        'Real'
+        'float'
+        'Rational'
+        'Integral'
+        'int'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Abstract Base Classes (ABCs) for numbers, according to PEP 3141.\n\nTODO: Fill out more detailed documentation on the operators.'
+        0
+        (
+            'ABCMeta'
+            'abstractmethod'
+        )
+        (
+            'Number'
+            'Complex'
+            'Real'
+            'Rational'
+            'Integral'
+        )
+        [Code]
+            File Name: numbers.py
+            Object Name: Number
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__slots__'
+                '__hash__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Number'
+                'All numbers inherit from this class.\n\n    If you just want to check if an argument x is a number, without\n    caring what kind, use isinstance(x, Number).\n    '
+                (
+                )
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Number'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'All numbers inherit from this class.\n\n    If you just want to check if an argument x is a number, without\n    caring what kind, use isinstance(x, Number).\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: ()
+                14      STORE_NAME                      4: __slots__
+                16      LOAD_CONST                      3: None
+                18      STORE_NAME                      5: __hash__
+                20      LOAD_CONST                      3: None
+                22      RETURN_VALUE                    
+        'Number'
+        (
+            'metaclass'
+        )
+        [Code]
+            File Name: numbers.py
+            Object Name: Complex
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__slots__'
+                'abstractmethod'
+                '__complex__'
+                '__bool__'
+                'property'
+                'real'
+                'imag'
+                '__add__'
+                '__radd__'
+                '__neg__'
+                '__pos__'
+                '__sub__'
+                '__rsub__'
+                '__mul__'
+                '__rmul__'
+                '__truediv__'
+                '__rtruediv__'
+                '__pow__'
+                '__rpow__'
+                '__abs__'
+                'conjugate'
+                '__eq__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Complex'
+                "Complex defines the operations that work on the builtin complex type.\n\n    In short, those are: a conversion to complex, .real, .imag, +, -,\n    *, /, **, abs(), .conjugate, ==, and !=.\n\n    If it is given heterogeneous arguments, and doesn't have special\n    knowledge about them, it should fall back to the builtin complex\n    type as described below.\n    "
+                (
+                )
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __complex__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return a builtin complex instance. Called for complex(self).'
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: None
+                        2       RETURN_VALUE                    
+                'Complex.__complex__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __bool__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'True if self != 0. Called for bool(self).'
+                        0
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_CONST                      1: 0
+                        4       COMPARE_OP                      3 (!=)
+                        6       RETURN_VALUE                    
+                'Complex.__bool__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: real
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Retrieve the real component of this number.\n\n        This should subclass Real.\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Complex.real'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: imag
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Retrieve the imaginary component of this number.\n\n        This should subclass Real.\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Complex.imag'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __add__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'self + other'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Complex.__add__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __radd__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'other + self'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Complex.__radd__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __neg__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '-self'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Complex.__neg__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __pos__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '+self'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Complex.__pos__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __sub__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'self - other'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_FAST                       1: other
+                        4       UNARY_NEGATIVE                  
+                        6       BINARY_ADD                      
+                        8       RETURN_VALUE                    
+                'Complex.__sub__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __rsub__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'other - self'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       UNARY_NEGATIVE                  
+                        4       LOAD_FAST                       1: other
+                        6       BINARY_ADD                      
+                        8       RETURN_VALUE                    
+                'Complex.__rsub__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __mul__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'self * other'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Complex.__mul__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __rmul__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'other * self'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Complex.__rmul__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __truediv__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'self / other: Should promote to float when necessary.'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Complex.__truediv__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __rtruediv__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'other / self'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Complex.__rtruediv__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __pow__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'exponent'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'self**exponent; should promote to float or complex when necessary.'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Complex.__pow__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __rpow__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'base'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'base ** self'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Complex.__rpow__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __abs__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Returns the Real distance from 0. Called for abs(self).'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Complex.__abs__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: conjugate
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '(x+y*i).conjugate() returns (x-y*i).'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Complex.conjugate'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __eq__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'self == other'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Complex.__eq__'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Complex'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: "Complex defines the operations that work on the builtin complex type.\n\n    In short, those are: a conversion to complex, .real, .imag, +, -,\n    *, /, **, abs(), .conjugate, ==, and !=.\n\n    If it is given heterogeneous arguments, and doesn't have special\n    knowledge about them, it should fall back to the builtin complex\n    type as described below.\n    "
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: ()
+                14      STORE_NAME                      4: __slots__
+                16      LOAD_NAME                       5: abstractmethod
+                18      LOAD_CONST                      3: <CODE> __complex__
+                20      LOAD_CONST                      4: 'Complex.__complex__'
+                22      MAKE_FUNCTION                   0
+                24      CALL_FUNCTION                   1
+                26      STORE_NAME                      6: __complex__
+                28      LOAD_CONST                      5: <CODE> __bool__
+                30      LOAD_CONST                      6: 'Complex.__bool__'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      7: __bool__
+                36      LOAD_NAME                       8: property
+                38      LOAD_NAME                       5: abstractmethod
+                40      LOAD_CONST                      7: <CODE> real
+                42      LOAD_CONST                      8: 'Complex.real'
+                44      MAKE_FUNCTION                   0
+                46      CALL_FUNCTION                   1
+                48      CALL_FUNCTION                   1
+                50      STORE_NAME                      9: real
+                52      LOAD_NAME                       8: property
+                54      LOAD_NAME                       5: abstractmethod
+                56      LOAD_CONST                      9: <CODE> imag
+                58      LOAD_CONST                      10: 'Complex.imag'
+                60      MAKE_FUNCTION                   0
+                62      CALL_FUNCTION                   1
+                64      CALL_FUNCTION                   1
+                66      STORE_NAME                      10: imag
+                68      LOAD_NAME                       5: abstractmethod
+                70      LOAD_CONST                      11: <CODE> __add__
+                72      LOAD_CONST                      12: 'Complex.__add__'
+                74      MAKE_FUNCTION                   0
+                76      CALL_FUNCTION                   1
+                78      STORE_NAME                      11: __add__
+                80      LOAD_NAME                       5: abstractmethod
+                82      LOAD_CONST                      13: <CODE> __radd__
+                84      LOAD_CONST                      14: 'Complex.__radd__'
+                86      MAKE_FUNCTION                   0
+                88      CALL_FUNCTION                   1
+                90      STORE_NAME                      12: __radd__
+                92      LOAD_NAME                       5: abstractmethod
+                94      LOAD_CONST                      15: <CODE> __neg__
+                96      LOAD_CONST                      16: 'Complex.__neg__'
+                98      MAKE_FUNCTION                   0
+                100     CALL_FUNCTION                   1
+                102     STORE_NAME                      13: __neg__
+                104     LOAD_NAME                       5: abstractmethod
+                106     LOAD_CONST                      17: <CODE> __pos__
+                108     LOAD_CONST                      18: 'Complex.__pos__'
+                110     MAKE_FUNCTION                   0
+                112     CALL_FUNCTION                   1
+                114     STORE_NAME                      14: __pos__
+                116     LOAD_CONST                      19: <CODE> __sub__
+                118     LOAD_CONST                      20: 'Complex.__sub__'
+                120     MAKE_FUNCTION                   0
+                122     STORE_NAME                      15: __sub__
+                124     LOAD_CONST                      21: <CODE> __rsub__
+                126     LOAD_CONST                      22: 'Complex.__rsub__'
+                128     MAKE_FUNCTION                   0
+                130     STORE_NAME                      16: __rsub__
+                132     LOAD_NAME                       5: abstractmethod
+                134     LOAD_CONST                      23: <CODE> __mul__
+                136     LOAD_CONST                      24: 'Complex.__mul__'
+                138     MAKE_FUNCTION                   0
+                140     CALL_FUNCTION                   1
+                142     STORE_NAME                      17: __mul__
+                144     LOAD_NAME                       5: abstractmethod
+                146     LOAD_CONST                      25: <CODE> __rmul__
+                148     LOAD_CONST                      26: 'Complex.__rmul__'
+                150     MAKE_FUNCTION                   0
+                152     CALL_FUNCTION                   1
+                154     STORE_NAME                      18: __rmul__
+                156     LOAD_NAME                       5: abstractmethod
+                158     LOAD_CONST                      27: <CODE> __truediv__
+                160     LOAD_CONST                      28: 'Complex.__truediv__'
+                162     MAKE_FUNCTION                   0
+                164     CALL_FUNCTION                   1
+                166     STORE_NAME                      19: __truediv__
+                168     LOAD_NAME                       5: abstractmethod
+                170     LOAD_CONST                      29: <CODE> __rtruediv__
+                172     LOAD_CONST                      30: 'Complex.__rtruediv__'
+                174     MAKE_FUNCTION                   0
+                176     CALL_FUNCTION                   1
+                178     STORE_NAME                      20: __rtruediv__
+                180     LOAD_NAME                       5: abstractmethod
+                182     LOAD_CONST                      31: <CODE> __pow__
+                184     LOAD_CONST                      32: 'Complex.__pow__'
+                186     MAKE_FUNCTION                   0
+                188     CALL_FUNCTION                   1
+                190     STORE_NAME                      21: __pow__
+                192     LOAD_NAME                       5: abstractmethod
+                194     LOAD_CONST                      33: <CODE> __rpow__
+                196     LOAD_CONST                      34: 'Complex.__rpow__'
+                198     MAKE_FUNCTION                   0
+                200     CALL_FUNCTION                   1
+                202     STORE_NAME                      22: __rpow__
+                204     LOAD_NAME                       5: abstractmethod
+                206     LOAD_CONST                      35: <CODE> __abs__
+                208     LOAD_CONST                      36: 'Complex.__abs__'
+                210     MAKE_FUNCTION                   0
+                212     CALL_FUNCTION                   1
+                214     STORE_NAME                      23: __abs__
+                216     LOAD_NAME                       5: abstractmethod
+                218     LOAD_CONST                      37: <CODE> conjugate
+                220     LOAD_CONST                      38: 'Complex.conjugate'
+                222     MAKE_FUNCTION                   0
+                224     CALL_FUNCTION                   1
+                226     STORE_NAME                      24: conjugate
+                228     LOAD_NAME                       5: abstractmethod
+                230     LOAD_CONST                      39: <CODE> __eq__
+                232     LOAD_CONST                      40: 'Complex.__eq__'
+                234     MAKE_FUNCTION                   0
+                236     CALL_FUNCTION                   1
+                238     STORE_NAME                      25: __eq__
+                240     LOAD_CONST                      41: None
+                242     RETURN_VALUE                    
+        'Complex'
+        [Code]
+            File Name: numbers.py
+            Object Name: Real
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__slots__'
+                'abstractmethod'
+                '__float__'
+                '__trunc__'
+                '__floor__'
+                '__ceil__'
+                '__round__'
+                '__divmod__'
+                '__rdivmod__'
+                '__floordiv__'
+                '__rfloordiv__'
+                '__mod__'
+                '__rmod__'
+                '__lt__'
+                '__le__'
+                '__complex__'
+                'property'
+                'real'
+                'imag'
+                'conjugate'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Real'
+                'To Complex, Real adds the operations that work on real numbers.\n\n    In short, those are: a conversion to float, trunc(), divmod,\n    %, <, <=, >, and >=.\n\n    Real also provides defaults for the derived operations.\n    '
+                (
+                )
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __float__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Any Real can be converted to a native float object.\n\n        Called for float(self).'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Real.__float__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __trunc__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'trunc(self): Truncates self to an Integral.\n\n        Returns an Integral i such that:\n          * i>0 iff self>0;\n          * abs(i) <= abs(self);\n          * for any Integral j satisfying the first two conditions,\n            abs(i) >= abs(j) [i.e. i has "maximal" abs among those].\n        i.e. "truncate towards 0".\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Real.__trunc__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __floor__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Finds the greatest Integral <= self.'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Real.__floor__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __ceil__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Finds the least Integral >= self.'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Real.__ceil__'
+                None
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __round__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'ndigits'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Rounds self to ndigits decimal places, defaulting to 0.\n\n        If ndigits is omitted or None, returns an Integral, otherwise\n        returns a Real. Rounds half toward even.\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Real.__round__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __divmod__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'divmod(self, other): The pair (self // other, self % other).\n\n        Sometimes this can be computed faster than the pair of\n        operations.\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_FAST                       1: other
+                        4       BINARY_FLOOR_DIVIDE             
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_FAST                       1: other
+                        10      BINARY_MODULO                   
+                        12      BUILD_TUPLE                     2
+                        14      RETURN_VALUE                    
+                'Real.__divmod__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __rdivmod__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'divmod(other, self): The pair (self // other, self % other).\n\n        Sometimes this can be computed faster than the pair of\n        operations.\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       1: other
+                        2       LOAD_FAST                       0: self
+                        4       BINARY_FLOOR_DIVIDE             
+                        6       LOAD_FAST                       1: other
+                        8       LOAD_FAST                       0: self
+                        10      BINARY_MODULO                   
+                        12      BUILD_TUPLE                     2
+                        14      RETURN_VALUE                    
+                'Real.__rdivmod__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __floordiv__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'self // other: The floor() of self/other.'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Real.__floordiv__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __rfloordiv__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'other // self: The floor() of other/self.'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Real.__rfloordiv__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __mod__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'self % other'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Real.__mod__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __rmod__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'other % self'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Real.__rmod__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __lt__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'self < other\n\n        < on Reals defines a total ordering, except perhaps for NaN.'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Real.__lt__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __le__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'self <= other'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Real.__le__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __complex__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'complex'
+                        'float'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'complex(self) == complex(float(self), 0)'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: complex
+                        2       LOAD_GLOBAL                     1: float
+                        4       LOAD_FAST                       0: self
+                        6       CALL_FUNCTION                   1
+                        8       CALL_FUNCTION                   1
+                        10      RETURN_VALUE                    
+                'Real.__complex__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: real
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Real numbers are their real component.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       UNARY_POSITIVE                  
+                        4       RETURN_VALUE                    
+                'Real.real'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: imag
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Real numbers have no imaginary component.'
+                        0
+                    [Disassembly]
+                        0       LOAD_CONST                      1: 0
+                        2       RETURN_VALUE                    
+                'Real.imag'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: conjugate
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Conjugate is a no-op for Reals.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       UNARY_POSITIVE                  
+                        4       RETURN_VALUE                    
+                'Real.conjugate'
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Real'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'To Complex, Real adds the operations that work on real numbers.\n\n    In short, those are: a conversion to float, trunc(), divmod,\n    %, <, <=, >, and >=.\n\n    Real also provides defaults for the derived operations.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: ()
+                14      STORE_NAME                      4: __slots__
+                16      LOAD_NAME                       5: abstractmethod
+                18      LOAD_CONST                      3: <CODE> __float__
+                20      LOAD_CONST                      4: 'Real.__float__'
+                22      MAKE_FUNCTION                   0
+                24      CALL_FUNCTION                   1
+                26      STORE_NAME                      6: __float__
+                28      LOAD_NAME                       5: abstractmethod
+                30      LOAD_CONST                      5: <CODE> __trunc__
+                32      LOAD_CONST                      6: 'Real.__trunc__'
+                34      MAKE_FUNCTION                   0
+                36      CALL_FUNCTION                   1
+                38      STORE_NAME                      7: __trunc__
+                40      LOAD_NAME                       5: abstractmethod
+                42      LOAD_CONST                      7: <CODE> __floor__
+                44      LOAD_CONST                      8: 'Real.__floor__'
+                46      MAKE_FUNCTION                   0
+                48      CALL_FUNCTION                   1
+                50      STORE_NAME                      8: __floor__
+                52      LOAD_NAME                       5: abstractmethod
+                54      LOAD_CONST                      9: <CODE> __ceil__
+                56      LOAD_CONST                      10: 'Real.__ceil__'
+                58      MAKE_FUNCTION                   0
+                60      CALL_FUNCTION                   1
+                62      STORE_NAME                      9: __ceil__
+                64      LOAD_NAME                       5: abstractmethod
+                66      LOAD_CONST                      38: (None,)
+                68      LOAD_CONST                      12: <CODE> __round__
+                70      LOAD_CONST                      13: 'Real.__round__'
+                72      MAKE_FUNCTION                   1
+                74      CALL_FUNCTION                   1
+                76      STORE_NAME                      10: __round__
+                78      LOAD_CONST                      14: <CODE> __divmod__
+                80      LOAD_CONST                      15: 'Real.__divmod__'
+                82      MAKE_FUNCTION                   0
+                84      STORE_NAME                      11: __divmod__
+                86      LOAD_CONST                      16: <CODE> __rdivmod__
+                88      LOAD_CONST                      17: 'Real.__rdivmod__'
+                90      MAKE_FUNCTION                   0
+                92      STORE_NAME                      12: __rdivmod__
+                94      LOAD_NAME                       5: abstractmethod
+                96      LOAD_CONST                      18: <CODE> __floordiv__
+                98      LOAD_CONST                      19: 'Real.__floordiv__'
+                100     MAKE_FUNCTION                   0
+                102     CALL_FUNCTION                   1
+                104     STORE_NAME                      13: __floordiv__
+                106     LOAD_NAME                       5: abstractmethod
+                108     LOAD_CONST                      20: <CODE> __rfloordiv__
+                110     LOAD_CONST                      21: 'Real.__rfloordiv__'
+                112     MAKE_FUNCTION                   0
+                114     CALL_FUNCTION                   1
+                116     STORE_NAME                      14: __rfloordiv__
+                118     LOAD_NAME                       5: abstractmethod
+                120     LOAD_CONST                      22: <CODE> __mod__
+                122     LOAD_CONST                      23: 'Real.__mod__'
+                124     MAKE_FUNCTION                   0
+                126     CALL_FUNCTION                   1
+                128     STORE_NAME                      15: __mod__
+                130     LOAD_NAME                       5: abstractmethod
+                132     LOAD_CONST                      24: <CODE> __rmod__
+                134     LOAD_CONST                      25: 'Real.__rmod__'
+                136     MAKE_FUNCTION                   0
+                138     CALL_FUNCTION                   1
+                140     STORE_NAME                      16: __rmod__
+                142     LOAD_NAME                       5: abstractmethod
+                144     LOAD_CONST                      26: <CODE> __lt__
+                146     LOAD_CONST                      27: 'Real.__lt__'
+                148     MAKE_FUNCTION                   0
+                150     CALL_FUNCTION                   1
+                152     STORE_NAME                      17: __lt__
+                154     LOAD_NAME                       5: abstractmethod
+                156     LOAD_CONST                      28: <CODE> __le__
+                158     LOAD_CONST                      29: 'Real.__le__'
+                160     MAKE_FUNCTION                   0
+                162     CALL_FUNCTION                   1
+                164     STORE_NAME                      18: __le__
+                166     LOAD_CONST                      30: <CODE> __complex__
+                168     LOAD_CONST                      31: 'Real.__complex__'
+                170     MAKE_FUNCTION                   0
+                172     STORE_NAME                      19: __complex__
+                174     LOAD_NAME                       20: property
+                176     LOAD_CONST                      32: <CODE> real
+                178     LOAD_CONST                      33: 'Real.real'
+                180     MAKE_FUNCTION                   0
+                182     CALL_FUNCTION                   1
+                184     STORE_NAME                      21: real
+                186     LOAD_NAME                       20: property
+                188     LOAD_CONST                      34: <CODE> imag
+                190     LOAD_CONST                      35: 'Real.imag'
+                192     MAKE_FUNCTION                   0
+                194     CALL_FUNCTION                   1
+                196     STORE_NAME                      22: imag
+                198     LOAD_CONST                      36: <CODE> conjugate
+                200     LOAD_CONST                      37: 'Real.conjugate'
+                202     MAKE_FUNCTION                   0
+                204     STORE_NAME                      23: conjugate
+                206     LOAD_CONST                      11: None
+                208     RETURN_VALUE                    
+        'Real'
+        [Code]
+            File Name: numbers.py
+            Object Name: Rational
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__slots__'
+                'property'
+                'abstractmethod'
+                'numerator'
+                'denominator'
+                '__float__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Rational'
+                '.numerator and .denominator should be in lowest terms.'
+                (
+                )
+                [Code]
+                    File Name: numbers.py
+                    Object Name: numerator
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Rational.numerator'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: denominator
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Rational.denominator'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __float__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'int'
+                        'numerator'
+                        'denominator'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'float(self) = self.numerator / self.denominator\n\n        It\'s important that this conversion use the integer\'s "true"\n        division rather than casting one side to float before dividing\n        so that ratios of huge integers convert without overflowing.\n\n        '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: int
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       1: numerator
+                        6       CALL_FUNCTION                   1
+                        8       LOAD_GLOBAL                     0: int
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       2: denominator
+                        14      CALL_FUNCTION                   1
+                        16      BINARY_TRUE_DIVIDE              
+                        18      RETURN_VALUE                    
+                'Rational.__float__'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Rational'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: '.numerator and .denominator should be in lowest terms.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: ()
+                14      STORE_NAME                      4: __slots__
+                16      LOAD_NAME                       5: property
+                18      LOAD_NAME                       6: abstractmethod
+                20      LOAD_CONST                      3: <CODE> numerator
+                22      LOAD_CONST                      4: 'Rational.numerator'
+                24      MAKE_FUNCTION                   0
+                26      CALL_FUNCTION                   1
+                28      CALL_FUNCTION                   1
+                30      STORE_NAME                      7: numerator
+                32      LOAD_NAME                       5: property
+                34      LOAD_NAME                       6: abstractmethod
+                36      LOAD_CONST                      5: <CODE> denominator
+                38      LOAD_CONST                      6: 'Rational.denominator'
+                40      MAKE_FUNCTION                   0
+                42      CALL_FUNCTION                   1
+                44      CALL_FUNCTION                   1
+                46      STORE_NAME                      8: denominator
+                48      LOAD_CONST                      7: <CODE> __float__
+                50      LOAD_CONST                      8: 'Rational.__float__'
+                52      MAKE_FUNCTION                   0
+                54      STORE_NAME                      9: __float__
+                56      LOAD_CONST                      9: None
+                58      RETURN_VALUE                    
+        'Rational'
+        [Code]
+            File Name: numbers.py
+            Object Name: Integral
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__slots__'
+                'abstractmethod'
+                '__int__'
+                '__index__'
+                '__pow__'
+                '__lshift__'
+                '__rlshift__'
+                '__rshift__'
+                '__rrshift__'
+                '__and__'
+                '__rand__'
+                '__xor__'
+                '__rxor__'
+                '__or__'
+                '__ror__'
+                '__invert__'
+                '__float__'
+                'property'
+                'numerator'
+                'denominator'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Integral'
+                'Integral adds methods that work on integral numbers.\n\n    In short, these are conversion to int, pow with modulus, and the\n    bit-string operations.\n    '
+                (
+                )
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __int__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'int(self)'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Integral.__int__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __index__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'int'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Called whenever an index is needed, such as in slicing'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: int
+                        2       LOAD_FAST                       0: self
+                        4       CALL_FUNCTION                   1
+                        6       RETURN_VALUE                    
+                'Integral.__index__'
+                None
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __pow__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'exponent'
+                        'modulus'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "self ** exponent % modulus, but maybe faster.\n\n        Accept the modulus argument if you want to support the\n        3-argument version of pow(). Raise a TypeError if exponent < 0\n        or any argument isn't Integral. Otherwise, just implement the\n        2-argument version described in Complex.\n        "
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Integral.__pow__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __lshift__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'self << other'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Integral.__lshift__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __rlshift__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'other << self'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Integral.__rlshift__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __rshift__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'self >> other'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Integral.__rshift__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __rrshift__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'other >> self'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Integral.__rrshift__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __and__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'self & other'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Integral.__and__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __rand__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'other & self'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Integral.__rand__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __xor__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'self ^ other'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Integral.__xor__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __rxor__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'other ^ self'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Integral.__rxor__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __or__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'self | other'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Integral.__or__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __ror__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'other | self'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Integral.__ror__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __invert__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NotImplementedError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '~self'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: NotImplementedError
+                        2       RAISE_VARARGS                   1
+                'Integral.__invert__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: __float__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'float'
+                        'int'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'float(self) == float(int(self))'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: float
+                        2       LOAD_GLOBAL                     1: int
+                        4       LOAD_FAST                       0: self
+                        6       CALL_FUNCTION                   1
+                        8       CALL_FUNCTION                   1
+                        10      RETURN_VALUE                    
+                'Integral.__float__'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: numerator
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Integers are their own numerators.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       UNARY_POSITIVE                  
+                        4       RETURN_VALUE                    
+                'Integral.numerator'
+                [Code]
+                    File Name: numbers.py
+                    Object Name: denominator
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Integers have a denominator of 1.'
+                        1
+                    [Disassembly]
+                        0       LOAD_CONST                      1: 1
+                        2       RETURN_VALUE                    
+                'Integral.denominator'
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Integral'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Integral adds methods that work on integral numbers.\n\n    In short, these are conversion to int, pow with modulus, and the\n    bit-string operations.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: ()
+                14      STORE_NAME                      4: __slots__
+                16      LOAD_NAME                       5: abstractmethod
+                18      LOAD_CONST                      3: <CODE> __int__
+                20      LOAD_CONST                      4: 'Integral.__int__'
+                22      MAKE_FUNCTION                   0
+                24      CALL_FUNCTION                   1
+                26      STORE_NAME                      6: __int__
+                28      LOAD_CONST                      5: <CODE> __index__
+                30      LOAD_CONST                      6: 'Integral.__index__'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      7: __index__
+                36      LOAD_NAME                       5: abstractmethod
+                38      LOAD_CONST                      38: (None,)
+                40      LOAD_CONST                      8: <CODE> __pow__
+                42      LOAD_CONST                      9: 'Integral.__pow__'
+                44      MAKE_FUNCTION                   1
+                46      CALL_FUNCTION                   1
+                48      STORE_NAME                      8: __pow__
+                50      LOAD_NAME                       5: abstractmethod
+                52      LOAD_CONST                      10: <CODE> __lshift__
+                54      LOAD_CONST                      11: 'Integral.__lshift__'
+                56      MAKE_FUNCTION                   0
+                58      CALL_FUNCTION                   1
+                60      STORE_NAME                      9: __lshift__
+                62      LOAD_NAME                       5: abstractmethod
+                64      LOAD_CONST                      12: <CODE> __rlshift__
+                66      LOAD_CONST                      13: 'Integral.__rlshift__'
+                68      MAKE_FUNCTION                   0
+                70      CALL_FUNCTION                   1
+                72      STORE_NAME                      10: __rlshift__
+                74      LOAD_NAME                       5: abstractmethod
+                76      LOAD_CONST                      14: <CODE> __rshift__
+                78      LOAD_CONST                      15: 'Integral.__rshift__'
+                80      MAKE_FUNCTION                   0
+                82      CALL_FUNCTION                   1
+                84      STORE_NAME                      11: __rshift__
+                86      LOAD_NAME                       5: abstractmethod
+                88      LOAD_CONST                      16: <CODE> __rrshift__
+                90      LOAD_CONST                      17: 'Integral.__rrshift__'
+                92      MAKE_FUNCTION                   0
+                94      CALL_FUNCTION                   1
+                96      STORE_NAME                      12: __rrshift__
+                98      LOAD_NAME                       5: abstractmethod
+                100     LOAD_CONST                      18: <CODE> __and__
+                102     LOAD_CONST                      19: 'Integral.__and__'
+                104     MAKE_FUNCTION                   0
+                106     CALL_FUNCTION                   1
+                108     STORE_NAME                      13: __and__
+                110     LOAD_NAME                       5: abstractmethod
+                112     LOAD_CONST                      20: <CODE> __rand__
+                114     LOAD_CONST                      21: 'Integral.__rand__'
+                116     MAKE_FUNCTION                   0
+                118     CALL_FUNCTION                   1
+                120     STORE_NAME                      14: __rand__
+                122     LOAD_NAME                       5: abstractmethod
+                124     LOAD_CONST                      22: <CODE> __xor__
+                126     LOAD_CONST                      23: 'Integral.__xor__'
+                128     MAKE_FUNCTION                   0
+                130     CALL_FUNCTION                   1
+                132     STORE_NAME                      15: __xor__
+                134     LOAD_NAME                       5: abstractmethod
+                136     LOAD_CONST                      24: <CODE> __rxor__
+                138     LOAD_CONST                      25: 'Integral.__rxor__'
+                140     MAKE_FUNCTION                   0
+                142     CALL_FUNCTION                   1
+                144     STORE_NAME                      16: __rxor__
+                146     LOAD_NAME                       5: abstractmethod
+                148     LOAD_CONST                      26: <CODE> __or__
+                150     LOAD_CONST                      27: 'Integral.__or__'
+                152     MAKE_FUNCTION                   0
+                154     CALL_FUNCTION                   1
+                156     STORE_NAME                      17: __or__
+                158     LOAD_NAME                       5: abstractmethod
+                160     LOAD_CONST                      28: <CODE> __ror__
+                162     LOAD_CONST                      29: 'Integral.__ror__'
+                164     MAKE_FUNCTION                   0
+                166     CALL_FUNCTION                   1
+                168     STORE_NAME                      18: __ror__
+                170     LOAD_NAME                       5: abstractmethod
+                172     LOAD_CONST                      30: <CODE> __invert__
+                174     LOAD_CONST                      31: 'Integral.__invert__'
+                176     MAKE_FUNCTION                   0
+                178     CALL_FUNCTION                   1
+                180     STORE_NAME                      19: __invert__
+                182     LOAD_CONST                      32: <CODE> __float__
+                184     LOAD_CONST                      33: 'Integral.__float__'
+                186     MAKE_FUNCTION                   0
+                188     STORE_NAME                      20: __float__
+                190     LOAD_NAME                       21: property
+                192     LOAD_CONST                      34: <CODE> numerator
+                194     LOAD_CONST                      35: 'Integral.numerator'
+                196     MAKE_FUNCTION                   0
+                198     CALL_FUNCTION                   1
+                200     STORE_NAME                      22: numerator
+                202     LOAD_NAME                       21: property
+                204     LOAD_CONST                      36: <CODE> denominator
+                206     LOAD_CONST                      37: 'Integral.denominator'
+                208     MAKE_FUNCTION                   0
+                210     CALL_FUNCTION                   1
+                212     STORE_NAME                      23: denominator
+                214     LOAD_CONST                      7: None
+                216     RETURN_VALUE                    
+        'Integral'
+        None
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Abstract Base Classes (ABCs) for numbers, according to PEP 3141.\n\nTODO: Fill out more detailed documentation on the operators.'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: ('ABCMeta', 'abstractmethod')
+        8       IMPORT_NAME                     1: abc
+        10      IMPORT_FROM                     2: ABCMeta
+        12      STORE_NAME                      2: ABCMeta
+        14      IMPORT_FROM                     3: abstractmethod
+        16      STORE_NAME                      3: abstractmethod
+        18      POP_TOP                         
+        20      BUILD_LIST                      0
+        22      LOAD_CONST                      3: ('Number', 'Complex', 'Real', 'Rational', 'Integral')
+        24      LIST_EXTEND                     1
+        26      STORE_NAME                      4: __all__
+        28      LOAD_BUILD_CLASS                
+        30      LOAD_CONST                      4: <CODE> Number
+        32      LOAD_CONST                      5: 'Number'
+        34      MAKE_FUNCTION                   0
+        36      LOAD_CONST                      5: 'Number'
+        38      LOAD_NAME                       2: ABCMeta
+        40      LOAD_CONST                      6: ('metaclass',)
+        42      CALL_FUNCTION_KW                3
+        44      STORE_NAME                      5: Number
+        46      LOAD_BUILD_CLASS                
+        48      LOAD_CONST                      7: <CODE> Complex
+        50      LOAD_CONST                      8: 'Complex'
+        52      MAKE_FUNCTION                   0
+        54      LOAD_CONST                      8: 'Complex'
+        56      LOAD_NAME                       5: Number
+        58      CALL_FUNCTION                   3
+        60      STORE_NAME                      6: Complex
+        62      LOAD_NAME                       6: Complex
+        64      LOAD_METHOD                     7: register
+        66      LOAD_NAME                       8: complex
+        68      CALL_METHOD                     1
+        70      POP_TOP                         
+        72      LOAD_BUILD_CLASS                
+        74      LOAD_CONST                      9: <CODE> Real
+        76      LOAD_CONST                      10: 'Real'
+        78      MAKE_FUNCTION                   0
+        80      LOAD_CONST                      10: 'Real'
+        82      LOAD_NAME                       6: Complex
+        84      CALL_FUNCTION                   3
+        86      STORE_NAME                      9: Real
+        88      LOAD_NAME                       9: Real
+        90      LOAD_METHOD                     7: register
+        92      LOAD_NAME                       10: float
+        94      CALL_METHOD                     1
+        96      POP_TOP                         
+        98      LOAD_BUILD_CLASS                
+        100     LOAD_CONST                      11: <CODE> Rational
+        102     LOAD_CONST                      12: 'Rational'
+        104     MAKE_FUNCTION                   0
+        106     LOAD_CONST                      12: 'Rational'
+        108     LOAD_NAME                       9: Real
+        110     CALL_FUNCTION                   3
+        112     STORE_NAME                      11: Rational
+        114     LOAD_BUILD_CLASS                
+        116     LOAD_CONST                      13: <CODE> Integral
+        118     LOAD_CONST                      14: 'Integral'
+        120     MAKE_FUNCTION                   0
+        122     LOAD_CONST                      14: 'Integral'
+        124     LOAD_NAME                       11: Rational
+        126     CALL_FUNCTION                   3
+        128     STORE_NAME                      12: Integral
+        130     LOAD_NAME                       12: Integral
+        132     LOAD_METHOD                     7: register
+        134     LOAD_NAME                       13: int
+        136     CALL_METHOD                     1
+        138     POP_TOP                         
+        140     LOAD_CONST                      15: None
+        142     RETURN_VALUE                    

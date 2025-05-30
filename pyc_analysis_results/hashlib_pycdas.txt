@@ -1,0 +1,1124 @@
+hashlib.pyc (Python 3.10)
+[Code]
+    File Name: hashlib.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 9
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__always_supported'
+        'set'
+        'algorithms_guaranteed'
+        'algorithms_available'
+        '__all__'
+        '__builtin_constructor_cache'
+        '__block_openssl_constructor'
+        '__get_builtin_constructor'
+        '__get_openssl_constructor'
+        '__py_new'
+        '__hash_new'
+        '_hashlib'
+        'new'
+        '__get_hash'
+        'union'
+        'openssl_md_meth_names'
+        'ImportError'
+        'pbkdf2_hmac'
+        'warnings'
+        'warn'
+        '_warn'
+        'bytes'
+        'range'
+        '_trans_5C'
+        '_trans_36'
+        'scrypt'
+        '__func_name'
+        'globals'
+        'ValueError'
+        'logging'
+        'exception'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'hashlib module - A common interface to many hash functions.\n\nnew(name, data=b\'\', **kwargs) - returns a new hash object implementing the\n                                given hash function; initializing the hash\n                                using the given binary data.\n\nNamed constructor functions are also available, these are faster\nthan using new(name):\n\nmd5(), sha1(), sha224(), sha256(), sha384(), sha512(), blake2b(), blake2s(),\nsha3_224, sha3_256, sha3_384, sha3_512, shake_128, and shake_256.\n\nMore algorithms may be available on your platform but the above are guaranteed\nto exist.  See the algorithms_guaranteed and algorithms_available attributes\nto find out what algorithm names can be passed to new().\n\nNOTE: If you want the adler32 or crc32 hash functions they are available in\nthe zlib module.\n\nChoose your hash function wisely.  Some have known collision weaknesses.\nsha384 and sha512 will be slow on 32 bit platforms.\n\nHash objects have these methods:\n - update(data): Update the hash object with the bytes in data. Repeated calls\n                 are equivalent to a single call with the concatenation of all\n                 the arguments.\n - digest():     Return the digest of the bytes passed to the update() method\n                 so far as a bytes object.\n - hexdigest():  Like digest() except the digest is returned as a string\n                 of double length, containing only hexadecimal digits.\n - copy():       Return a copy (clone) of the hash object. This can be used to\n                 efficiently compute the digests of datas that share a common\n                 initial substring.\n\nFor example, to obtain the digest of the byte string \'Nobody inspects the\nspammish repetition\':\n\n    >>> import hashlib\n    >>> m = hashlib.md5()\n    >>> m.update(b"Nobody inspects")\n    >>> m.update(b" the spammish repetition")\n    >>> m.digest()\n    b\'\\xbbd\\x9c\\x83\\xdd\\x1e\\xa5\\xc9\\xd9\\xde\\xc9\\xa1\\x8d\\xf0\\xff\\xe9\'\n\nMore condensed:\n\n    >>> hashlib.sha224(b"Nobody inspects the spammish repetition").hexdigest()\n    \'a4337bc45a8fc544c03f52dc550cd6e1e87021bc896588bd79e901e2\'\n\n'
+        (
+            'md5'
+            'sha1'
+            'sha224'
+            'sha256'
+            'sha384'
+            'sha512'
+            'blake2b'
+            'blake2s'
+            'sha3_224'
+            'sha3_256'
+            'sha3_384'
+            'sha3_512'
+            'shake_128'
+            'shake_256'
+        )
+        (
+            'new'
+            'algorithms_guaranteed'
+            'algorithms_available'
+            'pbkdf2_hmac'
+        )
+        'blake2b'
+        'blake2s'
+        [Code]
+            File Name: hashlib.py
+            Object Name: __get_builtin_constructor
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 9
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '__builtin_constructor_cache'
+                'get'
+                '_sha1'
+                'sha1'
+                '_md5'
+                'md5'
+                '_sha256'
+                'sha224'
+                'sha256'
+                '_sha512'
+                'sha384'
+                'sha512'
+                '_blake2'
+                'blake2b'
+                'blake2s'
+                '_sha3'
+                'sha3_224'
+                'sha3_256'
+                'sha3_384'
+                'sha3_512'
+                'shake_128'
+                'shake_256'
+                'ImportError'
+                'ValueError'
+            [Var Names]
+                'name'
+                'cache'
+                'constructor'
+                '_sha1'
+                '_md5'
+                '_sha256'
+                '_sha512'
+                '_blake2'
+                '_sha3'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                frozenset({
+                    'SHA1'
+                    'sha1'
+                })
+                0
+                'SHA1'
+                'sha1'
+                frozenset({
+                    'MD5'
+                    'md5'
+                })
+                'MD5'
+                'md5'
+                frozenset({
+                    'SHA224'
+                    'SHA256'
+                    'sha224'
+                    'sha256'
+                })
+                'SHA224'
+                'sha224'
+                'SHA256'
+                'sha256'
+                frozenset({
+                    'SHA384'
+                    'SHA512'
+                    'sha384'
+                    'sha512'
+                })
+                'SHA384'
+                'sha384'
+                'SHA512'
+                'sha512'
+                frozenset({
+                    'blake2b'
+                    'blake2s'
+                })
+                'blake2b'
+                'blake2s'
+                frozenset({
+                    'sha3_224'
+                    'sha3_256'
+                    'sha3_384'
+                    'sha3_512'
+                })
+                'sha3_224'
+                'sha3_256'
+                'sha3_384'
+                'sha3_512'
+                frozenset({
+                    'shake_128'
+                    'shake_256'
+                })
+                'shake_128'
+                'shake_256'
+                'unsupported hash type '
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: __builtin_constructor_cache
+                2       STORE_FAST                      1: cache
+                4       LOAD_FAST                       1: cache
+                6       LOAD_METHOD                     1: get
+                8       LOAD_FAST                       0: name
+                10      CALL_METHOD                     1
+                12      STORE_FAST                      2: constructor
+                14      LOAD_FAST                       2: constructor
+                16      LOAD_CONST                      0: None
+                18      IS_OP                           1 (is not)
+                20      POP_JUMP_IF_FALSE               13 (to 26)
+                22      LOAD_FAST                       2: constructor
+                24      RETURN_VALUE                    
+                26      SETUP_FINALLY                   158 (to 344)
+                28      LOAD_FAST                       0: name
+                30      LOAD_CONST                      1: frozenset({'SHA1', 'sha1'})
+                32      CONTAINS_OP                     0 (in)
+                34      POP_JUMP_IF_FALSE               32 (to 64)
+                36      LOAD_CONST                      2: 0
+                38      LOAD_CONST                      0: None
+                40      IMPORT_NAME                     2: _sha1
+                42      STORE_FAST                      3: _sha1
+                44      LOAD_FAST                       3: _sha1
+                46      LOAD_ATTR                       3: sha1
+                48      DUP_TOP                         
+                50      LOAD_FAST                       1: cache
+                52      LOAD_CONST                      3: 'SHA1'
+                54      STORE_SUBSCR                    
+                56      LOAD_FAST                       1: cache
+                58      LOAD_CONST                      4: 'sha1'
+                60      STORE_SUBSCR                    
+                62      JUMP_FORWARD                    138 (to 340)
+                64      LOAD_FAST                       0: name
+                66      LOAD_CONST                      5: frozenset({'MD5', 'md5'})
+                68      CONTAINS_OP                     0 (in)
+                70      POP_JUMP_IF_FALSE               50 (to 100)
+                72      LOAD_CONST                      2: 0
+                74      LOAD_CONST                      0: None
+                76      IMPORT_NAME                     4: _md5
+                78      STORE_FAST                      4: _md5
+                80      LOAD_FAST                       4: _md5
+                82      LOAD_ATTR                       5: md5
+                84      DUP_TOP                         
+                86      LOAD_FAST                       1: cache
+                88      LOAD_CONST                      6: 'MD5'
+                90      STORE_SUBSCR                    
+                92      LOAD_FAST                       1: cache
+                94      LOAD_CONST                      7: 'md5'
+                96      STORE_SUBSCR                    
+                98      JUMP_FORWARD                    120 (to 340)
+                100     LOAD_FAST                       0: name
+                102     LOAD_CONST                      8: frozenset({'SHA224', 'SHA256', 'sha224', 'sha256'})
+                104     CONTAINS_OP                     0 (in)
+                106     POP_JUMP_IF_FALSE               77 (to 154)
+                108     LOAD_CONST                      2: 0
+                110     LOAD_CONST                      0: None
+                112     IMPORT_NAME                     6: _sha256
+                114     STORE_FAST                      5: _sha256
+                116     LOAD_FAST                       5: _sha256
+                118     LOAD_ATTR                       7: sha224
+                120     DUP_TOP                         
+                122     LOAD_FAST                       1: cache
+                124     LOAD_CONST                      9: 'SHA224'
+                126     STORE_SUBSCR                    
+                128     LOAD_FAST                       1: cache
+                130     LOAD_CONST                      10: 'sha224'
+                132     STORE_SUBSCR                    
+                134     LOAD_FAST                       5: _sha256
+                136     LOAD_ATTR                       8: sha256
+                138     DUP_TOP                         
+                140     LOAD_FAST                       1: cache
+                142     LOAD_CONST                      11: 'SHA256'
+                144     STORE_SUBSCR                    
+                146     LOAD_FAST                       1: cache
+                148     LOAD_CONST                      12: 'sha256'
+                150     STORE_SUBSCR                    
+                152     JUMP_FORWARD                    93 (to 340)
+                154     LOAD_FAST                       0: name
+                156     LOAD_CONST                      13: frozenset({'SHA384', 'SHA512', 'sha384', 'sha512'})
+                158     CONTAINS_OP                     0 (in)
+                160     POP_JUMP_IF_FALSE               104 (to 208)
+                162     LOAD_CONST                      2: 0
+                164     LOAD_CONST                      0: None
+                166     IMPORT_NAME                     9: _sha512
+                168     STORE_FAST                      6: _sha512
+                170     LOAD_FAST                       6: _sha512
+                172     LOAD_ATTR                       10: sha384
+                174     DUP_TOP                         
+                176     LOAD_FAST                       1: cache
+                178     LOAD_CONST                      14: 'SHA384'
+                180     STORE_SUBSCR                    
+                182     LOAD_FAST                       1: cache
+                184     LOAD_CONST                      15: 'sha384'
+                186     STORE_SUBSCR                    
+                188     LOAD_FAST                       6: _sha512
+                190     LOAD_ATTR                       11: sha512
+                192     DUP_TOP                         
+                194     LOAD_FAST                       1: cache
+                196     LOAD_CONST                      16: 'SHA512'
+                198     STORE_SUBSCR                    
+                200     LOAD_FAST                       1: cache
+                202     LOAD_CONST                      17: 'sha512'
+                204     STORE_SUBSCR                    
+                206     JUMP_FORWARD                    66 (to 340)
+                208     LOAD_FAST                       0: name
+                210     LOAD_CONST                      18: frozenset({'blake2b', 'blake2s'})
+                212     CONTAINS_OP                     0 (in)
+                214     POP_JUMP_IF_FALSE               123 (to 246)
+                216     LOAD_CONST                      2: 0
+                218     LOAD_CONST                      0: None
+                220     IMPORT_NAME                     12: _blake2
+                222     STORE_FAST                      7: _blake2
+                224     LOAD_FAST                       7: _blake2
+                226     LOAD_ATTR                       13: blake2b
+                228     LOAD_FAST                       1: cache
+                230     LOAD_CONST                      19: 'blake2b'
+                232     STORE_SUBSCR                    
+                234     LOAD_FAST                       7: _blake2
+                236     LOAD_ATTR                       14: blake2s
+                238     LOAD_FAST                       1: cache
+                240     LOAD_CONST                      20: 'blake2s'
+                242     STORE_SUBSCR                    
+                244     JUMP_FORWARD                    47 (to 340)
+                246     LOAD_FAST                       0: name
+                248     LOAD_CONST                      21: frozenset({'sha3_224', 'sha3_256', 'sha3_384', 'sha3_512'})
+                250     CONTAINS_OP                     0 (in)
+                252     POP_JUMP_IF_FALSE               152 (to 304)
+                254     LOAD_CONST                      2: 0
+                256     LOAD_CONST                      0: None
+                258     IMPORT_NAME                     15: _sha3
+                260     STORE_FAST                      8: _sha3
+                262     LOAD_FAST                       8: _sha3
+                264     LOAD_ATTR                       16: sha3_224
+                266     LOAD_FAST                       1: cache
+                268     LOAD_CONST                      22: 'sha3_224'
+                270     STORE_SUBSCR                    
+                272     LOAD_FAST                       8: _sha3
+                274     LOAD_ATTR                       17: sha3_256
+                276     LOAD_FAST                       1: cache
+                278     LOAD_CONST                      23: 'sha3_256'
+                280     STORE_SUBSCR                    
+                282     LOAD_FAST                       8: _sha3
+                284     LOAD_ATTR                       18: sha3_384
+                286     LOAD_FAST                       1: cache
+                288     LOAD_CONST                      24: 'sha3_384'
+                290     STORE_SUBSCR                    
+                292     LOAD_FAST                       8: _sha3
+                294     LOAD_ATTR                       19: sha3_512
+                296     LOAD_FAST                       1: cache
+                298     LOAD_CONST                      25: 'sha3_512'
+                300     STORE_SUBSCR                    
+                302     JUMP_FORWARD                    18 (to 340)
+                304     LOAD_FAST                       0: name
+                306     LOAD_CONST                      26: frozenset({'shake_128', 'shake_256'})
+                308     CONTAINS_OP                     0 (in)
+                310     POP_JUMP_IF_FALSE               170 (to 340)
+                312     LOAD_CONST                      2: 0
+                314     LOAD_CONST                      0: None
+                316     IMPORT_NAME                     15: _sha3
+                318     STORE_FAST                      8: _sha3
+                320     LOAD_FAST                       8: _sha3
+                322     LOAD_ATTR                       20: shake_128
+                324     LOAD_FAST                       1: cache
+                326     LOAD_CONST                      27: 'shake_128'
+                328     STORE_SUBSCR                    
+                330     LOAD_FAST                       8: _sha3
+                332     LOAD_ATTR                       21: shake_256
+                334     LOAD_FAST                       1: cache
+                336     LOAD_CONST                      28: 'shake_256'
+                338     STORE_SUBSCR                    
+                340     POP_BLOCK                       
+                342     JUMP_FORWARD                    9 (to 362)
+                344     DUP_TOP                         
+                346     LOAD_GLOBAL                     22: ImportError
+                348     JUMP_IF_NOT_EXC_MATCH           180 (to 360)
+                350     POP_TOP                         
+                352     POP_TOP                         
+                354     POP_TOP                         
+                356     POP_EXCEPT                      
+                358     JUMP_FORWARD                    1 (to 362)
+                360     RERAISE                         0
+                362     LOAD_FAST                       1: cache
+                364     LOAD_METHOD                     1: get
+                366     LOAD_FAST                       0: name
+                368     CALL_METHOD                     1
+                370     STORE_FAST                      2: constructor
+                372     LOAD_FAST                       2: constructor
+                374     LOAD_CONST                      0: None
+                376     IS_OP                           1 (is not)
+                378     POP_JUMP_IF_FALSE               192 (to 384)
+                380     LOAD_FAST                       2: constructor
+                382     RETURN_VALUE                    
+                384     LOAD_GLOBAL                     23: ValueError
+                386     LOAD_CONST                      29: 'unsupported hash type '
+                388     LOAD_FAST                       0: name
+                390     BINARY_ADD                      
+                392     CALL_FUNCTION                   1
+                394     RAISE_VARARGS                   1
+        '__get_builtin_constructor'
+        [Code]
+            File Name: hashlib.py
+            Object Name: __get_openssl_constructor
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 9
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '__block_openssl_constructor'
+                '__get_builtin_constructor'
+                'getattr'
+                '_hashlib'
+                'AttributeError'
+                'ValueError'
+            [Var Names]
+                'name'
+                'f'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'openssl_'
+                False
+                (
+                    'usedforsecurity'
+                )
+            [Disassembly]
+                0       LOAD_FAST                       0: name
+                2       LOAD_GLOBAL                     0: __block_openssl_constructor
+                4       CONTAINS_OP                     0 (in)
+                6       POP_JUMP_IF_FALSE               8 (to 16)
+                8       LOAD_GLOBAL                     1: __get_builtin_constructor
+                10      LOAD_FAST                       0: name
+                12      CALL_FUNCTION                   1
+                14      RETURN_VALUE                    
+                16      SETUP_FINALLY                   15 (to 48)
+                18      LOAD_GLOBAL                     2: getattr
+                20      LOAD_GLOBAL                     3: _hashlib
+                22      LOAD_CONST                      1: 'openssl_'
+                24      LOAD_FAST                       0: name
+                26      BINARY_ADD                      
+                28      CALL_FUNCTION                   2
+                30      STORE_FAST                      1: f
+                32      LOAD_FAST                       1: f
+                34      LOAD_CONST                      2: False
+                36      LOAD_CONST                      3: ('usedforsecurity',)
+                38      CALL_FUNCTION_KW                1
+                40      POP_TOP                         
+                42      LOAD_FAST                       1: f
+                44      POP_BLOCK                       
+                46      RETURN_VALUE                    
+                48      DUP_TOP                         
+                50      LOAD_GLOBAL                     4: AttributeError
+                52      LOAD_GLOBAL                     5: ValueError
+                54      BUILD_TUPLE                     2
+                56      JUMP_IF_NOT_EXC_MATCH           38 (to 76)
+                58      POP_TOP                         
+                60      POP_TOP                         
+                62      POP_TOP                         
+                64      LOAD_GLOBAL                     1: __get_builtin_constructor
+                66      LOAD_FAST                       0: name
+                68      CALL_FUNCTION                   1
+                70      ROT_FOUR                        
+                72      POP_EXCEPT                      
+                74      RETURN_VALUE                    
+                76      RERAISE                         0
+        '__get_openssl_constructor'
+        b''
+        [Code]
+            File Name: hashlib.py
+            Object Name: __py_new
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 4
+            Flags: 0x0000004B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                '__get_builtin_constructor'
+            [Var Names]
+                'name'
+                'data'
+                'kwargs'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "new(name, data=b'', **kwargs) - Return a new hashing object using the\n    named algorithm; optionally initialized with data (which must be\n    a bytes-like object).\n    "
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: __get_builtin_constructor
+                2       LOAD_FAST                       0: name
+                4       CALL_FUNCTION                   1
+                6       LOAD_FAST                       1: data
+                8       BUILD_TUPLE                     1
+                10      BUILD_MAP                       0
+                12      LOAD_FAST                       2: kwargs
+                14      DICT_MERGE                      1
+                16      CALL_FUNCTION_EX                1
+                18      RETURN_VALUE                    
+        '__py_new'
+        [Code]
+            File Name: hashlib.py
+            Object Name: __hash_new
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 8
+            Flags: 0x0000004B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                '__block_openssl_constructor'
+                '__get_builtin_constructor'
+                '_hashlib'
+                'new'
+                'ValueError'
+            [Var Names]
+                'name'
+                'data'
+                'kwargs'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "new(name, data=b'') - Return a new hashing object using the named algorithm;\n    optionally initialized with data (which must be a bytes-like object).\n    "
+            [Disassembly]
+                0       LOAD_FAST                       0: name
+                2       LOAD_GLOBAL                     0: __block_openssl_constructor
+                4       CONTAINS_OP                     0 (in)
+                6       POP_JUMP_IF_FALSE               14 (to 28)
+                8       LOAD_GLOBAL                     1: __get_builtin_constructor
+                10      LOAD_FAST                       0: name
+                12      CALL_FUNCTION                   1
+                14      LOAD_FAST                       1: data
+                16      BUILD_TUPLE                     1
+                18      BUILD_MAP                       0
+                20      LOAD_FAST                       2: kwargs
+                22      DICT_MERGE                      1
+                24      CALL_FUNCTION_EX                1
+                26      RETURN_VALUE                    
+                28      SETUP_FINALLY                   11 (to 52)
+                30      LOAD_GLOBAL                     2: _hashlib
+                32      LOAD_ATTR                       3: new
+                34      LOAD_FAST                       0: name
+                36      LOAD_FAST                       1: data
+                38      BUILD_TUPLE                     2
+                40      BUILD_MAP                       0
+                42      LOAD_FAST                       2: kwargs
+                44      DICT_MERGE                      1
+                46      CALL_FUNCTION_EX                1
+                48      POP_BLOCK                       
+                50      RETURN_VALUE                    
+                52      DUP_TOP                         
+                54      LOAD_GLOBAL                     4: ValueError
+                56      JUMP_IF_NOT_EXC_MATCH           40 (to 80)
+                58      POP_TOP                         
+                60      POP_TOP                         
+                62      POP_TOP                         
+                64      LOAD_GLOBAL                     1: __get_builtin_constructor
+                66      LOAD_FAST                       0: name
+                68      CALL_FUNCTION                   1
+                70      LOAD_FAST                       1: data
+                72      CALL_FUNCTION                   1
+                74      ROT_FOUR                        
+                76      POP_EXCEPT                      
+                78      RETURN_VALUE                    
+                80      RERAISE                         0
+        '__hash_new'
+        0
+        None
+        (
+            'pbkdf2_hmac'
+        )
+        (
+            'warn'
+        )
+        [Code]
+            File Name: hashlib.py
+            Object Name: <genexpr>
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+            [Var Names]
+                '.0'
+                'x'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                92
+                None
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_FAST                       0: .0
+                4       FOR_ITER                        7 (to 20)
+                6       STORE_FAST                      1: x
+                8       LOAD_FAST                       1: x
+                10      LOAD_CONST                      0: 92
+                12      BINARY_XOR                      
+                14      YIELD_VALUE                     
+                16      POP_TOP                         
+                18      JUMP_ABSOLUTE                   2 (to 4)
+                20      LOAD_CONST                      1: None
+                22      RETURN_VALUE                    
+        '<genexpr>'
+        256
+        [Code]
+            File Name: hashlib.py
+            Object Name: <genexpr>
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+            [Var Names]
+                '.0'
+                'x'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                54
+                None
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_FAST                       0: .0
+                4       FOR_ITER                        7 (to 20)
+                6       STORE_FAST                      1: x
+                8       LOAD_FAST                       1: x
+                10      LOAD_CONST                      0: 54
+                12      BINARY_XOR                      
+                14      YIELD_VALUE                     
+                16      POP_TOP                         
+                18      JUMP_ABSOLUTE                   2 (to 4)
+                20      LOAD_CONST                      1: None
+                22      RETURN_VALUE                    
+        [Code]
+            File Name: hashlib.py
+            Object Name: pbkdf2_hmac
+            Arg Count: 5
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 15
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_warn'
+                'DeprecationWarning'
+                'isinstance'
+                'str'
+                'TypeError'
+                'bytes'
+                'bytearray'
+                'memoryview'
+                'new'
+                'getattr'
+                'len'
+                'digest'
+                'update'
+                'translate'
+                '_trans_36'
+                '_trans_5C'
+                'ValueError'
+                'digest_size'
+                'int'
+                'from_bytes'
+                'to_bytes'
+                'range'
+            [Var Names]
+                'hash_name'
+                'password'
+                'salt'
+                'iterations'
+                'dklen'
+                'inner'
+                'outer'
+                'blocksize'
+                'prf'
+                'dkey'
+                'loop'
+                'from_bytes'
+                'prev'
+                'rkey'
+                'i'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Password based key derivation function 2 (PKCS #5 v2.0)\n\n        This Python implementations based on the hmac module about as fast\n        as OpenSSL's PKCS5_PBKDF2_HMAC for short passwords and much faster\n        for long passwords.\n        "
+                'Python implementation of pbkdf2_hmac() is deprecated.'
+                2
+                (
+                    'category'
+                    'stacklevel'
+                )
+                'block_size'
+                64
+                b'\x00'
+                [Code]
+                    File Name: hashlib.py
+                    Object Name: prf
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 4
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        'copy'
+                        'update'
+                        'digest'
+                    [Var Names]
+                        'msg'
+                        'inner'
+                        'outer'
+                        'icpy'
+                        'ocpy'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: inner
+                        2       LOAD_METHOD                     0: copy
+                        4       CALL_METHOD                     0
+                        6       STORE_FAST                      3: icpy
+                        8       LOAD_FAST                       2: outer
+                        10      LOAD_METHOD                     0: copy
+                        12      CALL_METHOD                     0
+                        14      STORE_FAST                      4: ocpy
+                        16      LOAD_FAST                       3: icpy
+                        18      LOAD_METHOD                     1: update
+                        20      LOAD_FAST                       0: msg
+                        22      CALL_METHOD                     1
+                        24      POP_TOP                         
+                        26      LOAD_FAST                       4: ocpy
+                        28      LOAD_METHOD                     1: update
+                        30      LOAD_FAST                       3: icpy
+                        32      LOAD_METHOD                     2: digest
+                        34      CALL_METHOD                     0
+                        36      CALL_METHOD                     1
+                        38      POP_TOP                         
+                        40      LOAD_FAST                       4: ocpy
+                        42      LOAD_METHOD                     2: digest
+                        44      CALL_METHOD                     0
+                        46      RETURN_VALUE                    
+                'pbkdf2_hmac.<locals>.prf'
+                1
+                None
+                b''
+                4
+                'big'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _warn
+                2       LOAD_CONST                      1: 'Python implementation of pbkdf2_hmac() is deprecated.'
+                4       LOAD_GLOBAL                     1: DeprecationWarning
+                6       LOAD_CONST                      2: 2
+                8       LOAD_CONST                      3: ('category', 'stacklevel')
+                10      CALL_FUNCTION_KW                3
+                12      POP_TOP                         
+                14      LOAD_GLOBAL                     2: isinstance
+                16      LOAD_FAST                       0: hash_name
+                18      LOAD_GLOBAL                     3: str
+                20      CALL_FUNCTION                   2
+                22      POP_JUMP_IF_TRUE                16 (to 32)
+                24      LOAD_GLOBAL                     4: TypeError
+                26      LOAD_FAST                       0: hash_name
+                28      CALL_FUNCTION                   1
+                30      RAISE_VARARGS                   1
+                32      LOAD_GLOBAL                     2: isinstance
+                34      LOAD_FAST                       1: password
+                36      LOAD_GLOBAL                     5: bytes
+                38      LOAD_GLOBAL                     6: bytearray
+                40      BUILD_TUPLE                     2
+                42      CALL_FUNCTION                   2
+                44      POP_JUMP_IF_TRUE                29 (to 58)
+                46      LOAD_GLOBAL                     5: bytes
+                48      LOAD_GLOBAL                     7: memoryview
+                50      LOAD_FAST                       1: password
+                52      CALL_FUNCTION                   1
+                54      CALL_FUNCTION                   1
+                56      STORE_FAST                      1: password
+                58      LOAD_GLOBAL                     2: isinstance
+                60      LOAD_FAST                       2: salt
+                62      LOAD_GLOBAL                     5: bytes
+                64      LOAD_GLOBAL                     6: bytearray
+                66      BUILD_TUPLE                     2
+                68      CALL_FUNCTION                   2
+                70      POP_JUMP_IF_TRUE                42 (to 84)
+                72      LOAD_GLOBAL                     5: bytes
+                74      LOAD_GLOBAL                     7: memoryview
+                76      LOAD_FAST                       2: salt
+                78      CALL_FUNCTION                   1
+                80      CALL_FUNCTION                   1
+                82      STORE_FAST                      2: salt
+                84      LOAD_GLOBAL                     8: new
+                86      LOAD_FAST                       0: hash_name
+                88      CALL_FUNCTION                   1
+                90      STORE_FAST                      5: inner
+                92      LOAD_GLOBAL                     8: new
+                94      LOAD_FAST                       0: hash_name
+                96      CALL_FUNCTION                   1
+                98      STORE_FAST                      6: outer
+                100     LOAD_GLOBAL                     9: getattr
+                102     LOAD_FAST                       5: inner
+                104     LOAD_CONST                      4: 'block_size'
+                106     LOAD_CONST                      5: 64
+                108     CALL_FUNCTION                   3
+                110     STORE_FAST                      7: blocksize
+                112     LOAD_GLOBAL                     10: len
+                114     LOAD_FAST                       1: password
+                116     CALL_FUNCTION                   1
+                118     LOAD_FAST                       7: blocksize
+                120     COMPARE_OP                      4 (>)
+                122     POP_JUMP_IF_FALSE               69 (to 138)
+                124     LOAD_GLOBAL                     8: new
+                126     LOAD_FAST                       0: hash_name
+                128     LOAD_FAST                       1: password
+                130     CALL_FUNCTION                   2
+                132     LOAD_METHOD                     11: digest
+                134     CALL_METHOD                     0
+                136     STORE_FAST                      1: password
+                138     LOAD_FAST                       1: password
+                140     LOAD_CONST                      6: b'\x00'
+                142     LOAD_FAST                       7: blocksize
+                144     LOAD_GLOBAL                     10: len
+                146     LOAD_FAST                       1: password
+                148     CALL_FUNCTION                   1
+                150     BINARY_SUBTRACT                 
+                152     BINARY_MULTIPLY                 
+                154     BINARY_ADD                      
+                156     STORE_FAST                      1: password
+                158     LOAD_FAST                       5: inner
+                160     LOAD_METHOD                     12: update
+                162     LOAD_FAST                       1: password
+                164     LOAD_METHOD                     13: translate
+                166     LOAD_GLOBAL                     14: _trans_36
+                168     CALL_METHOD                     1
+                170     CALL_METHOD                     1
+                172     POP_TOP                         
+                174     LOAD_FAST                       6: outer
+                176     LOAD_METHOD                     12: update
+                178     LOAD_FAST                       1: password
+                180     LOAD_METHOD                     13: translate
+                182     LOAD_GLOBAL                     15: _trans_5C
+                184     CALL_METHOD                     1
+                186     CALL_METHOD                     1
+                188     POP_TOP                         
+                190     LOAD_FAST                       5: inner
+                192     LOAD_FAST                       6: outer
+                194     BUILD_TUPLE                     2
+                196     LOAD_CONST                      7: <CODE> prf
+                198     LOAD_CONST                      8: 'pbkdf2_hmac.<locals>.prf'
+                200     MAKE_FUNCTION                   1
+                202     STORE_FAST                      8: prf
+                204     LOAD_FAST                       3: iterations
+                206     LOAD_CONST                      9: 1
+                208     COMPARE_OP                      0 (<)
+                210     POP_JUMP_IF_FALSE               110 (to 220)
+                212     LOAD_GLOBAL                     16: ValueError
+                214     LOAD_FAST                       3: iterations
+                216     CALL_FUNCTION                   1
+                218     RAISE_VARARGS                   1
+                220     LOAD_FAST                       4: dklen
+                222     LOAD_CONST                      10: None
+                224     IS_OP                           0 (is)
+                226     POP_JUMP_IF_FALSE               117 (to 234)
+                228     LOAD_FAST                       6: outer
+                230     LOAD_ATTR                       17: digest_size
+                232     STORE_FAST                      4: dklen
+                234     LOAD_FAST                       4: dklen
+                236     LOAD_CONST                      9: 1
+                238     COMPARE_OP                      0 (<)
+                240     POP_JUMP_IF_FALSE               125 (to 250)
+                242     LOAD_GLOBAL                     16: ValueError
+                244     LOAD_FAST                       4: dklen
+                246     CALL_FUNCTION                   1
+                248     RAISE_VARARGS                   1
+                250     LOAD_CONST                      11: b''
+                252     STORE_FAST                      9: dkey
+                254     LOAD_CONST                      9: 1
+                256     STORE_FAST                      10: loop
+                258     LOAD_GLOBAL                     18: int
+                260     LOAD_ATTR                       19: from_bytes
+                262     STORE_FAST                      11: from_bytes
+                264     LOAD_GLOBAL                     10: len
+                266     LOAD_FAST                       9: dkey
+                268     CALL_FUNCTION                   1
+                270     LOAD_FAST                       4: dklen
+                272     COMPARE_OP                      0 (<)
+                274     POP_JUMP_IF_FALSE               193 (to 386)
+                276     LOAD_FAST                       8: prf
+                278     LOAD_FAST                       2: salt
+                280     LOAD_FAST                       10: loop
+                282     LOAD_METHOD                     20: to_bytes
+                284     LOAD_CONST                      12: 4
+                286     LOAD_CONST                      13: 'big'
+                288     CALL_METHOD                     2
+                290     BINARY_ADD                      
+                292     CALL_FUNCTION                   1
+                294     STORE_FAST                      12: prev
+                296     LOAD_GLOBAL                     18: int
+                298     LOAD_METHOD                     19: from_bytes
+                300     LOAD_FAST                       12: prev
+                302     LOAD_CONST                      13: 'big'
+                304     CALL_METHOD                     2
+                306     STORE_FAST                      13: rkey
+                308     LOAD_GLOBAL                     21: range
+                310     LOAD_FAST                       3: iterations
+                312     LOAD_CONST                      9: 1
+                314     BINARY_SUBTRACT                 
+                316     CALL_FUNCTION                   1
+                318     GET_ITER                        
+                320     FOR_ITER                        13 (to 348)
+                322     STORE_FAST                      14: i
+                324     LOAD_FAST                       8: prf
+                326     LOAD_FAST                       12: prev
+                328     CALL_FUNCTION                   1
+                330     STORE_FAST                      12: prev
+                332     LOAD_FAST                       13: rkey
+                334     LOAD_FAST                       11: from_bytes
+                336     LOAD_FAST                       12: prev
+                338     LOAD_CONST                      13: 'big'
+                340     CALL_FUNCTION                   2
+                342     INPLACE_XOR                     
+                344     STORE_FAST                      13: rkey
+                346     JUMP_ABSOLUTE                   160 (to 320)
+                348     LOAD_FAST                       10: loop
+                350     LOAD_CONST                      9: 1
+                352     INPLACE_ADD                     
+                354     STORE_FAST                      10: loop
+                356     LOAD_FAST                       9: dkey
+                358     LOAD_FAST                       13: rkey
+                360     LOAD_METHOD                     20: to_bytes
+                362     LOAD_FAST                       5: inner
+                364     LOAD_ATTR                       17: digest_size
+                366     LOAD_CONST                      13: 'big'
+                368     CALL_METHOD                     2
+                370     INPLACE_ADD                     
+                372     STORE_FAST                      9: dkey
+                374     LOAD_GLOBAL                     10: len
+                376     LOAD_FAST                       9: dkey
+                378     CALL_FUNCTION                   1
+                380     LOAD_FAST                       4: dklen
+                382     COMPARE_OP                      0 (<)
+                384     POP_JUMP_IF_TRUE                138 (to 276)
+                386     LOAD_FAST                       9: dkey
+                388     LOAD_CONST                      10: None
+                390     LOAD_FAST                       4: dklen
+                392     BUILD_SLICE                     2
+                394     BINARY_SUBSCR                   
+                396     RETURN_VALUE                    
+        'pbkdf2_hmac'
+        (
+            'scrypt'
+        )
+        'code for hash %s was not found.'
+        (
+            b''
+        )
+        (
+            None
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'hashlib module - A common interface to many hash functions.\n\nnew(name, data=b\'\', **kwargs) - returns a new hash object implementing the\n                                given hash function; initializing the hash\n                                using the given binary data.\n\nNamed constructor functions are also available, these are faster\nthan using new(name):\n\nmd5(), sha1(), sha224(), sha256(), sha384(), sha512(), blake2b(), blake2s(),\nsha3_224, sha3_256, sha3_384, sha3_512, shake_128, and shake_256.\n\nMore algorithms may be available on your platform but the above are guaranteed\nto exist.  See the algorithms_guaranteed and algorithms_available attributes\nto find out what algorithm names can be passed to new().\n\nNOTE: If you want the adler32 or crc32 hash functions they are available in\nthe zlib module.\n\nChoose your hash function wisely.  Some have known collision weaknesses.\nsha384 and sha512 will be slow on 32 bit platforms.\n\nHash objects have these methods:\n - update(data): Update the hash object with the bytes in data. Repeated calls\n                 are equivalent to a single call with the concatenation of all\n                 the arguments.\n - digest():     Return the digest of the bytes passed to the update() method\n                 so far as a bytes object.\n - hexdigest():  Like digest() except the digest is returned as a string\n                 of double length, containing only hexadecimal digits.\n - copy():       Return a copy (clone) of the hash object. This can be used to\n                 efficiently compute the digests of datas that share a common\n                 initial substring.\n\nFor example, to obtain the digest of the byte string \'Nobody inspects the\nspammish repetition\':\n\n    >>> import hashlib\n    >>> m = hashlib.md5()\n    >>> m.update(b"Nobody inspects")\n    >>> m.update(b" the spammish repetition")\n    >>> m.digest()\n    b\'\\xbbd\\x9c\\x83\\xdd\\x1e\\xa5\\xc9\\xd9\\xde\\xc9\\xa1\\x8d\\xf0\\xff\\xe9\'\n\nMore condensed:\n\n    >>> hashlib.sha224(b"Nobody inspects the spammish repetition").hexdigest()\n    \'a4337bc45a8fc544c03f52dc550cd6e1e87021bc896588bd79e901e2\'\n\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: ('md5', 'sha1', 'sha224', 'sha256', 'sha384', 'sha512', 'blake2b', 'blake2s', 'sha3_224', 'sha3_256', 'sha3_384', 'sha3_512', 'shake_128', 'shake_256')
+        6       STORE_NAME                      1: __always_supported
+        8       LOAD_NAME                       2: set
+        10      LOAD_NAME                       1: __always_supported
+        12      CALL_FUNCTION                   1
+        14      STORE_NAME                      3: algorithms_guaranteed
+        16      LOAD_NAME                       2: set
+        18      LOAD_NAME                       1: __always_supported
+        20      CALL_FUNCTION                   1
+        22      STORE_NAME                      4: algorithms_available
+        24      LOAD_NAME                       1: __always_supported
+        26      LOAD_CONST                      2: ('new', 'algorithms_guaranteed', 'algorithms_available', 'pbkdf2_hmac')
+        28      BINARY_ADD                      
+        30      STORE_NAME                      5: __all__
+        32      BUILD_MAP                       0
+        34      STORE_NAME                      6: __builtin_constructor_cache
+        36      LOAD_CONST                      3: 'blake2b'
+        38      LOAD_CONST                      4: 'blake2s'
+        40      BUILD_SET                       2
+        42      STORE_NAME                      7: __block_openssl_constructor
+        44      LOAD_CONST                      5: <CODE> __get_builtin_constructor
+        46      LOAD_CONST                      6: '__get_builtin_constructor'
+        48      MAKE_FUNCTION                   0
+        50      STORE_NAME                      8: __get_builtin_constructor
+        52      LOAD_CONST                      7: <CODE> __get_openssl_constructor
+        54      LOAD_CONST                      8: '__get_openssl_constructor'
+        56      MAKE_FUNCTION                   0
+        58      STORE_NAME                      9: __get_openssl_constructor
+        60      LOAD_CONST                      26: (b'',)
+        62      LOAD_CONST                      10: <CODE> __py_new
+        64      LOAD_CONST                      11: '__py_new'
+        66      MAKE_FUNCTION                   1
+        68      STORE_NAME                      10: __py_new
+        70      LOAD_CONST                      26: (b'',)
+        72      LOAD_CONST                      12: <CODE> __hash_new
+        74      LOAD_CONST                      13: '__hash_new'
+        76      MAKE_FUNCTION                   1
+        78      STORE_NAME                      11: __hash_new
+        80      SETUP_FINALLY                   16 (to 114)
+        82      LOAD_CONST                      14: 0
+        84      LOAD_CONST                      15: None
+        86      IMPORT_NAME                     12: _hashlib
+        88      STORE_NAME                      12: _hashlib
+        90      LOAD_NAME                       11: __hash_new
+        92      STORE_NAME                      13: new
+        94      LOAD_NAME                       9: __get_openssl_constructor
+        96      STORE_NAME                      14: __get_hash
+        98      LOAD_NAME                       4: algorithms_available
+        100     LOAD_METHOD                     15: union
+        102     LOAD_NAME                       12: _hashlib
+        104     LOAD_ATTR                       16: openssl_md_meth_names
+        106     CALL_METHOD                     1
+        108     STORE_NAME                      4: algorithms_available
+        110     POP_BLOCK                       
+        112     JUMP_FORWARD                    15 (to 144)
+        114     DUP_TOP                         
+        116     LOAD_NAME                       17: ImportError
+        118     JUMP_IF_NOT_EXC_MATCH           71 (to 142)
+        120     POP_TOP                         
+        122     POP_TOP                         
+        124     POP_TOP                         
+        126     LOAD_CONST                      15: None
+        128     STORE_NAME                      12: _hashlib
+        130     LOAD_NAME                       10: __py_new
+        132     STORE_NAME                      13: new
+        134     LOAD_NAME                       8: __get_builtin_constructor
+        136     STORE_NAME                      14: __get_hash
+        138     POP_EXCEPT                      
+        140     JUMP_FORWARD                    1 (to 144)
+        142     RERAISE                         0
+        144     SETUP_FINALLY                   8 (to 162)
+        146     LOAD_CONST                      14: 0
+        148     LOAD_CONST                      16: ('pbkdf2_hmac',)
+        150     IMPORT_NAME                     12: _hashlib
+        152     IMPORT_FROM                     18: pbkdf2_hmac
+        154     STORE_NAME                      18: pbkdf2_hmac
+        156     POP_TOP                         
+        158     POP_BLOCK                       
+        160     JUMP_FORWARD                    42 (to 246)
+        162     DUP_TOP                         
+        164     LOAD_NAME                       17: ImportError
+        166     JUMP_IF_NOT_EXC_MATCH           122 (to 244)
+        168     POP_TOP                         
+        170     POP_TOP                         
+        172     POP_TOP                         
+        174     LOAD_CONST                      14: 0
+        176     LOAD_CONST                      17: ('warn',)
+        178     IMPORT_NAME                     19: warnings
+        180     IMPORT_FROM                     20: warn
+        182     STORE_NAME                      21: _warn
+        184     POP_TOP                         
+        186     LOAD_NAME                       22: bytes
+        188     LOAD_CONST                      18: <CODE> <genexpr>
+        190     LOAD_CONST                      19: '<genexpr>'
+        192     MAKE_FUNCTION                   0
+        194     LOAD_NAME                       23: range
+        196     LOAD_CONST                      20: 256
+        198     CALL_FUNCTION                   1
+        200     GET_ITER                        
+        202     CALL_FUNCTION                   1
+        204     CALL_FUNCTION                   1
+        206     STORE_NAME                      24: _trans_5C
+        208     LOAD_NAME                       22: bytes
+        210     LOAD_CONST                      21: <CODE> <genexpr>
+        212     LOAD_CONST                      19: '<genexpr>'
+        214     MAKE_FUNCTION                   0
+        216     LOAD_NAME                       23: range
+        218     LOAD_CONST                      20: 256
+        220     CALL_FUNCTION                   1
+        222     GET_ITER                        
+        224     CALL_FUNCTION                   1
+        226     CALL_FUNCTION                   1
+        228     STORE_NAME                      25: _trans_36
+        230     LOAD_CONST                      27: (None,)
+        232     LOAD_CONST                      22: <CODE> pbkdf2_hmac
+        234     LOAD_CONST                      23: 'pbkdf2_hmac'
+        236     MAKE_FUNCTION                   1
+        238     STORE_NAME                      18: pbkdf2_hmac
+        240     POP_EXCEPT                      
+        242     JUMP_FORWARD                    1 (to 246)
+        244     RERAISE                         0
+        246     SETUP_FINALLY                   8 (to 264)
+        248     LOAD_CONST                      14: 0
+        250     LOAD_CONST                      24: ('scrypt',)
+        252     IMPORT_NAME                     12: _hashlib
+        254     IMPORT_FROM                     26: scrypt
+        256     STORE_NAME                      26: scrypt
+        258     POP_TOP                         
+        260     POP_BLOCK                       
+        262     JUMP_FORWARD                    9 (to 282)
+        264     DUP_TOP                         
+        266     LOAD_NAME                       17: ImportError
+        268     JUMP_IF_NOT_EXC_MATCH           140 (to 280)
+        270     POP_TOP                         
+        272     POP_TOP                         
+        274     POP_TOP                         
+        276     POP_EXCEPT                      
+        278     JUMP_FORWARD                    1 (to 282)
+        280     RERAISE                         0
+        282     LOAD_NAME                       1: __always_supported
+        284     GET_ITER                        
+        286     FOR_ITER                        30 (to 348)
+        288     STORE_NAME                      27: __func_name
+        290     SETUP_FINALLY                   9 (to 310)
+        292     LOAD_NAME                       14: __get_hash
+        294     LOAD_NAME                       27: __func_name
+        296     CALL_FUNCTION                   1
+        298     LOAD_NAME                       28: globals
+        300     CALL_FUNCTION                   0
+        302     LOAD_NAME                       27: __func_name
+        304     STORE_SUBSCR                    
+        306     POP_BLOCK                       
+        308     JUMP_ABSOLUTE                   143 (to 286)
+        310     DUP_TOP                         
+        312     LOAD_NAME                       29: ValueError
+        314     JUMP_IF_NOT_EXC_MATCH           173 (to 346)
+        316     POP_TOP                         
+        318     POP_TOP                         
+        320     POP_TOP                         
+        322     LOAD_CONST                      14: 0
+        324     LOAD_CONST                      15: None
+        326     IMPORT_NAME                     30: logging
+        328     STORE_NAME                      30: logging
+        330     LOAD_NAME                       30: logging
+        332     LOAD_METHOD                     31: exception
+        334     LOAD_CONST                      25: 'code for hash %s was not found.'
+        336     LOAD_NAME                       27: __func_name
+        338     CALL_METHOD                     2
+        340     POP_TOP                         
+        342     POP_EXCEPT                      
+        344     JUMP_ABSOLUTE                   143 (to 286)
+        346     RERAISE                         0
+        348     DELETE_NAME                     1: __always_supported
+        350     DELETE_NAME                     27: __func_name
+        352     DELETE_NAME                     14: __get_hash
+        354     DELETE_NAME                     10: __py_new
+        356     DELETE_NAME                     11: __hash_new
+        358     DELETE_NAME                     9: __get_openssl_constructor
+        360     LOAD_CONST                      15: None
+        362     RETURN_VALUE                    

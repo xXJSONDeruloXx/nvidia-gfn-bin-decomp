@@ -1,0 +1,358 @@
+iterators.pyc (Python 3.10)
+[Code]
+    File Name: email/iterators.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 3
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        'sys'
+        'io'
+        'StringIO'
+        'walk'
+        'body_line_iterator'
+        'typed_subpart_iterator'
+        '_structure'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Various types of useful iterators and generators.'
+        (
+            'body_line_iterator'
+            'typed_subpart_iterator'
+            'walk'
+        )
+        0
+        None
+        (
+            'StringIO'
+        )
+        [Code]
+            File Name: email/iterators.py
+            Object Name: walk
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                'is_multipart'
+                'get_payload'
+                'walk'
+            [Var Names]
+                'self'
+                'subpart'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Walk over the message tree, yielding each subpart.\n\n    The walk is performed in depth-first order.  This method is a\n    generator.\n    '
+                None
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_FAST                       0: self
+                4       YIELD_VALUE                     
+                6       POP_TOP                         
+                8       LOAD_FAST                       0: self
+                10      LOAD_METHOD                     0: is_multipart
+                12      CALL_METHOD                     0
+                14      POP_JUMP_IF_FALSE               22 (to 44)
+                16      LOAD_FAST                       0: self
+                18      LOAD_METHOD                     1: get_payload
+                20      CALL_METHOD                     0
+                22      GET_ITER                        
+                24      FOR_ITER                        11 (to 48)
+                26      STORE_FAST                      1: subpart
+                28      LOAD_FAST                       1: subpart
+                30      LOAD_METHOD                     2: walk
+                32      CALL_METHOD                     0
+                34      GET_YIELD_FROM_ITER             
+                36      LOAD_CONST                      1: None
+                38      YIELD_FROM                      
+                40      POP_TOP                         
+                42      JUMP_ABSOLUTE                   12 (to 24)
+                44      LOAD_CONST                      1: None
+                46      RETURN_VALUE                    
+                48      LOAD_CONST                      1: None
+                50      RETURN_VALUE                    
+        'walk'
+        False
+        [Code]
+            File Name: email/iterators.py
+            Object Name: body_line_iterator
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 4
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                'walk'
+                'get_payload'
+                'isinstance'
+                'str'
+                'StringIO'
+            [Var Names]
+                'msg'
+                'decode'
+                'subpart'
+                'payload'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Iterate over the parts, returning string payloads line-by-line.\n\n    Optional decode (default False) is passed through to .get_payload().\n    '
+                (
+                    'decode'
+                )
+                None
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_FAST                       0: msg
+                4       LOAD_METHOD                     0: walk
+                6       CALL_METHOD                     0
+                8       GET_ITER                        
+                10      FOR_ITER                        20 (to 52)
+                12      STORE_FAST                      2: subpart
+                14      LOAD_FAST                       2: subpart
+                16      LOAD_ATTR                       1: get_payload
+                18      LOAD_FAST                       1: decode
+                20      LOAD_CONST                      1: ('decode',)
+                22      CALL_FUNCTION_KW                1
+                24      STORE_FAST                      3: payload
+                26      LOAD_GLOBAL                     2: isinstance
+                28      LOAD_FAST                       3: payload
+                30      LOAD_GLOBAL                     3: str
+                32      CALL_FUNCTION                   2
+                34      POP_JUMP_IF_FALSE               25 (to 50)
+                36      LOAD_GLOBAL                     4: StringIO
+                38      LOAD_FAST                       3: payload
+                40      CALL_FUNCTION                   1
+                42      GET_YIELD_FROM_ITER             
+                44      LOAD_CONST                      2: None
+                46      YIELD_FROM                      
+                48      POP_TOP                         
+                50      JUMP_ABSOLUTE                   5 (to 10)
+                52      LOAD_CONST                      2: None
+                54      RETURN_VALUE                    
+        'body_line_iterator'
+        'text'
+        [Code]
+            File Name: email/iterators.py
+            Object Name: typed_subpart_iterator
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 3
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                'walk'
+                'get_content_maintype'
+                'get_content_subtype'
+            [Var Names]
+                'msg'
+                'maintype'
+                'subtype'
+                'subpart'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Iterate over the subparts with a given MIME type.\n\n    Use `maintype\' as the main MIME type to match against; this defaults to\n    "text".  Optional `subtype\' is the MIME subtype to match against; if\n    omitted, only the main type is matched.\n    '
+                None
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_FAST                       0: msg
+                4       LOAD_METHOD                     0: walk
+                6       CALL_METHOD                     0
+                8       GET_ITER                        
+                10      FOR_ITER                        21 (to 54)
+                12      STORE_FAST                      3: subpart
+                14      LOAD_FAST                       3: subpart
+                16      LOAD_METHOD                     1: get_content_maintype
+                18      CALL_METHOD                     0
+                20      LOAD_FAST                       1: maintype
+                22      COMPARE_OP                      2 (==)
+                24      POP_JUMP_IF_FALSE               26 (to 52)
+                26      LOAD_FAST                       2: subtype
+                28      LOAD_CONST                      1: None
+                30      IS_OP                           0 (is)
+                32      POP_JUMP_IF_TRUE                23 (to 46)
+                34      LOAD_FAST                       3: subpart
+                36      LOAD_METHOD                     2: get_content_subtype
+                38      CALL_METHOD                     0
+                40      LOAD_FAST                       2: subtype
+                42      COMPARE_OP                      2 (==)
+                44      POP_JUMP_IF_FALSE               26 (to 52)
+                46      LOAD_FAST                       3: subpart
+                48      YIELD_VALUE                     
+                50      POP_TOP                         
+                52      JUMP_ABSOLUTE                   5 (to 10)
+                54      LOAD_CONST                      1: None
+                56      RETURN_VALUE                    
+        'typed_subpart_iterator'
+        [Code]
+            File Name: email/iterators.py
+            Object Name: _structure
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'sys'
+                'stdout'
+                'print'
+                'get_content_type'
+                'get_default_type'
+                'is_multipart'
+                'get_payload'
+                '_structure'
+            [Var Names]
+                'msg'
+                'fp'
+                'level'
+                'include_default'
+                'tab'
+                'subpart'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'A handy debugging aid'
+                None
+                ' '
+                4
+                ''
+                (
+                    'end'
+                    'file'
+                )
+                ' [%s]'
+                (
+                    'file'
+                )
+                1
+            [Disassembly]
+                0       LOAD_FAST                       1: fp
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               7 (to 14)
+                8       LOAD_GLOBAL                     0: sys
+                10      LOAD_ATTR                       1: stdout
+                12      STORE_FAST                      1: fp
+                14      LOAD_CONST                      2: ' '
+                16      LOAD_FAST                       2: level
+                18      LOAD_CONST                      3: 4
+                20      BINARY_MULTIPLY                 
+                22      BINARY_MULTIPLY                 
+                24      STORE_FAST                      4: tab
+                26      LOAD_GLOBAL                     2: print
+                28      LOAD_FAST                       4: tab
+                30      LOAD_FAST                       0: msg
+                32      LOAD_METHOD                     3: get_content_type
+                34      CALL_METHOD                     0
+                36      BINARY_ADD                      
+                38      LOAD_CONST                      4: ''
+                40      LOAD_FAST                       1: fp
+                42      LOAD_CONST                      5: ('end', 'file')
+                44      CALL_FUNCTION_KW                3
+                46      POP_TOP                         
+                48      LOAD_FAST                       3: include_default
+                50      POP_JUMP_IF_FALSE               37 (to 74)
+                52      LOAD_GLOBAL                     2: print
+                54      LOAD_CONST                      6: ' [%s]'
+                56      LOAD_FAST                       0: msg
+                58      LOAD_METHOD                     4: get_default_type
+                60      CALL_METHOD                     0
+                62      BINARY_MODULO                   
+                64      LOAD_FAST                       1: fp
+                66      LOAD_CONST                      7: ('file',)
+                68      CALL_FUNCTION_KW                2
+                70      POP_TOP                         
+                72      JUMP_FORWARD                    5 (to 84)
+                74      LOAD_GLOBAL                     2: print
+                76      LOAD_FAST                       1: fp
+                78      LOAD_CONST                      7: ('file',)
+                80      CALL_FUNCTION_KW                1
+                82      POP_TOP                         
+                84      LOAD_FAST                       0: msg
+                86      LOAD_METHOD                     5: is_multipart
+                88      CALL_METHOD                     0
+                90      POP_JUMP_IF_FALSE               62 (to 124)
+                92      LOAD_FAST                       0: msg
+                94      LOAD_METHOD                     6: get_payload
+                96      CALL_METHOD                     0
+                98      GET_ITER                        
+                100     FOR_ITER                        13 (to 128)
+                102     STORE_FAST                      5: subpart
+                104     LOAD_GLOBAL                     7: _structure
+                106     LOAD_FAST                       5: subpart
+                108     LOAD_FAST                       1: fp
+                110     LOAD_FAST                       2: level
+                112     LOAD_CONST                      8: 1
+                114     BINARY_ADD                      
+                116     LOAD_FAST                       3: include_default
+                118     CALL_FUNCTION                   4
+                120     POP_TOP                         
+                122     JUMP_ABSOLUTE                   50 (to 100)
+                124     LOAD_CONST                      1: None
+                126     RETURN_VALUE                    
+                128     LOAD_CONST                      1: None
+                130     RETURN_VALUE                    
+        '_structure'
+        (
+            False
+        )
+        (
+            'text'
+            None
+        )
+        (
+            None
+            0
+            False
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Various types of useful iterators and generators.'
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('body_line_iterator', 'typed_subpart_iterator', 'walk')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: 0
+        14      LOAD_CONST                      3: None
+        16      IMPORT_NAME                     2: sys
+        18      STORE_NAME                      2: sys
+        20      LOAD_CONST                      2: 0
+        22      LOAD_CONST                      4: ('StringIO',)
+        24      IMPORT_NAME                     3: io
+        26      IMPORT_FROM                     4: StringIO
+        28      STORE_NAME                      4: StringIO
+        30      POP_TOP                         
+        32      LOAD_CONST                      5: <CODE> walk
+        34      LOAD_CONST                      6: 'walk'
+        36      MAKE_FUNCTION                   0
+        38      STORE_NAME                      5: walk
+        40      LOAD_CONST                      15: (False,)
+        42      LOAD_CONST                      8: <CODE> body_line_iterator
+        44      LOAD_CONST                      9: 'body_line_iterator'
+        46      MAKE_FUNCTION                   1
+        48      STORE_NAME                      6: body_line_iterator
+        50      LOAD_CONST                      16: ('text', None)
+        52      LOAD_CONST                      11: <CODE> typed_subpart_iterator
+        54      LOAD_CONST                      12: 'typed_subpart_iterator'
+        56      MAKE_FUNCTION                   1
+        58      STORE_NAME                      7: typed_subpart_iterator
+        60      LOAD_CONST                      17: (None, 0, False)
+        62      LOAD_CONST                      13: <CODE> _structure
+        64      LOAD_CONST                      14: '_structure'
+        66      MAKE_FUNCTION                   1
+        68      STORE_NAME                      8: _structure
+        70      LOAD_CONST                      3: None
+        72      RETURN_VALUE                    

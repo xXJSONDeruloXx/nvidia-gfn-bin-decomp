@@ -1,0 +1,1627 @@
+textwrap.pyc (Python 3.10)
+[Code]
+    File Name: textwrap.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        're'
+        '__all__'
+        '_whitespace'
+        'TextWrapper'
+        'wrap'
+        'fill'
+        'shorten'
+        'compile'
+        'MULTILINE'
+        '_whitespace_only_re'
+        '_leading_whitespace_re'
+        'dedent'
+        'indent'
+        '__name__'
+        'print'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Text wrapping and filling.\n'
+        0
+        None
+        (
+            'TextWrapper'
+            'wrap'
+            'fill'
+            'dedent'
+            'indent'
+            'shorten'
+        )
+        '\t\n\x0b\x0c\r '
+        [Code]
+            File Name: textwrap.py
+            Object Name: TextWrapper
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 8
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'unicode_whitespace_trans'
+                'ord'
+                'uspace'
+                '_whitespace'
+                'x'
+                'word_punct'
+                'letter'
+                're'
+                'escape'
+                'whitespace'
+                'nowhitespace'
+                'compile'
+                'VERBOSE'
+                'wordsep_re'
+                'wordsep_simple_re'
+                'sentence_end_re'
+                '__init__'
+                '_munge_whitespace'
+                '_split'
+                '_fix_sentence_endings'
+                '_handle_long_word'
+                '_wrap_chunks'
+                '_split_chunks'
+                'wrap'
+                'fill'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'TextWrapper'
+                '\n    Object for wrapping/filling text.  The public interface consists of\n    the wrap() and fill() methods; the other methods are just there for\n    subclasses to override in order to tweak the default behaviour.\n    If you want to completely replace the main wrapping algorithm,\n    you\'ll probably have to override _wrap_chunks().\n\n    Several instance attributes control various aspects of wrapping:\n      width (default: 70)\n        the maximum width of wrapped lines (unless break_long_words\n        is false)\n      initial_indent (default: "")\n        string that will be prepended to the first line of wrapped\n        output.  Counts towards the line\'s width.\n      subsequent_indent (default: "")\n        string that will be prepended to all lines save the first\n        of wrapped output; also counts towards each line\'s width.\n      expand_tabs (default: true)\n        Expand tabs in input text to spaces before further processing.\n        Each tab will become 0 .. \'tabsize\' spaces, depending on its position\n        in its line.  If false, each tab is treated as a single character.\n      tabsize (default: 8)\n        Expand tabs in input text to 0 .. \'tabsize\' spaces, unless\n        \'expand_tabs\' is false.\n      replace_whitespace (default: true)\n        Replace all whitespace characters in the input text by spaces\n        after tab expansion.  Note that if expand_tabs is false and\n        replace_whitespace is true, every tab will be converted to a\n        single space!\n      fix_sentence_endings (default: false)\n        Ensure that sentence-ending punctuation is always followed\n        by two spaces.  Off by default because the algorithm is\n        (unavoidably) imperfect.\n      break_long_words (default: true)\n        Break words longer than \'width\'.  If false, those words will not\n        be broken, and some lines might be longer than \'width\'.\n      break_on_hyphens (default: true)\n        Allow breaking hyphenated words. If true, wrapping will occur\n        preferably on whitespaces and right after hyphens part of\n        compound words.\n      drop_whitespace (default: true)\n        Drop leading and trailing whitespace from lines.\n      max_lines (default: None)\n        Truncate wrapped lines.\n      placeholder (default: \' [...]\')\n        Append to the last line of truncated text.\n    '
+                ' '
+                '[\\w!"\\\'&.,?]'
+                '[^\\d\\W]'
+                '[%s]'
+                '[^'
+                1
+                None
+                '\n        ( # any whitespace\n          %(ws)s+\n        | # em-dash between words\n          (?<=%(wp)s) -{2,} (?=\\w)\n        | # word, possibly hyphenated\n          %(nws)s+? (?:\n            # hyphenated word\n              -(?: (?<=%(lt)s{2}-) | (?<=%(lt)s-%(lt)s-))\n              (?= %(lt)s -? %(lt)s)\n            | # end of word\n              (?=%(ws)s|\\Z)\n            | # em-dash\n              (?<=%(wp)s) (?=-{2,}\\w)\n            )\n        )'
+                (
+                    'wp'
+                    'lt'
+                    'ws'
+                    'nws'
+                )
+                '(%s+)'
+                '[a-z][\\.\\!\\?][\\"\\\']?\\Z'
+                70
+                ''
+                True
+                False
+                8
+                ' [...]'
+                (
+                    'max_lines'
+                    'placeholder'
+                )
+                [Code]
+                    File Name: textwrap.py
+                    Object Name: __init__
+                    Arg Count: 11
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 2
+                    Locals: 13
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'width'
+                        'initial_indent'
+                        'subsequent_indent'
+                        'expand_tabs'
+                        'replace_whitespace'
+                        'fix_sentence_endings'
+                        'break_long_words'
+                        'drop_whitespace'
+                        'break_on_hyphens'
+                        'tabsize'
+                        'max_lines'
+                        'placeholder'
+                    [Var Names]
+                        'self'
+                        'width'
+                        'initial_indent'
+                        'subsequent_indent'
+                        'expand_tabs'
+                        'replace_whitespace'
+                        'fix_sentence_endings'
+                        'break_long_words'
+                        'drop_whitespace'
+                        'break_on_hyphens'
+                        'tabsize'
+                        'max_lines'
+                        'placeholder'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: width
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: width
+                        6       LOAD_FAST                       2: initial_indent
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: initial_indent
+                        12      LOAD_FAST                       3: subsequent_indent
+                        14      LOAD_FAST                       0: self
+                        16      STORE_ATTR                      2: subsequent_indent
+                        18      LOAD_FAST                       4: expand_tabs
+                        20      LOAD_FAST                       0: self
+                        22      STORE_ATTR                      3: expand_tabs
+                        24      LOAD_FAST                       5: replace_whitespace
+                        26      LOAD_FAST                       0: self
+                        28      STORE_ATTR                      4: replace_whitespace
+                        30      LOAD_FAST                       6: fix_sentence_endings
+                        32      LOAD_FAST                       0: self
+                        34      STORE_ATTR                      5: fix_sentence_endings
+                        36      LOAD_FAST                       7: break_long_words
+                        38      LOAD_FAST                       0: self
+                        40      STORE_ATTR                      6: break_long_words
+                        42      LOAD_FAST                       8: drop_whitespace
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      7: drop_whitespace
+                        48      LOAD_FAST                       9: break_on_hyphens
+                        50      LOAD_FAST                       0: self
+                        52      STORE_ATTR                      8: break_on_hyphens
+                        54      LOAD_FAST                       10: tabsize
+                        56      LOAD_FAST                       0: self
+                        58      STORE_ATTR                      9: tabsize
+                        60      LOAD_FAST                       11: max_lines
+                        62      LOAD_FAST                       0: self
+                        64      STORE_ATTR                      10: max_lines
+                        66      LOAD_FAST                       12: placeholder
+                        68      LOAD_FAST                       0: self
+                        70      STORE_ATTR                      11: placeholder
+                        72      LOAD_CONST                      0: None
+                        74      RETURN_VALUE                    
+                'TextWrapper.__init__'
+                [Code]
+                    File Name: textwrap.py
+                    Object Name: _munge_whitespace
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'expand_tabs'
+                        'expandtabs'
+                        'tabsize'
+                        'replace_whitespace'
+                        'translate'
+                        'unicode_whitespace_trans'
+                    [Var Names]
+                        'self'
+                        'text'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '_munge_whitespace(text : string) -> string\n\n        Munge whitespace in text: expand tabs and convert all other\n        whitespace characters to spaces.  Eg. " foo\\tbar\\n\\nbaz"\n        becomes " foo    bar  baz".\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: expand_tabs
+                        4       POP_JUMP_IF_FALSE               9 (to 18)
+                        6       LOAD_FAST                       1: text
+                        8       LOAD_METHOD                     1: expandtabs
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       2: tabsize
+                        14      CALL_METHOD                     1
+                        16      STORE_FAST                      1: text
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_ATTR                       3: replace_whitespace
+                        22      POP_JUMP_IF_FALSE               18 (to 36)
+                        24      LOAD_FAST                       1: text
+                        26      LOAD_METHOD                     4: translate
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       5: unicode_whitespace_trans
+                        32      CALL_METHOD                     1
+                        34      STORE_FAST                      1: text
+                        36      LOAD_FAST                       1: text
+                        38      RETURN_VALUE                    
+                'TextWrapper._munge_whitespace'
+                [Code]
+                    File Name: textwrap.py
+                    Object Name: _split
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'break_on_hyphens'
+                        'wordsep_re'
+                        'split'
+                        'wordsep_simple_re'
+                    [Var Names]
+                        'self'
+                        'text'
+                        'chunks'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "_split(text : string) -> [string]\n\n        Split the text to wrap into indivisible chunks.  Chunks are\n        not quite the same as words; see _wrap_chunks() for full\n        details.  As an example, the text\n          Look, goof-ball -- use the -b option!\n        breaks into the following chunks:\n          'Look,', ' ', 'goof-', 'ball', ' ', '--', ' ',\n          'use', ' ', 'the', ' ', '-b', ' ', 'option!'\n        if break_on_hyphens is True, or in:\n          'Look,', ' ', 'goof-ball', ' ', '--', ' ',\n          'use', ' ', 'the', ' ', '-b', ' ', option!'\n        otherwise.\n        "
+                        True
+                        [Code]
+                            File Name: textwrap.py
+                            Object Name: <listcomp>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 3
+                            Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                            [Names]
+                            [Var Names]
+                                '.0'
+                                'c'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                            [Disassembly]
+                                0       BUILD_LIST                      0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        6 (to 18)
+                                6       STORE_FAST                      1: c
+                                8       LOAD_FAST                       1: c
+                                10      POP_JUMP_IF_FALSE               2 (to 4)
+                                12      LOAD_FAST                       1: c
+                                14      LIST_APPEND                     2
+                                16      JUMP_ABSOLUTE                   2 (to 4)
+                                18      RETURN_VALUE                    
+                        'TextWrapper._split.<locals>.<listcomp>'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: break_on_hyphens
+                        4       LOAD_CONST                      1: True
+                        6       IS_OP                           0 (is)
+                        8       POP_JUMP_IF_FALSE               12 (to 24)
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       1: wordsep_re
+                        14      LOAD_METHOD                     2: split
+                        16      LOAD_FAST                       1: text
+                        18      CALL_METHOD                     1
+                        20      STORE_FAST                      2: chunks
+                        22      JUMP_FORWARD                    6 (to 36)
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       3: wordsep_simple_re
+                        28      LOAD_METHOD                     2: split
+                        30      LOAD_FAST                       1: text
+                        32      CALL_METHOD                     1
+                        34      STORE_FAST                      2: chunks
+                        36      LOAD_CONST                      2: <CODE> <listcomp>
+                        38      LOAD_CONST                      3: 'TextWrapper._split.<locals>.<listcomp>'
+                        40      MAKE_FUNCTION                   0
+                        42      LOAD_FAST                       2: chunks
+                        44      GET_ITER                        
+                        46      CALL_FUNCTION                   1
+                        48      STORE_FAST                      2: chunks
+                        50      LOAD_FAST                       2: chunks
+                        52      RETURN_VALUE                    
+                'TextWrapper._split'
+                [Code]
+                    File Name: textwrap.py
+                    Object Name: _fix_sentence_endings
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'sentence_end_re'
+                        'search'
+                        'len'
+                    [Var Names]
+                        'self'
+                        'chunks'
+                        'i'
+                        'patsearch'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '_fix_sentence_endings(chunks : [string])\n\n        Correct for sentence endings buried in \'chunks\'.  Eg. when the\n        original text contains "... foo.\\nBar ...", munge_whitespace()\n        and split() will convert that to [..., "foo.", " ", "Bar", ...]\n        which has one too few spaces; this method simply changes the one\n        space to two.\n        '
+                        0
+                        1
+                        ' '
+                        '  '
+                        2
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      1: 0
+                        2       STORE_FAST                      2: i
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       0: sentence_end_re
+                        8       LOAD_ATTR                       1: search
+                        10      STORE_FAST                      3: patsearch
+                        12      LOAD_FAST                       2: i
+                        14      LOAD_GLOBAL                     2: len
+                        16      LOAD_FAST                       1: chunks
+                        18      CALL_FUNCTION                   1
+                        20      LOAD_CONST                      2: 1
+                        22      BINARY_SUBTRACT                 
+                        24      COMPARE_OP                      0 (<)
+                        26      POP_JUMP_IF_FALSE               53 (to 106)
+                        28      LOAD_FAST                       1: chunks
+                        30      LOAD_FAST                       2: i
+                        32      LOAD_CONST                      2: 1
+                        34      BINARY_ADD                      
+                        36      BINARY_SUBSCR                   
+                        38      LOAD_CONST                      3: ' '
+                        40      COMPARE_OP                      2 (==)
+                        42      POP_JUMP_IF_FALSE               39 (to 78)
+                        44      LOAD_FAST                       3: patsearch
+                        46      LOAD_FAST                       1: chunks
+                        48      LOAD_FAST                       2: i
+                        50      BINARY_SUBSCR                   
+                        52      CALL_FUNCTION                   1
+                        54      POP_JUMP_IF_FALSE               39 (to 78)
+                        56      LOAD_CONST                      4: '  '
+                        58      LOAD_FAST                       1: chunks
+                        60      LOAD_FAST                       2: i
+                        62      LOAD_CONST                      2: 1
+                        64      BINARY_ADD                      
+                        66      STORE_SUBSCR                    
+                        68      LOAD_FAST                       2: i
+                        70      LOAD_CONST                      5: 2
+                        72      INPLACE_ADD                     
+                        74      STORE_FAST                      2: i
+                        76      JUMP_FORWARD                    4 (to 86)
+                        78      LOAD_FAST                       2: i
+                        80      LOAD_CONST                      2: 1
+                        82      INPLACE_ADD                     
+                        84      STORE_FAST                      2: i
+                        86      LOAD_FAST                       2: i
+                        88      LOAD_GLOBAL                     2: len
+                        90      LOAD_FAST                       1: chunks
+                        92      CALL_FUNCTION                   1
+                        94      LOAD_CONST                      2: 1
+                        96      BINARY_SUBTRACT                 
+                        98      COMPARE_OP                      0 (<)
+                        100     POP_JUMP_IF_TRUE                14 (to 28)
+                        102     LOAD_CONST                      6: None
+                        104     RETURN_VALUE                    
+                        106     LOAD_CONST                      6: None
+                        108     RETURN_VALUE                    
+                'TextWrapper._fix_sentence_endings'
+                [Code]
+                    File Name: textwrap.py
+                    Object Name: _handle_long_word
+                    Arg Count: 5
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 9
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'break_long_words'
+                        'break_on_hyphens'
+                        'len'
+                        'rfind'
+                        'any'
+                        'append'
+                        'pop'
+                    [Var Names]
+                        'self'
+                        'reversed_chunks'
+                        'cur_line'
+                        'cur_len'
+                        'width'
+                        'space_left'
+                        'end'
+                        'chunk'
+                        'hyphen'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '_handle_long_word(chunks : [string],\n                             cur_line : [string],\n                             cur_len : int, width : int)\n\n        Handle a chunk of text (most likely a word, not whitespace) that\n        is too long to fit in any line.\n        '
+                        1
+                        -1
+                        '-'
+                        0
+                        [Code]
+                            File Name: textwrap.py
+                            Object Name: <genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 3
+                            Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                            [Names]
+                            [Var Names]
+                                '.0'
+                                'c'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                '-'
+                                None
+                            [Disassembly]
+                                0       GEN_START                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        7 (to 20)
+                                6       STORE_FAST                      1: c
+                                8       LOAD_FAST                       1: c
+                                10      LOAD_CONST                      0: '-'
+                                12      COMPARE_OP                      3 (!=)
+                                14      YIELD_VALUE                     
+                                16      POP_TOP                         
+                                18      JUMP_ABSOLUTE                   2 (to 4)
+                                20      LOAD_CONST                      1: None
+                                22      RETURN_VALUE                    
+                        'TextWrapper._handle_long_word.<locals>.<genexpr>'
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       4: width
+                        2       LOAD_CONST                      1: 1
+                        4       COMPARE_OP                      0 (<)
+                        6       POP_JUMP_IF_FALSE               7 (to 14)
+                        8       LOAD_CONST                      1: 1
+                        10      STORE_FAST                      5: space_left
+                        12      JUMP_FORWARD                    4 (to 22)
+                        14      LOAD_FAST                       4: width
+                        16      LOAD_FAST                       3: cur_len
+                        18      BINARY_SUBTRACT                 
+                        20      STORE_FAST                      5: space_left
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       0: break_long_words
+                        26      POP_JUMP_IF_FALSE               76 (to 152)
+                        28      LOAD_FAST                       5: space_left
+                        30      STORE_FAST                      6: end
+                        32      LOAD_FAST                       1: reversed_chunks
+                        34      LOAD_CONST                      2: -1
+                        36      BINARY_SUBSCR                   
+                        38      STORE_FAST                      7: chunk
+                        40      LOAD_FAST                       0: self
+                        42      LOAD_ATTR                       1: break_on_hyphens
+                        44      POP_JUMP_IF_FALSE               57 (to 114)
+                        46      LOAD_GLOBAL                     2: len
+                        48      LOAD_FAST                       7: chunk
+                        50      CALL_FUNCTION                   1
+                        52      LOAD_FAST                       5: space_left
+                        54      COMPARE_OP                      4 (>)
+                        56      POP_JUMP_IF_FALSE               57 (to 114)
+                        58      LOAD_FAST                       7: chunk
+                        60      LOAD_METHOD                     3: rfind
+                        62      LOAD_CONST                      3: '-'
+                        64      LOAD_CONST                      4: 0
+                        66      LOAD_FAST                       5: space_left
+                        68      CALL_METHOD                     3
+                        70      STORE_FAST                      8: hyphen
+                        72      LOAD_FAST                       8: hyphen
+                        74      LOAD_CONST                      4: 0
+                        76      COMPARE_OP                      4 (>)
+                        78      POP_JUMP_IF_FALSE               57 (to 114)
+                        80      LOAD_GLOBAL                     4: any
+                        82      LOAD_CONST                      5: <CODE> <genexpr>
+                        84      LOAD_CONST                      6: 'TextWrapper._handle_long_word.<locals>.<genexpr>'
+                        86      MAKE_FUNCTION                   0
+                        88      LOAD_FAST                       7: chunk
+                        90      LOAD_CONST                      7: None
+                        92      LOAD_FAST                       8: hyphen
+                        94      BUILD_SLICE                     2
+                        96      BINARY_SUBSCR                   
+                        98      GET_ITER                        
+                        100     CALL_FUNCTION                   1
+                        102     CALL_FUNCTION                   1
+                        104     POP_JUMP_IF_FALSE               57 (to 114)
+                        106     LOAD_FAST                       8: hyphen
+                        108     LOAD_CONST                      1: 1
+                        110     BINARY_ADD                      
+                        112     STORE_FAST                      6: end
+                        114     LOAD_FAST                       2: cur_line
+                        116     LOAD_METHOD                     5: append
+                        118     LOAD_FAST                       7: chunk
+                        120     LOAD_CONST                      7: None
+                        122     LOAD_FAST                       6: end
+                        124     BUILD_SLICE                     2
+                        126     BINARY_SUBSCR                   
+                        128     CALL_METHOD                     1
+                        130     POP_TOP                         
+                        132     LOAD_FAST                       7: chunk
+                        134     LOAD_FAST                       6: end
+                        136     LOAD_CONST                      7: None
+                        138     BUILD_SLICE                     2
+                        140     BINARY_SUBSCR                   
+                        142     LOAD_FAST                       1: reversed_chunks
+                        144     LOAD_CONST                      2: -1
+                        146     STORE_SUBSCR                    
+                        148     LOAD_CONST                      7: None
+                        150     RETURN_VALUE                    
+                        152     LOAD_FAST                       2: cur_line
+                        154     POP_JUMP_IF_TRUE                87 (to 174)
+                        156     LOAD_FAST                       2: cur_line
+                        158     LOAD_METHOD                     5: append
+                        160     LOAD_FAST                       1: reversed_chunks
+                        162     LOAD_METHOD                     6: pop
+                        164     CALL_METHOD                     0
+                        166     CALL_METHOD                     1
+                        168     POP_TOP                         
+                        170     LOAD_CONST                      7: None
+                        172     RETURN_VALUE                    
+                        174     LOAD_CONST                      7: None
+                        176     RETURN_VALUE                    
+                'TextWrapper._handle_long_word'
+                [Code]
+                    File Name: textwrap.py
+                    Object Name: _wrap_chunks
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 9
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'width'
+                        'ValueError'
+                        'max_lines'
+                        'subsequent_indent'
+                        'initial_indent'
+                        'len'
+                        'placeholder'
+                        'lstrip'
+                        'reverse'
+                        'drop_whitespace'
+                        'strip'
+                        'append'
+                        'pop'
+                        '_handle_long_word'
+                        'sum'
+                        'map'
+                        'join'
+                        'rstrip'
+                    [Var Names]
+                        'self'
+                        'chunks'
+                        'lines'
+                        'indent'
+                        'cur_line'
+                        'cur_len'
+                        'width'
+                        'l'
+                        'prev_line'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '_wrap_chunks(chunks : [string]) -> [string]\n\n        Wrap a sequence of text chunks and return a list of lines of\n        length \'self.width\' or less.  (If \'break_long_words\' is false,\n        some lines may be longer than this.)  Chunks correspond roughly\n        to words and the whitespace between them: each chunk is\n        indivisible (modulo \'break_long_words\'), but a line break can\n        come between any two chunks.  Chunks should not have internal\n        whitespace; ie. a chunk is either all whitespace or a "word".\n        Whitespace chunks will be removed from the beginning and end of\n        lines, but apart from that whitespace is preserved.\n        '
+                        0
+                        'invalid width %r (must be > 0)'
+                        None
+                        1
+                        'placeholder too large for max width'
+                        -1
+                        ''
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       STORE_FAST                      2: lines
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       0: width
+                        8       LOAD_CONST                      1: 0
+                        10      COMPARE_OP                      1 (<=)
+                        12      POP_JUMP_IF_FALSE               14 (to 28)
+                        14      LOAD_GLOBAL                     1: ValueError
+                        16      LOAD_CONST                      2: 'invalid width %r (must be > 0)'
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_ATTR                       0: width
+                        22      BINARY_MODULO                   
+                        24      CALL_FUNCTION                   1
+                        26      RAISE_VARARGS                   1
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       2: max_lines
+                        32      LOAD_CONST                      3: None
+                        34      IS_OP                           1 (is not)
+                        36      POP_JUMP_IF_FALSE               49 (to 98)
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_ATTR                       2: max_lines
+                        42      LOAD_CONST                      4: 1
+                        44      COMPARE_OP                      4 (>)
+                        46      POP_JUMP_IF_FALSE               28 (to 56)
+                        48      LOAD_FAST                       0: self
+                        50      LOAD_ATTR                       3: subsequent_indent
+                        52      STORE_FAST                      3: indent
+                        54      JUMP_FORWARD                    3 (to 62)
+                        56      LOAD_FAST                       0: self
+                        58      LOAD_ATTR                       4: initial_indent
+                        60      STORE_FAST                      3: indent
+                        62      LOAD_GLOBAL                     5: len
+                        64      LOAD_FAST                       3: indent
+                        66      CALL_FUNCTION                   1
+                        68      LOAD_GLOBAL                     5: len
+                        70      LOAD_FAST                       0: self
+                        72      LOAD_ATTR                       6: placeholder
+                        74      LOAD_METHOD                     7: lstrip
+                        76      CALL_METHOD                     0
+                        78      CALL_FUNCTION                   1
+                        80      BINARY_ADD                      
+                        82      LOAD_FAST                       0: self
+                        84      LOAD_ATTR                       0: width
+                        86      COMPARE_OP                      4 (>)
+                        88      POP_JUMP_IF_FALSE               49 (to 98)
+                        90      LOAD_GLOBAL                     1: ValueError
+                        92      LOAD_CONST                      5: 'placeholder too large for max width'
+                        94      CALL_FUNCTION                   1
+                        96      RAISE_VARARGS                   1
+                        98      LOAD_FAST                       1: chunks
+                        100     LOAD_METHOD                     8: reverse
+                        102     CALL_METHOD                     0
+                        104     POP_TOP                         
+                        106     LOAD_FAST                       1: chunks
+                        108     POP_JUMP_IF_FALSE               319 (to 638)
+                        112     BUILD_LIST                      0
+                        114     STORE_FAST                      4: cur_line
+                        116     LOAD_CONST                      1: 0
+                        118     STORE_FAST                      5: cur_len
+                        120     LOAD_FAST                       2: lines
+                        122     POP_JUMP_IF_FALSE               66 (to 132)
+                        124     LOAD_FAST                       0: self
+                        126     LOAD_ATTR                       3: subsequent_indent
+                        128     STORE_FAST                      3: indent
+                        130     JUMP_FORWARD                    3 (to 138)
+                        132     LOAD_FAST                       0: self
+                        134     LOAD_ATTR                       4: initial_indent
+                        136     STORE_FAST                      3: indent
+                        138     LOAD_FAST                       0: self
+                        140     LOAD_ATTR                       0: width
+                        142     LOAD_GLOBAL                     5: len
+                        144     LOAD_FAST                       3: indent
+                        146     CALL_FUNCTION                   1
+                        148     BINARY_SUBTRACT                 
+                        150     STORE_FAST                      6: width
+                        152     LOAD_FAST                       0: self
+                        154     LOAD_ATTR                       9: drop_whitespace
+                        156     POP_JUMP_IF_FALSE               92 (to 184)
+                        158     LOAD_FAST                       1: chunks
+                        160     LOAD_CONST                      6: -1
+                        162     BINARY_SUBSCR                   
+                        164     LOAD_METHOD                     10: strip
+                        166     CALL_METHOD                     0
+                        168     LOAD_CONST                      7: ''
+                        170     COMPARE_OP                      2 (==)
+                        172     POP_JUMP_IF_FALSE               92 (to 184)
+                        174     LOAD_FAST                       2: lines
+                        176     POP_JUMP_IF_FALSE               92 (to 184)
+                        178     LOAD_FAST                       1: chunks
+                        180     LOAD_CONST                      6: -1
+                        182     DELETE_SUBSCR                   
+                        184     LOAD_FAST                       1: chunks
+                        186     POP_JUMP_IF_FALSE               121 (to 242)
+                        188     LOAD_GLOBAL                     5: len
+                        190     LOAD_FAST                       1: chunks
+                        192     LOAD_CONST                      6: -1
+                        194     BINARY_SUBSCR                   
+                        196     CALL_FUNCTION                   1
+                        198     STORE_FAST                      7: l
+                        200     LOAD_FAST                       5: cur_len
+                        202     LOAD_FAST                       7: l
+                        204     BINARY_ADD                      
+                        206     LOAD_FAST                       6: width
+                        208     COMPARE_OP                      1 (<=)
+                        210     POP_JUMP_IF_FALSE               118 (to 236)
+                        212     LOAD_FAST                       4: cur_line
+                        214     LOAD_METHOD                     11: append
+                        216     LOAD_FAST                       1: chunks
+                        218     LOAD_METHOD                     12: pop
+                        220     CALL_METHOD                     0
+                        222     CALL_METHOD                     1
+                        224     POP_TOP                         
+                        226     LOAD_FAST                       5: cur_len
+                        228     LOAD_FAST                       7: l
+                        230     INPLACE_ADD                     
+                        232     STORE_FAST                      5: cur_len
+                        234     JUMP_FORWARD                    1 (to 238)
+                        236     JUMP_FORWARD                    2 (to 242)
+                        238     LOAD_FAST                       1: chunks
+                        240     POP_JUMP_IF_TRUE                94 (to 188)
+                        242     LOAD_FAST                       1: chunks
+                        244     POP_JUMP_IF_FALSE               146 (to 292)
+                        246     LOAD_GLOBAL                     5: len
+                        248     LOAD_FAST                       1: chunks
+                        250     LOAD_CONST                      6: -1
+                        252     BINARY_SUBSCR                   
+                        254     CALL_FUNCTION                   1
+                        256     LOAD_FAST                       6: width
+                        258     COMPARE_OP                      4 (>)
+                        260     POP_JUMP_IF_FALSE               146 (to 292)
+                        262     LOAD_FAST                       0: self
+                        264     LOAD_METHOD                     13: _handle_long_word
+                        266     LOAD_FAST                       1: chunks
+                        268     LOAD_FAST                       4: cur_line
+                        270     LOAD_FAST                       5: cur_len
+                        272     LOAD_FAST                       6: width
+                        274     CALL_METHOD                     4
+                        276     POP_TOP                         
+                        278     LOAD_GLOBAL                     14: sum
+                        280     LOAD_GLOBAL                     15: map
+                        282     LOAD_GLOBAL                     5: len
+                        284     LOAD_FAST                       4: cur_line
+                        286     CALL_FUNCTION                   2
+                        288     CALL_FUNCTION                   1
+                        290     STORE_FAST                      5: cur_len
+                        292     LOAD_FAST                       0: self
+                        294     LOAD_ATTR                       9: drop_whitespace
+                        296     POP_JUMP_IF_FALSE               170 (to 340)
+                        298     LOAD_FAST                       4: cur_line
+                        300     POP_JUMP_IF_FALSE               170 (to 340)
+                        302     LOAD_FAST                       4: cur_line
+                        304     LOAD_CONST                      6: -1
+                        306     BINARY_SUBSCR                   
+                        308     LOAD_METHOD                     10: strip
+                        310     CALL_METHOD                     0
+                        312     LOAD_CONST                      7: ''
+                        314     COMPARE_OP                      2 (==)
+                        316     POP_JUMP_IF_FALSE               170 (to 340)
+                        318     LOAD_FAST                       5: cur_len
+                        320     LOAD_GLOBAL                     5: len
+                        322     LOAD_FAST                       4: cur_line
+                        324     LOAD_CONST                      6: -1
+                        326     BINARY_SUBSCR                   
+                        328     CALL_FUNCTION                   1
+                        330     INPLACE_SUBTRACT                
+                        332     STORE_FAST                      5: cur_len
+                        334     LOAD_FAST                       4: cur_line
+                        336     LOAD_CONST                      6: -1
+                        338     DELETE_SUBSCR                   
+                        340     LOAD_FAST                       4: cur_line
+                        342     POP_JUMP_IF_FALSE               317 (to 634)
+                        346     LOAD_FAST                       0: self
+                        348     LOAD_ATTR                       2: max_lines
+                        350     LOAD_CONST                      3: None
+                        352     IS_OP                           0 (is)
+                        354     POP_JUMP_IF_TRUE                208 (to 416)
+                        356     LOAD_GLOBAL                     5: len
+                        358     LOAD_FAST                       2: lines
+                        360     CALL_FUNCTION                   1
+                        362     LOAD_CONST                      4: 1
+                        364     BINARY_ADD                      
+                        366     LOAD_FAST                       0: self
+                        368     LOAD_ATTR                       2: max_lines
+                        370     COMPARE_OP                      0 (<)
+                        372     POP_JUMP_IF_TRUE                208 (to 416)
+                        374     LOAD_FAST                       1: chunks
+                        376     POP_JUMP_IF_FALSE               204 (to 408)
+                        378     LOAD_FAST                       0: self
+                        380     LOAD_ATTR                       9: drop_whitespace
+                        382     POP_JUMP_IF_FALSE               219 (to 438)
+                        384     LOAD_GLOBAL                     5: len
+                        386     LOAD_FAST                       1: chunks
+                        388     CALL_FUNCTION                   1
+                        390     LOAD_CONST                      4: 1
+                        392     COMPARE_OP                      2 (==)
+                        394     POP_JUMP_IF_FALSE               219 (to 438)
+                        396     LOAD_FAST                       1: chunks
+                        398     LOAD_CONST                      1: 0
+                        400     BINARY_SUBSCR                   
+                        402     LOAD_METHOD                     10: strip
+                        404     CALL_METHOD                     0
+                        406     POP_JUMP_IF_TRUE                219 (to 438)
+                        408     LOAD_FAST                       5: cur_len
+                        410     LOAD_FAST                       6: width
+                        412     COMPARE_OP                      1 (<=)
+                        414     POP_JUMP_IF_FALSE               219 (to 438)
+                        416     LOAD_FAST                       2: lines
+                        418     LOAD_METHOD                     11: append
+                        420     LOAD_FAST                       3: indent
+                        422     LOAD_CONST                      7: ''
+                        424     LOAD_METHOD                     16: join
+                        426     LOAD_FAST                       4: cur_line
+                        428     CALL_METHOD                     1
+                        430     BINARY_ADD                      
+                        432     CALL_METHOD                     1
+                        434     POP_TOP                         
+                        436     JUMP_FORWARD                    98 (to 634)
+                        438     LOAD_FAST                       4: cur_line
+                        440     POP_JUMP_IF_FALSE               272 (to 544)
+                        444     LOAD_FAST                       4: cur_line
+                        446     LOAD_CONST                      6: -1
+                        448     BINARY_SUBSCR                   
+                        450     LOAD_METHOD                     10: strip
+                        452     CALL_METHOD                     0
+                        454     POP_JUMP_IF_FALSE               259 (to 518)
+                        458     LOAD_FAST                       5: cur_len
+                        460     LOAD_GLOBAL                     5: len
+                        462     LOAD_FAST                       0: self
+                        464     LOAD_ATTR                       6: placeholder
+                        466     CALL_FUNCTION                   1
+                        468     BINARY_ADD                      
+                        470     LOAD_FAST                       6: width
+                        472     COMPARE_OP                      1 (<=)
+                        474     POP_JUMP_IF_FALSE               259 (to 518)
+                        478     LOAD_FAST                       4: cur_line
+                        480     LOAD_METHOD                     11: append
+                        482     LOAD_FAST                       0: self
+                        484     LOAD_ATTR                       6: placeholder
+                        486     CALL_METHOD                     1
+                        488     POP_TOP                         
+                        490     LOAD_FAST                       2: lines
+                        492     LOAD_METHOD                     11: append
+                        494     LOAD_FAST                       3: indent
+                        496     LOAD_CONST                      7: ''
+                        498     LOAD_METHOD                     16: join
+                        500     LOAD_FAST                       4: cur_line
+                        502     CALL_METHOD                     1
+                        504     BINARY_ADD                      
+                        506     CALL_METHOD                     1
+                        508     POP_TOP                         
+                        510     NOP                             
+                        512     NOP                             
+                        514     LOAD_FAST                       2: lines
+                        516     RETURN_VALUE                    
+                        518     LOAD_FAST                       5: cur_len
+                        520     LOAD_GLOBAL                     5: len
+                        522     LOAD_FAST                       4: cur_line
+                        524     LOAD_CONST                      6: -1
+                        526     BINARY_SUBSCR                   
+                        528     CALL_FUNCTION                   1
+                        530     INPLACE_SUBTRACT                
+                        532     STORE_FAST                      5: cur_len
+                        534     LOAD_FAST                       4: cur_line
+                        536     LOAD_CONST                      6: -1
+                        538     DELETE_SUBSCR                   
+                        540     LOAD_FAST                       4: cur_line
+                        542     POP_JUMP_IF_TRUE                222 (to 444)
+                        544     LOAD_FAST                       2: lines
+                        546     POP_JUMP_IF_FALSE               304 (to 608)
+                        550     LOAD_FAST                       2: lines
+                        552     LOAD_CONST                      6: -1
+                        554     BINARY_SUBSCR                   
+                        556     LOAD_METHOD                     17: rstrip
+                        558     CALL_METHOD                     0
+                        560     STORE_FAST                      8: prev_line
+                        562     LOAD_GLOBAL                     5: len
+                        564     LOAD_FAST                       8: prev_line
+                        566     CALL_FUNCTION                   1
+                        568     LOAD_GLOBAL                     5: len
+                        570     LOAD_FAST                       0: self
+                        572     LOAD_ATTR                       6: placeholder
+                        574     CALL_FUNCTION                   1
+                        576     BINARY_ADD                      
+                        578     LOAD_FAST                       0: self
+                        580     LOAD_ATTR                       0: width
+                        582     COMPARE_OP                      1 (<=)
+                        584     POP_JUMP_IF_FALSE               304 (to 608)
+                        588     LOAD_FAST                       8: prev_line
+                        590     LOAD_FAST                       0: self
+                        592     LOAD_ATTR                       6: placeholder
+                        594     BINARY_ADD                      
+                        596     LOAD_FAST                       2: lines
+                        598     LOAD_CONST                      6: -1
+                        600     STORE_SUBSCR                    
+                        602     NOP                             
+                        604     LOAD_FAST                       2: lines
+                        606     RETURN_VALUE                    
+                        608     LOAD_FAST                       2: lines
+                        610     LOAD_METHOD                     11: append
+                        612     LOAD_FAST                       3: indent
+                        614     LOAD_FAST                       0: self
+                        616     LOAD_ATTR                       6: placeholder
+                        618     LOAD_METHOD                     7: lstrip
+                        620     CALL_METHOD                     0
+                        622     BINARY_ADD                      
+                        624     CALL_METHOD                     1
+                        626     POP_TOP                         
+                        628     NOP                             
+                        630     LOAD_FAST                       2: lines
+                        632     RETURN_VALUE                    
+                        634     LOAD_FAST                       1: chunks
+                        636     POP_JUMP_IF_TRUE                56 (to 112)
+                        638     LOAD_FAST                       2: lines
+                        640     RETURN_VALUE                    
+                'TextWrapper._wrap_chunks'
+                [Code]
+                    File Name: textwrap.py
+                    Object Name: _split_chunks
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_munge_whitespace'
+                        '_split'
+                    [Var Names]
+                        'self'
+                        'text'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _munge_whitespace
+                        4       LOAD_FAST                       1: text
+                        6       CALL_METHOD                     1
+                        8       STORE_FAST                      1: text
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_METHOD                     1: _split
+                        14      LOAD_FAST                       1: text
+                        16      CALL_METHOD                     1
+                        18      RETURN_VALUE                    
+                'TextWrapper._split_chunks'
+                [Code]
+                    File Name: textwrap.py
+                    Object Name: wrap
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_split_chunks'
+                        'fix_sentence_endings'
+                        '_fix_sentence_endings'
+                        '_wrap_chunks'
+                    [Var Names]
+                        'self'
+                        'text'
+                        'chunks'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "wrap(text : string) -> [string]\n\n        Reformat the single paragraph in 'text' so it fits in lines of\n        no more than 'self.width' columns, and return a list of wrapped\n        lines.  Tabs in 'text' are expanded with string.expandtabs(),\n        and all other whitespace characters (including newline) are\n        converted to space.\n        "
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _split_chunks
+                        4       LOAD_FAST                       1: text
+                        6       CALL_METHOD                     1
+                        8       STORE_FAST                      2: chunks
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       1: fix_sentence_endings
+                        14      POP_JUMP_IF_FALSE               13 (to 26)
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_METHOD                     2: _fix_sentence_endings
+                        20      LOAD_FAST                       2: chunks
+                        22      CALL_METHOD                     1
+                        24      POP_TOP                         
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_METHOD                     3: _wrap_chunks
+                        30      LOAD_FAST                       2: chunks
+                        32      CALL_METHOD                     1
+                        34      RETURN_VALUE                    
+                'TextWrapper.wrap'
+                [Code]
+                    File Name: textwrap.py
+                    Object Name: fill
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'join'
+                        'wrap'
+                    [Var Names]
+                        'self'
+                        'text'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "fill(text : string) -> string\n\n        Reformat the single paragraph in 'text' to fit in lines of no\n        more than 'self.width' columns, and return a new string\n        containing the entire wrapped paragraph.\n        "
+                        '\n'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: '\n'
+                        2       LOAD_METHOD                     0: join
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_METHOD                     1: wrap
+                        8       LOAD_FAST                       1: text
+                        10      CALL_METHOD                     1
+                        12      CALL_METHOD                     1
+                        14      RETURN_VALUE                    
+                'TextWrapper.fill'
+                (
+                    70
+                    ''
+                    ''
+                    True
+                    True
+                    False
+                    True
+                    True
+                    True
+                    8
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'TextWrapper'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: '\n    Object for wrapping/filling text.  The public interface consists of\n    the wrap() and fill() methods; the other methods are just there for\n    subclasses to override in order to tweak the default behaviour.\n    If you want to completely replace the main wrapping algorithm,\n    you\'ll probably have to override _wrap_chunks().\n\n    Several instance attributes control various aspects of wrapping:\n      width (default: 70)\n        the maximum width of wrapped lines (unless break_long_words\n        is false)\n      initial_indent (default: "")\n        string that will be prepended to the first line of wrapped\n        output.  Counts towards the line\'s width.\n      subsequent_indent (default: "")\n        string that will be prepended to all lines save the first\n        of wrapped output; also counts towards each line\'s width.\n      expand_tabs (default: true)\n        Expand tabs in input text to spaces before further processing.\n        Each tab will become 0 .. \'tabsize\' spaces, depending on its position\n        in its line.  If false, each tab is treated as a single character.\n      tabsize (default: 8)\n        Expand tabs in input text to 0 .. \'tabsize\' spaces, unless\n        \'expand_tabs\' is false.\n      replace_whitespace (default: true)\n        Replace all whitespace characters in the input text by spaces\n        after tab expansion.  Note that if expand_tabs is false and\n        replace_whitespace is true, every tab will be converted to a\n        single space!\n      fix_sentence_endings (default: false)\n        Ensure that sentence-ending punctuation is always followed\n        by two spaces.  Off by default because the algorithm is\n        (unavoidably) imperfect.\n      break_long_words (default: true)\n        Break words longer than \'width\'.  If false, those words will not\n        be broken, and some lines might be longer than \'width\'.\n      break_on_hyphens (default: true)\n        Allow breaking hyphenated words. If true, wrapping will occur\n        preferably on whitespaces and right after hyphens part of\n        compound words.\n      drop_whitespace (default: true)\n        Drop leading and trailing whitespace from lines.\n      max_lines (default: None)\n        Truncate wrapped lines.\n      placeholder (default: \' [...]\')\n        Append to the last line of truncated text.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      BUILD_MAP                       0
+                14      STORE_NAME                      4: unicode_whitespace_trans
+                16      LOAD_NAME                       5: ord
+                18      LOAD_CONST                      2: ' '
+                20      CALL_FUNCTION                   1
+                22      STORE_NAME                      6: uspace
+                24      LOAD_NAME                       7: _whitespace
+                26      GET_ITER                        
+                28      FOR_ITER                        8 (to 46)
+                30      STORE_NAME                      8: x
+                32      LOAD_NAME                       6: uspace
+                34      LOAD_NAME                       4: unicode_whitespace_trans
+                36      LOAD_NAME                       5: ord
+                38      LOAD_NAME                       8: x
+                40      CALL_FUNCTION                   1
+                42      STORE_SUBSCR                    
+                44      JUMP_ABSOLUTE                   14 (to 28)
+                46      LOAD_CONST                      3: '[\\w!"\\\'&.,?]'
+                48      STORE_NAME                      9: word_punct
+                50      LOAD_CONST                      4: '[^\\d\\W]'
+                52      STORE_NAME                      10: letter
+                54      LOAD_CONST                      5: '[%s]'
+                56      LOAD_NAME                       11: re
+                58      LOAD_METHOD                     12: escape
+                60      LOAD_NAME                       7: _whitespace
+                62      CALL_METHOD                     1
+                64      BINARY_MODULO                   
+                66      STORE_NAME                      13: whitespace
+                68      LOAD_CONST                      6: '[^'
+                70      LOAD_NAME                       13: whitespace
+                72      LOAD_CONST                      7: 1
+                74      LOAD_CONST                      8: None
+                76      BUILD_SLICE                     2
+                78      BINARY_SUBSCR                   
+                80      BINARY_ADD                      
+                82      STORE_NAME                      14: nowhitespace
+                84      LOAD_NAME                       11: re
+                86      LOAD_METHOD                     15: compile
+                88      LOAD_CONST                      9: '\n        ( # any whitespace\n          %(ws)s+\n        | # em-dash between words\n          (?<=%(wp)s) -{2,} (?=\\w)\n        | # word, possibly hyphenated\n          %(nws)s+? (?:\n            # hyphenated word\n              -(?: (?<=%(lt)s{2}-) | (?<=%(lt)s-%(lt)s-))\n              (?= %(lt)s -? %(lt)s)\n            | # end of word\n              (?=%(ws)s|\\Z)\n            | # em-dash\n              (?<=%(wp)s) (?=-{2,}\\w)\n            )\n        )'
+                90      LOAD_NAME                       9: word_punct
+                92      LOAD_NAME                       10: letter
+                94      LOAD_NAME                       13: whitespace
+                96      LOAD_NAME                       14: nowhitespace
+                98      LOAD_CONST                      10: ('wp', 'lt', 'ws', 'nws')
+                100     BUILD_CONST_KEY_MAP             4
+                102     BINARY_MODULO                   
+                104     LOAD_NAME                       11: re
+                106     LOAD_ATTR                       16: VERBOSE
+                108     CALL_METHOD                     2
+                110     STORE_NAME                      17: wordsep_re
+                112     DELETE_NAME                     9: word_punct
+                114     DELETE_NAME                     10: letter
+                116     DELETE_NAME                     14: nowhitespace
+                118     LOAD_NAME                       11: re
+                120     LOAD_METHOD                     15: compile
+                122     LOAD_CONST                      11: '(%s+)'
+                124     LOAD_NAME                       13: whitespace
+                126     BINARY_MODULO                   
+                128     CALL_METHOD                     1
+                130     STORE_NAME                      18: wordsep_simple_re
+                132     DELETE_NAME                     13: whitespace
+                134     LOAD_NAME                       11: re
+                136     LOAD_METHOD                     15: compile
+                138     LOAD_CONST                      12: '[a-z][\\.\\!\\?][\\"\\\']?\\Z'
+                140     CALL_METHOD                     1
+                142     STORE_NAME                      19: sentence_end_re
+                144     NOP                             
+                146     NOP                             
+                148     NOP                             
+                150     NOP                             
+                152     NOP                             
+                154     NOP                             
+                156     NOP                             
+                158     NOP                             
+                160     NOP                             
+                162     NOP                             
+                164     LOAD_CONST                      38: (70, '', '', True, True, False, True, True, True, 8)
+                166     LOAD_CONST                      8: None
+                168     LOAD_CONST                      18: ' [...]'
+                170     LOAD_CONST                      19: ('max_lines', 'placeholder')
+                172     BUILD_CONST_KEY_MAP             2
+                174     LOAD_CONST                      20: <CODE> __init__
+                176     LOAD_CONST                      21: 'TextWrapper.__init__'
+                178     MAKE_FUNCTION                   3
+                180     STORE_NAME                      20: __init__
+                182     LOAD_CONST                      22: <CODE> _munge_whitespace
+                184     LOAD_CONST                      23: 'TextWrapper._munge_whitespace'
+                186     MAKE_FUNCTION                   0
+                188     STORE_NAME                      21: _munge_whitespace
+                190     LOAD_CONST                      24: <CODE> _split
+                192     LOAD_CONST                      25: 'TextWrapper._split'
+                194     MAKE_FUNCTION                   0
+                196     STORE_NAME                      22: _split
+                198     LOAD_CONST                      26: <CODE> _fix_sentence_endings
+                200     LOAD_CONST                      27: 'TextWrapper._fix_sentence_endings'
+                202     MAKE_FUNCTION                   0
+                204     STORE_NAME                      23: _fix_sentence_endings
+                206     LOAD_CONST                      28: <CODE> _handle_long_word
+                208     LOAD_CONST                      29: 'TextWrapper._handle_long_word'
+                210     MAKE_FUNCTION                   0
+                212     STORE_NAME                      24: _handle_long_word
+                214     LOAD_CONST                      30: <CODE> _wrap_chunks
+                216     LOAD_CONST                      31: 'TextWrapper._wrap_chunks'
+                218     MAKE_FUNCTION                   0
+                220     STORE_NAME                      25: _wrap_chunks
+                222     LOAD_CONST                      32: <CODE> _split_chunks
+                224     LOAD_CONST                      33: 'TextWrapper._split_chunks'
+                226     MAKE_FUNCTION                   0
+                228     STORE_NAME                      26: _split_chunks
+                230     LOAD_CONST                      34: <CODE> wrap
+                232     LOAD_CONST                      35: 'TextWrapper.wrap'
+                234     MAKE_FUNCTION                   0
+                236     STORE_NAME                      27: wrap
+                238     LOAD_CONST                      36: <CODE> fill
+                240     LOAD_CONST                      37: 'TextWrapper.fill'
+                242     MAKE_FUNCTION                   0
+                244     STORE_NAME                      28: fill
+                246     LOAD_CONST                      8: None
+                248     RETURN_VALUE                    
+        'TextWrapper'
+        70
+        [Code]
+            File Name: textwrap.py
+            Object Name: wrap
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 4
+            Flags: 0x0000004B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                'TextWrapper'
+                'wrap'
+            [Var Names]
+                'text'
+                'width'
+                'kwargs'
+                'w'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Wrap a single paragraph of text, returning a list of wrapped lines.\n\n    Reformat the single paragraph in 'text' so it fits in lines of no\n    more than 'width' columns, and return a list of wrapped lines.  By\n    default, tabs in 'text' are expanded with string.expandtabs(), and\n    all other whitespace characters (including newline) are converted to\n    space.  See TextWrapper class for available keyword args to customize\n    wrapping behaviour.\n    "
+                'width'
+                None
+                (
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: TextWrapper
+                2       LOAD_CONST                      3: ()
+                4       LOAD_CONST                      1: 'width'
+                6       LOAD_FAST                       1: width
+                8       BUILD_MAP                       1
+                10      LOAD_FAST                       2: kwargs
+                12      DICT_MERGE                      1
+                14      CALL_FUNCTION_EX                1
+                16      STORE_FAST                      3: w
+                18      LOAD_FAST                       3: w
+                20      LOAD_METHOD                     1: wrap
+                22      LOAD_FAST                       0: text
+                24      CALL_METHOD                     1
+                26      RETURN_VALUE                    
+        'wrap'
+        [Code]
+            File Name: textwrap.py
+            Object Name: fill
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 4
+            Flags: 0x0000004B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                'TextWrapper'
+                'fill'
+            [Var Names]
+                'text'
+                'width'
+                'kwargs'
+                'w'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Fill a single paragraph of text, returning a new string.\n\n    Reformat the single paragraph in 'text' to fit in lines of no more\n    than 'width' columns, and return a new string containing the entire\n    wrapped paragraph.  As with wrap(), tabs are expanded and other\n    whitespace characters converted to space.  See TextWrapper class for\n    available keyword args to customize wrapping behaviour.\n    "
+                'width'
+                None
+                (
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: TextWrapper
+                2       LOAD_CONST                      3: ()
+                4       LOAD_CONST                      1: 'width'
+                6       LOAD_FAST                       1: width
+                8       BUILD_MAP                       1
+                10      LOAD_FAST                       2: kwargs
+                12      DICT_MERGE                      1
+                14      CALL_FUNCTION_EX                1
+                16      STORE_FAST                      3: w
+                18      LOAD_FAST                       3: w
+                20      LOAD_METHOD                     1: fill
+                22      LOAD_FAST                       0: text
+                24      CALL_METHOD                     1
+                26      RETURN_VALUE                    
+        'fill'
+        [Code]
+            File Name: textwrap.py
+            Object Name: shorten
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 6
+            Flags: 0x0000004B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                'TextWrapper'
+                'fill'
+                'join'
+                'strip'
+                'split'
+            [Var Names]
+                'text'
+                'width'
+                'kwargs'
+                'w'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Collapse and truncate the given text to fit in the given width.\n\n    The text first has its whitespace collapsed.  If it then fits in\n    the *width*, it is returned as is.  Otherwise, as many words\n    as possible are joined and then the placeholder is appended::\n\n        >>> textwrap.shorten("Hello  world!", width=12)\n        \'Hello world!\'\n        >>> textwrap.shorten("Hello  world!", width=11)\n        \'Hello [...]\'\n    '
+                1
+                (
+                    'width'
+                    'max_lines'
+                )
+                ' '
+                None
+                (
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: TextWrapper
+                2       LOAD_CONST                      5: ()
+                4       LOAD_FAST                       1: width
+                6       LOAD_CONST                      1: 1
+                8       LOAD_CONST                      2: ('width', 'max_lines')
+                10      BUILD_CONST_KEY_MAP             2
+                12      LOAD_FAST                       2: kwargs
+                14      DICT_MERGE                      1
+                16      CALL_FUNCTION_EX                1
+                18      STORE_FAST                      3: w
+                20      LOAD_FAST                       3: w
+                22      LOAD_METHOD                     1: fill
+                24      LOAD_CONST                      3: ' '
+                26      LOAD_METHOD                     2: join
+                28      LOAD_FAST                       0: text
+                30      LOAD_METHOD                     3: strip
+                32      CALL_METHOD                     0
+                34      LOAD_METHOD                     4: split
+                36      CALL_METHOD                     0
+                38      CALL_METHOD                     1
+                40      CALL_METHOD                     1
+                42      RETURN_VALUE                    
+        'shorten'
+        '^[ \t]+$'
+        '(^[ \t]*)(?:[^ \t\n])'
+        [Code]
+            File Name: textwrap.py
+            Object Name: dedent
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 8
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_whitespace_only_re'
+                'sub'
+                '_leading_whitespace_re'
+                'findall'
+                'startswith'
+                'enumerate'
+                'zip'
+                'split'
+                're'
+            [Var Names]
+                'text'
+                'margin'
+                'indents'
+                'indent'
+                'i'
+                'x'
+                'y'
+                'line'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Remove any common leading whitespace from every line in `text`.\n\n    This can be used to make triple-quoted strings line up with the left\n    edge of the display, while still presenting them in the source code\n    in indented form.\n\n    Note that tabs and spaces are both treated as whitespace, but they\n    are not equal: the lines "  hello" and "\\thello" are\n    considered to have no common leading whitespace.\n\n    Entirely blank lines are normalized to a newline character.\n    '
+                None
+                ''
+                0
+                '\n'
+                'line = %r, margin = %r'
+                '(?m)^'
+            [Disassembly]
+                0       LOAD_CONST                      1: None
+                2       STORE_FAST                      1: margin
+                4       LOAD_GLOBAL                     0: _whitespace_only_re
+                6       LOAD_METHOD                     1: sub
+                8       LOAD_CONST                      2: ''
+                10      LOAD_FAST                       0: text
+                12      CALL_METHOD                     2
+                14      STORE_FAST                      0: text
+                16      LOAD_GLOBAL                     2: _leading_whitespace_re
+                18      LOAD_METHOD                     3: findall
+                20      LOAD_FAST                       0: text
+                22      CALL_METHOD                     1
+                24      STORE_FAST                      2: indents
+                26      LOAD_FAST                       2: indents
+                28      GET_ITER                        
+                30      FOR_ITER                        49 (to 130)
+                32      STORE_FAST                      3: indent
+                34      LOAD_FAST                       1: margin
+                36      LOAD_CONST                      1: None
+                38      IS_OP                           0 (is)
+                40      POP_JUMP_IF_FALSE               24 (to 48)
+                42      LOAD_FAST                       3: indent
+                44      STORE_FAST                      1: margin
+                46      JUMP_ABSOLUTE                   15 (to 30)
+                48      LOAD_FAST                       3: indent
+                50      LOAD_METHOD                     4: startswith
+                52      LOAD_FAST                       1: margin
+                54      CALL_METHOD                     1
+                56      POP_JUMP_IF_FALSE               30 (to 60)
+                58      JUMP_ABSOLUTE                   15 (to 30)
+                60      LOAD_FAST                       1: margin
+                62      LOAD_METHOD                     4: startswith
+                64      LOAD_FAST                       3: indent
+                66      CALL_METHOD                     1
+                68      POP_JUMP_IF_FALSE               38 (to 76)
+                70      LOAD_FAST                       3: indent
+                72      STORE_FAST                      1: margin
+                74      JUMP_ABSOLUTE                   15 (to 30)
+                76      LOAD_GLOBAL                     5: enumerate
+                78      LOAD_GLOBAL                     6: zip
+                80      LOAD_FAST                       1: margin
+                82      LOAD_FAST                       3: indent
+                84      CALL_FUNCTION                   2
+                86      CALL_FUNCTION                   1
+                88      GET_ITER                        
+                90      FOR_ITER                        18 (to 128)
+                92      UNPACK_SEQUENCE                 2
+                94      STORE_FAST                      4: i
+                96      UNPACK_SEQUENCE                 2
+                98      STORE_FAST                      5: x
+                100     STORE_FAST                      6: y
+                102     LOAD_FAST                       5: x
+                104     LOAD_FAST                       6: y
+                106     COMPARE_OP                      3 (!=)
+                108     POP_JUMP_IF_FALSE               63 (to 126)
+                110     LOAD_FAST                       1: margin
+                112     LOAD_CONST                      1: None
+                114     LOAD_FAST                       4: i
+                116     BUILD_SLICE                     2
+                118     BINARY_SUBSCR                   
+                120     STORE_FAST                      1: margin
+                122     POP_TOP                         
+                124     JUMP_FORWARD                    1 (to 128)
+                126     JUMP_ABSOLUTE                   45 (to 90)
+                128     JUMP_ABSOLUTE                   15 (to 30)
+                130     NOP                             
+                132     LOAD_FAST                       1: margin
+                134     POP_JUMP_IF_FALSE               77 (to 154)
+                136     LOAD_GLOBAL                     8: re
+                138     LOAD_METHOD                     1: sub
+                140     LOAD_CONST                      6: '(?m)^'
+                142     LOAD_FAST                       1: margin
+                144     BINARY_ADD                      
+                146     LOAD_CONST                      2: ''
+                148     LOAD_FAST                       0: text
+                150     CALL_METHOD                     3
+                152     STORE_FAST                      0: text
+                154     LOAD_FAST                       0: text
+                156     RETURN_VALUE                    
+        'dedent'
+        [Code]
+            File Name: textwrap.py
+            Object Name: indent
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 3
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'join'
+            [Var Names]
+                'text'
+                'prefix'
+                'predicate'
+                'prefixed_lines'
+            [Free Vars]
+            [Cell Vars]
+                'predicate'
+                'prefix'
+                'text'
+            [Constants]
+                "Adds 'prefix' to the beginning of selected lines in 'text'.\n\n    If 'predicate' is provided, 'prefix' will only be added to the lines\n    where 'predicate(line)' is True. If 'predicate' is not provided,\n    it will default to adding 'prefix' to all non-empty lines that do not\n    consist solely of whitespace characters.\n    "
+                None
+                [Code]
+                    File Name: textwrap.py
+                    Object Name: predicate
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        'strip'
+                    [Var Names]
+                        'line'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: line
+                        2       LOAD_METHOD                     0: strip
+                        4       CALL_METHOD                     0
+                        6       RETURN_VALUE                    
+                'indent.<locals>.predicate'
+                [Code]
+                    File Name: textwrap.py
+                    Object Name: prefixed_lines
+                    Arg Count: 0
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                    [Names]
+                        'splitlines'
+                    [Var Names]
+                        'line'
+                    [Free Vars]
+                        'predicate'
+                        'prefix'
+                        'text'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        True
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_DEREF                      2: text
+                        4       LOAD_METHOD                     0: splitlines
+                        6       LOAD_CONST                      1: True
+                        8       CALL_METHOD                     1
+                        10      GET_ITER                        
+                        12      FOR_ITER                        13 (to 40)
+                        14      STORE_FAST                      0: line
+                        16      LOAD_DEREF                      0: predicate
+                        18      LOAD_FAST                       0: line
+                        20      CALL_FUNCTION                   1
+                        22      POP_JUMP_IF_FALSE               16 (to 32)
+                        24      LOAD_DEREF                      1: prefix
+                        26      LOAD_FAST                       0: line
+                        28      BINARY_ADD                      
+                        30      JUMP_FORWARD                    1 (to 34)
+                        32      LOAD_FAST                       0: line
+                        34      YIELD_VALUE                     
+                        36      POP_TOP                         
+                        38      JUMP_ABSOLUTE                   6 (to 12)
+                        40      LOAD_CONST                      0: None
+                        42      RETURN_VALUE                    
+                'indent.<locals>.prefixed_lines'
+                ''
+            [Disassembly]
+                0       LOAD_DEREF                      0: predicate
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               8 (to 16)
+                8       LOAD_CONST                      2: <CODE> predicate
+                10      LOAD_CONST                      3: 'indent.<locals>.predicate'
+                12      MAKE_FUNCTION                   0
+                14      STORE_DEREF                     0: predicate
+                16      LOAD_CLOSURE                    0: predicate
+                18      LOAD_CLOSURE                    1: prefix
+                20      LOAD_CLOSURE                    2: text
+                22      BUILD_TUPLE                     3
+                24      LOAD_CONST                      4: <CODE> prefixed_lines
+                26      LOAD_CONST                      5: 'indent.<locals>.prefixed_lines'
+                28      MAKE_FUNCTION                   8
+                30      STORE_FAST                      3: prefixed_lines
+                32      LOAD_CONST                      6: ''
+                34      LOAD_METHOD                     0: join
+                36      LOAD_FAST                       3: prefixed_lines
+                38      CALL_FUNCTION                   0
+                40      CALL_METHOD                     1
+                42      RETURN_VALUE                    
+        'indent'
+        '__main__'
+        'Hello there.\n  This is indented.'
+        (
+            70
+        )
+        (
+            None
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Text wrapping and filling.\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: re
+        10      STORE_NAME                      1: re
+        12      BUILD_LIST                      0
+        14      LOAD_CONST                      3: ('TextWrapper', 'wrap', 'fill', 'dedent', 'indent', 'shorten')
+        16      LIST_EXTEND                     1
+        18      STORE_NAME                      2: __all__
+        20      LOAD_CONST                      4: '\t\n\x0b\x0c\r '
+        22      STORE_NAME                      3: _whitespace
+        24      LOAD_BUILD_CLASS                
+        26      LOAD_CONST                      5: <CODE> TextWrapper
+        28      LOAD_CONST                      6: 'TextWrapper'
+        30      MAKE_FUNCTION                   0
+        32      LOAD_CONST                      6: 'TextWrapper'
+        34      CALL_FUNCTION                   2
+        36      STORE_NAME                      4: TextWrapper
+        38      LOAD_CONST                      22: (70,)
+        40      LOAD_CONST                      8: <CODE> wrap
+        42      LOAD_CONST                      9: 'wrap'
+        44      MAKE_FUNCTION                   1
+        46      STORE_NAME                      5: wrap
+        48      LOAD_CONST                      22: (70,)
+        50      LOAD_CONST                      10: <CODE> fill
+        52      LOAD_CONST                      11: 'fill'
+        54      MAKE_FUNCTION                   1
+        56      STORE_NAME                      6: fill
+        58      LOAD_CONST                      12: <CODE> shorten
+        60      LOAD_CONST                      13: 'shorten'
+        62      MAKE_FUNCTION                   0
+        64      STORE_NAME                      7: shorten
+        66      LOAD_NAME                       1: re
+        68      LOAD_METHOD                     8: compile
+        70      LOAD_CONST                      14: '^[ \t]+$'
+        72      LOAD_NAME                       1: re
+        74      LOAD_ATTR                       9: MULTILINE
+        76      CALL_METHOD                     2
+        78      STORE_NAME                      10: _whitespace_only_re
+        80      LOAD_NAME                       1: re
+        82      LOAD_METHOD                     8: compile
+        84      LOAD_CONST                      15: '(^[ \t]*)(?:[^ \t\n])'
+        86      LOAD_NAME                       1: re
+        88      LOAD_ATTR                       9: MULTILINE
+        90      CALL_METHOD                     2
+        92      STORE_NAME                      11: _leading_whitespace_re
+        94      LOAD_CONST                      16: <CODE> dedent
+        96      LOAD_CONST                      17: 'dedent'
+        98      MAKE_FUNCTION                   0
+        100     STORE_NAME                      12: dedent
+        102     LOAD_CONST                      23: (None,)
+        104     LOAD_CONST                      18: <CODE> indent
+        106     LOAD_CONST                      19: 'indent'
+        108     MAKE_FUNCTION                   1
+        110     STORE_NAME                      13: indent
+        112     LOAD_NAME                       14: __name__
+        114     LOAD_CONST                      20: '__main__'
+        116     COMPARE_OP                      2 (==)
+        118     POP_JUMP_IF_FALSE               68 (to 136)
+        120     LOAD_NAME                       15: print
+        122     LOAD_NAME                       12: dedent
+        124     LOAD_CONST                      21: 'Hello there.\n  This is indented.'
+        126     CALL_FUNCTION                   1
+        128     CALL_FUNCTION                   1
+        130     POP_TOP                         
+        132     LOAD_CONST                      2: None
+        134     RETURN_VALUE                    
+        136     LOAD_CONST                      2: None
+        138     RETURN_VALUE                    

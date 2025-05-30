@@ -1,0 +1,94 @@
+decimal.pyc (Python 3.10)
+[Code]
+    File Name: decimal.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 8
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '_decimal'
+        '__doc__'
+        '__version__'
+        '__libmpdec_version__'
+        'ImportError'
+        '_pydecimal'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        (
+            '*'
+        )
+        (
+            '__doc__'
+        )
+        (
+            '__version__'
+        )
+        (
+            '__libmpdec_version__'
+        )
+        None
+    [Disassembly]
+        0       SETUP_FINALLY                   25 (to 52)
+        2       LOAD_CONST                      0: 0
+        4       LOAD_CONST                      1: ('*',)
+        6       IMPORT_NAME                     0: _decimal
+        8       IMPORT_STAR                     
+        10      LOAD_CONST                      0: 0
+        12      LOAD_CONST                      2: ('__doc__',)
+        14      IMPORT_NAME                     0: _decimal
+        16      IMPORT_FROM                     1: __doc__
+        18      STORE_NAME                      1: __doc__
+        20      POP_TOP                         
+        22      LOAD_CONST                      0: 0
+        24      LOAD_CONST                      3: ('__version__',)
+        26      IMPORT_NAME                     0: _decimal
+        28      IMPORT_FROM                     2: __version__
+        30      STORE_NAME                      2: __version__
+        32      POP_TOP                         
+        34      LOAD_CONST                      0: 0
+        36      LOAD_CONST                      4: ('__libmpdec_version__',)
+        38      IMPORT_NAME                     0: _decimal
+        40      IMPORT_FROM                     3: __libmpdec_version__
+        42      STORE_NAME                      3: __libmpdec_version__
+        44      POP_TOP                         
+        46      POP_BLOCK                       
+        48      LOAD_CONST                      5: None
+        50      RETURN_VALUE                    
+        52      DUP_TOP                         
+        54      LOAD_NAME                       4: ImportError
+        56      JUMP_IF_NOT_EXC_MATCH           57 (to 114)
+        58      POP_TOP                         
+        60      POP_TOP                         
+        62      POP_TOP                         
+        64      LOAD_CONST                      0: 0
+        66      LOAD_CONST                      1: ('*',)
+        68      IMPORT_NAME                     5: _pydecimal
+        70      IMPORT_STAR                     
+        72      LOAD_CONST                      0: 0
+        74      LOAD_CONST                      2: ('__doc__',)
+        76      IMPORT_NAME                     5: _pydecimal
+        78      IMPORT_FROM                     1: __doc__
+        80      STORE_NAME                      1: __doc__
+        82      POP_TOP                         
+        84      LOAD_CONST                      0: 0
+        86      LOAD_CONST                      3: ('__version__',)
+        88      IMPORT_NAME                     5: _pydecimal
+        90      IMPORT_FROM                     2: __version__
+        92      STORE_NAME                      2: __version__
+        94      POP_TOP                         
+        96      LOAD_CONST                      0: 0
+        98      LOAD_CONST                      4: ('__libmpdec_version__',)
+        100     IMPORT_NAME                     5: _pydecimal
+        102     IMPORT_FROM                     3: __libmpdec_version__
+        104     STORE_NAME                      3: __libmpdec_version__
+        106     POP_TOP                         
+        108     POP_EXCEPT                      
+        110     LOAD_CONST                      5: None
+        112     RETURN_VALUE                    
+        114     RERAISE                         0

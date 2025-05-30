@@ -1,0 +1,2219 @@
+utils.pyc (Python 3.10)
+[Code]
+    File Name: email/utils.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        'os'
+        're'
+        'time'
+        'random'
+        'socket'
+        'datetime'
+        'urllib.parse'
+        'urllib'
+        'email._parseaddr'
+        'quote'
+        'AddressList'
+        '_AddressList'
+        'mktime_tz'
+        'parsedate'
+        'parsedate_tz'
+        '_parsedate_tz'
+        'email.charset'
+        'Charset'
+        'COMMASPACE'
+        'EMPTYSTRING'
+        'UEMPTYSTRING'
+        'CRLF'
+        'TICK'
+        'compile'
+        'specialsre'
+        'escapesre'
+        '_has_surrogates'
+        '_sanitize'
+        'formataddr'
+        '_iter_escaped_chars'
+        '_strip_quoted_realnames'
+        'supports_strict_parsing'
+        'getaddresses'
+        '_check_parenthesis'
+        '_pre_parse_validation'
+        '_post_parse_validation'
+        '_format_timetuple_and_zone'
+        'formatdate'
+        'format_datetime'
+        'make_msgid'
+        'parsedate_to_datetime'
+        'parseaddr'
+        'unquote'
+        'decode_rfc2231'
+        'encode_rfc2231'
+        'ASCII'
+        'rfc2231_continuation'
+        'decode_params'
+        'collapse_rfc2231_value'
+        'localtime'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Miscellaneous utilities.'
+        (
+            'collapse_rfc2231_value'
+            'decode_params'
+            'decode_rfc2231'
+            'encode_rfc2231'
+            'formataddr'
+            'formatdate'
+            'format_datetime'
+            'getaddresses'
+            'make_msgid'
+            'mktime_tz'
+            'parseaddr'
+            'parsedate'
+            'parsedate_tz'
+            'parsedate_to_datetime'
+            'unquote'
+        )
+        0
+        None
+        (
+            'quote'
+        )
+        (
+            'AddressList'
+        )
+        (
+            'mktime_tz'
+        )
+        (
+            'parsedate'
+            'parsedate_tz'
+            '_parsedate_tz'
+        )
+        (
+            'Charset'
+        )
+        ', '
+        ''
+        '\r\n'
+        "'"
+        '[][\\\\()<>@,:;".]'
+        '[\\\\"]'
+        [Code]
+            File Name: email/utils.py
+            Object Name: _has_surrogates
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'encode'
+                'UnicodeEncodeError'
+            [Var Names]
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return True if s contains surrogate-escaped binary data.'
+                False
+                True
+            [Disassembly]
+                0       SETUP_FINALLY                   7 (to 16)
+                2       LOAD_FAST                       0: s
+                4       LOAD_METHOD                     0: encode
+                6       CALL_METHOD                     0
+                8       POP_TOP                         
+                10      POP_BLOCK                       
+                12      LOAD_CONST                      1: False
+                14      RETURN_VALUE                    
+                16      DUP_TOP                         
+                18      LOAD_GLOBAL                     1: UnicodeEncodeError
+                20      JUMP_IF_NOT_EXC_MATCH           17 (to 34)
+                22      POP_TOP                         
+                24      POP_TOP                         
+                26      POP_TOP                         
+                28      POP_EXCEPT                      
+                30      LOAD_CONST                      2: True
+                32      RETURN_VALUE                    
+                34      RERAISE                         0
+        '_has_surrogates'
+        [Code]
+            File Name: email/utils.py
+            Object Name: _sanitize
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'encode'
+                'decode'
+            [Var Names]
+                'string'
+                'original_bytes'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'utf-8'
+                'surrogateescape'
+                'replace'
+            [Disassembly]
+                0       LOAD_FAST                       0: string
+                2       LOAD_METHOD                     0: encode
+                4       LOAD_CONST                      1: 'utf-8'
+                6       LOAD_CONST                      2: 'surrogateescape'
+                8       CALL_METHOD                     2
+                10      STORE_FAST                      1: original_bytes
+                12      LOAD_FAST                       1: original_bytes
+                14      LOAD_METHOD                     1: decode
+                16      LOAD_CONST                      1: 'utf-8'
+                18      LOAD_CONST                      3: 'replace'
+                20      CALL_METHOD                     2
+                22      RETURN_VALUE                    
+        '_sanitize'
+        'utf-8'
+        [Code]
+            File Name: email/utils.py
+            Object Name: formataddr
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'encode'
+                'UnicodeEncodeError'
+                'isinstance'
+                'str'
+                'Charset'
+                'header_encode'
+                'specialsre'
+                'search'
+                'escapesre'
+                'sub'
+            [Var Names]
+                'pair'
+                'charset'
+                'name'
+                'address'
+                'encoded_name'
+                'quotes'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "The inverse of parseaddr(), this takes a 2-tuple of the form\n    (realname, email_address) and returns the string value suitable\n    for an RFC 2822 From, To or Cc header.\n\n    If the first element of pair is false, then the second element is\n    returned unmodified.\n\n    The optional charset is the character set that is used to encode\n    realname in case realname is not ASCII safe.  Can be an instance of str or\n    a Charset-like object which has a header_encode method.  Default is\n    'utf-8'.\n    "
+                'ascii'
+                '%s <%s>'
+                ''
+                '"'
+                '\\\\\\g<0>'
+                '%s%s%s <%s>'
+            [Disassembly]
+                0       LOAD_FAST                       0: pair
+                2       UNPACK_SEQUENCE                 2
+                4       STORE_FAST                      2: name
+                6       STORE_FAST                      3: address
+                8       LOAD_FAST                       3: address
+                10      LOAD_METHOD                     0: encode
+                12      LOAD_CONST                      1: 'ascii'
+                14      CALL_METHOD                     1
+                16      POP_TOP                         
+                18      LOAD_FAST                       2: name
+                20      POP_JUMP_IF_FALSE               71 (to 142)
+                22      SETUP_FINALLY                   7 (to 38)
+                24      LOAD_FAST                       2: name
+                26      LOAD_METHOD                     0: encode
+                28      LOAD_CONST                      1: 'ascii'
+                30      CALL_METHOD                     1
+                32      POP_TOP                         
+                34      POP_BLOCK                       
+                36      JUMP_FORWARD                    29 (to 96)
+                38      DUP_TOP                         
+                40      LOAD_GLOBAL                     1: UnicodeEncodeError
+                42      JUMP_IF_NOT_EXC_MATCH           47 (to 94)
+                44      POP_TOP                         
+                46      POP_TOP                         
+                48      POP_TOP                         
+                50      LOAD_GLOBAL                     2: isinstance
+                52      LOAD_FAST                       1: charset
+                54      LOAD_GLOBAL                     3: str
+                56      CALL_FUNCTION                   2
+                58      POP_JUMP_IF_FALSE               34 (to 68)
+                60      LOAD_GLOBAL                     4: Charset
+                62      LOAD_FAST                       1: charset
+                64      CALL_FUNCTION                   1
+                66      STORE_FAST                      1: charset
+                68      LOAD_FAST                       1: charset
+                70      LOAD_METHOD                     5: header_encode
+                72      LOAD_FAST                       2: name
+                74      CALL_METHOD                     1
+                76      STORE_FAST                      4: encoded_name
+                78      LOAD_CONST                      2: '%s <%s>'
+                80      LOAD_FAST                       4: encoded_name
+                82      LOAD_FAST                       3: address
+                84      BUILD_TUPLE                     2
+                86      BINARY_MODULO                   
+                88      ROT_FOUR                        
+                90      POP_EXCEPT                      
+                92      RETURN_VALUE                    
+                94      RERAISE                         0
+                96      LOAD_CONST                      3: ''
+                98      STORE_FAST                      5: quotes
+                100     LOAD_GLOBAL                     6: specialsre
+                102     LOAD_METHOD                     7: search
+                104     LOAD_FAST                       2: name
+                106     CALL_METHOD                     1
+                108     POP_JUMP_IF_FALSE               57 (to 114)
+                110     LOAD_CONST                      4: '"'
+                112     STORE_FAST                      5: quotes
+                114     LOAD_GLOBAL                     8: escapesre
+                116     LOAD_METHOD                     9: sub
+                118     LOAD_CONST                      5: '\\\\\\g<0>'
+                120     LOAD_FAST                       2: name
+                122     CALL_METHOD                     2
+                124     STORE_FAST                      2: name
+                126     LOAD_CONST                      6: '%s%s%s <%s>'
+                128     LOAD_FAST                       5: quotes
+                130     LOAD_FAST                       2: name
+                132     LOAD_FAST                       5: quotes
+                134     LOAD_FAST                       3: address
+                136     BUILD_TUPLE                     4
+                138     BINARY_MODULO                   
+                140     RETURN_VALUE                    
+                142     LOAD_FAST                       3: address
+                144     RETURN_VALUE                    
+        'formataddr'
+        [Code]
+            File Name: email/utils.py
+            Object Name: _iter_escaped_chars
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 4
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                'enumerate'
+            [Var Names]
+                'addr'
+                'pos'
+                'escape'
+                'ch'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                0
+                False
+                '\\'
+                True
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_CONST                      1: 0
+                4       STORE_FAST                      1: pos
+                6       LOAD_CONST                      2: False
+                8       STORE_FAST                      2: escape
+                10      LOAD_GLOBAL                     0: enumerate
+                12      LOAD_FAST                       0: addr
+                14      CALL_FUNCTION                   1
+                16      GET_ITER                        
+                18      FOR_ITER                        28 (to 76)
+                20      UNPACK_SEQUENCE                 2
+                22      STORE_FAST                      1: pos
+                24      STORE_FAST                      3: ch
+                26      LOAD_FAST                       2: escape
+                28      POP_JUMP_IF_FALSE               25 (to 50)
+                30      LOAD_FAST                       1: pos
+                32      LOAD_CONST                      3: '\\'
+                34      LOAD_FAST                       3: ch
+                36      BINARY_ADD                      
+                38      BUILD_TUPLE                     2
+                40      YIELD_VALUE                     
+                42      POP_TOP                         
+                44      LOAD_CONST                      2: False
+                46      STORE_FAST                      2: escape
+                48      JUMP_ABSOLUTE                   9 (to 18)
+                50      LOAD_FAST                       3: ch
+                52      LOAD_CONST                      3: '\\'
+                54      COMPARE_OP                      2 (==)
+                56      POP_JUMP_IF_FALSE               32 (to 64)
+                58      LOAD_CONST                      4: True
+                60      STORE_FAST                      2: escape
+                62      JUMP_ABSOLUTE                   9 (to 18)
+                64      LOAD_FAST                       1: pos
+                66      LOAD_FAST                       3: ch
+                68      BUILD_TUPLE                     2
+                70      YIELD_VALUE                     
+                72      POP_TOP                         
+                74      JUMP_ABSOLUTE                   9 (to 18)
+                76      LOAD_FAST                       2: escape
+                78      POP_JUMP_IF_FALSE               47 (to 94)
+                80      LOAD_FAST                       1: pos
+                82      LOAD_CONST                      3: '\\'
+                84      BUILD_TUPLE                     2
+                86      YIELD_VALUE                     
+                88      POP_TOP                         
+                90      LOAD_CONST                      0: None
+                92      RETURN_VALUE                    
+                94      LOAD_CONST                      0: None
+                96      RETURN_VALUE                    
+        '_iter_escaped_chars'
+        [Code]
+            File Name: email/utils.py
+            Object Name: _strip_quoted_realnames
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_iter_escaped_chars'
+                'append'
+                'len'
+                'join'
+            [Var Names]
+                'addr'
+                'start'
+                'open_pos'
+                'result'
+                'pos'
+                'ch'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Strip real names between quotes.'
+                '"'
+                0
+                None
+                1
+                ''
+            [Disassembly]
+                0       LOAD_CONST                      1: '"'
+                2       LOAD_FAST                       0: addr
+                4       CONTAINS_OP                     1 (not in)
+                6       POP_JUMP_IF_FALSE               6 (to 12)
+                8       LOAD_FAST                       0: addr
+                10      RETURN_VALUE                    
+                12      LOAD_CONST                      2: 0
+                14      STORE_FAST                      1: start
+                16      LOAD_CONST                      3: None
+                18      STORE_FAST                      2: open_pos
+                20      BUILD_LIST                      0
+                22      STORE_FAST                      3: result
+                24      LOAD_GLOBAL                     0: _iter_escaped_chars
+                26      LOAD_FAST                       0: addr
+                28      CALL_FUNCTION                   1
+                30      GET_ITER                        
+                32      FOR_ITER                        34 (to 102)
+                34      UNPACK_SEQUENCE                 2
+                36      STORE_FAST                      4: pos
+                38      STORE_FAST                      5: ch
+                40      LOAD_FAST                       5: ch
+                42      LOAD_CONST                      1: '"'
+                44      COMPARE_OP                      2 (==)
+                46      POP_JUMP_IF_FALSE               50 (to 100)
+                48      LOAD_FAST                       2: open_pos
+                50      LOAD_CONST                      3: None
+                52      IS_OP                           0 (is)
+                54      POP_JUMP_IF_FALSE               31 (to 62)
+                56      LOAD_FAST                       4: pos
+                58      STORE_FAST                      2: open_pos
+                60      JUMP_ABSOLUTE                   16 (to 32)
+                62      LOAD_FAST                       1: start
+                64      LOAD_FAST                       2: open_pos
+                66      COMPARE_OP                      3 (!=)
+                68      POP_JUMP_IF_FALSE               44 (to 88)
+                70      LOAD_FAST                       3: result
+                72      LOAD_METHOD                     1: append
+                74      LOAD_FAST                       0: addr
+                76      LOAD_FAST                       1: start
+                78      LOAD_FAST                       2: open_pos
+                80      BUILD_SLICE                     2
+                82      BINARY_SUBSCR                   
+                84      CALL_METHOD                     1
+                86      POP_TOP                         
+                88      LOAD_FAST                       4: pos
+                90      LOAD_CONST                      4: 1
+                92      BINARY_ADD                      
+                94      STORE_FAST                      1: start
+                96      LOAD_CONST                      3: None
+                98      STORE_FAST                      2: open_pos
+                100     JUMP_ABSOLUTE                   16 (to 32)
+                102     LOAD_FAST                       1: start
+                104     LOAD_GLOBAL                     2: len
+                106     LOAD_FAST                       0: addr
+                108     CALL_FUNCTION                   1
+                110     COMPARE_OP                      0 (<)
+                112     POP_JUMP_IF_FALSE               66 (to 132)
+                114     LOAD_FAST                       3: result
+                116     LOAD_METHOD                     1: append
+                118     LOAD_FAST                       0: addr
+                120     LOAD_FAST                       1: start
+                122     LOAD_CONST                      3: None
+                124     BUILD_SLICE                     2
+                126     BINARY_SUBSCR                   
+                128     CALL_METHOD                     1
+                130     POP_TOP                         
+                132     LOAD_CONST                      5: ''
+                134     LOAD_METHOD                     3: join
+                136     LOAD_FAST                       3: result
+                138     CALL_METHOD                     1
+                140     RETURN_VALUE                    
+        '_strip_quoted_realnames'
+        True
+        (
+            'strict'
+        )
+        [Code]
+            File Name: email/utils.py
+            Object Name: getaddresses
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 1
+            Locals: 8
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'COMMASPACE'
+                'join'
+                '_AddressList'
+                'addresslist'
+                '_pre_parse_validation'
+                '_post_parse_validation'
+                '_strip_quoted_realnames'
+                'count'
+                'len'
+            [Var Names]
+                'fieldvalues'
+                'strict'
+                'all'
+                'a'
+                'addr'
+                'result'
+                'n'
+                'v'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Return a list of (REALNAME, EMAIL) or ('','') for each fieldvalue.\n\n    When parsing fails for a fieldvalue, a 2-tuple of ('', '') is returned in\n    its place.\n\n    If strict is true, use a strict parser which rejects malformed inputs.\n    "
+                [Code]
+                    File Name: email/utils.py
+                    Object Name: <genexpr>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                    [Names]
+                        'str'
+                    [Var Names]
+                        '.0'
+                        'v'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        7 (to 20)
+                        6       STORE_FAST                      1: v
+                        8       LOAD_GLOBAL                     0: str
+                        10      LOAD_FAST                       1: v
+                        12      CALL_FUNCTION                   1
+                        14      YIELD_VALUE                     
+                        16      POP_TOP                         
+                        18      JUMP_ABSOLUTE                   2 (to 4)
+                        20      LOAD_CONST                      0: None
+                        22      RETURN_VALUE                    
+                'getaddresses.<locals>.<genexpr>'
+                [Code]
+                    File Name: email/utils.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        'str'
+                    [Var Names]
+                        '.0'
+                        'v'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        6 (to 18)
+                        6       STORE_FAST                      1: v
+                        8       LOAD_GLOBAL                     0: str
+                        10      LOAD_FAST                       1: v
+                        12      CALL_FUNCTION                   1
+                        14      LIST_APPEND                     2
+                        16      JUMP_ABSOLUTE                   2 (to 4)
+                        18      RETURN_VALUE                    
+                'getaddresses.<locals>.<listcomp>'
+                0
+                1
+                ','
+                (
+                    ''
+                    ''
+                )
+            [Disassembly]
+                0       LOAD_FAST                       1: strict
+                2       POP_JUMP_IF_TRUE                19 (to 38)
+                4       LOAD_GLOBAL                     0: COMMASPACE
+                6       LOAD_METHOD                     1: join
+                8       LOAD_CONST                      1: <CODE> <genexpr>
+                10      LOAD_CONST                      2: 'getaddresses.<locals>.<genexpr>'
+                12      MAKE_FUNCTION                   0
+                14      LOAD_FAST                       0: fieldvalues
+                16      GET_ITER                        
+                18      CALL_FUNCTION                   1
+                20      CALL_METHOD                     1
+                22      STORE_FAST                      2: all
+                24      LOAD_GLOBAL                     2: _AddressList
+                26      LOAD_FAST                       2: all
+                28      CALL_FUNCTION                   1
+                30      STORE_FAST                      3: a
+                32      LOAD_FAST                       3: a
+                34      LOAD_ATTR                       3: addresslist
+                36      RETURN_VALUE                    
+                38      LOAD_CONST                      3: <CODE> <listcomp>
+                40      LOAD_CONST                      4: 'getaddresses.<locals>.<listcomp>'
+                42      MAKE_FUNCTION                   0
+                44      LOAD_FAST                       0: fieldvalues
+                46      GET_ITER                        
+                48      CALL_FUNCTION                   1
+                50      STORE_FAST                      0: fieldvalues
+                52      LOAD_GLOBAL                     4: _pre_parse_validation
+                54      LOAD_FAST                       0: fieldvalues
+                56      CALL_FUNCTION                   1
+                58      STORE_FAST                      0: fieldvalues
+                60      LOAD_GLOBAL                     0: COMMASPACE
+                62      LOAD_METHOD                     1: join
+                64      LOAD_FAST                       0: fieldvalues
+                66      CALL_METHOD                     1
+                68      STORE_FAST                      4: addr
+                70      LOAD_GLOBAL                     2: _AddressList
+                72      LOAD_FAST                       4: addr
+                74      CALL_FUNCTION                   1
+                76      STORE_FAST                      3: a
+                78      LOAD_GLOBAL                     5: _post_parse_validation
+                80      LOAD_FAST                       3: a
+                82      LOAD_ATTR                       3: addresslist
+                84      CALL_FUNCTION                   1
+                86      STORE_FAST                      5: result
+                88      LOAD_CONST                      5: 0
+                90      STORE_FAST                      6: n
+                92      LOAD_FAST                       0: fieldvalues
+                94      GET_ITER                        
+                96      FOR_ITER                        15 (to 128)
+                98      STORE_FAST                      7: v
+                100     LOAD_GLOBAL                     6: _strip_quoted_realnames
+                102     LOAD_FAST                       7: v
+                104     CALL_FUNCTION                   1
+                106     STORE_FAST                      7: v
+                108     LOAD_FAST                       6: n
+                110     LOAD_CONST                      6: 1
+                112     LOAD_FAST                       7: v
+                114     LOAD_METHOD                     7: count
+                116     LOAD_CONST                      7: ','
+                118     CALL_METHOD                     1
+                120     BINARY_ADD                      
+                122     INPLACE_ADD                     
+                124     STORE_FAST                      6: n
+                126     JUMP_ABSOLUTE                   48 (to 96)
+                128     LOAD_GLOBAL                     8: len
+                130     LOAD_FAST                       5: result
+                132     CALL_FUNCTION                   1
+                134     LOAD_FAST                       6: n
+                136     COMPARE_OP                      3 (!=)
+                138     POP_JUMP_IF_FALSE               73 (to 146)
+                140     LOAD_CONST                      8: ('', '')
+                142     BUILD_LIST                      1
+                144     RETURN_VALUE                    
+                146     LOAD_FAST                       5: result
+                148     RETURN_VALUE                    
+        'getaddresses'
+        [Code]
+            File Name: email/utils.py
+            Object Name: _check_parenthesis
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_strip_quoted_realnames'
+                '_iter_escaped_chars'
+            [Var Names]
+                'addr'
+                'opens'
+                'pos'
+                'ch'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                0
+                '('
+                1
+                ')'
+                False
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _strip_quoted_realnames
+                2       LOAD_FAST                       0: addr
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      0: addr
+                8       LOAD_CONST                      1: 0
+                10      STORE_FAST                      1: opens
+                12      LOAD_GLOBAL                     1: _iter_escaped_chars
+                14      LOAD_FAST                       0: addr
+                16      CALL_FUNCTION                   1
+                18      GET_ITER                        
+                20      FOR_ITER                        28 (to 78)
+                22      UNPACK_SEQUENCE                 2
+                24      STORE_FAST                      2: pos
+                26      STORE_FAST                      3: ch
+                28      LOAD_FAST                       3: ch
+                30      LOAD_CONST                      2: '('
+                32      COMPARE_OP                      2 (==)
+                34      POP_JUMP_IF_FALSE               23 (to 46)
+                36      LOAD_FAST                       1: opens
+                38      LOAD_CONST                      3: 1
+                40      INPLACE_ADD                     
+                42      STORE_FAST                      1: opens
+                44      JUMP_ABSOLUTE                   10 (to 20)
+                46      LOAD_FAST                       3: ch
+                48      LOAD_CONST                      4: ')'
+                50      COMPARE_OP                      2 (==)
+                52      POP_JUMP_IF_FALSE               38 (to 76)
+                54      LOAD_FAST                       1: opens
+                56      LOAD_CONST                      3: 1
+                58      INPLACE_SUBTRACT                
+                60      STORE_FAST                      1: opens
+                62      LOAD_FAST                       1: opens
+                64      LOAD_CONST                      1: 0
+                66      COMPARE_OP                      0 (<)
+                68      POP_JUMP_IF_FALSE               38 (to 76)
+                70      POP_TOP                         
+                72      LOAD_CONST                      5: False
+                74      RETURN_VALUE                    
+                76      JUMP_ABSOLUTE                   10 (to 20)
+                78      LOAD_FAST                       1: opens
+                80      LOAD_CONST                      1: 0
+                82      COMPARE_OP                      2 (==)
+                84      RETURN_VALUE                    
+        '_check_parenthesis'
+        [Code]
+            File Name: email/utils.py
+            Object Name: _pre_parse_validation
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_check_parenthesis'
+                'append'
+            [Var Names]
+                'email_header_fields'
+                'accepted_values'
+                'v'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                "('', '')"
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       STORE_FAST                      1: accepted_values
+                4       LOAD_FAST                       0: email_header_fields
+                6       GET_ITER                        
+                8       FOR_ITER                        13 (to 36)
+                10      STORE_FAST                      2: v
+                12      LOAD_GLOBAL                     0: _check_parenthesis
+                14      LOAD_FAST                       2: v
+                16      CALL_FUNCTION                   1
+                18      POP_JUMP_IF_TRUE                12 (to 24)
+                20      LOAD_CONST                      1: "('', '')"
+                22      STORE_FAST                      2: v
+                24      LOAD_FAST                       1: accepted_values
+                26      LOAD_METHOD                     1: append
+                28      LOAD_FAST                       2: v
+                30      CALL_METHOD                     1
+                32      POP_TOP                         
+                34      JUMP_ABSOLUTE                   4 (to 8)
+                36      LOAD_FAST                       1: accepted_values
+                38      RETURN_VALUE                    
+        '_pre_parse_validation'
+        [Code]
+            File Name: email/utils.py
+            Object Name: _post_parse_validation
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'append'
+            [Var Names]
+                'parsed_email_header_tuples'
+                'accepted_values'
+                'v'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                '['
+                1
+                (
+                    ''
+                    ''
+                )
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       STORE_FAST                      1: accepted_values
+                4       LOAD_FAST                       0: parsed_email_header_tuples
+                6       GET_ITER                        
+                8       FOR_ITER                        15 (to 40)
+                10      STORE_FAST                      2: v
+                12      LOAD_CONST                      1: '['
+                14      LOAD_FAST                       2: v
+                16      LOAD_CONST                      2: 1
+                18      BINARY_SUBSCR                   
+                20      CONTAINS_OP                     0 (in)
+                22      POP_JUMP_IF_FALSE               14 (to 28)
+                24      LOAD_CONST                      3: ('', '')
+                26      STORE_FAST                      2: v
+                28      LOAD_FAST                       1: accepted_values
+                30      LOAD_METHOD                     0: append
+                32      LOAD_FAST                       2: v
+                34      CALL_METHOD                     1
+                36      POP_TOP                         
+                38      JUMP_ABSOLUTE                   4 (to 8)
+                40      LOAD_FAST                       1: accepted_values
+                42      RETURN_VALUE                    
+        '_post_parse_validation'
+        [Code]
+            File Name: email/utils.py
+            Object Name: _format_timetuple_and_zone
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 9
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+            [Var Names]
+                'timetuple'
+                'zone'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                '%s, %02d %s %04d %02d:%02d:%02d %s'
+                (
+                    'Mon'
+                    'Tue'
+                    'Wed'
+                    'Thu'
+                    'Fri'
+                    'Sat'
+                    'Sun'
+                )
+                6
+                2
+                (
+                    'Jan'
+                    'Feb'
+                    'Mar'
+                    'Apr'
+                    'May'
+                    'Jun'
+                    'Jul'
+                    'Aug'
+                    'Sep'
+                    'Oct'
+                    'Nov'
+                    'Dec'
+                )
+                1
+                0
+                3
+                4
+                5
+            [Disassembly]
+                0       LOAD_CONST                      1: '%s, %02d %s %04d %02d:%02d:%02d %s'
+                2       BUILD_LIST                      0
+                4       LOAD_CONST                      2: ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun')
+                6       LIST_EXTEND                     1
+                8       LOAD_FAST                       0: timetuple
+                10      LOAD_CONST                      3: 6
+                12      BINARY_SUBSCR                   
+                14      BINARY_SUBSCR                   
+                16      LOAD_FAST                       0: timetuple
+                18      LOAD_CONST                      4: 2
+                20      BINARY_SUBSCR                   
+                22      BUILD_LIST                      0
+                24      LOAD_CONST                      5: ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
+                26      LIST_EXTEND                     1
+                28      LOAD_FAST                       0: timetuple
+                30      LOAD_CONST                      6: 1
+                32      BINARY_SUBSCR                   
+                34      LOAD_CONST                      6: 1
+                36      BINARY_SUBTRACT                 
+                38      BINARY_SUBSCR                   
+                40      LOAD_FAST                       0: timetuple
+                42      LOAD_CONST                      7: 0
+                44      BINARY_SUBSCR                   
+                46      LOAD_FAST                       0: timetuple
+                48      LOAD_CONST                      8: 3
+                50      BINARY_SUBSCR                   
+                52      LOAD_FAST                       0: timetuple
+                54      LOAD_CONST                      9: 4
+                56      BINARY_SUBSCR                   
+                58      LOAD_FAST                       0: timetuple
+                60      LOAD_CONST                      10: 5
+                62      BINARY_SUBSCR                   
+                64      LOAD_FAST                       1: zone
+                66      BUILD_TUPLE                     8
+                68      BINARY_MODULO                   
+                70      RETURN_VALUE                    
+        '_format_timetuple_and_zone'
+        False
+        [Code]
+            File Name: email/utils.py
+            Object Name: formatdate
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'time'
+                'datetime'
+                'fromtimestamp'
+                'timezone'
+                'utc'
+                'utcfromtimestamp'
+                'astimezone'
+                'format_datetime'
+            [Var Names]
+                'timeval'
+                'localtime'
+                'usegmt'
+                'dt'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Returns a date string as specified by RFC 2822, e.g.:\n\n    Fri, 09 Nov 2001 01:08:47 -0000\n\n    Optional timeval if given is a floating point time value as accepted by\n    gmtime() and localtime(), otherwise the current time is used.\n\n    Optional localtime is a flag that when True, interprets timeval, and\n    returns a date relative to the local timezone instead of UTC, properly\n    taking daylight savings time into account.\n\n    Optional argument usegmt means that the timezone is written out as\n    an ascii string, not numeric one (so "GMT" instead of "+0000"). This\n    is needed for HTTP, and is only used when localtime==False.\n    '
+                None
+                False
+            [Disassembly]
+                0       LOAD_FAST                       0: timeval
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               8 (to 16)
+                8       LOAD_GLOBAL                     0: time
+                10      LOAD_METHOD                     0: time
+                12      CALL_METHOD                     0
+                14      STORE_FAST                      0: timeval
+                16      LOAD_FAST                       1: localtime
+                18      POP_JUMP_IF_TRUE                12 (to 24)
+                20      LOAD_FAST                       2: usegmt
+                22      POP_JUMP_IF_FALSE               22 (to 44)
+                24      LOAD_GLOBAL                     1: datetime
+                26      LOAD_ATTR                       1: datetime
+                28      LOAD_METHOD                     2: fromtimestamp
+                30      LOAD_FAST                       0: timeval
+                32      LOAD_GLOBAL                     1: datetime
+                34      LOAD_ATTR                       3: timezone
+                36      LOAD_ATTR                       4: utc
+                38      CALL_METHOD                     2
+                40      STORE_FAST                      3: dt
+                42      JUMP_FORWARD                    6 (to 56)
+                44      LOAD_GLOBAL                     1: datetime
+                46      LOAD_ATTR                       1: datetime
+                48      LOAD_METHOD                     5: utcfromtimestamp
+                50      LOAD_FAST                       0: timeval
+                52      CALL_METHOD                     1
+                54      STORE_FAST                      3: dt
+                56      LOAD_FAST                       1: localtime
+                58      POP_JUMP_IF_FALSE               36 (to 72)
+                60      LOAD_FAST                       3: dt
+                62      LOAD_METHOD                     6: astimezone
+                64      CALL_METHOD                     0
+                66      STORE_FAST                      3: dt
+                68      LOAD_CONST                      2: False
+                70      STORE_FAST                      2: usegmt
+                72      LOAD_GLOBAL                     7: format_datetime
+                74      LOAD_FAST                       3: dt
+                76      LOAD_FAST                       2: usegmt
+                78      CALL_FUNCTION                   2
+                80      RETURN_VALUE                    
+        'formatdate'
+        [Code]
+            File Name: email/utils.py
+            Object Name: format_datetime
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'timetuple'
+                'tzinfo'
+                'datetime'
+                'timezone'
+                'utc'
+                'ValueError'
+                'strftime'
+                '_format_timetuple_and_zone'
+            [Var Names]
+                'dt'
+                'usegmt'
+                'now'
+                'zone'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Turn a datetime into a date string as specified in RFC 2822.\n\n    If usegmt is True, dt must be an aware datetime with an offset of zero.  In\n    this case 'GMT' will be rendered instead of the normal +0000 required by\n    RFC2822.  This is to support HTTP headers involving date stamps.\n    "
+                None
+                'usegmt option requires a UTC datetime'
+                'GMT'
+                '-0000'
+                '%z'
+            [Disassembly]
+                0       LOAD_FAST                       0: dt
+                2       LOAD_METHOD                     0: timetuple
+                4       CALL_METHOD                     0
+                6       STORE_FAST                      2: now
+                8       LOAD_FAST                       1: usegmt
+                10      POP_JUMP_IF_FALSE               25 (to 50)
+                12      LOAD_FAST                       0: dt
+                14      LOAD_ATTR                       1: tzinfo
+                16      LOAD_CONST                      1: None
+                18      IS_OP                           0 (is)
+                20      POP_JUMP_IF_TRUE                18 (to 36)
+                22      LOAD_FAST                       0: dt
+                24      LOAD_ATTR                       1: tzinfo
+                26      LOAD_GLOBAL                     2: datetime
+                28      LOAD_ATTR                       3: timezone
+                30      LOAD_ATTR                       4: utc
+                32      COMPARE_OP                      3 (!=)
+                34      POP_JUMP_IF_FALSE               22 (to 44)
+                36      LOAD_GLOBAL                     5: ValueError
+                38      LOAD_CONST                      2: 'usegmt option requires a UTC datetime'
+                40      CALL_FUNCTION                   1
+                42      RAISE_VARARGS                   1
+                44      LOAD_CONST                      3: 'GMT'
+                46      STORE_FAST                      3: zone
+                48      JUMP_FORWARD                    13 (to 76)
+                50      LOAD_FAST                       0: dt
+                52      LOAD_ATTR                       1: tzinfo
+                54      LOAD_CONST                      1: None
+                56      IS_OP                           0 (is)
+                58      POP_JUMP_IF_FALSE               33 (to 66)
+                60      LOAD_CONST                      4: '-0000'
+                62      STORE_FAST                      3: zone
+                64      JUMP_FORWARD                    5 (to 76)
+                66      LOAD_FAST                       0: dt
+                68      LOAD_METHOD                     6: strftime
+                70      LOAD_CONST                      5: '%z'
+                72      CALL_METHOD                     1
+                74      STORE_FAST                      3: zone
+                76      LOAD_GLOBAL                     7: _format_timetuple_and_zone
+                78      LOAD_FAST                       2: now
+                80      LOAD_FAST                       3: zone
+                82      CALL_FUNCTION                   2
+                84      RETURN_VALUE                    
+        'format_datetime'
+        [Code]
+            File Name: email/utils.py
+            Object Name: make_msgid
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'int'
+                'time'
+                'os'
+                'getpid'
+                'random'
+                'getrandbits'
+                'socket'
+                'getfqdn'
+            [Var Names]
+                'idstring'
+                'domain'
+                'timeval'
+                'pid'
+                'randint'
+                'msgid'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Returns a string suitable for RFC 2822 compliant Message-ID, e.g:\n\n    <142480216486.20800.16526388040877946887@nightshade.la.mastaler.com>\n\n    Optional idstring if given is a string used to strengthen the\n    uniqueness of the message id.  Optional domain if given provides the\n    portion of the message id after the '@'.  It defaults to the locally\n    defined hostname.\n    "
+                100
+                64
+                None
+                ''
+                '.'
+                '<%d.%d.%d%s@%s>'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: int
+                2       LOAD_GLOBAL                     1: time
+                4       LOAD_METHOD                     1: time
+                6       CALL_METHOD                     0
+                8       LOAD_CONST                      1: 100
+                10      BINARY_MULTIPLY                 
+                12      CALL_FUNCTION                   1
+                14      STORE_FAST                      2: timeval
+                16      LOAD_GLOBAL                     2: os
+                18      LOAD_METHOD                     3: getpid
+                20      CALL_METHOD                     0
+                22      STORE_FAST                      3: pid
+                24      LOAD_GLOBAL                     4: random
+                26      LOAD_METHOD                     5: getrandbits
+                28      LOAD_CONST                      2: 64
+                30      CALL_METHOD                     1
+                32      STORE_FAST                      4: randint
+                34      LOAD_FAST                       0: idstring
+                36      LOAD_CONST                      3: None
+                38      IS_OP                           0 (is)
+                40      POP_JUMP_IF_FALSE               24 (to 48)
+                42      LOAD_CONST                      4: ''
+                44      STORE_FAST                      0: idstring
+                46      JUMP_FORWARD                    4 (to 56)
+                48      LOAD_CONST                      5: '.'
+                50      LOAD_FAST                       0: idstring
+                52      BINARY_ADD                      
+                54      STORE_FAST                      0: idstring
+                56      LOAD_FAST                       1: domain
+                58      LOAD_CONST                      3: None
+                60      IS_OP                           0 (is)
+                62      POP_JUMP_IF_FALSE               36 (to 72)
+                64      LOAD_GLOBAL                     6: socket
+                66      LOAD_METHOD                     7: getfqdn
+                68      CALL_METHOD                     0
+                70      STORE_FAST                      1: domain
+                72      LOAD_CONST                      6: '<%d.%d.%d%s@%s>'
+                74      LOAD_FAST                       2: timeval
+                76      LOAD_FAST                       3: pid
+                78      LOAD_FAST                       4: randint
+                80      LOAD_FAST                       0: idstring
+                82      LOAD_FAST                       1: domain
+                84      BUILD_TUPLE                     5
+                86      BINARY_MODULO                   
+                88      STORE_FAST                      5: msgid
+                90      LOAD_FAST                       5: msgid
+                92      RETURN_VALUE                    
+        'make_msgid'
+        [Code]
+            File Name: email/utils.py
+            Object Name: parsedate_to_datetime
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_parsedate_tz'
+                'ValueError'
+                'str'
+                'datetime'
+                'timezone'
+                'timedelta'
+            [Var Names]
+                'data'
+                'parsed_date_tz'
+                'dtuple'
+                'tz'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'Invalid date value or format "%s"'
+                6
+                'tzinfo'
+                (
+                    'seconds'
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _parsedate_tz
+                2       LOAD_FAST                       0: data
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      1: parsed_date_tz
+                8       LOAD_FAST                       1: parsed_date_tz
+                10      LOAD_CONST                      0: None
+                12      IS_OP                           0 (is)
+                14      POP_JUMP_IF_FALSE               16 (to 32)
+                16      LOAD_GLOBAL                     1: ValueError
+                18      LOAD_CONST                      1: 'Invalid date value or format "%s"'
+                20      LOAD_GLOBAL                     2: str
+                22      LOAD_FAST                       0: data
+                24      CALL_FUNCTION                   1
+                26      BINARY_MODULO                   
+                28      CALL_FUNCTION                   1
+                30      RAISE_VARARGS                   1
+                32      LOAD_FAST                       1: parsed_date_tz
+                34      UNPACK_EX                       256
+                38      STORE_FAST                      2: dtuple
+                40      STORE_FAST                      3: tz
+                42      LOAD_FAST                       3: tz
+                44      LOAD_CONST                      0: None
+                46      IS_OP                           0 (is)
+                48      POP_JUMP_IF_FALSE               34 (to 68)
+                50      LOAD_GLOBAL                     3: datetime
+                52      LOAD_ATTR                       3: datetime
+                54      LOAD_FAST                       2: dtuple
+                56      LOAD_CONST                      0: None
+                58      LOAD_CONST                      2: 6
+                60      BUILD_SLICE                     2
+                62      BINARY_SUBSCR                   
+                64      CALL_FUNCTION_EX                0
+                66      RETURN_VALUE                    
+                68      LOAD_GLOBAL                     3: datetime
+                70      LOAD_ATTR                       3: datetime
+                72      LOAD_FAST                       2: dtuple
+                74      LOAD_CONST                      0: None
+                76      LOAD_CONST                      2: 6
+                78      BUILD_SLICE                     2
+                80      BINARY_SUBSCR                   
+                82      LOAD_CONST                      3: 'tzinfo'
+                84      LOAD_GLOBAL                     3: datetime
+                86      LOAD_METHOD                     4: timezone
+                88      LOAD_GLOBAL                     3: datetime
+                90      LOAD_ATTR                       5: timedelta
+                92      LOAD_FAST                       3: tz
+                94      LOAD_CONST                      4: ('seconds',)
+                96      CALL_FUNCTION_KW                1
+                98      CALL_METHOD                     1
+                100     BUILD_MAP                       1
+                102     CALL_FUNCTION_EX                1
+                104     RETURN_VALUE                    
+        'parsedate_to_datetime'
+        [Code]
+            File Name: email/utils.py
+            Object Name: parseaddr
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 1
+            Locals: 3
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_AddressList'
+                'addresslist'
+                'isinstance'
+                'list'
+                'str'
+                '_pre_parse_validation'
+                '_post_parse_validation'
+                'len'
+            [Var Names]
+                'addr'
+                'strict'
+                'addrs'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "\n    Parse addr into its constituent realname and email address parts.\n\n    Return a tuple of realname and email address, unless the parse fails, in\n    which case return a 2-tuple of ('', '').\n\n    If strict is True, use a strict parser which rejects malformed inputs.\n    "
+                (
+                    ''
+                    ''
+                )
+                0
+                1
+            [Disassembly]
+                0       LOAD_FAST                       1: strict
+                2       POP_JUMP_IF_TRUE                15 (to 30)
+                4       LOAD_GLOBAL                     0: _AddressList
+                6       LOAD_FAST                       0: addr
+                8       CALL_FUNCTION                   1
+                10      LOAD_ATTR                       1: addresslist
+                12      STORE_FAST                      2: addrs
+                14      LOAD_FAST                       2: addrs
+                16      POP_JUMP_IF_TRUE                11 (to 22)
+                18      LOAD_CONST                      1: ('', '')
+                20      RETURN_VALUE                    
+                22      LOAD_FAST                       2: addrs
+                24      LOAD_CONST                      2: 0
+                26      BINARY_SUBSCR                   
+                28      RETURN_VALUE                    
+                30      LOAD_GLOBAL                     2: isinstance
+                32      LOAD_FAST                       0: addr
+                34      LOAD_GLOBAL                     3: list
+                36      CALL_FUNCTION                   2
+                38      POP_JUMP_IF_FALSE               24 (to 48)
+                40      LOAD_FAST                       0: addr
+                42      LOAD_CONST                      2: 0
+                44      BINARY_SUBSCR                   
+                46      STORE_FAST                      0: addr
+                48      LOAD_GLOBAL                     2: isinstance
+                50      LOAD_FAST                       0: addr
+                52      LOAD_GLOBAL                     4: str
+                54      CALL_FUNCTION                   2
+                56      POP_JUMP_IF_TRUE                31 (to 62)
+                58      LOAD_CONST                      1: ('', '')
+                60      RETURN_VALUE                    
+                62      LOAD_GLOBAL                     5: _pre_parse_validation
+                64      LOAD_FAST                       0: addr
+                66      BUILD_LIST                      1
+                68      CALL_FUNCTION                   1
+                70      LOAD_CONST                      2: 0
+                72      BINARY_SUBSCR                   
+                74      STORE_FAST                      0: addr
+                76      LOAD_GLOBAL                     6: _post_parse_validation
+                78      LOAD_GLOBAL                     0: _AddressList
+                80      LOAD_FAST                       0: addr
+                82      CALL_FUNCTION                   1
+                84      LOAD_ATTR                       1: addresslist
+                86      CALL_FUNCTION                   1
+                88      STORE_FAST                      2: addrs
+                90      LOAD_FAST                       2: addrs
+                92      POP_JUMP_IF_FALSE               53 (to 106)
+                94      LOAD_GLOBAL                     7: len
+                96      LOAD_FAST                       2: addrs
+                98      CALL_FUNCTION                   1
+                100     LOAD_CONST                      3: 1
+                102     COMPARE_OP                      4 (>)
+                104     POP_JUMP_IF_FALSE               55 (to 110)
+                106     LOAD_CONST                      1: ('', '')
+                108     RETURN_VALUE                    
+                110     LOAD_FAST                       2: addrs
+                112     LOAD_CONST                      2: 0
+                114     BINARY_SUBSCR                   
+                116     RETURN_VALUE                    
+        'parseaddr'
+        [Code]
+            File Name: email/utils.py
+            Object Name: unquote
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'len'
+                'startswith'
+                'endswith'
+                'replace'
+            [Var Names]
+                'str'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Remove quotes from a string.'
+                1
+                '"'
+                -1
+                '\\\\'
+                '\\'
+                '\\"'
+                '<'
+                '>'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: len
+                2       LOAD_FAST                       0: str
+                4       CALL_FUNCTION                   1
+                6       LOAD_CONST                      1: 1
+                8       COMPARE_OP                      4 (>)
+                10      POP_JUMP_IF_FALSE               46 (to 92)
+                12      LOAD_FAST                       0: str
+                14      LOAD_METHOD                     1: startswith
+                16      LOAD_CONST                      2: '"'
+                18      CALL_METHOD                     1
+                20      POP_JUMP_IF_FALSE               30 (to 60)
+                22      LOAD_FAST                       0: str
+                24      LOAD_METHOD                     2: endswith
+                26      LOAD_CONST                      2: '"'
+                28      CALL_METHOD                     1
+                30      POP_JUMP_IF_FALSE               30 (to 60)
+                32      LOAD_FAST                       0: str
+                34      LOAD_CONST                      1: 1
+                36      LOAD_CONST                      3: -1
+                38      BUILD_SLICE                     2
+                40      BINARY_SUBSCR                   
+                42      LOAD_METHOD                     3: replace
+                44      LOAD_CONST                      4: '\\\\'
+                46      LOAD_CONST                      5: '\\'
+                48      CALL_METHOD                     2
+                50      LOAD_METHOD                     3: replace
+                52      LOAD_CONST                      6: '\\"'
+                54      LOAD_CONST                      2: '"'
+                56      CALL_METHOD                     2
+                58      RETURN_VALUE                    
+                60      LOAD_FAST                       0: str
+                62      LOAD_METHOD                     1: startswith
+                64      LOAD_CONST                      7: '<'
+                66      CALL_METHOD                     1
+                68      POP_JUMP_IF_FALSE               46 (to 92)
+                70      LOAD_FAST                       0: str
+                72      LOAD_METHOD                     2: endswith
+                74      LOAD_CONST                      8: '>'
+                76      CALL_METHOD                     1
+                78      POP_JUMP_IF_FALSE               46 (to 92)
+                80      LOAD_FAST                       0: str
+                82      LOAD_CONST                      1: 1
+                84      LOAD_CONST                      3: -1
+                86      BUILD_SLICE                     2
+                88      BINARY_SUBSCR                   
+                90      RETURN_VALUE                    
+                92      LOAD_FAST                       0: str
+                94      RETURN_VALUE                    
+        'unquote'
+        [Code]
+            File Name: email/utils.py
+            Object Name: decode_rfc2231
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'split'
+                'TICK'
+                'len'
+            [Var Names]
+                's'
+                'parts'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Decode string according to RFC 2231'
+                2
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: s
+                2       LOAD_METHOD                     0: split
+                4       LOAD_GLOBAL                     1: TICK
+                6       LOAD_CONST                      1: 2
+                8       CALL_METHOD                     2
+                10      STORE_FAST                      1: parts
+                12      LOAD_GLOBAL                     2: len
+                14      LOAD_FAST                       1: parts
+                16      CALL_FUNCTION                   1
+                18      LOAD_CONST                      1: 2
+                20      COMPARE_OP                      1 (<=)
+                22      POP_JUMP_IF_FALSE               17 (to 34)
+                24      LOAD_CONST                      2: None
+                26      LOAD_CONST                      2: None
+                28      LOAD_FAST                       0: s
+                30      BUILD_TUPLE                     3
+                32      RETURN_VALUE                    
+                34      LOAD_FAST                       1: parts
+                36      RETURN_VALUE                    
+        'decode_rfc2231'
+        [Code]
+            File Name: email/utils.py
+            Object Name: encode_rfc2231
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'urllib'
+                'parse'
+                'quote'
+            [Var Names]
+                's'
+                'charset'
+                'language'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Encode string according to RFC 2231.\n\n    If neither charset nor language is given, then s is returned as-is.  If\n    charset is given but not language, the string is encoded using the empty\n    string for language.\n    '
+                ''
+                'ascii'
+                (
+                    'safe'
+                    'encoding'
+                )
+                None
+                "%s'%s'%s"
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: urllib
+                2       LOAD_ATTR                       1: parse
+                4       LOAD_ATTR                       2: quote
+                6       LOAD_FAST                       0: s
+                8       LOAD_CONST                      1: ''
+                10      LOAD_FAST                       1: charset
+                12      JUMP_IF_TRUE_OR_POP             8 (to 16)
+                14      LOAD_CONST                      2: 'ascii'
+                16      LOAD_CONST                      3: ('safe', 'encoding')
+                18      CALL_FUNCTION_KW                3
+                20      STORE_FAST                      0: s
+                22      LOAD_FAST                       1: charset
+                24      LOAD_CONST                      4: None
+                26      IS_OP                           0 (is)
+                28      POP_JUMP_IF_FALSE               21 (to 42)
+                30      LOAD_FAST                       2: language
+                32      LOAD_CONST                      4: None
+                34      IS_OP                           0 (is)
+                36      POP_JUMP_IF_FALSE               21 (to 42)
+                38      LOAD_FAST                       0: s
+                40      RETURN_VALUE                    
+                42      LOAD_FAST                       2: language
+                44      LOAD_CONST                      4: None
+                46      IS_OP                           0 (is)
+                48      POP_JUMP_IF_FALSE               27 (to 54)
+                50      LOAD_CONST                      1: ''
+                52      STORE_FAST                      2: language
+                54      LOAD_CONST                      5: "%s'%s'%s"
+                56      LOAD_FAST                       1: charset
+                58      LOAD_FAST                       2: language
+                60      LOAD_FAST                       0: s
+                62      BUILD_TUPLE                     3
+                64      BINARY_MODULO                   
+                66      RETURN_VALUE                    
+        'encode_rfc2231'
+        '^(?P<name>\\w+)\\*((?P<num>[0-9]+)\\*?)?$'
+        [Code]
+            File Name: email/utils.py
+            Object Name: decode_params
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 13
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'endswith'
+                'unquote'
+                'rfc2231_continuation'
+                'match'
+                'group'
+                'int'
+                'setdefault'
+                'append'
+                'quote'
+                'items'
+                'sort'
+                'urllib'
+                'parse'
+                'EMPTYSTRING'
+                'join'
+                'decode_rfc2231'
+            [Var Names]
+                'params'
+                'new_params'
+                'rfc2231_params'
+                'name'
+                'value'
+                'encoded'
+                'mo'
+                'num'
+                'continuations'
+                'extended'
+                's'
+                'charset'
+                'language'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Decode parameters list according to RFC 2231.\n\n    params is a sequence of 2-tuples containing (param name, string value).\n    '
+                0
+                1
+                None
+                '*'
+                'name'
+                'num'
+                '"%s"'
+                False
+                'latin-1'
+                (
+                    'encoding'
+                )
+                True
+            [Disassembly]
+                0       LOAD_FAST                       0: params
+                2       LOAD_CONST                      1: 0
+                4       BINARY_SUBSCR                   
+                6       BUILD_LIST                      1
+                8       STORE_FAST                      1: new_params
+                10      BUILD_MAP                       0
+                12      STORE_FAST                      2: rfc2231_params
+                14      LOAD_FAST                       0: params
+                16      LOAD_CONST                      2: 1
+                18      LOAD_CONST                      3: None
+                20      BUILD_SLICE                     2
+                22      BINARY_SUBSCR                   
+                24      GET_ITER                        
+                26      FOR_ITER                        60 (to 148)
+                28      UNPACK_SEQUENCE                 2
+                30      STORE_FAST                      3: name
+                32      STORE_FAST                      4: value
+                34      LOAD_FAST                       3: name
+                36      LOAD_METHOD                     0: endswith
+                38      LOAD_CONST                      4: '*'
+                40      CALL_METHOD                     1
+                42      STORE_FAST                      5: encoded
+                44      LOAD_GLOBAL                     1: unquote
+                46      LOAD_FAST                       4: value
+                48      CALL_FUNCTION                   1
+                50      STORE_FAST                      4: value
+                52      LOAD_GLOBAL                     2: rfc2231_continuation
+                54      LOAD_METHOD                     3: match
+                56      LOAD_FAST                       3: name
+                58      CALL_METHOD                     1
+                60      STORE_FAST                      6: mo
+                62      LOAD_FAST                       6: mo
+                64      POP_JUMP_IF_FALSE               62 (to 124)
+                66      LOAD_FAST                       6: mo
+                68      LOAD_METHOD                     4: group
+                70      LOAD_CONST                      5: 'name'
+                72      LOAD_CONST                      6: 'num'
+                74      CALL_METHOD                     2
+                76      UNPACK_SEQUENCE                 2
+                78      STORE_FAST                      3: name
+                80      STORE_FAST                      7: num
+                82      LOAD_FAST                       7: num
+                84      LOAD_CONST                      3: None
+                86      IS_OP                           1 (is not)
+                88      POP_JUMP_IF_FALSE               49 (to 98)
+                90      LOAD_GLOBAL                     5: int
+                92      LOAD_FAST                       7: num
+                94      CALL_FUNCTION                   1
+                96      STORE_FAST                      7: num
+                98      LOAD_FAST                       2: rfc2231_params
+                100     LOAD_METHOD                     6: setdefault
+                102     LOAD_FAST                       3: name
+                104     BUILD_LIST                      0
+                106     CALL_METHOD                     2
+                108     LOAD_METHOD                     7: append
+                110     LOAD_FAST                       7: num
+                112     LOAD_FAST                       4: value
+                114     LOAD_FAST                       5: encoded
+                116     BUILD_TUPLE                     3
+                118     CALL_METHOD                     1
+                120     POP_TOP                         
+                122     JUMP_ABSOLUTE                   13 (to 26)
+                124     LOAD_FAST                       1: new_params
+                126     LOAD_METHOD                     7: append
+                128     LOAD_FAST                       3: name
+                130     LOAD_CONST                      7: '"%s"'
+                132     LOAD_GLOBAL                     8: quote
+                134     LOAD_FAST                       4: value
+                136     CALL_FUNCTION                   1
+                138     BINARY_MODULO                   
+                140     BUILD_TUPLE                     2
+                142     CALL_METHOD                     1
+                144     POP_TOP                         
+                146     JUMP_ABSOLUTE                   13 (to 26)
+                148     LOAD_FAST                       2: rfc2231_params
+                150     POP_JUMP_IF_FALSE               156 (to 312)
+                152     LOAD_FAST                       2: rfc2231_params
+                154     LOAD_METHOD                     9: items
+                156     CALL_METHOD                     0
+                158     GET_ITER                        
+                160     FOR_ITER                        75 (to 312)
+                162     UNPACK_SEQUENCE                 2
+                164     STORE_FAST                      3: name
+                166     STORE_FAST                      8: continuations
+                168     BUILD_LIST                      0
+                170     STORE_FAST                      4: value
+                172     LOAD_CONST                      8: False
+                174     STORE_FAST                      9: extended
+                176     LOAD_FAST                       8: continuations
+                178     LOAD_METHOD                     10: sort
+                180     CALL_METHOD                     0
+                182     POP_TOP                         
+                184     LOAD_FAST                       8: continuations
+                186     GET_ITER                        
+                188     FOR_ITER                        22 (to 234)
+                190     UNPACK_SEQUENCE                 3
+                192     STORE_FAST                      7: num
+                194     STORE_FAST                      10: s
+                196     STORE_FAST                      5: encoded
+                198     LOAD_FAST                       5: encoded
+                200     POP_JUMP_IF_FALSE               111 (to 222)
+                202     LOAD_GLOBAL                     11: urllib
+                204     LOAD_ATTR                       12: parse
+                206     LOAD_ATTR                       1: unquote
+                208     LOAD_FAST                       10: s
+                210     LOAD_CONST                      9: 'latin-1'
+                212     LOAD_CONST                      10: ('encoding',)
+                214     CALL_FUNCTION_KW                2
+                216     STORE_FAST                      10: s
+                218     LOAD_CONST                      11: True
+                220     STORE_FAST                      9: extended
+                222     LOAD_FAST                       4: value
+                224     LOAD_METHOD                     7: append
+                226     LOAD_FAST                       10: s
+                228     CALL_METHOD                     1
+                230     POP_TOP                         
+                232     JUMP_ABSOLUTE                   94 (to 188)
+                234     LOAD_GLOBAL                     8: quote
+                236     LOAD_GLOBAL                     13: EMPTYSTRING
+                238     LOAD_METHOD                     14: join
+                240     LOAD_FAST                       4: value
+                242     CALL_METHOD                     1
+                244     CALL_FUNCTION                   1
+                246     STORE_FAST                      4: value
+                248     LOAD_FAST                       9: extended
+                250     POP_JUMP_IF_FALSE               146 (to 292)
+                252     LOAD_GLOBAL                     15: decode_rfc2231
+                254     LOAD_FAST                       4: value
+                256     CALL_FUNCTION                   1
+                258     UNPACK_SEQUENCE                 3
+                260     STORE_FAST                      11: charset
+                262     STORE_FAST                      12: language
+                264     STORE_FAST                      4: value
+                266     LOAD_FAST                       1: new_params
+                268     LOAD_METHOD                     7: append
+                270     LOAD_FAST                       3: name
+                272     LOAD_FAST                       11: charset
+                274     LOAD_FAST                       12: language
+                276     LOAD_CONST                      7: '"%s"'
+                278     LOAD_FAST                       4: value
+                280     BINARY_MODULO                   
+                282     BUILD_TUPLE                     3
+                284     BUILD_TUPLE                     2
+                286     CALL_METHOD                     1
+                288     POP_TOP                         
+                290     JUMP_ABSOLUTE                   80 (to 160)
+                292     LOAD_FAST                       1: new_params
+                294     LOAD_METHOD                     7: append
+                296     LOAD_FAST                       3: name
+                298     LOAD_CONST                      7: '"%s"'
+                300     LOAD_FAST                       4: value
+                302     BINARY_MODULO                   
+                304     BUILD_TUPLE                     2
+                306     CALL_METHOD                     1
+                308     POP_TOP                         
+                310     JUMP_ABSOLUTE                   80 (to 160)
+                312     LOAD_FAST                       1: new_params
+                314     RETURN_VALUE                    
+        'decode_params'
+        'replace'
+        'us-ascii'
+        [Code]
+            File Name: email/utils.py
+            Object Name: collapse_rfc2231_value
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 7
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'tuple'
+                'len'
+                'unquote'
+                'bytes'
+                'str'
+                'LookupError'
+            [Var Names]
+                'value'
+                'errors'
+                'fallback_charset'
+                'charset'
+                'language'
+                'text'
+                'rawbytes'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                3
+                'raw-unicode-escape'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: value
+                4       LOAD_GLOBAL                     1: tuple
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_FALSE               11 (to 22)
+                10      LOAD_GLOBAL                     2: len
+                12      LOAD_FAST                       0: value
+                14      CALL_FUNCTION                   1
+                16      LOAD_CONST                      1: 3
+                18      COMPARE_OP                      3 (!=)
+                20      POP_JUMP_IF_FALSE               15 (to 30)
+                22      LOAD_GLOBAL                     3: unquote
+                24      LOAD_FAST                       0: value
+                26      CALL_FUNCTION                   1
+                28      RETURN_VALUE                    
+                30      LOAD_FAST                       0: value
+                32      UNPACK_SEQUENCE                 3
+                34      STORE_FAST                      3: charset
+                36      STORE_FAST                      4: language
+                38      STORE_FAST                      5: text
+                40      LOAD_FAST                       3: charset
+                42      LOAD_CONST                      0: None
+                44      IS_OP                           0 (is)
+                46      POP_JUMP_IF_FALSE               26 (to 52)
+                48      LOAD_FAST                       2: fallback_charset
+                50      STORE_FAST                      3: charset
+                52      LOAD_GLOBAL                     4: bytes
+                54      LOAD_FAST                       5: text
+                56      LOAD_CONST                      2: 'raw-unicode-escape'
+                58      CALL_FUNCTION                   2
+                60      STORE_FAST                      6: rawbytes
+                62      SETUP_FINALLY                   7 (to 78)
+                64      LOAD_GLOBAL                     5: str
+                66      LOAD_FAST                       6: rawbytes
+                68      LOAD_FAST                       3: charset
+                70      LOAD_FAST                       1: errors
+                72      CALL_FUNCTION                   3
+                74      POP_BLOCK                       
+                76      RETURN_VALUE                    
+                78      DUP_TOP                         
+                80      LOAD_GLOBAL                     6: LookupError
+                82      JUMP_IF_NOT_EXC_MATCH           51 (to 102)
+                84      POP_TOP                         
+                86      POP_TOP                         
+                88      POP_TOP                         
+                90      LOAD_GLOBAL                     3: unquote
+                92      LOAD_FAST                       5: text
+                94      CALL_FUNCTION                   1
+                96      ROT_FOUR                        
+                98      POP_EXCEPT                      
+                100     RETURN_VALUE                    
+                102     RERAISE                         0
+        'collapse_rfc2231_value'
+        -1
+        [Code]
+            File Name: email/utils.py
+            Object Name: localtime
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 9
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'datetime'
+                'now'
+                'timezone'
+                'utc'
+                'astimezone'
+                'tzinfo'
+                'timetuple'
+                'time'
+                'mktime'
+                'localtime'
+                'timedelta'
+                'tm_gmtoff'
+                'tm_zone'
+                'AttributeError'
+                'gmtime'
+                'daylight'
+                'tm_isdst'
+                'altzone'
+                'tzname'
+                'replace'
+            [Var Names]
+                'dt'
+                'isdst'
+                'tm'
+                'seconds'
+                'localtm'
+                'delta'
+                'tz'
+                'dst'
+                'gmtoff'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return local time as an aware datetime object.\n\n    If called without arguments, return current time.  Otherwise *dt*\n    argument should be a datetime instance, and it is converted to the\n    local time zone according to the system time zone database.  If *dt* is\n    naive (that is, dt.tzinfo is None), it is assumed to be in local time.\n    In this case, a positive or zero value for *isdst* causes localtime to\n    presume initially that summer time (for example, Daylight Saving Time)\n    is or is not (respectively) in effect for the specified time.  A\n    negative value for *isdst* causes the localtime() function to attempt\n    to divine whether summer time is in effect for the specified time.\n\n    '
+                None
+                -1
+                (
+                    'seconds'
+                )
+                6
+                0
+                (
+                    'tzinfo'
+                )
+            [Disassembly]
+                0       LOAD_FAST                       0: dt
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               14 (to 28)
+                8       LOAD_GLOBAL                     0: datetime
+                10      LOAD_ATTR                       0: datetime
+                12      LOAD_METHOD                     1: now
+                14      LOAD_GLOBAL                     0: datetime
+                16      LOAD_ATTR                       2: timezone
+                18      LOAD_ATTR                       3: utc
+                20      CALL_METHOD                     1
+                22      LOAD_METHOD                     4: astimezone
+                24      CALL_METHOD                     0
+                26      RETURN_VALUE                    
+                28      LOAD_FAST                       0: dt
+                30      LOAD_ATTR                       5: tzinfo
+                32      LOAD_CONST                      1: None
+                34      IS_OP                           1 (is not)
+                36      POP_JUMP_IF_FALSE               23 (to 46)
+                38      LOAD_FAST                       0: dt
+                40      LOAD_METHOD                     4: astimezone
+                42      CALL_METHOD                     0
+                44      RETURN_VALUE                    
+                46      LOAD_FAST                       0: dt
+                48      LOAD_METHOD                     6: timetuple
+                50      CALL_METHOD                     0
+                52      LOAD_CONST                      1: None
+                54      LOAD_CONST                      2: -1
+                56      BUILD_SLICE                     2
+                58      BINARY_SUBSCR                   
+                60      LOAD_FAST                       1: isdst
+                62      BUILD_TUPLE                     1
+                64      BINARY_ADD                      
+                66      STORE_FAST                      2: tm
+                68      LOAD_GLOBAL                     7: time
+                70      LOAD_METHOD                     8: mktime
+                72      LOAD_FAST                       2: tm
+                74      CALL_METHOD                     1
+                76      STORE_FAST                      3: seconds
+                78      LOAD_GLOBAL                     7: time
+                80      LOAD_METHOD                     9: localtime
+                82      LOAD_FAST                       3: seconds
+                84      CALL_METHOD                     1
+                86      STORE_FAST                      4: localtm
+                88      SETUP_FINALLY                   16 (to 122)
+                90      LOAD_GLOBAL                     0: datetime
+                92      LOAD_ATTR                       10: timedelta
+                94      LOAD_FAST                       4: localtm
+                96      LOAD_ATTR                       11: tm_gmtoff
+                98      LOAD_CONST                      3: ('seconds',)
+                100     CALL_FUNCTION_KW                1
+                102     STORE_FAST                      5: delta
+                104     LOAD_GLOBAL                     0: datetime
+                106     LOAD_METHOD                     2: timezone
+                108     LOAD_FAST                       5: delta
+                110     LOAD_FAST                       4: localtm
+                112     LOAD_ATTR                       12: tm_zone
+                114     CALL_METHOD                     2
+                116     STORE_FAST                      6: tz
+                118     POP_BLOCK                       
+                120     JUMP_FORWARD                    63 (to 248)
+                122     DUP_TOP                         
+                124     LOAD_GLOBAL                     13: AttributeError
+                126     JUMP_IF_NOT_EXC_MATCH           123 (to 246)
+                128     POP_TOP                         
+                130     POP_TOP                         
+                132     POP_TOP                         
+                134     LOAD_FAST                       0: dt
+                136     LOAD_GLOBAL                     0: datetime
+                138     LOAD_ATTR                       0: datetime
+                140     LOAD_GLOBAL                     7: time
+                142     LOAD_METHOD                     14: gmtime
+                144     LOAD_FAST                       3: seconds
+                146     CALL_METHOD                     1
+                148     LOAD_CONST                      1: None
+                150     LOAD_CONST                      4: 6
+                152     BUILD_SLICE                     2
+                154     BINARY_SUBSCR                   
+                156     CALL_FUNCTION_EX                0
+                158     BINARY_SUBTRACT                 
+                160     STORE_FAST                      5: delta
+                162     LOAD_GLOBAL                     7: time
+                164     LOAD_ATTR                       15: daylight
+                166     JUMP_IF_FALSE_OR_POP            88 (to 176)
+                168     LOAD_FAST                       4: localtm
+                170     LOAD_ATTR                       16: tm_isdst
+                172     LOAD_CONST                      5: 0
+                174     COMPARE_OP                      4 (>)
+                176     STORE_FAST                      7: dst
+                178     LOAD_FAST                       7: dst
+                180     POP_JUMP_IF_FALSE               94 (to 188)
+                182     LOAD_GLOBAL                     7: time
+                184     LOAD_ATTR                       17: altzone
+                186     JUMP_FORWARD                    2 (to 192)
+                188     LOAD_GLOBAL                     7: time
+                190     LOAD_ATTR                       2: timezone
+                192     UNARY_NEGATIVE                  
+                194     STORE_FAST                      8: gmtoff
+                196     LOAD_FAST                       5: delta
+                198     LOAD_GLOBAL                     0: datetime
+                200     LOAD_ATTR                       10: timedelta
+                202     LOAD_FAST                       8: gmtoff
+                204     LOAD_CONST                      3: ('seconds',)
+                206     CALL_FUNCTION_KW                1
+                208     COMPARE_OP                      2 (==)
+                210     POP_JUMP_IF_FALSE               116 (to 232)
+                212     LOAD_GLOBAL                     0: datetime
+                214     LOAD_METHOD                     2: timezone
+                216     LOAD_FAST                       5: delta
+                218     LOAD_GLOBAL                     7: time
+                220     LOAD_ATTR                       18: tzname
+                222     LOAD_FAST                       7: dst
+                224     BINARY_SUBSCR                   
+                226     CALL_METHOD                     2
+                228     STORE_FAST                      6: tz
+                230     JUMP_FORWARD                    5 (to 242)
+                232     LOAD_GLOBAL                     0: datetime
+                234     LOAD_METHOD                     2: timezone
+                236     LOAD_FAST                       5: delta
+                238     CALL_METHOD                     1
+                240     STORE_FAST                      6: tz
+                242     POP_EXCEPT                      
+                244     JUMP_FORWARD                    1 (to 248)
+                246     RERAISE                         0
+                248     LOAD_FAST                       0: dt
+                250     LOAD_ATTR                       19: replace
+                252     LOAD_FAST                       6: tz
+                254     LOAD_CONST                      6: ('tzinfo',)
+                256     CALL_FUNCTION_KW                1
+                258     RETURN_VALUE                    
+        'localtime'
+        (
+            'utf-8'
+        )
+        (
+            None
+            False
+            False
+        )
+        (
+            False
+        )
+        (
+            None
+            None
+        )
+        (
+            'replace'
+            'us-ascii'
+        )
+        (
+            None
+            -1
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Miscellaneous utilities.'
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('collapse_rfc2231_value', 'decode_params', 'decode_rfc2231', 'encode_rfc2231', 'formataddr', 'formatdate', 'format_datetime', 'getaddresses', 'make_msgid', 'mktime_tz', 'parseaddr', 'parsedate', 'parsedate_tz', 'parsedate_to_datetime', 'unquote')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: 0
+        14      LOAD_CONST                      3: None
+        16      IMPORT_NAME                     2: os
+        18      STORE_NAME                      2: os
+        20      LOAD_CONST                      2: 0
+        22      LOAD_CONST                      3: None
+        24      IMPORT_NAME                     3: re
+        26      STORE_NAME                      3: re
+        28      LOAD_CONST                      2: 0
+        30      LOAD_CONST                      3: None
+        32      IMPORT_NAME                     4: time
+        34      STORE_NAME                      4: time
+        36      LOAD_CONST                      2: 0
+        38      LOAD_CONST                      3: None
+        40      IMPORT_NAME                     5: random
+        42      STORE_NAME                      5: random
+        44      LOAD_CONST                      2: 0
+        46      LOAD_CONST                      3: None
+        48      IMPORT_NAME                     6: socket
+        50      STORE_NAME                      6: socket
+        52      LOAD_CONST                      2: 0
+        54      LOAD_CONST                      3: None
+        56      IMPORT_NAME                     7: datetime
+        58      STORE_NAME                      7: datetime
+        60      LOAD_CONST                      2: 0
+        62      LOAD_CONST                      3: None
+        64      IMPORT_NAME                     8: urllib.parse
+        66      STORE_NAME                      9: urllib
+        68      LOAD_CONST                      2: 0
+        70      LOAD_CONST                      4: ('quote',)
+        72      IMPORT_NAME                     10: email._parseaddr
+        74      IMPORT_FROM                     11: quote
+        76      STORE_NAME                      11: quote
+        78      POP_TOP                         
+        80      LOAD_CONST                      2: 0
+        82      LOAD_CONST                      5: ('AddressList',)
+        84      IMPORT_NAME                     10: email._parseaddr
+        86      IMPORT_FROM                     12: AddressList
+        88      STORE_NAME                      13: _AddressList
+        90      POP_TOP                         
+        92      LOAD_CONST                      2: 0
+        94      LOAD_CONST                      6: ('mktime_tz',)
+        96      IMPORT_NAME                     10: email._parseaddr
+        98      IMPORT_FROM                     14: mktime_tz
+        100     STORE_NAME                      14: mktime_tz
+        102     POP_TOP                         
+        104     LOAD_CONST                      2: 0
+        106     LOAD_CONST                      7: ('parsedate', 'parsedate_tz', '_parsedate_tz')
+        108     IMPORT_NAME                     10: email._parseaddr
+        110     IMPORT_FROM                     15: parsedate
+        112     STORE_NAME                      15: parsedate
+        114     IMPORT_FROM                     16: parsedate_tz
+        116     STORE_NAME                      16: parsedate_tz
+        118     IMPORT_FROM                     17: _parsedate_tz
+        120     STORE_NAME                      17: _parsedate_tz
+        122     POP_TOP                         
+        124     LOAD_CONST                      2: 0
+        126     LOAD_CONST                      8: ('Charset',)
+        128     IMPORT_NAME                     18: email.charset
+        130     IMPORT_FROM                     19: Charset
+        132     STORE_NAME                      19: Charset
+        134     POP_TOP                         
+        136     LOAD_CONST                      9: ', '
+        138     STORE_NAME                      20: COMMASPACE
+        140     LOAD_CONST                      10: ''
+        142     STORE_NAME                      21: EMPTYSTRING
+        144     LOAD_CONST                      10: ''
+        146     STORE_NAME                      22: UEMPTYSTRING
+        148     LOAD_CONST                      11: '\r\n'
+        150     STORE_NAME                      23: CRLF
+        152     LOAD_CONST                      12: "'"
+        154     STORE_NAME                      24: TICK
+        156     LOAD_NAME                       3: re
+        158     LOAD_METHOD                     25: compile
+        160     LOAD_CONST                      13: '[][\\\\()<>@,:;".]'
+        162     CALL_METHOD                     1
+        164     STORE_NAME                      26: specialsre
+        166     LOAD_NAME                       3: re
+        168     LOAD_METHOD                     25: compile
+        170     LOAD_CONST                      14: '[\\\\"]'
+        172     CALL_METHOD                     1
+        174     STORE_NAME                      27: escapesre
+        176     LOAD_CONST                      15: <CODE> _has_surrogates
+        178     LOAD_CONST                      16: '_has_surrogates'
+        180     MAKE_FUNCTION                   0
+        182     STORE_NAME                      28: _has_surrogates
+        184     LOAD_CONST                      17: <CODE> _sanitize
+        186     LOAD_CONST                      18: '_sanitize'
+        188     MAKE_FUNCTION                   0
+        190     STORE_NAME                      29: _sanitize
+        192     LOAD_CONST                      65: ('utf-8',)
+        194     LOAD_CONST                      20: <CODE> formataddr
+        196     LOAD_CONST                      21: 'formataddr'
+        198     MAKE_FUNCTION                   1
+        200     STORE_NAME                      30: formataddr
+        202     LOAD_CONST                      22: <CODE> _iter_escaped_chars
+        204     LOAD_CONST                      23: '_iter_escaped_chars'
+        206     MAKE_FUNCTION                   0
+        208     STORE_NAME                      31: _iter_escaped_chars
+        210     LOAD_CONST                      24: <CODE> _strip_quoted_realnames
+        212     LOAD_CONST                      25: '_strip_quoted_realnames'
+        214     MAKE_FUNCTION                   0
+        216     STORE_NAME                      32: _strip_quoted_realnames
+        218     LOAD_CONST                      26: True
+        220     STORE_NAME                      33: supports_strict_parsing
+        222     LOAD_CONST                      26: True
+        224     LOAD_CONST                      27: ('strict',)
+        226     BUILD_CONST_KEY_MAP             1
+        228     LOAD_CONST                      28: <CODE> getaddresses
+        230     LOAD_CONST                      29: 'getaddresses'
+        232     MAKE_FUNCTION                   2
+        234     STORE_NAME                      34: getaddresses
+        236     LOAD_CONST                      30: <CODE> _check_parenthesis
+        238     LOAD_CONST                      31: '_check_parenthesis'
+        240     MAKE_FUNCTION                   0
+        242     STORE_NAME                      35: _check_parenthesis
+        244     LOAD_CONST                      32: <CODE> _pre_parse_validation
+        246     LOAD_CONST                      33: '_pre_parse_validation'
+        248     MAKE_FUNCTION                   0
+        250     STORE_NAME                      36: _pre_parse_validation
+        252     LOAD_CONST                      34: <CODE> _post_parse_validation
+        254     LOAD_CONST                      35: '_post_parse_validation'
+        256     MAKE_FUNCTION                   0
+        258     STORE_NAME                      37: _post_parse_validation
+        260     LOAD_CONST                      36: <CODE> _format_timetuple_and_zone
+        262     LOAD_CONST                      37: '_format_timetuple_and_zone'
+        264     MAKE_FUNCTION                   0
+        266     STORE_NAME                      38: _format_timetuple_and_zone
+        268     LOAD_CONST                      66: (None, False, False)
+        270     LOAD_CONST                      39: <CODE> formatdate
+        272     LOAD_CONST                      40: 'formatdate'
+        274     MAKE_FUNCTION                   1
+        276     STORE_NAME                      39: formatdate
+        278     LOAD_CONST                      67: (False,)
+        280     LOAD_CONST                      41: <CODE> format_datetime
+        282     LOAD_CONST                      42: 'format_datetime'
+        284     MAKE_FUNCTION                   1
+        286     STORE_NAME                      40: format_datetime
+        288     LOAD_CONST                      68: (None, None)
+        290     LOAD_CONST                      43: <CODE> make_msgid
+        292     LOAD_CONST                      44: 'make_msgid'
+        294     MAKE_FUNCTION                   1
+        296     STORE_NAME                      41: make_msgid
+        298     LOAD_CONST                      45: <CODE> parsedate_to_datetime
+        300     LOAD_CONST                      46: 'parsedate_to_datetime'
+        302     MAKE_FUNCTION                   0
+        304     STORE_NAME                      42: parsedate_to_datetime
+        306     LOAD_CONST                      26: True
+        308     LOAD_CONST                      27: ('strict',)
+        310     BUILD_CONST_KEY_MAP             1
+        312     LOAD_CONST                      47: <CODE> parseaddr
+        314     LOAD_CONST                      48: 'parseaddr'
+        316     MAKE_FUNCTION                   2
+        318     STORE_NAME                      43: parseaddr
+        320     LOAD_CONST                      49: <CODE> unquote
+        322     LOAD_CONST                      50: 'unquote'
+        324     MAKE_FUNCTION                   0
+        326     STORE_NAME                      44: unquote
+        328     LOAD_CONST                      51: <CODE> decode_rfc2231
+        330     LOAD_CONST                      52: 'decode_rfc2231'
+        332     MAKE_FUNCTION                   0
+        334     STORE_NAME                      45: decode_rfc2231
+        336     LOAD_CONST                      68: (None, None)
+        338     LOAD_CONST                      53: <CODE> encode_rfc2231
+        340     LOAD_CONST                      54: 'encode_rfc2231'
+        342     MAKE_FUNCTION                   1
+        344     STORE_NAME                      46: encode_rfc2231
+        346     LOAD_NAME                       3: re
+        348     LOAD_METHOD                     25: compile
+        350     LOAD_CONST                      55: '^(?P<name>\\w+)\\*((?P<num>[0-9]+)\\*?)?$'
+        352     LOAD_NAME                       3: re
+        354     LOAD_ATTR                       47: ASCII
+        356     CALL_METHOD                     2
+        358     STORE_NAME                      48: rfc2231_continuation
+        360     LOAD_CONST                      56: <CODE> decode_params
+        362     LOAD_CONST                      57: 'decode_params'
+        364     MAKE_FUNCTION                   0
+        366     STORE_NAME                      49: decode_params
+        368     NOP                             
+        370     NOP                             
+        372     LOAD_CONST                      69: ('replace', 'us-ascii')
+        374     LOAD_CONST                      60: <CODE> collapse_rfc2231_value
+        376     LOAD_CONST                      61: 'collapse_rfc2231_value'
+        378     MAKE_FUNCTION                   1
+        380     STORE_NAME                      50: collapse_rfc2231_value
+        382     LOAD_CONST                      70: (None, -1)
+        384     LOAD_CONST                      63: <CODE> localtime
+        386     LOAD_CONST                      64: 'localtime'
+        388     MAKE_FUNCTION                   1
+        390     STORE_NAME                      51: localtime
+        392     LOAD_CONST                      3: None
+        394     RETURN_VALUE                    

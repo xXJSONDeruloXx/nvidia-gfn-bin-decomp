@@ -1,0 +1,3032 @@
+fractions.pyc (Python 3.10)
+[Code]
+    File Name: fractions.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 5
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'decimal'
+        'Decimal'
+        'math'
+        'numbers'
+        'operator'
+        're'
+        'sys'
+        '__all__'
+        'hash_info'
+        'modulus'
+        '_PyHASH_MODULUS'
+        'inf'
+        '_PyHASH_INF'
+        'compile'
+        'VERBOSE'
+        'IGNORECASE'
+        '_RATIONAL_FORMAT'
+        'Rational'
+        'Fraction'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Fraction, infinite-precision, real numbers.'
+        0
+        (
+            'Decimal'
+        )
+        None
+        'Fraction'
+        '\n    \\A\\s*                      # optional whitespace at the start, then\n    (?P<sign>[-+]?)            # an optional sign, then\n    (?=\\d|\\.\\d)                # lookahead for digit or .digit\n    (?P<num>\\d*)               # numerator (possibly empty)\n    (?:                        # followed by\n       (?:/(?P<denom>\\d+))?    # an optional denominator\n    |                          # or\n       (?:\\.(?P<decimal>\\d*))? # an optional fractional part\n       (?:E(?P<exp>[-+]?\\d+))? # and optional exponent\n    )\n    \\s*\\Z                      # and optional whitespace to finish\n'
+        [Code]
+            File Name: fractions.py
+            Object Name: Fraction
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 5
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__slots__'
+                '__new__'
+                'classmethod'
+                'from_float'
+                'from_decimal'
+                'as_integer_ratio'
+                'limit_denominator'
+                'property'
+                'numerator'
+                'denominator'
+                '__repr__'
+                '__str__'
+                '_operator_fallbacks'
+                '_add'
+                'operator'
+                'add'
+                '__add__'
+                '__radd__'
+                '_sub'
+                'sub'
+                '__sub__'
+                '__rsub__'
+                '_mul'
+                'mul'
+                '__mul__'
+                '__rmul__'
+                '_div'
+                'truediv'
+                '__truediv__'
+                '__rtruediv__'
+                '_floordiv'
+                'floordiv'
+                '__floordiv__'
+                '__rfloordiv__'
+                '_divmod'
+                'divmod'
+                '__divmod__'
+                '__rdivmod__'
+                '_mod'
+                'mod'
+                '__mod__'
+                '__rmod__'
+                '__pow__'
+                '__rpow__'
+                '__pos__'
+                '__neg__'
+                '__abs__'
+                '__trunc__'
+                '__floor__'
+                '__ceil__'
+                '__round__'
+                '__hash__'
+                '__eq__'
+                '_richcmp'
+                '__lt__'
+                '__gt__'
+                '__le__'
+                '__ge__'
+                '__bool__'
+                '__reduce__'
+                '__copy__'
+                '__deepcopy__'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'Fraction'
+                "This class implements rational numbers.\n\n    In the two-argument form of the constructor, Fraction(8, 6) will\n    produce a rational number equivalent to 4/3. Both arguments must\n    be Rational. The numerator defaults to 0 and the denominator\n    defaults to 1 so that Fraction(3) == 3 and Fraction() == 0.\n\n    Fractions can also be constructed from:\n\n      - numeric strings similar to those accepted by the\n        float constructor (for example, '-2.3' or '1e10')\n\n      - strings of the form '123/456'\n\n      - float and Decimal instances\n\n      - other Rational instances (including integers)\n\n    "
+                (
+                    '_numerator'
+                    '_denominator'
+                )
+                0
+                None
+                True
+                (
+                    '_normalize'
+                )
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __new__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 1
+                    Locals: 11
+                    Stack Size: 4
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        'Fraction'
+                        '__new__'
+                        'type'
+                        'int'
+                        '_numerator'
+                        '_denominator'
+                        'isinstance'
+                        'numbers'
+                        'Rational'
+                        'numerator'
+                        'denominator'
+                        'float'
+                        'Decimal'
+                        'as_integer_ratio'
+                        'str'
+                        '_RATIONAL_FORMAT'
+                        'match'
+                        'ValueError'
+                        'group'
+                        'len'
+                        'TypeError'
+                        'ZeroDivisionError'
+                        'math'
+                        'gcd'
+                    [Var Names]
+                        'cls'
+                        'numerator'
+                        'denominator'
+                        '_normalize'
+                        'self'
+                        'm'
+                        'denom'
+                        'decimal'
+                        'scale'
+                        'exp'
+                        'g'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        "Constructs a Rational.\n\n        Takes a string like '3/2' or '1.5', another Rational instance, a\n        numerator/denominator pair, or a float.\n\n        Examples\n        --------\n\n        >>> Fraction(10, -8)\n        Fraction(-5, 4)\n        >>> Fraction(Fraction(1, 7), 5)\n        Fraction(1, 35)\n        >>> Fraction(Fraction(1, 7), Fraction(2, 3))\n        Fraction(3, 14)\n        >>> Fraction('314')\n        Fraction(314, 1)\n        >>> Fraction('-35/4')\n        Fraction(-35, 4)\n        >>> Fraction('3.1415') # conversion from numeric string\n        Fraction(6283, 2000)\n        >>> Fraction('-47e-2') # string may include a decimal exponent\n        Fraction(-47, 100)\n        >>> Fraction(1.47)  # direct construction from float (exact conversion)\n        Fraction(6620291452234629, 4503599627370496)\n        >>> Fraction(2.25)\n        Fraction(9, 4)\n        >>> Fraction(Decimal('1.47'))\n        Fraction(147, 100)\n\n        "
+                        None
+                        1
+                        'Invalid literal for Fraction: %r'
+                        'num'
+                        '0'
+                        'denom'
+                        'decimal'
+                        10
+                        'exp'
+                        0
+                        'sign'
+                        '-'
+                        'argument should be a string or a Rational instance'
+                        'both arguments should be Rational instances'
+                        'Fraction(%s, 0)'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       LOAD_GLOBAL                     1: Fraction
+                        4       LOAD_FAST                       0: cls
+                        6       CALL_FUNCTION                   2
+                        8       LOAD_METHOD                     2: __new__
+                        10      LOAD_FAST                       0: cls
+                        12      CALL_METHOD                     1
+                        14      STORE_FAST                      4: self
+                        16      LOAD_FAST                       2: denominator
+                        18      LOAD_CONST                      1: None
+                        20      IS_OP                           0 (is)
+                        22      POP_JUMP_IF_FALSE               171 (to 342)
+                        24      LOAD_GLOBAL                     3: type
+                        26      LOAD_FAST                       1: numerator
+                        28      CALL_FUNCTION                   1
+                        30      LOAD_GLOBAL                     4: int
+                        32      IS_OP                           0 (is)
+                        34      POP_JUMP_IF_FALSE               26 (to 52)
+                        36      LOAD_FAST                       1: numerator
+                        38      LOAD_FAST                       4: self
+                        40      STORE_ATTR                      5: _numerator
+                        42      LOAD_CONST                      2: 1
+                        44      LOAD_FAST                       4: self
+                        46      STORE_ATTR                      6: _denominator
+                        48      LOAD_FAST                       4: self
+                        50      RETURN_VALUE                    
+                        52      LOAD_GLOBAL                     7: isinstance
+                        54      LOAD_FAST                       1: numerator
+                        56      LOAD_GLOBAL                     8: numbers
+                        58      LOAD_ATTR                       9: Rational
+                        60      CALL_FUNCTION                   2
+                        62      POP_JUMP_IF_FALSE               42 (to 84)
+                        64      LOAD_FAST                       1: numerator
+                        66      LOAD_ATTR                       10: numerator
+                        68      LOAD_FAST                       4: self
+                        70      STORE_ATTR                      5: _numerator
+                        72      LOAD_FAST                       1: numerator
+                        74      LOAD_ATTR                       11: denominator
+                        76      LOAD_FAST                       4: self
+                        78      STORE_ATTR                      6: _denominator
+                        80      LOAD_FAST                       4: self
+                        82      RETURN_VALUE                    
+                        84      LOAD_GLOBAL                     7: isinstance
+                        86      LOAD_FAST                       1: numerator
+                        88      LOAD_GLOBAL                     12: float
+                        90      LOAD_GLOBAL                     13: Decimal
+                        92      BUILD_TUPLE                     2
+                        94      CALL_FUNCTION                   2
+                        96      POP_JUMP_IF_FALSE               59 (to 118)
+                        98      LOAD_FAST                       1: numerator
+                        100     LOAD_METHOD                     14: as_integer_ratio
+                        102     CALL_METHOD                     0
+                        104     UNPACK_SEQUENCE                 2
+                        106     LOAD_FAST                       4: self
+                        108     STORE_ATTR                      5: _numerator
+                        110     LOAD_FAST                       4: self
+                        112     STORE_ATTR                      6: _denominator
+                        114     LOAD_FAST                       4: self
+                        116     RETURN_VALUE                    
+                        118     LOAD_GLOBAL                     7: isinstance
+                        120     LOAD_FAST                       1: numerator
+                        122     LOAD_GLOBAL                     15: str
+                        124     CALL_FUNCTION                   2
+                        126     POP_JUMP_IF_FALSE               167 (to 334)
+                        128     LOAD_GLOBAL                     16: _RATIONAL_FORMAT
+                        130     LOAD_METHOD                     17: match
+                        132     LOAD_FAST                       1: numerator
+                        134     CALL_METHOD                     1
+                        136     STORE_FAST                      5: m
+                        138     LOAD_FAST                       5: m
+                        140     LOAD_CONST                      1: None
+                        142     IS_OP                           0 (is)
+                        144     POP_JUMP_IF_FALSE               79 (to 158)
+                        146     LOAD_GLOBAL                     18: ValueError
+                        148     LOAD_CONST                      3: 'Invalid literal for Fraction: %r'
+                        150     LOAD_FAST                       1: numerator
+                        152     BINARY_MODULO                   
+                        154     CALL_FUNCTION                   1
+                        156     RAISE_VARARGS                   1
+                        158     LOAD_GLOBAL                     4: int
+                        160     LOAD_FAST                       5: m
+                        162     LOAD_METHOD                     19: group
+                        164     LOAD_CONST                      4: 'num'
+                        166     CALL_METHOD                     1
+                        168     JUMP_IF_TRUE_OR_POP             86 (to 172)
+                        170     LOAD_CONST                      5: '0'
+                        172     CALL_FUNCTION                   1
+                        174     STORE_FAST                      1: numerator
+                        176     LOAD_FAST                       5: m
+                        178     LOAD_METHOD                     19: group
+                        180     LOAD_CONST                      6: 'denom'
+                        182     CALL_METHOD                     1
+                        184     STORE_FAST                      6: denom
+                        186     LOAD_FAST                       6: denom
+                        188     POP_JUMP_IF_FALSE               100 (to 200)
+                        190     LOAD_GLOBAL                     4: int
+                        192     LOAD_FAST                       6: denom
+                        194     CALL_FUNCTION                   1
+                        196     STORE_FAST                      2: denominator
+                        198     JUMP_FORWARD                    56 (to 312)
+                        200     LOAD_CONST                      2: 1
+                        202     STORE_FAST                      2: denominator
+                        204     LOAD_FAST                       5: m
+                        206     LOAD_METHOD                     19: group
+                        208     LOAD_CONST                      7: 'decimal'
+                        210     CALL_METHOD                     1
+                        212     STORE_FAST                      7: decimal
+                        214     LOAD_FAST                       7: decimal
+                        216     POP_JUMP_IF_FALSE               127 (to 254)
+                        218     LOAD_CONST                      8: 10
+                        220     LOAD_GLOBAL                     20: len
+                        222     LOAD_FAST                       7: decimal
+                        224     CALL_FUNCTION                   1
+                        226     BINARY_POWER                    
+                        228     STORE_FAST                      8: scale
+                        230     LOAD_FAST                       1: numerator
+                        232     LOAD_FAST                       8: scale
+                        234     BINARY_MULTIPLY                 
+                        236     LOAD_GLOBAL                     4: int
+                        238     LOAD_FAST                       7: decimal
+                        240     CALL_FUNCTION                   1
+                        242     BINARY_ADD                      
+                        244     STORE_FAST                      1: numerator
+                        246     LOAD_FAST                       2: denominator
+                        248     LOAD_FAST                       8: scale
+                        250     INPLACE_MULTIPLY                
+                        252     STORE_FAST                      2: denominator
+                        254     LOAD_FAST                       5: m
+                        256     LOAD_METHOD                     19: group
+                        258     LOAD_CONST                      9: 'exp'
+                        260     CALL_METHOD                     1
+                        262     STORE_FAST                      9: exp
+                        264     LOAD_FAST                       9: exp
+                        266     POP_JUMP_IF_FALSE               156 (to 312)
+                        268     LOAD_GLOBAL                     4: int
+                        270     LOAD_FAST                       9: exp
+                        272     CALL_FUNCTION                   1
+                        274     STORE_FAST                      9: exp
+                        276     LOAD_FAST                       9: exp
+                        278     LOAD_CONST                      10: 0
+                        280     COMPARE_OP                      5 (>=)
+                        282     POP_JUMP_IF_FALSE               149 (to 298)
+                        284     LOAD_FAST                       1: numerator
+                        286     LOAD_CONST                      8: 10
+                        288     LOAD_FAST                       9: exp
+                        290     BINARY_POWER                    
+                        292     INPLACE_MULTIPLY                
+                        294     STORE_FAST                      1: numerator
+                        296     JUMP_FORWARD                    7 (to 312)
+                        298     LOAD_FAST                       2: denominator
+                        300     LOAD_CONST                      8: 10
+                        302     LOAD_FAST                       9: exp
+                        304     UNARY_NEGATIVE                  
+                        306     BINARY_POWER                    
+                        308     INPLACE_MULTIPLY                
+                        310     STORE_FAST                      2: denominator
+                        312     LOAD_FAST                       5: m
+                        314     LOAD_METHOD                     19: group
+                        316     LOAD_CONST                      11: 'sign'
+                        318     CALL_METHOD                     1
+                        320     LOAD_CONST                      12: '-'
+                        322     COMPARE_OP                      2 (==)
+                        324     POP_JUMP_IF_FALSE               166 (to 332)
+                        326     LOAD_FAST                       1: numerator
+                        328     UNARY_NEGATIVE                  
+                        330     STORE_FAST                      1: numerator
+                        332     JUMP_FORWARD                    51 (to 436)
+                        334     LOAD_GLOBAL                     21: TypeError
+                        336     LOAD_CONST                      13: 'argument should be a string or a Rational instance'
+                        338     CALL_FUNCTION                   1
+                        340     RAISE_VARARGS                   1
+                        342     LOAD_GLOBAL                     3: type
+                        344     LOAD_FAST                       1: numerator
+                        346     CALL_FUNCTION                   1
+                        348     LOAD_GLOBAL                     4: int
+                        350     DUP_TOP                         
+                        352     ROT_THREE                       
+                        354     IS_OP                           0 (is)
+                        356     POP_JUMP_IF_FALSE               185 (to 370)
+                        358     LOAD_GLOBAL                     3: type
+                        360     LOAD_FAST                       2: denominator
+                        362     CALL_FUNCTION                   1
+                        364     IS_OP                           0 (is)
+                        366     POP_JUMP_IF_FALSE               188 (to 376)
+                        368     JUMP_FORWARD                    2 (to 374)
+                        370     POP_TOP                         
+                        372     JUMP_FORWARD                    1 (to 376)
+                        374     JUMP_FORWARD                    30 (to 436)
+                        376     LOAD_GLOBAL                     7: isinstance
+                        378     LOAD_FAST                       1: numerator
+                        380     LOAD_GLOBAL                     8: numbers
+                        382     LOAD_ATTR                       9: Rational
+                        384     CALL_FUNCTION                   2
+                        386     POP_JUMP_IF_FALSE               214 (to 428)
+                        388     LOAD_GLOBAL                     7: isinstance
+                        390     LOAD_FAST                       2: denominator
+                        392     LOAD_GLOBAL                     8: numbers
+                        394     LOAD_ATTR                       9: Rational
+                        396     CALL_FUNCTION                   2
+                        398     POP_JUMP_IF_FALSE               214 (to 428)
+                        400     LOAD_FAST                       1: numerator
+                        402     LOAD_ATTR                       10: numerator
+                        404     LOAD_FAST                       2: denominator
+                        406     LOAD_ATTR                       11: denominator
+                        408     BINARY_MULTIPLY                 
+                        410     LOAD_FAST                       2: denominator
+                        412     LOAD_ATTR                       10: numerator
+                        414     LOAD_FAST                       1: numerator
+                        416     LOAD_ATTR                       11: denominator
+                        418     BINARY_MULTIPLY                 
+                        420     ROT_TWO                         
+                        422     STORE_FAST                      1: numerator
+                        424     STORE_FAST                      2: denominator
+                        426     JUMP_FORWARD                    4 (to 436)
+                        428     LOAD_GLOBAL                     21: TypeError
+                        430     LOAD_CONST                      14: 'both arguments should be Rational instances'
+                        432     CALL_FUNCTION                   1
+                        434     RAISE_VARARGS                   1
+                        436     LOAD_FAST                       2: denominator
+                        438     LOAD_CONST                      10: 0
+                        440     COMPARE_OP                      2 (==)
+                        442     POP_JUMP_IF_FALSE               228 (to 456)
+                        444     LOAD_GLOBAL                     22: ZeroDivisionError
+                        446     LOAD_CONST                      15: 'Fraction(%s, 0)'
+                        448     LOAD_FAST                       1: numerator
+                        450     BINARY_MODULO                   
+                        452     CALL_FUNCTION                   1
+                        454     RAISE_VARARGS                   1
+                        456     LOAD_FAST                       3: _normalize
+                        458     POP_JUMP_IF_FALSE               251 (to 502)
+                        460     LOAD_GLOBAL                     23: math
+                        462     LOAD_METHOD                     24: gcd
+                        464     LOAD_FAST                       1: numerator
+                        466     LOAD_FAST                       2: denominator
+                        468     CALL_METHOD                     2
+                        470     STORE_FAST                      10: g
+                        472     LOAD_FAST                       2: denominator
+                        474     LOAD_CONST                      10: 0
+                        476     COMPARE_OP                      0 (<)
+                        478     POP_JUMP_IF_FALSE               243 (to 486)
+                        480     LOAD_FAST                       10: g
+                        482     UNARY_NEGATIVE                  
+                        484     STORE_FAST                      10: g
+                        486     LOAD_FAST                       1: numerator
+                        488     LOAD_FAST                       10: g
+                        490     INPLACE_FLOOR_DIVIDE            
+                        492     STORE_FAST                      1: numerator
+                        494     LOAD_FAST                       2: denominator
+                        496     LOAD_FAST                       10: g
+                        498     INPLACE_FLOOR_DIVIDE            
+                        500     STORE_FAST                      2: denominator
+                        502     LOAD_FAST                       1: numerator
+                        504     LOAD_FAST                       4: self
+                        506     STORE_ATTR                      5: _numerator
+                        508     LOAD_FAST                       2: denominator
+                        510     LOAD_FAST                       4: self
+                        512     STORE_ATTR                      6: _denominator
+                        514     LOAD_FAST                       4: self
+                        516     RETURN_VALUE                    
+                'Fraction.__new__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: from_float
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        'numbers'
+                        'Integral'
+                        'float'
+                        'TypeError'
+                        '__name__'
+                        'type'
+                        'as_integer_ratio'
+                    [Var Names]
+                        'cls'
+                        'f'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Converts a finite float to a rational number, exactly.\n\n        Beware that Fraction.from_float(0.3) != Fraction(3, 10).\n\n        '
+                        '%s.from_float() only takes floats, not %r (%s)'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_FAST                       1: f
+                        4       LOAD_GLOBAL                     1: numbers
+                        6       LOAD_ATTR                       2: Integral
+                        8       CALL_FUNCTION                   2
+                        10      POP_JUMP_IF_FALSE               10 (to 20)
+                        12      LOAD_FAST                       0: cls
+                        14      LOAD_FAST                       1: f
+                        16      CALL_FUNCTION                   1
+                        18      RETURN_VALUE                    
+                        20      LOAD_GLOBAL                     0: isinstance
+                        22      LOAD_FAST                       1: f
+                        24      LOAD_GLOBAL                     3: float
+                        26      CALL_FUNCTION                   2
+                        28      POP_JUMP_IF_TRUE                28 (to 56)
+                        30      LOAD_GLOBAL                     4: TypeError
+                        32      LOAD_CONST                      1: '%s.from_float() only takes floats, not %r (%s)'
+                        34      LOAD_FAST                       0: cls
+                        36      LOAD_ATTR                       5: __name__
+                        38      LOAD_FAST                       1: f
+                        40      LOAD_GLOBAL                     6: type
+                        42      LOAD_FAST                       1: f
+                        44      CALL_FUNCTION                   1
+                        46      LOAD_ATTR                       5: __name__
+                        48      BUILD_TUPLE                     3
+                        50      BINARY_MODULO                   
+                        52      CALL_FUNCTION                   1
+                        54      RAISE_VARARGS                   1
+                        56      LOAD_FAST                       0: cls
+                        58      LOAD_FAST                       1: f
+                        60      LOAD_METHOD                     7: as_integer_ratio
+                        62      CALL_METHOD                     0
+                        64      CALL_FUNCTION_EX                0
+                        66      RETURN_VALUE                    
+                'Fraction.from_float'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: from_decimal
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'decimal'
+                        'Decimal'
+                        'isinstance'
+                        'numbers'
+                        'Integral'
+                        'int'
+                        'TypeError'
+                        '__name__'
+                        'type'
+                        'as_integer_ratio'
+                    [Var Names]
+                        'cls'
+                        'dec'
+                        'Decimal'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Converts a finite Decimal instance to a rational number, exactly.'
+                        0
+                        (
+                            'Decimal'
+                        )
+                        '%s.from_decimal() only takes Decimals, not %r (%s)'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: 0
+                        2       LOAD_CONST                      2: ('Decimal',)
+                        4       IMPORT_NAME                     0: decimal
+                        6       IMPORT_FROM                     1: Decimal
+                        8       STORE_FAST                      2: Decimal
+                        10      POP_TOP                         
+                        12      LOAD_GLOBAL                     2: isinstance
+                        14      LOAD_FAST                       1: dec
+                        16      LOAD_GLOBAL                     3: numbers
+                        18      LOAD_ATTR                       4: Integral
+                        20      CALL_FUNCTION                   2
+                        22      POP_JUMP_IF_FALSE               19 (to 38)
+                        24      LOAD_FAST                       2: Decimal
+                        26      LOAD_GLOBAL                     5: int
+                        28      LOAD_FAST                       1: dec
+                        30      CALL_FUNCTION                   1
+                        32      CALL_FUNCTION                   1
+                        34      STORE_FAST                      1: dec
+                        36      JUMP_FORWARD                    18 (to 74)
+                        38      LOAD_GLOBAL                     2: isinstance
+                        40      LOAD_FAST                       1: dec
+                        42      LOAD_FAST                       2: Decimal
+                        44      CALL_FUNCTION                   2
+                        46      POP_JUMP_IF_TRUE                37 (to 74)
+                        48      LOAD_GLOBAL                     6: TypeError
+                        50      LOAD_CONST                      3: '%s.from_decimal() only takes Decimals, not %r (%s)'
+                        52      LOAD_FAST                       0: cls
+                        54      LOAD_ATTR                       7: __name__
+                        56      LOAD_FAST                       1: dec
+                        58      LOAD_GLOBAL                     8: type
+                        60      LOAD_FAST                       1: dec
+                        62      CALL_FUNCTION                   1
+                        64      LOAD_ATTR                       7: __name__
+                        66      BUILD_TUPLE                     3
+                        68      BINARY_MODULO                   
+                        70      CALL_FUNCTION                   1
+                        72      RAISE_VARARGS                   1
+                        74      LOAD_FAST                       0: cls
+                        76      LOAD_FAST                       1: dec
+                        78      LOAD_METHOD                     9: as_integer_ratio
+                        80      CALL_METHOD                     0
+                        82      CALL_FUNCTION_EX                0
+                        84      RETURN_VALUE                    
+                'Fraction.from_decimal'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: as_integer_ratio
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_numerator'
+                        '_denominator'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return the integer ratio as a tuple.\n\n        Return a tuple of two integers, whose ratio is equal to the\n        Fraction and with a positive denominator.\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _numerator
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       1: _denominator
+                        8       BUILD_TUPLE                     2
+                        10      RETURN_VALUE                    
+                'Fraction.as_integer_ratio'
+                1000000
+                [Code]
+                    File Name: fractions.py
+                    Object Name: limit_denominator
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 13
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'ValueError'
+                        '_denominator'
+                        'Fraction'
+                        '_numerator'
+                        'abs'
+                    [Var Names]
+                        'self'
+                        'max_denominator'
+                        'p0'
+                        'q0'
+                        'p1'
+                        'q1'
+                        'n'
+                        'd'
+                        'a'
+                        'q2'
+                        'k'
+                        'bound1'
+                        'bound2'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Closest Fraction to self with denominator at most max_denominator.\n\n        >>> Fraction('3.141592653589793').limit_denominator(10)\n        Fraction(22, 7)\n        >>> Fraction('3.141592653589793').limit_denominator(100)\n        Fraction(311, 99)\n        >>> Fraction(4321, 8765).limit_denominator(10000)\n        Fraction(4321, 8765)\n\n        "
+                        1
+                        'max_denominator should be at least 1'
+                        (
+                            0
+                            1
+                            1
+                            0
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       1: max_denominator
+                        2       LOAD_CONST                      1: 1
+                        4       COMPARE_OP                      0 (<)
+                        6       POP_JUMP_IF_FALSE               8 (to 16)
+                        8       LOAD_GLOBAL                     0: ValueError
+                        10      LOAD_CONST                      2: 'max_denominator should be at least 1'
+                        12      CALL_FUNCTION                   1
+                        14      RAISE_VARARGS                   1
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       1: _denominator
+                        20      LOAD_FAST                       1: max_denominator
+                        22      COMPARE_OP                      1 (<=)
+                        24      POP_JUMP_IF_FALSE               17 (to 34)
+                        26      LOAD_GLOBAL                     2: Fraction
+                        28      LOAD_FAST                       0: self
+                        30      CALL_FUNCTION                   1
+                        32      RETURN_VALUE                    
+                        34      LOAD_CONST                      3: (0, 1, 1, 0)
+                        36      UNPACK_SEQUENCE                 4
+                        38      STORE_FAST                      2: p0
+                        40      STORE_FAST                      3: q0
+                        42      STORE_FAST                      4: p1
+                        44      STORE_FAST                      5: q1
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_ATTR                       3: _numerator
+                        50      LOAD_FAST                       0: self
+                        52      LOAD_ATTR                       1: _denominator
+                        54      ROT_TWO                         
+                        56      STORE_FAST                      6: n
+                        58      STORE_FAST                      7: d
+                        60      NOP                             
+                        62      LOAD_FAST                       6: n
+                        64      LOAD_FAST                       7: d
+                        66      BINARY_FLOOR_DIVIDE             
+                        68      STORE_FAST                      8: a
+                        70      LOAD_FAST                       3: q0
+                        72      LOAD_FAST                       8: a
+                        74      LOAD_FAST                       5: q1
+                        76      BINARY_MULTIPLY                 
+                        78      BINARY_ADD                      
+                        80      STORE_FAST                      9: q2
+                        82      LOAD_FAST                       9: q2
+                        84      LOAD_FAST                       1: max_denominator
+                        86      COMPARE_OP                      4 (>)
+                        88      POP_JUMP_IF_FALSE               46 (to 92)
+                        90      JUMP_FORWARD                    24 (to 140)
+                        92      LOAD_FAST                       4: p1
+                        94      LOAD_FAST                       5: q1
+                        96      LOAD_FAST                       2: p0
+                        98      LOAD_FAST                       8: a
+                        100     LOAD_FAST                       4: p1
+                        102     BINARY_MULTIPLY                 
+                        104     BINARY_ADD                      
+                        106     LOAD_FAST                       9: q2
+                        108     BUILD_TUPLE                     4
+                        110     UNPACK_SEQUENCE                 4
+                        112     STORE_FAST                      2: p0
+                        114     STORE_FAST                      3: q0
+                        116     STORE_FAST                      4: p1
+                        118     STORE_FAST                      5: q1
+                        120     LOAD_FAST                       7: d
+                        122     LOAD_FAST                       6: n
+                        124     LOAD_FAST                       8: a
+                        126     LOAD_FAST                       7: d
+                        128     BINARY_MULTIPLY                 
+                        130     BINARY_SUBTRACT                 
+                        132     ROT_TWO                         
+                        134     STORE_FAST                      6: n
+                        136     STORE_FAST                      7: d
+                        138     JUMP_ABSOLUTE                   31 (to 62)
+                        140     LOAD_FAST                       1: max_denominator
+                        142     LOAD_FAST                       3: q0
+                        144     BINARY_SUBTRACT                 
+                        146     LOAD_FAST                       5: q1
+                        148     BINARY_FLOOR_DIVIDE             
+                        150     STORE_FAST                      10: k
+                        152     LOAD_GLOBAL                     2: Fraction
+                        154     LOAD_FAST                       2: p0
+                        156     LOAD_FAST                       10: k
+                        158     LOAD_FAST                       4: p1
+                        160     BINARY_MULTIPLY                 
+                        162     BINARY_ADD                      
+                        164     LOAD_FAST                       3: q0
+                        166     LOAD_FAST                       10: k
+                        168     LOAD_FAST                       5: q1
+                        170     BINARY_MULTIPLY                 
+                        172     BINARY_ADD                      
+                        174     CALL_FUNCTION                   2
+                        176     STORE_FAST                      11: bound1
+                        178     LOAD_GLOBAL                     2: Fraction
+                        180     LOAD_FAST                       4: p1
+                        182     LOAD_FAST                       5: q1
+                        184     CALL_FUNCTION                   2
+                        186     STORE_FAST                      12: bound2
+                        188     LOAD_GLOBAL                     4: abs
+                        190     LOAD_FAST                       12: bound2
+                        192     LOAD_FAST                       0: self
+                        194     BINARY_SUBTRACT                 
+                        196     CALL_FUNCTION                   1
+                        198     LOAD_GLOBAL                     4: abs
+                        200     LOAD_FAST                       11: bound1
+                        202     LOAD_FAST                       0: self
+                        204     BINARY_SUBTRACT                 
+                        206     CALL_FUNCTION                   1
+                        208     COMPARE_OP                      1 (<=)
+                        210     POP_JUMP_IF_FALSE               108 (to 216)
+                        212     LOAD_FAST                       12: bound2
+                        214     RETURN_VALUE                    
+                        216     LOAD_FAST                       11: bound1
+                        218     RETURN_VALUE                    
+                'Fraction.limit_denominator'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: numerator
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_numerator'
+                    [Var Names]
+                        'a'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_ATTR                       0: _numerator
+                        4       RETURN_VALUE                    
+                'Fraction.numerator'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: denominator
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_denominator'
+                    [Var Names]
+                        'a'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_ATTR                       0: _denominator
+                        4       RETURN_VALUE                    
+                'Fraction.denominator'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __repr__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '__class__'
+                        '__name__'
+                        '_numerator'
+                        '_denominator'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'repr(self)'
+                        '%s(%s, %s)'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: '%s(%s, %s)'
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       0: __class__
+                        6       LOAD_ATTR                       1: __name__
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       2: _numerator
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_ATTR                       3: _denominator
+                        16      BUILD_TUPLE                     3
+                        18      BINARY_MODULO                   
+                        20      RETURN_VALUE                    
+                'Fraction.__repr__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __str__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_denominator'
+                        'str'
+                        '_numerator'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'str(self)'
+                        1
+                        '%s/%s'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _denominator
+                        4       LOAD_CONST                      1: 1
+                        6       COMPARE_OP                      2 (==)
+                        8       POP_JUMP_IF_FALSE               10 (to 20)
+                        10      LOAD_GLOBAL                     1: str
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_ATTR                       2: _numerator
+                        16      CALL_FUNCTION                   1
+                        18      RETURN_VALUE                    
+                        20      LOAD_CONST                      2: '%s/%s'
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       2: _numerator
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_ATTR                       0: _denominator
+                        30      BUILD_TUPLE                     2
+                        32      BINARY_MODULO                   
+                        34      RETURN_VALUE                    
+                'Fraction.__str__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: _operator_fallbacks
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 3
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        '__name__'
+                        '__doc__'
+                    [Var Names]
+                        'monomorphic_operator'
+                        'fallback_operator'
+                        'forward'
+                        'reverse'
+                    [Free Vars]
+                    [Cell Vars]
+                        'fallback_operator'
+                        'monomorphic_operator'
+                    [Constants]
+                        'Generates forward and reverse operators given a purely-rational\n        operator and a function from the operator module.\n\n        Use this like:\n        __op__, __rop__ = _operator_fallbacks(just_rational_op, operator.op)\n\n        In general, we want to implement the arithmetic operations so\n        that mixed-mode operations either call an implementation whose\n        author knew about the types of both arguments, or convert both\n        to the nearest built in type and do the operation there. In\n        Fraction, that means that we define __add__ and __radd__ as:\n\n            def __add__(self, other):\n                # Both types have numerators/denominator attributes,\n                # so do the operation directly\n                if isinstance(other, (int, Fraction)):\n                    return Fraction(self.numerator * other.denominator +\n                                    other.numerator * self.denominator,\n                                    self.denominator * other.denominator)\n                # float and complex don\'t have those operations, but we\n                # know about those types, so special case them.\n                elif isinstance(other, float):\n                    return float(self) + other\n                elif isinstance(other, complex):\n                    return complex(self) + other\n                # Let the other type take over.\n                return NotImplemented\n\n            def __radd__(self, other):\n                # radd handles more types than add because there\'s\n                # nothing left to fall back to.\n                if isinstance(other, numbers.Rational):\n                    return Fraction(self.numerator * other.denominator +\n                                    other.numerator * self.denominator,\n                                    self.denominator * other.denominator)\n                elif isinstance(other, Real):\n                    return float(other) + float(self)\n                elif isinstance(other, Complex):\n                    return complex(other) + complex(self)\n                return NotImplemented\n\n\n        There are 5 different cases for a mixed-type addition on\n        Fraction. I\'ll refer to all of the above code that doesn\'t\n        refer to Fraction, float, or complex as "boilerplate". \'r\'\n        will be an instance of Fraction, which is a subtype of\n        Rational (r : Fraction <: Rational), and b : B <:\n        Complex. The first three involve \'r + b\':\n\n            1. If B <: Fraction, int, float, or complex, we handle\n               that specially, and all is well.\n            2. If Fraction falls back to the boilerplate code, and it\n               were to return a value from __add__, we\'d miss the\n               possibility that B defines a more intelligent __radd__,\n               so the boilerplate should return NotImplemented from\n               __add__. In particular, we don\'t handle Rational\n               here, even though we could get an exact answer, in case\n               the other type wants to do something special.\n            3. If B <: Fraction, Python tries B.__radd__ before\n               Fraction.__add__. This is ok, because it was\n               implemented with knowledge of Fraction, so it can\n               handle those instances before delegating to Real or\n               Complex.\n\n        The next two situations describe \'b + r\'. We assume that b\n        didn\'t know about Fraction in its implementation, and that it\n        uses similar boilerplate code:\n\n            4. If B <: Rational, then __radd_ converts both to the\n               builtin rational type (hey look, that\'s us) and\n               proceeds.\n            5. Otherwise, __radd__ tries to find the nearest common\n               base ABC, and fall back to its builtin type. Since this\n               class doesn\'t subclass a concrete type, there\'s no\n               implementation to fall back to, so we need to try as\n               hard as possible to return an actual value, or the user\n               will get a TypeError.\n\n        '
+                        [Code]
+                            File Name: fractions.py
+                            Object Name: forward
+                            Arg Count: 2
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 4
+                            Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                            [Names]
+                                'isinstance'
+                                'int'
+                                'Fraction'
+                                'float'
+                                'complex'
+                                'NotImplemented'
+                            [Var Names]
+                                'a'
+                                'b'
+                            [Free Vars]
+                                'fallback_operator'
+                                'monomorphic_operator'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       LOAD_GLOBAL                     0: isinstance
+                                2       LOAD_FAST                       1: b
+                                4       LOAD_GLOBAL                     1: int
+                                6       LOAD_GLOBAL                     2: Fraction
+                                8       BUILD_TUPLE                     2
+                                10      CALL_FUNCTION                   2
+                                12      POP_JUMP_IF_FALSE               12 (to 24)
+                                14      LOAD_DEREF                      1: monomorphic_operator
+                                16      LOAD_FAST                       0: a
+                                18      LOAD_FAST                       1: b
+                                20      CALL_FUNCTION                   2
+                                22      RETURN_VALUE                    
+                                24      LOAD_GLOBAL                     0: isinstance
+                                26      LOAD_FAST                       1: b
+                                28      LOAD_GLOBAL                     3: float
+                                30      CALL_FUNCTION                   2
+                                32      POP_JUMP_IF_FALSE               24 (to 48)
+                                34      LOAD_DEREF                      0: fallback_operator
+                                36      LOAD_GLOBAL                     3: float
+                                38      LOAD_FAST                       0: a
+                                40      CALL_FUNCTION                   1
+                                42      LOAD_FAST                       1: b
+                                44      CALL_FUNCTION                   2
+                                46      RETURN_VALUE                    
+                                48      LOAD_GLOBAL                     0: isinstance
+                                50      LOAD_FAST                       1: b
+                                52      LOAD_GLOBAL                     4: complex
+                                54      CALL_FUNCTION                   2
+                                56      POP_JUMP_IF_FALSE               36 (to 72)
+                                58      LOAD_DEREF                      0: fallback_operator
+                                60      LOAD_GLOBAL                     4: complex
+                                62      LOAD_FAST                       0: a
+                                64      CALL_FUNCTION                   1
+                                66      LOAD_FAST                       1: b
+                                68      CALL_FUNCTION                   2
+                                70      RETURN_VALUE                    
+                                72      LOAD_GLOBAL                     5: NotImplemented
+                                74      RETURN_VALUE                    
+                        'Fraction._operator_fallbacks.<locals>.forward'
+                        '__'
+                        [Code]
+                            File Name: fractions.py
+                            Object Name: reverse
+                            Arg Count: 2
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 4
+                            Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                            [Names]
+                                'isinstance'
+                                'numbers'
+                                'Rational'
+                                'Real'
+                                'float'
+                                'Complex'
+                                'complex'
+                                'NotImplemented'
+                            [Var Names]
+                                'b'
+                                'a'
+                            [Free Vars]
+                                'fallback_operator'
+                                'monomorphic_operator'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       LOAD_GLOBAL                     0: isinstance
+                                2       LOAD_FAST                       1: a
+                                4       LOAD_GLOBAL                     1: numbers
+                                6       LOAD_ATTR                       2: Rational
+                                8       CALL_FUNCTION                   2
+                                10      POP_JUMP_IF_FALSE               11 (to 22)
+                                12      LOAD_DEREF                      1: monomorphic_operator
+                                14      LOAD_FAST                       1: a
+                                16      LOAD_FAST                       0: b
+                                18      CALL_FUNCTION                   2
+                                20      RETURN_VALUE                    
+                                22      LOAD_GLOBAL                     0: isinstance
+                                24      LOAD_FAST                       1: a
+                                26      LOAD_GLOBAL                     1: numbers
+                                28      LOAD_ATTR                       3: Real
+                                30      CALL_FUNCTION                   2
+                                32      POP_JUMP_IF_FALSE               26 (to 52)
+                                34      LOAD_DEREF                      0: fallback_operator
+                                36      LOAD_GLOBAL                     4: float
+                                38      LOAD_FAST                       1: a
+                                40      CALL_FUNCTION                   1
+                                42      LOAD_GLOBAL                     4: float
+                                44      LOAD_FAST                       0: b
+                                46      CALL_FUNCTION                   1
+                                48      CALL_FUNCTION                   2
+                                50      RETURN_VALUE                    
+                                52      LOAD_GLOBAL                     0: isinstance
+                                54      LOAD_FAST                       1: a
+                                56      LOAD_GLOBAL                     1: numbers
+                                58      LOAD_ATTR                       5: Complex
+                                60      CALL_FUNCTION                   2
+                                62      POP_JUMP_IF_FALSE               41 (to 82)
+                                64      LOAD_DEREF                      0: fallback_operator
+                                66      LOAD_GLOBAL                     6: complex
+                                68      LOAD_FAST                       1: a
+                                70      CALL_FUNCTION                   1
+                                72      LOAD_GLOBAL                     6: complex
+                                74      LOAD_FAST                       0: b
+                                76      CALL_FUNCTION                   1
+                                78      CALL_FUNCTION                   2
+                                80      RETURN_VALUE                    
+                                82      LOAD_GLOBAL                     7: NotImplemented
+                                84      RETURN_VALUE                    
+                        'Fraction._operator_fallbacks.<locals>.reverse'
+                        '__r'
+                    [Disassembly]
+                        0       LOAD_CLOSURE                    0: fallback_operator
+                        2       LOAD_CLOSURE                    1: monomorphic_operator
+                        4       BUILD_TUPLE                     2
+                        6       LOAD_CONST                      1: <CODE> forward
+                        8       LOAD_CONST                      2: 'Fraction._operator_fallbacks.<locals>.forward'
+                        10      MAKE_FUNCTION                   8
+                        12      STORE_FAST                      2: forward
+                        14      LOAD_CONST                      3: '__'
+                        16      LOAD_DEREF                      0: fallback_operator
+                        18      LOAD_ATTR                       0: __name__
+                        20      BINARY_ADD                      
+                        22      LOAD_CONST                      3: '__'
+                        24      BINARY_ADD                      
+                        26      LOAD_FAST                       2: forward
+                        28      STORE_ATTR                      0: __name__
+                        30      LOAD_DEREF                      1: monomorphic_operator
+                        32      LOAD_ATTR                       1: __doc__
+                        34      LOAD_FAST                       2: forward
+                        36      STORE_ATTR                      1: __doc__
+                        38      LOAD_CLOSURE                    0: fallback_operator
+                        40      LOAD_CLOSURE                    1: monomorphic_operator
+                        42      BUILD_TUPLE                     2
+                        44      LOAD_CONST                      4: <CODE> reverse
+                        46      LOAD_CONST                      5: 'Fraction._operator_fallbacks.<locals>.reverse'
+                        48      MAKE_FUNCTION                   8
+                        50      STORE_FAST                      3: reverse
+                        52      LOAD_CONST                      6: '__r'
+                        54      LOAD_DEREF                      0: fallback_operator
+                        56      LOAD_ATTR                       0: __name__
+                        58      BINARY_ADD                      
+                        60      LOAD_CONST                      3: '__'
+                        62      BINARY_ADD                      
+                        64      LOAD_FAST                       3: reverse
+                        66      STORE_ATTR                      0: __name__
+                        68      LOAD_DEREF                      1: monomorphic_operator
+                        70      LOAD_ATTR                       1: __doc__
+                        72      LOAD_FAST                       3: reverse
+                        74      STORE_ATTR                      1: __doc__
+                        76      LOAD_FAST                       2: forward
+                        78      LOAD_FAST                       3: reverse
+                        80      BUILD_TUPLE                     2
+                        82      RETURN_VALUE                    
+                'Fraction._operator_fallbacks'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: _add
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 10
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'numerator'
+                        'denominator'
+                        'math'
+                        'gcd'
+                        'Fraction'
+                    [Var Names]
+                        'a'
+                        'b'
+                        'na'
+                        'da'
+                        'nb'
+                        'db'
+                        'g'
+                        's'
+                        't'
+                        'g2'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'a + b'
+                        1
+                        False
+                        (
+                            '_normalize'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_ATTR                       0: numerator
+                        4       LOAD_FAST                       0: a
+                        6       LOAD_ATTR                       1: denominator
+                        8       ROT_TWO                         
+                        10      STORE_FAST                      2: na
+                        12      STORE_FAST                      3: da
+                        14      LOAD_FAST                       1: b
+                        16      LOAD_ATTR                       0: numerator
+                        18      LOAD_FAST                       1: b
+                        20      LOAD_ATTR                       1: denominator
+                        22      ROT_TWO                         
+                        24      STORE_FAST                      4: nb
+                        26      STORE_FAST                      5: db
+                        28      LOAD_GLOBAL                     2: math
+                        30      LOAD_METHOD                     3: gcd
+                        32      LOAD_FAST                       3: da
+                        34      LOAD_FAST                       5: db
+                        36      CALL_METHOD                     2
+                        38      STORE_FAST                      6: g
+                        40      LOAD_FAST                       6: g
+                        42      LOAD_CONST                      1: 1
+                        44      COMPARE_OP                      2 (==)
+                        46      POP_JUMP_IF_FALSE               39 (to 78)
+                        48      LOAD_GLOBAL                     4: Fraction
+                        50      LOAD_FAST                       2: na
+                        52      LOAD_FAST                       5: db
+                        54      BINARY_MULTIPLY                 
+                        56      LOAD_FAST                       3: da
+                        58      LOAD_FAST                       4: nb
+                        60      BINARY_MULTIPLY                 
+                        62      BINARY_ADD                      
+                        64      LOAD_FAST                       3: da
+                        66      LOAD_FAST                       5: db
+                        68      BINARY_MULTIPLY                 
+                        70      LOAD_CONST                      2: False
+                        72      LOAD_CONST                      3: ('_normalize',)
+                        74      CALL_FUNCTION_KW                3
+                        76      RETURN_VALUE                    
+                        78      LOAD_FAST                       3: da
+                        80      LOAD_FAST                       6: g
+                        82      BINARY_FLOOR_DIVIDE             
+                        84      STORE_FAST                      7: s
+                        86      LOAD_FAST                       2: na
+                        88      LOAD_FAST                       5: db
+                        90      LOAD_FAST                       6: g
+                        92      BINARY_FLOOR_DIVIDE             
+                        94      BINARY_MULTIPLY                 
+                        96      LOAD_FAST                       4: nb
+                        98      LOAD_FAST                       7: s
+                        100     BINARY_MULTIPLY                 
+                        102     BINARY_ADD                      
+                        104     STORE_FAST                      8: t
+                        106     LOAD_GLOBAL                     2: math
+                        108     LOAD_METHOD                     3: gcd
+                        110     LOAD_FAST                       8: t
+                        112     LOAD_FAST                       6: g
+                        114     CALL_METHOD                     2
+                        116     STORE_FAST                      9: g2
+                        118     LOAD_FAST                       9: g2
+                        120     LOAD_CONST                      1: 1
+                        122     COMPARE_OP                      2 (==)
+                        124     POP_JUMP_IF_FALSE               72 (to 144)
+                        126     LOAD_GLOBAL                     4: Fraction
+                        128     LOAD_FAST                       8: t
+                        130     LOAD_FAST                       7: s
+                        132     LOAD_FAST                       5: db
+                        134     BINARY_MULTIPLY                 
+                        136     LOAD_CONST                      2: False
+                        138     LOAD_CONST                      3: ('_normalize',)
+                        140     CALL_FUNCTION_KW                3
+                        142     RETURN_VALUE                    
+                        144     LOAD_GLOBAL                     4: Fraction
+                        146     LOAD_FAST                       8: t
+                        148     LOAD_FAST                       9: g2
+                        150     BINARY_FLOOR_DIVIDE             
+                        152     LOAD_FAST                       7: s
+                        154     LOAD_FAST                       5: db
+                        156     LOAD_FAST                       9: g2
+                        158     BINARY_FLOOR_DIVIDE             
+                        160     BINARY_MULTIPLY                 
+                        162     LOAD_CONST                      2: False
+                        164     LOAD_CONST                      3: ('_normalize',)
+                        166     CALL_FUNCTION_KW                3
+                        168     RETURN_VALUE                    
+                'Fraction._add'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: _sub
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 10
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'numerator'
+                        'denominator'
+                        'math'
+                        'gcd'
+                        'Fraction'
+                    [Var Names]
+                        'a'
+                        'b'
+                        'na'
+                        'da'
+                        'nb'
+                        'db'
+                        'g'
+                        's'
+                        't'
+                        'g2'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'a - b'
+                        1
+                        False
+                        (
+                            '_normalize'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_ATTR                       0: numerator
+                        4       LOAD_FAST                       0: a
+                        6       LOAD_ATTR                       1: denominator
+                        8       ROT_TWO                         
+                        10      STORE_FAST                      2: na
+                        12      STORE_FAST                      3: da
+                        14      LOAD_FAST                       1: b
+                        16      LOAD_ATTR                       0: numerator
+                        18      LOAD_FAST                       1: b
+                        20      LOAD_ATTR                       1: denominator
+                        22      ROT_TWO                         
+                        24      STORE_FAST                      4: nb
+                        26      STORE_FAST                      5: db
+                        28      LOAD_GLOBAL                     2: math
+                        30      LOAD_METHOD                     3: gcd
+                        32      LOAD_FAST                       3: da
+                        34      LOAD_FAST                       5: db
+                        36      CALL_METHOD                     2
+                        38      STORE_FAST                      6: g
+                        40      LOAD_FAST                       6: g
+                        42      LOAD_CONST                      1: 1
+                        44      COMPARE_OP                      2 (==)
+                        46      POP_JUMP_IF_FALSE               39 (to 78)
+                        48      LOAD_GLOBAL                     4: Fraction
+                        50      LOAD_FAST                       2: na
+                        52      LOAD_FAST                       5: db
+                        54      BINARY_MULTIPLY                 
+                        56      LOAD_FAST                       3: da
+                        58      LOAD_FAST                       4: nb
+                        60      BINARY_MULTIPLY                 
+                        62      BINARY_SUBTRACT                 
+                        64      LOAD_FAST                       3: da
+                        66      LOAD_FAST                       5: db
+                        68      BINARY_MULTIPLY                 
+                        70      LOAD_CONST                      2: False
+                        72      LOAD_CONST                      3: ('_normalize',)
+                        74      CALL_FUNCTION_KW                3
+                        76      RETURN_VALUE                    
+                        78      LOAD_FAST                       3: da
+                        80      LOAD_FAST                       6: g
+                        82      BINARY_FLOOR_DIVIDE             
+                        84      STORE_FAST                      7: s
+                        86      LOAD_FAST                       2: na
+                        88      LOAD_FAST                       5: db
+                        90      LOAD_FAST                       6: g
+                        92      BINARY_FLOOR_DIVIDE             
+                        94      BINARY_MULTIPLY                 
+                        96      LOAD_FAST                       4: nb
+                        98      LOAD_FAST                       7: s
+                        100     BINARY_MULTIPLY                 
+                        102     BINARY_SUBTRACT                 
+                        104     STORE_FAST                      8: t
+                        106     LOAD_GLOBAL                     2: math
+                        108     LOAD_METHOD                     3: gcd
+                        110     LOAD_FAST                       8: t
+                        112     LOAD_FAST                       6: g
+                        114     CALL_METHOD                     2
+                        116     STORE_FAST                      9: g2
+                        118     LOAD_FAST                       9: g2
+                        120     LOAD_CONST                      1: 1
+                        122     COMPARE_OP                      2 (==)
+                        124     POP_JUMP_IF_FALSE               72 (to 144)
+                        126     LOAD_GLOBAL                     4: Fraction
+                        128     LOAD_FAST                       8: t
+                        130     LOAD_FAST                       7: s
+                        132     LOAD_FAST                       5: db
+                        134     BINARY_MULTIPLY                 
+                        136     LOAD_CONST                      2: False
+                        138     LOAD_CONST                      3: ('_normalize',)
+                        140     CALL_FUNCTION_KW                3
+                        142     RETURN_VALUE                    
+                        144     LOAD_GLOBAL                     4: Fraction
+                        146     LOAD_FAST                       8: t
+                        148     LOAD_FAST                       9: g2
+                        150     BINARY_FLOOR_DIVIDE             
+                        152     LOAD_FAST                       7: s
+                        154     LOAD_FAST                       5: db
+                        156     LOAD_FAST                       9: g2
+                        158     BINARY_FLOOR_DIVIDE             
+                        160     BINARY_MULTIPLY                 
+                        162     LOAD_CONST                      2: False
+                        164     LOAD_CONST                      3: ('_normalize',)
+                        166     CALL_FUNCTION_KW                3
+                        168     RETURN_VALUE                    
+                'Fraction._sub'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: _mul
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 8
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'numerator'
+                        'denominator'
+                        'math'
+                        'gcd'
+                        'Fraction'
+                    [Var Names]
+                        'a'
+                        'b'
+                        'na'
+                        'da'
+                        'nb'
+                        'db'
+                        'g1'
+                        'g2'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'a * b'
+                        1
+                        False
+                        (
+                            '_normalize'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_ATTR                       0: numerator
+                        4       LOAD_FAST                       0: a
+                        6       LOAD_ATTR                       1: denominator
+                        8       ROT_TWO                         
+                        10      STORE_FAST                      2: na
+                        12      STORE_FAST                      3: da
+                        14      LOAD_FAST                       1: b
+                        16      LOAD_ATTR                       0: numerator
+                        18      LOAD_FAST                       1: b
+                        20      LOAD_ATTR                       1: denominator
+                        22      ROT_TWO                         
+                        24      STORE_FAST                      4: nb
+                        26      STORE_FAST                      5: db
+                        28      LOAD_GLOBAL                     2: math
+                        30      LOAD_METHOD                     3: gcd
+                        32      LOAD_FAST                       2: na
+                        34      LOAD_FAST                       5: db
+                        36      CALL_METHOD                     2
+                        38      STORE_FAST                      6: g1
+                        40      LOAD_FAST                       6: g1
+                        42      LOAD_CONST                      1: 1
+                        44      COMPARE_OP                      4 (>)
+                        46      POP_JUMP_IF_FALSE               32 (to 64)
+                        48      LOAD_FAST                       2: na
+                        50      LOAD_FAST                       6: g1
+                        52      INPLACE_FLOOR_DIVIDE            
+                        54      STORE_FAST                      2: na
+                        56      LOAD_FAST                       5: db
+                        58      LOAD_FAST                       6: g1
+                        60      INPLACE_FLOOR_DIVIDE            
+                        62      STORE_FAST                      5: db
+                        64      LOAD_GLOBAL                     2: math
+                        66      LOAD_METHOD                     3: gcd
+                        68      LOAD_FAST                       4: nb
+                        70      LOAD_FAST                       3: da
+                        72      CALL_METHOD                     2
+                        74      STORE_FAST                      7: g2
+                        76      LOAD_FAST                       7: g2
+                        78      LOAD_CONST                      1: 1
+                        80      COMPARE_OP                      4 (>)
+                        82      POP_JUMP_IF_FALSE               50 (to 100)
+                        84      LOAD_FAST                       4: nb
+                        86      LOAD_FAST                       7: g2
+                        88      INPLACE_FLOOR_DIVIDE            
+                        90      STORE_FAST                      4: nb
+                        92      LOAD_FAST                       3: da
+                        94      LOAD_FAST                       7: g2
+                        96      INPLACE_FLOOR_DIVIDE            
+                        98      STORE_FAST                      3: da
+                        100     LOAD_GLOBAL                     4: Fraction
+                        102     LOAD_FAST                       2: na
+                        104     LOAD_FAST                       4: nb
+                        106     BINARY_MULTIPLY                 
+                        108     LOAD_FAST                       5: db
+                        110     LOAD_FAST                       3: da
+                        112     BINARY_MULTIPLY                 
+                        114     LOAD_CONST                      2: False
+                        116     LOAD_CONST                      3: ('_normalize',)
+                        118     CALL_FUNCTION_KW                3
+                        120     RETURN_VALUE                    
+                'Fraction._mul'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: _div
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 10
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'numerator'
+                        'denominator'
+                        'math'
+                        'gcd'
+                        'Fraction'
+                    [Var Names]
+                        'a'
+                        'b'
+                        'na'
+                        'da'
+                        'nb'
+                        'db'
+                        'g1'
+                        'g2'
+                        'n'
+                        'd'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'a / b'
+                        1
+                        0
+                        False
+                        (
+                            '_normalize'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_ATTR                       0: numerator
+                        4       LOAD_FAST                       0: a
+                        6       LOAD_ATTR                       1: denominator
+                        8       ROT_TWO                         
+                        10      STORE_FAST                      2: na
+                        12      STORE_FAST                      3: da
+                        14      LOAD_FAST                       1: b
+                        16      LOAD_ATTR                       0: numerator
+                        18      LOAD_FAST                       1: b
+                        20      LOAD_ATTR                       1: denominator
+                        22      ROT_TWO                         
+                        24      STORE_FAST                      4: nb
+                        26      STORE_FAST                      5: db
+                        28      LOAD_GLOBAL                     2: math
+                        30      LOAD_METHOD                     3: gcd
+                        32      LOAD_FAST                       2: na
+                        34      LOAD_FAST                       4: nb
+                        36      CALL_METHOD                     2
+                        38      STORE_FAST                      6: g1
+                        40      LOAD_FAST                       6: g1
+                        42      LOAD_CONST                      1: 1
+                        44      COMPARE_OP                      4 (>)
+                        46      POP_JUMP_IF_FALSE               32 (to 64)
+                        48      LOAD_FAST                       2: na
+                        50      LOAD_FAST                       6: g1
+                        52      INPLACE_FLOOR_DIVIDE            
+                        54      STORE_FAST                      2: na
+                        56      LOAD_FAST                       4: nb
+                        58      LOAD_FAST                       6: g1
+                        60      INPLACE_FLOOR_DIVIDE            
+                        62      STORE_FAST                      4: nb
+                        64      LOAD_GLOBAL                     2: math
+                        66      LOAD_METHOD                     3: gcd
+                        68      LOAD_FAST                       5: db
+                        70      LOAD_FAST                       3: da
+                        72      CALL_METHOD                     2
+                        74      STORE_FAST                      7: g2
+                        76      LOAD_FAST                       7: g2
+                        78      LOAD_CONST                      1: 1
+                        80      COMPARE_OP                      4 (>)
+                        82      POP_JUMP_IF_FALSE               50 (to 100)
+                        84      LOAD_FAST                       3: da
+                        86      LOAD_FAST                       7: g2
+                        88      INPLACE_FLOOR_DIVIDE            
+                        90      STORE_FAST                      3: da
+                        92      LOAD_FAST                       5: db
+                        94      LOAD_FAST                       7: g2
+                        96      INPLACE_FLOOR_DIVIDE            
+                        98      STORE_FAST                      5: db
+                        100     LOAD_FAST                       2: na
+                        102     LOAD_FAST                       5: db
+                        104     BINARY_MULTIPLY                 
+                        106     LOAD_FAST                       4: nb
+                        108     LOAD_FAST                       3: da
+                        110     BINARY_MULTIPLY                 
+                        112     ROT_TWO                         
+                        114     STORE_FAST                      8: n
+                        116     STORE_FAST                      9: d
+                        118     LOAD_FAST                       9: d
+                        120     LOAD_CONST                      2: 0
+                        122     COMPARE_OP                      0 (<)
+                        124     POP_JUMP_IF_FALSE               70 (to 140)
+                        126     LOAD_FAST                       8: n
+                        128     UNARY_NEGATIVE                  
+                        130     LOAD_FAST                       9: d
+                        132     UNARY_NEGATIVE                  
+                        134     ROT_TWO                         
+                        136     STORE_FAST                      8: n
+                        138     STORE_FAST                      9: d
+                        140     LOAD_GLOBAL                     4: Fraction
+                        142     LOAD_FAST                       8: n
+                        144     LOAD_FAST                       9: d
+                        146     LOAD_CONST                      3: False
+                        148     LOAD_CONST                      4: ('_normalize',)
+                        150     CALL_FUNCTION_KW                3
+                        152     RETURN_VALUE                    
+                'Fraction._div'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: _floordiv
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'numerator'
+                        'denominator'
+                    [Var Names]
+                        'a'
+                        'b'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'a // b'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_ATTR                       0: numerator
+                        4       LOAD_FAST                       1: b
+                        6       LOAD_ATTR                       1: denominator
+                        8       BINARY_MULTIPLY                 
+                        10      LOAD_FAST                       0: a
+                        12      LOAD_ATTR                       1: denominator
+                        14      LOAD_FAST                       1: b
+                        16      LOAD_ATTR                       0: numerator
+                        18      BINARY_MULTIPLY                 
+                        20      BINARY_FLOOR_DIVIDE             
+                        22      RETURN_VALUE                    
+                'Fraction._floordiv'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: _divmod
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'denominator'
+                        'divmod'
+                        'numerator'
+                        'Fraction'
+                    [Var Names]
+                        'a'
+                        'b'
+                        'da'
+                        'db'
+                        'div'
+                        'n_mod'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '(a // b, a % b)'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_ATTR                       0: denominator
+                        4       LOAD_FAST                       1: b
+                        6       LOAD_ATTR                       0: denominator
+                        8       ROT_TWO                         
+                        10      STORE_FAST                      2: da
+                        12      STORE_FAST                      3: db
+                        14      LOAD_GLOBAL                     1: divmod
+                        16      LOAD_FAST                       0: a
+                        18      LOAD_ATTR                       2: numerator
+                        20      LOAD_FAST                       3: db
+                        22      BINARY_MULTIPLY                 
+                        24      LOAD_FAST                       2: da
+                        26      LOAD_FAST                       1: b
+                        28      LOAD_ATTR                       2: numerator
+                        30      BINARY_MULTIPLY                 
+                        32      CALL_FUNCTION                   2
+                        34      UNPACK_SEQUENCE                 2
+                        36      STORE_FAST                      4: div
+                        38      STORE_FAST                      5: n_mod
+                        40      LOAD_FAST                       4: div
+                        42      LOAD_GLOBAL                     3: Fraction
+                        44      LOAD_FAST                       5: n_mod
+                        46      LOAD_FAST                       2: da
+                        48      LOAD_FAST                       3: db
+                        50      BINARY_MULTIPLY                 
+                        52      CALL_FUNCTION                   2
+                        54      BUILD_TUPLE                     2
+                        56      RETURN_VALUE                    
+                'Fraction._divmod'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: _mod
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'denominator'
+                        'Fraction'
+                        'numerator'
+                    [Var Names]
+                        'a'
+                        'b'
+                        'da'
+                        'db'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'a % b'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_ATTR                       0: denominator
+                        4       LOAD_FAST                       1: b
+                        6       LOAD_ATTR                       0: denominator
+                        8       ROT_TWO                         
+                        10      STORE_FAST                      2: da
+                        12      STORE_FAST                      3: db
+                        14      LOAD_GLOBAL                     1: Fraction
+                        16      LOAD_FAST                       0: a
+                        18      LOAD_ATTR                       2: numerator
+                        20      LOAD_FAST                       3: db
+                        22      BINARY_MULTIPLY                 
+                        24      LOAD_FAST                       1: b
+                        26      LOAD_ATTR                       2: numerator
+                        28      LOAD_FAST                       2: da
+                        30      BINARY_MULTIPLY                 
+                        32      BINARY_MODULO                   
+                        34      LOAD_FAST                       2: da
+                        36      LOAD_FAST                       3: db
+                        38      BINARY_MULTIPLY                 
+                        40      CALL_FUNCTION                   2
+                        42      RETURN_VALUE                    
+                'Fraction._mod'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __pow__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        'numbers'
+                        'Rational'
+                        'denominator'
+                        'numerator'
+                        'Fraction'
+                        '_numerator'
+                        '_denominator'
+                        'float'
+                    [Var Names]
+                        'a'
+                        'b'
+                        'power'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'a ** b\n\n        If b is not an integer, the result will be a float or complex\n        since roots are generally irrational. If b is an integer, the\n        result will be rational.\n\n        '
+                        1
+                        0
+                        False
+                        (
+                            '_normalize'
+                        )
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_FAST                       1: b
+                        4       LOAD_GLOBAL                     1: numbers
+                        6       LOAD_ATTR                       2: Rational
+                        8       CALL_FUNCTION                   2
+                        10      POP_JUMP_IF_FALSE               76 (to 152)
+                        12      LOAD_FAST                       1: b
+                        14      LOAD_ATTR                       3: denominator
+                        16      LOAD_CONST                      1: 1
+                        18      COMPARE_OP                      2 (==)
+                        20      POP_JUMP_IF_FALSE               68 (to 136)
+                        22      LOAD_FAST                       1: b
+                        24      LOAD_ATTR                       4: numerator
+                        26      STORE_FAST                      2: power
+                        28      LOAD_FAST                       2: power
+                        30      LOAD_CONST                      2: 0
+                        32      COMPARE_OP                      5 (>=)
+                        34      POP_JUMP_IF_FALSE               31 (to 62)
+                        36      LOAD_GLOBAL                     5: Fraction
+                        38      LOAD_FAST                       0: a
+                        40      LOAD_ATTR                       6: _numerator
+                        42      LOAD_FAST                       2: power
+                        44      BINARY_POWER                    
+                        46      LOAD_FAST                       0: a
+                        48      LOAD_ATTR                       7: _denominator
+                        50      LOAD_FAST                       2: power
+                        52      BINARY_POWER                    
+                        54      LOAD_CONST                      3: False
+                        56      LOAD_CONST                      4: ('_normalize',)
+                        58      CALL_FUNCTION_KW                3
+                        60      RETURN_VALUE                    
+                        62      LOAD_FAST                       0: a
+                        64      LOAD_ATTR                       6: _numerator
+                        66      LOAD_CONST                      2: 0
+                        68      COMPARE_OP                      5 (>=)
+                        70      POP_JUMP_IF_FALSE               51 (to 102)
+                        72      LOAD_GLOBAL                     5: Fraction
+                        74      LOAD_FAST                       0: a
+                        76      LOAD_ATTR                       7: _denominator
+                        78      LOAD_FAST                       2: power
+                        80      UNARY_NEGATIVE                  
+                        82      BINARY_POWER                    
+                        84      LOAD_FAST                       0: a
+                        86      LOAD_ATTR                       6: _numerator
+                        88      LOAD_FAST                       2: power
+                        90      UNARY_NEGATIVE                  
+                        92      BINARY_POWER                    
+                        94      LOAD_CONST                      3: False
+                        96      LOAD_CONST                      4: ('_normalize',)
+                        98      CALL_FUNCTION_KW                3
+                        100     RETURN_VALUE                    
+                        102     LOAD_GLOBAL                     5: Fraction
+                        104     LOAD_FAST                       0: a
+                        106     LOAD_ATTR                       7: _denominator
+                        108     UNARY_NEGATIVE                  
+                        110     LOAD_FAST                       2: power
+                        112     UNARY_NEGATIVE                  
+                        114     BINARY_POWER                    
+                        116     LOAD_FAST                       0: a
+                        118     LOAD_ATTR                       6: _numerator
+                        120     UNARY_NEGATIVE                  
+                        122     LOAD_FAST                       2: power
+                        124     UNARY_NEGATIVE                  
+                        126     BINARY_POWER                    
+                        128     LOAD_CONST                      3: False
+                        130     LOAD_CONST                      4: ('_normalize',)
+                        132     CALL_FUNCTION_KW                3
+                        134     RETURN_VALUE                    
+                        136     LOAD_GLOBAL                     8: float
+                        138     LOAD_FAST                       0: a
+                        140     CALL_FUNCTION                   1
+                        142     LOAD_GLOBAL                     8: float
+                        144     LOAD_FAST                       1: b
+                        146     CALL_FUNCTION                   1
+                        148     BINARY_POWER                    
+                        150     RETURN_VALUE                    
+                        152     LOAD_GLOBAL                     8: float
+                        154     LOAD_FAST                       0: a
+                        156     CALL_FUNCTION                   1
+                        158     LOAD_FAST                       1: b
+                        160     BINARY_POWER                    
+                        162     RETURN_VALUE                    
+                'Fraction.__pow__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __rpow__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_denominator'
+                        '_numerator'
+                        'isinstance'
+                        'numbers'
+                        'Rational'
+                        'Fraction'
+                        'numerator'
+                        'denominator'
+                        'float'
+                    [Var Names]
+                        'b'
+                        'a'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'a ** b'
+                        1
+                        0
+                    [Disassembly]
+                        0       LOAD_FAST                       0: b
+                        2       LOAD_ATTR                       0: _denominator
+                        4       LOAD_CONST                      1: 1
+                        6       COMPARE_OP                      2 (==)
+                        8       POP_JUMP_IF_FALSE               15 (to 30)
+                        10      LOAD_FAST                       0: b
+                        12      LOAD_ATTR                       1: _numerator
+                        14      LOAD_CONST                      2: 0
+                        16      COMPARE_OP                      5 (>=)
+                        18      POP_JUMP_IF_FALSE               15 (to 30)
+                        20      LOAD_FAST                       1: a
+                        22      LOAD_FAST                       0: b
+                        24      LOAD_ATTR                       1: _numerator
+                        26      BINARY_POWER                    
+                        28      RETURN_VALUE                    
+                        30      LOAD_GLOBAL                     2: isinstance
+                        32      LOAD_FAST                       1: a
+                        34      LOAD_GLOBAL                     3: numbers
+                        36      LOAD_ATTR                       4: Rational
+                        38      CALL_FUNCTION                   2
+                        40      POP_JUMP_IF_FALSE               30 (to 60)
+                        42      LOAD_GLOBAL                     5: Fraction
+                        44      LOAD_FAST                       1: a
+                        46      LOAD_ATTR                       6: numerator
+                        48      LOAD_FAST                       1: a
+                        50      LOAD_ATTR                       7: denominator
+                        52      CALL_FUNCTION                   2
+                        54      LOAD_FAST                       0: b
+                        56      BINARY_POWER                    
+                        58      RETURN_VALUE                    
+                        60      LOAD_FAST                       0: b
+                        62      LOAD_ATTR                       0: _denominator
+                        64      LOAD_CONST                      1: 1
+                        66      COMPARE_OP                      2 (==)
+                        68      POP_JUMP_IF_FALSE               40 (to 80)
+                        70      LOAD_FAST                       1: a
+                        72      LOAD_FAST                       0: b
+                        74      LOAD_ATTR                       1: _numerator
+                        76      BINARY_POWER                    
+                        78      RETURN_VALUE                    
+                        80      LOAD_FAST                       1: a
+                        82      LOAD_GLOBAL                     8: float
+                        84      LOAD_FAST                       0: b
+                        86      CALL_FUNCTION                   1
+                        88      BINARY_POWER                    
+                        90      RETURN_VALUE                    
+                'Fraction.__rpow__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __pos__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'Fraction'
+                        '_numerator'
+                        '_denominator'
+                    [Var Names]
+                        'a'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '+a: Coerces a subclass instance to Fraction'
+                        False
+                        (
+                            '_normalize'
+                        )
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: Fraction
+                        2       LOAD_FAST                       0: a
+                        4       LOAD_ATTR                       1: _numerator
+                        6       LOAD_FAST                       0: a
+                        8       LOAD_ATTR                       2: _denominator
+                        10      LOAD_CONST                      1: False
+                        12      LOAD_CONST                      2: ('_normalize',)
+                        14      CALL_FUNCTION_KW                3
+                        16      RETURN_VALUE                    
+                'Fraction.__pos__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __neg__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'Fraction'
+                        '_numerator'
+                        '_denominator'
+                    [Var Names]
+                        'a'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '-a'
+                        False
+                        (
+                            '_normalize'
+                        )
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: Fraction
+                        2       LOAD_FAST                       0: a
+                        4       LOAD_ATTR                       1: _numerator
+                        6       UNARY_NEGATIVE                  
+                        8       LOAD_FAST                       0: a
+                        10      LOAD_ATTR                       2: _denominator
+                        12      LOAD_CONST                      1: False
+                        14      LOAD_CONST                      2: ('_normalize',)
+                        16      CALL_FUNCTION_KW                3
+                        18      RETURN_VALUE                    
+                'Fraction.__neg__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __abs__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'Fraction'
+                        'abs'
+                        '_numerator'
+                        '_denominator'
+                    [Var Names]
+                        'a'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'abs(a)'
+                        False
+                        (
+                            '_normalize'
+                        )
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: Fraction
+                        2       LOAD_GLOBAL                     1: abs
+                        4       LOAD_FAST                       0: a
+                        6       LOAD_ATTR                       2: _numerator
+                        8       CALL_FUNCTION                   1
+                        10      LOAD_FAST                       0: a
+                        12      LOAD_ATTR                       3: _denominator
+                        14      LOAD_CONST                      1: False
+                        16      LOAD_CONST                      2: ('_normalize',)
+                        18      CALL_FUNCTION_KW                3
+                        20      RETURN_VALUE                    
+                'Fraction.__abs__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __trunc__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_numerator'
+                        '_denominator'
+                    [Var Names]
+                        'a'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'trunc(a)'
+                        0
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_ATTR                       0: _numerator
+                        4       LOAD_CONST                      1: 0
+                        6       COMPARE_OP                      0 (<)
+                        8       POP_JUMP_IF_FALSE               13 (to 26)
+                        10      LOAD_FAST                       0: a
+                        12      LOAD_ATTR                       0: _numerator
+                        14      UNARY_NEGATIVE                  
+                        16      LOAD_FAST                       0: a
+                        18      LOAD_ATTR                       1: _denominator
+                        20      BINARY_FLOOR_DIVIDE             
+                        22      UNARY_NEGATIVE                  
+                        24      RETURN_VALUE                    
+                        26      LOAD_FAST                       0: a
+                        28      LOAD_ATTR                       0: _numerator
+                        30      LOAD_FAST                       0: a
+                        32      LOAD_ATTR                       1: _denominator
+                        34      BINARY_FLOOR_DIVIDE             
+                        36      RETURN_VALUE                    
+                'Fraction.__trunc__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __floor__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'numerator'
+                        'denominator'
+                    [Var Names]
+                        'a'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'math.floor(a)'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_ATTR                       0: numerator
+                        4       LOAD_FAST                       0: a
+                        6       LOAD_ATTR                       1: denominator
+                        8       BINARY_FLOOR_DIVIDE             
+                        10      RETURN_VALUE                    
+                'Fraction.__floor__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __ceil__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'numerator'
+                        'denominator'
+                    [Var Names]
+                        'a'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'math.ceil(a)'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_ATTR                       0: numerator
+                        4       UNARY_NEGATIVE                  
+                        6       LOAD_FAST                       0: a
+                        8       LOAD_ATTR                       1: denominator
+                        10      BINARY_FLOOR_DIVIDE             
+                        12      UNARY_NEGATIVE                  
+                        14      RETURN_VALUE                    
+                'Fraction.__ceil__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __round__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'divmod'
+                        'numerator'
+                        'denominator'
+                        'abs'
+                        'Fraction'
+                        'round'
+                    [Var Names]
+                        'self'
+                        'ndigits'
+                        'floor'
+                        'remainder'
+                        'shift'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'round(self, ndigits)\n\n        Rounds half toward even.\n        '
+                        None
+                        2
+                        1
+                        0
+                        10
+                    [Disassembly]
+                        0       LOAD_FAST                       1: ndigits
+                        2       LOAD_CONST                      1: None
+                        4       IS_OP                           0 (is)
+                        6       POP_JUMP_IF_FALSE               45 (to 90)
+                        8       LOAD_GLOBAL                     0: divmod
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       1: numerator
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_ATTR                       2: denominator
+                        18      CALL_FUNCTION                   2
+                        20      UNPACK_SEQUENCE                 2
+                        22      STORE_FAST                      2: floor
+                        24      STORE_FAST                      3: remainder
+                        26      LOAD_FAST                       3: remainder
+                        28      LOAD_CONST                      2: 2
+                        30      BINARY_MULTIPLY                 
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       2: denominator
+                        36      COMPARE_OP                      0 (<)
+                        38      POP_JUMP_IF_FALSE               22 (to 44)
+                        40      LOAD_FAST                       2: floor
+                        42      RETURN_VALUE                    
+                        44      LOAD_FAST                       3: remainder
+                        46      LOAD_CONST                      2: 2
+                        48      BINARY_MULTIPLY                 
+                        50      LOAD_FAST                       0: self
+                        52      LOAD_ATTR                       2: denominator
+                        54      COMPARE_OP                      4 (>)
+                        56      POP_JUMP_IF_FALSE               33 (to 66)
+                        58      LOAD_FAST                       2: floor
+                        60      LOAD_CONST                      3: 1
+                        62      BINARY_ADD                      
+                        64      RETURN_VALUE                    
+                        66      LOAD_FAST                       2: floor
+                        68      LOAD_CONST                      2: 2
+                        70      BINARY_MODULO                   
+                        72      LOAD_CONST                      4: 0
+                        74      COMPARE_OP                      2 (==)
+                        76      POP_JUMP_IF_FALSE               41 (to 82)
+                        78      LOAD_FAST                       2: floor
+                        80      RETURN_VALUE                    
+                        82      LOAD_FAST                       2: floor
+                        84      LOAD_CONST                      3: 1
+                        86      BINARY_ADD                      
+                        88      RETURN_VALUE                    
+                        90      LOAD_CONST                      5: 10
+                        92      LOAD_GLOBAL                     3: abs
+                        94      LOAD_FAST                       1: ndigits
+                        96      CALL_FUNCTION                   1
+                        98      BINARY_POWER                    
+                        100     STORE_FAST                      4: shift
+                        102     LOAD_FAST                       1: ndigits
+                        104     LOAD_CONST                      4: 0
+                        106     COMPARE_OP                      4 (>)
+                        108     POP_JUMP_IF_FALSE               64 (to 128)
+                        110     LOAD_GLOBAL                     4: Fraction
+                        112     LOAD_GLOBAL                     5: round
+                        114     LOAD_FAST                       0: self
+                        116     LOAD_FAST                       4: shift
+                        118     BINARY_MULTIPLY                 
+                        120     CALL_FUNCTION                   1
+                        122     LOAD_FAST                       4: shift
+                        124     CALL_FUNCTION                   2
+                        126     RETURN_VALUE                    
+                        128     LOAD_GLOBAL                     4: Fraction
+                        130     LOAD_GLOBAL                     5: round
+                        132     LOAD_FAST                       0: self
+                        134     LOAD_FAST                       4: shift
+                        136     BINARY_TRUE_DIVIDE              
+                        138     CALL_FUNCTION                   1
+                        140     LOAD_FAST                       4: shift
+                        142     BINARY_MULTIPLY                 
+                        144     CALL_FUNCTION                   1
+                        146     RETURN_VALUE                    
+                'Fraction.__round__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __hash__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'pow'
+                        '_denominator'
+                        '_PyHASH_MODULUS'
+                        'ValueError'
+                        '_PyHASH_INF'
+                        'hash'
+                        'abs'
+                        '_numerator'
+                    [Var Names]
+                        'self'
+                        'dinv'
+                        'hash_'
+                        'result'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'hash(self)'
+                        -1
+                        0
+                        -2
+                    [Disassembly]
+                        0       SETUP_FINALLY                   9 (to 20)
+                        2       LOAD_GLOBAL                     0: pow
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       1: _denominator
+                        8       LOAD_CONST                      1: -1
+                        10      LOAD_GLOBAL                     2: _PyHASH_MODULUS
+                        12      CALL_FUNCTION                   3
+                        14      STORE_FAST                      1: dinv
+                        16      POP_BLOCK                       
+                        18      JUMP_FORWARD                    11 (to 42)
+                        20      DUP_TOP                         
+                        22      LOAD_GLOBAL                     3: ValueError
+                        24      JUMP_IF_NOT_EXC_MATCH           20 (to 40)
+                        26      POP_TOP                         
+                        28      POP_TOP                         
+                        30      POP_TOP                         
+                        32      LOAD_GLOBAL                     4: _PyHASH_INF
+                        34      STORE_FAST                      2: hash_
+                        36      POP_EXCEPT                      
+                        38      JUMP_FORWARD                    12 (to 64)
+                        40      RERAISE                         0
+                        42      LOAD_GLOBAL                     5: hash
+                        44      LOAD_GLOBAL                     5: hash
+                        46      LOAD_GLOBAL                     6: abs
+                        48      LOAD_FAST                       0: self
+                        50      LOAD_ATTR                       7: _numerator
+                        52      CALL_FUNCTION                   1
+                        54      CALL_FUNCTION                   1
+                        56      LOAD_FAST                       1: dinv
+                        58      BINARY_MULTIPLY                 
+                        60      CALL_FUNCTION                   1
+                        62      STORE_FAST                      2: hash_
+                        64      LOAD_FAST                       0: self
+                        66      LOAD_ATTR                       7: _numerator
+                        68      LOAD_CONST                      2: 0
+                        70      COMPARE_OP                      5 (>=)
+                        72      POP_JUMP_IF_FALSE               39 (to 78)
+                        74      LOAD_FAST                       2: hash_
+                        76      JUMP_FORWARD                    2 (to 82)
+                        78      LOAD_FAST                       2: hash_
+                        80      UNARY_NEGATIVE                  
+                        82      STORE_FAST                      3: result
+                        84      LOAD_FAST                       3: result
+                        86      LOAD_CONST                      1: -1
+                        88      COMPARE_OP                      2 (==)
+                        90      POP_JUMP_IF_FALSE               48 (to 96)
+                        92      LOAD_CONST                      3: -2
+                        94      RETURN_VALUE                    
+                        96      LOAD_FAST                       3: result
+                        98      RETURN_VALUE                    
+                'Fraction.__hash__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __eq__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'type'
+                        'int'
+                        '_numerator'
+                        '_denominator'
+                        'isinstance'
+                        'numbers'
+                        'Rational'
+                        'numerator'
+                        'denominator'
+                        'Complex'
+                        'imag'
+                        'real'
+                        'float'
+                        'math'
+                        'isnan'
+                        'isinf'
+                        'from_float'
+                        'NotImplemented'
+                    [Var Names]
+                        'a'
+                        'b'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'a == b'
+                        1
+                        0
+                        0
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: type
+                        2       LOAD_FAST                       1: b
+                        4       CALL_FUNCTION                   1
+                        6       LOAD_GLOBAL                     1: int
+                        8       IS_OP                           0 (is)
+                        10      POP_JUMP_IF_FALSE               16 (to 32)
+                        12      LOAD_FAST                       0: a
+                        14      LOAD_ATTR                       2: _numerator
+                        16      LOAD_FAST                       1: b
+                        18      COMPARE_OP                      2 (==)
+                        20      JUMP_IF_FALSE_OR_POP            15 (to 30)
+                        22      LOAD_FAST                       0: a
+                        24      LOAD_ATTR                       3: _denominator
+                        26      LOAD_CONST                      1: 1
+                        28      COMPARE_OP                      2 (==)
+                        30      RETURN_VALUE                    
+                        32      LOAD_GLOBAL                     4: isinstance
+                        34      LOAD_FAST                       1: b
+                        36      LOAD_GLOBAL                     5: numbers
+                        38      LOAD_ATTR                       6: Rational
+                        40      CALL_FUNCTION                   2
+                        42      POP_JUMP_IF_FALSE               34 (to 68)
+                        44      LOAD_FAST                       0: a
+                        46      LOAD_ATTR                       2: _numerator
+                        48      LOAD_FAST                       1: b
+                        50      LOAD_ATTR                       7: numerator
+                        52      COMPARE_OP                      2 (==)
+                        54      JUMP_IF_FALSE_OR_POP            33 (to 66)
+                        56      LOAD_FAST                       0: a
+                        58      LOAD_ATTR                       3: _denominator
+                        60      LOAD_FAST                       1: b
+                        62      LOAD_ATTR                       8: denominator
+                        64      COMPARE_OP                      2 (==)
+                        66      RETURN_VALUE                    
+                        68      LOAD_GLOBAL                     4: isinstance
+                        70      LOAD_FAST                       1: b
+                        72      LOAD_GLOBAL                     5: numbers
+                        74      LOAD_ATTR                       9: Complex
+                        76      CALL_FUNCTION                   2
+                        78      POP_JUMP_IF_FALSE               48 (to 96)
+                        80      LOAD_FAST                       1: b
+                        82      LOAD_ATTR                       10: imag
+                        84      LOAD_CONST                      2: 0
+                        86      COMPARE_OP                      2 (==)
+                        88      POP_JUMP_IF_FALSE               48 (to 96)
+                        90      LOAD_FAST                       1: b
+                        92      LOAD_ATTR                       11: real
+                        94      STORE_FAST                      1: b
+                        96      LOAD_GLOBAL                     4: isinstance
+                        98      LOAD_FAST                       1: b
+                        100     LOAD_GLOBAL                     12: float
+                        102     CALL_FUNCTION                   2
+                        104     POP_JUMP_IF_FALSE               74 (to 148)
+                        106     LOAD_GLOBAL                     13: math
+                        108     LOAD_METHOD                     14: isnan
+                        110     LOAD_FAST                       1: b
+                        112     CALL_METHOD                     1
+                        114     POP_JUMP_IF_TRUE                63 (to 126)
+                        116     LOAD_GLOBAL                     13: math
+                        118     LOAD_METHOD                     15: isinf
+                        120     LOAD_FAST                       1: b
+                        122     CALL_METHOD                     1
+                        124     POP_JUMP_IF_FALSE               67 (to 134)
+                        126     LOAD_CONST                      3: 0
+                        128     LOAD_FAST                       1: b
+                        130     COMPARE_OP                      2 (==)
+                        132     RETURN_VALUE                    
+                        134     LOAD_FAST                       0: a
+                        136     LOAD_FAST                       0: a
+                        138     LOAD_METHOD                     16: from_float
+                        140     LOAD_FAST                       1: b
+                        142     CALL_METHOD                     1
+                        144     COMPARE_OP                      2 (==)
+                        146     RETURN_VALUE                    
+                        148     LOAD_GLOBAL                     17: NotImplemented
+                        150     RETURN_VALUE                    
+                'Fraction.__eq__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: _richcmp
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        'numbers'
+                        'Rational'
+                        '_numerator'
+                        'denominator'
+                        '_denominator'
+                        'numerator'
+                        'float'
+                        'math'
+                        'isnan'
+                        'isinf'
+                        'from_float'
+                        'NotImplemented'
+                    [Var Names]
+                        'self'
+                        'other'
+                        'op'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Helper for comparison operators, for internal use only.\n\n        Implement comparison between a Rational instance `self`, and\n        either another Rational instance or a float `other`.  If\n        `other` is not a Rational instance or a float, return\n        NotImplemented. `op` should be one of the six standard\n        comparison operators.\n\n        '
+                        0
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_FAST                       1: other
+                        4       LOAD_GLOBAL                     1: numbers
+                        6       LOAD_ATTR                       2: Rational
+                        8       CALL_FUNCTION                   2
+                        10      POP_JUMP_IF_FALSE               19 (to 38)
+                        12      LOAD_FAST                       2: op
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_ATTR                       3: _numerator
+                        18      LOAD_FAST                       1: other
+                        20      LOAD_ATTR                       4: denominator
+                        22      BINARY_MULTIPLY                 
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       5: _denominator
+                        28      LOAD_FAST                       1: other
+                        30      LOAD_ATTR                       6: numerator
+                        32      BINARY_MULTIPLY                 
+                        34      CALL_FUNCTION                   2
+                        36      RETURN_VALUE                    
+                        38      LOAD_GLOBAL                     0: isinstance
+                        40      LOAD_FAST                       1: other
+                        42      LOAD_GLOBAL                     7: float
+                        44      CALL_FUNCTION                   2
+                        46      POP_JUMP_IF_FALSE               47 (to 94)
+                        48      LOAD_GLOBAL                     8: math
+                        50      LOAD_METHOD                     9: isnan
+                        52      LOAD_FAST                       1: other
+                        54      CALL_METHOD                     1
+                        56      POP_JUMP_IF_TRUE                34 (to 68)
+                        58      LOAD_GLOBAL                     8: math
+                        60      LOAD_METHOD                     10: isinf
+                        62      LOAD_FAST                       1: other
+                        64      CALL_METHOD                     1
+                        66      POP_JUMP_IF_FALSE               39 (to 78)
+                        68      LOAD_FAST                       2: op
+                        70      LOAD_CONST                      1: 0
+                        72      LOAD_FAST                       1: other
+                        74      CALL_FUNCTION                   2
+                        76      RETURN_VALUE                    
+                        78      LOAD_FAST                       2: op
+                        80      LOAD_FAST                       0: self
+                        82      LOAD_FAST                       0: self
+                        84      LOAD_METHOD                     11: from_float
+                        86      LOAD_FAST                       1: other
+                        88      CALL_METHOD                     1
+                        90      CALL_FUNCTION                   2
+                        92      RETURN_VALUE                    
+                        94      LOAD_GLOBAL                     12: NotImplemented
+                        96      RETURN_VALUE                    
+                'Fraction._richcmp'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __lt__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_richcmp'
+                        'operator'
+                        'lt'
+                    [Var Names]
+                        'a'
+                        'b'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'a < b'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_METHOD                     0: _richcmp
+                        4       LOAD_FAST                       1: b
+                        6       LOAD_GLOBAL                     1: operator
+                        8       LOAD_ATTR                       2: lt
+                        10      CALL_METHOD                     2
+                        12      RETURN_VALUE                    
+                'Fraction.__lt__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __gt__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_richcmp'
+                        'operator'
+                        'gt'
+                    [Var Names]
+                        'a'
+                        'b'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'a > b'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_METHOD                     0: _richcmp
+                        4       LOAD_FAST                       1: b
+                        6       LOAD_GLOBAL                     1: operator
+                        8       LOAD_ATTR                       2: gt
+                        10      CALL_METHOD                     2
+                        12      RETURN_VALUE                    
+                'Fraction.__gt__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __le__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_richcmp'
+                        'operator'
+                        'le'
+                    [Var Names]
+                        'a'
+                        'b'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'a <= b'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_METHOD                     0: _richcmp
+                        4       LOAD_FAST                       1: b
+                        6       LOAD_GLOBAL                     1: operator
+                        8       LOAD_ATTR                       2: le
+                        10      CALL_METHOD                     2
+                        12      RETURN_VALUE                    
+                'Fraction.__le__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __ge__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_richcmp'
+                        'operator'
+                        'ge'
+                    [Var Names]
+                        'a'
+                        'b'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'a >= b'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: a
+                        2       LOAD_METHOD                     0: _richcmp
+                        4       LOAD_FAST                       1: b
+                        6       LOAD_GLOBAL                     1: operator
+                        8       LOAD_ATTR                       2: ge
+                        10      CALL_METHOD                     2
+                        12      RETURN_VALUE                    
+                'Fraction.__ge__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __bool__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'bool'
+                        '_numerator'
+                    [Var Names]
+                        'a'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'a != 0'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: bool
+                        2       LOAD_FAST                       0: a
+                        4       LOAD_ATTR                       1: _numerator
+                        6       CALL_FUNCTION                   1
+                        8       RETURN_VALUE                    
+                'Fraction.__bool__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __reduce__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '__class__'
+                        'str'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: __class__
+                        4       LOAD_GLOBAL                     1: str
+                        6       LOAD_FAST                       0: self
+                        8       CALL_FUNCTION                   1
+                        10      BUILD_TUPLE                     1
+                        12      BUILD_TUPLE                     2
+                        14      RETURN_VALUE                    
+                'Fraction.__reduce__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __copy__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'type'
+                        'Fraction'
+                        '__class__'
+                        '_numerator'
+                        '_denominator'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: type
+                        2       LOAD_FAST                       0: self
+                        4       CALL_FUNCTION                   1
+                        6       LOAD_GLOBAL                     1: Fraction
+                        8       COMPARE_OP                      2 (==)
+                        10      POP_JUMP_IF_FALSE               8 (to 16)
+                        12      LOAD_FAST                       0: self
+                        14      RETURN_VALUE                    
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_METHOD                     2: __class__
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       3: _numerator
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       4: _denominator
+                        28      CALL_METHOD                     2
+                        30      RETURN_VALUE                    
+                'Fraction.__copy__'
+                [Code]
+                    File Name: fractions.py
+                    Object Name: __deepcopy__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'type'
+                        'Fraction'
+                        '__class__'
+                        '_numerator'
+                        '_denominator'
+                    [Var Names]
+                        'self'
+                        'memo'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: type
+                        2       LOAD_FAST                       0: self
+                        4       CALL_FUNCTION                   1
+                        6       LOAD_GLOBAL                     1: Fraction
+                        8       COMPARE_OP                      2 (==)
+                        10      POP_JUMP_IF_FALSE               8 (to 16)
+                        12      LOAD_FAST                       0: self
+                        14      RETURN_VALUE                    
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_METHOD                     2: __class__
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       3: _numerator
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       4: _denominator
+                        28      CALL_METHOD                     2
+                        30      RETURN_VALUE                    
+                'Fraction.__deepcopy__'
+                (
+                    0
+                    None
+                )
+                (
+                    1000000
+                )
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Fraction'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: "This class implements rational numbers.\n\n    In the two-argument form of the constructor, Fraction(8, 6) will\n    produce a rational number equivalent to 4/3. Both arguments must\n    be Rational. The numerator defaults to 0 and the denominator\n    defaults to 1 so that Fraction(3) == 3 and Fraction() == 0.\n\n    Fractions can also be constructed from:\n\n      - numeric strings similar to those accepted by the\n        float constructor (for example, '-2.3' or '1e10')\n\n      - strings of the form '123/456'\n\n      - float and Decimal instances\n\n      - other Rational instances (including integers)\n\n    "
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: ('_numerator', '_denominator')
+                14      STORE_NAME                      4: __slots__
+                16      LOAD_CONST                      82: (0, None)
+                18      LOAD_CONST                      5: True
+                20      LOAD_CONST                      6: ('_normalize',)
+                22      BUILD_CONST_KEY_MAP             1
+                24      LOAD_CLOSURE                    0: __class__
+                26      BUILD_TUPLE                     1
+                28      LOAD_CONST                      7: <CODE> __new__
+                30      LOAD_CONST                      8: 'Fraction.__new__'
+                32      MAKE_FUNCTION                   11
+                34      STORE_NAME                      5: __new__
+                36      LOAD_NAME                       6: classmethod
+                38      LOAD_CONST                      9: <CODE> from_float
+                40      LOAD_CONST                      10: 'Fraction.from_float'
+                42      MAKE_FUNCTION                   0
+                44      CALL_FUNCTION                   1
+                46      STORE_NAME                      7: from_float
+                48      LOAD_NAME                       6: classmethod
+                50      LOAD_CONST                      11: <CODE> from_decimal
+                52      LOAD_CONST                      12: 'Fraction.from_decimal'
+                54      MAKE_FUNCTION                   0
+                56      CALL_FUNCTION                   1
+                58      STORE_NAME                      8: from_decimal
+                60      LOAD_CONST                      13: <CODE> as_integer_ratio
+                62      LOAD_CONST                      14: 'Fraction.as_integer_ratio'
+                64      MAKE_FUNCTION                   0
+                66      STORE_NAME                      9: as_integer_ratio
+                68      LOAD_CONST                      83: (1000000,)
+                70      LOAD_CONST                      16: <CODE> limit_denominator
+                72      LOAD_CONST                      17: 'Fraction.limit_denominator'
+                74      MAKE_FUNCTION                   1
+                76      STORE_NAME                      10: limit_denominator
+                78      LOAD_NAME                       11: property
+                80      LOAD_CONST                      18: <CODE> numerator
+                82      LOAD_CONST                      19: 'Fraction.numerator'
+                84      MAKE_FUNCTION                   0
+                86      CALL_FUNCTION                   1
+                88      STORE_NAME                      12: numerator
+                90      LOAD_NAME                       11: property
+                92      LOAD_CONST                      20: <CODE> denominator
+                94      LOAD_CONST                      21: 'Fraction.denominator'
+                96      MAKE_FUNCTION                   0
+                98      CALL_FUNCTION                   1
+                100     STORE_NAME                      13: denominator
+                102     LOAD_CONST                      22: <CODE> __repr__
+                104     LOAD_CONST                      23: 'Fraction.__repr__'
+                106     MAKE_FUNCTION                   0
+                108     STORE_NAME                      14: __repr__
+                110     LOAD_CONST                      24: <CODE> __str__
+                112     LOAD_CONST                      25: 'Fraction.__str__'
+                114     MAKE_FUNCTION                   0
+                116     STORE_NAME                      15: __str__
+                118     LOAD_CONST                      26: <CODE> _operator_fallbacks
+                120     LOAD_CONST                      27: 'Fraction._operator_fallbacks'
+                122     MAKE_FUNCTION                   0
+                124     STORE_NAME                      16: _operator_fallbacks
+                126     LOAD_CONST                      28: <CODE> _add
+                128     LOAD_CONST                      29: 'Fraction._add'
+                130     MAKE_FUNCTION                   0
+                132     STORE_NAME                      17: _add
+                134     LOAD_NAME                       16: _operator_fallbacks
+                136     LOAD_NAME                       17: _add
+                138     LOAD_NAME                       18: operator
+                140     LOAD_ATTR                       19: add
+                142     CALL_FUNCTION                   2
+                144     UNPACK_SEQUENCE                 2
+                146     STORE_NAME                      20: __add__
+                148     STORE_NAME                      21: __radd__
+                150     LOAD_CONST                      30: <CODE> _sub
+                152     LOAD_CONST                      31: 'Fraction._sub'
+                154     MAKE_FUNCTION                   0
+                156     STORE_NAME                      22: _sub
+                158     LOAD_NAME                       16: _operator_fallbacks
+                160     LOAD_NAME                       22: _sub
+                162     LOAD_NAME                       18: operator
+                164     LOAD_ATTR                       23: sub
+                166     CALL_FUNCTION                   2
+                168     UNPACK_SEQUENCE                 2
+                170     STORE_NAME                      24: __sub__
+                172     STORE_NAME                      25: __rsub__
+                174     LOAD_CONST                      32: <CODE> _mul
+                176     LOAD_CONST                      33: 'Fraction._mul'
+                178     MAKE_FUNCTION                   0
+                180     STORE_NAME                      26: _mul
+                182     LOAD_NAME                       16: _operator_fallbacks
+                184     LOAD_NAME                       26: _mul
+                186     LOAD_NAME                       18: operator
+                188     LOAD_ATTR                       27: mul
+                190     CALL_FUNCTION                   2
+                192     UNPACK_SEQUENCE                 2
+                194     STORE_NAME                      28: __mul__
+                196     STORE_NAME                      29: __rmul__
+                198     LOAD_CONST                      34: <CODE> _div
+                200     LOAD_CONST                      35: 'Fraction._div'
+                202     MAKE_FUNCTION                   0
+                204     STORE_NAME                      30: _div
+                206     LOAD_NAME                       16: _operator_fallbacks
+                208     LOAD_NAME                       30: _div
+                210     LOAD_NAME                       18: operator
+                212     LOAD_ATTR                       31: truediv
+                214     CALL_FUNCTION                   2
+                216     UNPACK_SEQUENCE                 2
+                218     STORE_NAME                      32: __truediv__
+                220     STORE_NAME                      33: __rtruediv__
+                222     LOAD_CONST                      36: <CODE> _floordiv
+                224     LOAD_CONST                      37: 'Fraction._floordiv'
+                226     MAKE_FUNCTION                   0
+                228     STORE_NAME                      34: _floordiv
+                230     LOAD_NAME                       16: _operator_fallbacks
+                232     LOAD_NAME                       34: _floordiv
+                234     LOAD_NAME                       18: operator
+                236     LOAD_ATTR                       35: floordiv
+                238     CALL_FUNCTION                   2
+                240     UNPACK_SEQUENCE                 2
+                242     STORE_NAME                      36: __floordiv__
+                244     STORE_NAME                      37: __rfloordiv__
+                246     LOAD_CONST                      38: <CODE> _divmod
+                248     LOAD_CONST                      39: 'Fraction._divmod'
+                250     MAKE_FUNCTION                   0
+                252     STORE_NAME                      38: _divmod
+                254     LOAD_NAME                       16: _operator_fallbacks
+                256     LOAD_NAME                       38: _divmod
+                258     LOAD_NAME                       39: divmod
+                260     CALL_FUNCTION                   2
+                262     UNPACK_SEQUENCE                 2
+                264     STORE_NAME                      40: __divmod__
+                266     STORE_NAME                      41: __rdivmod__
+                268     LOAD_CONST                      40: <CODE> _mod
+                270     LOAD_CONST                      41: 'Fraction._mod'
+                272     MAKE_FUNCTION                   0
+                274     STORE_NAME                      42: _mod
+                276     LOAD_NAME                       16: _operator_fallbacks
+                278     LOAD_NAME                       42: _mod
+                280     LOAD_NAME                       18: operator
+                282     LOAD_ATTR                       43: mod
+                284     CALL_FUNCTION                   2
+                286     UNPACK_SEQUENCE                 2
+                288     STORE_NAME                      44: __mod__
+                290     STORE_NAME                      45: __rmod__
+                292     LOAD_CONST                      42: <CODE> __pow__
+                294     LOAD_CONST                      43: 'Fraction.__pow__'
+                296     MAKE_FUNCTION                   0
+                298     STORE_NAME                      46: __pow__
+                300     LOAD_CONST                      44: <CODE> __rpow__
+                302     LOAD_CONST                      45: 'Fraction.__rpow__'
+                304     MAKE_FUNCTION                   0
+                306     STORE_NAME                      47: __rpow__
+                308     LOAD_CONST                      46: <CODE> __pos__
+                310     LOAD_CONST                      47: 'Fraction.__pos__'
+                312     MAKE_FUNCTION                   0
+                314     STORE_NAME                      48: __pos__
+                316     LOAD_CONST                      48: <CODE> __neg__
+                318     LOAD_CONST                      49: 'Fraction.__neg__'
+                320     MAKE_FUNCTION                   0
+                322     STORE_NAME                      49: __neg__
+                324     LOAD_CONST                      50: <CODE> __abs__
+                326     LOAD_CONST                      51: 'Fraction.__abs__'
+                328     MAKE_FUNCTION                   0
+                330     STORE_NAME                      50: __abs__
+                332     LOAD_CONST                      52: <CODE> __trunc__
+                334     LOAD_CONST                      53: 'Fraction.__trunc__'
+                336     MAKE_FUNCTION                   0
+                338     STORE_NAME                      51: __trunc__
+                340     LOAD_CONST                      54: <CODE> __floor__
+                342     LOAD_CONST                      55: 'Fraction.__floor__'
+                344     MAKE_FUNCTION                   0
+                346     STORE_NAME                      52: __floor__
+                348     LOAD_CONST                      56: <CODE> __ceil__
+                350     LOAD_CONST                      57: 'Fraction.__ceil__'
+                352     MAKE_FUNCTION                   0
+                354     STORE_NAME                      53: __ceil__
+                356     LOAD_CONST                      84: (None,)
+                358     LOAD_CONST                      58: <CODE> __round__
+                360     LOAD_CONST                      59: 'Fraction.__round__'
+                362     MAKE_FUNCTION                   1
+                364     STORE_NAME                      54: __round__
+                366     LOAD_CONST                      60: <CODE> __hash__
+                368     LOAD_CONST                      61: 'Fraction.__hash__'
+                370     MAKE_FUNCTION                   0
+                372     STORE_NAME                      55: __hash__
+                374     LOAD_CONST                      62: <CODE> __eq__
+                376     LOAD_CONST                      63: 'Fraction.__eq__'
+                378     MAKE_FUNCTION                   0
+                380     STORE_NAME                      56: __eq__
+                382     LOAD_CONST                      64: <CODE> _richcmp
+                384     LOAD_CONST                      65: 'Fraction._richcmp'
+                386     MAKE_FUNCTION                   0
+                388     STORE_NAME                      57: _richcmp
+                390     LOAD_CONST                      66: <CODE> __lt__
+                392     LOAD_CONST                      67: 'Fraction.__lt__'
+                394     MAKE_FUNCTION                   0
+                396     STORE_NAME                      58: __lt__
+                398     LOAD_CONST                      68: <CODE> __gt__
+                400     LOAD_CONST                      69: 'Fraction.__gt__'
+                402     MAKE_FUNCTION                   0
+                404     STORE_NAME                      59: __gt__
+                406     LOAD_CONST                      70: <CODE> __le__
+                408     LOAD_CONST                      71: 'Fraction.__le__'
+                410     MAKE_FUNCTION                   0
+                412     STORE_NAME                      60: __le__
+                414     LOAD_CONST                      72: <CODE> __ge__
+                416     LOAD_CONST                      73: 'Fraction.__ge__'
+                418     MAKE_FUNCTION                   0
+                420     STORE_NAME                      61: __ge__
+                422     LOAD_CONST                      74: <CODE> __bool__
+                424     LOAD_CONST                      75: 'Fraction.__bool__'
+                426     MAKE_FUNCTION                   0
+                428     STORE_NAME                      62: __bool__
+                430     LOAD_CONST                      76: <CODE> __reduce__
+                432     LOAD_CONST                      77: 'Fraction.__reduce__'
+                434     MAKE_FUNCTION                   0
+                436     STORE_NAME                      63: __reduce__
+                438     LOAD_CONST                      78: <CODE> __copy__
+                440     LOAD_CONST                      79: 'Fraction.__copy__'
+                442     MAKE_FUNCTION                   0
+                444     STORE_NAME                      64: __copy__
+                446     LOAD_CONST                      80: <CODE> __deepcopy__
+                448     LOAD_CONST                      81: 'Fraction.__deepcopy__'
+                450     MAKE_FUNCTION                   0
+                452     STORE_NAME                      65: __deepcopy__
+                454     LOAD_CLOSURE                    0: __class__
+                456     DUP_TOP                         
+                458     STORE_NAME                      66: __classcell__
+                460     RETURN_VALUE                    
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Fraction, infinite-precision, real numbers.'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: ('Decimal',)
+        8       IMPORT_NAME                     1: decimal
+        10      IMPORT_FROM                     2: Decimal
+        12      STORE_NAME                      2: Decimal
+        14      POP_TOP                         
+        16      LOAD_CONST                      1: 0
+        18      LOAD_CONST                      3: None
+        20      IMPORT_NAME                     3: math
+        22      STORE_NAME                      3: math
+        24      LOAD_CONST                      1: 0
+        26      LOAD_CONST                      3: None
+        28      IMPORT_NAME                     4: numbers
+        30      STORE_NAME                      4: numbers
+        32      LOAD_CONST                      1: 0
+        34      LOAD_CONST                      3: None
+        36      IMPORT_NAME                     5: operator
+        38      STORE_NAME                      5: operator
+        40      LOAD_CONST                      1: 0
+        42      LOAD_CONST                      3: None
+        44      IMPORT_NAME                     6: re
+        46      STORE_NAME                      6: re
+        48      LOAD_CONST                      1: 0
+        50      LOAD_CONST                      3: None
+        52      IMPORT_NAME                     7: sys
+        54      STORE_NAME                      7: sys
+        56      LOAD_CONST                      4: 'Fraction'
+        58      BUILD_LIST                      1
+        60      STORE_NAME                      8: __all__
+        62      LOAD_NAME                       7: sys
+        64      LOAD_ATTR                       9: hash_info
+        66      LOAD_ATTR                       10: modulus
+        68      STORE_NAME                      11: _PyHASH_MODULUS
+        70      LOAD_NAME                       7: sys
+        72      LOAD_ATTR                       9: hash_info
+        74      LOAD_ATTR                       12: inf
+        76      STORE_NAME                      13: _PyHASH_INF
+        78      LOAD_NAME                       6: re
+        80      LOAD_METHOD                     14: compile
+        82      LOAD_CONST                      5: '\n    \\A\\s*                      # optional whitespace at the start, then\n    (?P<sign>[-+]?)            # an optional sign, then\n    (?=\\d|\\.\\d)                # lookahead for digit or .digit\n    (?P<num>\\d*)               # numerator (possibly empty)\n    (?:                        # followed by\n       (?:/(?P<denom>\\d+))?    # an optional denominator\n    |                          # or\n       (?:\\.(?P<decimal>\\d*))? # an optional fractional part\n       (?:E(?P<exp>[-+]?\\d+))? # and optional exponent\n    )\n    \\s*\\Z                      # and optional whitespace to finish\n'
+        84      LOAD_NAME                       6: re
+        86      LOAD_ATTR                       15: VERBOSE
+        88      LOAD_NAME                       6: re
+        90      LOAD_ATTR                       16: IGNORECASE
+        92      BINARY_OR                       
+        94      CALL_METHOD                     2
+        96      STORE_NAME                      17: _RATIONAL_FORMAT
+        98      LOAD_BUILD_CLASS                
+        100     LOAD_CONST                      6: <CODE> Fraction
+        102     LOAD_CONST                      4: 'Fraction'
+        104     MAKE_FUNCTION                   0
+        106     LOAD_CONST                      4: 'Fraction'
+        108     LOAD_NAME                       4: numbers
+        110     LOAD_ATTR                       18: Rational
+        112     CALL_FUNCTION                   3
+        114     STORE_NAME                      19: Fraction
+        116     LOAD_CONST                      3: None
+        118     RETURN_VALUE                    

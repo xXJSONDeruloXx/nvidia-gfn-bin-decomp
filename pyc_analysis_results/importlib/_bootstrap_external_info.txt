@@ -1,0 +1,4 @@
+File: /Users/kurt/Desktop/PYZ-00.pyz_extracted/importlib/_bootstrap_external.pyc
+Size: 44247 bytes
+Modified: Thu May 29 21:01:55 2025
+Python Version: 3.12+

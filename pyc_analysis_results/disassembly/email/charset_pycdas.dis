@@ -1,0 +1,1281 @@
+charset.pyc (Python 3.10)
+[Code]
+    File Name: email/charset.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 9
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__all__'
+        'functools'
+        'partial'
+        'email.base64mime'
+        'email'
+        'email.quoprimime'
+        'errors'
+        'email.encoders'
+        'encode_7or8bit'
+        'QP'
+        'BASE64'
+        'SHORTEST'
+        'RFC2047_CHROME_LEN'
+        'DEFAULT_CHARSET'
+        'UNKNOWN8BIT'
+        'EMPTYSTRING'
+        'CHARSETS'
+        'ALIASES'
+        'CODEC_MAP'
+        'add_charset'
+        'add_alias'
+        'add_codec'
+        '_encode'
+        'Charset'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        (
+            'Charset'
+            'add_alias'
+            'add_charset'
+            'add_codec'
+        )
+        0
+        (
+            'partial'
+        )
+        None
+        (
+            'errors'
+        )
+        (
+            'encode_7or8bit'
+        )
+        1
+        2
+        3
+        7
+        'us-ascii'
+        'unknown-8bit'
+        ''
+        'iso-8859-1'
+        'iso-8859-2'
+        'iso-8859-3'
+        'iso-8859-4'
+        'iso-8859-9'
+        'iso-8859-10'
+        'iso-8859-13'
+        'iso-8859-14'
+        'iso-8859-15'
+        'iso-8859-16'
+        'windows-1252'
+        'viscii'
+        (
+            None
+            None
+            None
+        )
+        'big5'
+        'gb2312'
+        'euc-jp'
+        'iso-2022-jp'
+        'shift_jis'
+        'utf-8'
+        (
+            'iso-2022-jp'
+            'koi8-r'
+            'utf-8'
+        )
+        'latin_1'
+        'latin-1'
+        'latin_2'
+        'latin-2'
+        'latin_3'
+        'latin-3'
+        'latin_4'
+        'latin-4'
+        'latin_5'
+        'latin-5'
+        'latin_6'
+        'latin-6'
+        'latin_7'
+        'latin-7'
+        'latin_8'
+        'latin-8'
+        'latin_9'
+        'ks_c_5601-1987'
+        'euc-kr'
+        (
+            'latin-9'
+            'latin_10'
+            'latin-10'
+            'cp949'
+            'euc_jp'
+            'euc_kr'
+            'ascii'
+        )
+        'eucgb2312_cn'
+        'big5_tw'
+        (
+            'gb2312'
+            'big5'
+            'us-ascii'
+        )
+        [Code]
+            File Name: email/charset.py
+            Object Name: add_charset
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'SHORTEST'
+                'ValueError'
+                'CHARSETS'
+            [Var Names]
+                'charset'
+                'header_enc'
+                'body_enc'
+                'output_charset'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Add character set properties to the global registry.\n\n    charset is the input character set, and must be the canonical name of a\n    character set.\n\n    Optional header_enc and body_enc is either charset.QP for\n    quoted-printable, charset.BASE64 for base64 encoding, charset.SHORTEST for\n    the shortest of qp or base64 encoding, or None for no encoding.  SHORTEST\n    is only valid for header_enc.  It describes how message headers and\n    message bodies in the input charset are to be encoded.  Default is no\n    encoding.\n\n    Optional output_charset is the character set that the output should be\n    in.  Conversions will proceed from input charset, to Unicode, to the\n    output charset when the method Charset.convert() is called.  The default\n    is to output in the same character set as the input.\n\n    Both input_charset and output_charset must have Unicode codec entries in\n    the module's charset-to-codec mapping; use add_codec(charset, codecname)\n    to add codecs the module does not know about.  See the codecs module's\n    documentation for more information.\n    "
+                'SHORTEST not allowed for body_enc'
+                None
+            [Disassembly]
+                0       LOAD_FAST                       2: body_enc
+                2       LOAD_GLOBAL                     0: SHORTEST
+                4       COMPARE_OP                      2 (==)
+                6       POP_JUMP_IF_FALSE               8 (to 16)
+                8       LOAD_GLOBAL                     1: ValueError
+                10      LOAD_CONST                      1: 'SHORTEST not allowed for body_enc'
+                12      CALL_FUNCTION                   1
+                14      RAISE_VARARGS                   1
+                16      LOAD_FAST                       1: header_enc
+                18      LOAD_FAST                       2: body_enc
+                20      LOAD_FAST                       3: output_charset
+                22      BUILD_TUPLE                     3
+                24      LOAD_GLOBAL                     2: CHARSETS
+                26      LOAD_FAST                       0: charset
+                28      STORE_SUBSCR                    
+                30      LOAD_CONST                      2: None
+                32      RETURN_VALUE                    
+        'add_charset'
+        [Code]
+            File Name: email/charset.py
+            Object Name: add_alias
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'ALIASES'
+            [Var Names]
+                'alias'
+                'canonical'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Add a character set alias.\n\n    alias is the alias name, e.g. latin-1\n    canonical is the character set's canonical name, e.g. iso-8859-1\n    "
+                None
+            [Disassembly]
+                0       LOAD_FAST                       1: canonical
+                2       LOAD_GLOBAL                     0: ALIASES
+                4       LOAD_FAST                       0: alias
+                6       STORE_SUBSCR                    
+                8       LOAD_CONST                      1: None
+                10      RETURN_VALUE                    
+        'add_alias'
+        [Code]
+            File Name: email/charset.py
+            Object Name: add_codec
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'CODEC_MAP'
+            [Var Names]
+                'charset'
+                'codecname'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Add a codec that map characters in the given charset to/from Unicode.\n\n    charset is the canonical name of a character set.  codecname is the name\n    of a Python codec, as appropriate for the second argument to the unicode()\n    built-in, or to the encode() method of a Unicode string.\n    '
+                None
+            [Disassembly]
+                0       LOAD_FAST                       1: codecname
+                2       LOAD_GLOBAL                     0: CODEC_MAP
+                4       LOAD_FAST                       0: charset
+                6       STORE_SUBSCR                    
+                8       LOAD_CONST                      1: None
+                10      RETURN_VALUE                    
+        'add_codec'
+        [Code]
+            File Name: email/charset.py
+            Object Name: _encode
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'UNKNOWN8BIT'
+                'encode'
+            [Var Names]
+                'string'
+                'codec'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'ascii'
+                'surrogateescape'
+            [Disassembly]
+                0       LOAD_FAST                       1: codec
+                2       LOAD_GLOBAL                     0: UNKNOWN8BIT
+                4       COMPARE_OP                      2 (==)
+                6       POP_JUMP_IF_FALSE               10 (to 20)
+                8       LOAD_FAST                       0: string
+                10      LOAD_METHOD                     1: encode
+                12      LOAD_CONST                      1: 'ascii'
+                14      LOAD_CONST                      2: 'surrogateescape'
+                16      CALL_METHOD                     2
+                18      RETURN_VALUE                    
+                20      LOAD_FAST                       0: string
+                22      LOAD_METHOD                     1: encode
+                24      LOAD_FAST                       1: codec
+                26      CALL_METHOD                     1
+                28      RETURN_VALUE                    
+        '_encode'
+        [Code]
+            File Name: email/charset.py
+            Object Name: Charset
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'DEFAULT_CHARSET'
+                '__init__'
+                '__repr__'
+                '__eq__'
+                'get_body_encoding'
+                'get_output_charset'
+                'header_encode'
+                'header_encode_lines'
+                '_get_encoder'
+                'body_encode'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Charset'
+                "Map character sets to their email properties.\n\n    This class provides information about the requirements imposed on email\n    for a specific character set.  It also provides convenience routines for\n    converting between character sets, given the availability of the\n    applicable codecs.  Given a character set, it will do its best to provide\n    information on how to use that character set in an email in an\n    RFC-compliant way.\n\n    Certain character sets must be encoded with quoted-printable or base64\n    when used in email headers or bodies.  Certain character sets must be\n    converted outright, and are not allowed in email.  Instances of this\n    module expose the following information about a character set:\n\n    input_charset: The initial character set specified.  Common aliases\n                   are converted to their `official' email names (e.g. latin_1\n                   is converted to iso-8859-1).  Defaults to 7-bit us-ascii.\n\n    header_encoding: If the character set must be encoded before it can be\n                     used in an email header, this attribute will be set to\n                     charset.QP (for quoted-printable), charset.BASE64 (for\n                     base64 encoding), or charset.SHORTEST for the shortest of\n                     QP or BASE64 encoding.  Otherwise, it will be None.\n\n    body_encoding: Same as header_encoding, but describes the encoding for the\n                   mail message's body, which indeed may be different than the\n                   header encoding.  charset.SHORTEST is not allowed for\n                   body_encoding.\n\n    output_charset: Some character sets must be converted before they can be\n                    used in email headers or bodies.  If the input_charset is\n                    one of them, this attribute will contain the name of the\n                    charset output will be converted to.  Otherwise, it will\n                    be None.\n\n    input_codec: The name of the Python codec used to convert the\n                 input_charset to Unicode.  If no conversion codec is\n                 necessary, this attribute will be None.\n\n    output_codec: The name of the Python codec used to convert Unicode\n                  to the output_charset.  If no conversion codec is necessary,\n                  this attribute will have the same value as the input_codec.\n    "
+                [Code]
+                    File Name: email/charset.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        'str'
+                        'encode'
+                        'UnicodeError'
+                        'errors'
+                        'CharsetError'
+                        'lower'
+                        'ALIASES'
+                        'get'
+                        'input_charset'
+                        'CHARSETS'
+                        'SHORTEST'
+                        'BASE64'
+                        'header_encoding'
+                        'body_encoding'
+                        'output_charset'
+                        'CODEC_MAP'
+                        'input_codec'
+                        'output_codec'
+                    [Var Names]
+                        'self'
+                        'input_charset'
+                        'henc'
+                        'benc'
+                        'conv'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'ascii'
+                    [Disassembly]
+                        0       SETUP_FINALLY                   18 (to 38)
+                        2       LOAD_GLOBAL                     0: isinstance
+                        4       LOAD_FAST                       1: input_charset
+                        6       LOAD_GLOBAL                     1: str
+                        8       CALL_FUNCTION                   2
+                        10      POP_JUMP_IF_FALSE               12 (to 24)
+                        12      LOAD_FAST                       1: input_charset
+                        14      LOAD_METHOD                     2: encode
+                        16      LOAD_CONST                      1: 'ascii'
+                        18      CALL_METHOD                     1
+                        20      POP_TOP                         
+                        22      JUMP_FORWARD                    5 (to 34)
+                        24      LOAD_GLOBAL                     1: str
+                        26      LOAD_FAST                       1: input_charset
+                        28      LOAD_CONST                      1: 'ascii'
+                        30      CALL_FUNCTION                   2
+                        32      STORE_FAST                      1: input_charset
+                        34      POP_BLOCK                       
+                        36      JUMP_FORWARD                    12 (to 62)
+                        38      DUP_TOP                         
+                        40      LOAD_GLOBAL                     3: UnicodeError
+                        42      JUMP_IF_NOT_EXC_MATCH           30 (to 60)
+                        44      POP_TOP                         
+                        46      POP_TOP                         
+                        48      POP_TOP                         
+                        50      LOAD_GLOBAL                     4: errors
+                        52      LOAD_METHOD                     5: CharsetError
+                        54      LOAD_FAST                       1: input_charset
+                        56      CALL_METHOD                     1
+                        58      RAISE_VARARGS                   1
+                        60      RERAISE                         0
+                        62      LOAD_FAST                       1: input_charset
+                        64      LOAD_METHOD                     6: lower
+                        66      CALL_METHOD                     0
+                        68      STORE_FAST                      1: input_charset
+                        70      LOAD_GLOBAL                     7: ALIASES
+                        72      LOAD_METHOD                     8: get
+                        74      LOAD_FAST                       1: input_charset
+                        76      LOAD_FAST                       1: input_charset
+                        78      CALL_METHOD                     2
+                        80      LOAD_FAST                       0: self
+                        82      STORE_ATTR                      9: input_charset
+                        84      LOAD_GLOBAL                     10: CHARSETS
+                        86      LOAD_METHOD                     8: get
+                        88      LOAD_FAST                       0: self
+                        90      LOAD_ATTR                       9: input_charset
+                        92      LOAD_GLOBAL                     11: SHORTEST
+                        94      LOAD_GLOBAL                     12: BASE64
+                        96      LOAD_CONST                      0: None
+                        98      BUILD_TUPLE                     3
+                        100     CALL_METHOD                     2
+                        102     UNPACK_SEQUENCE                 3
+                        104     STORE_FAST                      2: henc
+                        106     STORE_FAST                      3: benc
+                        108     STORE_FAST                      4: conv
+                        110     LOAD_FAST                       4: conv
+                        112     POP_JUMP_IF_TRUE                60 (to 120)
+                        114     LOAD_FAST                       0: self
+                        116     LOAD_ATTR                       9: input_charset
+                        118     STORE_FAST                      4: conv
+                        120     LOAD_FAST                       2: henc
+                        122     LOAD_FAST                       0: self
+                        124     STORE_ATTR                      13: header_encoding
+                        126     LOAD_FAST                       3: benc
+                        128     LOAD_FAST                       0: self
+                        130     STORE_ATTR                      14: body_encoding
+                        132     LOAD_GLOBAL                     7: ALIASES
+                        134     LOAD_METHOD                     8: get
+                        136     LOAD_FAST                       4: conv
+                        138     LOAD_FAST                       4: conv
+                        140     CALL_METHOD                     2
+                        142     LOAD_FAST                       0: self
+                        144     STORE_ATTR                      15: output_charset
+                        146     LOAD_GLOBAL                     16: CODEC_MAP
+                        148     LOAD_METHOD                     8: get
+                        150     LOAD_FAST                       0: self
+                        152     LOAD_ATTR                       9: input_charset
+                        154     LOAD_FAST                       0: self
+                        156     LOAD_ATTR                       9: input_charset
+                        158     CALL_METHOD                     2
+                        160     LOAD_FAST                       0: self
+                        162     STORE_ATTR                      17: input_codec
+                        164     LOAD_GLOBAL                     16: CODEC_MAP
+                        166     LOAD_METHOD                     8: get
+                        168     LOAD_FAST                       0: self
+                        170     LOAD_ATTR                       15: output_charset
+                        172     LOAD_FAST                       0: self
+                        174     LOAD_ATTR                       15: output_charset
+                        176     CALL_METHOD                     2
+                        178     LOAD_FAST                       0: self
+                        180     STORE_ATTR                      18: output_codec
+                        182     LOAD_CONST                      0: None
+                        184     RETURN_VALUE                    
+                'Charset.__init__'
+                [Code]
+                    File Name: email/charset.py
+                    Object Name: __repr__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'input_charset'
+                        'lower'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: input_charset
+                        4       LOAD_METHOD                     1: lower
+                        6       CALL_METHOD                     0
+                        8       RETURN_VALUE                    
+                'Charset.__repr__'
+                [Code]
+                    File Name: email/charset.py
+                    Object Name: __eq__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'str'
+                        'lower'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: str
+                        2       LOAD_FAST                       0: self
+                        4       CALL_FUNCTION                   1
+                        6       LOAD_GLOBAL                     0: str
+                        8       LOAD_FAST                       1: other
+                        10      CALL_FUNCTION                   1
+                        12      LOAD_METHOD                     1: lower
+                        14      CALL_METHOD                     0
+                        16      COMPARE_OP                      2 (==)
+                        18      RETURN_VALUE                    
+                'Charset.__eq__'
+                [Code]
+                    File Name: email/charset.py
+                    Object Name: get_body_encoding
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'body_encoding'
+                        'SHORTEST'
+                        'QP'
+                        'BASE64'
+                        'encode_7or8bit'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return the content-transfer-encoding used for body encoding.\n\n        This is either the string `quoted-printable\' or `base64\' depending on\n        the encoding used, or it is a function in which case you should call\n        the function with a single argument, the Message object being\n        encoded.  The function should then set the Content-Transfer-Encoding\n        header itself to whatever is appropriate.\n\n        Returns "quoted-printable" if self.body_encoding is QP.\n        Returns "base64" if self.body_encoding is BASE64.\n        Returns conversion function otherwise.\n        '
+                        'quoted-printable'
+                        'base64'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: body_encoding
+                        4       LOAD_GLOBAL                     1: SHORTEST
+                        6       COMPARE_OP                      3 (!=)
+                        8       POP_JUMP_IF_TRUE                7 (to 14)
+                        10      LOAD_ASSERTION_ERROR            
+                        12      RAISE_VARARGS                   1
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_ATTR                       0: body_encoding
+                        18      LOAD_GLOBAL                     2: QP
+                        20      COMPARE_OP                      2 (==)
+                        22      POP_JUMP_IF_FALSE               14 (to 28)
+                        24      LOAD_CONST                      1: 'quoted-printable'
+                        26      RETURN_VALUE                    
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: body_encoding
+                        32      LOAD_GLOBAL                     3: BASE64
+                        34      COMPARE_OP                      2 (==)
+                        36      POP_JUMP_IF_FALSE               21 (to 42)
+                        38      LOAD_CONST                      2: 'base64'
+                        40      RETURN_VALUE                    
+                        42      LOAD_GLOBAL                     4: encode_7or8bit
+                        44      RETURN_VALUE                    
+                'Charset.get_body_encoding'
+                [Code]
+                    File Name: email/charset.py
+                    Object Name: get_output_charset
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'output_charset'
+                        'input_charset'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return the output character set.\n\n        This is self.output_charset if that is not None, otherwise it is\n        self.input_charset.\n        '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: output_charset
+                        4       JUMP_IF_TRUE_OR_POP             5 (to 10)
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_ATTR                       1: input_charset
+                        10      RETURN_VALUE                    
+                'Charset.get_output_charset'
+                [Code]
+                    File Name: email/charset.py
+                    Object Name: header_encode
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'output_codec'
+                        '_encode'
+                        '_get_encoder'
+                        'header_encode'
+                    [Var Names]
+                        'self'
+                        'string'
+                        'codec'
+                        'header_bytes'
+                        'encoder_module'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Header-encode a string by converting it first to bytes.\n\n        The type of encoding (base64 or quoted-printable) will be based on\n        this charset's `header_encoding`.\n\n        :param string: A unicode string for the header.  It must be possible\n            to encode this string to bytes using the character set's\n            output codec.\n        :return: The encoded string, with RFC 2047 chrome.\n        "
+                        'us-ascii'
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: output_codec
+                        4       JUMP_IF_TRUE_OR_POP             4 (to 8)
+                        6       LOAD_CONST                      1: 'us-ascii'
+                        8       STORE_FAST                      2: codec
+                        10      LOAD_GLOBAL                     1: _encode
+                        12      LOAD_FAST                       1: string
+                        14      LOAD_FAST                       2: codec
+                        16      CALL_FUNCTION                   2
+                        18      STORE_FAST                      3: header_bytes
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_METHOD                     2: _get_encoder
+                        24      LOAD_FAST                       3: header_bytes
+                        26      CALL_METHOD                     1
+                        28      STORE_FAST                      4: encoder_module
+                        30      LOAD_FAST                       4: encoder_module
+                        32      LOAD_CONST                      2: None
+                        34      IS_OP                           0 (is)
+                        36      POP_JUMP_IF_FALSE               21 (to 42)
+                        38      LOAD_FAST                       1: string
+                        40      RETURN_VALUE                    
+                        42      LOAD_FAST                       4: encoder_module
+                        44      LOAD_METHOD                     3: header_encode
+                        46      LOAD_FAST                       3: header_bytes
+                        48      LOAD_FAST                       2: codec
+                        50      CALL_METHOD                     2
+                        52      RETURN_VALUE                    
+                'Charset.header_encode'
+                [Code]
+                    File Name: email/charset.py
+                    Object Name: header_encode_lines
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 17
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'output_codec'
+                        '_encode'
+                        '_get_encoder'
+                        'partial'
+                        'header_encode'
+                        'get_output_charset'
+                        'len'
+                        'RFC2047_CHROME_LEN'
+                        'next'
+                        'append'
+                        'EMPTYSTRING'
+                        'join'
+                        'header_length'
+                        'pop'
+                    [Var Names]
+                        'self'
+                        'string'
+                        'maxlengths'
+                        'codec'
+                        'header_bytes'
+                        'encoder_module'
+                        'encoder'
+                        'charset'
+                        'extra'
+                        'lines'
+                        'current_line'
+                        'maxlen'
+                        'character'
+                        'this_line'
+                        'length'
+                        'separator'
+                        'joined_line'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Header-encode a string by converting it first to bytes.\n\n        This is similar to `header_encode()` except that the string is fit\n        into maximum line lengths as given by the argument.\n\n        :param string: A unicode string for the header.  It must be possible\n            to encode this string to bytes using the character set's\n            output codec.\n        :param maxlengths: Maximum line length iterator.  Each element\n            returned from this iterator will provide the next maximum line\n            length.  This parameter is used as an argument to built-in next()\n            and should never be exhausted.  The maximum line lengths should\n            not count the RFC 2047 chrome.  These line lengths are only a\n            hint; the splitter does the best it can.\n        :return: Lines of encoded strings, each with RFC 2047 chrome.\n        "
+                        'us-ascii'
+                        (
+                            'charset'
+                        )
+                        None
+                        ' '
+                        ''
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: output_codec
+                        4       JUMP_IF_TRUE_OR_POP             4 (to 8)
+                        6       LOAD_CONST                      1: 'us-ascii'
+                        8       STORE_FAST                      3: codec
+                        10      LOAD_GLOBAL                     1: _encode
+                        12      LOAD_FAST                       1: string
+                        14      LOAD_FAST                       3: codec
+                        16      CALL_FUNCTION                   2
+                        18      STORE_FAST                      4: header_bytes
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_METHOD                     2: _get_encoder
+                        24      LOAD_FAST                       4: header_bytes
+                        26      CALL_METHOD                     1
+                        28      STORE_FAST                      5: encoder_module
+                        30      LOAD_GLOBAL                     3: partial
+                        32      LOAD_FAST                       5: encoder_module
+                        34      LOAD_ATTR                       4: header_encode
+                        36      LOAD_FAST                       3: codec
+                        38      LOAD_CONST                      2: ('charset',)
+                        40      CALL_FUNCTION_KW                2
+                        42      STORE_FAST                      6: encoder
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_METHOD                     5: get_output_charset
+                        48      CALL_METHOD                     0
+                        50      STORE_FAST                      7: charset
+                        52      LOAD_GLOBAL                     6: len
+                        54      LOAD_FAST                       7: charset
+                        56      CALL_FUNCTION                   1
+                        58      LOAD_GLOBAL                     7: RFC2047_CHROME_LEN
+                        60      BINARY_ADD                      
+                        62      STORE_FAST                      8: extra
+                        64      BUILD_LIST                      0
+                        66      STORE_FAST                      9: lines
+                        68      BUILD_LIST                      0
+                        70      STORE_FAST                      10: current_line
+                        72      LOAD_GLOBAL                     8: next
+                        74      LOAD_FAST                       2: maxlengths
+                        76      CALL_FUNCTION                   1
+                        78      LOAD_FAST                       8: extra
+                        80      BINARY_SUBTRACT                 
+                        82      STORE_FAST                      11: maxlen
+                        84      LOAD_FAST                       1: string
+                        86      GET_ITER                        
+                        88      FOR_ITER                        70 (to 230)
+                        90      STORE_FAST                      12: character
+                        92      LOAD_FAST                       10: current_line
+                        94      LOAD_METHOD                     9: append
+                        96      LOAD_FAST                       12: character
+                        98      CALL_METHOD                     1
+                        100     POP_TOP                         
+                        102     LOAD_GLOBAL                     10: EMPTYSTRING
+                        104     LOAD_METHOD                     11: join
+                        106     LOAD_FAST                       10: current_line
+                        108     CALL_METHOD                     1
+                        110     STORE_FAST                      13: this_line
+                        112     LOAD_FAST                       5: encoder_module
+                        114     LOAD_METHOD                     12: header_length
+                        116     LOAD_GLOBAL                     1: _encode
+                        118     LOAD_FAST                       13: this_line
+                        120     LOAD_FAST                       7: charset
+                        122     CALL_FUNCTION                   2
+                        124     CALL_METHOD                     1
+                        126     STORE_FAST                      14: length
+                        128     LOAD_FAST                       14: length
+                        130     LOAD_FAST                       11: maxlen
+                        132     COMPARE_OP                      4 (>)
+                        134     POP_JUMP_IF_FALSE               114 (to 228)
+                        136     LOAD_FAST                       10: current_line
+                        138     LOAD_METHOD                     13: pop
+                        140     CALL_METHOD                     0
+                        142     POP_TOP                         
+                        144     LOAD_FAST                       9: lines
+                        146     POP_JUMP_IF_TRUE                82 (to 164)
+                        148     LOAD_FAST                       10: current_line
+                        150     POP_JUMP_IF_TRUE                82 (to 164)
+                        152     LOAD_FAST                       9: lines
+                        154     LOAD_METHOD                     9: append
+                        156     LOAD_CONST                      3: None
+                        158     CALL_METHOD                     1
+                        160     POP_TOP                         
+                        162     JUMP_FORWARD                    23 (to 210)
+                        164     LOAD_FAST                       9: lines
+                        166     POP_JUMP_IF_FALSE               86 (to 172)
+                        168     LOAD_CONST                      4: ' '
+                        170     JUMP_FORWARD                    1 (to 174)
+                        172     LOAD_CONST                      5: ''
+                        174     STORE_FAST                      15: separator
+                        176     LOAD_GLOBAL                     10: EMPTYSTRING
+                        178     LOAD_METHOD                     11: join
+                        180     LOAD_FAST                       10: current_line
+                        182     CALL_METHOD                     1
+                        184     STORE_FAST                      16: joined_line
+                        186     LOAD_GLOBAL                     1: _encode
+                        188     LOAD_FAST                       16: joined_line
+                        190     LOAD_FAST                       3: codec
+                        192     CALL_FUNCTION                   2
+                        194     STORE_FAST                      4: header_bytes
+                        196     LOAD_FAST                       9: lines
+                        198     LOAD_METHOD                     9: append
+                        200     LOAD_FAST                       6: encoder
+                        202     LOAD_FAST                       4: header_bytes
+                        204     CALL_FUNCTION                   1
+                        206     CALL_METHOD                     1
+                        208     POP_TOP                         
+                        210     LOAD_FAST                       12: character
+                        212     BUILD_LIST                      1
+                        214     STORE_FAST                      10: current_line
+                        216     LOAD_GLOBAL                     8: next
+                        218     LOAD_FAST                       2: maxlengths
+                        220     CALL_FUNCTION                   1
+                        222     LOAD_FAST                       8: extra
+                        224     BINARY_SUBTRACT                 
+                        226     STORE_FAST                      11: maxlen
+                        228     JUMP_ABSOLUTE                   44 (to 88)
+                        230     LOAD_GLOBAL                     10: EMPTYSTRING
+                        232     LOAD_METHOD                     11: join
+                        234     LOAD_FAST                       10: current_line
+                        236     CALL_METHOD                     1
+                        238     STORE_FAST                      16: joined_line
+                        240     LOAD_GLOBAL                     1: _encode
+                        242     LOAD_FAST                       16: joined_line
+                        244     LOAD_FAST                       3: codec
+                        246     CALL_FUNCTION                   2
+                        248     STORE_FAST                      4: header_bytes
+                        250     LOAD_FAST                       9: lines
+                        252     LOAD_METHOD                     9: append
+                        254     LOAD_FAST                       6: encoder
+                        256     LOAD_FAST                       4: header_bytes
+                        258     CALL_FUNCTION                   1
+                        260     CALL_METHOD                     1
+                        262     POP_TOP                         
+                        264     LOAD_FAST                       9: lines
+                        266     RETURN_VALUE                    
+                'Charset.header_encode_lines'
+                [Code]
+                    File Name: email/charset.py
+                    Object Name: _get_encoder
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'header_encoding'
+                        'BASE64'
+                        'email'
+                        'base64mime'
+                        'QP'
+                        'quoprimime'
+                        'SHORTEST'
+                        'header_length'
+                    [Var Names]
+                        'self'
+                        'header_bytes'
+                        'len64'
+                        'lenqp'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: header_encoding
+                        4       LOAD_GLOBAL                     1: BASE64
+                        6       COMPARE_OP                      2 (==)
+                        8       POP_JUMP_IF_FALSE               8 (to 16)
+                        10      LOAD_GLOBAL                     2: email
+                        12      LOAD_ATTR                       3: base64mime
+                        14      RETURN_VALUE                    
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       0: header_encoding
+                        20      LOAD_GLOBAL                     4: QP
+                        22      COMPARE_OP                      2 (==)
+                        24      POP_JUMP_IF_FALSE               16 (to 32)
+                        26      LOAD_GLOBAL                     2: email
+                        28      LOAD_ATTR                       5: quoprimime
+                        30      RETURN_VALUE                    
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       0: header_encoding
+                        36      LOAD_GLOBAL                     6: SHORTEST
+                        38      COMPARE_OP                      2 (==)
+                        40      POP_JUMP_IF_FALSE               43 (to 86)
+                        42      LOAD_GLOBAL                     2: email
+                        44      LOAD_ATTR                       3: base64mime
+                        46      LOAD_METHOD                     7: header_length
+                        48      LOAD_FAST                       1: header_bytes
+                        50      CALL_METHOD                     1
+                        52      STORE_FAST                      2: len64
+                        54      LOAD_GLOBAL                     2: email
+                        56      LOAD_ATTR                       5: quoprimime
+                        58      LOAD_METHOD                     7: header_length
+                        60      LOAD_FAST                       1: header_bytes
+                        62      CALL_METHOD                     1
+                        64      STORE_FAST                      3: lenqp
+                        66      LOAD_FAST                       2: len64
+                        68      LOAD_FAST                       3: lenqp
+                        70      COMPARE_OP                      0 (<)
+                        72      POP_JUMP_IF_FALSE               40 (to 80)
+                        74      LOAD_GLOBAL                     2: email
+                        76      LOAD_ATTR                       3: base64mime
+                        78      RETURN_VALUE                    
+                        80      LOAD_GLOBAL                     2: email
+                        82      LOAD_ATTR                       5: quoprimime
+                        84      RETURN_VALUE                    
+                        86      LOAD_CONST                      0: None
+                        88      RETURN_VALUE                    
+                'Charset._get_encoder'
+                [Code]
+                    File Name: email/charset.py
+                    Object Name: body_encode
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'body_encoding'
+                        'BASE64'
+                        'isinstance'
+                        'str'
+                        'encode'
+                        'output_charset'
+                        'email'
+                        'base64mime'
+                        'body_encode'
+                        'QP'
+                        'decode'
+                        'quoprimime'
+                    [Var Names]
+                        'self'
+                        'string'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Body-encode a string by converting it first to bytes.\n\n        The type of encoding (base64 or quoted-printable) will be based on\n        self.body_encoding.  If body_encoding is None, we assume the\n        output charset is a 7bit encoding, so re-encoding the decoded\n        string using the ascii codec produces the correct string version\n        of the content.\n        '
+                        'latin1'
+                        'ascii'
+                    [Disassembly]
+                        0       LOAD_FAST                       1: string
+                        2       POP_JUMP_IF_TRUE                4 (to 8)
+                        4       LOAD_FAST                       1: string
+                        6       RETURN_VALUE                    
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       0: body_encoding
+                        12      LOAD_GLOBAL                     1: BASE64
+                        14      IS_OP                           0 (is)
+                        16      POP_JUMP_IF_FALSE               26 (to 52)
+                        18      LOAD_GLOBAL                     2: isinstance
+                        20      LOAD_FAST                       1: string
+                        22      LOAD_GLOBAL                     3: str
+                        24      CALL_FUNCTION                   2
+                        26      POP_JUMP_IF_FALSE               20 (to 40)
+                        28      LOAD_FAST                       1: string
+                        30      LOAD_METHOD                     4: encode
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       5: output_charset
+                        36      CALL_METHOD                     1
+                        38      STORE_FAST                      1: string
+                        40      LOAD_GLOBAL                     6: email
+                        42      LOAD_ATTR                       7: base64mime
+                        44      LOAD_METHOD                     8: body_encode
+                        46      LOAD_FAST                       1: string
+                        48      CALL_METHOD                     1
+                        50      RETURN_VALUE                    
+                        52      LOAD_FAST                       0: self
+                        54      LOAD_ATTR                       0: body_encoding
+                        56      LOAD_GLOBAL                     9: QP
+                        58      IS_OP                           0 (is)
+                        60      POP_JUMP_IF_FALSE               53 (to 106)
+                        62      LOAD_GLOBAL                     2: isinstance
+                        64      LOAD_FAST                       1: string
+                        66      LOAD_GLOBAL                     3: str
+                        68      CALL_FUNCTION                   2
+                        70      POP_JUMP_IF_FALSE               42 (to 84)
+                        72      LOAD_FAST                       1: string
+                        74      LOAD_METHOD                     4: encode
+                        76      LOAD_FAST                       0: self
+                        78      LOAD_ATTR                       5: output_charset
+                        80      CALL_METHOD                     1
+                        82      STORE_FAST                      1: string
+                        84      LOAD_FAST                       1: string
+                        86      LOAD_METHOD                     10: decode
+                        88      LOAD_CONST                      1: 'latin1'
+                        90      CALL_METHOD                     1
+                        92      STORE_FAST                      1: string
+                        94      LOAD_GLOBAL                     6: email
+                        96      LOAD_ATTR                       11: quoprimime
+                        98      LOAD_METHOD                     8: body_encode
+                        100     LOAD_FAST                       1: string
+                        102     CALL_METHOD                     1
+                        104     RETURN_VALUE                    
+                        106     LOAD_GLOBAL                     2: isinstance
+                        108     LOAD_FAST                       1: string
+                        110     LOAD_GLOBAL                     3: str
+                        112     CALL_FUNCTION                   2
+                        114     POP_JUMP_IF_FALSE               67 (to 134)
+                        116     LOAD_FAST                       1: string
+                        118     LOAD_METHOD                     4: encode
+                        120     LOAD_FAST                       0: self
+                        122     LOAD_ATTR                       5: output_charset
+                        124     CALL_METHOD                     1
+                        126     LOAD_METHOD                     10: decode
+                        128     LOAD_CONST                      2: 'ascii'
+                        130     CALL_METHOD                     1
+                        132     STORE_FAST                      1: string
+                        134     LOAD_FAST                       1: string
+                        136     RETURN_VALUE                    
+                'Charset.body_encode'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Charset'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: "Map character sets to their email properties.\n\n    This class provides information about the requirements imposed on email\n    for a specific character set.  It also provides convenience routines for\n    converting between character sets, given the availability of the\n    applicable codecs.  Given a character set, it will do its best to provide\n    information on how to use that character set in an email in an\n    RFC-compliant way.\n\n    Certain character sets must be encoded with quoted-printable or base64\n    when used in email headers or bodies.  Certain character sets must be\n    converted outright, and are not allowed in email.  Instances of this\n    module expose the following information about a character set:\n\n    input_charset: The initial character set specified.  Common aliases\n                   are converted to their `official' email names (e.g. latin_1\n                   is converted to iso-8859-1).  Defaults to 7-bit us-ascii.\n\n    header_encoding: If the character set must be encoded before it can be\n                     used in an email header, this attribute will be set to\n                     charset.QP (for quoted-printable), charset.BASE64 (for\n                     base64 encoding), or charset.SHORTEST for the shortest of\n                     QP or BASE64 encoding.  Otherwise, it will be None.\n\n    body_encoding: Same as header_encoding, but describes the encoding for the\n                   mail message's body, which indeed may be different than the\n                   header encoding.  charset.SHORTEST is not allowed for\n                   body_encoding.\n\n    output_charset: Some character sets must be converted before they can be\n                    used in email headers or bodies.  If the input_charset is\n                    one of them, this attribute will contain the name of the\n                    charset output will be converted to.  Otherwise, it will\n                    be None.\n\n    input_codec: The name of the Python codec used to convert the\n                 input_charset to Unicode.  If no conversion codec is\n                 necessary, this attribute will be None.\n\n    output_codec: The name of the Python codec used to convert Unicode\n                  to the output_charset.  If no conversion codec is necessary,\n                  this attribute will have the same value as the input_codec.\n    "
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_NAME                       4: DEFAULT_CHARSET
+                14      BUILD_TUPLE                     1
+                16      LOAD_CONST                      2: <CODE> __init__
+                18      LOAD_CONST                      3: 'Charset.__init__'
+                20      MAKE_FUNCTION                   1
+                22      STORE_NAME                      5: __init__
+                24      LOAD_CONST                      4: <CODE> __repr__
+                26      LOAD_CONST                      5: 'Charset.__repr__'
+                28      MAKE_FUNCTION                   0
+                30      STORE_NAME                      6: __repr__
+                32      LOAD_CONST                      6: <CODE> __eq__
+                34      LOAD_CONST                      7: 'Charset.__eq__'
+                36      MAKE_FUNCTION                   0
+                38      STORE_NAME                      7: __eq__
+                40      LOAD_CONST                      8: <CODE> get_body_encoding
+                42      LOAD_CONST                      9: 'Charset.get_body_encoding'
+                44      MAKE_FUNCTION                   0
+                46      STORE_NAME                      8: get_body_encoding
+                48      LOAD_CONST                      10: <CODE> get_output_charset
+                50      LOAD_CONST                      11: 'Charset.get_output_charset'
+                52      MAKE_FUNCTION                   0
+                54      STORE_NAME                      9: get_output_charset
+                56      LOAD_CONST                      12: <CODE> header_encode
+                58      LOAD_CONST                      13: 'Charset.header_encode'
+                60      MAKE_FUNCTION                   0
+                62      STORE_NAME                      10: header_encode
+                64      LOAD_CONST                      14: <CODE> header_encode_lines
+                66      LOAD_CONST                      15: 'Charset.header_encode_lines'
+                68      MAKE_FUNCTION                   0
+                70      STORE_NAME                      11: header_encode_lines
+                72      LOAD_CONST                      16: <CODE> _get_encoder
+                74      LOAD_CONST                      17: 'Charset._get_encoder'
+                76      MAKE_FUNCTION                   0
+                78      STORE_NAME                      12: _get_encoder
+                80      LOAD_CONST                      18: <CODE> body_encode
+                82      LOAD_CONST                      19: 'Charset.body_encode'
+                84      MAKE_FUNCTION                   0
+                86      STORE_NAME                      13: body_encode
+                88      LOAD_CONST                      20: None
+                90      RETURN_VALUE                    
+        'Charset'
+    [Disassembly]
+        0       BUILD_LIST                      0
+        2       LOAD_CONST                      0: ('Charset', 'add_alias', 'add_charset', 'add_codec')
+        4       LIST_EXTEND                     1
+        6       STORE_NAME                      0: __all__
+        8       LOAD_CONST                      1: 0
+        10      LOAD_CONST                      2: ('partial',)
+        12      IMPORT_NAME                     1: functools
+        14      IMPORT_FROM                     2: partial
+        16      STORE_NAME                      2: partial
+        18      POP_TOP                         
+        20      LOAD_CONST                      1: 0
+        22      LOAD_CONST                      3: None
+        24      IMPORT_NAME                     3: email.base64mime
+        26      STORE_NAME                      4: email
+        28      LOAD_CONST                      1: 0
+        30      LOAD_CONST                      3: None
+        32      IMPORT_NAME                     5: email.quoprimime
+        34      STORE_NAME                      4: email
+        36      LOAD_CONST                      1: 0
+        38      LOAD_CONST                      4: ('errors',)
+        40      IMPORT_NAME                     4: email
+        42      IMPORT_FROM                     6: errors
+        44      STORE_NAME                      6: errors
+        46      POP_TOP                         
+        48      LOAD_CONST                      1: 0
+        50      LOAD_CONST                      5: ('encode_7or8bit',)
+        52      IMPORT_NAME                     7: email.encoders
+        54      IMPORT_FROM                     8: encode_7or8bit
+        56      STORE_NAME                      8: encode_7or8bit
+        58      POP_TOP                         
+        60      LOAD_CONST                      6: 1
+        62      STORE_NAME                      9: QP
+        64      LOAD_CONST                      7: 2
+        66      STORE_NAME                      10: BASE64
+        68      LOAD_CONST                      8: 3
+        70      STORE_NAME                      11: SHORTEST
+        72      LOAD_CONST                      9: 7
+        74      STORE_NAME                      12: RFC2047_CHROME_LEN
+        76      LOAD_CONST                      10: 'us-ascii'
+        78      STORE_NAME                      13: DEFAULT_CHARSET
+        80      LOAD_CONST                      11: 'unknown-8bit'
+        82      STORE_NAME                      14: UNKNOWN8BIT
+        84      LOAD_CONST                      12: ''
+        86      STORE_NAME                      15: EMPTYSTRING
+        88      BUILD_MAP                       0
+        90      LOAD_CONST                      13: 'iso-8859-1'
+        92      LOAD_NAME                       9: QP
+        94      LOAD_NAME                       9: QP
+        96      LOAD_CONST                      3: None
+        98      BUILD_TUPLE                     3
+        100     MAP_ADD                         1
+        102     LOAD_CONST                      14: 'iso-8859-2'
+        104     LOAD_NAME                       9: QP
+        106     LOAD_NAME                       9: QP
+        108     LOAD_CONST                      3: None
+        110     BUILD_TUPLE                     3
+        112     MAP_ADD                         1
+        114     LOAD_CONST                      15: 'iso-8859-3'
+        116     LOAD_NAME                       9: QP
+        118     LOAD_NAME                       9: QP
+        120     LOAD_CONST                      3: None
+        122     BUILD_TUPLE                     3
+        124     MAP_ADD                         1
+        126     LOAD_CONST                      16: 'iso-8859-4'
+        128     LOAD_NAME                       9: QP
+        130     LOAD_NAME                       9: QP
+        132     LOAD_CONST                      3: None
+        134     BUILD_TUPLE                     3
+        136     MAP_ADD                         1
+        138     LOAD_CONST                      17: 'iso-8859-9'
+        140     LOAD_NAME                       9: QP
+        142     LOAD_NAME                       9: QP
+        144     LOAD_CONST                      3: None
+        146     BUILD_TUPLE                     3
+        148     MAP_ADD                         1
+        150     LOAD_CONST                      18: 'iso-8859-10'
+        152     LOAD_NAME                       9: QP
+        154     LOAD_NAME                       9: QP
+        156     LOAD_CONST                      3: None
+        158     BUILD_TUPLE                     3
+        160     MAP_ADD                         1
+        162     LOAD_CONST                      19: 'iso-8859-13'
+        164     LOAD_NAME                       9: QP
+        166     LOAD_NAME                       9: QP
+        168     LOAD_CONST                      3: None
+        170     BUILD_TUPLE                     3
+        172     MAP_ADD                         1
+        174     LOAD_CONST                      20: 'iso-8859-14'
+        176     LOAD_NAME                       9: QP
+        178     LOAD_NAME                       9: QP
+        180     LOAD_CONST                      3: None
+        182     BUILD_TUPLE                     3
+        184     MAP_ADD                         1
+        186     LOAD_CONST                      21: 'iso-8859-15'
+        188     LOAD_NAME                       9: QP
+        190     LOAD_NAME                       9: QP
+        192     LOAD_CONST                      3: None
+        194     BUILD_TUPLE                     3
+        196     MAP_ADD                         1
+        198     LOAD_CONST                      22: 'iso-8859-16'
+        200     LOAD_NAME                       9: QP
+        202     LOAD_NAME                       9: QP
+        204     LOAD_CONST                      3: None
+        206     BUILD_TUPLE                     3
+        208     MAP_ADD                         1
+        210     LOAD_CONST                      23: 'windows-1252'
+        212     LOAD_NAME                       9: QP
+        214     LOAD_NAME                       9: QP
+        216     LOAD_CONST                      3: None
+        218     BUILD_TUPLE                     3
+        220     MAP_ADD                         1
+        222     LOAD_CONST                      24: 'viscii'
+        224     LOAD_NAME                       9: QP
+        226     LOAD_NAME                       9: QP
+        228     LOAD_CONST                      3: None
+        230     BUILD_TUPLE                     3
+        232     MAP_ADD                         1
+        234     LOAD_CONST                      10: 'us-ascii'
+        236     LOAD_CONST                      25: (None, None, None)
+        238     MAP_ADD                         1
+        240     LOAD_CONST                      26: 'big5'
+        242     LOAD_NAME                       10: BASE64
+        244     LOAD_NAME                       10: BASE64
+        246     LOAD_CONST                      3: None
+        248     BUILD_TUPLE                     3
+        250     MAP_ADD                         1
+        252     LOAD_CONST                      27: 'gb2312'
+        254     LOAD_NAME                       10: BASE64
+        256     LOAD_NAME                       10: BASE64
+        258     LOAD_CONST                      3: None
+        260     BUILD_TUPLE                     3
+        262     MAP_ADD                         1
+        264     LOAD_CONST                      28: 'euc-jp'
+        266     LOAD_NAME                       10: BASE64
+        268     LOAD_CONST                      3: None
+        270     LOAD_CONST                      29: 'iso-2022-jp'
+        272     BUILD_TUPLE                     3
+        274     MAP_ADD                         1
+        276     LOAD_CONST                      30: 'shift_jis'
+        278     LOAD_NAME                       10: BASE64
+        280     LOAD_CONST                      3: None
+        282     LOAD_CONST                      29: 'iso-2022-jp'
+        284     BUILD_TUPLE                     3
+        286     MAP_ADD                         1
+        288     LOAD_NAME                       10: BASE64
+        290     LOAD_CONST                      3: None
+        292     LOAD_CONST                      3: None
+        294     BUILD_TUPLE                     3
+        296     LOAD_NAME                       10: BASE64
+        298     LOAD_NAME                       10: BASE64
+        300     LOAD_CONST                      3: None
+        302     BUILD_TUPLE                     3
+        304     LOAD_NAME                       11: SHORTEST
+        306     LOAD_NAME                       10: BASE64
+        308     LOAD_CONST                      31: 'utf-8'
+        310     BUILD_TUPLE                     3
+        312     LOAD_CONST                      32: ('iso-2022-jp', 'koi8-r', 'utf-8')
+        314     BUILD_CONST_KEY_MAP             3
+        316     DICT_UPDATE                     1
+        318     STORE_NAME                      16: CHARSETS
+        320     BUILD_MAP                       0
+        322     LOAD_CONST                      33: 'latin_1'
+        324     LOAD_CONST                      13: 'iso-8859-1'
+        326     MAP_ADD                         1
+        328     LOAD_CONST                      34: 'latin-1'
+        330     LOAD_CONST                      13: 'iso-8859-1'
+        332     MAP_ADD                         1
+        334     LOAD_CONST                      35: 'latin_2'
+        336     LOAD_CONST                      14: 'iso-8859-2'
+        338     MAP_ADD                         1
+        340     LOAD_CONST                      36: 'latin-2'
+        342     LOAD_CONST                      14: 'iso-8859-2'
+        344     MAP_ADD                         1
+        346     LOAD_CONST                      37: 'latin_3'
+        348     LOAD_CONST                      15: 'iso-8859-3'
+        350     MAP_ADD                         1
+        352     LOAD_CONST                      38: 'latin-3'
+        354     LOAD_CONST                      15: 'iso-8859-3'
+        356     MAP_ADD                         1
+        358     LOAD_CONST                      39: 'latin_4'
+        360     LOAD_CONST                      16: 'iso-8859-4'
+        362     MAP_ADD                         1
+        364     LOAD_CONST                      40: 'latin-4'
+        366     LOAD_CONST                      16: 'iso-8859-4'
+        368     MAP_ADD                         1
+        370     LOAD_CONST                      41: 'latin_5'
+        372     LOAD_CONST                      17: 'iso-8859-9'
+        374     MAP_ADD                         1
+        376     LOAD_CONST                      42: 'latin-5'
+        378     LOAD_CONST                      17: 'iso-8859-9'
+        380     MAP_ADD                         1
+        382     LOAD_CONST                      43: 'latin_6'
+        384     LOAD_CONST                      18: 'iso-8859-10'
+        386     MAP_ADD                         1
+        388     LOAD_CONST                      44: 'latin-6'
+        390     LOAD_CONST                      18: 'iso-8859-10'
+        392     MAP_ADD                         1
+        394     LOAD_CONST                      45: 'latin_7'
+        396     LOAD_CONST                      19: 'iso-8859-13'
+        398     MAP_ADD                         1
+        400     LOAD_CONST                      46: 'latin-7'
+        402     LOAD_CONST                      19: 'iso-8859-13'
+        404     MAP_ADD                         1
+        406     LOAD_CONST                      47: 'latin_8'
+        408     LOAD_CONST                      20: 'iso-8859-14'
+        410     MAP_ADD                         1
+        412     LOAD_CONST                      48: 'latin-8'
+        414     LOAD_CONST                      20: 'iso-8859-14'
+        416     MAP_ADD                         1
+        418     LOAD_CONST                      49: 'latin_9'
+        420     LOAD_CONST                      21: 'iso-8859-15'
+        422     MAP_ADD                         1
+        424     LOAD_CONST                      21: 'iso-8859-15'
+        426     LOAD_CONST                      22: 'iso-8859-16'
+        428     LOAD_CONST                      22: 'iso-8859-16'
+        430     LOAD_CONST                      50: 'ks_c_5601-1987'
+        432     LOAD_CONST                      28: 'euc-jp'
+        434     LOAD_CONST                      51: 'euc-kr'
+        436     LOAD_CONST                      10: 'us-ascii'
+        438     LOAD_CONST                      52: ('latin-9', 'latin_10', 'latin-10', 'cp949', 'euc_jp', 'euc_kr', 'ascii')
+        440     BUILD_CONST_KEY_MAP             7
+        442     DICT_UPDATE                     1
+        444     STORE_NAME                      17: ALIASES
+        446     LOAD_CONST                      53: 'eucgb2312_cn'
+        448     LOAD_CONST                      54: 'big5_tw'
+        450     LOAD_CONST                      3: None
+        452     LOAD_CONST                      55: ('gb2312', 'big5', 'us-ascii')
+        454     BUILD_CONST_KEY_MAP             3
+        456     STORE_NAME                      18: CODEC_MAP
+        458     LOAD_CONST                      25: (None, None, None)
+        460     LOAD_CONST                      56: <CODE> add_charset
+        462     LOAD_CONST                      57: 'add_charset'
+        464     MAKE_FUNCTION                   1
+        466     STORE_NAME                      19: add_charset
+        468     LOAD_CONST                      58: <CODE> add_alias
+        470     LOAD_CONST                      59: 'add_alias'
+        472     MAKE_FUNCTION                   0
+        474     STORE_NAME                      20: add_alias
+        476     LOAD_CONST                      60: <CODE> add_codec
+        478     LOAD_CONST                      61: 'add_codec'
+        480     MAKE_FUNCTION                   0
+        482     STORE_NAME                      21: add_codec
+        484     LOAD_CONST                      62: <CODE> _encode
+        486     LOAD_CONST                      63: '_encode'
+        488     MAKE_FUNCTION                   0
+        490     STORE_NAME                      22: _encode
+        492     LOAD_BUILD_CLASS                
+        494     LOAD_CONST                      64: <CODE> Charset
+        496     LOAD_CONST                      65: 'Charset'
+        498     MAKE_FUNCTION                   0
+        500     LOAD_CONST                      65: 'Charset'
+        502     CALL_FUNCTION                   2
+        504     STORE_NAME                      23: Charset
+        506     LOAD_CONST                      3: None
+        508     RETURN_VALUE                    

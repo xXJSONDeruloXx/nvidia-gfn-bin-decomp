@@ -1,0 +1,695 @@
+parser.pyc (Python 3.10)
+[Code]
+    File Name: email/parser.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        'io'
+        'StringIO'
+        'TextIOWrapper'
+        'email.feedparser'
+        'FeedParser'
+        'BytesFeedParser'
+        'email._policybase'
+        'compat32'
+        'Parser'
+        'HeaderParser'
+        'BytesParser'
+        'BytesHeaderParser'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'A parser of RFC 2822 and MIME email messages.'
+        (
+            'Parser'
+            'HeaderParser'
+            'BytesParser'
+            'BytesHeaderParser'
+            'FeedParser'
+            'BytesFeedParser'
+        )
+        0
+        (
+            'StringIO'
+            'TextIOWrapper'
+        )
+        (
+            'FeedParser'
+            'BytesFeedParser'
+        )
+        (
+            'compat32'
+        )
+        [Code]
+            File Name: email/parser.py
+            Object Name: Parser
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                'compat32'
+                '__init__'
+                'parse'
+                'parsestr'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Parser'
+                None
+                (
+                    'policy'
+                )
+                [Code]
+                    File Name: email/parser.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 1
+                    Locals: 3
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_class'
+                        'policy'
+                    [Var Names]
+                        'self'
+                        '_class'
+                        'policy'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Parser of RFC 2822 and MIME email messages.\n\n        Creates an in-memory object tree representing the email message, which\n        can then be manipulated and turned over to a Generator to return the\n        textual representation of the message.\n\n        The string must be formatted as a block of RFC 2822 headers and header\n        continuation lines, optionally preceded by a `Unix-from' header.  The\n        header block is terminated either by the end of the string or by a\n        blank line.\n\n        _class is the class to instantiate for new message objects when they\n        must be created.  This class must have a constructor that can take\n        zero arguments.  Default is Message.Message.\n\n        The policy keyword specifies a policy object that controls a number of\n        aspects of the parser's operation.  The default policy maintains\n        backward compatibility.\n\n        "
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: _class
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: _class
+                        6       LOAD_FAST                       2: policy
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: policy
+                        12      LOAD_CONST                      1: None
+                        14      RETURN_VALUE                    
+                'Parser.__init__'
+                False
+                [Code]
+                    File Name: email/parser.py
+                    Object Name: parse
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'FeedParser'
+                        '_class'
+                        'policy'
+                        '_set_headersonly'
+                        'read'
+                        'feed'
+                        'close'
+                    [Var Names]
+                        'self'
+                        'fp'
+                        'headersonly'
+                        'feedparser'
+                        'data'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Create a message structure from the data in a file.\n\n        Reads all the data from the file and returns the root of the message\n        structure.  Optional headersonly is a flag specifying whether to stop\n        parsing after reading the headers or not.  The default is False,\n        meaning it parses the entire contents of the file.\n        '
+                        (
+                            'policy'
+                        )
+                        True
+                        8192
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: FeedParser
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       1: _class
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_ATTR                       2: policy
+                        10      LOAD_CONST                      1: ('policy',)
+                        12      CALL_FUNCTION_KW                2
+                        14      STORE_FAST                      3: feedparser
+                        16      LOAD_FAST                       2: headersonly
+                        18      POP_JUMP_IF_FALSE               14 (to 28)
+                        20      LOAD_FAST                       3: feedparser
+                        22      LOAD_METHOD                     3: _set_headersonly
+                        24      CALL_METHOD                     0
+                        26      POP_TOP                         
+                        28      NOP                             
+                        30      LOAD_FAST                       1: fp
+                        32      LOAD_METHOD                     4: read
+                        34      LOAD_CONST                      3: 8192
+                        36      CALL_METHOD                     1
+                        38      STORE_FAST                      4: data
+                        40      LOAD_FAST                       4: data
+                        42      POP_JUMP_IF_TRUE                27 (to 54)
+                        44      NOP                             
+                        46      LOAD_FAST                       3: feedparser
+                        48      LOAD_METHOD                     6: close
+                        50      CALL_METHOD                     0
+                        52      RETURN_VALUE                    
+                        54      LOAD_FAST                       3: feedparser
+                        56      LOAD_METHOD                     5: feed
+                        58      LOAD_FAST                       4: data
+                        60      CALL_METHOD                     1
+                        62      POP_TOP                         
+                        64      JUMP_ABSOLUTE                   15 (to 30)
+                'Parser.parse'
+                [Code]
+                    File Name: email/parser.py
+                    Object Name: parsestr
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'parse'
+                        'StringIO'
+                    [Var Names]
+                        'self'
+                        'text'
+                        'headersonly'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Create a message structure from a string.\n\n        Returns the root of the message structure.  Optional headersonly is a\n        flag specifying whether to stop parsing after reading the headers or\n        not.  The default is False, meaning it parses the entire contents of\n        the file.\n        '
+                        (
+                            'headersonly'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: parse
+                        4       LOAD_GLOBAL                     1: StringIO
+                        6       LOAD_FAST                       1: text
+                        8       CALL_FUNCTION                   1
+                        10      LOAD_FAST                       2: headersonly
+                        12      LOAD_CONST                      1: ('headersonly',)
+                        14      CALL_FUNCTION_KW                2
+                        16      RETURN_VALUE                    
+                'Parser.parsestr'
+                (
+                    None
+                )
+                (
+                    False
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Parser'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      10: (None,)
+                10      LOAD_NAME                       3: compat32
+                12      LOAD_CONST                      2: ('policy',)
+                14      BUILD_CONST_KEY_MAP             1
+                16      LOAD_CONST                      3: <CODE> __init__
+                18      LOAD_CONST                      4: 'Parser.__init__'
+                20      MAKE_FUNCTION                   3
+                22      STORE_NAME                      4: __init__
+                24      LOAD_CONST                      11: (False,)
+                26      LOAD_CONST                      6: <CODE> parse
+                28      LOAD_CONST                      7: 'Parser.parse'
+                30      MAKE_FUNCTION                   1
+                32      STORE_NAME                      5: parse
+                34      LOAD_CONST                      11: (False,)
+                36      LOAD_CONST                      8: <CODE> parsestr
+                38      LOAD_CONST                      9: 'Parser.parsestr'
+                40      MAKE_FUNCTION                   1
+                42      STORE_NAME                      6: parsestr
+                44      LOAD_CONST                      1: None
+                46      RETURN_VALUE                    
+        'Parser'
+        [Code]
+            File Name: email/parser.py
+            Object Name: HeaderParser
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                'parse'
+                'parsestr'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'HeaderParser'
+                True
+                [Code]
+                    File Name: email/parser.py
+                    Object Name: parse
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'Parser'
+                        'parse'
+                    [Var Names]
+                        'self'
+                        'fp'
+                        'headersonly'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        True
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: Parser
+                        2       LOAD_METHOD                     1: parse
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_FAST                       1: fp
+                        8       LOAD_CONST                      1: True
+                        10      CALL_METHOD                     3
+                        12      RETURN_VALUE                    
+                'HeaderParser.parse'
+                [Code]
+                    File Name: email/parser.py
+                    Object Name: parsestr
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'Parser'
+                        'parsestr'
+                    [Var Names]
+                        'self'
+                        'text'
+                        'headersonly'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        True
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: Parser
+                        2       LOAD_METHOD                     1: parsestr
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_FAST                       1: text
+                        8       LOAD_CONST                      1: True
+                        10      CALL_METHOD                     3
+                        12      RETURN_VALUE                    
+                'HeaderParser.parsestr'
+                None
+                (
+                    True
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'HeaderParser'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      7: (True,)
+                10      LOAD_CONST                      2: <CODE> parse
+                12      LOAD_CONST                      3: 'HeaderParser.parse'
+                14      MAKE_FUNCTION                   1
+                16      STORE_NAME                      3: parse
+                18      LOAD_CONST                      7: (True,)
+                20      LOAD_CONST                      4: <CODE> parsestr
+                22      LOAD_CONST                      5: 'HeaderParser.parsestr'
+                24      MAKE_FUNCTION                   1
+                26      STORE_NAME                      4: parsestr
+                28      LOAD_CONST                      6: None
+                30      RETURN_VALUE                    
+        'HeaderParser'
+        [Code]
+            File Name: email/parser.py
+            Object Name: BytesParser
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__init__'
+                'parse'
+                'parsebytes'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'BytesParser'
+                [Code]
+                    File Name: email/parser.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x0000004F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NOFREE)
+                    [Names]
+                        'Parser'
+                        'parser'
+                    [Var Names]
+                        'self'
+                        'args'
+                        'kw'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Parser of binary RFC 2822 and MIME email messages.\n\n        Creates an in-memory object tree representing the email message, which\n        can then be manipulated and turned over to a Generator to return the\n        textual representation of the message.\n\n        The input must be formatted as a block of RFC 2822 headers and header\n        continuation lines, optionally preceded by a `Unix-from' header.  The\n        header block is terminated either by the end of the input or by a\n        blank line.\n\n        _class is the class to instantiate for new message objects when they\n        must be created.  This class must have a constructor that can take\n        zero arguments.  Default is Message.Message.\n        "
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: Parser
+                        2       LOAD_FAST                       1: args
+                        4       BUILD_MAP                       0
+                        6       LOAD_FAST                       2: kw
+                        8       DICT_MERGE                      1
+                        10      CALL_FUNCTION_EX                1
+                        12      LOAD_FAST                       0: self
+                        14      STORE_ATTR                      1: parser
+                        16      LOAD_CONST                      1: None
+                        18      RETURN_VALUE                    
+                'BytesParser.__init__'
+                False
+                [Code]
+                    File Name: email/parser.py
+                    Object Name: parse
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'TextIOWrapper'
+                        'parser'
+                        'parse'
+                        'detach'
+                    [Var Names]
+                        'self'
+                        'fp'
+                        'headersonly'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Create a message structure from the data in a binary file.\n\n        Reads all the data from the file and returns the root of the message\n        structure.  Optional headersonly is a flag specifying whether to stop\n        parsing after reading the headers or not.  The default is False,\n        meaning it parses the entire contents of the file.\n        '
+                        'ascii'
+                        'surrogateescape'
+                        (
+                            'encoding'
+                            'errors'
+                        )
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: TextIOWrapper
+                        2       LOAD_FAST                       1: fp
+                        4       LOAD_CONST                      1: 'ascii'
+                        6       LOAD_CONST                      2: 'surrogateescape'
+                        8       LOAD_CONST                      3: ('encoding', 'errors')
+                        10      CALL_FUNCTION_KW                3
+                        12      STORE_FAST                      1: fp
+                        14      SETUP_FINALLY                   12 (to 40)
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       1: parser
+                        20      LOAD_METHOD                     2: parse
+                        22      LOAD_FAST                       1: fp
+                        24      LOAD_FAST                       2: headersonly
+                        26      CALL_METHOD                     2
+                        28      POP_BLOCK                       
+                        30      LOAD_FAST                       1: fp
+                        32      LOAD_METHOD                     3: detach
+                        34      CALL_METHOD                     0
+                        36      POP_TOP                         
+                        38      RETURN_VALUE                    
+                        40      LOAD_FAST                       1: fp
+                        42      LOAD_METHOD                     3: detach
+                        44      CALL_METHOD                     0
+                        46      POP_TOP                         
+                        48      RERAISE                         0
+                'BytesParser.parse'
+                [Code]
+                    File Name: email/parser.py
+                    Object Name: parsebytes
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'decode'
+                        'parser'
+                        'parsestr'
+                    [Var Names]
+                        'self'
+                        'text'
+                        'headersonly'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Create a message structure from a byte string.\n\n        Returns the root of the message structure.  Optional headersonly is a\n        flag specifying whether to stop parsing after reading the headers or\n        not.  The default is False, meaning it parses the entire contents of\n        the file.\n        '
+                        'ASCII'
+                        'surrogateescape'
+                        (
+                            'errors'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       1: text
+                        2       LOAD_ATTR                       0: decode
+                        4       LOAD_CONST                      1: 'ASCII'
+                        6       LOAD_CONST                      2: 'surrogateescape'
+                        8       LOAD_CONST                      3: ('errors',)
+                        10      CALL_FUNCTION_KW                2
+                        12      STORE_FAST                      1: text
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_ATTR                       1: parser
+                        18      LOAD_METHOD                     2: parsestr
+                        20      LOAD_FAST                       1: text
+                        22      LOAD_FAST                       2: headersonly
+                        24      CALL_METHOD                     2
+                        26      RETURN_VALUE                    
+                'BytesParser.parsebytes'
+                None
+                (
+                    False
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'BytesParser'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: <CODE> __init__
+                10      LOAD_CONST                      2: 'BytesParser.__init__'
+                12      MAKE_FUNCTION                   0
+                14      STORE_NAME                      3: __init__
+                16      LOAD_CONST                      9: (False,)
+                18      LOAD_CONST                      4: <CODE> parse
+                20      LOAD_CONST                      5: 'BytesParser.parse'
+                22      MAKE_FUNCTION                   1
+                24      STORE_NAME                      4: parse
+                26      LOAD_CONST                      9: (False,)
+                28      LOAD_CONST                      6: <CODE> parsebytes
+                30      LOAD_CONST                      7: 'BytesParser.parsebytes'
+                32      MAKE_FUNCTION                   1
+                34      STORE_NAME                      5: parsebytes
+                36      LOAD_CONST                      8: None
+                38      RETURN_VALUE                    
+        'BytesParser'
+        [Code]
+            File Name: email/parser.py
+            Object Name: BytesHeaderParser
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                'parse'
+                'parsebytes'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'BytesHeaderParser'
+                True
+                [Code]
+                    File Name: email/parser.py
+                    Object Name: parse
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'BytesParser'
+                        'parse'
+                    [Var Names]
+                        'self'
+                        'fp'
+                        'headersonly'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        True
+                        (
+                            'headersonly'
+                        )
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: BytesParser
+                        2       LOAD_ATTR                       1: parse
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_FAST                       1: fp
+                        8       LOAD_CONST                      1: True
+                        10      LOAD_CONST                      2: ('headersonly',)
+                        12      CALL_FUNCTION_KW                3
+                        14      RETURN_VALUE                    
+                'BytesHeaderParser.parse'
+                [Code]
+                    File Name: email/parser.py
+                    Object Name: parsebytes
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'BytesParser'
+                        'parsebytes'
+                    [Var Names]
+                        'self'
+                        'text'
+                        'headersonly'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        True
+                        (
+                            'headersonly'
+                        )
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: BytesParser
+                        2       LOAD_ATTR                       1: parsebytes
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_FAST                       1: text
+                        8       LOAD_CONST                      1: True
+                        10      LOAD_CONST                      2: ('headersonly',)
+                        12      CALL_FUNCTION_KW                3
+                        14      RETURN_VALUE                    
+                'BytesHeaderParser.parsebytes'
+                None
+                (
+                    True
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'BytesHeaderParser'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      7: (True,)
+                10      LOAD_CONST                      2: <CODE> parse
+                12      LOAD_CONST                      3: 'BytesHeaderParser.parse'
+                14      MAKE_FUNCTION                   1
+                16      STORE_NAME                      3: parse
+                18      LOAD_CONST                      7: (True,)
+                20      LOAD_CONST                      4: <CODE> parsebytes
+                22      LOAD_CONST                      5: 'BytesHeaderParser.parsebytes'
+                24      MAKE_FUNCTION                   1
+                26      STORE_NAME                      4: parsebytes
+                28      LOAD_CONST                      6: None
+                30      RETURN_VALUE                    
+        'BytesHeaderParser'
+        None
+    [Disassembly]
+        0       LOAD_CONST                      0: 'A parser of RFC 2822 and MIME email messages.'
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('Parser', 'HeaderParser', 'BytesParser', 'BytesHeaderParser', 'FeedParser', 'BytesFeedParser')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: 0
+        14      LOAD_CONST                      3: ('StringIO', 'TextIOWrapper')
+        16      IMPORT_NAME                     2: io
+        18      IMPORT_FROM                     3: StringIO
+        20      STORE_NAME                      3: StringIO
+        22      IMPORT_FROM                     4: TextIOWrapper
+        24      STORE_NAME                      4: TextIOWrapper
+        26      POP_TOP                         
+        28      LOAD_CONST                      2: 0
+        30      LOAD_CONST                      4: ('FeedParser', 'BytesFeedParser')
+        32      IMPORT_NAME                     5: email.feedparser
+        34      IMPORT_FROM                     6: FeedParser
+        36      STORE_NAME                      6: FeedParser
+        38      IMPORT_FROM                     7: BytesFeedParser
+        40      STORE_NAME                      7: BytesFeedParser
+        42      POP_TOP                         
+        44      LOAD_CONST                      2: 0
+        46      LOAD_CONST                      5: ('compat32',)
+        48      IMPORT_NAME                     8: email._policybase
+        50      IMPORT_FROM                     9: compat32
+        52      STORE_NAME                      9: compat32
+        54      POP_TOP                         
+        56      LOAD_BUILD_CLASS                
+        58      LOAD_CONST                      6: <CODE> Parser
+        60      LOAD_CONST                      7: 'Parser'
+        62      MAKE_FUNCTION                   0
+        64      LOAD_CONST                      7: 'Parser'
+        66      CALL_FUNCTION                   2
+        68      STORE_NAME                      10: Parser
+        70      LOAD_BUILD_CLASS                
+        72      LOAD_CONST                      8: <CODE> HeaderParser
+        74      LOAD_CONST                      9: 'HeaderParser'
+        76      MAKE_FUNCTION                   0
+        78      LOAD_CONST                      9: 'HeaderParser'
+        80      LOAD_NAME                       10: Parser
+        82      CALL_FUNCTION                   3
+        84      STORE_NAME                      11: HeaderParser
+        86      LOAD_BUILD_CLASS                
+        88      LOAD_CONST                      10: <CODE> BytesParser
+        90      LOAD_CONST                      11: 'BytesParser'
+        92      MAKE_FUNCTION                   0
+        94      LOAD_CONST                      11: 'BytesParser'
+        96      CALL_FUNCTION                   2
+        98      STORE_NAME                      12: BytesParser
+        100     LOAD_BUILD_CLASS                
+        102     LOAD_CONST                      12: <CODE> BytesHeaderParser
+        104     LOAD_CONST                      13: 'BytesHeaderParser'
+        106     MAKE_FUNCTION                   0
+        108     LOAD_CONST                      13: 'BytesHeaderParser'
+        110     LOAD_NAME                       12: BytesParser
+        112     CALL_FUNCTION                   3
+        114     STORE_NAME                      13: BytesHeaderParser
+        116     LOAD_CONST                      14: None
+        118     RETURN_VALUE                    

@@ -1,0 +1,824 @@
+policy.pyc (Python 3.10)
+[Code]
+    File Name: email/policy.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 5
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        're'
+        'sys'
+        'email._policybase'
+        'Policy'
+        'Compat32'
+        'compat32'
+        '_extend_docstrings'
+        'email.utils'
+        '_has_surrogates'
+        'email.headerregistry'
+        'HeaderRegistry'
+        'email.contentmanager'
+        'raw_data_manager'
+        'email.message'
+        'EmailMessage'
+        '__all__'
+        'compile'
+        'linesep_splitter'
+        'EmailPolicy'
+        'default'
+        'header_factory'
+        'clone'
+        'strict'
+        'SMTP'
+        'HTTP'
+        'SMTPUTF8'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'This will be the home for the policy that hooks in the new\ncode that adds all the email6 features.\n'
+        0
+        None
+        (
+            'Policy'
+            'Compat32'
+            'compat32'
+            '_extend_docstrings'
+        )
+        (
+            '_has_surrogates'
+        )
+        (
+            'HeaderRegistry'
+        )
+        (
+            'raw_data_manager'
+        )
+        (
+            'EmailMessage'
+        )
+        (
+            'Compat32'
+            'compat32'
+            'Policy'
+            'EmailPolicy'
+            'default'
+            'strict'
+            'SMTP'
+            'HTTP'
+        )
+        '\\n|\\r'
+        [Code]
+            File Name: email/policy.py
+            Object Name: EmailPolicy
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'EmailMessage'
+                'message_factory'
+                'utf8'
+                'refold_source'
+                'HeaderRegistry'
+                'header_factory'
+                'raw_data_manager'
+                'content_manager'
+                '__init__'
+                'header_max_count'
+                'header_source_parse'
+                'header_store_parse'
+                'header_fetch_parse'
+                'fold'
+                'fold_binary'
+                '_fold'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'EmailPolicy'
+                "+\n    PROVISIONAL\n\n    The API extensions enabled by this policy are currently provisional.\n    Refer to the documentation for details.\n\n    This policy adds new header parsing and folding algorithms.  Instead of\n    simple strings, headers are custom objects with custom attributes\n    depending on the type of the field.  The folding algorithm fully\n    implements RFCs 2047 and 5322.\n\n    In addition to the settable attributes listed above that apply to\n    all Policies, this policy adds the following additional attributes:\n\n    utf8                -- if False (the default) message headers will be\n                           serialized as ASCII, using encoded words to encode\n                           any non-ASCII characters in the source strings.  If\n                           True, the message headers will be serialized using\n                           utf8 and will not contain encoded words (see RFC\n                           6532 for more on this serialization format).\n\n    refold_source       -- if the value for a header in the Message object\n                           came from the parsing of some source, this attribute\n                           indicates whether or not a generator should refold\n                           that value when transforming the message back into\n                           stream form.  The possible values are:\n\n                           none  -- all source values use original folding\n                           long  -- source values that have any line that is\n                                    longer than max_line_length will be\n                                    refolded\n                           all  -- all values are refolded.\n\n                           The default is 'long'.\n\n    header_factory      -- a callable that takes two arguments, 'name' and\n                           'value', where 'name' is a header field name and\n                           'value' is an unfolded header field value, and\n                           returns a string-like object that represents that\n                           header.  A default header_factory is provided that\n                           understands some of the RFC5322 header field types.\n                           (Currently address fields and date fields have\n                           special treatment, while all other fields are\n                           treated as unstructured.  This list will be\n                           completed before the extension is marked stable.)\n\n    content_manager     -- an object with at least two methods: get_content\n                           and set_content.  When the get_content or\n                           set_content method of a Message object is called,\n                           it calls the corresponding method of this object,\n                           passing it the message object as its first argument,\n                           and any arguments or keywords that were passed to\n                           it as additional arguments.  The default\n                           content_manager is\n                           :data:`~email.contentmanager.raw_data_manager`.\n\n    "
+                False
+                'long'
+                [Code]
+                    File Name: email/policy.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x0000000B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS)
+                    [Names]
+                        'object'
+                        '__setattr__'
+                        'HeaderRegistry'
+                        'super'
+                        '__init__'
+                    [Var Names]
+                        'self'
+                        'kw'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'header_factory'
+                        (
+                        )
+                    [Disassembly]
+                        0       LOAD_CONST                      1: 'header_factory'
+                        2       LOAD_FAST                       1: kw
+                        4       CONTAINS_OP                     1 (not in)
+                        6       POP_JUMP_IF_FALSE               12 (to 24)
+                        8       LOAD_GLOBAL                     0: object
+                        10      LOAD_METHOD                     1: __setattr__
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_CONST                      1: 'header_factory'
+                        16      LOAD_GLOBAL                     2: HeaderRegistry
+                        18      CALL_FUNCTION                   0
+                        20      CALL_METHOD                     3
+                        22      POP_TOP                         
+                        24      LOAD_GLOBAL                     3: super
+                        26      CALL_FUNCTION                   0
+                        28      LOAD_ATTR                       4: __init__
+                        30      LOAD_CONST                      2: ()
+                        32      BUILD_MAP                       0
+                        34      LOAD_FAST                       1: kw
+                        36      DICT_MERGE                      1
+                        38      CALL_FUNCTION_EX                1
+                        40      POP_TOP                         
+                        42      LOAD_CONST                      0: None
+                        44      RETURN_VALUE                    
+                'EmailPolicy.__init__'
+                [Code]
+                    File Name: email/policy.py
+                    Object Name: header_max_count
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'header_factory'
+                        'max_count'
+                    [Var Names]
+                        'self'
+                        'name'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "+\n        The implementation for this class returns the max_count attribute from\n        the specialized header class that would be used to construct a header\n        of type 'name'.\n        "
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: header_factory
+                        4       LOAD_FAST                       1: name
+                        6       BINARY_SUBSCR                   
+                        8       LOAD_ATTR                       1: max_count
+                        10      RETURN_VALUE                    
+                'EmailPolicy.header_max_count'
+                [Code]
+                    File Name: email/policy.py
+                    Object Name: header_source_parse
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'split'
+                        'lstrip'
+                        'join'
+                        'rstrip'
+                    [Var Names]
+                        'self'
+                        'sourcelines'
+                        'name'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "+\n        The name is parsed as everything up to the ':' and returned unmodified.\n        The value is determined by stripping leading whitespace off the\n        remainder of the first line, joining all subsequent lines together, and\n        stripping any trailing carriage return or linefeed characters.  (This\n        is the same as Compat32).\n\n        "
+                        0
+                        ':'
+                        1
+                        ' \t'
+                        ''
+                        None
+                        '\r\n'
+                    [Disassembly]
+                        0       LOAD_FAST                       1: sourcelines
+                        2       LOAD_CONST                      1: 0
+                        4       BINARY_SUBSCR                   
+                        6       LOAD_METHOD                     0: split
+                        8       LOAD_CONST                      2: ':'
+                        10      LOAD_CONST                      3: 1
+                        12      CALL_METHOD                     2
+                        14      UNPACK_SEQUENCE                 2
+                        16      STORE_FAST                      2: name
+                        18      STORE_FAST                      3: value
+                        20      LOAD_FAST                       3: value
+                        22      LOAD_METHOD                     1: lstrip
+                        24      LOAD_CONST                      4: ' \t'
+                        26      CALL_METHOD                     1
+                        28      LOAD_CONST                      5: ''
+                        30      LOAD_METHOD                     2: join
+                        32      LOAD_FAST                       1: sourcelines
+                        34      LOAD_CONST                      3: 1
+                        36      LOAD_CONST                      6: None
+                        38      BUILD_SLICE                     2
+                        40      BINARY_SUBSCR                   
+                        42      CALL_METHOD                     1
+                        44      BINARY_ADD                      
+                        46      STORE_FAST                      3: value
+                        48      LOAD_FAST                       2: name
+                        50      LOAD_FAST                       3: value
+                        52      LOAD_METHOD                     3: rstrip
+                        54      LOAD_CONST                      7: '\r\n'
+                        56      CALL_METHOD                     1
+                        58      BUILD_TUPLE                     2
+                        60      RETURN_VALUE                    
+                'EmailPolicy.header_source_parse'
+                [Code]
+                    File Name: email/policy.py
+                    Object Name: header_store_parse
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'hasattr'
+                        'name'
+                        'lower'
+                        'isinstance'
+                        'str'
+                        'len'
+                        'splitlines'
+                        'ValueError'
+                        'header_factory'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "+\n        The name is returned unchanged.  If the input value has a 'name'\n        attribute and it matches the name ignoring case, the value is returned\n        unchanged.  Otherwise the name and value are passed to header_factory\n        method, and the resulting custom header object is returned as the\n        value.  In this case a ValueError is raised if the input value contains\n        CR or LF characters.\n\n        "
+                        'name'
+                        1
+                        'Header values may not contain linefeed or carriage return characters'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: hasattr
+                        2       LOAD_FAST                       2: value
+                        4       LOAD_CONST                      1: 'name'
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_FALSE               18 (to 36)
+                        10      LOAD_FAST                       2: value
+                        12      LOAD_ATTR                       1: name
+                        14      LOAD_METHOD                     2: lower
+                        16      CALL_METHOD                     0
+                        18      LOAD_FAST                       1: name
+                        20      LOAD_METHOD                     2: lower
+                        22      CALL_METHOD                     0
+                        24      COMPARE_OP                      2 (==)
+                        26      POP_JUMP_IF_FALSE               18 (to 36)
+                        28      LOAD_FAST                       1: name
+                        30      LOAD_FAST                       2: value
+                        32      BUILD_TUPLE                     2
+                        34      RETURN_VALUE                    
+                        36      LOAD_GLOBAL                     3: isinstance
+                        38      LOAD_FAST                       2: value
+                        40      LOAD_GLOBAL                     4: str
+                        42      CALL_FUNCTION                   2
+                        44      POP_JUMP_IF_FALSE               35 (to 70)
+                        46      LOAD_GLOBAL                     5: len
+                        48      LOAD_FAST                       2: value
+                        50      LOAD_METHOD                     6: splitlines
+                        52      CALL_METHOD                     0
+                        54      CALL_FUNCTION                   1
+                        56      LOAD_CONST                      2: 1
+                        58      COMPARE_OP                      4 (>)
+                        60      POP_JUMP_IF_FALSE               35 (to 70)
+                        62      LOAD_GLOBAL                     7: ValueError
+                        64      LOAD_CONST                      3: 'Header values may not contain linefeed or carriage return characters'
+                        66      CALL_FUNCTION                   1
+                        68      RAISE_VARARGS                   1
+                        70      LOAD_FAST                       1: name
+                        72      LOAD_FAST                       0: self
+                        74      LOAD_METHOD                     8: header_factory
+                        76      LOAD_FAST                       1: name
+                        78      LOAD_FAST                       2: value
+                        80      CALL_METHOD                     2
+                        82      BUILD_TUPLE                     2
+                        84      RETURN_VALUE                    
+                'EmailPolicy.header_store_parse'
+                [Code]
+                    File Name: email/policy.py
+                    Object Name: header_fetch_parse
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'hasattr'
+                        'join'
+                        'linesep_splitter'
+                        'split'
+                        'header_factory'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "+\n        If the value has a 'name' attribute, it is returned to unmodified.\n        Otherwise the name and the value with any linesep characters removed\n        are passed to the header_factory method, and the resulting custom\n        header object is returned.  Any surrogateescaped bytes get turned\n        into the unicode unknown-character glyph.\n\n        "
+                        'name'
+                        ''
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: hasattr
+                        2       LOAD_FAST                       2: value
+                        4       LOAD_CONST                      1: 'name'
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_FALSE               7 (to 14)
+                        10      LOAD_FAST                       2: value
+                        12      RETURN_VALUE                    
+                        14      LOAD_CONST                      2: ''
+                        16      LOAD_METHOD                     1: join
+                        18      LOAD_GLOBAL                     2: linesep_splitter
+                        20      LOAD_METHOD                     3: split
+                        22      LOAD_FAST                       2: value
+                        24      CALL_METHOD                     1
+                        26      CALL_METHOD                     1
+                        28      STORE_FAST                      2: value
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_METHOD                     4: header_factory
+                        34      LOAD_FAST                       1: name
+                        36      LOAD_FAST                       2: value
+                        38      CALL_METHOD                     2
+                        40      RETURN_VALUE                    
+                'EmailPolicy.header_fetch_parse'
+                [Code]
+                    File Name: email/policy.py
+                    Object Name: fold
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fold'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "+\n        Header folding is controlled by the refold_source policy setting.  A\n        value is considered to be a 'source value' if and only if it does not\n        have a 'name' attribute (having a 'name' attribute means it is a header\n        object of some sort).  If a source value needs to be refolded according\n        to the policy, it is converted into a custom header object by passing\n        the name and the value with any linesep characters removed to the\n        header_factory method.  Folding of a custom header object is done by\n        calling its fold method with the current policy.\n\n        Source values are split into lines using splitlines.  If the value is\n        not to be refolded, the lines are rejoined using the linesep from the\n        policy and returned.  The exception is lines containing non-ascii\n        binary data.  In that case the value is refolded regardless of the\n        refold_source setting, which causes the binary data to be CTE encoded\n        using the unknown-8bit charset.\n\n        "
+                        True
+                        (
+                            'refold_binary'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _fold
+                        4       LOAD_FAST                       1: name
+                        6       LOAD_FAST                       2: value
+                        8       LOAD_CONST                      1: True
+                        10      LOAD_CONST                      2: ('refold_binary',)
+                        12      CALL_FUNCTION_KW                3
+                        14      RETURN_VALUE                    
+                'EmailPolicy.fold'
+                [Code]
+                    File Name: email/policy.py
+                    Object Name: fold_binary
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fold'
+                        'cte_type'
+                        'utf8'
+                        'encode'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                        'folded'
+                        'charset'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '+\n        The same as fold if cte_type is 7bit, except that the returned value is\n        bytes.\n\n        If cte_type is 8bit, non-ASCII binary data is converted back into\n        bytes.  Headers with binary data are not refolded, regardless of the\n        refold_header setting, since there is no way to know whether the binary\n        data consists of single byte characters or multibyte characters.\n\n        If utf8 is true, headers are encoded to utf8, otherwise to ascii with\n        non-ASCII unicode rendered as encoded words.\n\n        '
+                        '7bit'
+                        (
+                            'refold_binary'
+                        )
+                        'utf8'
+                        'ascii'
+                        'surrogateescape'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _fold
+                        4       LOAD_FAST                       1: name
+                        6       LOAD_FAST                       2: value
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       1: cte_type
+                        12      LOAD_CONST                      1: '7bit'
+                        14      COMPARE_OP                      2 (==)
+                        16      LOAD_CONST                      2: ('refold_binary',)
+                        18      CALL_FUNCTION_KW                3
+                        20      STORE_FAST                      3: folded
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       2: utf8
+                        26      POP_JUMP_IF_FALSE               16 (to 32)
+                        28      LOAD_CONST                      3: 'utf8'
+                        30      JUMP_FORWARD                    1 (to 34)
+                        32      LOAD_CONST                      4: 'ascii'
+                        34      STORE_FAST                      4: charset
+                        36      LOAD_FAST                       3: folded
+                        38      LOAD_METHOD                     3: encode
+                        40      LOAD_FAST                       4: charset
+                        42      LOAD_CONST                      5: 'surrogateescape'
+                        44      CALL_METHOD                     2
+                        46      RETURN_VALUE                    
+                'EmailPolicy.fold_binary'
+                [Code]
+                    File Name: email/policy.py
+                    Object Name: _fold
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 6
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'hasattr'
+                        'fold'
+                        'max_line_length'
+                        'sys'
+                        'maxsize'
+                        'splitlines'
+                        'refold_source'
+                        'len'
+                        'any'
+                        '_has_surrogates'
+                        'header_factory'
+                        'join'
+                        'linesep'
+                    [Var Names]
+                        'self'
+                        'name'
+                        'value'
+                        'refold_binary'
+                        'lines'
+                        'refold'
+                    [Free Vars]
+                    [Cell Vars]
+                        'maxlen'
+                    [Constants]
+                        None
+                        'name'
+                        (
+                            'policy'
+                        )
+                        'all'
+                        'long'
+                        0
+                        2
+                        [Code]
+                            File Name: email/policy.py
+                            Object Name: <genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 3
+                            Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                            [Names]
+                                'len'
+                            [Var Names]
+                                '.0'
+                                'x'
+                            [Free Vars]
+                                'maxlen'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       GEN_START                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        9 (to 24)
+                                6       STORE_FAST                      1: x
+                                8       LOAD_GLOBAL                     0: len
+                                10      LOAD_FAST                       1: x
+                                12      CALL_FUNCTION                   1
+                                14      LOAD_DEREF                      0: maxlen
+                                16      COMPARE_OP                      4 (>)
+                                18      YIELD_VALUE                     
+                                20      POP_TOP                         
+                                22      JUMP_ABSOLUTE                   2 (to 4)
+                                24      LOAD_CONST                      0: None
+                                26      RETURN_VALUE                    
+                        'EmailPolicy._fold.<locals>.<genexpr>'
+                        1
+                        ''
+                        ': '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: hasattr
+                        2       LOAD_FAST                       2: value
+                        4       LOAD_CONST                      1: 'name'
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_FALSE               11 (to 22)
+                        10      LOAD_FAST                       2: value
+                        12      LOAD_ATTR                       1: fold
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_CONST                      2: ('policy',)
+                        18      CALL_FUNCTION_KW                1
+                        20      RETURN_VALUE                    
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       2: max_line_length
+                        26      POP_JUMP_IF_FALSE               17 (to 34)
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       2: max_line_length
+                        32      JUMP_FORWARD                    2 (to 38)
+                        34      LOAD_GLOBAL                     3: sys
+                        36      LOAD_ATTR                       4: maxsize
+                        38      STORE_DEREF                     0: maxlen
+                        40      LOAD_FAST                       2: value
+                        42      LOAD_METHOD                     5: splitlines
+                        44      CALL_METHOD                     0
+                        46      STORE_FAST                      4: lines
+                        48      LOAD_FAST                       0: self
+                        50      LOAD_ATTR                       6: refold_source
+                        52      LOAD_CONST                      3: 'all'
+                        54      COMPARE_OP                      2 (==)
+                        56      JUMP_IF_TRUE_OR_POP             64 (to 128)
+                        58      LOAD_FAST                       0: self
+                        60      LOAD_ATTR                       6: refold_source
+                        62      LOAD_CONST                      4: 'long'
+                        64      COMPARE_OP                      2 (==)
+                        66      JUMP_IF_FALSE_OR_POP            64 (to 128)
+                        68      LOAD_FAST                       4: lines
+                        70      POP_JUMP_IF_FALSE               50 (to 100)
+                        72      LOAD_GLOBAL                     7: len
+                        74      LOAD_FAST                       4: lines
+                        76      LOAD_CONST                      5: 0
+                        78      BINARY_SUBSCR                   
+                        80      CALL_FUNCTION                   1
+                        82      LOAD_GLOBAL                     7: len
+                        84      LOAD_FAST                       1: name
+                        86      CALL_FUNCTION                   1
+                        88      BINARY_ADD                      
+                        90      LOAD_CONST                      6: 2
+                        92      BINARY_ADD                      
+                        94      LOAD_DEREF                      0: maxlen
+                        96      COMPARE_OP                      4 (>)
+                        98      JUMP_IF_TRUE_OR_POP             64 (to 128)
+                        100     LOAD_GLOBAL                     8: any
+                        102     LOAD_CLOSURE                    0: maxlen
+                        104     BUILD_TUPLE                     1
+                        106     LOAD_CONST                      7: <CODE> <genexpr>
+                        108     LOAD_CONST                      8: 'EmailPolicy._fold.<locals>.<genexpr>'
+                        110     MAKE_FUNCTION                   8
+                        112     LOAD_FAST                       4: lines
+                        114     LOAD_CONST                      9: 1
+                        116     LOAD_CONST                      0: None
+                        118     BUILD_SLICE                     2
+                        120     BINARY_SUBSCR                   
+                        122     GET_ITER                        
+                        124     CALL_FUNCTION                   1
+                        126     CALL_FUNCTION                   1
+                        128     STORE_FAST                      5: refold
+                        130     LOAD_FAST                       5: refold
+                        132     POP_JUMP_IF_TRUE                73 (to 146)
+                        134     LOAD_FAST                       3: refold_binary
+                        136     POP_JUMP_IF_FALSE               86 (to 172)
+                        138     LOAD_GLOBAL                     9: _has_surrogates
+                        140     LOAD_FAST                       2: value
+                        142     CALL_FUNCTION                   1
+                        144     POP_JUMP_IF_FALSE               86 (to 172)
+                        146     LOAD_FAST                       0: self
+                        148     LOAD_METHOD                     10: header_factory
+                        150     LOAD_FAST                       1: name
+                        152     LOAD_CONST                      10: ''
+                        154     LOAD_METHOD                     11: join
+                        156     LOAD_FAST                       4: lines
+                        158     CALL_METHOD                     1
+                        160     CALL_METHOD                     2
+                        162     LOAD_ATTR                       1: fold
+                        164     LOAD_FAST                       0: self
+                        166     LOAD_CONST                      2: ('policy',)
+                        168     CALL_FUNCTION_KW                1
+                        170     RETURN_VALUE                    
+                        172     LOAD_FAST                       1: name
+                        174     LOAD_CONST                      11: ': '
+                        176     BINARY_ADD                      
+                        178     LOAD_FAST                       0: self
+                        180     LOAD_ATTR                       12: linesep
+                        182     LOAD_METHOD                     11: join
+                        184     LOAD_FAST                       4: lines
+                        186     CALL_METHOD                     1
+                        188     BINARY_ADD                      
+                        190     LOAD_FAST                       0: self
+                        192     LOAD_ATTR                       12: linesep
+                        194     BINARY_ADD                      
+                        196     RETURN_VALUE                    
+                'EmailPolicy._fold'
+                (
+                    False
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'EmailPolicy'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: "+\n    PROVISIONAL\n\n    The API extensions enabled by this policy are currently provisional.\n    Refer to the documentation for details.\n\n    This policy adds new header parsing and folding algorithms.  Instead of\n    simple strings, headers are custom objects with custom attributes\n    depending on the type of the field.  The folding algorithm fully\n    implements RFCs 2047 and 5322.\n\n    In addition to the settable attributes listed above that apply to\n    all Policies, this policy adds the following additional attributes:\n\n    utf8                -- if False (the default) message headers will be\n                           serialized as ASCII, using encoded words to encode\n                           any non-ASCII characters in the source strings.  If\n                           True, the message headers will be serialized using\n                           utf8 and will not contain encoded words (see RFC\n                           6532 for more on this serialization format).\n\n    refold_source       -- if the value for a header in the Message object\n                           came from the parsing of some source, this attribute\n                           indicates whether or not a generator should refold\n                           that value when transforming the message back into\n                           stream form.  The possible values are:\n\n                           none  -- all source values use original folding\n                           long  -- source values that have any line that is\n                                    longer than max_line_length will be\n                                    refolded\n                           all  -- all values are refolded.\n\n                           The default is 'long'.\n\n    header_factory      -- a callable that takes two arguments, 'name' and\n                           'value', where 'name' is a header field name and\n                           'value' is an unfolded header field value, and\n                           returns a string-like object that represents that\n                           header.  A default header_factory is provided that\n                           understands some of the RFC5322 header field types.\n                           (Currently address fields and date fields have\n                           special treatment, while all other fields are\n                           treated as unstructured.  This list will be\n                           completed before the extension is marked stable.)\n\n    content_manager     -- an object with at least two methods: get_content\n                           and set_content.  When the get_content or\n                           set_content method of a Message object is called,\n                           it calls the corresponding method of this object,\n                           passing it the message object as its first argument,\n                           and any arguments or keywords that were passed to\n                           it as additional arguments.  The default\n                           content_manager is\n                           :data:`~email.contentmanager.raw_data_manager`.\n\n    "
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_NAME                       4: EmailMessage
+                14      STORE_NAME                      5: message_factory
+                16      LOAD_CONST                      2: False
+                18      STORE_NAME                      6: utf8
+                20      LOAD_CONST                      3: 'long'
+                22      STORE_NAME                      7: refold_source
+                24      LOAD_NAME                       8: HeaderRegistry
+                26      CALL_FUNCTION                   0
+                28      STORE_NAME                      9: header_factory
+                30      LOAD_NAME                       10: raw_data_manager
+                32      STORE_NAME                      11: content_manager
+                34      LOAD_CLOSURE                    0: __class__
+                36      BUILD_TUPLE                     1
+                38      LOAD_CONST                      4: <CODE> __init__
+                40      LOAD_CONST                      5: 'EmailPolicy.__init__'
+                42      MAKE_FUNCTION                   8
+                44      STORE_NAME                      12: __init__
+                46      LOAD_CONST                      6: <CODE> header_max_count
+                48      LOAD_CONST                      7: 'EmailPolicy.header_max_count'
+                50      MAKE_FUNCTION                   0
+                52      STORE_NAME                      13: header_max_count
+                54      LOAD_CONST                      8: <CODE> header_source_parse
+                56      LOAD_CONST                      9: 'EmailPolicy.header_source_parse'
+                58      MAKE_FUNCTION                   0
+                60      STORE_NAME                      14: header_source_parse
+                62      LOAD_CONST                      10: <CODE> header_store_parse
+                64      LOAD_CONST                      11: 'EmailPolicy.header_store_parse'
+                66      MAKE_FUNCTION                   0
+                68      STORE_NAME                      15: header_store_parse
+                70      LOAD_CONST                      12: <CODE> header_fetch_parse
+                72      LOAD_CONST                      13: 'EmailPolicy.header_fetch_parse'
+                74      MAKE_FUNCTION                   0
+                76      STORE_NAME                      16: header_fetch_parse
+                78      LOAD_CONST                      14: <CODE> fold
+                80      LOAD_CONST                      15: 'EmailPolicy.fold'
+                82      MAKE_FUNCTION                   0
+                84      STORE_NAME                      17: fold
+                86      LOAD_CONST                      16: <CODE> fold_binary
+                88      LOAD_CONST                      17: 'EmailPolicy.fold_binary'
+                90      MAKE_FUNCTION                   0
+                92      STORE_NAME                      18: fold_binary
+                94      LOAD_CONST                      20: (False,)
+                96      LOAD_CONST                      18: <CODE> _fold
+                98      LOAD_CONST                      19: 'EmailPolicy._fold'
+                100     MAKE_FUNCTION                   1
+                102     STORE_NAME                      19: _fold
+                104     LOAD_CLOSURE                    0: __class__
+                106     DUP_TOP                         
+                108     STORE_NAME                      20: __classcell__
+                110     RETURN_VALUE                    
+        'EmailPolicy'
+        True
+        (
+            'raise_on_defect'
+        )
+        '\r\n'
+        (
+            'linesep'
+        )
+        (
+            'linesep'
+            'max_line_length'
+        )
+        (
+            'utf8'
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'This will be the home for the policy that hooks in the new\ncode that adds all the email6 features.\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: re
+        10      STORE_NAME                      1: re
+        12      LOAD_CONST                      1: 0
+        14      LOAD_CONST                      2: None
+        16      IMPORT_NAME                     2: sys
+        18      STORE_NAME                      2: sys
+        20      LOAD_CONST                      1: 0
+        22      LOAD_CONST                      3: ('Policy', 'Compat32', 'compat32', '_extend_docstrings')
+        24      IMPORT_NAME                     3: email._policybase
+        26      IMPORT_FROM                     4: Policy
+        28      STORE_NAME                      4: Policy
+        30      IMPORT_FROM                     5: Compat32
+        32      STORE_NAME                      5: Compat32
+        34      IMPORT_FROM                     6: compat32
+        36      STORE_NAME                      6: compat32
+        38      IMPORT_FROM                     7: _extend_docstrings
+        40      STORE_NAME                      7: _extend_docstrings
+        42      POP_TOP                         
+        44      LOAD_CONST                      1: 0
+        46      LOAD_CONST                      4: ('_has_surrogates',)
+        48      IMPORT_NAME                     8: email.utils
+        50      IMPORT_FROM                     9: _has_surrogates
+        52      STORE_NAME                      9: _has_surrogates
+        54      POP_TOP                         
+        56      LOAD_CONST                      1: 0
+        58      LOAD_CONST                      5: ('HeaderRegistry',)
+        60      IMPORT_NAME                     10: email.headerregistry
+        62      IMPORT_FROM                     11: HeaderRegistry
+        64      STORE_NAME                      11: HeaderRegistry
+        66      POP_TOP                         
+        68      LOAD_CONST                      1: 0
+        70      LOAD_CONST                      6: ('raw_data_manager',)
+        72      IMPORT_NAME                     12: email.contentmanager
+        74      IMPORT_FROM                     13: raw_data_manager
+        76      STORE_NAME                      13: raw_data_manager
+        78      POP_TOP                         
+        80      LOAD_CONST                      1: 0
+        82      LOAD_CONST                      7: ('EmailMessage',)
+        84      IMPORT_NAME                     14: email.message
+        86      IMPORT_FROM                     15: EmailMessage
+        88      STORE_NAME                      15: EmailMessage
+        90      POP_TOP                         
+        92      BUILD_LIST                      0
+        94      LOAD_CONST                      8: ('Compat32', 'compat32', 'Policy', 'EmailPolicy', 'default', 'strict', 'SMTP', 'HTTP')
+        96      LIST_EXTEND                     1
+        98      STORE_NAME                      16: __all__
+        100     LOAD_NAME                       1: re
+        102     LOAD_METHOD                     17: compile
+        104     LOAD_CONST                      9: '\\n|\\r'
+        106     CALL_METHOD                     1
+        108     STORE_NAME                      18: linesep_splitter
+        110     LOAD_NAME                       7: _extend_docstrings
+        112     LOAD_BUILD_CLASS                
+        114     LOAD_CONST                      10: <CODE> EmailPolicy
+        116     LOAD_CONST                      11: 'EmailPolicy'
+        118     MAKE_FUNCTION                   0
+        120     LOAD_CONST                      11: 'EmailPolicy'
+        122     LOAD_NAME                       4: Policy
+        124     CALL_FUNCTION                   3
+        126     CALL_FUNCTION                   1
+        128     STORE_NAME                      19: EmailPolicy
+        130     LOAD_NAME                       19: EmailPolicy
+        132     CALL_FUNCTION                   0
+        134     STORE_NAME                      20: default
+        136     LOAD_NAME                       20: default
+        138     DELETE_ATTR                     21: header_factory
+        140     LOAD_NAME                       20: default
+        142     LOAD_ATTR                       22: clone
+        144     LOAD_CONST                      12: True
+        146     LOAD_CONST                      13: ('raise_on_defect',)
+        148     CALL_FUNCTION_KW                1
+        150     STORE_NAME                      23: strict
+        152     LOAD_NAME                       20: default
+        154     LOAD_ATTR                       22: clone
+        156     LOAD_CONST                      14: '\r\n'
+        158     LOAD_CONST                      15: ('linesep',)
+        160     CALL_FUNCTION_KW                1
+        162     STORE_NAME                      24: SMTP
+        164     LOAD_NAME                       20: default
+        166     LOAD_ATTR                       22: clone
+        168     LOAD_CONST                      14: '\r\n'
+        170     LOAD_CONST                      2: None
+        172     LOAD_CONST                      16: ('linesep', 'max_line_length')
+        174     CALL_FUNCTION_KW                2
+        176     STORE_NAME                      25: HTTP
+        178     LOAD_NAME                       24: SMTP
+        180     LOAD_ATTR                       22: clone
+        182     LOAD_CONST                      12: True
+        184     LOAD_CONST                      17: ('utf8',)
+        186     CALL_FUNCTION_KW                1
+        188     STORE_NAME                      26: SMTPUTF8
+        190     LOAD_CONST                      2: None
+        192     RETURN_VALUE                    

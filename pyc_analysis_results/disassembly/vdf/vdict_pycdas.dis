@@ -1,0 +1,2101 @@
+vdict.pyc (Python 3.10)
+[Code]
+    File Name: vdf/vdict.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        'sys'
+        'collections'
+        'Counter'
+        'version_info'
+        '_iter_values'
+        'range'
+        '_range'
+        'str'
+        '_string_type'
+        'collections.abc'
+        'abc'
+        '_c'
+        'KeysView'
+        '_kView'
+        'ValuesView'
+        '_vView'
+        'ItemsView'
+        '_iView'
+        'xrange'
+        'basestring'
+        'dict'
+        'VDFDict'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        None
+        (
+            'Counter'
+        )
+        3
+        'values'
+        [Code]
+            File Name: vdf/vdict.py
+            Object Name: _kView
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__iter__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '_kView'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: __iter__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_mapping'
+                        'iterkeys'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _mapping
+                        4       LOAD_METHOD                     1: iterkeys
+                        6       CALL_METHOD                     0
+                        8       RETURN_VALUE                    
+                '_kView.__iter__'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: '_kView'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: <CODE> __iter__
+                10      LOAD_CONST                      2: '_kView.__iter__'
+                12      MAKE_FUNCTION                   0
+                14      STORE_NAME                      3: __iter__
+                16      LOAD_CONST                      3: None
+                18      RETURN_VALUE                    
+        '_kView'
+        [Code]
+            File Name: vdf/vdict.py
+            Object Name: _vView
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__iter__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '_vView'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: __iter__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_mapping'
+                        'itervalues'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _mapping
+                        4       LOAD_METHOD                     1: itervalues
+                        6       CALL_METHOD                     0
+                        8       RETURN_VALUE                    
+                '_vView.__iter__'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: '_vView'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: <CODE> __iter__
+                10      LOAD_CONST                      2: '_vView.__iter__'
+                12      MAKE_FUNCTION                   0
+                14      STORE_NAME                      3: __iter__
+                16      LOAD_CONST                      3: None
+                18      RETURN_VALUE                    
+        '_vView'
+        [Code]
+            File Name: vdf/vdict.py
+            Object Name: _iView
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__iter__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '_iView'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: __iter__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_mapping'
+                        'iteritems'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _mapping
+                        4       LOAD_METHOD                     1: iteritems
+                        6       CALL_METHOD                     0
+                        8       RETURN_VALUE                    
+                '_iView.__iter__'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: '_iView'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: <CODE> __iter__
+                10      LOAD_CONST                      2: '_iView.__iter__'
+                12      MAKE_FUNCTION                   0
+                14      STORE_NAME                      3: __iter__
+                16      LOAD_CONST                      3: None
+                18      RETURN_VALUE                    
+        '_iView'
+        'itervalues'
+        [Code]
+            File Name: vdf/vdict.py
+            Object Name: <lambda>
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'list'
+                'iterkeys'
+            [Var Names]
+                'x'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: list
+                2       LOAD_FAST                       0: x
+                4       LOAD_METHOD                     1: iterkeys
+                6       CALL_METHOD                     0
+                8       CALL_FUNCTION                   1
+                10      RETURN_VALUE                    
+        '<lambda>'
+        [Code]
+            File Name: vdf/vdict.py
+            Object Name: <lambda>
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'list'
+                'itervalues'
+            [Var Names]
+                'x'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: list
+                2       LOAD_FAST                       0: x
+                4       LOAD_METHOD                     1: itervalues
+                6       CALL_METHOD                     0
+                8       CALL_FUNCTION                   1
+                10      RETURN_VALUE                    
+        [Code]
+            File Name: vdf/vdict.py
+            Object Name: <lambda>
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'list'
+                'iteritems'
+            [Var Names]
+                'x'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: list
+                2       LOAD_FAST                       0: x
+                4       LOAD_METHOD                     1: iteritems
+                6       CALL_METHOD                     0
+                8       CALL_FUNCTION                   1
+                10      RETURN_VALUE                    
+        [Code]
+            File Name: vdf/vdict.py
+            Object Name: VDFDict
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__init__'
+                '__repr__'
+                '__len__'
+                '_verify_key_tuple'
+                '_normalize_key'
+                '__setitem__'
+                '__getitem__'
+                '__delitem__'
+                '__iter__'
+                '__contains__'
+                '__eq__'
+                '__ne__'
+                'clear'
+                'get'
+                'setdefault'
+                'pop'
+                'popitem'
+                'update'
+                'iterkeys'
+                'keys'
+                'itervalues'
+                'values'
+                'iteritems'
+                'items'
+                'get_all_for'
+                'remove_all_for'
+                'has_duplicates'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'VDFDict'
+                None
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_VDFDict__omap'
+                        'Counter'
+                        '_VDFDict__kcount'
+                        'isinstance'
+                        'list'
+                        'dict'
+                        'ValueError'
+                        'type'
+                        'update'
+                    [Var Names]
+                        'self'
+                        'data'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "\n        This is a dictionary that supports duplicate keys and preserves insert order\n\n        ``data`` can be a ``dict``, or a sequence of key-value tuples. (e.g. ``[('key', 'value'),..]``)\n        The only supported type for key is str.\n\n        Get/set duplicates is done by tuples ``(index, key)``, where index is the duplicate index\n        for the specified key. (e.g. ``(0, 'key')``, ``(1, 'key')``...)\n\n        When the ``key`` is ``str``, instead of tuple, set will create a duplicate and get will look up ``(0, key)``\n        "
+                        None
+                        'Expected data to be list of pairs or dict, got %s'
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: _VDFDict__omap
+                        6       LOAD_GLOBAL                     1: Counter
+                        8       CALL_FUNCTION                   0
+                        10      LOAD_FAST                       0: self
+                        12      STORE_ATTR                      2: _VDFDict__kcount
+                        14      LOAD_FAST                       1: data
+                        16      LOAD_CONST                      1: None
+                        18      IS_OP                           1 (is not)
+                        20      POP_JUMP_IF_FALSE               33 (to 66)
+                        22      LOAD_GLOBAL                     3: isinstance
+                        24      LOAD_FAST                       1: data
+                        26      LOAD_GLOBAL                     4: list
+                        28      LOAD_GLOBAL                     5: dict
+                        30      BUILD_TUPLE                     2
+                        32      CALL_FUNCTION                   2
+                        34      POP_JUMP_IF_TRUE                26 (to 52)
+                        36      LOAD_GLOBAL                     6: ValueError
+                        38      LOAD_CONST                      2: 'Expected data to be list of pairs or dict, got %s'
+                        40      LOAD_GLOBAL                     7: type
+                        42      LOAD_FAST                       1: data
+                        44      CALL_FUNCTION                   1
+                        46      BINARY_MODULO                   
+                        48      CALL_FUNCTION                   1
+                        50      RAISE_VARARGS                   1
+                        52      LOAD_FAST                       0: self
+                        54      LOAD_METHOD                     8: update
+                        56      LOAD_FAST                       1: data
+                        58      CALL_METHOD                     1
+                        60      POP_TOP                         
+                        62      LOAD_CONST                      1: None
+                        64      RETURN_VALUE                    
+                        66      LOAD_CONST                      1: None
+                        68      RETURN_VALUE                    
+                'VDFDict.__init__'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: __repr__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '__class__'
+                        '__name__'
+                        'repr'
+                        'list'
+                        'iteritems'
+                    [Var Names]
+                        'self'
+                        'out'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '%s('
+                        '%s)'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: '%s('
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       0: __class__
+                        6       LOAD_ATTR                       1: __name__
+                        8       BINARY_MODULO                   
+                        10      STORE_FAST                      1: out
+                        12      LOAD_FAST                       1: out
+                        14      LOAD_CONST                      2: '%s)'
+                        16      LOAD_GLOBAL                     2: repr
+                        18      LOAD_GLOBAL                     3: list
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_METHOD                     4: iteritems
+                        24      CALL_METHOD                     0
+                        26      CALL_FUNCTION                   1
+                        28      CALL_FUNCTION                   1
+                        30      BINARY_MODULO                   
+                        32      INPLACE_ADD                     
+                        34      STORE_FAST                      1: out
+                        36      LOAD_FAST                       1: out
+                        38      RETURN_VALUE                    
+                'VDFDict.__repr__'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: __len__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'len'
+                        '_VDFDict__omap'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: len
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       1: _VDFDict__omap
+                        6       CALL_FUNCTION                   1
+                        8       RETURN_VALUE                    
+                'VDFDict.__len__'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: _verify_key_tuple
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'len'
+                        'ValueError'
+                        'isinstance'
+                        'int'
+                        'TypeError'
+                        '_string_type'
+                    [Var Names]
+                        'self'
+                        'key'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        2
+                        'Expected key tuple length to be 2, got %d'
+                        0
+                        'Key index should be an int'
+                        1
+                        'Key value should be a str'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: len
+                        2       LOAD_FAST                       1: key
+                        4       CALL_FUNCTION                   1
+                        6       LOAD_CONST                      1: 2
+                        8       COMPARE_OP                      3 (!=)
+                        10      POP_JUMP_IF_FALSE               14 (to 28)
+                        12      LOAD_GLOBAL                     1: ValueError
+                        14      LOAD_CONST                      2: 'Expected key tuple length to be 2, got %d'
+                        16      LOAD_GLOBAL                     0: len
+                        18      LOAD_FAST                       1: key
+                        20      CALL_FUNCTION                   1
+                        22      BINARY_MODULO                   
+                        24      CALL_FUNCTION                   1
+                        26      RAISE_VARARGS                   1
+                        28      LOAD_GLOBAL                     2: isinstance
+                        30      LOAD_FAST                       1: key
+                        32      LOAD_CONST                      3: 0
+                        34      BINARY_SUBSCR                   
+                        36      LOAD_GLOBAL                     3: int
+                        38      CALL_FUNCTION                   2
+                        40      POP_JUMP_IF_TRUE                25 (to 50)
+                        42      LOAD_GLOBAL                     4: TypeError
+                        44      LOAD_CONST                      4: 'Key index should be an int'
+                        46      CALL_FUNCTION                   1
+                        48      RAISE_VARARGS                   1
+                        50      LOAD_GLOBAL                     2: isinstance
+                        52      LOAD_FAST                       1: key
+                        54      LOAD_CONST                      5: 1
+                        56      BINARY_SUBSCR                   
+                        58      LOAD_GLOBAL                     5: _string_type
+                        60      CALL_FUNCTION                   2
+                        62      POP_JUMP_IF_TRUE                36 (to 72)
+                        64      LOAD_GLOBAL                     4: TypeError
+                        66      LOAD_CONST                      6: 'Key value should be a str'
+                        68      CALL_FUNCTION                   1
+                        70      RAISE_VARARGS                   1
+                        72      LOAD_CONST                      0: None
+                        74      RETURN_VALUE                    
+                'VDFDict._verify_key_tuple'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: _normalize_key
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        '_string_type'
+                        'tuple'
+                        '_verify_key_tuple'
+                        'TypeError'
+                        'type'
+                    [Var Names]
+                        'self'
+                        'key'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                        'Expected key to be a str or tuple, got %s'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_FAST                       1: key
+                        4       LOAD_GLOBAL                     1: _string_type
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_FALSE               11 (to 22)
+                        10      LOAD_CONST                      1: 0
+                        12      LOAD_FAST                       1: key
+                        14      BUILD_TUPLE                     2
+                        16      STORE_FAST                      1: key
+                        18      LOAD_FAST                       1: key
+                        20      RETURN_VALUE                    
+                        22      LOAD_GLOBAL                     0: isinstance
+                        24      LOAD_FAST                       1: key
+                        26      LOAD_GLOBAL                     2: tuple
+                        28      CALL_FUNCTION                   2
+                        30      POP_JUMP_IF_FALSE               23 (to 46)
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_METHOD                     3: _verify_key_tuple
+                        36      LOAD_FAST                       1: key
+                        38      CALL_METHOD                     1
+                        40      POP_TOP                         
+                        42      LOAD_FAST                       1: key
+                        44      RETURN_VALUE                    
+                        46      LOAD_GLOBAL                     4: TypeError
+                        48      LOAD_CONST                      2: 'Expected key to be a str or tuple, got %s'
+                        50      LOAD_GLOBAL                     5: type
+                        52      LOAD_FAST                       1: key
+                        54      CALL_FUNCTION                   1
+                        56      BINARY_MODULO                   
+                        58      CALL_FUNCTION                   1
+                        60      RAISE_VARARGS                   1
+                'VDFDict._normalize_key'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: __setitem__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'isinstance'
+                        '_string_type'
+                        '_VDFDict__kcount'
+                        '_VDFDict__omap'
+                        'append'
+                        'tuple'
+                        '_verify_key_tuple'
+                        'KeyError'
+                        'repr'
+                        'TypeError'
+                        'super'
+                        'VDFDict'
+                        '__setitem__'
+                    [Var Names]
+                        'self'
+                        'key'
+                        'value'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        "%s doesn't exist"
+                        'Expected either a str or tuple for key'
+                        1
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_FAST                       1: key
+                        4       LOAD_GLOBAL                     1: _string_type
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_FALSE               19 (to 38)
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       2: _VDFDict__kcount
+                        14      LOAD_FAST                       1: key
+                        16      BINARY_SUBSCR                   
+                        18      LOAD_FAST                       1: key
+                        20      BUILD_TUPLE                     2
+                        22      STORE_FAST                      1: key
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       3: _VDFDict__omap
+                        28      LOAD_METHOD                     4: append
+                        30      LOAD_FAST                       1: key
+                        32      CALL_METHOD                     1
+                        34      POP_TOP                         
+                        36      JUMP_FORWARD                    27 (to 92)
+                        38      LOAD_GLOBAL                     0: isinstance
+                        40      LOAD_FAST                       1: key
+                        42      LOAD_GLOBAL                     5: tuple
+                        44      CALL_FUNCTION                   2
+                        46      POP_JUMP_IF_FALSE               42 (to 84)
+                        48      LOAD_FAST                       0: self
+                        50      LOAD_METHOD                     6: _verify_key_tuple
+                        52      LOAD_FAST                       1: key
+                        54      CALL_METHOD                     1
+                        56      POP_TOP                         
+                        58      LOAD_FAST                       1: key
+                        60      LOAD_FAST                       0: self
+                        62      CONTAINS_OP                     1 (not in)
+                        64      POP_JUMP_IF_FALSE               41 (to 82)
+                        66      LOAD_GLOBAL                     7: KeyError
+                        68      LOAD_CONST                      1: "%s doesn't exist"
+                        70      LOAD_GLOBAL                     8: repr
+                        72      LOAD_FAST                       1: key
+                        74      CALL_FUNCTION                   1
+                        76      BINARY_MODULO                   
+                        78      CALL_FUNCTION                   1
+                        80      RAISE_VARARGS                   1
+                        82      JUMP_FORWARD                    4 (to 92)
+                        84      LOAD_GLOBAL                     9: TypeError
+                        86      LOAD_CONST                      2: 'Expected either a str or tuple for key'
+                        88      CALL_FUNCTION                   1
+                        90      RAISE_VARARGS                   1
+                        92      LOAD_GLOBAL                     10: super
+                        94      LOAD_GLOBAL                     11: VDFDict
+                        96      LOAD_FAST                       0: self
+                        98      CALL_FUNCTION                   2
+                        100     LOAD_METHOD                     12: __setitem__
+                        102     LOAD_FAST                       1: key
+                        104     LOAD_FAST                       2: value
+                        106     CALL_METHOD                     2
+                        108     POP_TOP                         
+                        110     LOAD_FAST                       0: self
+                        112     LOAD_ATTR                       2: _VDFDict__kcount
+                        114     LOAD_FAST                       1: key
+                        116     LOAD_CONST                      3: 1
+                        118     BINARY_SUBSCR                   
+                        120     DUP_TOP_TWO                     
+                        122     BINARY_SUBSCR                   
+                        124     LOAD_CONST                      3: 1
+                        126     INPLACE_ADD                     
+                        128     ROT_THREE                       
+                        130     STORE_SUBSCR                    
+                        132     LOAD_CONST                      0: None
+                        134     RETURN_VALUE                    
+                'VDFDict.__setitem__'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: __getitem__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        'VDFDict'
+                        '__getitem__'
+                        '_normalize_key'
+                    [Var Names]
+                        'self'
+                        'key'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       LOAD_GLOBAL                     1: VDFDict
+                        4       LOAD_FAST                       0: self
+                        6       CALL_FUNCTION                   2
+                        8       LOAD_METHOD                     2: __getitem__
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_METHOD                     3: _normalize_key
+                        14      LOAD_FAST                       1: key
+                        16      CALL_METHOD                     1
+                        18      CALL_METHOD                     1
+                        20      RETURN_VALUE                    
+                'VDFDict.__getitem__'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: __delitem__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 10
+                    Stack Size: 6
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        '_normalize_key'
+                        'super'
+                        'VDFDict'
+                        '__delitem__'
+                        '_VDFDict__omap'
+                        'index'
+                        '_VDFDict__kcount'
+                        '_range'
+                        'len'
+                        '__setitem__'
+                    [Var Names]
+                        'self'
+                        'key'
+                        'result'
+                        'start_idx'
+                        'dup_idx'
+                        'skey'
+                        'tail_count'
+                        'idx'
+                        'oldkey'
+                        'newkey'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        1
+                        0
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _normalize_key
+                        4       LOAD_FAST                       1: key
+                        6       CALL_METHOD                     1
+                        8       STORE_FAST                      1: key
+                        10      LOAD_GLOBAL                     1: super
+                        12      LOAD_GLOBAL                     2: VDFDict
+                        14      LOAD_FAST                       0: self
+                        16      CALL_FUNCTION                   2
+                        18      LOAD_METHOD                     3: __delitem__
+                        20      LOAD_FAST                       1: key
+                        22      CALL_METHOD                     1
+                        24      STORE_FAST                      2: result
+                        26      LOAD_FAST                       0: self
+                        28      LOAD_ATTR                       4: _VDFDict__omap
+                        30      LOAD_METHOD                     5: index
+                        32      LOAD_FAST                       1: key
+                        34      CALL_METHOD                     1
+                        36      STORE_FAST                      3: start_idx
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_ATTR                       4: _VDFDict__omap
+                        42      LOAD_FAST                       3: start_idx
+                        44      DELETE_SUBSCR                   
+                        46      LOAD_FAST                       1: key
+                        48      UNPACK_SEQUENCE                 2
+                        50      STORE_FAST                      4: dup_idx
+                        52      STORE_FAST                      5: skey
+                        54      LOAD_FAST                       0: self
+                        56      LOAD_ATTR                       6: _VDFDict__kcount
+                        58      LOAD_FAST                       5: skey
+                        60      DUP_TOP_TWO                     
+                        62      BINARY_SUBSCR                   
+                        64      LOAD_CONST                      1: 1
+                        66      INPLACE_SUBTRACT                
+                        68      ROT_THREE                       
+                        70      STORE_SUBSCR                    
+                        72      LOAD_FAST                       0: self
+                        74      LOAD_ATTR                       6: _VDFDict__kcount
+                        76      LOAD_FAST                       5: skey
+                        78      BINARY_SUBSCR                   
+                        80      LOAD_FAST                       4: dup_idx
+                        82      BINARY_SUBTRACT                 
+                        84      STORE_FAST                      6: tail_count
+                        86      LOAD_FAST                       6: tail_count
+                        88      LOAD_CONST                      2: 0
+                        90      COMPARE_OP                      4 (>)
+                        92      POP_JUMP_IF_FALSE               114 (to 228)
+                        94      LOAD_GLOBAL                     7: _range
+                        96      LOAD_FAST                       3: start_idx
+                        98      LOAD_GLOBAL                     8: len
+                        100     LOAD_FAST                       0: self
+                        102     LOAD_ATTR                       4: _VDFDict__omap
+                        104     CALL_FUNCTION                   1
+                        106     CALL_FUNCTION                   2
+                        108     GET_ITER                        
+                        110     FOR_ITER                        58 (to 228)
+                        112     STORE_FAST                      7: idx
+                        114     LOAD_FAST                       0: self
+                        116     LOAD_ATTR                       4: _VDFDict__omap
+                        118     LOAD_FAST                       7: idx
+                        120     BINARY_SUBSCR                   
+                        122     LOAD_CONST                      1: 1
+                        124     BINARY_SUBSCR                   
+                        126     LOAD_FAST                       5: skey
+                        128     COMPARE_OP                      2 (==)
+                        130     POP_JUMP_IF_FALSE               113 (to 226)
+                        132     LOAD_FAST                       0: self
+                        134     LOAD_ATTR                       4: _VDFDict__omap
+                        136     LOAD_FAST                       7: idx
+                        138     BINARY_SUBSCR                   
+                        140     STORE_FAST                      8: oldkey
+                        142     LOAD_FAST                       4: dup_idx
+                        144     LOAD_FAST                       5: skey
+                        146     BUILD_TUPLE                     2
+                        148     STORE_FAST                      9: newkey
+                        150     LOAD_GLOBAL                     1: super
+                        152     LOAD_GLOBAL                     2: VDFDict
+                        154     LOAD_FAST                       0: self
+                        156     CALL_FUNCTION                   2
+                        158     LOAD_METHOD                     9: __setitem__
+                        160     LOAD_FAST                       9: newkey
+                        162     LOAD_FAST                       0: self
+                        164     LOAD_FAST                       8: oldkey
+                        166     BINARY_SUBSCR                   
+                        168     CALL_METHOD                     2
+                        170     POP_TOP                         
+                        172     LOAD_GLOBAL                     1: super
+                        174     LOAD_GLOBAL                     2: VDFDict
+                        176     LOAD_FAST                       0: self
+                        178     CALL_FUNCTION                   2
+                        180     LOAD_METHOD                     3: __delitem__
+                        182     LOAD_FAST                       8: oldkey
+                        184     CALL_METHOD                     1
+                        186     POP_TOP                         
+                        188     LOAD_FAST                       9: newkey
+                        190     LOAD_FAST                       0: self
+                        192     LOAD_ATTR                       4: _VDFDict__omap
+                        194     LOAD_FAST                       7: idx
+                        196     STORE_SUBSCR                    
+                        198     LOAD_FAST                       4: dup_idx
+                        200     LOAD_CONST                      1: 1
+                        202     INPLACE_ADD                     
+                        204     STORE_FAST                      4: dup_idx
+                        206     LOAD_FAST                       6: tail_count
+                        208     LOAD_CONST                      1: 1
+                        210     INPLACE_SUBTRACT                
+                        212     STORE_FAST                      6: tail_count
+                        214     LOAD_FAST                       6: tail_count
+                        216     LOAD_CONST                      2: 0
+                        218     COMPARE_OP                      2 (==)
+                        220     POP_JUMP_IF_FALSE               113 (to 226)
+                        222     POP_TOP                         
+                        224     JUMP_FORWARD                    1 (to 228)
+                        226     JUMP_ABSOLUTE                   55 (to 110)
+                        228     LOAD_FAST                       0: self
+                        230     LOAD_ATTR                       6: _VDFDict__kcount
+                        232     LOAD_FAST                       5: skey
+                        234     BINARY_SUBSCR                   
+                        236     LOAD_CONST                      2: 0
+                        238     COMPARE_OP                      2 (==)
+                        240     POP_JUMP_IF_FALSE               125 (to 250)
+                        242     LOAD_FAST                       0: self
+                        244     LOAD_ATTR                       6: _VDFDict__kcount
+                        246     LOAD_FAST                       5: skey
+                        248     DELETE_SUBSCR                   
+                        250     LOAD_FAST                       2: result
+                        252     RETURN_VALUE                    
+                'VDFDict.__delitem__'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: __iter__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'iter'
+                        'iterkeys'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: iter
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_METHOD                     1: iterkeys
+                        6       CALL_METHOD                     0
+                        8       CALL_FUNCTION                   1
+                        10      RETURN_VALUE                    
+                'VDFDict.__iter__'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: __contains__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        'VDFDict'
+                        '__contains__'
+                        '_normalize_key'
+                    [Var Names]
+                        'self'
+                        'key'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       LOAD_GLOBAL                     1: VDFDict
+                        4       LOAD_FAST                       0: self
+                        6       CALL_FUNCTION                   2
+                        8       LOAD_METHOD                     2: __contains__
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_METHOD                     3: _normalize_key
+                        14      LOAD_FAST                       1: key
+                        16      CALL_METHOD                     1
+                        18      CALL_METHOD                     1
+                        20      RETURN_VALUE                    
+                'VDFDict.__contains__'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: __eq__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        'VDFDict'
+                        'list'
+                        'items'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        False
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_FAST                       1: other
+                        4       LOAD_GLOBAL                     1: VDFDict
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_FALSE               17 (to 34)
+                        10      LOAD_GLOBAL                     2: list
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_METHOD                     3: items
+                        16      CALL_METHOD                     0
+                        18      CALL_FUNCTION                   1
+                        20      LOAD_GLOBAL                     2: list
+                        22      LOAD_FAST                       1: other
+                        24      LOAD_METHOD                     3: items
+                        26      CALL_METHOD                     0
+                        28      CALL_FUNCTION                   1
+                        30      COMPARE_OP                      2 (==)
+                        32      RETURN_VALUE                    
+                        34      LOAD_CONST                      1: False
+                        36      RETURN_VALUE                    
+                'VDFDict.__eq__'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: __ne__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '__eq__'
+                    [Var Names]
+                        'self'
+                        'other'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: __eq__
+                        4       LOAD_FAST                       1: other
+                        6       CALL_METHOD                     1
+                        8       UNARY_NOT                       
+                        10      RETURN_VALUE                    
+                'VDFDict.__ne__'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: clear
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        'VDFDict'
+                        'clear'
+                        '_VDFDict__kcount'
+                        'list'
+                        '_VDFDict__omap'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       LOAD_GLOBAL                     1: VDFDict
+                        4       LOAD_FAST                       0: self
+                        6       CALL_FUNCTION                   2
+                        8       LOAD_METHOD                     2: clear
+                        10      CALL_METHOD                     0
+                        12      POP_TOP                         
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_ATTR                       3: _VDFDict__kcount
+                        18      LOAD_METHOD                     2: clear
+                        20      CALL_METHOD                     0
+                        22      POP_TOP                         
+                        24      LOAD_GLOBAL                     4: list
+                        26      CALL_FUNCTION                   0
+                        28      LOAD_FAST                       0: self
+                        30      STORE_ATTR                      5: _VDFDict__omap
+                        32      LOAD_CONST                      0: None
+                        34      RETURN_VALUE                    
+                'VDFDict.clear'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: get
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000007 (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS)
+                    [Names]
+                        'super'
+                        'VDFDict'
+                        'get'
+                        '_normalize_key'
+                    [Var Names]
+                        'self'
+                        'key'
+                        'args'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       LOAD_GLOBAL                     1: VDFDict
+                        4       LOAD_FAST                       0: self
+                        6       CALL_FUNCTION                   2
+                        8       LOAD_ATTR                       2: get
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_METHOD                     3: _normalize_key
+                        14      LOAD_FAST                       1: key
+                        16      CALL_METHOD                     1
+                        18      BUILD_LIST                      1
+                        20      LOAD_FAST                       2: args
+                        22      LIST_EXTEND                     1
+                        24      LIST_TO_TUPLE                   
+                        26      CALL_FUNCTION_EX                0
+                        28      RETURN_VALUE                    
+                'VDFDict.get'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: setdefault
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '__setitem__'
+                        '__getitem__'
+                    [Var Names]
+                        'self'
+                        'key'
+                        'default'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: key
+                        2       LOAD_FAST                       0: self
+                        4       CONTAINS_OP                     1 (not in)
+                        6       POP_JUMP_IF_FALSE               10 (to 20)
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_METHOD                     0: __setitem__
+                        12      LOAD_FAST                       1: key
+                        14      LOAD_FAST                       2: default
+                        16      CALL_METHOD                     2
+                        18      POP_TOP                         
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_METHOD                     1: __getitem__
+                        24      LOAD_FAST                       1: key
+                        26      CALL_METHOD                     1
+                        28      RETURN_VALUE                    
+                'VDFDict.setdefault'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: pop
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_normalize_key'
+                        '__getitem__'
+                        '__delitem__'
+                    [Var Names]
+                        'self'
+                        'key'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _normalize_key
+                        4       LOAD_FAST                       1: key
+                        6       CALL_METHOD                     1
+                        8       STORE_FAST                      1: key
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_METHOD                     1: __getitem__
+                        14      LOAD_FAST                       1: key
+                        16      CALL_METHOD                     1
+                        18      STORE_FAST                      2: value
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_METHOD                     2: __delitem__
+                        24      LOAD_FAST                       1: key
+                        26      CALL_METHOD                     1
+                        28      POP_TOP                         
+                        30      LOAD_FAST                       2: value
+                        32      RETURN_VALUE                    
+                'VDFDict.pop'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: popitem
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_VDFDict__omap'
+                        'KeyError'
+                        'pop'
+                    [Var Names]
+                        'self'
+                        'key'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'VDFDict is empty'
+                        -1
+                        1
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _VDFDict__omap
+                        4       POP_JUMP_IF_TRUE                7 (to 14)
+                        6       LOAD_GLOBAL                     1: KeyError
+                        8       LOAD_CONST                      1: 'VDFDict is empty'
+                        10      CALL_FUNCTION                   1
+                        12      RAISE_VARARGS                   1
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_ATTR                       0: _VDFDict__omap
+                        18      LOAD_CONST                      2: -1
+                        20      BINARY_SUBSCR                   
+                        22      STORE_FAST                      1: key
+                        24      LOAD_FAST                       1: key
+                        26      LOAD_CONST                      3: 1
+                        28      BINARY_SUBSCR                   
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_METHOD                     2: pop
+                        34      LOAD_FAST                       1: key
+                        36      CALL_METHOD                     1
+                        38      BUILD_TUPLE                     2
+                        40      RETURN_VALUE                    
+                'VDFDict.popitem'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: update
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 5
+                    Flags: 0x0000004B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        'dict'
+                        'items'
+                        'list'
+                        'TypeError'
+                        'type'
+                        '__setitem__'
+                    [Var Names]
+                        'self'
+                        'data'
+                        'kwargs'
+                        'key'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'Expected data to be a list or dict, got %s'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_FAST                       1: data
+                        4       LOAD_GLOBAL                     1: dict
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_FALSE               10 (to 20)
+                        10      LOAD_FAST                       1: data
+                        12      LOAD_METHOD                     2: items
+                        14      CALL_METHOD                     0
+                        16      STORE_FAST                      1: data
+                        18      JUMP_FORWARD                    13 (to 46)
+                        20      LOAD_GLOBAL                     0: isinstance
+                        22      LOAD_FAST                       1: data
+                        24      LOAD_GLOBAL                     3: list
+                        26      CALL_FUNCTION                   2
+                        28      POP_JUMP_IF_TRUE                23 (to 46)
+                        30      LOAD_GLOBAL                     4: TypeError
+                        32      LOAD_CONST                      1: 'Expected data to be a list or dict, got %s'
+                        34      LOAD_GLOBAL                     5: type
+                        36      LOAD_FAST                       1: data
+                        38      CALL_FUNCTION                   1
+                        40      BINARY_MODULO                   
+                        42      CALL_FUNCTION                   1
+                        44      RAISE_VARARGS                   1
+                        46      LOAD_FAST                       1: data
+                        48      GET_ITER                        
+                        50      FOR_ITER                        10 (to 72)
+                        52      UNPACK_SEQUENCE                 2
+                        54      STORE_FAST                      3: key
+                        56      STORE_FAST                      4: value
+                        58      LOAD_FAST                       0: self
+                        60      LOAD_METHOD                     6: __setitem__
+                        62      LOAD_FAST                       3: key
+                        64      LOAD_FAST                       4: value
+                        66      CALL_METHOD                     2
+                        68      POP_TOP                         
+                        70      JUMP_ABSOLUTE                   25 (to 50)
+                        72      LOAD_CONST                      0: None
+                        74      RETURN_VALUE                    
+                'VDFDict.update'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: iterkeys
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_VDFDict__omap'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        [Code]
+                            File Name: vdf/vdict.py
+                            Object Name: <genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 3
+                            Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                            [Names]
+                            [Var Names]
+                                '.0'
+                                'key'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                1
+                                None
+                            [Disassembly]
+                                0       GEN_START                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        7 (to 20)
+                                6       STORE_FAST                      1: key
+                                8       LOAD_FAST                       1: key
+                                10      LOAD_CONST                      0: 1
+                                12      BINARY_SUBSCR                   
+                                14      YIELD_VALUE                     
+                                16      POP_TOP                         
+                                18      JUMP_ABSOLUTE                   2 (to 4)
+                                20      LOAD_CONST                      1: None
+                                22      RETURN_VALUE                    
+                        'VDFDict.iterkeys.<locals>.<genexpr>'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: <CODE> <genexpr>
+                        2       LOAD_CONST                      2: 'VDFDict.iterkeys.<locals>.<genexpr>'
+                        4       MAKE_FUNCTION                   0
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_ATTR                       0: _VDFDict__omap
+                        10      GET_ITER                        
+                        12      CALL_FUNCTION                   1
+                        14      RETURN_VALUE                    
+                'VDFDict.iterkeys'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: keys
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_kView'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: _kView
+                        2       LOAD_FAST                       0: self
+                        4       CALL_FUNCTION                   1
+                        6       RETURN_VALUE                    
+                'VDFDict.keys'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: itervalues
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        '_VDFDict__omap'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                        'self'
+                    [Constants]
+                        None
+                        [Code]
+                            File Name: vdf/vdict.py
+                            Object Name: <genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 3
+                            Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                            [Names]
+                            [Var Names]
+                                '.0'
+                                'key'
+                            [Free Vars]
+                                'self'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       GEN_START                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        7 (to 20)
+                                6       STORE_FAST                      1: key
+                                8       LOAD_DEREF                      0: self
+                                10      LOAD_FAST                       1: key
+                                12      BINARY_SUBSCR                   
+                                14      YIELD_VALUE                     
+                                16      POP_TOP                         
+                                18      JUMP_ABSOLUTE                   2 (to 4)
+                                20      LOAD_CONST                      0: None
+                                22      RETURN_VALUE                    
+                        'VDFDict.itervalues.<locals>.<genexpr>'
+                    [Disassembly]
+                        0       LOAD_CLOSURE                    0: self
+                        2       BUILD_TUPLE                     1
+                        4       LOAD_CONST                      1: <CODE> <genexpr>
+                        6       LOAD_CONST                      2: 'VDFDict.itervalues.<locals>.<genexpr>'
+                        8       MAKE_FUNCTION                   8
+                        10      LOAD_DEREF                      0: self
+                        12      LOAD_ATTR                       0: _VDFDict__omap
+                        14      GET_ITER                        
+                        16      CALL_FUNCTION                   1
+                        18      RETURN_VALUE                    
+                'VDFDict.itervalues'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: values
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_vView'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: _vView
+                        2       LOAD_FAST                       0: self
+                        4       CALL_FUNCTION                   1
+                        6       RETURN_VALUE                    
+                'VDFDict.values'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: iteritems
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        '_VDFDict__omap'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                        'self'
+                    [Constants]
+                        None
+                        [Code]
+                            File Name: vdf/vdict.py
+                            Object Name: <genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 4
+                            Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                            [Names]
+                            [Var Names]
+                                '.0'
+                                'key'
+                            [Free Vars]
+                                'self'
+                            [Cell Vars]
+                            [Constants]
+                                1
+                                None
+                            [Disassembly]
+                                0       GEN_START                       0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        11 (to 28)
+                                6       STORE_FAST                      1: key
+                                8       LOAD_FAST                       1: key
+                                10      LOAD_CONST                      0: 1
+                                12      BINARY_SUBSCR                   
+                                14      LOAD_DEREF                      0: self
+                                16      LOAD_FAST                       1: key
+                                18      BINARY_SUBSCR                   
+                                20      BUILD_TUPLE                     2
+                                22      YIELD_VALUE                     
+                                24      POP_TOP                         
+                                26      JUMP_ABSOLUTE                   2 (to 4)
+                                28      LOAD_CONST                      1: None
+                                30      RETURN_VALUE                    
+                        'VDFDict.iteritems.<locals>.<genexpr>'
+                    [Disassembly]
+                        0       LOAD_CLOSURE                    0: self
+                        2       BUILD_TUPLE                     1
+                        4       LOAD_CONST                      1: <CODE> <genexpr>
+                        6       LOAD_CONST                      2: 'VDFDict.iteritems.<locals>.<genexpr>'
+                        8       MAKE_FUNCTION                   8
+                        10      LOAD_DEREF                      0: self
+                        12      LOAD_ATTR                       0: _VDFDict__omap
+                        14      GET_ITER                        
+                        16      CALL_FUNCTION                   1
+                        18      RETURN_VALUE                    
+                'VDFDict.iteritems'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: items
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_iView'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: _iView
+                        2       LOAD_FAST                       0: self
+                        4       CALL_FUNCTION                   1
+                        6       RETURN_VALUE                    
+                'VDFDict.items'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: get_all_for
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'isinstance'
+                        '_string_type'
+                        'TypeError'
+                        '_range'
+                        '_VDFDict__kcount'
+                    [Var Names]
+                        'self'
+                        'key'
+                    [Free Vars]
+                    [Cell Vars]
+                        'key'
+                        'self'
+                    [Constants]
+                        ' Returns all values of the given key '
+                        'Key needs to be a string.'
+                        [Code]
+                            File Name: vdf/vdict.py
+                            Object Name: <listcomp>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 5
+                            Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                            [Names]
+                            [Var Names]
+                                '.0'
+                                'idx'
+                            [Free Vars]
+                                'key'
+                                'self'
+                            [Cell Vars]
+                            [Constants]
+                            [Disassembly]
+                                0       BUILD_LIST                      0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        8 (to 22)
+                                6       STORE_FAST                      1: idx
+                                8       LOAD_DEREF                      1: self
+                                10      LOAD_FAST                       1: idx
+                                12      LOAD_DEREF                      0: key
+                                14      BUILD_TUPLE                     2
+                                16      BINARY_SUBSCR                   
+                                18      LIST_APPEND                     2
+                                20      JUMP_ABSOLUTE                   2 (to 4)
+                                22      RETURN_VALUE                    
+                        'VDFDict.get_all_for.<locals>.<listcomp>'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_DEREF                      0: key
+                        4       LOAD_GLOBAL                     1: _string_type
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_TRUE                9 (to 18)
+                        10      LOAD_GLOBAL                     2: TypeError
+                        12      LOAD_CONST                      1: 'Key needs to be a string.'
+                        14      CALL_FUNCTION                   1
+                        16      RAISE_VARARGS                   1
+                        18      LOAD_CLOSURE                    0: key
+                        20      LOAD_CLOSURE                    1: self
+                        22      BUILD_TUPLE                     2
+                        24      LOAD_CONST                      2: <CODE> <listcomp>
+                        26      LOAD_CONST                      3: 'VDFDict.get_all_for.<locals>.<listcomp>'
+                        28      MAKE_FUNCTION                   8
+                        30      LOAD_GLOBAL                     3: _range
+                        32      LOAD_DEREF                      1: self
+                        34      LOAD_ATTR                       4: _VDFDict__kcount
+                        36      LOAD_DEREF                      0: key
+                        38      BINARY_SUBSCR                   
+                        40      CALL_FUNCTION                   1
+                        42      GET_ITER                        
+                        44      CALL_FUNCTION                   1
+                        46      RETURN_VALUE                    
+                'VDFDict.get_all_for'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: remove_all_for
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'isinstance'
+                        '_string_type'
+                        'TypeError'
+                        '_range'
+                        '_VDFDict__kcount'
+                        'super'
+                        'VDFDict'
+                        '__delitem__'
+                        'list'
+                        'filter'
+                        '_VDFDict__omap'
+                    [Var Names]
+                        'self'
+                        'key'
+                        'idx'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                        'key'
+                    [Constants]
+                        ' Removes all items with the given key '
+                        'Key need to be a string.'
+                        [Code]
+                            File Name: vdf/vdict.py
+                            Object Name: <lambda>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 1
+                            Stack Size: 2
+                            Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                            [Names]
+                            [Var Names]
+                                'x'
+                            [Free Vars]
+                                'key'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                                1
+                            [Disassembly]
+                                0       LOAD_FAST                       0: x
+                                2       LOAD_CONST                      1: 1
+                                4       BINARY_SUBSCR                   
+                                6       LOAD_DEREF                      0: key
+                                8       COMPARE_OP                      3 (!=)
+                                10      RETURN_VALUE                    
+                        'VDFDict.remove_all_for.<locals>.<lambda>'
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_DEREF                      0: key
+                        4       LOAD_GLOBAL                     1: _string_type
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_TRUE                9 (to 18)
+                        10      LOAD_GLOBAL                     2: TypeError
+                        12      LOAD_CONST                      1: 'Key need to be a string.'
+                        14      CALL_FUNCTION                   1
+                        16      RAISE_VARARGS                   1
+                        18      LOAD_GLOBAL                     3: _range
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       4: _VDFDict__kcount
+                        24      LOAD_DEREF                      0: key
+                        26      BINARY_SUBSCR                   
+                        28      CALL_FUNCTION                   1
+                        30      GET_ITER                        
+                        32      FOR_ITER                        12 (to 58)
+                        34      STORE_FAST                      2: idx
+                        36      LOAD_GLOBAL                     5: super
+                        38      LOAD_GLOBAL                     6: VDFDict
+                        40      LOAD_FAST                       0: self
+                        42      CALL_FUNCTION                   2
+                        44      LOAD_METHOD                     7: __delitem__
+                        46      LOAD_FAST                       2: idx
+                        48      LOAD_DEREF                      0: key
+                        50      BUILD_TUPLE                     2
+                        52      CALL_METHOD                     1
+                        54      POP_TOP                         
+                        56      JUMP_ABSOLUTE                   16 (to 32)
+                        58      LOAD_GLOBAL                     8: list
+                        60      LOAD_GLOBAL                     9: filter
+                        62      LOAD_CLOSURE                    0: key
+                        64      BUILD_TUPLE                     1
+                        66      LOAD_CONST                      2: <CODE> <lambda>
+                        68      LOAD_CONST                      3: 'VDFDict.remove_all_for.<locals>.<lambda>'
+                        70      MAKE_FUNCTION                   8
+                        72      LOAD_FAST                       0: self
+                        74      LOAD_ATTR                       10: _VDFDict__omap
+                        76      CALL_FUNCTION                   2
+                        78      CALL_FUNCTION                   1
+                        80      LOAD_FAST                       0: self
+                        82      STORE_ATTR                      10: _VDFDict__omap
+                        84      LOAD_FAST                       0: self
+                        86      LOAD_ATTR                       4: _VDFDict__kcount
+                        88      LOAD_DEREF                      0: key
+                        90      DELETE_SUBSCR                   
+                        92      LOAD_CONST                      4: None
+                        94      RETURN_VALUE                    
+                'VDFDict.remove_all_for'
+                [Code]
+                    File Name: vdf/vdict.py
+                    Object Name: has_duplicates
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'getattr'
+                        '_VDFDict__kcount'
+                        '_iter_values'
+                    [Var Names]
+                        'self'
+                        'n'
+                    [Free Vars]
+                    [Cell Vars]
+                        'dict_recurse'
+                    [Constants]
+                        '\n        Returns ``True`` if the dict contains keys with duplicates.\n        Recurses through any all keys with value that is ``VDFDict``.\n        '
+                        1
+                        True
+                        [Code]
+                            File Name: vdf/vdict.py
+                            Object Name: dict_recurse
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 4
+                            Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                            [Names]
+                                'getattr'
+                                '_iter_values'
+                                'isinstance'
+                                'VDFDict'
+                                'has_duplicates'
+                                'dict'
+                            [Var Names]
+                                'obj'
+                                'v'
+                            [Free Vars]
+                                'dict_recurse'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                                True
+                                False
+                            [Disassembly]
+                                0       LOAD_GLOBAL                     0: getattr
+                                2       LOAD_FAST                       0: obj
+                                4       LOAD_GLOBAL                     1: _iter_values
+                                6       CALL_FUNCTION                   2
+                                8       CALL_FUNCTION                   0
+                                10      GET_ITER                        
+                                12      FOR_ITER                        25 (to 64)
+                                14      STORE_FAST                      1: v
+                                16      LOAD_GLOBAL                     2: isinstance
+                                18      LOAD_FAST                       1: v
+                                20      LOAD_GLOBAL                     3: VDFDict
+                                22      CALL_FUNCTION                   2
+                                24      POP_JUMP_IF_FALSE               20 (to 40)
+                                26      LOAD_FAST                       1: v
+                                28      LOAD_METHOD                     4: has_duplicates
+                                30      CALL_METHOD                     0
+                                32      POP_JUMP_IF_FALSE               20 (to 40)
+                                34      POP_TOP                         
+                                36      LOAD_CONST                      1: True
+                                38      RETURN_VALUE                    
+                                40      LOAD_GLOBAL                     2: isinstance
+                                42      LOAD_FAST                       1: v
+                                44      LOAD_GLOBAL                     5: dict
+                                46      CALL_FUNCTION                   2
+                                48      POP_JUMP_IF_FALSE               31 (to 62)
+                                50      LOAD_DEREF                      0: dict_recurse
+                                52      LOAD_FAST                       1: v
+                                54      CALL_FUNCTION                   1
+                                56      ROT_TWO                         
+                                58      POP_TOP                         
+                                60      RETURN_VALUE                    
+                                62      JUMP_ABSOLUTE                   6 (to 12)
+                                64      LOAD_CONST                      2: False
+                                66      RETURN_VALUE                    
+                        'VDFDict.has_duplicates.<locals>.dict_recurse'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: getattr
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       1: _VDFDict__kcount
+                        6       LOAD_GLOBAL                     2: _iter_values
+                        8       CALL_FUNCTION                   2
+                        10      CALL_FUNCTION                   0
+                        12      GET_ITER                        
+                        14      FOR_ITER                        9 (to 34)
+                        16      STORE_FAST                      1: n
+                        18      LOAD_FAST                       1: n
+                        20      LOAD_CONST                      1: 1
+                        22      COMPARE_OP                      3 (!=)
+                        24      POP_JUMP_IF_FALSE               16 (to 32)
+                        26      POP_TOP                         
+                        28      LOAD_CONST                      2: True
+                        30      RETURN_VALUE                    
+                        32      JUMP_ABSOLUTE                   7 (to 14)
+                        34      LOAD_CLOSURE                    0: dict_recurse
+                        36      BUILD_TUPLE                     1
+                        38      LOAD_CONST                      3: <CODE> dict_recurse
+                        40      LOAD_CONST                      4: 'VDFDict.has_duplicates.<locals>.dict_recurse'
+                        42      MAKE_FUNCTION                   8
+                        44      STORE_DEREF                     0: dict_recurse
+                        46      LOAD_DEREF                      0: dict_recurse
+                        48      LOAD_FAST                       0: self
+                        50      CALL_FUNCTION                   1
+                        52      RETURN_VALUE                    
+                'VDFDict.has_duplicates'
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'VDFDict'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      56: (None,)
+                10      LOAD_CONST                      2: <CODE> __init__
+                12      LOAD_CONST                      3: 'VDFDict.__init__'
+                14      MAKE_FUNCTION                   1
+                16      STORE_NAME                      3: __init__
+                18      LOAD_CONST                      4: <CODE> __repr__
+                20      LOAD_CONST                      5: 'VDFDict.__repr__'
+                22      MAKE_FUNCTION                   0
+                24      STORE_NAME                      4: __repr__
+                26      LOAD_CONST                      6: <CODE> __len__
+                28      LOAD_CONST                      7: 'VDFDict.__len__'
+                30      MAKE_FUNCTION                   0
+                32      STORE_NAME                      5: __len__
+                34      LOAD_CONST                      8: <CODE> _verify_key_tuple
+                36      LOAD_CONST                      9: 'VDFDict._verify_key_tuple'
+                38      MAKE_FUNCTION                   0
+                40      STORE_NAME                      6: _verify_key_tuple
+                42      LOAD_CONST                      10: <CODE> _normalize_key
+                44      LOAD_CONST                      11: 'VDFDict._normalize_key'
+                46      MAKE_FUNCTION                   0
+                48      STORE_NAME                      7: _normalize_key
+                50      LOAD_CLOSURE                    0: __class__
+                52      BUILD_TUPLE                     1
+                54      LOAD_CONST                      12: <CODE> __setitem__
+                56      LOAD_CONST                      13: 'VDFDict.__setitem__'
+                58      MAKE_FUNCTION                   8
+                60      STORE_NAME                      8: __setitem__
+                62      LOAD_CLOSURE                    0: __class__
+                64      BUILD_TUPLE                     1
+                66      LOAD_CONST                      14: <CODE> __getitem__
+                68      LOAD_CONST                      15: 'VDFDict.__getitem__'
+                70      MAKE_FUNCTION                   8
+                72      STORE_NAME                      9: __getitem__
+                74      LOAD_CLOSURE                    0: __class__
+                76      BUILD_TUPLE                     1
+                78      LOAD_CONST                      16: <CODE> __delitem__
+                80      LOAD_CONST                      17: 'VDFDict.__delitem__'
+                82      MAKE_FUNCTION                   8
+                84      STORE_NAME                      10: __delitem__
+                86      LOAD_CONST                      18: <CODE> __iter__
+                88      LOAD_CONST                      19: 'VDFDict.__iter__'
+                90      MAKE_FUNCTION                   0
+                92      STORE_NAME                      11: __iter__
+                94      LOAD_CLOSURE                    0: __class__
+                96      BUILD_TUPLE                     1
+                98      LOAD_CONST                      20: <CODE> __contains__
+                100     LOAD_CONST                      21: 'VDFDict.__contains__'
+                102     MAKE_FUNCTION                   8
+                104     STORE_NAME                      12: __contains__
+                106     LOAD_CONST                      22: <CODE> __eq__
+                108     LOAD_CONST                      23: 'VDFDict.__eq__'
+                110     MAKE_FUNCTION                   0
+                112     STORE_NAME                      13: __eq__
+                114     LOAD_CONST                      24: <CODE> __ne__
+                116     LOAD_CONST                      25: 'VDFDict.__ne__'
+                118     MAKE_FUNCTION                   0
+                120     STORE_NAME                      14: __ne__
+                122     LOAD_CLOSURE                    0: __class__
+                124     BUILD_TUPLE                     1
+                126     LOAD_CONST                      26: <CODE> clear
+                128     LOAD_CONST                      27: 'VDFDict.clear'
+                130     MAKE_FUNCTION                   8
+                132     STORE_NAME                      15: clear
+                134     LOAD_CLOSURE                    0: __class__
+                136     BUILD_TUPLE                     1
+                138     LOAD_CONST                      28: <CODE> get
+                140     LOAD_CONST                      29: 'VDFDict.get'
+                142     MAKE_FUNCTION                   8
+                144     STORE_NAME                      16: get
+                146     LOAD_CONST                      56: (None,)
+                148     LOAD_CONST                      30: <CODE> setdefault
+                150     LOAD_CONST                      31: 'VDFDict.setdefault'
+                152     MAKE_FUNCTION                   1
+                154     STORE_NAME                      17: setdefault
+                156     LOAD_CONST                      32: <CODE> pop
+                158     LOAD_CONST                      33: 'VDFDict.pop'
+                160     MAKE_FUNCTION                   0
+                162     STORE_NAME                      18: pop
+                164     LOAD_CONST                      34: <CODE> popitem
+                166     LOAD_CONST                      35: 'VDFDict.popitem'
+                168     MAKE_FUNCTION                   0
+                170     STORE_NAME                      19: popitem
+                172     LOAD_CONST                      56: (None,)
+                174     LOAD_CONST                      36: <CODE> update
+                176     LOAD_CONST                      37: 'VDFDict.update'
+                178     MAKE_FUNCTION                   1
+                180     STORE_NAME                      20: update
+                182     LOAD_CONST                      38: <CODE> iterkeys
+                184     LOAD_CONST                      39: 'VDFDict.iterkeys'
+                186     MAKE_FUNCTION                   0
+                188     STORE_NAME                      21: iterkeys
+                190     LOAD_CONST                      40: <CODE> keys
+                192     LOAD_CONST                      41: 'VDFDict.keys'
+                194     MAKE_FUNCTION                   0
+                196     STORE_NAME                      22: keys
+                198     LOAD_CONST                      42: <CODE> itervalues
+                200     LOAD_CONST                      43: 'VDFDict.itervalues'
+                202     MAKE_FUNCTION                   0
+                204     STORE_NAME                      23: itervalues
+                206     LOAD_CONST                      44: <CODE> values
+                208     LOAD_CONST                      45: 'VDFDict.values'
+                210     MAKE_FUNCTION                   0
+                212     STORE_NAME                      24: values
+                214     LOAD_CONST                      46: <CODE> iteritems
+                216     LOAD_CONST                      47: 'VDFDict.iteritems'
+                218     MAKE_FUNCTION                   0
+                220     STORE_NAME                      25: iteritems
+                222     LOAD_CONST                      48: <CODE> items
+                224     LOAD_CONST                      49: 'VDFDict.items'
+                226     MAKE_FUNCTION                   0
+                228     STORE_NAME                      26: items
+                230     LOAD_CONST                      50: <CODE> get_all_for
+                232     LOAD_CONST                      51: 'VDFDict.get_all_for'
+                234     MAKE_FUNCTION                   0
+                236     STORE_NAME                      27: get_all_for
+                238     LOAD_CLOSURE                    0: __class__
+                240     BUILD_TUPLE                     1
+                242     LOAD_CONST                      52: <CODE> remove_all_for
+                244     LOAD_CONST                      53: 'VDFDict.remove_all_for'
+                246     MAKE_FUNCTION                   8
+                248     STORE_NAME                      28: remove_all_for
+                250     LOAD_CONST                      54: <CODE> has_duplicates
+                252     LOAD_CONST                      55: 'VDFDict.has_duplicates'
+                254     MAKE_FUNCTION                   0
+                256     STORE_NAME                      29: has_duplicates
+                258     LOAD_CLOSURE                    0: __class__
+                260     DUP_TOP                         
+                262     STORE_NAME                      30: __classcell__
+                264     RETURN_VALUE                    
+        'VDFDict'
+    [Disassembly]
+        0       LOAD_CONST                      0: 0
+        2       LOAD_CONST                      1: None
+        4       IMPORT_NAME                     0: sys
+        6       STORE_NAME                      0: sys
+        8       LOAD_CONST                      0: 0
+        10      LOAD_CONST                      2: ('Counter',)
+        12      IMPORT_NAME                     1: collections
+        14      IMPORT_FROM                     2: Counter
+        16      STORE_NAME                      2: Counter
+        18      POP_TOP                         
+        20      LOAD_NAME                       0: sys
+        22      LOAD_ATTR                       3: version_info
+        24      LOAD_CONST                      0: 0
+        26      BINARY_SUBSCR                   
+        28      LOAD_CONST                      3: 3
+        30      COMPARE_OP                      5 (>=)
+        32      POP_JUMP_IF_FALSE               57 (to 114)
+        34      LOAD_CONST                      4: 'values'
+        36      STORE_NAME                      4: _iter_values
+        38      LOAD_NAME                       5: range
+        40      STORE_NAME                      6: _range
+        42      LOAD_NAME                       7: str
+        44      STORE_NAME                      8: _string_type
+        46      LOAD_CONST                      0: 0
+        48      LOAD_CONST                      1: None
+        50      IMPORT_NAME                     9: collections.abc
+        52      IMPORT_FROM                     10: abc
+        54      STORE_NAME                      11: _c
+        56      POP_TOP                         
+        58      LOAD_BUILD_CLASS                
+        60      LOAD_CONST                      5: <CODE> _kView
+        62      LOAD_CONST                      6: '_kView'
+        64      MAKE_FUNCTION                   0
+        66      LOAD_CONST                      6: '_kView'
+        68      LOAD_NAME                       11: _c
+        70      LOAD_ATTR                       12: KeysView
+        72      CALL_FUNCTION                   3
+        74      STORE_NAME                      13: _kView
+        76      LOAD_BUILD_CLASS                
+        78      LOAD_CONST                      7: <CODE> _vView
+        80      LOAD_CONST                      8: '_vView'
+        82      MAKE_FUNCTION                   0
+        84      LOAD_CONST                      8: '_vView'
+        86      LOAD_NAME                       11: _c
+        88      LOAD_ATTR                       14: ValuesView
+        90      CALL_FUNCTION                   3
+        92      STORE_NAME                      15: _vView
+        94      LOAD_BUILD_CLASS                
+        96      LOAD_CONST                      9: <CODE> _iView
+        98      LOAD_CONST                      10: '_iView'
+        100     MAKE_FUNCTION                   0
+        102     LOAD_CONST                      10: '_iView'
+        104     LOAD_NAME                       11: _c
+        106     LOAD_ATTR                       16: ItemsView
+        108     CALL_FUNCTION                   3
+        110     STORE_NAME                      17: _iView
+        112     JUMP_FORWARD                    18 (to 150)
+        114     LOAD_CONST                      11: 'itervalues'
+        116     STORE_NAME                      4: _iter_values
+        118     LOAD_NAME                       18: xrange
+        120     STORE_NAME                      6: _range
+        122     LOAD_NAME                       19: basestring
+        124     STORE_NAME                      8: _string_type
+        126     LOAD_CONST                      12: <CODE> <lambda>
+        128     LOAD_CONST                      13: '<lambda>'
+        130     MAKE_FUNCTION                   0
+        132     STORE_NAME                      13: _kView
+        134     LOAD_CONST                      14: <CODE> <lambda>
+        136     LOAD_CONST                      13: '<lambda>'
+        138     MAKE_FUNCTION                   0
+        140     STORE_NAME                      15: _vView
+        142     LOAD_CONST                      15: <CODE> <lambda>
+        144     LOAD_CONST                      13: '<lambda>'
+        146     MAKE_FUNCTION                   0
+        148     STORE_NAME                      17: _iView
+        150     LOAD_BUILD_CLASS                
+        152     LOAD_CONST                      16: <CODE> VDFDict
+        154     LOAD_CONST                      17: 'VDFDict'
+        156     MAKE_FUNCTION                   0
+        158     LOAD_CONST                      17: 'VDFDict'
+        160     LOAD_NAME                       20: dict
+        162     CALL_FUNCTION                   3
+        164     STORE_NAME                      21: VDFDict
+        166     LOAD_CONST                      1: None
+        168     RETURN_VALUE                    

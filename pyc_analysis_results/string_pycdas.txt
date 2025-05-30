@@ -1,0 +1,1366 @@
+string.pyc (Python 3.10)
+[Code]
+    File Name: string.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 3
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        '_string'
+        'whitespace'
+        'ascii_lowercase'
+        'ascii_uppercase'
+        'ascii_letters'
+        'digits'
+        'hexdigits'
+        'octdigits'
+        'punctuation'
+        'printable'
+        'capwords'
+        're'
+        '_re'
+        'collections'
+        'ChainMap'
+        '_ChainMap'
+        '_sentinel_dict'
+        'Template'
+        '__init_subclass__'
+        'Formatter'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'A collection of string constants.\n\nPublic module variables:\n\nwhitespace -- a string containing all ASCII whitespace\nascii_lowercase -- a string containing all ASCII lowercase letters\nascii_uppercase -- a string containing all ASCII uppercase letters\nascii_letters -- a string containing all ASCII letters\ndigits -- a string containing all ASCII decimal digits\nhexdigits -- a string containing all ASCII hexadecimal digits\noctdigits -- a string containing all ASCII octal digits\npunctuation -- a string containing all ASCII punctuation characters\nprintable -- a string containing all ASCII characters considered printable\n\n'
+        (
+            'ascii_letters'
+            'ascii_lowercase'
+            'ascii_uppercase'
+            'capwords'
+            'digits'
+            'hexdigits'
+            'octdigits'
+            'printable'
+            'punctuation'
+            'whitespace'
+            'Formatter'
+            'Template'
+        )
+        0
+        None
+        ' \t\n\r\x0b\x0c'
+        'abcdefghijklmnopqrstuvwxyz'
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        '0123456789'
+        'abcdef'
+        'ABCDEF'
+        '01234567'
+        '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+        [Code]
+            File Name: string.py
+            Object Name: capwords
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'join'
+                'split'
+            [Var Names]
+                's'
+                'sep'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'capwords(s [,sep]) -> string\n\n    Split the argument into words using split, capitalize each\n    word using capitalize, and join the capitalized words using\n    join.  If the optional second argument sep is absent or None,\n    runs of whitespace characters are replaced by a single space\n    and leading and trailing whitespace are removed, otherwise\n    sep is used to split and join the words.\n\n    '
+                ' '
+                [Code]
+                    File Name: string.py
+                    Object Name: <genexpr>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                    [Names]
+                        'capitalize'
+                    [Var Names]
+                        '.0'
+                        'x'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        7 (to 20)
+                        6       STORE_FAST                      1: x
+                        8       LOAD_FAST                       1: x
+                        10      LOAD_METHOD                     0: capitalize
+                        12      CALL_METHOD                     0
+                        14      YIELD_VALUE                     
+                        16      POP_TOP                         
+                        18      JUMP_ABSOLUTE                   2 (to 4)
+                        20      LOAD_CONST                      0: None
+                        22      RETURN_VALUE                    
+                'capwords.<locals>.<genexpr>'
+            [Disassembly]
+                0       LOAD_FAST                       1: sep
+                2       JUMP_IF_TRUE_OR_POP             3 (to 6)
+                4       LOAD_CONST                      1: ' '
+                6       LOAD_METHOD                     0: join
+                8       LOAD_CONST                      2: <CODE> <genexpr>
+                10      LOAD_CONST                      3: 'capwords.<locals>.<genexpr>'
+                12      MAKE_FUNCTION                   0
+                14      LOAD_FAST                       0: s
+                16      LOAD_METHOD                     1: split
+                18      LOAD_FAST                       1: sep
+                20      CALL_METHOD                     1
+                22      GET_ITER                        
+                24      CALL_FUNCTION                   1
+                26      CALL_METHOD                     1
+                28      RETURN_VALUE                    
+        'capwords'
+        (
+            'ChainMap'
+        )
+        [Code]
+            File Name: string.py
+            Object Name: Template
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'delimiter'
+                'idpattern'
+                'braceidpattern'
+                '_re'
+                'IGNORECASE'
+                'flags'
+                '__init_subclass__'
+                '__init__'
+                '_invalid'
+                '_sentinel_dict'
+                'substitute'
+                'safe_substitute'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'Template'
+                'A string class for supporting $-substitutions.'
+                '$'
+                '(?a:[_a-z][_a-z0-9]*)'
+                None
+                [Code]
+                    File Name: string.py
+                    Object Name: __init_subclass__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 9
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        '__init_subclass__'
+                        '__dict__'
+                        'pattern'
+                        '_re'
+                        'escape'
+                        'delimiter'
+                        'idpattern'
+                        'braceidpattern'
+                        'compile'
+                        'flags'
+                        'VERBOSE'
+                    [Var Names]
+                        'cls'
+                        'pattern'
+                        'delim'
+                        'id'
+                        'bid'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'pattern'
+                        '\n            '
+                        '(?:\n              (?P<escaped>'
+                        ')  |   # Escape sequence of two delimiters\n              (?P<named>'
+                        ')       |   # delimiter and a Python identifier\n              {(?P<braced>'
+                        ')} |   # delimiter and a braced identifier\n              (?P<invalid>)             # Other ill-formed delimiter exprs\n            )\n            '
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_METHOD                     1: __init_subclass__
+                        6       CALL_METHOD                     0
+                        8       POP_TOP                         
+                        10      LOAD_CONST                      1: 'pattern'
+                        12      LOAD_FAST                       0: cls
+                        14      LOAD_ATTR                       2: __dict__
+                        16      CONTAINS_OP                     0 (in)
+                        18      POP_JUMP_IF_FALSE               14 (to 28)
+                        20      LOAD_FAST                       0: cls
+                        22      LOAD_ATTR                       3: pattern
+                        24      STORE_FAST                      1: pattern
+                        26      JUMP_FORWARD                    30 (to 88)
+                        28      LOAD_GLOBAL                     4: _re
+                        30      LOAD_METHOD                     5: escape
+                        32      LOAD_FAST                       0: cls
+                        34      LOAD_ATTR                       6: delimiter
+                        36      CALL_METHOD                     1
+                        38      STORE_FAST                      2: delim
+                        40      LOAD_FAST                       0: cls
+                        42      LOAD_ATTR                       7: idpattern
+                        44      STORE_FAST                      3: id
+                        46      LOAD_FAST                       0: cls
+                        48      LOAD_ATTR                       8: braceidpattern
+                        50      JUMP_IF_TRUE_OR_POP             28 (to 56)
+                        52      LOAD_FAST                       0: cls
+                        54      LOAD_ATTR                       7: idpattern
+                        56      STORE_FAST                      4: bid
+                        58      LOAD_CONST                      2: '\n            '
+                        60      LOAD_FAST                       2: delim
+                        62      FORMAT_VALUE                    0 (FVC_NONE)
+                        64      LOAD_CONST                      3: '(?:\n              (?P<escaped>'
+                        66      LOAD_FAST                       2: delim
+                        68      FORMAT_VALUE                    0 (FVC_NONE)
+                        70      LOAD_CONST                      4: ')  |   # Escape sequence of two delimiters\n              (?P<named>'
+                        72      LOAD_FAST                       3: id
+                        74      FORMAT_VALUE                    0 (FVC_NONE)
+                        76      LOAD_CONST                      5: ')       |   # delimiter and a Python identifier\n              {(?P<braced>'
+                        78      LOAD_FAST                       4: bid
+                        80      FORMAT_VALUE                    0 (FVC_NONE)
+                        82      LOAD_CONST                      6: ')} |   # delimiter and a braced identifier\n              (?P<invalid>)             # Other ill-formed delimiter exprs\n            )\n            '
+                        84      BUILD_STRING                    9
+                        86      STORE_FAST                      1: pattern
+                        88      LOAD_GLOBAL                     4: _re
+                        90      LOAD_METHOD                     9: compile
+                        92      LOAD_FAST                       1: pattern
+                        94      LOAD_FAST                       0: cls
+                        96      LOAD_ATTR                       10: flags
+                        98      LOAD_GLOBAL                     4: _re
+                        100     LOAD_ATTR                       11: VERBOSE
+                        102     BINARY_OR                       
+                        104     CALL_METHOD                     2
+                        106     LOAD_FAST                       0: cls
+                        108     STORE_ATTR                      3: pattern
+                        110     LOAD_CONST                      0: None
+                        112     RETURN_VALUE                    
+                'Template.__init_subclass__'
+                [Code]
+                    File Name: string.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'template'
+                    [Var Names]
+                        'self'
+                        'template'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: template
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: template
+                        6       LOAD_CONST                      0: None
+                        8       RETURN_VALUE                    
+                'Template.__init__'
+                [Code]
+                    File Name: string.py
+                    Object Name: _invalid
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 7
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'start'
+                        'template'
+                        'splitlines'
+                        'len'
+                        'join'
+                        'ValueError'
+                    [Var Names]
+                        'self'
+                        'mo'
+                        'i'
+                        'lines'
+                        'colno'
+                        'lineno'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'invalid'
+                        True
+                        (
+                            'keepends'
+                        )
+                        1
+                        ''
+                        -1
+                        'Invalid placeholder in string: line %d, col %d'
+                    [Disassembly]
+                        0       LOAD_FAST                       1: mo
+                        2       LOAD_METHOD                     0: start
+                        4       LOAD_CONST                      1: 'invalid'
+                        6       CALL_METHOD                     1
+                        8       STORE_FAST                      2: i
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       1: template
+                        14      LOAD_CONST                      0: None
+                        16      LOAD_FAST                       2: i
+                        18      BUILD_SLICE                     2
+                        20      BINARY_SUBSCR                   
+                        22      LOAD_ATTR                       2: splitlines
+                        24      LOAD_CONST                      2: True
+                        26      LOAD_CONST                      3: ('keepends',)
+                        28      CALL_FUNCTION_KW                1
+                        30      STORE_FAST                      3: lines
+                        32      LOAD_FAST                       3: lines
+                        34      POP_JUMP_IF_TRUE                23 (to 46)
+                        36      LOAD_CONST                      4: 1
+                        38      STORE_FAST                      4: colno
+                        40      LOAD_CONST                      4: 1
+                        42      STORE_FAST                      5: lineno
+                        44      JUMP_FORWARD                    17 (to 80)
+                        46      LOAD_FAST                       2: i
+                        48      LOAD_GLOBAL                     3: len
+                        50      LOAD_CONST                      5: ''
+                        52      LOAD_METHOD                     4: join
+                        54      LOAD_FAST                       3: lines
+                        56      LOAD_CONST                      0: None
+                        58      LOAD_CONST                      6: -1
+                        60      BUILD_SLICE                     2
+                        62      BINARY_SUBSCR                   
+                        64      CALL_METHOD                     1
+                        66      CALL_FUNCTION                   1
+                        68      BINARY_SUBTRACT                 
+                        70      STORE_FAST                      4: colno
+                        72      LOAD_GLOBAL                     3: len
+                        74      LOAD_FAST                       3: lines
+                        76      CALL_FUNCTION                   1
+                        78      STORE_FAST                      5: lineno
+                        80      LOAD_GLOBAL                     5: ValueError
+                        82      LOAD_CONST                      7: 'Invalid placeholder in string: line %d, col %d'
+                        84      LOAD_FAST                       5: lineno
+                        86      LOAD_FAST                       4: colno
+                        88      BUILD_TUPLE                     2
+                        90      BINARY_MODULO                   
+                        92      CALL_FUNCTION                   1
+                        94      RAISE_VARARGS                   1
+                'Template._invalid'
+                [Code]
+                    File Name: string.py
+                    Object Name: substitute
+                    Arg Count: 2
+                    Pos Only Arg Count: 2
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 4
+                    Flags: 0x0000000B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS)
+                    [Names]
+                        '_sentinel_dict'
+                        '_ChainMap'
+                        'pattern'
+                        'sub'
+                        'template'
+                    [Var Names]
+                        'self'
+                        'mapping'
+                        'kws'
+                        'convert'
+                    [Free Vars]
+                    [Cell Vars]
+                        'mapping'
+                        'self'
+                    [Constants]
+                        None
+                        [Code]
+                            File Name: string.py
+                            Object Name: convert
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 3
+                            Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                            [Names]
+                                'group'
+                                'str'
+                                'delimiter'
+                                '_invalid'
+                                'ValueError'
+                                'pattern'
+                            [Var Names]
+                                'mo'
+                                'named'
+                            [Free Vars]
+                                'mapping'
+                                'self'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                                'named'
+                                'braced'
+                                'escaped'
+                                'invalid'
+                                'Unrecognized named group in pattern'
+                            [Disassembly]
+                                0       LOAD_FAST                       0: mo
+                                2       LOAD_METHOD                     0: group
+                                4       LOAD_CONST                      1: 'named'
+                                6       CALL_METHOD                     1
+                                8       JUMP_IF_TRUE_OR_POP             9 (to 18)
+                                10      LOAD_FAST                       0: mo
+                                12      LOAD_METHOD                     0: group
+                                14      LOAD_CONST                      2: 'braced'
+                                16      CALL_METHOD                     1
+                                18      STORE_FAST                      1: named
+                                20      LOAD_FAST                       1: named
+                                22      LOAD_CONST                      0: None
+                                24      IS_OP                           1 (is not)
+                                26      POP_JUMP_IF_FALSE               20 (to 40)
+                                28      LOAD_GLOBAL                     1: str
+                                30      LOAD_DEREF                      0: mapping
+                                32      LOAD_FAST                       1: named
+                                34      BINARY_SUBSCR                   
+                                36      CALL_FUNCTION                   1
+                                38      RETURN_VALUE                    
+                                40      LOAD_FAST                       0: mo
+                                42      LOAD_METHOD                     0: group
+                                44      LOAD_CONST                      3: 'escaped'
+                                46      CALL_METHOD                     1
+                                48      LOAD_CONST                      0: None
+                                50      IS_OP                           1 (is not)
+                                52      POP_JUMP_IF_FALSE               30 (to 60)
+                                54      LOAD_DEREF                      1: self
+                                56      LOAD_ATTR                       2: delimiter
+                                58      RETURN_VALUE                    
+                                60      LOAD_FAST                       0: mo
+                                62      LOAD_METHOD                     0: group
+                                64      LOAD_CONST                      4: 'invalid'
+                                66      CALL_METHOD                     1
+                                68      LOAD_CONST                      0: None
+                                70      IS_OP                           1 (is not)
+                                72      POP_JUMP_IF_FALSE               42 (to 84)
+                                74      LOAD_DEREF                      1: self
+                                76      LOAD_METHOD                     3: _invalid
+                                78      LOAD_FAST                       0: mo
+                                80      CALL_METHOD                     1
+                                82      POP_TOP                         
+                                84      LOAD_GLOBAL                     4: ValueError
+                                86      LOAD_CONST                      5: 'Unrecognized named group in pattern'
+                                88      LOAD_DEREF                      1: self
+                                90      LOAD_ATTR                       5: pattern
+                                92      CALL_FUNCTION                   2
+                                94      RAISE_VARARGS                   1
+                        'Template.substitute.<locals>.convert'
+                    [Disassembly]
+                        0       LOAD_DEREF                      0: mapping
+                        2       LOAD_GLOBAL                     0: _sentinel_dict
+                        4       IS_OP                           0 (is)
+                        6       POP_JUMP_IF_FALSE               7 (to 14)
+                        8       LOAD_FAST                       2: kws
+                        10      STORE_DEREF                     0: mapping
+                        12      JUMP_FORWARD                    7 (to 28)
+                        14      LOAD_FAST                       2: kws
+                        16      POP_JUMP_IF_FALSE               14 (to 28)
+                        18      LOAD_GLOBAL                     1: _ChainMap
+                        20      LOAD_FAST                       2: kws
+                        22      LOAD_DEREF                      0: mapping
+                        24      CALL_FUNCTION                   2
+                        26      STORE_DEREF                     0: mapping
+                        28      LOAD_CLOSURE                    0: mapping
+                        30      LOAD_CLOSURE                    1: self
+                        32      BUILD_TUPLE                     2
+                        34      LOAD_CONST                      1: <CODE> convert
+                        36      LOAD_CONST                      2: 'Template.substitute.<locals>.convert'
+                        38      MAKE_FUNCTION                   8
+                        40      STORE_FAST                      3: convert
+                        42      LOAD_DEREF                      1: self
+                        44      LOAD_ATTR                       2: pattern
+                        46      LOAD_METHOD                     3: sub
+                        48      LOAD_FAST                       3: convert
+                        50      LOAD_DEREF                      1: self
+                        52      LOAD_ATTR                       4: template
+                        54      CALL_METHOD                     2
+                        56      RETURN_VALUE                    
+                'Template.substitute'
+                [Code]
+                    File Name: string.py
+                    Object Name: safe_substitute
+                    Arg Count: 2
+                    Pos Only Arg Count: 2
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 4
+                    Flags: 0x0000000B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS)
+                    [Names]
+                        '_sentinel_dict'
+                        '_ChainMap'
+                        'pattern'
+                        'sub'
+                        'template'
+                    [Var Names]
+                        'self'
+                        'mapping'
+                        'kws'
+                        'convert'
+                    [Free Vars]
+                    [Cell Vars]
+                        'mapping'
+                        'self'
+                    [Constants]
+                        None
+                        [Code]
+                            File Name: string.py
+                            Object Name: convert
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 8
+                            Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                            [Names]
+                                'group'
+                                'str'
+                                'KeyError'
+                                'delimiter'
+                                'ValueError'
+                                'pattern'
+                            [Var Names]
+                                'mo'
+                                'named'
+                            [Free Vars]
+                                'mapping'
+                                'self'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                                'named'
+                                'braced'
+                                'escaped'
+                                'invalid'
+                                'Unrecognized named group in pattern'
+                            [Disassembly]
+                                0       LOAD_FAST                       0: mo
+                                2       LOAD_METHOD                     0: group
+                                4       LOAD_CONST                      1: 'named'
+                                6       CALL_METHOD                     1
+                                8       JUMP_IF_TRUE_OR_POP             9 (to 18)
+                                10      LOAD_FAST                       0: mo
+                                12      LOAD_METHOD                     0: group
+                                14      LOAD_CONST                      2: 'braced'
+                                16      CALL_METHOD                     1
+                                18      STORE_FAST                      1: named
+                                20      LOAD_FAST                       1: named
+                                22      LOAD_CONST                      0: None
+                                24      IS_OP                           1 (is not)
+                                26      POP_JUMP_IF_FALSE               35 (to 70)
+                                28      SETUP_FINALLY                   7 (to 44)
+                                30      LOAD_GLOBAL                     1: str
+                                32      LOAD_DEREF                      0: mapping
+                                34      LOAD_FAST                       1: named
+                                36      BINARY_SUBSCR                   
+                                38      CALL_FUNCTION                   1
+                                40      POP_BLOCK                       
+                                42      RETURN_VALUE                    
+                                44      DUP_TOP                         
+                                46      LOAD_GLOBAL                     2: KeyError
+                                48      JUMP_IF_NOT_EXC_MATCH           34 (to 68)
+                                50      POP_TOP                         
+                                52      POP_TOP                         
+                                54      POP_TOP                         
+                                56      LOAD_FAST                       0: mo
+                                58      LOAD_METHOD                     0: group
+                                60      CALL_METHOD                     0
+                                62      ROT_FOUR                        
+                                64      POP_EXCEPT                      
+                                66      RETURN_VALUE                    
+                                68      RERAISE                         0
+                                70      LOAD_FAST                       0: mo
+                                72      LOAD_METHOD                     0: group
+                                74      LOAD_CONST                      3: 'escaped'
+                                76      CALL_METHOD                     1
+                                78      LOAD_CONST                      0: None
+                                80      IS_OP                           1 (is not)
+                                82      POP_JUMP_IF_FALSE               45 (to 90)
+                                84      LOAD_DEREF                      1: self
+                                86      LOAD_ATTR                       3: delimiter
+                                88      RETURN_VALUE                    
+                                90      LOAD_FAST                       0: mo
+                                92      LOAD_METHOD                     0: group
+                                94      LOAD_CONST                      4: 'invalid'
+                                96      CALL_METHOD                     1
+                                98      LOAD_CONST                      0: None
+                                100     IS_OP                           1 (is not)
+                                102     POP_JUMP_IF_FALSE               56 (to 112)
+                                104     LOAD_FAST                       0: mo
+                                106     LOAD_METHOD                     0: group
+                                108     CALL_METHOD                     0
+                                110     RETURN_VALUE                    
+                                112     LOAD_GLOBAL                     4: ValueError
+                                114     LOAD_CONST                      5: 'Unrecognized named group in pattern'
+                                116     LOAD_DEREF                      1: self
+                                118     LOAD_ATTR                       5: pattern
+                                120     CALL_FUNCTION                   2
+                                122     RAISE_VARARGS                   1
+                        'Template.safe_substitute.<locals>.convert'
+                    [Disassembly]
+                        0       LOAD_DEREF                      0: mapping
+                        2       LOAD_GLOBAL                     0: _sentinel_dict
+                        4       IS_OP                           0 (is)
+                        6       POP_JUMP_IF_FALSE               7 (to 14)
+                        8       LOAD_FAST                       2: kws
+                        10      STORE_DEREF                     0: mapping
+                        12      JUMP_FORWARD                    7 (to 28)
+                        14      LOAD_FAST                       2: kws
+                        16      POP_JUMP_IF_FALSE               14 (to 28)
+                        18      LOAD_GLOBAL                     1: _ChainMap
+                        20      LOAD_FAST                       2: kws
+                        22      LOAD_DEREF                      0: mapping
+                        24      CALL_FUNCTION                   2
+                        26      STORE_DEREF                     0: mapping
+                        28      LOAD_CLOSURE                    0: mapping
+                        30      LOAD_CLOSURE                    1: self
+                        32      BUILD_TUPLE                     2
+                        34      LOAD_CONST                      1: <CODE> convert
+                        36      LOAD_CONST                      2: 'Template.safe_substitute.<locals>.convert'
+                        38      MAKE_FUNCTION                   8
+                        40      STORE_FAST                      3: convert
+                        42      LOAD_DEREF                      1: self
+                        44      LOAD_ATTR                       2: pattern
+                        46      LOAD_METHOD                     3: sub
+                        48      LOAD_FAST                       3: convert
+                        50      LOAD_DEREF                      1: self
+                        52      LOAD_ATTR                       4: template
+                        54      CALL_METHOD                     2
+                        56      RETURN_VALUE                    
+                'Template.safe_substitute'
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Template'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'A string class for supporting $-substitutions.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: '$'
+                14      STORE_NAME                      4: delimiter
+                16      LOAD_CONST                      3: '(?a:[_a-z][_a-z0-9]*)'
+                18      STORE_NAME                      5: idpattern
+                20      LOAD_CONST                      4: None
+                22      STORE_NAME                      6: braceidpattern
+                24      LOAD_NAME                       7: _re
+                26      LOAD_ATTR                       8: IGNORECASE
+                28      STORE_NAME                      9: flags
+                30      LOAD_CLOSURE                    0: __class__
+                32      BUILD_TUPLE                     1
+                34      LOAD_CONST                      5: <CODE> __init_subclass__
+                36      LOAD_CONST                      6: 'Template.__init_subclass__'
+                38      MAKE_FUNCTION                   8
+                40      STORE_NAME                      10: __init_subclass__
+                42      LOAD_CONST                      7: <CODE> __init__
+                44      LOAD_CONST                      8: 'Template.__init__'
+                46      MAKE_FUNCTION                   0
+                48      STORE_NAME                      11: __init__
+                50      LOAD_CONST                      9: <CODE> _invalid
+                52      LOAD_CONST                      10: 'Template._invalid'
+                54      MAKE_FUNCTION                   0
+                56      STORE_NAME                      12: _invalid
+                58      LOAD_NAME                       13: _sentinel_dict
+                60      BUILD_TUPLE                     1
+                62      LOAD_CONST                      11: <CODE> substitute
+                64      LOAD_CONST                      12: 'Template.substitute'
+                66      MAKE_FUNCTION                   1
+                68      STORE_NAME                      14: substitute
+                70      LOAD_NAME                       13: _sentinel_dict
+                72      BUILD_TUPLE                     1
+                74      LOAD_CONST                      13: <CODE> safe_substitute
+                76      LOAD_CONST                      14: 'Template.safe_substitute'
+                78      MAKE_FUNCTION                   1
+                80      STORE_NAME                      15: safe_substitute
+                82      LOAD_CLOSURE                    0: __class__
+                84      DUP_TOP                         
+                86      STORE_NAME                      16: __classcell__
+                88      RETURN_VALUE                    
+        'Template'
+        [Code]
+            File Name: string.py
+            Object Name: Formatter
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                'format'
+                'vformat'
+                '_vformat'
+                'get_value'
+                'check_unused_args'
+                'format_field'
+                'convert_field'
+                'parse'
+                'get_field'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Formatter'
+                [Code]
+                    File Name: string.py
+                    Object Name: format
+                    Arg Count: 2
+                    Pos Only Arg Count: 2
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 5
+                    Flags: 0x0000004F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NOFREE)
+                    [Names]
+                        'vformat'
+                    [Var Names]
+                        'self'
+                        'format_string'
+                        'args'
+                        'kwargs'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: vformat
+                        4       LOAD_FAST                       1: format_string
+                        6       LOAD_FAST                       2: args
+                        8       LOAD_FAST                       3: kwargs
+                        10      CALL_METHOD                     3
+                        12      RETURN_VALUE                    
+                'Formatter.format'
+                [Code]
+                    File Name: string.py
+                    Object Name: vformat
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 7
+                    Stack Size: 7
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'set'
+                        '_vformat'
+                        'check_unused_args'
+                    [Var Names]
+                        'self'
+                        'format_string'
+                        'args'
+                        'kwargs'
+                        'used_args'
+                        'result'
+                        '_'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        2
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: set
+                        2       CALL_FUNCTION                   0
+                        4       STORE_FAST                      4: used_args
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_METHOD                     1: _vformat
+                        10      LOAD_FAST                       1: format_string
+                        12      LOAD_FAST                       2: args
+                        14      LOAD_FAST                       3: kwargs
+                        16      LOAD_FAST                       4: used_args
+                        18      LOAD_CONST                      1: 2
+                        20      CALL_METHOD                     5
+                        22      UNPACK_SEQUENCE                 2
+                        24      STORE_FAST                      5: result
+                        26      STORE_FAST                      6: _
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_METHOD                     2: check_unused_args
+                        32      LOAD_FAST                       4: used_args
+                        34      LOAD_FAST                       2: args
+                        36      LOAD_FAST                       3: kwargs
+                        38      CALL_METHOD                     3
+                        40      POP_TOP                         
+                        42      LOAD_FAST                       5: result
+                        44      RETURN_VALUE                    
+                'Formatter.vformat'
+                0
+                [Code]
+                    File Name: string.py
+                    Object Name: _vformat
+                    Arg Count: 7
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 14
+                    Stack Size: 9
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'ValueError'
+                        'parse'
+                        'append'
+                        'str'
+                        'isdigit'
+                        'get_field'
+                        'add'
+                        'convert_field'
+                        '_vformat'
+                        'format_field'
+                        'join'
+                    [Var Names]
+                        'self'
+                        'format_string'
+                        'args'
+                        'kwargs'
+                        'used_args'
+                        'recursion_depth'
+                        'auto_arg_index'
+                        'result'
+                        'literal_text'
+                        'field_name'
+                        'format_spec'
+                        'conversion'
+                        'obj'
+                        'arg_used'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                        'Max string recursion exceeded'
+                        ''
+                        False
+                        'cannot switch from manual field specification to automatic field numbering'
+                        1
+                        (
+                            'auto_arg_index'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       5: recursion_depth
+                        2       LOAD_CONST                      1: 0
+                        4       COMPARE_OP                      0 (<)
+                        6       POP_JUMP_IF_FALSE               8 (to 16)
+                        8       LOAD_GLOBAL                     0: ValueError
+                        10      LOAD_CONST                      2: 'Max string recursion exceeded'
+                        12      CALL_FUNCTION                   1
+                        14      RAISE_VARARGS                   1
+                        16      BUILD_LIST                      0
+                        18      STORE_FAST                      7: result
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_METHOD                     1: parse
+                        24      LOAD_FAST                       1: format_string
+                        26      CALL_METHOD                     1
+                        28      GET_ITER                        
+                        30      FOR_ITER                        94 (to 220)
+                        32      UNPACK_SEQUENCE                 4
+                        34      STORE_FAST                      8: literal_text
+                        36      STORE_FAST                      9: field_name
+                        38      STORE_FAST                      10: format_spec
+                        40      STORE_FAST                      11: conversion
+                        42      LOAD_FAST                       8: literal_text
+                        44      POP_JUMP_IF_FALSE               28 (to 56)
+                        46      LOAD_FAST                       7: result
+                        48      LOAD_METHOD                     2: append
+                        50      LOAD_FAST                       8: literal_text
+                        52      CALL_METHOD                     1
+                        54      POP_TOP                         
+                        56      LOAD_FAST                       9: field_name
+                        58      LOAD_CONST                      0: None
+                        60      IS_OP                           1 (is not)
+                        62      POP_JUMP_IF_FALSE               109 (to 218)
+                        64      LOAD_FAST                       9: field_name
+                        66      LOAD_CONST                      3: ''
+                        68      COMPARE_OP                      2 (==)
+                        70      POP_JUMP_IF_FALSE               53 (to 106)
+                        72      LOAD_FAST                       6: auto_arg_index
+                        74      LOAD_CONST                      4: False
+                        76      IS_OP                           0 (is)
+                        78      POP_JUMP_IF_FALSE               44 (to 88)
+                        80      LOAD_GLOBAL                     0: ValueError
+                        82      LOAD_CONST                      5: 'cannot switch from manual field specification to automatic field numbering'
+                        84      CALL_FUNCTION                   1
+                        86      RAISE_VARARGS                   1
+                        88      LOAD_GLOBAL                     3: str
+                        90      LOAD_FAST                       6: auto_arg_index
+                        92      CALL_FUNCTION                   1
+                        94      STORE_FAST                      9: field_name
+                        96      LOAD_FAST                       6: auto_arg_index
+                        98      LOAD_CONST                      6: 1
+                        100     INPLACE_ADD                     
+                        102     STORE_FAST                      6: auto_arg_index
+                        104     JUMP_FORWARD                    12 (to 130)
+                        106     LOAD_FAST                       9: field_name
+                        108     LOAD_METHOD                     4: isdigit
+                        110     CALL_METHOD                     0
+                        112     POP_JUMP_IF_FALSE               65 (to 130)
+                        114     LOAD_FAST                       6: auto_arg_index
+                        116     POP_JUMP_IF_FALSE               63 (to 126)
+                        118     LOAD_GLOBAL                     0: ValueError
+                        120     LOAD_CONST                      5: 'cannot switch from manual field specification to automatic field numbering'
+                        122     CALL_FUNCTION                   1
+                        124     RAISE_VARARGS                   1
+                        126     LOAD_CONST                      4: False
+                        128     STORE_FAST                      6: auto_arg_index
+                        130     LOAD_FAST                       0: self
+                        132     LOAD_METHOD                     5: get_field
+                        134     LOAD_FAST                       9: field_name
+                        136     LOAD_FAST                       2: args
+                        138     LOAD_FAST                       3: kwargs
+                        140     CALL_METHOD                     3
+                        142     UNPACK_SEQUENCE                 2
+                        144     STORE_FAST                      12: obj
+                        146     STORE_FAST                      13: arg_used
+                        148     LOAD_FAST                       4: used_args
+                        150     LOAD_METHOD                     6: add
+                        152     LOAD_FAST                       13: arg_used
+                        154     CALL_METHOD                     1
+                        156     POP_TOP                         
+                        158     LOAD_FAST                       0: self
+                        160     LOAD_METHOD                     7: convert_field
+                        162     LOAD_FAST                       12: obj
+                        164     LOAD_FAST                       11: conversion
+                        166     CALL_METHOD                     2
+                        168     STORE_FAST                      12: obj
+                        170     LOAD_FAST                       0: self
+                        172     LOAD_ATTR                       8: _vformat
+                        174     LOAD_FAST                       10: format_spec
+                        176     LOAD_FAST                       2: args
+                        178     LOAD_FAST                       3: kwargs
+                        180     LOAD_FAST                       4: used_args
+                        182     LOAD_FAST                       5: recursion_depth
+                        184     LOAD_CONST                      6: 1
+                        186     BINARY_SUBTRACT                 
+                        188     LOAD_FAST                       6: auto_arg_index
+                        190     LOAD_CONST                      7: ('auto_arg_index',)
+                        192     CALL_FUNCTION_KW                6
+                        194     UNPACK_SEQUENCE                 2
+                        196     STORE_FAST                      10: format_spec
+                        198     STORE_FAST                      6: auto_arg_index
+                        200     LOAD_FAST                       7: result
+                        202     LOAD_METHOD                     2: append
+                        204     LOAD_FAST                       0: self
+                        206     LOAD_METHOD                     9: format_field
+                        208     LOAD_FAST                       12: obj
+                        210     LOAD_FAST                       10: format_spec
+                        212     CALL_METHOD                     2
+                        214     CALL_METHOD                     1
+                        216     POP_TOP                         
+                        218     JUMP_ABSOLUTE                   15 (to 30)
+                        220     LOAD_CONST                      3: ''
+                        222     LOAD_METHOD                     10: join
+                        224     LOAD_FAST                       7: result
+                        226     CALL_METHOD                     1
+                        228     LOAD_FAST                       6: auto_arg_index
+                        230     BUILD_TUPLE                     2
+                        232     RETURN_VALUE                    
+                'Formatter._vformat'
+                [Code]
+                    File Name: string.py
+                    Object Name: get_value
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'isinstance'
+                        'int'
+                    [Var Names]
+                        'self'
+                        'key'
+                        'args'
+                        'kwargs'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: isinstance
+                        2       LOAD_FAST                       1: key
+                        4       LOAD_GLOBAL                     1: int
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_FALSE               9 (to 18)
+                        10      LOAD_FAST                       2: args
+                        12      LOAD_FAST                       1: key
+                        14      BINARY_SUBSCR                   
+                        16      RETURN_VALUE                    
+                        18      LOAD_FAST                       3: kwargs
+                        20      LOAD_FAST                       1: key
+                        22      BINARY_SUBSCR                   
+                        24      RETURN_VALUE                    
+                'Formatter.get_value'
+                [Code]
+                    File Name: string.py
+                    Object Name: check_unused_args
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        'used_args'
+                        'args'
+                        'kwargs'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      0: None
+                        2       RETURN_VALUE                    
+                'Formatter.check_unused_args'
+                [Code]
+                    File Name: string.py
+                    Object Name: format_field
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'format'
+                    [Var Names]
+                        'self'
+                        'value'
+                        'format_spec'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: format
+                        2       LOAD_FAST                       1: value
+                        4       LOAD_FAST                       2: format_spec
+                        6       CALL_FUNCTION                   2
+                        8       RETURN_VALUE                    
+                'Formatter.format_field'
+                [Code]
+                    File Name: string.py
+                    Object Name: convert_field
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'str'
+                        'repr'
+                        'ascii'
+                        'ValueError'
+                        'format'
+                    [Var Names]
+                        'self'
+                        'value'
+                        'conversion'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        's'
+                        'r'
+                        'a'
+                        'Unknown conversion specifier {0!s}'
+                    [Disassembly]
+                        0       LOAD_FAST                       2: conversion
+                        2       LOAD_CONST                      0: None
+                        4       IS_OP                           0 (is)
+                        6       POP_JUMP_IF_FALSE               6 (to 12)
+                        8       LOAD_FAST                       1: value
+                        10      RETURN_VALUE                    
+                        12      LOAD_FAST                       2: conversion
+                        14      LOAD_CONST                      1: 's'
+                        16      COMPARE_OP                      2 (==)
+                        18      POP_JUMP_IF_FALSE               14 (to 28)
+                        20      LOAD_GLOBAL                     0: str
+                        22      LOAD_FAST                       1: value
+                        24      CALL_FUNCTION                   1
+                        26      RETURN_VALUE                    
+                        28      LOAD_FAST                       2: conversion
+                        30      LOAD_CONST                      2: 'r'
+                        32      COMPARE_OP                      2 (==)
+                        34      POP_JUMP_IF_FALSE               22 (to 44)
+                        36      LOAD_GLOBAL                     1: repr
+                        38      LOAD_FAST                       1: value
+                        40      CALL_FUNCTION                   1
+                        42      RETURN_VALUE                    
+                        44      LOAD_FAST                       2: conversion
+                        46      LOAD_CONST                      3: 'a'
+                        48      COMPARE_OP                      2 (==)
+                        50      POP_JUMP_IF_FALSE               30 (to 60)
+                        52      LOAD_GLOBAL                     2: ascii
+                        54      LOAD_FAST                       1: value
+                        56      CALL_FUNCTION                   1
+                        58      RETURN_VALUE                    
+                        60      LOAD_GLOBAL                     3: ValueError
+                        62      LOAD_CONST                      4: 'Unknown conversion specifier {0!s}'
+                        64      LOAD_METHOD                     4: format
+                        66      LOAD_FAST                       2: conversion
+                        68      CALL_METHOD                     1
+                        70      CALL_FUNCTION                   1
+                        72      RAISE_VARARGS                   1
+                'Formatter.convert_field'
+                [Code]
+                    File Name: string.py
+                    Object Name: parse
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_string'
+                        'formatter_parser'
+                    [Var Names]
+                        'self'
+                        'format_string'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: _string
+                        2       LOAD_METHOD                     1: formatter_parser
+                        4       LOAD_FAST                       1: format_string
+                        6       CALL_METHOD                     1
+                        8       RETURN_VALUE                    
+                'Formatter.parse'
+                [Code]
+                    File Name: string.py
+                    Object Name: get_field
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 9
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_string'
+                        'formatter_field_name_split'
+                        'get_value'
+                        'getattr'
+                    [Var Names]
+                        'self'
+                        'field_name'
+                        'args'
+                        'kwargs'
+                        'first'
+                        'rest'
+                        'obj'
+                        'is_attr'
+                        'i'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: _string
+                        2       LOAD_METHOD                     1: formatter_field_name_split
+                        4       LOAD_FAST                       1: field_name
+                        6       CALL_METHOD                     1
+                        8       UNPACK_SEQUENCE                 2
+                        10      STORE_FAST                      4: first
+                        12      STORE_FAST                      5: rest
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_METHOD                     2: get_value
+                        18      LOAD_FAST                       4: first
+                        20      LOAD_FAST                       2: args
+                        22      LOAD_FAST                       3: kwargs
+                        24      CALL_METHOD                     3
+                        26      STORE_FAST                      6: obj
+                        28      LOAD_FAST                       5: rest
+                        30      GET_ITER                        
+                        32      FOR_ITER                        16 (to 66)
+                        34      UNPACK_SEQUENCE                 2
+                        36      STORE_FAST                      7: is_attr
+                        38      STORE_FAST                      8: i
+                        40      LOAD_FAST                       7: is_attr
+                        42      POP_JUMP_IF_FALSE               28 (to 56)
+                        44      LOAD_GLOBAL                     3: getattr
+                        46      LOAD_FAST                       6: obj
+                        48      LOAD_FAST                       8: i
+                        50      CALL_FUNCTION                   2
+                        52      STORE_FAST                      6: obj
+                        54      JUMP_ABSOLUTE                   16 (to 32)
+                        56      LOAD_FAST                       6: obj
+                        58      LOAD_FAST                       8: i
+                        60      BINARY_SUBSCR                   
+                        62      STORE_FAST                      6: obj
+                        64      JUMP_ABSOLUTE                   16 (to 32)
+                        66      LOAD_FAST                       6: obj
+                        68      LOAD_FAST                       4: first
+                        70      BUILD_TUPLE                     2
+                        72      RETURN_VALUE                    
+                'Formatter.get_field'
+                None
+                (
+                    0
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Formatter'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: <CODE> format
+                10      LOAD_CONST                      2: 'Formatter.format'
+                12      MAKE_FUNCTION                   0
+                14      STORE_NAME                      3: format
+                16      LOAD_CONST                      3: <CODE> vformat
+                18      LOAD_CONST                      4: 'Formatter.vformat'
+                20      MAKE_FUNCTION                   0
+                22      STORE_NAME                      4: vformat
+                24      NOP                             
+                26      LOAD_CONST                      21: (0,)
+                28      LOAD_CONST                      6: <CODE> _vformat
+                30      LOAD_CONST                      7: 'Formatter._vformat'
+                32      MAKE_FUNCTION                   1
+                34      STORE_NAME                      5: _vformat
+                36      LOAD_CONST                      8: <CODE> get_value
+                38      LOAD_CONST                      9: 'Formatter.get_value'
+                40      MAKE_FUNCTION                   0
+                42      STORE_NAME                      6: get_value
+                44      LOAD_CONST                      10: <CODE> check_unused_args
+                46      LOAD_CONST                      11: 'Formatter.check_unused_args'
+                48      MAKE_FUNCTION                   0
+                50      STORE_NAME                      7: check_unused_args
+                52      LOAD_CONST                      12: <CODE> format_field
+                54      LOAD_CONST                      13: 'Formatter.format_field'
+                56      MAKE_FUNCTION                   0
+                58      STORE_NAME                      8: format_field
+                60      LOAD_CONST                      14: <CODE> convert_field
+                62      LOAD_CONST                      15: 'Formatter.convert_field'
+                64      MAKE_FUNCTION                   0
+                66      STORE_NAME                      9: convert_field
+                68      LOAD_CONST                      16: <CODE> parse
+                70      LOAD_CONST                      17: 'Formatter.parse'
+                72      MAKE_FUNCTION                   0
+                74      STORE_NAME                      10: parse
+                76      LOAD_CONST                      18: <CODE> get_field
+                78      LOAD_CONST                      19: 'Formatter.get_field'
+                80      MAKE_FUNCTION                   0
+                82      STORE_NAME                      11: get_field
+                84      LOAD_CONST                      20: None
+                86      RETURN_VALUE                    
+        'Formatter'
+        (
+            None
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'A collection of string constants.\n\nPublic module variables:\n\nwhitespace -- a string containing all ASCII whitespace\nascii_lowercase -- a string containing all ASCII lowercase letters\nascii_uppercase -- a string containing all ASCII uppercase letters\nascii_letters -- a string containing all ASCII letters\ndigits -- a string containing all ASCII decimal digits\nhexdigits -- a string containing all ASCII hexadecimal digits\noctdigits -- a string containing all ASCII octal digits\npunctuation -- a string containing all ASCII punctuation characters\nprintable -- a string containing all ASCII characters considered printable\n\n'
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('ascii_letters', 'ascii_lowercase', 'ascii_uppercase', 'capwords', 'digits', 'hexdigits', 'octdigits', 'printable', 'punctuation', 'whitespace', 'Formatter', 'Template')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: 0
+        14      LOAD_CONST                      3: None
+        16      IMPORT_NAME                     2: _string
+        18      STORE_NAME                      2: _string
+        20      LOAD_CONST                      4: ' \t\n\r\x0b\x0c'
+        22      STORE_NAME                      3: whitespace
+        24      LOAD_CONST                      5: 'abcdefghijklmnopqrstuvwxyz'
+        26      STORE_NAME                      4: ascii_lowercase
+        28      LOAD_CONST                      6: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        30      STORE_NAME                      5: ascii_uppercase
+        32      LOAD_NAME                       4: ascii_lowercase
+        34      LOAD_NAME                       5: ascii_uppercase
+        36      BINARY_ADD                      
+        38      STORE_NAME                      6: ascii_letters
+        40      LOAD_CONST                      7: '0123456789'
+        42      STORE_NAME                      7: digits
+        44      LOAD_NAME                       7: digits
+        46      LOAD_CONST                      8: 'abcdef'
+        48      BINARY_ADD                      
+        50      LOAD_CONST                      9: 'ABCDEF'
+        52      BINARY_ADD                      
+        54      STORE_NAME                      8: hexdigits
+        56      LOAD_CONST                      10: '01234567'
+        58      STORE_NAME                      9: octdigits
+        60      LOAD_CONST                      11: '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+        62      STORE_NAME                      10: punctuation
+        64      LOAD_NAME                       7: digits
+        66      LOAD_NAME                       6: ascii_letters
+        68      BINARY_ADD                      
+        70      LOAD_NAME                       10: punctuation
+        72      BINARY_ADD                      
+        74      LOAD_NAME                       3: whitespace
+        76      BINARY_ADD                      
+        78      STORE_NAME                      11: printable
+        80      LOAD_CONST                      19: (None,)
+        82      LOAD_CONST                      12: <CODE> capwords
+        84      LOAD_CONST                      13: 'capwords'
+        86      MAKE_FUNCTION                   1
+        88      STORE_NAME                      12: capwords
+        90      LOAD_CONST                      2: 0
+        92      LOAD_CONST                      3: None
+        94      IMPORT_NAME                     13: re
+        96      STORE_NAME                      14: _re
+        98      LOAD_CONST                      2: 0
+        100     LOAD_CONST                      14: ('ChainMap',)
+        102     IMPORT_NAME                     15: collections
+        104     IMPORT_FROM                     16: ChainMap
+        106     STORE_NAME                      17: _ChainMap
+        108     POP_TOP                         
+        110     BUILD_MAP                       0
+        112     STORE_NAME                      18: _sentinel_dict
+        114     LOAD_BUILD_CLASS                
+        116     LOAD_CONST                      15: <CODE> Template
+        118     LOAD_CONST                      16: 'Template'
+        120     MAKE_FUNCTION                   0
+        122     LOAD_CONST                      16: 'Template'
+        124     CALL_FUNCTION                   2
+        126     STORE_NAME                      19: Template
+        128     LOAD_NAME                       19: Template
+        130     LOAD_METHOD                     20: __init_subclass__
+        132     CALL_METHOD                     0
+        134     POP_TOP                         
+        136     LOAD_BUILD_CLASS                
+        138     LOAD_CONST                      17: <CODE> Formatter
+        140     LOAD_CONST                      18: 'Formatter'
+        142     MAKE_FUNCTION                   0
+        144     LOAD_CONST                      18: 'Formatter'
+        146     CALL_FUNCTION                   2
+        148     STORE_NAME                      21: Formatter
+        150     LOAD_CONST                      3: None
+        152     RETURN_VALUE                    

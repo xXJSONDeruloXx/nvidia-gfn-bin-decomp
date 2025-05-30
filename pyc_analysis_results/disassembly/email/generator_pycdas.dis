@@ -1,0 +1,2398 @@
+generator.pyc (Python 3.10)
+[Code]
+    File Name: email/generator.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        're'
+        'sys'
+        'time'
+        'random'
+        'copy'
+        'deepcopy'
+        'io'
+        'StringIO'
+        'BytesIO'
+        'email.utils'
+        '_has_surrogates'
+        'email.errors'
+        'HeaderWriteError'
+        'UNDERSCORE'
+        'NL'
+        'compile'
+        'NLCRE'
+        'MULTILINE'
+        'fcre'
+        'NEWLINE_WITHOUT_FWSP'
+        'Generator'
+        'BytesGenerator'
+        '_FMT'
+        'DecodedGenerator'
+        'len'
+        'repr'
+        'maxsize'
+        '_width'
+        '_fmt'
+        '_make_boundary'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Classes to generate plain text from a message object tree.'
+        (
+            'Generator'
+            'DecodedGenerator'
+            'BytesGenerator'
+        )
+        0
+        None
+        (
+            'deepcopy'
+        )
+        (
+            'StringIO'
+            'BytesIO'
+        )
+        (
+            '_has_surrogates'
+        )
+        (
+            'HeaderWriteError'
+        )
+        '_'
+        '\n'
+        '\\r\\n|\\r|\\n'
+        '^From '
+        '\\r\\n[^ \\t]|\\r[^ \\n\\t]|\\n[^ \\t]'
+        [Code]
+            File Name: email/generator.py
+            Object Name: Generator
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                'write'
+                'flatten'
+                'clone'
+                '_new_buffer'
+                '_encode'
+                '_write_lines'
+                '_write'
+                '_dispatch'
+                '_write_headers'
+                '_handle_text'
+                '_writeBody'
+                '_handle_multipart'
+                '_handle_multipart_signed'
+                '_handle_message_delivery_status'
+                '_handle_message'
+                'classmethod'
+                '_make_boundary'
+                '_compile_re'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Generator'
+                'Generates output from a Message object tree.\n\n    This basic generator writes the message to the given file object as plain\n    text.\n    '
+                None
+                (
+                    'policy'
+                )
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: __init__
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 1
+                    Locals: 5
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'mangle_from_'
+                        '_fp'
+                        '_mangle_from_'
+                        'maxheaderlen'
+                        'policy'
+                    [Var Names]
+                        'self'
+                        'outfp'
+                        'mangle_from_'
+                        'maxheaderlen'
+                        'policy'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Create the generator for message flattening.\n\n        outfp is the output file-like object for writing the message to.  It\n        must have a write() method.\n\n        Optional mangle_from_ is a flag that, when True (the default if policy\n        is not set), escapes From_ lines in the body of the message by putting\n        a `>' in front of them.\n\n        Optional maxheaderlen specifies the longest length for a non-continued\n        header.  When a header line is longer (in characters, with tabs\n        expanded to 8 spaces) than maxheaderlen, the header will split as\n        defined in the Header class.  Set maxheaderlen to zero to disable\n        header wrapping.  The default is 78, as recommended (but not required)\n        by RFC 2822.\n\n        The policy keyword specifies a policy object that controls a number of\n        aspects of the generator's operation.  If no policy is specified,\n        the policy associated with the Message object passed to the\n        flatten method is used.\n\n        "
+                        None
+                        True
+                    [Disassembly]
+                        0       LOAD_FAST                       2: mangle_from_
+                        2       LOAD_CONST                      1: None
+                        4       IS_OP                           0 (is)
+                        6       POP_JUMP_IF_FALSE               13 (to 26)
+                        8       LOAD_FAST                       4: policy
+                        10      LOAD_CONST                      1: None
+                        12      IS_OP                           0 (is)
+                        14      POP_JUMP_IF_FALSE               10 (to 20)
+                        16      LOAD_CONST                      2: True
+                        18      JUMP_FORWARD                    2 (to 24)
+                        20      LOAD_FAST                       4: policy
+                        22      LOAD_ATTR                       0: mangle_from_
+                        24      STORE_FAST                      2: mangle_from_
+                        26      LOAD_FAST                       1: outfp
+                        28      LOAD_FAST                       0: self
+                        30      STORE_ATTR                      1: _fp
+                        32      LOAD_FAST                       2: mangle_from_
+                        34      LOAD_FAST                       0: self
+                        36      STORE_ATTR                      2: _mangle_from_
+                        38      LOAD_FAST                       3: maxheaderlen
+                        40      LOAD_FAST                       0: self
+                        42      STORE_ATTR                      3: maxheaderlen
+                        44      LOAD_FAST                       4: policy
+                        46      LOAD_FAST                       0: self
+                        48      STORE_ATTR                      4: policy
+                        50      LOAD_CONST                      1: None
+                        52      RETURN_VALUE                    
+                'Generator.__init__'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: write
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fp'
+                        'write'
+                    [Var Names]
+                        'self'
+                        's'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _fp
+                        4       LOAD_METHOD                     1: write
+                        6       LOAD_FAST                       1: s
+                        8       CALL_METHOD                     1
+                        10      POP_TOP                         
+                        12      LOAD_CONST                      0: None
+                        14      RETURN_VALUE                    
+                'Generator.write'
+                False
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: flatten
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 8
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'policy'
+                        'clone'
+                        'maxheaderlen'
+                        'linesep'
+                        '_NL'
+                        '_encode'
+                        '_encoded_NL'
+                        '_EMPTY'
+                        '_encoded_EMPTY'
+                        'get_unixfrom'
+                        'time'
+                        'ctime'
+                        'write'
+                        '_write'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        'unixfrom'
+                        'linesep'
+                        'policy'
+                        'old_gen_policy'
+                        'old_msg_policy'
+                        'ufrom'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Print the message object tree rooted at msg to the output file\n        specified when the Generator instance was created.\n\n        unixfrom is a flag that forces the printing of a Unix From_ delimiter\n        before the first object in the message tree.  If the original message\n        has no From_ delimiter, a `standard' one is crafted.  By default, this\n        is False to inhibit the printing of any From_ delimiter.\n\n        Note that for subobjects, no From_ line is printed.\n\n        linesep specifies the characters used to indicate a new line in\n        the output.  The default value is determined by the policy specified\n        when the Generator instance was created or, if none was specified,\n        from the policy associated with the msg.\n\n        "
+                        None
+                        (
+                            'linesep'
+                        )
+                        (
+                            'max_line_length'
+                        )
+                        ''
+                        'From nobody '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: policy
+                        4       LOAD_CONST                      1: None
+                        6       IS_OP                           0 (is)
+                        8       POP_JUMP_IF_FALSE               8 (to 16)
+                        10      LOAD_FAST                       1: msg
+                        12      LOAD_ATTR                       0: policy
+                        14      JUMP_FORWARD                    2 (to 20)
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       0: policy
+                        20      STORE_FAST                      4: policy
+                        22      LOAD_FAST                       3: linesep
+                        24      LOAD_CONST                      1: None
+                        26      IS_OP                           1 (is not)
+                        28      POP_JUMP_IF_FALSE               21 (to 42)
+                        30      LOAD_FAST                       4: policy
+                        32      LOAD_ATTR                       1: clone
+                        34      LOAD_FAST                       3: linesep
+                        36      LOAD_CONST                      2: ('linesep',)
+                        38      CALL_FUNCTION_KW                1
+                        40      STORE_FAST                      4: policy
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_ATTR                       2: maxheaderlen
+                        46      LOAD_CONST                      1: None
+                        48      IS_OP                           1 (is not)
+                        50      POP_JUMP_IF_FALSE               33 (to 66)
+                        52      LOAD_FAST                       4: policy
+                        54      LOAD_ATTR                       1: clone
+                        56      LOAD_FAST                       0: self
+                        58      LOAD_ATTR                       2: maxheaderlen
+                        60      LOAD_CONST                      3: ('max_line_length',)
+                        62      CALL_FUNCTION_KW                1
+                        64      STORE_FAST                      4: policy
+                        66      LOAD_FAST                       4: policy
+                        68      LOAD_ATTR                       3: linesep
+                        70      LOAD_FAST                       0: self
+                        72      STORE_ATTR                      4: _NL
+                        74      LOAD_FAST                       0: self
+                        76      LOAD_METHOD                     5: _encode
+                        78      LOAD_FAST                       0: self
+                        80      LOAD_ATTR                       4: _NL
+                        82      CALL_METHOD                     1
+                        84      LOAD_FAST                       0: self
+                        86      STORE_ATTR                      6: _encoded_NL
+                        88      LOAD_CONST                      4: ''
+                        90      LOAD_FAST                       0: self
+                        92      STORE_ATTR                      7: _EMPTY
+                        94      LOAD_FAST                       0: self
+                        96      LOAD_METHOD                     5: _encode
+                        98      LOAD_FAST                       0: self
+                        100     LOAD_ATTR                       7: _EMPTY
+                        102     CALL_METHOD                     1
+                        104     LOAD_FAST                       0: self
+                        106     STORE_ATTR                      8: _encoded_EMPTY
+                        108     LOAD_FAST                       0: self
+                        110     LOAD_ATTR                       0: policy
+                        112     STORE_FAST                      5: old_gen_policy
+                        114     LOAD_FAST                       1: msg
+                        116     LOAD_ATTR                       0: policy
+                        118     STORE_FAST                      6: old_msg_policy
+                        120     SETUP_FINALLY                   45 (to 212)
+                        122     LOAD_FAST                       4: policy
+                        124     LOAD_FAST                       0: self
+                        126     STORE_ATTR                      0: policy
+                        128     LOAD_FAST                       4: policy
+                        130     LOAD_FAST                       1: msg
+                        132     STORE_ATTR                      0: policy
+                        134     LOAD_FAST                       2: unixfrom
+                        136     POP_JUMP_IF_FALSE               92 (to 184)
+                        138     LOAD_FAST                       1: msg
+                        140     LOAD_METHOD                     9: get_unixfrom
+                        142     CALL_METHOD                     0
+                        144     STORE_FAST                      7: ufrom
+                        146     LOAD_FAST                       7: ufrom
+                        148     POP_JUMP_IF_TRUE                84 (to 168)
+                        150     LOAD_CONST                      5: 'From nobody '
+                        152     LOAD_GLOBAL                     10: time
+                        154     LOAD_METHOD                     11: ctime
+                        156     LOAD_GLOBAL                     10: time
+                        158     LOAD_METHOD                     10: time
+                        160     CALL_METHOD                     0
+                        162     CALL_METHOD                     1
+                        164     BINARY_ADD                      
+                        166     STORE_FAST                      7: ufrom
+                        168     LOAD_FAST                       0: self
+                        170     LOAD_METHOD                     12: write
+                        172     LOAD_FAST                       7: ufrom
+                        174     LOAD_FAST                       0: self
+                        176     LOAD_ATTR                       4: _NL
+                        178     BINARY_ADD                      
+                        180     CALL_METHOD                     1
+                        182     POP_TOP                         
+                        184     LOAD_FAST                       0: self
+                        186     LOAD_METHOD                     13: _write
+                        188     LOAD_FAST                       1: msg
+                        190     CALL_METHOD                     1
+                        192     POP_TOP                         
+                        194     POP_BLOCK                       
+                        196     LOAD_FAST                       5: old_gen_policy
+                        198     LOAD_FAST                       0: self
+                        200     STORE_ATTR                      0: policy
+                        202     LOAD_FAST                       6: old_msg_policy
+                        204     LOAD_FAST                       1: msg
+                        206     STORE_ATTR                      0: policy
+                        208     LOAD_CONST                      1: None
+                        210     RETURN_VALUE                    
+                        212     LOAD_FAST                       5: old_gen_policy
+                        214     LOAD_FAST                       0: self
+                        216     STORE_ATTR                      0: policy
+                        218     LOAD_FAST                       6: old_msg_policy
+                        220     LOAD_FAST                       1: msg
+                        222     STORE_ATTR                      0: policy
+                        224     RERAISE                         0
+                'Generator.flatten'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: clone
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '__class__'
+                        '_mangle_from_'
+                        'policy'
+                    [Var Names]
+                        'self'
+                        'fp'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Clone this generator with the exact same options.'
+                        None
+                        (
+                            'policy'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: __class__
+                        4       LOAD_FAST                       1: fp
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_ATTR                       1: _mangle_from_
+                        10      LOAD_CONST                      1: None
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_ATTR                       2: policy
+                        16      LOAD_CONST                      2: ('policy',)
+                        18      CALL_FUNCTION_KW                4
+                        20      RETURN_VALUE                    
+                'Generator.clone'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _new_buffer
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'StringIO'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: StringIO
+                        2       CALL_FUNCTION                   0
+                        4       RETURN_VALUE                    
+                'Generator._new_buffer'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _encode
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                        's'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: s
+                        2       RETURN_VALUE                    
+                'Generator._encode'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _write_lines
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'NLCRE'
+                        'split'
+                        'write'
+                        '_NL'
+                    [Var Names]
+                        'self'
+                        'lines'
+                        'line'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        -1
+                    [Disassembly]
+                        0       LOAD_FAST                       1: lines
+                        2       POP_JUMP_IF_TRUE                4 (to 8)
+                        4       LOAD_CONST                      0: None
+                        6       RETURN_VALUE                    
+                        8       LOAD_GLOBAL                     0: NLCRE
+                        10      LOAD_METHOD                     1: split
+                        12      LOAD_FAST                       1: lines
+                        14      CALL_METHOD                     1
+                        16      STORE_FAST                      1: lines
+                        18      LOAD_FAST                       1: lines
+                        20      LOAD_CONST                      0: None
+                        22      LOAD_CONST                      1: -1
+                        24      BUILD_SLICE                     2
+                        26      BINARY_SUBSCR                   
+                        28      GET_ITER                        
+                        30      FOR_ITER                        13 (to 58)
+                        32      STORE_FAST                      2: line
+                        34      LOAD_FAST                       0: self
+                        36      LOAD_METHOD                     2: write
+                        38      LOAD_FAST                       2: line
+                        40      CALL_METHOD                     1
+                        42      POP_TOP                         
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_METHOD                     2: write
+                        48      LOAD_FAST                       0: self
+                        50      LOAD_ATTR                       3: _NL
+                        52      CALL_METHOD                     1
+                        54      POP_TOP                         
+                        56      JUMP_ABSOLUTE                   15 (to 30)
+                        58      LOAD_FAST                       1: lines
+                        60      LOAD_CONST                      1: -1
+                        62      BINARY_SUBSCR                   
+                        64      POP_JUMP_IF_FALSE               42 (to 84)
+                        66      LOAD_FAST                       0: self
+                        68      LOAD_METHOD                     2: write
+                        70      LOAD_FAST                       1: lines
+                        72      LOAD_CONST                      1: -1
+                        74      BINARY_SUBSCR                   
+                        76      CALL_METHOD                     1
+                        78      POP_TOP                         
+                        80      LOAD_CONST                      0: None
+                        82      RETURN_VALUE                    
+                        84      LOAD_CONST                      0: None
+                        86      RETURN_VALUE                    
+                'Generator._write_lines'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _write
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fp'
+                        '_munge_cte'
+                        '_new_buffer'
+                        '_dispatch'
+                        'deepcopy'
+                        'get'
+                        'replace_header'
+                        'getattr'
+                        '_write_headers'
+                        'write'
+                        'getvalue'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        'oldfp'
+                        'sfp'
+                        'munge_cte'
+                        'meth'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'content-transfer-encoding'
+                        0
+                        'Content-Transfer-Encoding'
+                        'content-type'
+                        1
+                        '_write_headers'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _fp
+                        4       STORE_FAST                      2: oldfp
+                        6       SETUP_FINALLY                   25 (to 58)
+                        8       LOAD_CONST                      0: None
+                        10      LOAD_FAST                       0: self
+                        12      STORE_ATTR                      1: _munge_cte
+                        14      LOAD_FAST                       0: self
+                        16      LOAD_METHOD                     2: _new_buffer
+                        18      CALL_METHOD                     0
+                        20      DUP_TOP                         
+                        22      LOAD_FAST                       0: self
+                        24      STORE_ATTR                      0: _fp
+                        26      STORE_FAST                      3: sfp
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_METHOD                     3: _dispatch
+                        32      LOAD_FAST                       1: msg
+                        34      CALL_METHOD                     1
+                        36      POP_TOP                         
+                        38      POP_BLOCK                       
+                        40      LOAD_FAST                       2: oldfp
+                        42      LOAD_FAST                       0: self
+                        44      STORE_ATTR                      0: _fp
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_ATTR                       1: _munge_cte
+                        50      STORE_FAST                      4: munge_cte
+                        52      LOAD_FAST                       0: self
+                        54      DELETE_ATTR                     1: _munge_cte
+                        56      JUMP_FORWARD                    9 (to 76)
+                        58      LOAD_FAST                       2: oldfp
+                        60      LOAD_FAST                       0: self
+                        62      STORE_ATTR                      0: _fp
+                        64      LOAD_FAST                       0: self
+                        66      LOAD_ATTR                       1: _munge_cte
+                        68      STORE_FAST                      4: munge_cte
+                        70      LOAD_FAST                       0: self
+                        72      DELETE_ATTR                     1: _munge_cte
+                        74      RERAISE                         0
+                        76      LOAD_FAST                       4: munge_cte
+                        78      POP_JUMP_IF_FALSE               74 (to 148)
+                        80      LOAD_GLOBAL                     4: deepcopy
+                        82      LOAD_FAST                       1: msg
+                        84      CALL_FUNCTION                   1
+                        86      STORE_FAST                      1: msg
+                        88      LOAD_FAST                       1: msg
+                        90      LOAD_METHOD                     5: get
+                        92      LOAD_CONST                      1: 'content-transfer-encoding'
+                        94      CALL_METHOD                     1
+                        96      LOAD_CONST                      0: None
+                        98      IS_OP                           0 (is)
+                        100     POP_JUMP_IF_FALSE               58 (to 116)
+                        102     LOAD_FAST                       4: munge_cte
+                        104     LOAD_CONST                      2: 0
+                        106     BINARY_SUBSCR                   
+                        108     LOAD_FAST                       1: msg
+                        110     LOAD_CONST                      3: 'Content-Transfer-Encoding'
+                        112     STORE_SUBSCR                    
+                        114     JUMP_FORWARD                    8 (to 132)
+                        116     LOAD_FAST                       1: msg
+                        118     LOAD_METHOD                     6: replace_header
+                        120     LOAD_CONST                      1: 'content-transfer-encoding'
+                        122     LOAD_FAST                       4: munge_cte
+                        124     LOAD_CONST                      2: 0
+                        126     BINARY_SUBSCR                   
+                        128     CALL_METHOD                     2
+                        130     POP_TOP                         
+                        132     LOAD_FAST                       1: msg
+                        134     LOAD_METHOD                     6: replace_header
+                        136     LOAD_CONST                      4: 'content-type'
+                        138     LOAD_FAST                       4: munge_cte
+                        140     LOAD_CONST                      5: 1
+                        142     BINARY_SUBSCR                   
+                        144     CALL_METHOD                     2
+                        146     POP_TOP                         
+                        148     LOAD_GLOBAL                     7: getattr
+                        150     LOAD_FAST                       1: msg
+                        152     LOAD_CONST                      6: '_write_headers'
+                        154     LOAD_CONST                      0: None
+                        156     CALL_FUNCTION                   3
+                        158     STORE_FAST                      5: meth
+                        160     LOAD_FAST                       5: meth
+                        162     LOAD_CONST                      0: None
+                        164     IS_OP                           0 (is)
+                        166     POP_JUMP_IF_FALSE               90 (to 180)
+                        168     LOAD_FAST                       0: self
+                        170     LOAD_METHOD                     8: _write_headers
+                        172     LOAD_FAST                       1: msg
+                        174     CALL_METHOD                     1
+                        176     POP_TOP                         
+                        178     JUMP_FORWARD                    4 (to 188)
+                        180     LOAD_FAST                       5: meth
+                        182     LOAD_FAST                       0: self
+                        184     CALL_FUNCTION                   1
+                        186     POP_TOP                         
+                        188     LOAD_FAST                       0: self
+                        190     LOAD_ATTR                       0: _fp
+                        192     LOAD_METHOD                     9: write
+                        194     LOAD_FAST                       3: sfp
+                        196     LOAD_METHOD                     10: getvalue
+                        198     CALL_METHOD                     0
+                        200     CALL_METHOD                     1
+                        202     POP_TOP                         
+                        204     LOAD_CONST                      0: None
+                        206     RETURN_VALUE                    
+                'Generator._write'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _dispatch
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 7
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'get_content_maintype'
+                        'get_content_subtype'
+                        'UNDERSCORE'
+                        'join'
+                        'replace'
+                        'getattr'
+                        '_writeBody'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        'main'
+                        'sub'
+                        'specific'
+                        'meth'
+                        'generic'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '-'
+                        '_'
+                        '_handle_'
+                    [Disassembly]
+                        0       LOAD_FAST                       1: msg
+                        2       LOAD_METHOD                     0: get_content_maintype
+                        4       CALL_METHOD                     0
+                        6       STORE_FAST                      2: main
+                        8       LOAD_FAST                       1: msg
+                        10      LOAD_METHOD                     1: get_content_subtype
+                        12      CALL_METHOD                     0
+                        14      STORE_FAST                      3: sub
+                        16      LOAD_GLOBAL                     2: UNDERSCORE
+                        18      LOAD_METHOD                     3: join
+                        20      LOAD_FAST                       2: main
+                        22      LOAD_FAST                       3: sub
+                        24      BUILD_TUPLE                     2
+                        26      CALL_METHOD                     1
+                        28      LOAD_METHOD                     4: replace
+                        30      LOAD_CONST                      1: '-'
+                        32      LOAD_CONST                      2: '_'
+                        34      CALL_METHOD                     2
+                        36      STORE_FAST                      4: specific
+                        38      LOAD_GLOBAL                     5: getattr
+                        40      LOAD_FAST                       0: self
+                        42      LOAD_CONST                      3: '_handle_'
+                        44      LOAD_FAST                       4: specific
+                        46      BINARY_ADD                      
+                        48      LOAD_CONST                      0: None
+                        50      CALL_FUNCTION                   3
+                        52      STORE_FAST                      5: meth
+                        54      LOAD_FAST                       5: meth
+                        56      LOAD_CONST                      0: None
+                        58      IS_OP                           0 (is)
+                        60      POP_JUMP_IF_FALSE               52 (to 104)
+                        62      LOAD_FAST                       2: main
+                        64      LOAD_METHOD                     4: replace
+                        66      LOAD_CONST                      1: '-'
+                        68      LOAD_CONST                      2: '_'
+                        70      CALL_METHOD                     2
+                        72      STORE_FAST                      6: generic
+                        74      LOAD_GLOBAL                     5: getattr
+                        76      LOAD_FAST                       0: self
+                        78      LOAD_CONST                      3: '_handle_'
+                        80      LOAD_FAST                       6: generic
+                        82      BINARY_ADD                      
+                        84      LOAD_CONST                      0: None
+                        86      CALL_FUNCTION                   3
+                        88      STORE_FAST                      5: meth
+                        90      LOAD_FAST                       5: meth
+                        92      LOAD_CONST                      0: None
+                        94      IS_OP                           0 (is)
+                        96      POP_JUMP_IF_FALSE               52 (to 104)
+                        98      LOAD_FAST                       0: self
+                        100     LOAD_ATTR                       6: _writeBody
+                        102     STORE_FAST                      5: meth
+                        104     LOAD_FAST                       5: meth
+                        106     LOAD_FAST                       1: msg
+                        108     CALL_FUNCTION                   1
+                        110     POP_TOP                         
+                        112     LOAD_CONST                      0: None
+                        114     RETURN_VALUE                    
+                'Generator._dispatch'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _write_headers
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'raw_items'
+                        'policy'
+                        'fold'
+                        'verify_generated_headers'
+                        'linesep'
+                        'endswith'
+                        'HeaderWriteError'
+                        'NEWLINE_WITHOUT_FWSP'
+                        'search'
+                        'removesuffix'
+                        'write'
+                        '_NL'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        'h'
+                        'v'
+                        'folded'
+                        'linesep'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'folded header does not end with '
+                        ': '
+                        'folded header contains newline: '
+                    [Disassembly]
+                        0       LOAD_FAST                       1: msg
+                        2       LOAD_METHOD                     0: raw_items
+                        4       CALL_METHOD                     0
+                        6       GET_ITER                        
+                        8       FOR_ITER                        56 (to 122)
+                        10      UNPACK_SEQUENCE                 2
+                        12      STORE_FAST                      2: h
+                        14      STORE_FAST                      3: v
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       1: policy
+                        20      LOAD_METHOD                     2: fold
+                        22      LOAD_FAST                       2: h
+                        24      LOAD_FAST                       3: v
+                        26      CALL_METHOD                     2
+                        28      STORE_FAST                      4: folded
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_ATTR                       1: policy
+                        34      LOAD_ATTR                       3: verify_generated_headers
+                        36      POP_JUMP_IF_FALSE               55 (to 110)
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_ATTR                       1: policy
+                        42      LOAD_ATTR                       4: linesep
+                        44      STORE_FAST                      5: linesep
+                        46      LOAD_FAST                       4: folded
+                        48      LOAD_METHOD                     5: endswith
+                        50      LOAD_FAST                       0: self
+                        52      LOAD_ATTR                       1: policy
+                        54      LOAD_ATTR                       4: linesep
+                        56      CALL_METHOD                     1
+                        58      POP_JUMP_IF_TRUE                40 (to 80)
+                        60      LOAD_GLOBAL                     6: HeaderWriteError
+                        62      LOAD_CONST                      1: 'folded header does not end with '
+                        64      LOAD_FAST                       5: linesep
+                        66      FORMAT_VALUE                    2 (FVC_REPR)
+                        68      LOAD_CONST                      2: ': '
+                        70      LOAD_FAST                       4: folded
+                        72      FORMAT_VALUE                    2 (FVC_REPR)
+                        74      BUILD_STRING                    4
+                        76      CALL_FUNCTION                   1
+                        78      RAISE_VARARGS                   1
+                        80      LOAD_GLOBAL                     7: NEWLINE_WITHOUT_FWSP
+                        82      LOAD_METHOD                     8: search
+                        84      LOAD_FAST                       4: folded
+                        86      LOAD_METHOD                     9: removesuffix
+                        88      LOAD_FAST                       5: linesep
+                        90      CALL_METHOD                     1
+                        92      CALL_METHOD                     1
+                        94      POP_JUMP_IF_FALSE               55 (to 110)
+                        96      LOAD_GLOBAL                     6: HeaderWriteError
+                        98      LOAD_CONST                      3: 'folded header contains newline: '
+                        100     LOAD_FAST                       4: folded
+                        102     FORMAT_VALUE                    2 (FVC_REPR)
+                        104     BUILD_STRING                    2
+                        106     CALL_FUNCTION                   1
+                        108     RAISE_VARARGS                   1
+                        110     LOAD_FAST                       0: self
+                        112     LOAD_METHOD                     10: write
+                        114     LOAD_FAST                       4: folded
+                        116     CALL_METHOD                     1
+                        118     POP_TOP                         
+                        120     JUMP_ABSOLUTE                   4 (to 8)
+                        122     LOAD_FAST                       0: self
+                        124     LOAD_METHOD                     10: write
+                        126     LOAD_FAST                       0: self
+                        128     LOAD_ATTR                       11: _NL
+                        130     CALL_METHOD                     1
+                        132     POP_TOP                         
+                        134     LOAD_CONST                      0: None
+                        136     RETURN_VALUE                    
+                'Generator._write_headers'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _handle_text
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'get_payload'
+                        'isinstance'
+                        'str'
+                        'TypeError'
+                        'type'
+                        '_has_surrogates'
+                        '_payload'
+                        'get_param'
+                        'deepcopy'
+                        'set_payload'
+                        '_munge_cte'
+                        '_mangle_from_'
+                        'fcre'
+                        'sub'
+                        '_write_lines'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        'payload'
+                        'charset'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'string payload expected: %s'
+                        'charset'
+                        'content-transfer-encoding'
+                        'content-type'
+                        '>From '
+                    [Disassembly]
+                        0       LOAD_FAST                       1: msg
+                        2       LOAD_METHOD                     0: get_payload
+                        4       CALL_METHOD                     0
+                        6       STORE_FAST                      2: payload
+                        8       LOAD_FAST                       2: payload
+                        10      LOAD_CONST                      0: None
+                        12      IS_OP                           0 (is)
+                        14      POP_JUMP_IF_FALSE               10 (to 20)
+                        16      LOAD_CONST                      0: None
+                        18      RETURN_VALUE                    
+                        20      LOAD_GLOBAL                     1: isinstance
+                        22      LOAD_FAST                       2: payload
+                        24      LOAD_GLOBAL                     2: str
+                        26      CALL_FUNCTION                   2
+                        28      POP_JUMP_IF_TRUE                23 (to 46)
+                        30      LOAD_GLOBAL                     3: TypeError
+                        32      LOAD_CONST                      1: 'string payload expected: %s'
+                        34      LOAD_GLOBAL                     4: type
+                        36      LOAD_FAST                       2: payload
+                        38      CALL_FUNCTION                   1
+                        40      BINARY_MODULO                   
+                        42      CALL_FUNCTION                   1
+                        44      RAISE_VARARGS                   1
+                        46      LOAD_GLOBAL                     5: _has_surrogates
+                        48      LOAD_FAST                       1: msg
+                        50      LOAD_ATTR                       6: _payload
+                        52      CALL_FUNCTION                   1
+                        54      POP_JUMP_IF_FALSE               63 (to 126)
+                        56      LOAD_FAST                       1: msg
+                        58      LOAD_METHOD                     7: get_param
+                        60      LOAD_CONST                      2: 'charset'
+                        62      CALL_METHOD                     1
+                        64      STORE_FAST                      3: charset
+                        66      LOAD_FAST                       3: charset
+                        68      LOAD_CONST                      0: None
+                        70      IS_OP                           1 (is not)
+                        72      POP_JUMP_IF_FALSE               63 (to 126)
+                        74      LOAD_GLOBAL                     8: deepcopy
+                        76      LOAD_FAST                       1: msg
+                        78      CALL_FUNCTION                   1
+                        80      STORE_FAST                      1: msg
+                        82      LOAD_FAST                       1: msg
+                        84      LOAD_CONST                      3: 'content-transfer-encoding'
+                        86      DELETE_SUBSCR                   
+                        88      LOAD_FAST                       1: msg
+                        90      LOAD_METHOD                     9: set_payload
+                        92      LOAD_FAST                       2: payload
+                        94      LOAD_FAST                       3: charset
+                        96      CALL_METHOD                     2
+                        98      POP_TOP                         
+                        100     LOAD_FAST                       1: msg
+                        102     LOAD_METHOD                     0: get_payload
+                        104     CALL_METHOD                     0
+                        106     STORE_FAST                      2: payload
+                        108     LOAD_FAST                       1: msg
+                        110     LOAD_CONST                      3: 'content-transfer-encoding'
+                        112     BINARY_SUBSCR                   
+                        114     LOAD_FAST                       1: msg
+                        116     LOAD_CONST                      4: 'content-type'
+                        118     BINARY_SUBSCR                   
+                        120     BUILD_TUPLE                     2
+                        122     LOAD_FAST                       0: self
+                        124     STORE_ATTR                      10: _munge_cte
+                        126     LOAD_FAST                       0: self
+                        128     LOAD_ATTR                       11: _mangle_from_
+                        130     POP_JUMP_IF_FALSE               72 (to 144)
+                        132     LOAD_GLOBAL                     12: fcre
+                        134     LOAD_METHOD                     13: sub
+                        136     LOAD_CONST                      5: '>From '
+                        138     LOAD_FAST                       2: payload
+                        140     CALL_METHOD                     2
+                        142     STORE_FAST                      2: payload
+                        144     LOAD_FAST                       0: self
+                        146     LOAD_METHOD                     14: _write_lines
+                        148     LOAD_FAST                       2: payload
+                        150     CALL_METHOD                     1
+                        152     POP_TOP                         
+                        154     LOAD_CONST                      0: None
+                        156     RETURN_VALUE                    
+                'Generator._handle_text'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _handle_multipart
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 12
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'get_payload'
+                        'isinstance'
+                        'str'
+                        'write'
+                        'list'
+                        '_new_buffer'
+                        'clone'
+                        'flatten'
+                        '_NL'
+                        'append'
+                        'getvalue'
+                        'get_boundary'
+                        '_encoded_NL'
+                        'join'
+                        '_make_boundary'
+                        'set_boundary'
+                        'preamble'
+                        '_mangle_from_'
+                        'fcre'
+                        'sub'
+                        '_write_lines'
+                        '_fp'
+                        'pop'
+                        'epilogue'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        'msgtexts'
+                        'subparts'
+                        'part'
+                        's'
+                        'g'
+                        'boundary'
+                        'alltext'
+                        'preamble'
+                        'body_part'
+                        'epilogue'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        False
+                        (
+                            'unixfrom'
+                            'linesep'
+                        )
+                        '>From '
+                        '--'
+                        0
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       STORE_FAST                      2: msgtexts
+                        4       LOAD_FAST                       1: msg
+                        6       LOAD_METHOD                     0: get_payload
+                        8       CALL_METHOD                     0
+                        10      STORE_FAST                      3: subparts
+                        12      LOAD_FAST                       3: subparts
+                        14      LOAD_CONST                      0: None
+                        16      IS_OP                           0 (is)
+                        18      POP_JUMP_IF_FALSE               13 (to 26)
+                        20      BUILD_LIST                      0
+                        22      STORE_FAST                      3: subparts
+                        24      JUMP_FORWARD                    20 (to 66)
+                        26      LOAD_GLOBAL                     1: isinstance
+                        28      LOAD_FAST                       3: subparts
+                        30      LOAD_GLOBAL                     2: str
+                        32      CALL_FUNCTION                   2
+                        34      POP_JUMP_IF_FALSE               25 (to 50)
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_METHOD                     3: write
+                        40      LOAD_FAST                       3: subparts
+                        42      CALL_METHOD                     1
+                        44      POP_TOP                         
+                        46      LOAD_CONST                      0: None
+                        48      RETURN_VALUE                    
+                        50      LOAD_GLOBAL                     1: isinstance
+                        52      LOAD_FAST                       3: subparts
+                        54      LOAD_GLOBAL                     4: list
+                        56      CALL_FUNCTION                   2
+                        58      POP_JUMP_IF_TRUE                33 (to 66)
+                        60      LOAD_FAST                       3: subparts
+                        62      BUILD_LIST                      1
+                        64      STORE_FAST                      3: subparts
+                        66      LOAD_FAST                       3: subparts
+                        68      GET_ITER                        
+                        70      FOR_ITER                        27 (to 126)
+                        72      STORE_FAST                      4: part
+                        74      LOAD_FAST                       0: self
+                        76      LOAD_METHOD                     5: _new_buffer
+                        78      CALL_METHOD                     0
+                        80      STORE_FAST                      5: s
+                        82      LOAD_FAST                       0: self
+                        84      LOAD_METHOD                     6: clone
+                        86      LOAD_FAST                       5: s
+                        88      CALL_METHOD                     1
+                        90      STORE_FAST                      6: g
+                        92      LOAD_FAST                       6: g
+                        94      LOAD_ATTR                       7: flatten
+                        96      LOAD_FAST                       4: part
+                        98      LOAD_CONST                      1: False
+                        100     LOAD_FAST                       0: self
+                        102     LOAD_ATTR                       8: _NL
+                        104     LOAD_CONST                      2: ('unixfrom', 'linesep')
+                        106     CALL_FUNCTION_KW                3
+                        108     POP_TOP                         
+                        110     LOAD_FAST                       2: msgtexts
+                        112     LOAD_METHOD                     9: append
+                        114     LOAD_FAST                       5: s
+                        116     LOAD_METHOD                     10: getvalue
+                        118     CALL_METHOD                     0
+                        120     CALL_METHOD                     1
+                        122     POP_TOP                         
+                        124     JUMP_ABSOLUTE                   35 (to 70)
+                        126     LOAD_FAST                       1: msg
+                        128     LOAD_METHOD                     11: get_boundary
+                        130     CALL_METHOD                     0
+                        132     STORE_FAST                      7: boundary
+                        134     LOAD_FAST                       7: boundary
+                        136     POP_JUMP_IF_TRUE                85 (to 170)
+                        138     LOAD_FAST                       0: self
+                        140     LOAD_ATTR                       12: _encoded_NL
+                        142     LOAD_METHOD                     13: join
+                        144     LOAD_FAST                       2: msgtexts
+                        146     CALL_METHOD                     1
+                        148     STORE_FAST                      8: alltext
+                        150     LOAD_FAST                       0: self
+                        152     LOAD_METHOD                     14: _make_boundary
+                        154     LOAD_FAST                       8: alltext
+                        156     CALL_METHOD                     1
+                        158     STORE_FAST                      7: boundary
+                        160     LOAD_FAST                       1: msg
+                        162     LOAD_METHOD                     15: set_boundary
+                        164     LOAD_FAST                       7: boundary
+                        166     CALL_METHOD                     1
+                        168     POP_TOP                         
+                        170     LOAD_FAST                       1: msg
+                        172     LOAD_ATTR                       16: preamble
+                        174     LOAD_CONST                      0: None
+                        176     IS_OP                           1 (is not)
+                        178     POP_JUMP_IF_FALSE               115 (to 230)
+                        180     LOAD_FAST                       0: self
+                        182     LOAD_ATTR                       17: _mangle_from_
+                        184     POP_JUMP_IF_FALSE               101 (to 202)
+                        186     LOAD_GLOBAL                     18: fcre
+                        188     LOAD_METHOD                     19: sub
+                        190     LOAD_CONST                      3: '>From '
+                        192     LOAD_FAST                       1: msg
+                        194     LOAD_ATTR                       16: preamble
+                        196     CALL_METHOD                     2
+                        198     STORE_FAST                      9: preamble
+                        200     JUMP_FORWARD                    3 (to 208)
+                        202     LOAD_FAST                       1: msg
+                        204     LOAD_ATTR                       16: preamble
+                        206     STORE_FAST                      9: preamble
+                        208     LOAD_FAST                       0: self
+                        210     LOAD_METHOD                     20: _write_lines
+                        212     LOAD_FAST                       9: preamble
+                        214     CALL_METHOD                     1
+                        216     POP_TOP                         
+                        218     LOAD_FAST                       0: self
+                        220     LOAD_METHOD                     3: write
+                        222     LOAD_FAST                       0: self
+                        224     LOAD_ATTR                       8: _NL
+                        226     CALL_METHOD                     1
+                        228     POP_TOP                         
+                        230     LOAD_FAST                       0: self
+                        232     LOAD_METHOD                     3: write
+                        234     LOAD_CONST                      4: '--'
+                        236     LOAD_FAST                       7: boundary
+                        238     BINARY_ADD                      
+                        240     LOAD_FAST                       0: self
+                        242     LOAD_ATTR                       8: _NL
+                        244     BINARY_ADD                      
+                        246     CALL_METHOD                     1
+                        248     POP_TOP                         
+                        250     LOAD_FAST                       2: msgtexts
+                        252     POP_JUMP_IF_FALSE               136 (to 272)
+                        254     LOAD_FAST                       0: self
+                        256     LOAD_ATTR                       21: _fp
+                        258     LOAD_METHOD                     3: write
+                        260     LOAD_FAST                       2: msgtexts
+                        262     LOAD_METHOD                     22: pop
+                        264     LOAD_CONST                      5: 0
+                        266     CALL_METHOD                     1
+                        268     CALL_METHOD                     1
+                        270     POP_TOP                         
+                        272     LOAD_FAST                       2: msgtexts
+                        274     GET_ITER                        
+                        276     FOR_ITER                        21 (to 320)
+                        278     STORE_FAST                      10: body_part
+                        280     LOAD_FAST                       0: self
+                        282     LOAD_METHOD                     3: write
+                        284     LOAD_FAST                       0: self
+                        286     LOAD_ATTR                       8: _NL
+                        288     LOAD_CONST                      4: '--'
+                        290     BINARY_ADD                      
+                        292     LOAD_FAST                       7: boundary
+                        294     BINARY_ADD                      
+                        296     LOAD_FAST                       0: self
+                        298     LOAD_ATTR                       8: _NL
+                        300     BINARY_ADD                      
+                        302     CALL_METHOD                     1
+                        304     POP_TOP                         
+                        306     LOAD_FAST                       0: self
+                        308     LOAD_ATTR                       21: _fp
+                        310     LOAD_METHOD                     3: write
+                        312     LOAD_FAST                       10: body_part
+                        314     CALL_METHOD                     1
+                        316     POP_TOP                         
+                        318     JUMP_ABSOLUTE                   138 (to 276)
+                        320     LOAD_FAST                       0: self
+                        322     LOAD_METHOD                     3: write
+                        324     LOAD_FAST                       0: self
+                        326     LOAD_ATTR                       8: _NL
+                        328     LOAD_CONST                      4: '--'
+                        330     BINARY_ADD                      
+                        332     LOAD_FAST                       7: boundary
+                        334     BINARY_ADD                      
+                        336     LOAD_CONST                      4: '--'
+                        338     BINARY_ADD                      
+                        340     LOAD_FAST                       0: self
+                        342     LOAD_ATTR                       8: _NL
+                        344     BINARY_ADD                      
+                        346     CALL_METHOD                     1
+                        348     POP_TOP                         
+                        350     LOAD_FAST                       1: msg
+                        352     LOAD_ATTR                       23: epilogue
+                        354     LOAD_CONST                      0: None
+                        356     IS_OP                           1 (is not)
+                        358     POP_JUMP_IF_FALSE               201 (to 402)
+                        360     LOAD_FAST                       0: self
+                        362     LOAD_ATTR                       17: _mangle_from_
+                        364     POP_JUMP_IF_FALSE               191 (to 382)
+                        366     LOAD_GLOBAL                     18: fcre
+                        368     LOAD_METHOD                     19: sub
+                        370     LOAD_CONST                      3: '>From '
+                        372     LOAD_FAST                       1: msg
+                        374     LOAD_ATTR                       23: epilogue
+                        376     CALL_METHOD                     2
+                        378     STORE_FAST                      11: epilogue
+                        380     JUMP_FORWARD                    3 (to 388)
+                        382     LOAD_FAST                       1: msg
+                        384     LOAD_ATTR                       23: epilogue
+                        386     STORE_FAST                      11: epilogue
+                        388     LOAD_FAST                       0: self
+                        390     LOAD_METHOD                     20: _write_lines
+                        392     LOAD_FAST                       11: epilogue
+                        394     CALL_METHOD                     1
+                        396     POP_TOP                         
+                        398     LOAD_CONST                      0: None
+                        400     RETURN_VALUE                    
+                        402     LOAD_CONST                      0: None
+                        404     RETURN_VALUE                    
+                'Generator._handle_multipart'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _handle_multipart_signed
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'policy'
+                        'clone'
+                        '_handle_multipart'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        'p'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                        (
+                            'max_line_length'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: policy
+                        4       STORE_FAST                      2: p
+                        6       LOAD_FAST                       2: p
+                        8       LOAD_ATTR                       1: clone
+                        10      LOAD_CONST                      1: 0
+                        12      LOAD_CONST                      2: ('max_line_length',)
+                        14      CALL_FUNCTION_KW                1
+                        16      LOAD_FAST                       0: self
+                        18      STORE_ATTR                      0: policy
+                        20      SETUP_FINALLY                   11 (to 44)
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_METHOD                     2: _handle_multipart
+                        26      LOAD_FAST                       1: msg
+                        28      CALL_METHOD                     1
+                        30      POP_TOP                         
+                        32      POP_BLOCK                       
+                        34      LOAD_FAST                       2: p
+                        36      LOAD_FAST                       0: self
+                        38      STORE_ATTR                      0: policy
+                        40      LOAD_CONST                      0: None
+                        42      RETURN_VALUE                    
+                        44      LOAD_FAST                       2: p
+                        46      LOAD_FAST                       0: self
+                        48      STORE_ATTR                      0: policy
+                        50      RERAISE                         0
+                'Generator._handle_multipart_signed'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _handle_message_delivery_status
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 8
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'get_payload'
+                        '_new_buffer'
+                        'clone'
+                        'flatten'
+                        '_NL'
+                        'getvalue'
+                        'split'
+                        '_encoded_NL'
+                        '_encoded_EMPTY'
+                        'append'
+                        'join'
+                        '_fp'
+                        'write'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        'blocks'
+                        'part'
+                        's'
+                        'g'
+                        'text'
+                        'lines'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        False
+                        (
+                            'unixfrom'
+                            'linesep'
+                        )
+                        -1
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       STORE_FAST                      2: blocks
+                        4       LOAD_FAST                       1: msg
+                        6       LOAD_METHOD                     0: get_payload
+                        8       CALL_METHOD                     0
+                        10      GET_ITER                        
+                        12      FOR_ITER                        58 (to 130)
+                        14      STORE_FAST                      3: part
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_METHOD                     1: _new_buffer
+                        20      CALL_METHOD                     0
+                        22      STORE_FAST                      4: s
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_METHOD                     2: clone
+                        28      LOAD_FAST                       4: s
+                        30      CALL_METHOD                     1
+                        32      STORE_FAST                      5: g
+                        34      LOAD_FAST                       5: g
+                        36      LOAD_ATTR                       3: flatten
+                        38      LOAD_FAST                       3: part
+                        40      LOAD_CONST                      1: False
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_ATTR                       4: _NL
+                        46      LOAD_CONST                      2: ('unixfrom', 'linesep')
+                        48      CALL_FUNCTION_KW                3
+                        50      POP_TOP                         
+                        52      LOAD_FAST                       4: s
+                        54      LOAD_METHOD                     5: getvalue
+                        56      CALL_METHOD                     0
+                        58      STORE_FAST                      6: text
+                        60      LOAD_FAST                       6: text
+                        62      LOAD_METHOD                     6: split
+                        64      LOAD_FAST                       0: self
+                        66      LOAD_ATTR                       7: _encoded_NL
+                        68      CALL_METHOD                     1
+                        70      STORE_FAST                      7: lines
+                        72      LOAD_FAST                       7: lines
+                        74      POP_JUMP_IF_FALSE               59 (to 118)
+                        76      LOAD_FAST                       7: lines
+                        78      LOAD_CONST                      3: -1
+                        80      BINARY_SUBSCR                   
+                        82      LOAD_FAST                       0: self
+                        84      LOAD_ATTR                       8: _encoded_EMPTY
+                        86      COMPARE_OP                      2 (==)
+                        88      POP_JUMP_IF_FALSE               59 (to 118)
+                        90      LOAD_FAST                       2: blocks
+                        92      LOAD_METHOD                     9: append
+                        94      LOAD_FAST                       0: self
+                        96      LOAD_ATTR                       7: _encoded_NL
+                        98      LOAD_METHOD                     10: join
+                        100     LOAD_FAST                       7: lines
+                        102     LOAD_CONST                      0: None
+                        104     LOAD_CONST                      3: -1
+                        106     BUILD_SLICE                     2
+                        108     BINARY_SUBSCR                   
+                        110     CALL_METHOD                     1
+                        112     CALL_METHOD                     1
+                        114     POP_TOP                         
+                        116     JUMP_ABSOLUTE                   6 (to 12)
+                        118     LOAD_FAST                       2: blocks
+                        120     LOAD_METHOD                     9: append
+                        122     LOAD_FAST                       6: text
+                        124     CALL_METHOD                     1
+                        126     POP_TOP                         
+                        128     JUMP_ABSOLUTE                   6 (to 12)
+                        130     LOAD_FAST                       0: self
+                        132     LOAD_ATTR                       11: _fp
+                        134     LOAD_METHOD                     12: write
+                        136     LOAD_FAST                       0: self
+                        138     LOAD_ATTR                       7: _encoded_NL
+                        140     LOAD_METHOD                     10: join
+                        142     LOAD_FAST                       2: blocks
+                        144     CALL_METHOD                     1
+                        146     CALL_METHOD                     1
+                        148     POP_TOP                         
+                        150     LOAD_CONST                      0: None
+                        152     RETURN_VALUE                    
+                'Generator._handle_message_delivery_status'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _handle_message
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_new_buffer'
+                        'clone'
+                        '_payload'
+                        'isinstance'
+                        'list'
+                        'flatten'
+                        'get_payload'
+                        '_NL'
+                        'getvalue'
+                        '_encode'
+                        '_fp'
+                        'write'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        's'
+                        'g'
+                        'payload'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                        False
+                        (
+                            'unixfrom'
+                            'linesep'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _new_buffer
+                        4       CALL_METHOD                     0
+                        6       STORE_FAST                      2: s
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_METHOD                     1: clone
+                        12      LOAD_FAST                       2: s
+                        14      CALL_METHOD                     1
+                        16      STORE_FAST                      3: g
+                        18      LOAD_FAST                       1: msg
+                        20      LOAD_ATTR                       2: _payload
+                        22      STORE_FAST                      4: payload
+                        24      LOAD_GLOBAL                     3: isinstance
+                        26      LOAD_FAST                       4: payload
+                        28      LOAD_GLOBAL                     4: list
+                        30      CALL_FUNCTION                   2
+                        32      POP_JUMP_IF_FALSE               34 (to 68)
+                        34      LOAD_FAST                       3: g
+                        36      LOAD_ATTR                       5: flatten
+                        38      LOAD_FAST                       1: msg
+                        40      LOAD_METHOD                     6: get_payload
+                        42      LOAD_CONST                      1: 0
+                        44      CALL_METHOD                     1
+                        46      LOAD_CONST                      2: False
+                        48      LOAD_FAST                       0: self
+                        50      LOAD_ATTR                       7: _NL
+                        52      LOAD_CONST                      3: ('unixfrom', 'linesep')
+                        54      CALL_FUNCTION_KW                3
+                        56      POP_TOP                         
+                        58      LOAD_FAST                       2: s
+                        60      LOAD_METHOD                     8: getvalue
+                        62      CALL_METHOD                     0
+                        64      STORE_FAST                      4: payload
+                        66      JUMP_FORWARD                    5 (to 78)
+                        68      LOAD_FAST                       0: self
+                        70      LOAD_METHOD                     9: _encode
+                        72      LOAD_FAST                       4: payload
+                        74      CALL_METHOD                     1
+                        76      STORE_FAST                      4: payload
+                        78      LOAD_FAST                       0: self
+                        80      LOAD_ATTR                       10: _fp
+                        82      LOAD_METHOD                     11: write
+                        84      LOAD_FAST                       4: payload
+                        86      CALL_METHOD                     1
+                        88      POP_TOP                         
+                        90      LOAD_CONST                      0: None
+                        92      RETURN_VALUE                    
+                'Generator._handle_message'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _make_boundary
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 7
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'random'
+                        'randrange'
+                        'sys'
+                        'maxsize'
+                        '_fmt'
+                        '_compile_re'
+                        're'
+                        'escape'
+                        'MULTILINE'
+                        'search'
+                        'str'
+                    [Var Names]
+                        'cls'
+                        'text'
+                        'token'
+                        'boundary'
+                        'b'
+                        'counter'
+                        'cre'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '==============='
+                        '=='
+                        0
+                        True
+                        '^--'
+                        '(--)?$'
+                        '.'
+                        1
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: random
+                        2       LOAD_METHOD                     1: randrange
+                        4       LOAD_GLOBAL                     2: sys
+                        6       LOAD_ATTR                       3: maxsize
+                        8       CALL_METHOD                     1
+                        10      STORE_FAST                      2: token
+                        12      LOAD_CONST                      1: '==============='
+                        14      LOAD_GLOBAL                     4: _fmt
+                        16      LOAD_FAST                       2: token
+                        18      BINARY_MODULO                   
+                        20      BINARY_ADD                      
+                        22      LOAD_CONST                      2: '=='
+                        24      BINARY_ADD                      
+                        26      STORE_FAST                      3: boundary
+                        28      LOAD_FAST                       1: text
+                        30      LOAD_CONST                      0: None
+                        32      IS_OP                           0 (is)
+                        34      POP_JUMP_IF_FALSE               20 (to 40)
+                        36      LOAD_FAST                       3: boundary
+                        38      RETURN_VALUE                    
+                        40      LOAD_FAST                       3: boundary
+                        42      STORE_FAST                      4: b
+                        44      LOAD_CONST                      3: 0
+                        46      STORE_FAST                      5: counter
+                        48      NOP                             
+                        50      LOAD_FAST                       0: cls
+                        52      LOAD_METHOD                     5: _compile_re
+                        54      LOAD_CONST                      5: '^--'
+                        56      LOAD_GLOBAL                     6: re
+                        58      LOAD_METHOD                     7: escape
+                        60      LOAD_FAST                       4: b
+                        62      CALL_METHOD                     1
+                        64      BINARY_ADD                      
+                        66      LOAD_CONST                      6: '(--)?$'
+                        68      BINARY_ADD                      
+                        70      LOAD_GLOBAL                     6: re
+                        72      LOAD_ATTR                       8: MULTILINE
+                        74      CALL_METHOD                     2
+                        76      STORE_FAST                      6: cre
+                        78      LOAD_FAST                       6: cre
+                        80      LOAD_METHOD                     9: search
+                        82      LOAD_FAST                       1: text
+                        84      CALL_METHOD                     1
+                        86      POP_JUMP_IF_TRUE                47 (to 94)
+                        88      NOP                             
+                        90      LOAD_FAST                       4: b
+                        92      RETURN_VALUE                    
+                        94      LOAD_FAST                       3: boundary
+                        96      LOAD_CONST                      7: '.'
+                        98      BINARY_ADD                      
+                        100     LOAD_GLOBAL                     10: str
+                        102     LOAD_FAST                       5: counter
+                        104     CALL_FUNCTION                   1
+                        106     BINARY_ADD                      
+                        108     STORE_FAST                      4: b
+                        110     LOAD_FAST                       5: counter
+                        112     LOAD_CONST                      8: 1
+                        114     INPLACE_ADD                     
+                        116     STORE_FAST                      5: counter
+                        118     JUMP_ABSOLUTE                   25 (to 50)
+                'Generator._make_boundary'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _compile_re
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        're'
+                        'compile'
+                    [Var Names]
+                        'cls'
+                        's'
+                        'flags'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: re
+                        2       LOAD_METHOD                     1: compile
+                        4       LOAD_FAST                       1: s
+                        6       LOAD_FAST                       2: flags
+                        8       CALL_METHOD                     2
+                        10      RETURN_VALUE                    
+                'Generator._compile_re'
+                (
+                    None
+                    None
+                )
+                (
+                    False
+                    None
+                )
+                (
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Generator'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Generates output from a Message object tree.\n\n    This basic generator writes the message to the given file object as plain\n    text.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      39: (None, None)
+                14      LOAD_CONST                      2: None
+                16      LOAD_CONST                      3: ('policy',)
+                18      BUILD_CONST_KEY_MAP             1
+                20      LOAD_CONST                      4: <CODE> __init__
+                22      LOAD_CONST                      5: 'Generator.__init__'
+                24      MAKE_FUNCTION                   3
+                26      STORE_NAME                      4: __init__
+                28      LOAD_CONST                      6: <CODE> write
+                30      LOAD_CONST                      7: 'Generator.write'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      5: write
+                36      LOAD_CONST                      40: (False, None)
+                38      LOAD_CONST                      9: <CODE> flatten
+                40      LOAD_CONST                      10: 'Generator.flatten'
+                42      MAKE_FUNCTION                   1
+                44      STORE_NAME                      6: flatten
+                46      LOAD_CONST                      11: <CODE> clone
+                48      LOAD_CONST                      12: 'Generator.clone'
+                50      MAKE_FUNCTION                   0
+                52      STORE_NAME                      7: clone
+                54      LOAD_CONST                      13: <CODE> _new_buffer
+                56      LOAD_CONST                      14: 'Generator._new_buffer'
+                58      MAKE_FUNCTION                   0
+                60      STORE_NAME                      8: _new_buffer
+                62      LOAD_CONST                      15: <CODE> _encode
+                64      LOAD_CONST                      16: 'Generator._encode'
+                66      MAKE_FUNCTION                   0
+                68      STORE_NAME                      9: _encode
+                70      LOAD_CONST                      17: <CODE> _write_lines
+                72      LOAD_CONST                      18: 'Generator._write_lines'
+                74      MAKE_FUNCTION                   0
+                76      STORE_NAME                      10: _write_lines
+                78      LOAD_CONST                      19: <CODE> _write
+                80      LOAD_CONST                      20: 'Generator._write'
+                82      MAKE_FUNCTION                   0
+                84      STORE_NAME                      11: _write
+                86      LOAD_CONST                      21: <CODE> _dispatch
+                88      LOAD_CONST                      22: 'Generator._dispatch'
+                90      MAKE_FUNCTION                   0
+                92      STORE_NAME                      12: _dispatch
+                94      LOAD_CONST                      23: <CODE> _write_headers
+                96      LOAD_CONST                      24: 'Generator._write_headers'
+                98      MAKE_FUNCTION                   0
+                100     STORE_NAME                      13: _write_headers
+                102     LOAD_CONST                      25: <CODE> _handle_text
+                104     LOAD_CONST                      26: 'Generator._handle_text'
+                106     MAKE_FUNCTION                   0
+                108     STORE_NAME                      14: _handle_text
+                110     LOAD_NAME                       14: _handle_text
+                112     STORE_NAME                      15: _writeBody
+                114     LOAD_CONST                      27: <CODE> _handle_multipart
+                116     LOAD_CONST                      28: 'Generator._handle_multipart'
+                118     MAKE_FUNCTION                   0
+                120     STORE_NAME                      16: _handle_multipart
+                122     LOAD_CONST                      29: <CODE> _handle_multipart_signed
+                124     LOAD_CONST                      30: 'Generator._handle_multipart_signed'
+                126     MAKE_FUNCTION                   0
+                128     STORE_NAME                      17: _handle_multipart_signed
+                130     LOAD_CONST                      31: <CODE> _handle_message_delivery_status
+                132     LOAD_CONST                      32: 'Generator._handle_message_delivery_status'
+                134     MAKE_FUNCTION                   0
+                136     STORE_NAME                      18: _handle_message_delivery_status
+                138     LOAD_CONST                      33: <CODE> _handle_message
+                140     LOAD_CONST                      34: 'Generator._handle_message'
+                142     MAKE_FUNCTION                   0
+                144     STORE_NAME                      19: _handle_message
+                146     LOAD_NAME                       20: classmethod
+                148     LOAD_CONST                      41: (None,)
+                150     LOAD_CONST                      35: <CODE> _make_boundary
+                152     LOAD_CONST                      36: 'Generator._make_boundary'
+                154     MAKE_FUNCTION                   1
+                156     CALL_FUNCTION                   1
+                158     STORE_NAME                      21: _make_boundary
+                160     LOAD_NAME                       20: classmethod
+                162     LOAD_CONST                      37: <CODE> _compile_re
+                164     LOAD_CONST                      38: 'Generator._compile_re'
+                166     MAKE_FUNCTION                   0
+                168     CALL_FUNCTION                   1
+                170     STORE_NAME                      22: _compile_re
+                172     LOAD_CONST                      2: None
+                174     RETURN_VALUE                    
+        'Generator'
+        [Code]
+            File Name: email/generator.py
+            Object Name: BytesGenerator
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'write'
+                '_new_buffer'
+                '_encode'
+                '_write_headers'
+                '_handle_text'
+                '_writeBody'
+                'classmethod'
+                '_compile_re'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'BytesGenerator'
+                'Generates a bytes version of a Message object tree.\n\n    Functionally identical to the base Generator except that the output is\n    bytes and not string.  When surrogates were used in the input to encode\n    bytes, these are decoded back to bytes for output.  If the policy has\n    cte_type set to 7bit, then the message is transformed such that the\n    non-ASCII bytes are properly content transfer encoded, using the charset\n    unknown-8bit.\n\n    The outfp object must accept bytes in its write method.\n    '
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: write
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 6
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fp'
+                        'write'
+                        'encode'
+                    [Var Names]
+                        'self'
+                        's'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'ascii'
+                        'surrogateescape'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _fp
+                        4       LOAD_METHOD                     1: write
+                        6       LOAD_FAST                       1: s
+                        8       LOAD_METHOD                     2: encode
+                        10      LOAD_CONST                      1: 'ascii'
+                        12      LOAD_CONST                      2: 'surrogateescape'
+                        14      CALL_METHOD                     2
+                        16      CALL_METHOD                     1
+                        18      POP_TOP                         
+                        20      LOAD_CONST                      0: None
+                        22      RETURN_VALUE                    
+                'BytesGenerator.write'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _new_buffer
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'BytesIO'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: BytesIO
+                        2       CALL_FUNCTION                   0
+                        4       RETURN_VALUE                    
+                'BytesGenerator._new_buffer'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _encode
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'encode'
+                    [Var Names]
+                        'self'
+                        's'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'ascii'
+                    [Disassembly]
+                        0       LOAD_FAST                       1: s
+                        2       LOAD_METHOD                     0: encode
+                        4       LOAD_CONST                      1: 'ascii'
+                        6       CALL_METHOD                     1
+                        8       RETURN_VALUE                    
+                'BytesGenerator._encode'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _write_headers
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 7
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'raw_items'
+                        '_fp'
+                        'write'
+                        'policy'
+                        'fold_binary'
+                        '_NL'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        'h'
+                        'v'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: msg
+                        2       LOAD_METHOD                     0: raw_items
+                        4       CALL_METHOD                     0
+                        6       GET_ITER                        
+                        8       FOR_ITER                        15 (to 40)
+                        10      UNPACK_SEQUENCE                 2
+                        12      STORE_FAST                      2: h
+                        14      STORE_FAST                      3: v
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       1: _fp
+                        20      LOAD_METHOD                     2: write
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       3: policy
+                        26      LOAD_METHOD                     4: fold_binary
+                        28      LOAD_FAST                       2: h
+                        30      LOAD_FAST                       3: v
+                        32      CALL_METHOD                     2
+                        34      CALL_METHOD                     1
+                        36      POP_TOP                         
+                        38      JUMP_ABSOLUTE                   4 (to 8)
+                        40      LOAD_FAST                       0: self
+                        42      LOAD_METHOD                     2: write
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_ATTR                       5: _NL
+                        48      CALL_METHOD                     1
+                        50      POP_TOP                         
+                        52      LOAD_CONST                      0: None
+                        54      RETURN_VALUE                    
+                'BytesGenerator._write_headers'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _handle_text
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        '_payload'
+                        '_has_surrogates'
+                        'policy'
+                        'cte_type'
+                        '_mangle_from_'
+                        'fcre'
+                        'sub'
+                        '_write_lines'
+                        'super'
+                        'BytesGenerator'
+                        '_handle_text'
+                    [Var Names]
+                        'self'
+                        'msg'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '7bit'
+                        '>From '
+                    [Disassembly]
+                        0       LOAD_FAST                       1: msg
+                        2       LOAD_ATTR                       0: _payload
+                        4       LOAD_CONST                      0: None
+                        6       IS_OP                           0 (is)
+                        8       POP_JUMP_IF_FALSE               7 (to 14)
+                        10      LOAD_CONST                      0: None
+                        12      RETURN_VALUE                    
+                        14      LOAD_GLOBAL                     1: _has_surrogates
+                        16      LOAD_FAST                       1: msg
+                        18      LOAD_ATTR                       0: _payload
+                        20      CALL_FUNCTION                   1
+                        22      POP_JUMP_IF_FALSE               37 (to 74)
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       2: policy
+                        28      LOAD_ATTR                       3: cte_type
+                        30      LOAD_CONST                      1: '7bit'
+                        32      COMPARE_OP                      2 (==)
+                        34      POP_JUMP_IF_TRUE                37 (to 74)
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_ATTR                       4: _mangle_from_
+                        40      POP_JUMP_IF_FALSE               29 (to 58)
+                        42      LOAD_GLOBAL                     5: fcre
+                        44      LOAD_METHOD                     6: sub
+                        46      LOAD_CONST                      2: '>From '
+                        48      LOAD_FAST                       1: msg
+                        50      LOAD_ATTR                       0: _payload
+                        52      CALL_METHOD                     2
+                        54      LOAD_FAST                       1: msg
+                        56      STORE_ATTR                      0: _payload
+                        58      LOAD_FAST                       0: self
+                        60      LOAD_METHOD                     7: _write_lines
+                        62      LOAD_FAST                       1: msg
+                        64      LOAD_ATTR                       0: _payload
+                        66      CALL_METHOD                     1
+                        68      POP_TOP                         
+                        70      LOAD_CONST                      0: None
+                        72      RETURN_VALUE                    
+                        74      LOAD_GLOBAL                     8: super
+                        76      LOAD_GLOBAL                     9: BytesGenerator
+                        78      LOAD_FAST                       0: self
+                        80      CALL_FUNCTION                   2
+                        82      LOAD_METHOD                     10: _handle_text
+                        84      LOAD_FAST                       1: msg
+                        86      CALL_METHOD                     1
+                        88      POP_TOP                         
+                        90      LOAD_CONST                      0: None
+                        92      RETURN_VALUE                    
+                'BytesGenerator._handle_text'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _compile_re
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        're'
+                        'compile'
+                        'encode'
+                    [Var Names]
+                        'cls'
+                        's'
+                        'flags'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'ascii'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: re
+                        2       LOAD_METHOD                     1: compile
+                        4       LOAD_FAST                       1: s
+                        6       LOAD_METHOD                     2: encode
+                        8       LOAD_CONST                      1: 'ascii'
+                        10      CALL_METHOD                     1
+                        12      LOAD_FAST                       2: flags
+                        14      CALL_METHOD                     2
+                        16      RETURN_VALUE                    
+                'BytesGenerator._compile_re'
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'BytesGenerator'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Generates a bytes version of a Message object tree.\n\n    Functionally identical to the base Generator except that the output is\n    bytes and not string.  When surrogates were used in the input to encode\n    bytes, these are decoded back to bytes for output.  If the policy has\n    cte_type set to 7bit, then the message is transformed such that the\n    non-ASCII bytes are properly content transfer encoded, using the charset\n    unknown-8bit.\n\n    The outfp object must accept bytes in its write method.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> write
+                14      LOAD_CONST                      3: 'BytesGenerator.write'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: write
+                20      LOAD_CONST                      4: <CODE> _new_buffer
+                22      LOAD_CONST                      5: 'BytesGenerator._new_buffer'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: _new_buffer
+                28      LOAD_CONST                      6: <CODE> _encode
+                30      LOAD_CONST                      7: 'BytesGenerator._encode'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      6: _encode
+                36      LOAD_CONST                      8: <CODE> _write_headers
+                38      LOAD_CONST                      9: 'BytesGenerator._write_headers'
+                40      MAKE_FUNCTION                   0
+                42      STORE_NAME                      7: _write_headers
+                44      LOAD_CLOSURE                    0: __class__
+                46      BUILD_TUPLE                     1
+                48      LOAD_CONST                      10: <CODE> _handle_text
+                50      LOAD_CONST                      11: 'BytesGenerator._handle_text'
+                52      MAKE_FUNCTION                   8
+                54      STORE_NAME                      8: _handle_text
+                56      LOAD_NAME                       8: _handle_text
+                58      STORE_NAME                      9: _writeBody
+                60      LOAD_NAME                       10: classmethod
+                62      LOAD_CONST                      12: <CODE> _compile_re
+                64      LOAD_CONST                      13: 'BytesGenerator._compile_re'
+                66      MAKE_FUNCTION                   0
+                68      CALL_FUNCTION                   1
+                70      STORE_NAME                      11: _compile_re
+                72      LOAD_CLOSURE                    0: __class__
+                74      DUP_TOP                         
+                76      STORE_NAME                      12: __classcell__
+                78      RETURN_VALUE                    
+        'BytesGenerator'
+        '[Non-text (%(type)s) part of message omitted, filename %(filename)s]'
+        [Code]
+            File Name: email/generator.py
+            Object Name: DecodedGenerator
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                '_dispatch'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'DecodedGenerator'
+                'Generates a text representation of a message.\n\n    Like the Generator base class, except that non-text parts are substituted\n    with a format string representing the part.\n    '
+                None
+                (
+                    'policy'
+                )
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: __init__
+                    Arg Count: 5
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 1
+                    Locals: 6
+                    Stack Size: 7
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'Generator'
+                        '__init__'
+                        '_FMT'
+                        '_fmt'
+                    [Var Names]
+                        'self'
+                        'outfp'
+                        'mangle_from_'
+                        'maxheaderlen'
+                        'fmt'
+                        'policy'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Like Generator.__init__() except that an additional optional\n        argument is allowed.\n\n        Walks through all subparts of a message.  If the subpart is of main\n        type `text', then it prints the decoded payload of the subpart.\n\n        Otherwise, fmt is a format string that is used instead of the message\n        payload.  fmt is expanded with the following keywords (in\n        %(keyword)s format):\n\n        type       : Full MIME type of the non-text part\n        maintype   : Main MIME type of the non-text part\n        subtype    : Sub-MIME type of the non-text part\n        filename   : Filename of the non-text part\n        description: Description associated with the non-text part\n        encoding   : Content transfer encoding of the non-text part\n\n        The default value for fmt is None, meaning\n\n        [Non-text (%(type)s) part of message omitted, filename %(filename)s]\n        "
+                        (
+                            'policy'
+                        )
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: Generator
+                        2       LOAD_ATTR                       1: __init__
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_FAST                       1: outfp
+                        8       LOAD_FAST                       2: mangle_from_
+                        10      LOAD_FAST                       3: maxheaderlen
+                        12      LOAD_FAST                       5: policy
+                        14      LOAD_CONST                      1: ('policy',)
+                        16      CALL_FUNCTION_KW                5
+                        18      POP_TOP                         
+                        20      LOAD_FAST                       4: fmt
+                        22      LOAD_CONST                      2: None
+                        24      IS_OP                           0 (is)
+                        26      POP_JUMP_IF_FALSE               19 (to 38)
+                        28      LOAD_GLOBAL                     2: _FMT
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      3: _fmt
+                        34      LOAD_CONST                      2: None
+                        36      RETURN_VALUE                    
+                        38      LOAD_FAST                       4: fmt
+                        40      LOAD_FAST                       0: self
+                        42      STORE_ATTR                      3: _fmt
+                        44      LOAD_CONST                      2: None
+                        46      RETURN_VALUE                    
+                'DecodedGenerator.__init__'
+                [Code]
+                    File Name: email/generator.py
+                    Object Name: _dispatch
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 12
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'walk'
+                        'get_content_maintype'
+                        'print'
+                        'get_payload'
+                        '_fmt'
+                        'get_content_type'
+                        'get_content_subtype'
+                        'get_filename'
+                        'get'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        'part'
+                        'maintype'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'text'
+                        False
+                        (
+                            'decode'
+                        )
+                        (
+                            'file'
+                        )
+                        'multipart'
+                        '[no filename]'
+                        'Content-Description'
+                        '[no description]'
+                        'Content-Transfer-Encoding'
+                        '[no encoding]'
+                        (
+                            'type'
+                            'maintype'
+                            'subtype'
+                            'filename'
+                            'description'
+                            'encoding'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       1: msg
+                        2       LOAD_METHOD                     0: walk
+                        4       CALL_METHOD                     0
+                        6       GET_ITER                        
+                        8       FOR_ITER                        59 (to 128)
+                        10      STORE_FAST                      2: part
+                        12      LOAD_FAST                       2: part
+                        14      LOAD_METHOD                     1: get_content_maintype
+                        16      CALL_METHOD                     0
+                        18      STORE_FAST                      3: maintype
+                        20      LOAD_FAST                       3: maintype
+                        22      LOAD_CONST                      1: 'text'
+                        24      COMPARE_OP                      2 (==)
+                        26      POP_JUMP_IF_FALSE               25 (to 50)
+                        28      LOAD_GLOBAL                     2: print
+                        30      LOAD_FAST                       2: part
+                        32      LOAD_ATTR                       3: get_payload
+                        34      LOAD_CONST                      2: False
+                        36      LOAD_CONST                      3: ('decode',)
+                        38      CALL_FUNCTION_KW                1
+                        40      LOAD_FAST                       0: self
+                        42      LOAD_CONST                      4: ('file',)
+                        44      CALL_FUNCTION_KW                2
+                        46      POP_TOP                         
+                        48      JUMP_ABSOLUTE                   4 (to 8)
+                        50      LOAD_FAST                       3: maintype
+                        52      LOAD_CONST                      5: 'multipart'
+                        54      COMPARE_OP                      2 (==)
+                        56      POP_JUMP_IF_FALSE               30 (to 60)
+                        58      JUMP_ABSOLUTE                   4 (to 8)
+                        60      LOAD_GLOBAL                     2: print
+                        62      LOAD_FAST                       0: self
+                        64      LOAD_ATTR                       4: _fmt
+                        66      LOAD_FAST                       2: part
+                        68      LOAD_METHOD                     5: get_content_type
+                        70      CALL_METHOD                     0
+                        72      LOAD_FAST                       2: part
+                        74      LOAD_METHOD                     1: get_content_maintype
+                        76      CALL_METHOD                     0
+                        78      LOAD_FAST                       2: part
+                        80      LOAD_METHOD                     6: get_content_subtype
+                        82      CALL_METHOD                     0
+                        84      LOAD_FAST                       2: part
+                        86      LOAD_METHOD                     7: get_filename
+                        88      LOAD_CONST                      6: '[no filename]'
+                        90      CALL_METHOD                     1
+                        92      LOAD_FAST                       2: part
+                        94      LOAD_METHOD                     8: get
+                        96      LOAD_CONST                      7: 'Content-Description'
+                        98      LOAD_CONST                      8: '[no description]'
+                        100     CALL_METHOD                     2
+                        102     LOAD_FAST                       2: part
+                        104     LOAD_METHOD                     8: get
+                        106     LOAD_CONST                      9: 'Content-Transfer-Encoding'
+                        108     LOAD_CONST                      10: '[no encoding]'
+                        110     CALL_METHOD                     2
+                        112     LOAD_CONST                      11: ('type', 'maintype', 'subtype', 'filename', 'description', 'encoding')
+                        114     BUILD_CONST_KEY_MAP             6
+                        116     BINARY_MODULO                   
+                        118     LOAD_FAST                       0: self
+                        120     LOAD_CONST                      4: ('file',)
+                        122     CALL_FUNCTION_KW                2
+                        124     POP_TOP                         
+                        126     JUMP_ABSOLUTE                   4 (to 8)
+                        128     LOAD_CONST                      0: None
+                        130     RETURN_VALUE                    
+                'DecodedGenerator._dispatch'
+                (
+                    None
+                    None
+                    None
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'DecodedGenerator'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Generates a text representation of a message.\n\n    Like the Generator base class, except that non-text parts are substituted\n    with a format string representing the part.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      8: (None, None, None)
+                14      LOAD_CONST                      2: None
+                16      LOAD_CONST                      3: ('policy',)
+                18      BUILD_CONST_KEY_MAP             1
+                20      LOAD_CONST                      4: <CODE> __init__
+                22      LOAD_CONST                      5: 'DecodedGenerator.__init__'
+                24      MAKE_FUNCTION                   3
+                26      STORE_NAME                      4: __init__
+                28      LOAD_CONST                      6: <CODE> _dispatch
+                30      LOAD_CONST                      7: 'DecodedGenerator._dispatch'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      5: _dispatch
+                36      LOAD_CONST                      2: None
+                38      RETURN_VALUE                    
+        'DecodedGenerator'
+        1
+        '%%0%dd'
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Classes to generate plain text from a message object tree.'
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('Generator', 'DecodedGenerator', 'BytesGenerator')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: 0
+        14      LOAD_CONST                      3: None
+        16      IMPORT_NAME                     2: re
+        18      STORE_NAME                      2: re
+        20      LOAD_CONST                      2: 0
+        22      LOAD_CONST                      3: None
+        24      IMPORT_NAME                     3: sys
+        26      STORE_NAME                      3: sys
+        28      LOAD_CONST                      2: 0
+        30      LOAD_CONST                      3: None
+        32      IMPORT_NAME                     4: time
+        34      STORE_NAME                      4: time
+        36      LOAD_CONST                      2: 0
+        38      LOAD_CONST                      3: None
+        40      IMPORT_NAME                     5: random
+        42      STORE_NAME                      5: random
+        44      LOAD_CONST                      2: 0
+        46      LOAD_CONST                      4: ('deepcopy',)
+        48      IMPORT_NAME                     6: copy
+        50      IMPORT_FROM                     7: deepcopy
+        52      STORE_NAME                      7: deepcopy
+        54      POP_TOP                         
+        56      LOAD_CONST                      2: 0
+        58      LOAD_CONST                      5: ('StringIO', 'BytesIO')
+        60      IMPORT_NAME                     8: io
+        62      IMPORT_FROM                     9: StringIO
+        64      STORE_NAME                      9: StringIO
+        66      IMPORT_FROM                     10: BytesIO
+        68      STORE_NAME                      10: BytesIO
+        70      POP_TOP                         
+        72      LOAD_CONST                      2: 0
+        74      LOAD_CONST                      6: ('_has_surrogates',)
+        76      IMPORT_NAME                     11: email.utils
+        78      IMPORT_FROM                     12: _has_surrogates
+        80      STORE_NAME                      12: _has_surrogates
+        82      POP_TOP                         
+        84      LOAD_CONST                      2: 0
+        86      LOAD_CONST                      7: ('HeaderWriteError',)
+        88      IMPORT_NAME                     13: email.errors
+        90      IMPORT_FROM                     14: HeaderWriteError
+        92      STORE_NAME                      14: HeaderWriteError
+        94      POP_TOP                         
+        96      LOAD_CONST                      8: '_'
+        98      STORE_NAME                      15: UNDERSCORE
+        100     LOAD_CONST                      9: '\n'
+        102     STORE_NAME                      16: NL
+        104     LOAD_NAME                       2: re
+        106     LOAD_METHOD                     17: compile
+        108     LOAD_CONST                      10: '\\r\\n|\\r|\\n'
+        110     CALL_METHOD                     1
+        112     STORE_NAME                      18: NLCRE
+        114     LOAD_NAME                       2: re
+        116     LOAD_METHOD                     17: compile
+        118     LOAD_CONST                      11: '^From '
+        120     LOAD_NAME                       2: re
+        122     LOAD_ATTR                       19: MULTILINE
+        124     CALL_METHOD                     2
+        126     STORE_NAME                      20: fcre
+        128     LOAD_NAME                       2: re
+        130     LOAD_METHOD                     17: compile
+        132     LOAD_CONST                      12: '\\r\\n[^ \\t]|\\r[^ \\n\\t]|\\n[^ \\t]'
+        134     CALL_METHOD                     1
+        136     STORE_NAME                      21: NEWLINE_WITHOUT_FWSP
+        138     LOAD_BUILD_CLASS                
+        140     LOAD_CONST                      13: <CODE> Generator
+        142     LOAD_CONST                      14: 'Generator'
+        144     MAKE_FUNCTION                   0
+        146     LOAD_CONST                      14: 'Generator'
+        148     CALL_FUNCTION                   2
+        150     STORE_NAME                      22: Generator
+        152     LOAD_BUILD_CLASS                
+        154     LOAD_CONST                      15: <CODE> BytesGenerator
+        156     LOAD_CONST                      16: 'BytesGenerator'
+        158     MAKE_FUNCTION                   0
+        160     LOAD_CONST                      16: 'BytesGenerator'
+        162     LOAD_NAME                       22: Generator
+        164     CALL_FUNCTION                   3
+        166     STORE_NAME                      23: BytesGenerator
+        168     LOAD_CONST                      17: '[Non-text (%(type)s) part of message omitted, filename %(filename)s]'
+        170     STORE_NAME                      24: _FMT
+        172     LOAD_BUILD_CLASS                
+        174     LOAD_CONST                      18: <CODE> DecodedGenerator
+        176     LOAD_CONST                      19: 'DecodedGenerator'
+        178     MAKE_FUNCTION                   0
+        180     LOAD_CONST                      19: 'DecodedGenerator'
+        182     LOAD_NAME                       22: Generator
+        184     CALL_FUNCTION                   3
+        186     STORE_NAME                      25: DecodedGenerator
+        188     LOAD_NAME                       26: len
+        190     LOAD_NAME                       27: repr
+        192     LOAD_NAME                       3: sys
+        194     LOAD_ATTR                       28: maxsize
+        196     LOAD_CONST                      20: 1
+        198     BINARY_SUBTRACT                 
+        200     CALL_FUNCTION                   1
+        202     CALL_FUNCTION                   1
+        204     STORE_NAME                      29: _width
+        206     LOAD_CONST                      21: '%%0%dd'
+        208     LOAD_NAME                       29: _width
+        210     BINARY_MODULO                   
+        212     STORE_NAME                      30: _fmt
+        214     LOAD_NAME                       22: Generator
+        216     LOAD_ATTR                       31: _make_boundary
+        218     STORE_NAME                      31: _make_boundary
+        220     LOAD_CONST                      3: None
+        222     RETURN_VALUE                    

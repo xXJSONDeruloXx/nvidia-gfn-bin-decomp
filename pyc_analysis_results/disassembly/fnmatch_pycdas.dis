@@ -1,0 +1,954 @@
+fnmatch.pyc (Python 3.10)
+[Code]
+    File Name: fnmatch.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'os'
+        'posixpath'
+        're'
+        'functools'
+        '__all__'
+        'itertools'
+        'count'
+        '__next__'
+        '_nextgroupnum'
+        'fnmatch'
+        'lru_cache'
+        '_compile_pattern'
+        'filter'
+        'fnmatchcase'
+        'translate'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Filename matching with shell patterns.\n\nfnmatch(FILENAME, PATTERN) matches according to the local convention.\nfnmatchcase(FILENAME, PATTERN) always takes case in account.\n\nThe functions operate by translating the pattern into a regular\nexpression.  They cache the compiled regular expressions for speed.\n\nThe function translate(PATTERN) returns a regular expression\ncorresponding to PATTERN.  (It does not compile it.)\n'
+        0
+        None
+        (
+            'filter'
+            'fnmatch'
+            'fnmatchcase'
+            'translate'
+        )
+        (
+            'count'
+        )
+        [Code]
+            File Name: fnmatch.py
+            Object Name: fnmatch
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'os'
+                'path'
+                'normcase'
+                'fnmatchcase'
+            [Var Names]
+                'name'
+                'pat'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Test whether FILENAME matches PATTERN.\n\n    Patterns are Unix shell style:\n\n    *       matches everything\n    ?       matches any single character\n    [seq]   matches any character in seq\n    [!seq]  matches any char not in seq\n\n    An initial period in FILENAME is not special.\n    Both FILENAME and PATTERN are first case-normalized\n    if the operating system requires it.\n    If you don't want this, use fnmatchcase(FILENAME, PATTERN).\n    "
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: os
+                2       LOAD_ATTR                       1: path
+                4       LOAD_METHOD                     2: normcase
+                6       LOAD_FAST                       0: name
+                8       CALL_METHOD                     1
+                10      STORE_FAST                      0: name
+                12      LOAD_GLOBAL                     0: os
+                14      LOAD_ATTR                       1: path
+                16      LOAD_METHOD                     2: normcase
+                18      LOAD_FAST                       1: pat
+                20      CALL_METHOD                     1
+                22      STORE_FAST                      1: pat
+                24      LOAD_GLOBAL                     3: fnmatchcase
+                26      LOAD_FAST                       0: name
+                28      LOAD_FAST                       1: pat
+                30      CALL_FUNCTION                   2
+                32      RETURN_VALUE                    
+        'fnmatch'
+        256
+        True
+        (
+            'maxsize'
+            'typed'
+        )
+        [Code]
+            File Name: fnmatch.py
+            Object Name: _compile_pattern
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'bytes'
+                'str'
+                'translate'
+                're'
+                'compile'
+                'match'
+            [Var Names]
+                'pat'
+                'pat_str'
+                'res_str'
+                'res'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'ISO-8859-1'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: pat
+                4       LOAD_GLOBAL                     1: bytes
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_FALSE               20 (to 40)
+                10      LOAD_GLOBAL                     2: str
+                12      LOAD_FAST                       0: pat
+                14      LOAD_CONST                      1: 'ISO-8859-1'
+                16      CALL_FUNCTION                   2
+                18      STORE_FAST                      1: pat_str
+                20      LOAD_GLOBAL                     3: translate
+                22      LOAD_FAST                       1: pat_str
+                24      CALL_FUNCTION                   1
+                26      STORE_FAST                      2: res_str
+                28      LOAD_GLOBAL                     1: bytes
+                30      LOAD_FAST                       2: res_str
+                32      LOAD_CONST                      1: 'ISO-8859-1'
+                34      CALL_FUNCTION                   2
+                36      STORE_FAST                      3: res
+                38      JUMP_FORWARD                    4 (to 48)
+                40      LOAD_GLOBAL                     3: translate
+                42      LOAD_FAST                       0: pat
+                44      CALL_FUNCTION                   1
+                46      STORE_FAST                      3: res
+                48      LOAD_GLOBAL                     4: re
+                50      LOAD_METHOD                     5: compile
+                52      LOAD_FAST                       3: res
+                54      CALL_METHOD                     1
+                56      LOAD_ATTR                       6: match
+                58      RETURN_VALUE                    
+        '_compile_pattern'
+        [Code]
+            File Name: fnmatch.py
+            Object Name: filter
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'os'
+                'path'
+                'normcase'
+                '_compile_pattern'
+                'posixpath'
+                'append'
+            [Var Names]
+                'names'
+                'pat'
+                'result'
+                'match'
+                'name'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Construct a list from those elements of the iterable NAMES that match PAT.'
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       STORE_FAST                      2: result
+                4       LOAD_GLOBAL                     0: os
+                6       LOAD_ATTR                       1: path
+                8       LOAD_METHOD                     2: normcase
+                10      LOAD_FAST                       1: pat
+                12      CALL_METHOD                     1
+                14      STORE_FAST                      1: pat
+                16      LOAD_GLOBAL                     3: _compile_pattern
+                18      LOAD_FAST                       1: pat
+                20      CALL_FUNCTION                   1
+                22      STORE_FAST                      3: match
+                24      LOAD_GLOBAL                     0: os
+                26      LOAD_ATTR                       1: path
+                28      LOAD_GLOBAL                     4: posixpath
+                30      IS_OP                           0 (is)
+                32      POP_JUMP_IF_FALSE               33 (to 66)
+                34      LOAD_FAST                       0: names
+                36      GET_ITER                        
+                38      FOR_ITER                        11 (to 62)
+                40      STORE_FAST                      4: name
+                42      LOAD_FAST                       3: match
+                44      LOAD_FAST                       4: name
+                46      CALL_FUNCTION                   1
+                48      POP_JUMP_IF_FALSE               30 (to 60)
+                50      LOAD_FAST                       2: result
+                52      LOAD_METHOD                     5: append
+                54      LOAD_FAST                       4: name
+                56      CALL_METHOD                     1
+                58      POP_TOP                         
+                60      JUMP_ABSOLUTE                   19 (to 38)
+                62      LOAD_FAST                       2: result
+                64      RETURN_VALUE                    
+                66      LOAD_FAST                       0: names
+                68      GET_ITER                        
+                70      FOR_ITER                        15 (to 102)
+                72      STORE_FAST                      4: name
+                74      LOAD_FAST                       3: match
+                76      LOAD_GLOBAL                     0: os
+                78      LOAD_ATTR                       1: path
+                80      LOAD_METHOD                     2: normcase
+                82      LOAD_FAST                       4: name
+                84      CALL_METHOD                     1
+                86      CALL_FUNCTION                   1
+                88      POP_JUMP_IF_FALSE               50 (to 100)
+                90      LOAD_FAST                       2: result
+                92      LOAD_METHOD                     5: append
+                94      LOAD_FAST                       4: name
+                96      CALL_METHOD                     1
+                98      POP_TOP                         
+                100     JUMP_ABSOLUTE                   35 (to 70)
+                102     LOAD_FAST                       2: result
+                104     RETURN_VALUE                    
+        'filter'
+        [Code]
+            File Name: fnmatch.py
+            Object Name: fnmatchcase
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_compile_pattern'
+            [Var Names]
+                'name'
+                'pat'
+                'match'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Test whether FILENAME matches PATTERN, including case.\n\n    This is a version of fnmatch() which doesn't case-normalize\n    its arguments.\n    "
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _compile_pattern
+                2       LOAD_FAST                       1: pat
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      2: match
+                8       LOAD_FAST                       2: match
+                10      LOAD_FAST                       0: name
+                12      CALL_FUNCTION                   1
+                14      LOAD_CONST                      1: None
+                16      IS_OP                           1 (is not)
+                18      RETURN_VALUE                    
+        'fnmatchcase'
+        [Code]
+            File Name: fnmatch.py
+            Object Name: translate
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 15
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'object'
+                'append'
+                'len'
+                'replace'
+                'find'
+                'range'
+                'join'
+                're'
+                'sub'
+                'escape'
+                '_nextgroupnum'
+            [Var Names]
+                'pat'
+                'STAR'
+                'res'
+                'add'
+                'i'
+                'n'
+                'c'
+                'j'
+                'stuff'
+                'chunks'
+                'k'
+                'chunk'
+                'inp'
+                'fixed'
+                'groupnum'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Translate a shell PATTERN to a regular expression.\n\n    There is no way to quote meta-characters.\n    '
+                0
+                1
+                '*'
+                -1
+                '?'
+                '.'
+                '['
+                '!'
+                ']'
+                '\\['
+                '-'
+                '\\'
+                '\\\\'
+                2
+                True
+                3
+                None
+                [Code]
+                    File Name: fnmatch.py
+                    Object Name: <genexpr>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                    [Names]
+                        'replace'
+                    [Var Names]
+                        '.0'
+                        's'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        '\\'
+                        '\\\\'
+                        '-'
+                        '\\-'
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        13 (to 32)
+                        6       STORE_FAST                      1: s
+                        8       LOAD_FAST                       1: s
+                        10      LOAD_METHOD                     0: replace
+                        12      LOAD_CONST                      0: '\\'
+                        14      LOAD_CONST                      1: '\\\\'
+                        16      CALL_METHOD                     2
+                        18      LOAD_METHOD                     0: replace
+                        20      LOAD_CONST                      2: '-'
+                        22      LOAD_CONST                      3: '\\-'
+                        24      CALL_METHOD                     2
+                        26      YIELD_VALUE                     
+                        28      POP_TOP                         
+                        30      JUMP_ABSOLUTE                   2 (to 4)
+                        32      LOAD_CONST                      4: None
+                        34      RETURN_VALUE                    
+                'translate.<locals>.<genexpr>'
+                '([&~|])'
+                '\\\\\\1'
+                '(?!)'
+                '^'
+                (
+                    '^'
+                    '['
+                )
+                '.*'
+                ''
+                '(?=(?P<g'
+                '>.*?'
+                '))(?P=g'
+                ')'
+                '(?s:'
+                ')\\Z'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: object
+                2       CALL_FUNCTION                   0
+                4       STORE_FAST                      1: STAR
+                6       BUILD_LIST                      0
+                8       STORE_FAST                      2: res
+                10      LOAD_FAST                       2: res
+                12      LOAD_ATTR                       1: append
+                14      STORE_FAST                      3: add
+                16      LOAD_CONST                      1: 0
+                18      LOAD_GLOBAL                     2: len
+                20      LOAD_FAST                       0: pat
+                22      CALL_FUNCTION                   1
+                24      ROT_TWO                         
+                26      STORE_FAST                      4: i
+                28      STORE_FAST                      5: n
+                30      LOAD_FAST                       4: i
+                32      LOAD_FAST                       5: n
+                34      COMPARE_OP                      0 (<)
+                36      POP_JUMP_IF_FALSE               349 (to 698)
+                40      LOAD_FAST                       0: pat
+                42      LOAD_FAST                       4: i
+                44      BINARY_SUBSCR                   
+                46      STORE_FAST                      6: c
+                48      LOAD_FAST                       4: i
+                50      LOAD_CONST                      2: 1
+                52      BINARY_ADD                      
+                54      STORE_FAST                      4: i
+                56      LOAD_FAST                       6: c
+                58      LOAD_CONST                      3: '*'
+                60      COMPARE_OP                      2 (==)
+                62      POP_JUMP_IF_FALSE               46 (to 92)
+                64      LOAD_FAST                       2: res
+                66      POP_JUMP_IF_FALSE               40 (to 80)
+                68      LOAD_FAST                       2: res
+                70      LOAD_CONST                      4: -1
+                72      BINARY_SUBSCR                   
+                74      LOAD_FAST                       1: STAR
+                76      IS_OP                           1 (is not)
+                78      POP_JUMP_IF_FALSE               44 (to 88)
+                80      LOAD_FAST                       3: add
+                82      LOAD_FAST                       1: STAR
+                84      CALL_FUNCTION                   1
+                86      POP_TOP                         
+                88      JUMP_FORWARD                    299 (to 690)
+                92      LOAD_FAST                       6: c
+                94      LOAD_CONST                      5: '?'
+                96      COMPARE_OP                      2 (==)
+                98      POP_JUMP_IF_FALSE               56 (to 112)
+                100     LOAD_FAST                       3: add
+                102     LOAD_CONST                      6: '.'
+                104     CALL_FUNCTION                   1
+                106     POP_TOP                         
+                108     JUMP_FORWARD                    289 (to 690)
+                112     LOAD_FAST                       6: c
+                114     LOAD_CONST                      7: '['
+                116     COMPARE_OP                      2 (==)
+                118     POP_JUMP_IF_FALSE               338 (to 676)
+                122     LOAD_FAST                       4: i
+                124     STORE_FAST                      7: j
+                126     LOAD_FAST                       7: j
+                128     LOAD_FAST                       5: n
+                130     COMPARE_OP                      0 (<)
+                132     POP_JUMP_IF_FALSE               77 (to 154)
+                134     LOAD_FAST                       0: pat
+                136     LOAD_FAST                       7: j
+                138     BINARY_SUBSCR                   
+                140     LOAD_CONST                      8: '!'
+                142     COMPARE_OP                      2 (==)
+                144     POP_JUMP_IF_FALSE               77 (to 154)
+                146     LOAD_FAST                       7: j
+                148     LOAD_CONST                      2: 1
+                150     BINARY_ADD                      
+                152     STORE_FAST                      7: j
+                154     LOAD_FAST                       7: j
+                156     LOAD_FAST                       5: n
+                158     COMPARE_OP                      0 (<)
+                160     POP_JUMP_IF_FALSE               91 (to 182)
+                162     LOAD_FAST                       0: pat
+                164     LOAD_FAST                       7: j
+                166     BINARY_SUBSCR                   
+                168     LOAD_CONST                      9: ']'
+                170     COMPARE_OP                      2 (==)
+                172     POP_JUMP_IF_FALSE               91 (to 182)
+                174     LOAD_FAST                       7: j
+                176     LOAD_CONST                      2: 1
+                178     BINARY_ADD                      
+                180     STORE_FAST                      7: j
+                182     LOAD_FAST                       7: j
+                184     LOAD_FAST                       5: n
+                186     COMPARE_OP                      0 (<)
+                188     POP_JUMP_IF_FALSE               115 (to 230)
+                190     LOAD_FAST                       0: pat
+                192     LOAD_FAST                       7: j
+                194     BINARY_SUBSCR                   
+                196     LOAD_CONST                      9: ']'
+                198     COMPARE_OP                      3 (!=)
+                200     POP_JUMP_IF_FALSE               115 (to 230)
+                202     LOAD_FAST                       7: j
+                204     LOAD_CONST                      2: 1
+                206     BINARY_ADD                      
+                208     STORE_FAST                      7: j
+                210     LOAD_FAST                       7: j
+                212     LOAD_FAST                       5: n
+                214     COMPARE_OP                      0 (<)
+                216     POP_JUMP_IF_FALSE               115 (to 230)
+                218     LOAD_FAST                       0: pat
+                220     LOAD_FAST                       7: j
+                222     BINARY_SUBSCR                   
+                224     LOAD_CONST                      9: ']'
+                226     COMPARE_OP                      3 (!=)
+                228     POP_JUMP_IF_TRUE                101 (to 202)
+                230     LOAD_FAST                       7: j
+                232     LOAD_FAST                       5: n
+                234     COMPARE_OP                      5 (>=)
+                236     POP_JUMP_IF_FALSE               124 (to 248)
+                238     LOAD_FAST                       3: add
+                240     LOAD_CONST                      10: '\\['
+                242     CALL_FUNCTION                   1
+                244     POP_TOP                         
+                246     JUMP_FORWARD                    221 (to 690)
+                248     LOAD_FAST                       0: pat
+                250     LOAD_FAST                       4: i
+                252     LOAD_FAST                       7: j
+                254     BUILD_SLICE                     2
+                256     BINARY_SUBSCR                   
+                258     STORE_FAST                      8: stuff
+                260     LOAD_CONST                      11: '-'
+                262     LOAD_FAST                       8: stuff
+                264     CONTAINS_OP                     1 (not in)
+                266     POP_JUMP_IF_FALSE               141 (to 282)
+                268     LOAD_FAST                       8: stuff
+                270     LOAD_METHOD                     3: replace
+                272     LOAD_CONST                      12: '\\'
+                274     LOAD_CONST                      13: '\\\\'
+                276     CALL_METHOD                     2
+                278     STORE_FAST                      8: stuff
+                280     JUMP_FORWARD                    132 (to 546)
+                282     BUILD_LIST                      0
+                284     STORE_FAST                      9: chunks
+                286     LOAD_FAST                       0: pat
+                288     LOAD_FAST                       4: i
+                290     BINARY_SUBSCR                   
+                292     LOAD_CONST                      8: '!'
+                294     COMPARE_OP                      2 (==)
+                296     POP_JUMP_IF_FALSE               153 (to 306)
+                298     LOAD_FAST                       4: i
+                300     LOAD_CONST                      14: 2
+                302     BINARY_ADD                      
+                304     JUMP_FORWARD                    3 (to 312)
+                306     LOAD_FAST                       4: i
+                308     LOAD_CONST                      2: 1
+                310     BINARY_ADD                      
+                312     STORE_FAST                      10: k
+                314     NOP                             
+                316     LOAD_FAST                       0: pat
+                318     LOAD_METHOD                     4: find
+                320     LOAD_CONST                      11: '-'
+                322     LOAD_FAST                       10: k
+                324     LOAD_FAST                       7: j
+                326     CALL_METHOD                     3
+                328     STORE_FAST                      10: k
+                330     LOAD_FAST                       10: k
+                332     LOAD_CONST                      1: 0
+                334     COMPARE_OP                      0 (<)
+                336     POP_JUMP_IF_FALSE               170 (to 340)
+                338     JUMP_FORWARD                    18 (to 376)
+                340     LOAD_FAST                       9: chunks
+                342     LOAD_METHOD                     1: append
+                344     LOAD_FAST                       0: pat
+                346     LOAD_FAST                       4: i
+                348     LOAD_FAST                       10: k
+                350     BUILD_SLICE                     2
+                352     BINARY_SUBSCR                   
+                354     CALL_METHOD                     1
+                356     POP_TOP                         
+                358     LOAD_FAST                       10: k
+                360     LOAD_CONST                      2: 1
+                362     BINARY_ADD                      
+                364     STORE_FAST                      4: i
+                366     LOAD_FAST                       10: k
+                368     LOAD_CONST                      16: 3
+                370     BINARY_ADD                      
+                372     STORE_FAST                      10: k
+                374     JUMP_ABSOLUTE                   158 (to 316)
+                376     LOAD_FAST                       0: pat
+                378     LOAD_FAST                       4: i
+                380     LOAD_FAST                       7: j
+                382     BUILD_SLICE                     2
+                384     BINARY_SUBSCR                   
+                386     STORE_FAST                      11: chunk
+                388     LOAD_FAST                       11: chunk
+                390     POP_JUMP_IF_FALSE               202 (to 404)
+                392     LOAD_FAST                       9: chunks
+                394     LOAD_METHOD                     1: append
+                396     LOAD_FAST                       11: chunk
+                398     CALL_METHOD                     1
+                400     POP_TOP                         
+                402     JUMP_FORWARD                    8 (to 420)
+                404     LOAD_FAST                       9: chunks
+                406     LOAD_CONST                      4: -1
+                408     DUP_TOP_TWO                     
+                410     BINARY_SUBSCR                   
+                412     LOAD_CONST                      11: '-'
+                414     INPLACE_ADD                     
+                416     ROT_THREE                       
+                418     STORE_SUBSCR                    
+                420     LOAD_GLOBAL                     5: range
+                422     LOAD_GLOBAL                     2: len
+                424     LOAD_FAST                       9: chunks
+                426     CALL_FUNCTION                   1
+                428     LOAD_CONST                      2: 1
+                430     BINARY_SUBTRACT                 
+                432     LOAD_CONST                      1: 0
+                434     LOAD_CONST                      4: -1
+                436     CALL_FUNCTION                   3
+                438     GET_ITER                        
+                440     FOR_ITER                        42 (to 526)
+                442     STORE_FAST                      10: k
+                444     LOAD_FAST                       9: chunks
+                446     LOAD_FAST                       10: k
+                448     LOAD_CONST                      2: 1
+                450     BINARY_SUBTRACT                 
+                452     BINARY_SUBSCR                   
+                454     LOAD_CONST                      4: -1
+                456     BINARY_SUBSCR                   
+                458     LOAD_FAST                       9: chunks
+                460     LOAD_FAST                       10: k
+                462     BINARY_SUBSCR                   
+                464     LOAD_CONST                      1: 0
+                466     BINARY_SUBSCR                   
+                468     COMPARE_OP                      4 (>)
+                470     POP_JUMP_IF_FALSE               262 (to 524)
+                474     LOAD_FAST                       9: chunks
+                476     LOAD_FAST                       10: k
+                478     LOAD_CONST                      2: 1
+                480     BINARY_SUBTRACT                 
+                482     BINARY_SUBSCR                   
+                484     LOAD_CONST                      17: None
+                486     LOAD_CONST                      4: -1
+                488     BUILD_SLICE                     2
+                490     BINARY_SUBSCR                   
+                492     LOAD_FAST                       9: chunks
+                494     LOAD_FAST                       10: k
+                496     BINARY_SUBSCR                   
+                498     LOAD_CONST                      2: 1
+                500     LOAD_CONST                      17: None
+                502     BUILD_SLICE                     2
+                504     BINARY_SUBSCR                   
+                506     BINARY_ADD                      
+                508     LOAD_FAST                       9: chunks
+                510     LOAD_FAST                       10: k
+                512     LOAD_CONST                      2: 1
+                514     BINARY_SUBTRACT                 
+                516     STORE_SUBSCR                    
+                518     LOAD_FAST                       9: chunks
+                520     LOAD_FAST                       10: k
+                522     DELETE_SUBSCR                   
+                524     JUMP_ABSOLUTE                   220 (to 440)
+                526     LOAD_CONST                      11: '-'
+                528     LOAD_METHOD                     6: join
+                530     LOAD_CONST                      18: <CODE> <genexpr>
+                532     LOAD_CONST                      19: 'translate.<locals>.<genexpr>'
+                534     MAKE_FUNCTION                   0
+                536     LOAD_FAST                       9: chunks
+                538     GET_ITER                        
+                540     CALL_FUNCTION                   1
+                542     CALL_METHOD                     1
+                544     STORE_FAST                      8: stuff
+                546     LOAD_GLOBAL                     7: re
+                548     LOAD_METHOD                     8: sub
+                550     LOAD_CONST                      20: '([&~|])'
+                552     LOAD_CONST                      21: '\\\\\\1'
+                554     LOAD_FAST                       8: stuff
+                556     CALL_METHOD                     3
+                558     STORE_FAST                      8: stuff
+                560     LOAD_FAST                       7: j
+                562     LOAD_CONST                      2: 1
+                564     BINARY_ADD                      
+                566     STORE_FAST                      4: i
+                568     LOAD_FAST                       8: stuff
+                570     POP_JUMP_IF_TRUE                292 (to 584)
+                574     LOAD_FAST                       3: add
+                576     LOAD_CONST                      22: '(?!)'
+                578     CALL_FUNCTION                   1
+                580     POP_TOP                         
+                582     JUMP_FORWARD                    53 (to 690)
+                584     LOAD_FAST                       8: stuff
+                586     LOAD_CONST                      8: '!'
+                588     COMPARE_OP                      2 (==)
+                590     POP_JUMP_IF_FALSE               302 (to 604)
+                594     LOAD_FAST                       3: add
+                596     LOAD_CONST                      6: '.'
+                598     CALL_FUNCTION                   1
+                600     POP_TOP                         
+                602     JUMP_FORWARD                    43 (to 690)
+                604     LOAD_FAST                       8: stuff
+                606     LOAD_CONST                      1: 0
+                608     BINARY_SUBSCR                   
+                610     LOAD_CONST                      8: '!'
+                612     COMPARE_OP                      2 (==)
+                614     POP_JUMP_IF_FALSE               318 (to 636)
+                618     LOAD_CONST                      23: '^'
+                620     LOAD_FAST                       8: stuff
+                622     LOAD_CONST                      2: 1
+                624     LOAD_CONST                      17: None
+                626     BUILD_SLICE                     2
+                628     BINARY_SUBSCR                   
+                630     BINARY_ADD                      
+                632     STORE_FAST                      8: stuff
+                634     JUMP_FORWARD                    11 (to 658)
+                636     LOAD_FAST                       8: stuff
+                638     LOAD_CONST                      1: 0
+                640     BINARY_SUBSCR                   
+                642     LOAD_CONST                      24: ('^', '[')
+                644     CONTAINS_OP                     0 (in)
+                646     POP_JUMP_IF_FALSE               329 (to 658)
+                650     LOAD_CONST                      12: '\\'
+                652     LOAD_FAST                       8: stuff
+                654     BINARY_ADD                      
+                656     STORE_FAST                      8: stuff
+                658     LOAD_FAST                       3: add
+                660     LOAD_CONST                      7: '['
+                662     LOAD_FAST                       8: stuff
+                664     FORMAT_VALUE                    0 (FVC_NONE)
+                666     LOAD_CONST                      9: ']'
+                668     BUILD_STRING                    3
+                670     CALL_FUNCTION                   1
+                672     POP_TOP                         
+                674     JUMP_FORWARD                    7 (to 690)
+                676     LOAD_FAST                       3: add
+                678     LOAD_GLOBAL                     7: re
+                680     LOAD_METHOD                     9: escape
+                682     LOAD_FAST                       6: c
+                684     CALL_METHOD                     1
+                686     CALL_FUNCTION                   1
+                688     POP_TOP                         
+                690     LOAD_FAST                       4: i
+                692     LOAD_FAST                       5: n
+                694     COMPARE_OP                      0 (<)
+                696     POP_JUMP_IF_TRUE                20 (to 40)
+                698     LOAD_FAST                       4: i
+                700     LOAD_FAST                       5: n
+                702     COMPARE_OP                      2 (==)
+                704     POP_JUMP_IF_TRUE                356 (to 712)
+                708     LOAD_ASSERTION_ERROR            
+                710     RAISE_VARARGS                   1
+                712     LOAD_FAST                       2: res
+                714     STORE_FAST                      12: inp
+                716     BUILD_LIST                      0
+                718     STORE_FAST                      2: res
+                720     LOAD_FAST                       2: res
+                722     LOAD_ATTR                       1: append
+                724     STORE_FAST                      3: add
+                726     LOAD_CONST                      1: 0
+                728     LOAD_GLOBAL                     2: len
+                730     LOAD_FAST                       12: inp
+                732     CALL_FUNCTION                   1
+                734     ROT_TWO                         
+                736     STORE_FAST                      4: i
+                738     STORE_FAST                      5: n
+                740     LOAD_FAST                       4: i
+                742     LOAD_FAST                       5: n
+                744     COMPARE_OP                      0 (<)
+                746     POP_JUMP_IF_FALSE               404 (to 808)
+                750     LOAD_FAST                       12: inp
+                752     LOAD_FAST                       4: i
+                754     BINARY_SUBSCR                   
+                756     LOAD_FAST                       1: STAR
+                758     IS_OP                           1 (is not)
+                760     POP_JUMP_IF_FALSE               404 (to 808)
+                764     LOAD_FAST                       3: add
+                766     LOAD_FAST                       12: inp
+                768     LOAD_FAST                       4: i
+                770     BINARY_SUBSCR                   
+                772     CALL_FUNCTION                   1
+                774     POP_TOP                         
+                776     LOAD_FAST                       4: i
+                778     LOAD_CONST                      2: 1
+                780     INPLACE_ADD                     
+                782     STORE_FAST                      4: i
+                784     LOAD_FAST                       4: i
+                786     LOAD_FAST                       5: n
+                788     COMPARE_OP                      0 (<)
+                790     POP_JUMP_IF_FALSE               404 (to 808)
+                794     LOAD_FAST                       12: inp
+                796     LOAD_FAST                       4: i
+                798     BINARY_SUBSCR                   
+                800     LOAD_FAST                       1: STAR
+                802     IS_OP                           1 (is not)
+                804     POP_JUMP_IF_TRUE                382 (to 764)
+                808     LOAD_FAST                       4: i
+                810     LOAD_FAST                       5: n
+                812     COMPARE_OP                      0 (<)
+                814     POP_JUMP_IF_FALSE               519 (to 1038)
+                818     LOAD_FAST                       12: inp
+                820     LOAD_FAST                       4: i
+                822     BINARY_SUBSCR                   
+                824     LOAD_FAST                       1: STAR
+                826     IS_OP                           0 (is)
+                828     POP_JUMP_IF_TRUE                418 (to 836)
+                832     LOAD_ASSERTION_ERROR            
+                834     RAISE_VARARGS                   1
+                836     LOAD_FAST                       4: i
+                838     LOAD_CONST                      2: 1
+                840     INPLACE_ADD                     
+                842     STORE_FAST                      4: i
+                844     LOAD_FAST                       4: i
+                846     LOAD_FAST                       5: n
+                848     COMPARE_OP                      2 (==)
+                850     POP_JUMP_IF_FALSE               432 (to 864)
+                854     LOAD_FAST                       3: add
+                856     LOAD_CONST                      25: '.*'
+                858     CALL_FUNCTION                   1
+                860     POP_TOP                         
+                862     JUMP_FORWARD                    87 (to 1038)
+                864     LOAD_FAST                       12: inp
+                866     LOAD_FAST                       4: i
+                868     BINARY_SUBSCR                   
+                870     LOAD_FAST                       1: STAR
+                872     IS_OP                           1 (is not)
+                874     POP_JUMP_IF_TRUE                441 (to 882)
+                878     LOAD_ASSERTION_ERROR            
+                880     RAISE_VARARGS                   1
+                882     BUILD_LIST                      0
+                884     STORE_FAST                      13: fixed
+                886     LOAD_FAST                       4: i
+                888     LOAD_FAST                       5: n
+                890     COMPARE_OP                      0 (<)
+                892     POP_JUMP_IF_FALSE               478 (to 956)
+                896     LOAD_FAST                       12: inp
+                898     LOAD_FAST                       4: i
+                900     BINARY_SUBSCR                   
+                902     LOAD_FAST                       1: STAR
+                904     IS_OP                           1 (is not)
+                906     POP_JUMP_IF_FALSE               478 (to 956)
+                910     LOAD_FAST                       13: fixed
+                912     LOAD_METHOD                     1: append
+                914     LOAD_FAST                       12: inp
+                916     LOAD_FAST                       4: i
+                918     BINARY_SUBSCR                   
+                920     CALL_METHOD                     1
+                922     POP_TOP                         
+                924     LOAD_FAST                       4: i
+                926     LOAD_CONST                      2: 1
+                928     INPLACE_ADD                     
+                930     STORE_FAST                      4: i
+                932     LOAD_FAST                       4: i
+                934     LOAD_FAST                       5: n
+                936     COMPARE_OP                      0 (<)
+                938     POP_JUMP_IF_FALSE               478 (to 956)
+                942     LOAD_FAST                       12: inp
+                944     LOAD_FAST                       4: i
+                946     BINARY_SUBSCR                   
+                948     LOAD_FAST                       1: STAR
+                950     IS_OP                           1 (is not)
+                952     POP_JUMP_IF_TRUE                455 (to 910)
+                956     LOAD_CONST                      26: ''
+                958     LOAD_METHOD                     6: join
+                960     LOAD_FAST                       13: fixed
+                962     CALL_METHOD                     1
+                964     STORE_FAST                      13: fixed
+                966     LOAD_FAST                       4: i
+                968     LOAD_FAST                       5: n
+                970     COMPARE_OP                      2 (==)
+                972     POP_JUMP_IF_FALSE               497 (to 994)
+                976     LOAD_FAST                       3: add
+                978     LOAD_CONST                      25: '.*'
+                980     CALL_FUNCTION                   1
+                982     POP_TOP                         
+                984     LOAD_FAST                       3: add
+                986     LOAD_FAST                       13: fixed
+                988     CALL_FUNCTION                   1
+                990     POP_TOP                         
+                992     JUMP_FORWARD                    17 (to 1028)
+                994     LOAD_GLOBAL                     10: _nextgroupnum
+                996     CALL_FUNCTION                   0
+                998     STORE_FAST                      14: groupnum
+                1000    LOAD_FAST                       3: add
+                1002    LOAD_CONST                      27: '(?=(?P<g'
+                1004    LOAD_FAST                       14: groupnum
+                1006    FORMAT_VALUE                    0 (FVC_NONE)
+                1008    LOAD_CONST                      28: '>.*?'
+                1010    LOAD_FAST                       13: fixed
+                1012    FORMAT_VALUE                    0 (FVC_NONE)
+                1014    LOAD_CONST                      29: '))(?P=g'
+                1016    LOAD_FAST                       14: groupnum
+                1018    FORMAT_VALUE                    0 (FVC_NONE)
+                1020    LOAD_CONST                      30: ')'
+                1022    BUILD_STRING                    7
+                1024    CALL_FUNCTION                   1
+                1026    POP_TOP                         
+                1028    LOAD_FAST                       4: i
+                1030    LOAD_FAST                       5: n
+                1032    COMPARE_OP                      0 (<)
+                1034    POP_JUMP_IF_TRUE                409 (to 818)
+                1038    LOAD_FAST                       4: i
+                1040    LOAD_FAST                       5: n
+                1042    COMPARE_OP                      2 (==)
+                1044    POP_JUMP_IF_TRUE                526 (to 1052)
+                1048    LOAD_ASSERTION_ERROR            
+                1050    RAISE_VARARGS                   1
+                1052    LOAD_CONST                      26: ''
+                1054    LOAD_METHOD                     6: join
+                1056    LOAD_FAST                       2: res
+                1058    CALL_METHOD                     1
+                1060    STORE_FAST                      2: res
+                1062    LOAD_CONST                      31: '(?s:'
+                1064    LOAD_FAST                       2: res
+                1066    FORMAT_VALUE                    0 (FVC_NONE)
+                1068    LOAD_CONST                      32: ')\\Z'
+                1070    BUILD_STRING                    3
+                1072    RETURN_VALUE                    
+        'translate'
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Filename matching with shell patterns.\n\nfnmatch(FILENAME, PATTERN) matches according to the local convention.\nfnmatchcase(FILENAME, PATTERN) always takes case in account.\n\nThe functions operate by translating the pattern into a regular\nexpression.  They cache the compiled regular expressions for speed.\n\nThe function translate(PATTERN) returns a regular expression\ncorresponding to PATTERN.  (It does not compile it.)\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: os
+        10      STORE_NAME                      1: os
+        12      LOAD_CONST                      1: 0
+        14      LOAD_CONST                      2: None
+        16      IMPORT_NAME                     2: posixpath
+        18      STORE_NAME                      2: posixpath
+        20      LOAD_CONST                      1: 0
+        22      LOAD_CONST                      2: None
+        24      IMPORT_NAME                     3: re
+        26      STORE_NAME                      3: re
+        28      LOAD_CONST                      1: 0
+        30      LOAD_CONST                      2: None
+        32      IMPORT_NAME                     4: functools
+        34      STORE_NAME                      4: functools
+        36      BUILD_LIST                      0
+        38      LOAD_CONST                      3: ('filter', 'fnmatch', 'fnmatchcase', 'translate')
+        40      LIST_EXTEND                     1
+        42      STORE_NAME                      5: __all__
+        44      LOAD_CONST                      1: 0
+        46      LOAD_CONST                      4: ('count',)
+        48      IMPORT_NAME                     6: itertools
+        50      IMPORT_FROM                     7: count
+        52      STORE_NAME                      7: count
+        54      POP_TOP                         
+        56      LOAD_NAME                       7: count
+        58      CALL_FUNCTION                   0
+        60      LOAD_ATTR                       8: __next__
+        62      STORE_NAME                      9: _nextgroupnum
+        64      DELETE_NAME                     7: count
+        66      LOAD_CONST                      5: <CODE> fnmatch
+        68      LOAD_CONST                      6: 'fnmatch'
+        70      MAKE_FUNCTION                   0
+        72      STORE_NAME                      10: fnmatch
+        74      LOAD_NAME                       4: functools
+        76      LOAD_ATTR                       11: lru_cache
+        78      LOAD_CONST                      7: 256
+        80      LOAD_CONST                      8: True
+        82      LOAD_CONST                      9: ('maxsize', 'typed')
+        84      CALL_FUNCTION_KW                2
+        86      LOAD_CONST                      10: <CODE> _compile_pattern
+        88      LOAD_CONST                      11: '_compile_pattern'
+        90      MAKE_FUNCTION                   0
+        92      CALL_FUNCTION                   1
+        94      STORE_NAME                      12: _compile_pattern
+        96      LOAD_CONST                      12: <CODE> filter
+        98      LOAD_CONST                      13: 'filter'
+        100     MAKE_FUNCTION                   0
+        102     STORE_NAME                      13: filter
+        104     LOAD_CONST                      14: <CODE> fnmatchcase
+        106     LOAD_CONST                      15: 'fnmatchcase'
+        108     MAKE_FUNCTION                   0
+        110     STORE_NAME                      14: fnmatchcase
+        112     LOAD_CONST                      16: <CODE> translate
+        114     LOAD_CONST                      17: 'translate'
+        116     MAKE_FUNCTION                   0
+        118     STORE_NAME                      15: translate
+        120     LOAD_CONST                      2: None
+        122     RETURN_VALUE                    

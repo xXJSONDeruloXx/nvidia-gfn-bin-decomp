@@ -1,0 +1,1571 @@
+util.pyc (Python 3.10)
+[Code]
+    File Name: importlib/util.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '_abc'
+        'Loader'
+        '_bootstrap'
+        'module_from_spec'
+        '_resolve_name'
+        'spec_from_loader'
+        '_find_spec'
+        '_bootstrap_external'
+        'MAGIC_NUMBER'
+        '_RAW_MAGIC_NUMBER'
+        'cache_from_source'
+        'decode_source'
+        'source_from_cache'
+        'spec_from_file_location'
+        'contextlib'
+        'contextmanager'
+        '_imp'
+        'functools'
+        'sys'
+        'types'
+        'warnings'
+        'source_hash'
+        'resolve_name'
+        '_find_spec_from_path'
+        'find_spec'
+        '_module_to_load'
+        'set_package'
+        'set_loader'
+        'module_for_loader'
+        'ModuleType'
+        '_LazyModule'
+        'LazyLoader'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Utility code for constructing importers, etc.'
+        1
+        (
+            'Loader'
+        )
+        (
+            'module_from_spec'
+        )
+        (
+            '_resolve_name'
+        )
+        (
+            'spec_from_loader'
+        )
+        (
+            '_find_spec'
+        )
+        (
+            'MAGIC_NUMBER'
+        )
+        (
+            '_RAW_MAGIC_NUMBER'
+        )
+        (
+            'cache_from_source'
+        )
+        (
+            'decode_source'
+        )
+        (
+            'source_from_cache'
+        )
+        (
+            'spec_from_file_location'
+        )
+        0
+        (
+            'contextmanager'
+        )
+        None
+        [Code]
+            File Name: importlib/util.py
+            Object Name: source_hash
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_imp'
+                'source_hash'
+                '_RAW_MAGIC_NUMBER'
+            [Var Names]
+                'source_bytes'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return the hash of *source_bytes* as used in hash-based pyc files.'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _imp
+                2       LOAD_METHOD                     1: source_hash
+                4       LOAD_GLOBAL                     2: _RAW_MAGIC_NUMBER
+                6       LOAD_FAST                       0: source_bytes
+                8       CALL_METHOD                     2
+                10      RETURN_VALUE                    
+        'source_hash'
+        [Code]
+            File Name: importlib/util.py
+            Object Name: resolve_name
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'startswith'
+                'ImportError'
+                'repr'
+                '_resolve_name'
+            [Var Names]
+                'name'
+                'package'
+                'level'
+                'character'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Resolve a relative module name to an absolute one.'
+                '.'
+                'no package specified for '
+                ' (required for relative module names)'
+                0
+                1
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: name
+                2       LOAD_METHOD                     0: startswith
+                4       LOAD_CONST                      1: '.'
+                6       CALL_METHOD                     1
+                8       POP_JUMP_IF_TRUE                7 (to 14)
+                10      LOAD_FAST                       0: name
+                12      RETURN_VALUE                    
+                14      LOAD_FAST                       1: package
+                16      POP_JUMP_IF_TRUE                19 (to 38)
+                18      LOAD_GLOBAL                     1: ImportError
+                20      LOAD_CONST                      2: 'no package specified for '
+                22      LOAD_GLOBAL                     2: repr
+                24      LOAD_FAST                       0: name
+                26      CALL_FUNCTION                   1
+                28      FORMAT_VALUE                    0 (FVC_NONE)
+                30      LOAD_CONST                      3: ' (required for relative module names)'
+                32      BUILD_STRING                    3
+                34      CALL_FUNCTION                   1
+                36      RAISE_VARARGS                   1
+                38      LOAD_CONST                      4: 0
+                40      STORE_FAST                      2: level
+                42      LOAD_FAST                       0: name
+                44      GET_ITER                        
+                46      FOR_ITER                        12 (to 72)
+                48      STORE_FAST                      3: character
+                50      LOAD_FAST                       3: character
+                52      LOAD_CONST                      1: '.'
+                54      COMPARE_OP                      3 (!=)
+                56      POP_JUMP_IF_FALSE               31 (to 62)
+                58      POP_TOP                         
+                60      JUMP_FORWARD                    5 (to 72)
+                62      LOAD_FAST                       2: level
+                64      LOAD_CONST                      5: 1
+                66      INPLACE_ADD                     
+                68      STORE_FAST                      2: level
+                70      JUMP_ABSOLUTE                   23 (to 46)
+                72      LOAD_GLOBAL                     3: _resolve_name
+                74      LOAD_FAST                       0: name
+                76      LOAD_FAST                       2: level
+                78      LOAD_CONST                      6: None
+                80      BUILD_SLICE                     2
+                82      BINARY_SUBSCR                   
+                84      LOAD_FAST                       1: package
+                86      LOAD_FAST                       2: level
+                88      CALL_FUNCTION                   3
+                90      RETURN_VALUE                    
+        'resolve_name'
+        [Code]
+            File Name: importlib/util.py
+            Object Name: _find_spec_from_path
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'sys'
+                'modules'
+                '_find_spec'
+                '__spec__'
+                'AttributeError'
+                'ValueError'
+                'format'
+            [Var Names]
+                'name'
+                'path'
+                'module'
+                'spec'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Return the spec for the specified module.\n\n    First, sys.modules is checked to see if the module was already imported. If\n    so, then sys.modules[name].__spec__ is returned. If that happens to be\n    set to None, then ValueError is raised. If the module is not in\n    sys.modules, then sys.meta_path is searched for a suitable spec with the\n    value of 'path' given to the finders. None is returned if no spec could\n    be found.\n\n    Dotted names do not have their parent packages implicitly imported. You will\n    most likely need to explicitly import all parent packages in the proper\n    order for a submodule to get the correct spec.\n\n    "
+                None
+                '{}.__spec__ is not set'
+                '{}.__spec__ is None'
+            [Disassembly]
+                0       LOAD_FAST                       0: name
+                2       LOAD_GLOBAL                     0: sys
+                4       LOAD_ATTR                       1: modules
+                6       CONTAINS_OP                     1 (not in)
+                8       POP_JUMP_IF_FALSE               10 (to 20)
+                10      LOAD_GLOBAL                     2: _find_spec
+                12      LOAD_FAST                       0: name
+                14      LOAD_FAST                       1: path
+                16      CALL_FUNCTION                   2
+                18      RETURN_VALUE                    
+                20      LOAD_GLOBAL                     0: sys
+                22      LOAD_ATTR                       1: modules
+                24      LOAD_FAST                       0: name
+                26      BINARY_SUBSCR                   
+                28      STORE_FAST                      2: module
+                30      LOAD_FAST                       2: module
+                32      LOAD_CONST                      1: None
+                34      IS_OP                           0 (is)
+                36      POP_JUMP_IF_FALSE               21 (to 42)
+                38      LOAD_CONST                      1: None
+                40      RETURN_VALUE                    
+                42      SETUP_FINALLY                   5 (to 54)
+                44      LOAD_FAST                       2: module
+                46      LOAD_ATTR                       3: __spec__
+                48      STORE_FAST                      3: spec
+                50      POP_BLOCK                       
+                52      JUMP_FORWARD                    15 (to 84)
+                54      DUP_TOP                         
+                56      LOAD_GLOBAL                     4: AttributeError
+                58      JUMP_IF_NOT_EXC_MATCH           41 (to 82)
+                60      POP_TOP                         
+                62      POP_TOP                         
+                64      POP_TOP                         
+                66      LOAD_GLOBAL                     5: ValueError
+                68      LOAD_CONST                      2: '{}.__spec__ is not set'
+                70      LOAD_METHOD                     6: format
+                72      LOAD_FAST                       0: name
+                74      CALL_METHOD                     1
+                76      CALL_FUNCTION                   1
+                78      LOAD_CONST                      1: None
+                80      RAISE_VARARGS                   2
+                82      RERAISE                         0
+                84      LOAD_FAST                       3: spec
+                86      LOAD_CONST                      1: None
+                88      IS_OP                           0 (is)
+                90      POP_JUMP_IF_FALSE               53 (to 106)
+                92      LOAD_GLOBAL                     5: ValueError
+                94      LOAD_CONST                      3: '{}.__spec__ is None'
+                96      LOAD_METHOD                     6: format
+                98      LOAD_FAST                       0: name
+                100     CALL_METHOD                     1
+                102     CALL_FUNCTION                   1
+                104     RAISE_VARARGS                   1
+                106     LOAD_FAST                       3: spec
+                108     RETURN_VALUE                    
+        '_find_spec_from_path'
+        [Code]
+            File Name: importlib/util.py
+            Object Name: find_spec
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 9
+            Stack Size: 10
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'startswith'
+                'resolve_name'
+                'sys'
+                'modules'
+                'rpartition'
+                '__import__'
+                '__path__'
+                'AttributeError'
+                'ModuleNotFoundError'
+                '_find_spec'
+                '__spec__'
+                'ValueError'
+                'format'
+            [Var Names]
+                'name'
+                'package'
+                'fullname'
+                'parent_name'
+                'parent'
+                'parent_path'
+                'e'
+                'module'
+                'spec'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Return the spec for the specified module.\n\n    First, sys.modules is checked to see if the module was already imported. If\n    so, then sys.modules[name].__spec__ is returned. If that happens to be\n    set to None, then ValueError is raised. If the module is not in\n    sys.modules, then sys.meta_path is searched for a suitable spec with the\n    value of 'path' given to the finders. None is returned if no spec could\n    be found.\n\n    If the name is for submodule (contains a dot), the parent module is\n    automatically imported.\n\n    The name and package arguments work the same as importlib.import_module().\n    In other words, relative module names (with leading dots) work.\n\n    "
+                '.'
+                0
+                '__path__'
+                (
+                    'fromlist'
+                )
+                '__path__ attribute not found on '
+                ' while trying to find '
+                (
+                    'name'
+                )
+                None
+                '{}.__spec__ is not set'
+                '{}.__spec__ is None'
+            [Disassembly]
+                0       LOAD_FAST                       0: name
+                2       LOAD_METHOD                     0: startswith
+                4       LOAD_CONST                      1: '.'
+                6       CALL_METHOD                     1
+                8       POP_JUMP_IF_FALSE               10 (to 20)
+                10      LOAD_GLOBAL                     1: resolve_name
+                12      LOAD_FAST                       0: name
+                14      LOAD_FAST                       1: package
+                16      CALL_FUNCTION                   2
+                18      JUMP_FORWARD                    1 (to 22)
+                20      LOAD_FAST                       0: name
+                22      STORE_FAST                      2: fullname
+                24      LOAD_FAST                       2: fullname
+                26      LOAD_GLOBAL                     2: sys
+                28      LOAD_ATTR                       3: modules
+                30      CONTAINS_OP                     1 (not in)
+                32      POP_JUMP_IF_FALSE               71 (to 142)
+                34      LOAD_FAST                       2: fullname
+                36      LOAD_METHOD                     4: rpartition
+                38      LOAD_CONST                      1: '.'
+                40      CALL_METHOD                     1
+                42      LOAD_CONST                      2: 0
+                44      BINARY_SUBSCR                   
+                46      STORE_FAST                      3: parent_name
+                48      LOAD_FAST                       3: parent_name
+                50      POP_JUMP_IF_FALSE               64 (to 128)
+                52      LOAD_GLOBAL                     5: __import__
+                54      LOAD_FAST                       3: parent_name
+                56      LOAD_CONST                      3: '__path__'
+                58      BUILD_LIST                      1
+                60      LOAD_CONST                      4: ('fromlist',)
+                62      CALL_FUNCTION_KW                2
+                64      STORE_FAST                      4: parent
+                66      SETUP_FINALLY                   5 (to 78)
+                68      LOAD_FAST                       4: parent
+                70      LOAD_ATTR                       6: __path__
+                72      STORE_FAST                      5: parent_path
+                74      POP_BLOCK                       
+                76      JUMP_FORWARD                    27 (to 132)
+                78      DUP_TOP                         
+                80      LOAD_GLOBAL                     7: AttributeError
+                82      JUMP_IF_NOT_EXC_MATCH           63 (to 126)
+                84      POP_TOP                         
+                86      STORE_FAST                      6: e
+                88      POP_TOP                         
+                90      SETUP_FINALLY                   13 (to 118)
+                92      LOAD_GLOBAL                     8: ModuleNotFoundError
+                94      LOAD_CONST                      5: '__path__ attribute not found on '
+                96      LOAD_FAST                       3: parent_name
+                98      FORMAT_VALUE                    2 (FVC_REPR)
+                100     LOAD_CONST                      6: ' while trying to find '
+                102     LOAD_FAST                       2: fullname
+                104     FORMAT_VALUE                    2 (FVC_REPR)
+                106     BUILD_STRING                    4
+                108     LOAD_FAST                       2: fullname
+                110     LOAD_CONST                      7: ('name',)
+                112     CALL_FUNCTION_KW                2
+                114     LOAD_FAST                       6: e
+                116     RAISE_VARARGS                   2
+                118     LOAD_CONST                      8: None
+                120     STORE_FAST                      6: e
+                122     DELETE_FAST                     6: e
+                124     RERAISE                         1
+                126     RERAISE                         0
+                128     LOAD_CONST                      8: None
+                130     STORE_FAST                      5: parent_path
+                132     LOAD_GLOBAL                     9: _find_spec
+                134     LOAD_FAST                       2: fullname
+                136     LOAD_FAST                       5: parent_path
+                138     CALL_FUNCTION                   2
+                140     RETURN_VALUE                    
+                142     LOAD_GLOBAL                     2: sys
+                144     LOAD_ATTR                       3: modules
+                146     LOAD_FAST                       2: fullname
+                148     BINARY_SUBSCR                   
+                150     STORE_FAST                      7: module
+                152     LOAD_FAST                       7: module
+                154     LOAD_CONST                      8: None
+                156     IS_OP                           0 (is)
+                158     POP_JUMP_IF_FALSE               82 (to 164)
+                160     LOAD_CONST                      8: None
+                162     RETURN_VALUE                    
+                164     SETUP_FINALLY                   5 (to 176)
+                166     LOAD_FAST                       7: module
+                168     LOAD_ATTR                       10: __spec__
+                170     STORE_FAST                      8: spec
+                172     POP_BLOCK                       
+                174     JUMP_FORWARD                    15 (to 206)
+                176     DUP_TOP                         
+                178     LOAD_GLOBAL                     7: AttributeError
+                180     JUMP_IF_NOT_EXC_MATCH           102 (to 204)
+                182     POP_TOP                         
+                184     POP_TOP                         
+                186     POP_TOP                         
+                188     LOAD_GLOBAL                     11: ValueError
+                190     LOAD_CONST                      9: '{}.__spec__ is not set'
+                192     LOAD_METHOD                     12: format
+                194     LOAD_FAST                       0: name
+                196     CALL_METHOD                     1
+                198     CALL_FUNCTION                   1
+                200     LOAD_CONST                      8: None
+                202     RAISE_VARARGS                   2
+                204     RERAISE                         0
+                206     LOAD_FAST                       8: spec
+                208     LOAD_CONST                      8: None
+                210     IS_OP                           0 (is)
+                212     POP_JUMP_IF_FALSE               114 (to 228)
+                214     LOAD_GLOBAL                     11: ValueError
+                216     LOAD_CONST                      10: '{}.__spec__ is None'
+                218     LOAD_METHOD                     12: format
+                220     LOAD_FAST                       0: name
+                222     CALL_METHOD                     1
+                224     CALL_FUNCTION                   1
+                226     RAISE_VARARGS                   1
+                228     LOAD_FAST                       8: spec
+                230     RETURN_VALUE                    
+        'find_spec'
+        [Code]
+            File Name: importlib/util.py
+            Object Name: _module_to_load
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 11
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                'sys'
+                'modules'
+                'get'
+                'type'
+                '__initializing__'
+                'Exception'
+                'KeyError'
+            [Var Names]
+                'name'
+                'is_reload'
+                'module'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                True
+                False
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_FAST                       0: name
+                4       LOAD_GLOBAL                     0: sys
+                6       LOAD_ATTR                       1: modules
+                8       CONTAINS_OP                     0 (in)
+                10      STORE_FAST                      1: is_reload
+                12      LOAD_GLOBAL                     0: sys
+                14      LOAD_ATTR                       1: modules
+                16      LOAD_METHOD                     2: get
+                18      LOAD_FAST                       0: name
+                20      CALL_METHOD                     1
+                22      STORE_FAST                      2: module
+                24      LOAD_FAST                       1: is_reload
+                26      POP_JUMP_IF_TRUE                28 (to 56)
+                28      LOAD_GLOBAL                     3: type
+                30      LOAD_GLOBAL                     0: sys
+                32      CALL_FUNCTION                   1
+                34      LOAD_FAST                       0: name
+                36      CALL_FUNCTION                   1
+                38      STORE_FAST                      2: module
+                40      LOAD_CONST                      1: True
+                42      LOAD_FAST                       2: module
+                44      STORE_ATTR                      4: __initializing__
+                46      LOAD_FAST                       2: module
+                48      LOAD_GLOBAL                     0: sys
+                50      LOAD_ATTR                       1: modules
+                52      LOAD_FAST                       0: name
+                54      STORE_SUBSCR                    
+                56      SETUP_FINALLY                   45 (to 148)
+                58      SETUP_FINALLY                   5 (to 70)
+                60      LOAD_FAST                       2: module
+                62      YIELD_VALUE                     
+                64      POP_TOP                         
+                66      POP_BLOCK                       
+                68      JUMP_FORWARD                    27 (to 124)
+                70      DUP_TOP                         
+                72      LOAD_GLOBAL                     5: Exception
+                74      JUMP_IF_NOT_EXC_MATCH           61 (to 122)
+                76      POP_TOP                         
+                78      POP_TOP                         
+                80      POP_TOP                         
+                82      LOAD_FAST                       1: is_reload
+                84      POP_JUMP_IF_TRUE                59 (to 118)
+                86      SETUP_FINALLY                   6 (to 100)
+                88      LOAD_GLOBAL                     0: sys
+                90      LOAD_ATTR                       1: modules
+                92      LOAD_FAST                       0: name
+                94      DELETE_SUBSCR                   
+                96      POP_BLOCK                       
+                98      JUMP_FORWARD                    9 (to 118)
+                100     DUP_TOP                         
+                102     LOAD_GLOBAL                     6: KeyError
+                104     JUMP_IF_NOT_EXC_MATCH           58 (to 116)
+                106     POP_TOP                         
+                108     POP_TOP                         
+                110     POP_TOP                         
+                112     POP_EXCEPT                      
+                114     JUMP_FORWARD                    1 (to 118)
+                116     RERAISE                         0
+                118     POP_EXCEPT                      
+                120     JUMP_FORWARD                    7 (to 136)
+                122     RERAISE                         0
+                124     POP_BLOCK                       
+                126     LOAD_CONST                      2: False
+                128     LOAD_FAST                       2: module
+                130     STORE_ATTR                      4: __initializing__
+                132     LOAD_CONST                      0: None
+                134     RETURN_VALUE                    
+                136     POP_BLOCK                       
+                138     LOAD_CONST                      2: False
+                140     LOAD_FAST                       2: module
+                142     STORE_ATTR                      4: __initializing__
+                144     LOAD_CONST                      0: None
+                146     RETURN_VALUE                    
+                148     LOAD_CONST                      2: False
+                150     LOAD_FAST                       2: module
+                152     STORE_ATTR                      4: __initializing__
+                154     RERAISE                         0
+        '_module_to_load'
+        [Code]
+            File Name: importlib/util.py
+            Object Name: set_package
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'functools'
+                'wraps'
+            [Var Names]
+                'fxn'
+                'set_package_wrapper'
+            [Free Vars]
+            [Cell Vars]
+                'fxn'
+            [Constants]
+                'Set __package__ on the returned module.\n\n    This function is deprecated.\n\n    '
+                [Code]
+                    File Name: importlib/util.py
+                    Object Name: set_package_wrapper
+                    Arg Count: 0
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x0000001F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NESTED)
+                    [Names]
+                        'warnings'
+                        'warn'
+                        'DeprecationWarning'
+                        'getattr'
+                        '__name__'
+                        '__package__'
+                        'hasattr'
+                        'rpartition'
+                    [Var Names]
+                        'args'
+                        'kwargs'
+                        'module'
+                    [Free Vars]
+                        'fxn'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'The import system now takes care of this automatically; this decorator is slated for removal in Python 3.12'
+                        2
+                        (
+                            'stacklevel'
+                        )
+                        '__package__'
+                        '__path__'
+                        '.'
+                        0
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: warnings
+                        2       LOAD_ATTR                       1: warn
+                        4       LOAD_CONST                      1: 'The import system now takes care of this automatically; this decorator is slated for removal in Python 3.12'
+                        6       LOAD_GLOBAL                     2: DeprecationWarning
+                        8       LOAD_CONST                      2: 2
+                        10      LOAD_CONST                      3: ('stacklevel',)
+                        12      CALL_FUNCTION_KW                3
+                        14      POP_TOP                         
+                        16      LOAD_DEREF                      0: fxn
+                        18      LOAD_FAST                       0: args
+                        20      BUILD_MAP                       0
+                        22      LOAD_FAST                       1: kwargs
+                        24      DICT_MERGE                      1
+                        26      CALL_FUNCTION_EX                1
+                        28      STORE_FAST                      2: module
+                        30      LOAD_GLOBAL                     3: getattr
+                        32      LOAD_FAST                       2: module
+                        34      LOAD_CONST                      4: '__package__'
+                        36      LOAD_CONST                      0: None
+                        38      CALL_FUNCTION                   3
+                        40      LOAD_CONST                      0: None
+                        42      IS_OP                           0 (is)
+                        44      POP_JUMP_IF_FALSE               41 (to 82)
+                        46      LOAD_FAST                       2: module
+                        48      LOAD_ATTR                       4: __name__
+                        50      LOAD_FAST                       2: module
+                        52      STORE_ATTR                      5: __package__
+                        54      LOAD_GLOBAL                     6: hasattr
+                        56      LOAD_FAST                       2: module
+                        58      LOAD_CONST                      5: '__path__'
+                        60      CALL_FUNCTION                   2
+                        62      POP_JUMP_IF_TRUE                41 (to 82)
+                        64      LOAD_FAST                       2: module
+                        66      LOAD_ATTR                       5: __package__
+                        68      LOAD_METHOD                     7: rpartition
+                        70      LOAD_CONST                      6: '.'
+                        72      CALL_METHOD                     1
+                        74      LOAD_CONST                      7: 0
+                        76      BINARY_SUBSCR                   
+                        78      LOAD_FAST                       2: module
+                        80      STORE_ATTR                      5: __package__
+                        82      LOAD_FAST                       2: module
+                        84      RETURN_VALUE                    
+                'set_package.<locals>.set_package_wrapper'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: functools
+                2       LOAD_METHOD                     1: wraps
+                4       LOAD_DEREF                      0: fxn
+                6       CALL_METHOD                     1
+                8       LOAD_CLOSURE                    0: fxn
+                10      BUILD_TUPLE                     1
+                12      LOAD_CONST                      1: <CODE> set_package_wrapper
+                14      LOAD_CONST                      2: 'set_package.<locals>.set_package_wrapper'
+                16      MAKE_FUNCTION                   8
+                18      CALL_FUNCTION                   1
+                20      STORE_FAST                      1: set_package_wrapper
+                22      LOAD_FAST                       1: set_package_wrapper
+                24      RETURN_VALUE                    
+        'set_package'
+        [Code]
+            File Name: importlib/util.py
+            Object Name: set_loader
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'functools'
+                'wraps'
+            [Var Names]
+                'fxn'
+                'set_loader_wrapper'
+            [Free Vars]
+            [Cell Vars]
+                'fxn'
+            [Constants]
+                'Set __loader__ on the returned module.\n\n    This function is deprecated.\n\n    '
+                [Code]
+                    File Name: importlib/util.py
+                    Object Name: set_loader_wrapper
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 5
+                    Flags: 0x0000001F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NESTED)
+                    [Names]
+                        'warnings'
+                        'warn'
+                        'DeprecationWarning'
+                        'getattr'
+                        '__loader__'
+                    [Var Names]
+                        'self'
+                        'args'
+                        'kwargs'
+                        'module'
+                    [Free Vars]
+                        'fxn'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'The import system now takes care of this automatically; this decorator is slated for removal in Python 3.12'
+                        2
+                        (
+                            'stacklevel'
+                        )
+                        '__loader__'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: warnings
+                        2       LOAD_ATTR                       1: warn
+                        4       LOAD_CONST                      1: 'The import system now takes care of this automatically; this decorator is slated for removal in Python 3.12'
+                        6       LOAD_GLOBAL                     2: DeprecationWarning
+                        8       LOAD_CONST                      2: 2
+                        10      LOAD_CONST                      3: ('stacklevel',)
+                        12      CALL_FUNCTION_KW                3
+                        14      POP_TOP                         
+                        16      LOAD_DEREF                      0: fxn
+                        18      LOAD_FAST                       0: self
+                        20      BUILD_LIST                      1
+                        22      LOAD_FAST                       1: args
+                        24      LIST_EXTEND                     1
+                        26      LIST_TO_TUPLE                   
+                        28      BUILD_MAP                       0
+                        30      LOAD_FAST                       2: kwargs
+                        32      DICT_MERGE                      1
+                        34      CALL_FUNCTION_EX                1
+                        36      STORE_FAST                      3: module
+                        38      LOAD_GLOBAL                     3: getattr
+                        40      LOAD_FAST                       3: module
+                        42      LOAD_CONST                      4: '__loader__'
+                        44      LOAD_CONST                      0: None
+                        46      CALL_FUNCTION                   3
+                        48      LOAD_CONST                      0: None
+                        50      IS_OP                           0 (is)
+                        52      POP_JUMP_IF_FALSE               30 (to 60)
+                        54      LOAD_FAST                       0: self
+                        56      LOAD_FAST                       3: module
+                        58      STORE_ATTR                      4: __loader__
+                        60      LOAD_FAST                       3: module
+                        62      RETURN_VALUE                    
+                'set_loader.<locals>.set_loader_wrapper'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: functools
+                2       LOAD_METHOD                     1: wraps
+                4       LOAD_DEREF                      0: fxn
+                6       CALL_METHOD                     1
+                8       LOAD_CLOSURE                    0: fxn
+                10      BUILD_TUPLE                     1
+                12      LOAD_CONST                      1: <CODE> set_loader_wrapper
+                14      LOAD_CONST                      2: 'set_loader.<locals>.set_loader_wrapper'
+                16      MAKE_FUNCTION                   8
+                18      CALL_FUNCTION                   1
+                20      STORE_FAST                      1: set_loader_wrapper
+                22      LOAD_FAST                       1: set_loader_wrapper
+                24      RETURN_VALUE                    
+        'set_loader'
+        [Code]
+            File Name: importlib/util.py
+            Object Name: module_for_loader
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 5
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'warnings'
+                'warn'
+                'DeprecationWarning'
+                'functools'
+                'wraps'
+            [Var Names]
+                'fxn'
+                'module_for_loader_wrapper'
+            [Free Vars]
+            [Cell Vars]
+                'fxn'
+            [Constants]
+                'Decorator to handle selecting the proper module for loaders.\n\n    The decorated function is passed the module to use instead of the module\n    name. The module passed in to the function is either from sys.modules if\n    it already exists or is a new module. If the module is new, then __name__\n    is set the first argument to the method, __loader__ is set to self, and\n    __package__ is set accordingly (if self.is_package() is defined) will be set\n    before it is passed to the decorated function (if self.is_package() does\n    not work for the module it will be set post-load).\n\n    If an exception is raised and the decorator created the module it is\n    subsequently removed from sys.modules.\n\n    The decorator assumes that the decorated function takes the module name as\n    the second argument.\n\n    '
+                'The import system now takes care of this automatically; this decorator is slated for removal in Python 3.12'
+                2
+                (
+                    'stacklevel'
+                )
+                [Code]
+                    File Name: importlib/util.py
+                    Object Name: module_for_loader_wrapper
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 10
+                    Flags: 0x0000001F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NESTED)
+                    [Names]
+                        '_module_to_load'
+                        '__loader__'
+                        'is_package'
+                        'ImportError'
+                        'AttributeError'
+                        '__package__'
+                        'rpartition'
+                    [Var Names]
+                        'self'
+                        'fullname'
+                        'args'
+                        'kwargs'
+                        'module'
+                        'is_package'
+                    [Free Vars]
+                        'fxn'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '.'
+                        0
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: _module_to_load
+                        2       LOAD_FAST                       1: fullname
+                        4       CALL_FUNCTION                   1
+                        6       SETUP_WITH                      56 (to 120)
+                        8       STORE_FAST                      4: module
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_FAST                       4: module
+                        14      STORE_ATTR                      1: __loader__
+                        16      SETUP_FINALLY                   7 (to 32)
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_METHOD                     2: is_package
+                        22      LOAD_FAST                       1: fullname
+                        24      CALL_METHOD                     1
+                        26      STORE_FAST                      5: is_package
+                        28      POP_BLOCK                       
+                        30      JUMP_FORWARD                    11 (to 54)
+                        32      DUP_TOP                         
+                        34      LOAD_GLOBAL                     3: ImportError
+                        36      LOAD_GLOBAL                     4: AttributeError
+                        38      BUILD_TUPLE                     2
+                        40      JUMP_IF_NOT_EXC_MATCH           26 (to 52)
+                        42      POP_TOP                         
+                        44      POP_TOP                         
+                        46      POP_TOP                         
+                        48      POP_EXCEPT                      
+                        50      JUMP_FORWARD                    15 (to 82)
+                        52      RERAISE                         0
+                        54      LOAD_FAST                       5: is_package
+                        56      POP_JUMP_IF_FALSE               33 (to 66)
+                        58      LOAD_FAST                       1: fullname
+                        60      LOAD_FAST                       4: module
+                        62      STORE_ATTR                      5: __package__
+                        64      JUMP_FORWARD                    8 (to 82)
+                        66      LOAD_FAST                       1: fullname
+                        68      LOAD_METHOD                     6: rpartition
+                        70      LOAD_CONST                      1: '.'
+                        72      CALL_METHOD                     1
+                        74      LOAD_CONST                      2: 0
+                        76      BINARY_SUBSCR                   
+                        78      LOAD_FAST                       4: module
+                        80      STORE_ATTR                      5: __package__
+                        82      LOAD_DEREF                      0: fxn
+                        84      LOAD_FAST                       0: self
+                        86      LOAD_FAST                       4: module
+                        88      BUILD_LIST                      2
+                        90      LOAD_FAST                       2: args
+                        92      LIST_EXTEND                     1
+                        94      LIST_TO_TUPLE                   
+                        96      BUILD_MAP                       0
+                        98      LOAD_FAST                       3: kwargs
+                        100     DICT_MERGE                      1
+                        102     CALL_FUNCTION_EX                1
+                        104     POP_BLOCK                       
+                        106     ROT_TWO                         
+                        108     LOAD_CONST                      0: None
+                        110     DUP_TOP                         
+                        112     DUP_TOP                         
+                        114     CALL_FUNCTION                   3
+                        116     POP_TOP                         
+                        118     RETURN_VALUE                    
+                        120     WITH_EXCEPT_START               
+                        122     POP_JUMP_IF_TRUE                63 (to 126)
+                        124     RERAISE                         1
+                        126     POP_TOP                         
+                        128     POP_TOP                         
+                        130     POP_TOP                         
+                        132     POP_EXCEPT                      
+                        134     POP_TOP                         
+                        136     LOAD_CONST                      0: None
+                        138     RETURN_VALUE                    
+                'module_for_loader.<locals>.module_for_loader_wrapper'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: warnings
+                2       LOAD_ATTR                       1: warn
+                4       LOAD_CONST                      1: 'The import system now takes care of this automatically; this decorator is slated for removal in Python 3.12'
+                6       LOAD_GLOBAL                     2: DeprecationWarning
+                8       LOAD_CONST                      2: 2
+                10      LOAD_CONST                      3: ('stacklevel',)
+                12      CALL_FUNCTION_KW                3
+                14      POP_TOP                         
+                16      LOAD_GLOBAL                     3: functools
+                18      LOAD_METHOD                     4: wraps
+                20      LOAD_DEREF                      0: fxn
+                22      CALL_METHOD                     1
+                24      LOAD_CLOSURE                    0: fxn
+                26      BUILD_TUPLE                     1
+                28      LOAD_CONST                      4: <CODE> module_for_loader_wrapper
+                30      LOAD_CONST                      5: 'module_for_loader.<locals>.module_for_loader_wrapper'
+                32      MAKE_FUNCTION                   8
+                34      CALL_FUNCTION                   1
+                36      STORE_FAST                      1: module_for_loader_wrapper
+                38      LOAD_FAST                       1: module_for_loader_wrapper
+                40      RETURN_VALUE                    
+        'module_for_loader'
+        [Code]
+            File Name: importlib/util.py
+            Object Name: _LazyModule
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__getattribute__'
+                '__delattr__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '_LazyModule'
+                'A subclass of the module type which triggers loading upon attribute access.'
+                [Code]
+                    File Name: importlib/util.py
+                    Object Name: __getattribute__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 8
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'types'
+                        'ModuleType'
+                        '__class__'
+                        '__spec__'
+                        'name'
+                        'loader_state'
+                        '__dict__'
+                        'items'
+                        'id'
+                        'loader'
+                        'exec_module'
+                        'sys'
+                        'modules'
+                        'ValueError'
+                        'update'
+                        'getattr'
+                    [Var Names]
+                        'self'
+                        'attr'
+                        'original_name'
+                        'attrs_then'
+                        'attrs_now'
+                        'attrs_updated'
+                        'key'
+                        'value'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Trigger the load of the module and return the attribute.'
+                        '__dict__'
+                        'module object for '
+                        ' substituted in sys.modules during a lazy load'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: types
+                        2       LOAD_ATTR                       1: ModuleType
+                        4       LOAD_FAST                       0: self
+                        6       STORE_ATTR                      2: __class__
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       3: __spec__
+                        12      LOAD_ATTR                       4: name
+                        14      STORE_FAST                      2: original_name
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       3: __spec__
+                        20      LOAD_ATTR                       5: loader_state
+                        22      LOAD_CONST                      1: '__dict__'
+                        24      BINARY_SUBSCR                   
+                        26      STORE_FAST                      3: attrs_then
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       6: __dict__
+                        32      STORE_FAST                      4: attrs_now
+                        34      BUILD_MAP                       0
+                        36      STORE_FAST                      5: attrs_updated
+                        38      LOAD_FAST                       4: attrs_now
+                        40      LOAD_METHOD                     7: items
+                        42      CALL_METHOD                     0
+                        44      GET_ITER                        
+                        46      FOR_ITER                        29 (to 106)
+                        48      UNPACK_SEQUENCE                 2
+                        50      STORE_FAST                      6: key
+                        52      STORE_FAST                      7: value
+                        54      LOAD_FAST                       6: key
+                        56      LOAD_FAST                       3: attrs_then
+                        58      CONTAINS_OP                     1 (not in)
+                        60      POP_JUMP_IF_FALSE               36 (to 72)
+                        62      LOAD_FAST                       7: value
+                        64      LOAD_FAST                       5: attrs_updated
+                        66      LOAD_FAST                       6: key
+                        68      STORE_SUBSCR                    
+                        70      JUMP_ABSOLUTE                   23 (to 46)
+                        72      LOAD_GLOBAL                     8: id
+                        74      LOAD_FAST                       4: attrs_now
+                        76      LOAD_FAST                       6: key
+                        78      BINARY_SUBSCR                   
+                        80      CALL_FUNCTION                   1
+                        82      LOAD_GLOBAL                     8: id
+                        84      LOAD_FAST                       3: attrs_then
+                        86      LOAD_FAST                       6: key
+                        88      BINARY_SUBSCR                   
+                        90      CALL_FUNCTION                   1
+                        92      COMPARE_OP                      3 (!=)
+                        94      POP_JUMP_IF_FALSE               52 (to 104)
+                        96      LOAD_FAST                       7: value
+                        98      LOAD_FAST                       5: attrs_updated
+                        100     LOAD_FAST                       6: key
+                        102     STORE_SUBSCR                    
+                        104     JUMP_ABSOLUTE                   23 (to 46)
+                        106     LOAD_FAST                       0: self
+                        108     LOAD_ATTR                       3: __spec__
+                        110     LOAD_ATTR                       9: loader
+                        112     LOAD_METHOD                     10: exec_module
+                        114     LOAD_FAST                       0: self
+                        116     CALL_METHOD                     1
+                        118     POP_TOP                         
+                        120     LOAD_FAST                       2: original_name
+                        122     LOAD_GLOBAL                     11: sys
+                        124     LOAD_ATTR                       12: modules
+                        126     CONTAINS_OP                     0 (in)
+                        128     POP_JUMP_IF_FALSE               84 (to 168)
+                        130     LOAD_GLOBAL                     8: id
+                        132     LOAD_FAST                       0: self
+                        134     CALL_FUNCTION                   1
+                        136     LOAD_GLOBAL                     8: id
+                        138     LOAD_GLOBAL                     11: sys
+                        140     LOAD_ATTR                       12: modules
+                        142     LOAD_FAST                       2: original_name
+                        144     BINARY_SUBSCR                   
+                        146     CALL_FUNCTION                   1
+                        148     COMPARE_OP                      3 (!=)
+                        150     POP_JUMP_IF_FALSE               84 (to 168)
+                        152     LOAD_GLOBAL                     13: ValueError
+                        154     LOAD_CONST                      2: 'module object for '
+                        156     LOAD_FAST                       2: original_name
+                        158     FORMAT_VALUE                    2 (FVC_REPR)
+                        160     LOAD_CONST                      3: ' substituted in sys.modules during a lazy load'
+                        162     BUILD_STRING                    3
+                        164     CALL_FUNCTION                   1
+                        166     RAISE_VARARGS                   1
+                        168     LOAD_FAST                       0: self
+                        170     LOAD_ATTR                       6: __dict__
+                        172     LOAD_METHOD                     14: update
+                        174     LOAD_FAST                       5: attrs_updated
+                        176     CALL_METHOD                     1
+                        178     POP_TOP                         
+                        180     LOAD_GLOBAL                     15: getattr
+                        182     LOAD_FAST                       0: self
+                        184     LOAD_FAST                       1: attr
+                        186     CALL_FUNCTION                   2
+                        188     RETURN_VALUE                    
+                '_LazyModule.__getattribute__'
+                [Code]
+                    File Name: importlib/util.py
+                    Object Name: __delattr__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '__getattribute__'
+                        'delattr'
+                    [Var Names]
+                        'self'
+                        'attr'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Trigger the load and then perform the deletion.'
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: __getattribute__
+                        4       LOAD_FAST                       1: attr
+                        6       CALL_METHOD                     1
+                        8       POP_TOP                         
+                        10      LOAD_GLOBAL                     1: delattr
+                        12      LOAD_FAST                       0: self
+                        14      LOAD_FAST                       1: attr
+                        16      CALL_FUNCTION                   2
+                        18      POP_TOP                         
+                        20      LOAD_CONST                      1: None
+                        22      RETURN_VALUE                    
+                '_LazyModule.__delattr__'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: '_LazyModule'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'A subclass of the module type which triggers loading upon attribute access.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> __getattribute__
+                14      LOAD_CONST                      3: '_LazyModule.__getattribute__'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: __getattribute__
+                20      LOAD_CONST                      4: <CODE> __delattr__
+                22      LOAD_CONST                      5: '_LazyModule.__delattr__'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: __delattr__
+                28      LOAD_CONST                      6: None
+                30      RETURN_VALUE                    
+        '_LazyModule'
+        [Code]
+            File Name: importlib/util.py
+            Object Name: LazyLoader
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'staticmethod'
+                '_LazyLoader__check_eager_loader'
+                'classmethod'
+                'factory'
+                '__init__'
+                'create_module'
+                'exec_module'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'LazyLoader'
+                'A loader that creates a module which defers loading until attribute access.'
+                [Code]
+                    File Name: importlib/util.py
+                    Object Name: __check_eager_loader
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'hasattr'
+                        'TypeError'
+                    [Var Names]
+                        'loader'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'exec_module'
+                        'loader must define exec_module()'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: hasattr
+                        2       LOAD_FAST                       0: loader
+                        4       LOAD_CONST                      1: 'exec_module'
+                        6       CALL_FUNCTION                   2
+                        8       POP_JUMP_IF_TRUE                9 (to 18)
+                        10      LOAD_GLOBAL                     1: TypeError
+                        12      LOAD_CONST                      2: 'loader must define exec_module()'
+                        14      CALL_FUNCTION                   1
+                        16      RAISE_VARARGS                   1
+                        18      LOAD_CONST                      0: None
+                        20      RETURN_VALUE                    
+                'LazyLoader.__check_eager_loader'
+                [Code]
+                    File Name: importlib/util.py
+                    Object Name: factory
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        '_LazyLoader__check_eager_loader'
+                    [Var Names]
+                        'cls'
+                        'loader'
+                    [Free Vars]
+                    [Cell Vars]
+                        'cls'
+                        'loader'
+                    [Constants]
+                        'Construct a callable which returns the eager loader made lazy.'
+                        [Code]
+                            File Name: importlib/util.py
+                            Object Name: <lambda>
+                            Arg Count: 0
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 5
+                            Flags: 0x0000001F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NESTED)
+                            [Names]
+                            [Var Names]
+                                'args'
+                                'kwargs'
+                            [Free Vars]
+                                'cls'
+                                'loader'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       LOAD_DEREF                      0: cls
+                                2       LOAD_DEREF                      1: loader
+                                4       LOAD_FAST                       0: args
+                                6       BUILD_MAP                       0
+                                8       LOAD_FAST                       1: kwargs
+                                10      DICT_MERGE                      1
+                                12      CALL_FUNCTION_EX                1
+                                14      CALL_FUNCTION                   1
+                                16      RETURN_VALUE                    
+                        'LazyLoader.factory.<locals>.<lambda>'
+                    [Disassembly]
+                        0       LOAD_DEREF                      0: cls
+                        2       LOAD_METHOD                     0: _LazyLoader__check_eager_loader
+                        4       LOAD_DEREF                      1: loader
+                        6       CALL_METHOD                     1
+                        8       POP_TOP                         
+                        10      LOAD_CLOSURE                    0: cls
+                        12      LOAD_CLOSURE                    1: loader
+                        14      BUILD_TUPLE                     2
+                        16      LOAD_CONST                      1: <CODE> <lambda>
+                        18      LOAD_CONST                      2: 'LazyLoader.factory.<locals>.<lambda>'
+                        20      MAKE_FUNCTION                   8
+                        22      RETURN_VALUE                    
+                'LazyLoader.factory'
+                [Code]
+                    File Name: importlib/util.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_LazyLoader__check_eager_loader'
+                        'loader'
+                    [Var Names]
+                        'self'
+                        'loader'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _LazyLoader__check_eager_loader
+                        4       LOAD_FAST                       1: loader
+                        6       CALL_METHOD                     1
+                        8       POP_TOP                         
+                        10      LOAD_FAST                       1: loader
+                        12      LOAD_FAST                       0: self
+                        14      STORE_ATTR                      1: loader
+                        16      LOAD_CONST                      0: None
+                        18      RETURN_VALUE                    
+                'LazyLoader.__init__'
+                [Code]
+                    File Name: importlib/util.py
+                    Object Name: create_module
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'loader'
+                        'create_module'
+                    [Var Names]
+                        'self'
+                        'spec'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: loader
+                        4       LOAD_METHOD                     1: create_module
+                        6       LOAD_FAST                       1: spec
+                        8       CALL_METHOD                     1
+                        10      RETURN_VALUE                    
+                'LazyLoader.create_module'
+                [Code]
+                    File Name: importlib/util.py
+                    Object Name: exec_module
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'loader'
+                        '__spec__'
+                        '__loader__'
+                        '__dict__'
+                        'copy'
+                        '__class__'
+                        'loader_state'
+                        '_LazyModule'
+                    [Var Names]
+                        'self'
+                        'module'
+                        'loader_state'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Make the module load lazily.'
+                        '__dict__'
+                        '__class__'
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: loader
+                        4       LOAD_FAST                       1: module
+                        6       LOAD_ATTR                       1: __spec__
+                        8       STORE_ATTR                      0: loader
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       0: loader
+                        14      LOAD_FAST                       1: module
+                        16      STORE_ATTR                      2: __loader__
+                        18      BUILD_MAP                       0
+                        20      STORE_FAST                      2: loader_state
+                        22      LOAD_FAST                       1: module
+                        24      LOAD_ATTR                       3: __dict__
+                        26      LOAD_METHOD                     4: copy
+                        28      CALL_METHOD                     0
+                        30      LOAD_FAST                       2: loader_state
+                        32      LOAD_CONST                      1: '__dict__'
+                        34      STORE_SUBSCR                    
+                        36      LOAD_FAST                       1: module
+                        38      LOAD_ATTR                       5: __class__
+                        40      LOAD_FAST                       2: loader_state
+                        42      LOAD_CONST                      2: '__class__'
+                        44      STORE_SUBSCR                    
+                        46      LOAD_FAST                       2: loader_state
+                        48      LOAD_FAST                       1: module
+                        50      LOAD_ATTR                       1: __spec__
+                        52      STORE_ATTR                      6: loader_state
+                        54      LOAD_GLOBAL                     7: _LazyModule
+                        56      LOAD_FAST                       1: module
+                        58      STORE_ATTR                      5: __class__
+                        60      LOAD_CONST                      3: None
+                        62      RETURN_VALUE                    
+                'LazyLoader.exec_module'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'LazyLoader'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'A loader that creates a module which defers loading until attribute access.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_NAME                       4: staticmethod
+                14      LOAD_CONST                      2: <CODE> __check_eager_loader
+                16      LOAD_CONST                      3: 'LazyLoader.__check_eager_loader'
+                18      MAKE_FUNCTION                   0
+                20      CALL_FUNCTION                   1
+                22      STORE_NAME                      5: _LazyLoader__check_eager_loader
+                24      LOAD_NAME                       6: classmethod
+                26      LOAD_CONST                      4: <CODE> factory
+                28      LOAD_CONST                      5: 'LazyLoader.factory'
+                30      MAKE_FUNCTION                   0
+                32      CALL_FUNCTION                   1
+                34      STORE_NAME                      7: factory
+                36      LOAD_CONST                      6: <CODE> __init__
+                38      LOAD_CONST                      7: 'LazyLoader.__init__'
+                40      MAKE_FUNCTION                   0
+                42      STORE_NAME                      8: __init__
+                44      LOAD_CONST                      8: <CODE> create_module
+                46      LOAD_CONST                      9: 'LazyLoader.create_module'
+                48      MAKE_FUNCTION                   0
+                50      STORE_NAME                      9: create_module
+                52      LOAD_CONST                      10: <CODE> exec_module
+                54      LOAD_CONST                      11: 'LazyLoader.exec_module'
+                56      MAKE_FUNCTION                   0
+                58      STORE_NAME                      10: exec_module
+                60      LOAD_CONST                      12: None
+                62      RETURN_VALUE                    
+        'LazyLoader'
+        (
+            None
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Utility code for constructing importers, etc.'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 1
+        6       LOAD_CONST                      2: ('Loader',)
+        8       IMPORT_NAME                     1: _abc
+        10      IMPORT_FROM                     2: Loader
+        12      STORE_NAME                      2: Loader
+        14      POP_TOP                         
+        16      LOAD_CONST                      1: 1
+        18      LOAD_CONST                      3: ('module_from_spec',)
+        20      IMPORT_NAME                     3: _bootstrap
+        22      IMPORT_FROM                     4: module_from_spec
+        24      STORE_NAME                      4: module_from_spec
+        26      POP_TOP                         
+        28      LOAD_CONST                      1: 1
+        30      LOAD_CONST                      4: ('_resolve_name',)
+        32      IMPORT_NAME                     3: _bootstrap
+        34      IMPORT_FROM                     5: _resolve_name
+        36      STORE_NAME                      5: _resolve_name
+        38      POP_TOP                         
+        40      LOAD_CONST                      1: 1
+        42      LOAD_CONST                      5: ('spec_from_loader',)
+        44      IMPORT_NAME                     3: _bootstrap
+        46      IMPORT_FROM                     6: spec_from_loader
+        48      STORE_NAME                      6: spec_from_loader
+        50      POP_TOP                         
+        52      LOAD_CONST                      1: 1
+        54      LOAD_CONST                      6: ('_find_spec',)
+        56      IMPORT_NAME                     3: _bootstrap
+        58      IMPORT_FROM                     7: _find_spec
+        60      STORE_NAME                      7: _find_spec
+        62      POP_TOP                         
+        64      LOAD_CONST                      1: 1
+        66      LOAD_CONST                      7: ('MAGIC_NUMBER',)
+        68      IMPORT_NAME                     8: _bootstrap_external
+        70      IMPORT_FROM                     9: MAGIC_NUMBER
+        72      STORE_NAME                      9: MAGIC_NUMBER
+        74      POP_TOP                         
+        76      LOAD_CONST                      1: 1
+        78      LOAD_CONST                      8: ('_RAW_MAGIC_NUMBER',)
+        80      IMPORT_NAME                     8: _bootstrap_external
+        82      IMPORT_FROM                     10: _RAW_MAGIC_NUMBER
+        84      STORE_NAME                      10: _RAW_MAGIC_NUMBER
+        86      POP_TOP                         
+        88      LOAD_CONST                      1: 1
+        90      LOAD_CONST                      9: ('cache_from_source',)
+        92      IMPORT_NAME                     8: _bootstrap_external
+        94      IMPORT_FROM                     11: cache_from_source
+        96      STORE_NAME                      11: cache_from_source
+        98      POP_TOP                         
+        100     LOAD_CONST                      1: 1
+        102     LOAD_CONST                      10: ('decode_source',)
+        104     IMPORT_NAME                     8: _bootstrap_external
+        106     IMPORT_FROM                     12: decode_source
+        108     STORE_NAME                      12: decode_source
+        110     POP_TOP                         
+        112     LOAD_CONST                      1: 1
+        114     LOAD_CONST                      11: ('source_from_cache',)
+        116     IMPORT_NAME                     8: _bootstrap_external
+        118     IMPORT_FROM                     13: source_from_cache
+        120     STORE_NAME                      13: source_from_cache
+        122     POP_TOP                         
+        124     LOAD_CONST                      1: 1
+        126     LOAD_CONST                      12: ('spec_from_file_location',)
+        128     IMPORT_NAME                     8: _bootstrap_external
+        130     IMPORT_FROM                     14: spec_from_file_location
+        132     STORE_NAME                      14: spec_from_file_location
+        134     POP_TOP                         
+        136     LOAD_CONST                      13: 0
+        138     LOAD_CONST                      14: ('contextmanager',)
+        140     IMPORT_NAME                     15: contextlib
+        142     IMPORT_FROM                     16: contextmanager
+        144     STORE_NAME                      16: contextmanager
+        146     POP_TOP                         
+        148     LOAD_CONST                      13: 0
+        150     LOAD_CONST                      15: None
+        152     IMPORT_NAME                     17: _imp
+        154     STORE_NAME                      17: _imp
+        156     LOAD_CONST                      13: 0
+        158     LOAD_CONST                      15: None
+        160     IMPORT_NAME                     18: functools
+        162     STORE_NAME                      18: functools
+        164     LOAD_CONST                      13: 0
+        166     LOAD_CONST                      15: None
+        168     IMPORT_NAME                     19: sys
+        170     STORE_NAME                      19: sys
+        172     LOAD_CONST                      13: 0
+        174     LOAD_CONST                      15: None
+        176     IMPORT_NAME                     20: types
+        178     STORE_NAME                      20: types
+        180     LOAD_CONST                      13: 0
+        182     LOAD_CONST                      15: None
+        184     IMPORT_NAME                     21: warnings
+        186     STORE_NAME                      21: warnings
+        188     LOAD_CONST                      16: <CODE> source_hash
+        190     LOAD_CONST                      17: 'source_hash'
+        192     MAKE_FUNCTION                   0
+        194     STORE_NAME                      22: source_hash
+        196     LOAD_CONST                      18: <CODE> resolve_name
+        198     LOAD_CONST                      19: 'resolve_name'
+        200     MAKE_FUNCTION                   0
+        202     STORE_NAME                      23: resolve_name
+        204     LOAD_CONST                      36: (None,)
+        206     LOAD_CONST                      20: <CODE> _find_spec_from_path
+        208     LOAD_CONST                      21: '_find_spec_from_path'
+        210     MAKE_FUNCTION                   1
+        212     STORE_NAME                      24: _find_spec_from_path
+        214     LOAD_CONST                      36: (None,)
+        216     LOAD_CONST                      22: <CODE> find_spec
+        218     LOAD_CONST                      23: 'find_spec'
+        220     MAKE_FUNCTION                   1
+        222     STORE_NAME                      25: find_spec
+        224     LOAD_NAME                       16: contextmanager
+        226     LOAD_CONST                      24: <CODE> _module_to_load
+        228     LOAD_CONST                      25: '_module_to_load'
+        230     MAKE_FUNCTION                   0
+        232     CALL_FUNCTION                   1
+        234     STORE_NAME                      26: _module_to_load
+        236     LOAD_CONST                      26: <CODE> set_package
+        238     LOAD_CONST                      27: 'set_package'
+        240     MAKE_FUNCTION                   0
+        242     STORE_NAME                      27: set_package
+        244     LOAD_CONST                      28: <CODE> set_loader
+        246     LOAD_CONST                      29: 'set_loader'
+        248     MAKE_FUNCTION                   0
+        250     STORE_NAME                      28: set_loader
+        252     LOAD_CONST                      30: <CODE> module_for_loader
+        254     LOAD_CONST                      31: 'module_for_loader'
+        256     MAKE_FUNCTION                   0
+        258     STORE_NAME                      29: module_for_loader
+        260     LOAD_BUILD_CLASS                
+        262     LOAD_CONST                      32: <CODE> _LazyModule
+        264     LOAD_CONST                      33: '_LazyModule'
+        266     MAKE_FUNCTION                   0
+        268     LOAD_CONST                      33: '_LazyModule'
+        270     LOAD_NAME                       20: types
+        272     LOAD_ATTR                       30: ModuleType
+        274     CALL_FUNCTION                   3
+        276     STORE_NAME                      31: _LazyModule
+        278     LOAD_BUILD_CLASS                
+        280     LOAD_CONST                      34: <CODE> LazyLoader
+        282     LOAD_CONST                      35: 'LazyLoader'
+        284     MAKE_FUNCTION                   0
+        286     LOAD_CONST                      35: 'LazyLoader'
+        288     LOAD_NAME                       2: Loader
+        290     CALL_FUNCTION                   3
+        292     STORE_NAME                      32: LazyLoader
+        294     LOAD_CONST                      15: None
+        296     RETURN_VALUE                    

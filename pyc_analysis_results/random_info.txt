@@ -1,0 +1,4 @@
+File: /Users/kurt/Desktop/PYZ-00.pyz_extracted/random.pyc
+Size: 22715 bytes
+Modified: Thu May 29 21:01:57 2025
+Python Version: 3.12+

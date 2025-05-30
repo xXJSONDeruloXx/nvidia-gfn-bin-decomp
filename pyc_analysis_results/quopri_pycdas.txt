@@ -1,0 +1,1484 @@
+quopri.pyc (Python 3.10)
+[Code]
+    File Name: quopri.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 8
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        'ESCAPE'
+        'MAXLINESIZE'
+        'HEX'
+        'EMPTYSTRING'
+        'binascii'
+        'a2b_qp'
+        'b2a_qp'
+        'ImportError'
+        'needsquoting'
+        'quote'
+        'encode'
+        'encodestring'
+        'decode'
+        'decodestring'
+        'ishex'
+        'unhex'
+        'main'
+        '__name__'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Conversions to/from quoted-printable transport encoding as per RFC 1521.'
+        (
+            'encode'
+            'decode'
+            'encodestring'
+            'decodestring'
+        )
+        b'='
+        76
+        b'0123456789ABCDEF'
+        b''
+        0
+        (
+            'a2b_qp'
+            'b2a_qp'
+        )
+        None
+        [Code]
+            File Name: quopri.py
+            Object Name: needsquoting
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'bytes'
+                'ESCAPE'
+            [Var Names]
+                'c'
+                'quotetabs'
+                'header'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Decide whether a particular byte ordinal needs to be quoted.\n\n    The 'quotetabs' flag indicates whether embedded tabs and spaces should be\n    quoted.  Note that line-ending tabs and spaces are always encoded, as per\n    RFC 1521.\n    "
+                b' \t'
+                b'_'
+                b' '
+                b'~'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: c
+                4       LOAD_GLOBAL                     1: bytes
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_TRUE                7 (to 14)
+                10      LOAD_ASSERTION_ERROR            
+                12      RAISE_VARARGS                   1
+                14      LOAD_FAST                       0: c
+                16      LOAD_CONST                      1: b' \t'
+                18      CONTAINS_OP                     0 (in)
+                20      POP_JUMP_IF_FALSE               13 (to 26)
+                22      LOAD_FAST                       1: quotetabs
+                24      RETURN_VALUE                    
+                26      LOAD_FAST                       0: c
+                28      LOAD_CONST                      2: b'_'
+                30      COMPARE_OP                      2 (==)
+                32      POP_JUMP_IF_FALSE               19 (to 38)
+                34      LOAD_FAST                       2: header
+                36      RETURN_VALUE                    
+                38      LOAD_FAST                       0: c
+                40      LOAD_GLOBAL                     2: ESCAPE
+                42      COMPARE_OP                      2 (==)
+                44      JUMP_IF_TRUE_OR_POP             35 (to 70)
+                46      LOAD_CONST                      3: b' '
+                48      LOAD_FAST                       0: c
+                50      DUP_TOP                         
+                52      ROT_THREE                       
+                54      COMPARE_OP                      1 (<=)
+                56      JUMP_IF_FALSE_OR_POP            32 (to 64)
+                58      LOAD_CONST                      4: b'~'
+                60      COMPARE_OP                      1 (<=)
+                62      JUMP_FORWARD                    2 (to 68)
+                64      ROT_TWO                         
+                66      POP_TOP                         
+                68      UNARY_NOT                       
+                70      RETURN_VALUE                    
+        'needsquoting'
+        [Code]
+            File Name: quopri.py
+            Object Name: quote
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'bytes'
+                'len'
+                'ord'
+                'ESCAPE'
+                'HEX'
+            [Var Names]
+                'c'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Quote a single character.'
+                1
+                16
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: c
+                4       LOAD_GLOBAL                     1: bytes
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_FALSE               11 (to 22)
+                10      LOAD_GLOBAL                     2: len
+                12      LOAD_FAST                       0: c
+                14      CALL_FUNCTION                   1
+                16      LOAD_CONST                      1: 1
+                18      COMPARE_OP                      2 (==)
+                20      POP_JUMP_IF_TRUE                13 (to 26)
+                22      LOAD_ASSERTION_ERROR            
+                24      RAISE_VARARGS                   1
+                26      LOAD_GLOBAL                     3: ord
+                28      LOAD_FAST                       0: c
+                30      CALL_FUNCTION                   1
+                32      STORE_FAST                      0: c
+                34      LOAD_GLOBAL                     4: ESCAPE
+                36      LOAD_GLOBAL                     1: bytes
+                38      LOAD_GLOBAL                     5: HEX
+                40      LOAD_FAST                       0: c
+                42      LOAD_CONST                      2: 16
+                44      BINARY_FLOOR_DIVIDE             
+                46      BINARY_SUBSCR                   
+                48      LOAD_GLOBAL                     5: HEX
+                50      LOAD_FAST                       0: c
+                52      LOAD_CONST                      2: 16
+                54      BINARY_MODULO                   
+                56      BINARY_SUBSCR                   
+                58      BUILD_TUPLE                     2
+                60      CALL_FUNCTION                   1
+                62      BINARY_ADD                      
+                64      RETURN_VALUE                    
+        'quote'
+        False
+        [Code]
+            File Name: quopri.py
+            Object Name: encode
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 13
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'b2a_qp'
+                'read'
+                'write'
+                'readline'
+                'bytes'
+                'needsquoting'
+                'quote'
+                'append'
+                'EMPTYSTRING'
+                'join'
+                'len'
+                'MAXLINESIZE'
+            [Var Names]
+                'input'
+                'output'
+                'quotetabs'
+                'header'
+                'data'
+                'odata'
+                'write'
+                'prevline'
+                'line'
+                'outline'
+                'stripped'
+                'c'
+                'thisline'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Read 'input', apply quoted-printable encoding, and write to 'output'.\n\n    'input' and 'output' are binary file objects. The 'quotetabs' flag\n    indicates whether embedded tabs and spaces should be quoted. Note that\n    line-ending tabs and spaces are always encoded, as per RFC 1521.\n    The 'header' flag indicates whether we are encoding spaces as _ as per RFC\n    1522."
+                None
+                (
+                    'quotetabs'
+                    'header'
+                )
+                b'\n'
+                [Code]
+                    File Name: quopri.py
+                    Object Name: write
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 7
+                    Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                    [Names]
+                        'write'
+                        'quote'
+                    [Var Names]
+                        's'
+                        'output'
+                        'lineEnd'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        -1
+                        b' \t'
+                        b'.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: s
+                        2       POP_JUMP_IF_FALSE               31 (to 62)
+                        4       LOAD_FAST                       0: s
+                        6       LOAD_CONST                      1: -1
+                        8       LOAD_CONST                      0: None
+                        10      BUILD_SLICE                     2
+                        12      BINARY_SUBSCR                   
+                        14      LOAD_CONST                      2: b' \t'
+                        16      CONTAINS_OP                     0 (in)
+                        18      POP_JUMP_IF_FALSE               31 (to 62)
+                        20      LOAD_FAST                       1: output
+                        22      LOAD_METHOD                     0: write
+                        24      LOAD_FAST                       0: s
+                        26      LOAD_CONST                      0: None
+                        28      LOAD_CONST                      1: -1
+                        30      BUILD_SLICE                     2
+                        32      BINARY_SUBSCR                   
+                        34      LOAD_GLOBAL                     1: quote
+                        36      LOAD_FAST                       0: s
+                        38      LOAD_CONST                      1: -1
+                        40      LOAD_CONST                      0: None
+                        42      BUILD_SLICE                     2
+                        44      BINARY_SUBSCR                   
+                        46      CALL_FUNCTION                   1
+                        48      BINARY_ADD                      
+                        50      LOAD_FAST                       2: lineEnd
+                        52      BINARY_ADD                      
+                        54      CALL_METHOD                     1
+                        56      POP_TOP                         
+                        58      LOAD_CONST                      0: None
+                        60      RETURN_VALUE                    
+                        62      LOAD_FAST                       0: s
+                        64      LOAD_CONST                      3: b'.'
+                        66      COMPARE_OP                      2 (==)
+                        68      POP_JUMP_IF_FALSE               46 (to 92)
+                        70      LOAD_FAST                       1: output
+                        72      LOAD_METHOD                     0: write
+                        74      LOAD_GLOBAL                     1: quote
+                        76      LOAD_FAST                       0: s
+                        78      CALL_FUNCTION                   1
+                        80      LOAD_FAST                       2: lineEnd
+                        82      BINARY_ADD                      
+                        84      CALL_METHOD                     1
+                        86      POP_TOP                         
+                        88      LOAD_CONST                      0: None
+                        90      RETURN_VALUE                    
+                        92      LOAD_FAST                       1: output
+                        94      LOAD_METHOD                     0: write
+                        96      LOAD_FAST                       0: s
+                        98      LOAD_FAST                       2: lineEnd
+                        100     BINARY_ADD                      
+                        102     CALL_METHOD                     1
+                        104     POP_TOP                         
+                        106     LOAD_CONST                      0: None
+                        108     RETURN_VALUE                    
+                'encode.<locals>.write'
+                1
+                b''
+                -1
+                b' '
+                b'_'
+                b'=\n'
+                (
+                    'lineEnd'
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: b2a_qp
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           1 (is not)
+                6       POP_JUMP_IF_FALSE               22 (to 44)
+                8       LOAD_FAST                       0: input
+                10      LOAD_METHOD                     1: read
+                12      CALL_METHOD                     0
+                14      STORE_FAST                      4: data
+                16      LOAD_GLOBAL                     0: b2a_qp
+                18      LOAD_FAST                       4: data
+                20      LOAD_FAST                       2: quotetabs
+                22      LOAD_FAST                       3: header
+                24      LOAD_CONST                      2: ('quotetabs', 'header')
+                26      CALL_FUNCTION_KW                3
+                28      STORE_FAST                      5: odata
+                30      LOAD_FAST                       1: output
+                32      LOAD_METHOD                     2: write
+                34      LOAD_FAST                       5: odata
+                36      CALL_METHOD                     1
+                38      POP_TOP                         
+                40      LOAD_CONST                      1: None
+                42      RETURN_VALUE                    
+                44      LOAD_FAST                       1: output
+                46      LOAD_CONST                      3: b'\n'
+                48      BUILD_TUPLE                     2
+                50      LOAD_CONST                      4: <CODE> write
+                52      LOAD_CONST                      5: 'encode.<locals>.write'
+                54      MAKE_FUNCTION                   1
+                56      STORE_FAST                      6: write
+                58      LOAD_CONST                      1: None
+                60      STORE_FAST                      7: prevline
+                62      NOP                             
+                64      LOAD_FAST                       0: input
+                66      LOAD_METHOD                     3: readline
+                68      CALL_METHOD                     0
+                70      STORE_FAST                      8: line
+                72      LOAD_FAST                       8: line
+                74      POP_JUMP_IF_TRUE                39 (to 78)
+                76      JUMP_FORWARD                    105 (to 288)
+                78      BUILD_LIST                      0
+                80      STORE_FAST                      9: outline
+                82      LOAD_CONST                      7: b''
+                84      STORE_FAST                      10: stripped
+                86      LOAD_FAST                       8: line
+                88      LOAD_CONST                      8: -1
+                90      LOAD_CONST                      1: None
+                92      BUILD_SLICE                     2
+                94      BINARY_SUBSCR                   
+                96      LOAD_CONST                      3: b'\n'
+                98      COMPARE_OP                      2 (==)
+                100     POP_JUMP_IF_FALSE               59 (to 118)
+                102     LOAD_FAST                       8: line
+                104     LOAD_CONST                      1: None
+                106     LOAD_CONST                      8: -1
+                108     BUILD_SLICE                     2
+                110     BINARY_SUBSCR                   
+                112     STORE_FAST                      8: line
+                114     LOAD_CONST                      3: b'\n'
+                116     STORE_FAST                      10: stripped
+                118     LOAD_FAST                       8: line
+                120     GET_ITER                        
+                122     FOR_ITER                        34 (to 192)
+                124     STORE_FAST                      11: c
+                126     LOAD_GLOBAL                     4: bytes
+                128     LOAD_FAST                       11: c
+                130     BUILD_TUPLE                     1
+                132     CALL_FUNCTION                   1
+                134     STORE_FAST                      11: c
+                136     LOAD_GLOBAL                     5: needsquoting
+                138     LOAD_FAST                       11: c
+                140     LOAD_FAST                       2: quotetabs
+                142     LOAD_FAST                       3: header
+                144     CALL_FUNCTION                   3
+                146     POP_JUMP_IF_FALSE               78 (to 156)
+                148     LOAD_GLOBAL                     6: quote
+                150     LOAD_FAST                       11: c
+                152     CALL_FUNCTION                   1
+                154     STORE_FAST                      11: c
+                156     LOAD_FAST                       3: header
+                158     POP_JUMP_IF_FALSE               90 (to 180)
+                160     LOAD_FAST                       11: c
+                162     LOAD_CONST                      9: b' '
+                164     COMPARE_OP                      2 (==)
+                166     POP_JUMP_IF_FALSE               90 (to 180)
+                168     LOAD_FAST                       9: outline
+                170     LOAD_METHOD                     7: append
+                172     LOAD_CONST                      10: b'_'
+                174     CALL_METHOD                     1
+                176     POP_TOP                         
+                178     JUMP_ABSOLUTE                   61 (to 122)
+                180     LOAD_FAST                       9: outline
+                182     LOAD_METHOD                     7: append
+                184     LOAD_FAST                       11: c
+                186     CALL_METHOD                     1
+                188     POP_TOP                         
+                190     JUMP_ABSOLUTE                   61 (to 122)
+                192     LOAD_FAST                       7: prevline
+                194     LOAD_CONST                      1: None
+                196     IS_OP                           1 (is not)
+                198     POP_JUMP_IF_FALSE               104 (to 208)
+                200     LOAD_FAST                       6: write
+                202     LOAD_FAST                       7: prevline
+                204     CALL_FUNCTION                   1
+                206     POP_TOP                         
+                208     LOAD_GLOBAL                     8: EMPTYSTRING
+                210     LOAD_METHOD                     9: join
+                212     LOAD_FAST                       9: outline
+                214     CALL_METHOD                     1
+                216     STORE_FAST                      12: thisline
+                218     LOAD_GLOBAL                     10: len
+                220     LOAD_FAST                       12: thisline
+                222     CALL_FUNCTION                   1
+                224     LOAD_GLOBAL                     11: MAXLINESIZE
+                226     COMPARE_OP                      4 (>)
+                228     POP_JUMP_IF_FALSE               141 (to 282)
+                230     LOAD_FAST                       6: write
+                232     LOAD_FAST                       12: thisline
+                234     LOAD_CONST                      1: None
+                236     LOAD_GLOBAL                     11: MAXLINESIZE
+                238     LOAD_CONST                      6: 1
+                240     BINARY_SUBTRACT                 
+                242     BUILD_SLICE                     2
+                244     BINARY_SUBSCR                   
+                246     LOAD_CONST                      11: b'=\n'
+                248     LOAD_CONST                      12: ('lineEnd',)
+                250     CALL_FUNCTION_KW                2
+                252     POP_TOP                         
+                254     LOAD_FAST                       12: thisline
+                256     LOAD_GLOBAL                     11: MAXLINESIZE
+                258     LOAD_CONST                      6: 1
+                260     BINARY_SUBTRACT                 
+                262     LOAD_CONST                      1: None
+                264     BUILD_SLICE                     2
+                266     BINARY_SUBSCR                   
+                268     STORE_FAST                      12: thisline
+                270     LOAD_GLOBAL                     10: len
+                272     LOAD_FAST                       12: thisline
+                274     CALL_FUNCTION                   1
+                276     LOAD_GLOBAL                     11: MAXLINESIZE
+                278     COMPARE_OP                      4 (>)
+                280     POP_JUMP_IF_TRUE                115 (to 230)
+                282     LOAD_FAST                       12: thisline
+                284     STORE_FAST                      7: prevline
+                286     JUMP_ABSOLUTE                   32 (to 64)
+                288     LOAD_FAST                       7: prevline
+                290     LOAD_CONST                      1: None
+                292     IS_OP                           1 (is not)
+                294     POP_JUMP_IF_FALSE               156 (to 312)
+                296     LOAD_FAST                       6: write
+                298     LOAD_FAST                       7: prevline
+                300     LOAD_FAST                       10: stripped
+                302     LOAD_CONST                      12: ('lineEnd',)
+                304     CALL_FUNCTION_KW                2
+                306     POP_TOP                         
+                308     LOAD_CONST                      1: None
+                310     RETURN_VALUE                    
+                312     LOAD_CONST                      1: None
+                314     RETURN_VALUE                    
+        'encode'
+        [Code]
+            File Name: quopri.py
+            Object Name: encodestring
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'b2a_qp'
+                'io'
+                'BytesIO'
+                'encode'
+                'getvalue'
+            [Var Names]
+                's'
+                'quotetabs'
+                'header'
+                'BytesIO'
+                'infp'
+                'outfp'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                (
+                    'quotetabs'
+                    'header'
+                )
+                0
+                (
+                    'BytesIO'
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: b2a_qp
+                2       LOAD_CONST                      0: None
+                4       IS_OP                           1 (is not)
+                6       POP_JUMP_IF_FALSE               11 (to 22)
+                8       LOAD_GLOBAL                     0: b2a_qp
+                10      LOAD_FAST                       0: s
+                12      LOAD_FAST                       1: quotetabs
+                14      LOAD_FAST                       2: header
+                16      LOAD_CONST                      1: ('quotetabs', 'header')
+                18      CALL_FUNCTION_KW                3
+                20      RETURN_VALUE                    
+                22      LOAD_CONST                      2: 0
+                24      LOAD_CONST                      3: ('BytesIO',)
+                26      IMPORT_NAME                     1: io
+                28      IMPORT_FROM                     2: BytesIO
+                30      STORE_FAST                      3: BytesIO
+                32      POP_TOP                         
+                34      LOAD_FAST                       3: BytesIO
+                36      LOAD_FAST                       0: s
+                38      CALL_FUNCTION                   1
+                40      STORE_FAST                      4: infp
+                42      LOAD_FAST                       3: BytesIO
+                44      CALL_FUNCTION                   0
+                46      STORE_FAST                      5: outfp
+                48      LOAD_GLOBAL                     3: encode
+                50      LOAD_FAST                       4: infp
+                52      LOAD_FAST                       5: outfp
+                54      LOAD_FAST                       1: quotetabs
+                56      LOAD_FAST                       2: header
+                58      CALL_FUNCTION                   4
+                60      POP_TOP                         
+                62      LOAD_FAST                       5: outfp
+                64      LOAD_METHOD                     4: getvalue
+                66      CALL_METHOD                     0
+                68      RETURN_VALUE                    
+        'encodestring'
+        [Code]
+            File Name: quopri.py
+            Object Name: decode
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 11
+            Stack Size: 7
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'a2b_qp'
+                'read'
+                'write'
+                'readline'
+                'len'
+                'ESCAPE'
+                'ishex'
+                'bytes'
+                'unhex'
+            [Var Names]
+                'input'
+                'output'
+                'header'
+                'data'
+                'odata'
+                'new'
+                'line'
+                'i'
+                'n'
+                'partial'
+                'c'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Read 'input', apply quoted-printable decoding, and write to 'output'.\n    'input' and 'output' are binary file objects.\n    If 'header' is true, decode underscore as space (per RFC 1522)."
+                None
+                (
+                    'header'
+                )
+                b''
+                1
+                0
+                b'\n'
+                b' \t\r'
+                b'_'
+                b' '
+                2
+                3
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: a2b_qp
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           1 (is not)
+                6       POP_JUMP_IF_FALSE               21 (to 42)
+                8       LOAD_FAST                       0: input
+                10      LOAD_METHOD                     1: read
+                12      CALL_METHOD                     0
+                14      STORE_FAST                      3: data
+                16      LOAD_GLOBAL                     0: a2b_qp
+                18      LOAD_FAST                       3: data
+                20      LOAD_FAST                       2: header
+                22      LOAD_CONST                      2: ('header',)
+                24      CALL_FUNCTION_KW                2
+                26      STORE_FAST                      4: odata
+                28      LOAD_FAST                       1: output
+                30      LOAD_METHOD                     2: write
+                32      LOAD_FAST                       4: odata
+                34      CALL_METHOD                     1
+                36      POP_TOP                         
+                38      LOAD_CONST                      1: None
+                40      RETURN_VALUE                    
+                42      LOAD_CONST                      3: b''
+                44      STORE_FAST                      5: new
+                46      NOP                             
+                48      LOAD_FAST                       0: input
+                50      LOAD_METHOD                     3: readline
+                52      CALL_METHOD                     0
+                54      STORE_FAST                      6: line
+                56      LOAD_FAST                       6: line
+                58      POP_JUMP_IF_TRUE                31 (to 62)
+                60      JUMP_FORWARD                    216 (to 494)
+                62      LOAD_CONST                      5: 0
+                64      LOAD_GLOBAL                     4: len
+                66      LOAD_FAST                       6: line
+                68      CALL_FUNCTION                   1
+                70      ROT_TWO                         
+                72      STORE_FAST                      7: i
+                74      STORE_FAST                      8: n
+                76      LOAD_FAST                       8: n
+                78      LOAD_CONST                      5: 0
+                80      COMPARE_OP                      4 (>)
+                82      POP_JUMP_IF_FALSE               91 (to 182)
+                84      LOAD_FAST                       6: line
+                86      LOAD_FAST                       8: n
+                88      LOAD_CONST                      4: 1
+                90      BINARY_SUBTRACT                 
+                92      LOAD_FAST                       8: n
+                94      BUILD_SLICE                     2
+                96      BINARY_SUBSCR                   
+                98      LOAD_CONST                      6: b'\n'
+                100     COMPARE_OP                      2 (==)
+                102     POP_JUMP_IF_FALSE               91 (to 182)
+                104     LOAD_CONST                      5: 0
+                106     STORE_FAST                      9: partial
+                108     LOAD_FAST                       8: n
+                110     LOAD_CONST                      4: 1
+                112     BINARY_SUBTRACT                 
+                114     STORE_FAST                      8: n
+                116     LOAD_FAST                       8: n
+                118     LOAD_CONST                      5: 0
+                120     COMPARE_OP                      4 (>)
+                122     POP_JUMP_IF_FALSE               90 (to 180)
+                124     LOAD_FAST                       6: line
+                126     LOAD_FAST                       8: n
+                128     LOAD_CONST                      4: 1
+                130     BINARY_SUBTRACT                 
+                132     LOAD_FAST                       8: n
+                134     BUILD_SLICE                     2
+                136     BINARY_SUBSCR                   
+                138     LOAD_CONST                      7: b' \t\r'
+                140     CONTAINS_OP                     0 (in)
+                142     POP_JUMP_IF_FALSE               90 (to 180)
+                144     LOAD_FAST                       8: n
+                146     LOAD_CONST                      4: 1
+                148     BINARY_SUBTRACT                 
+                150     STORE_FAST                      8: n
+                152     LOAD_FAST                       8: n
+                154     LOAD_CONST                      5: 0
+                156     COMPARE_OP                      4 (>)
+                158     POP_JUMP_IF_FALSE               90 (to 180)
+                160     LOAD_FAST                       6: line
+                162     LOAD_FAST                       8: n
+                164     LOAD_CONST                      4: 1
+                166     BINARY_SUBTRACT                 
+                168     LOAD_FAST                       8: n
+                170     BUILD_SLICE                     2
+                172     BINARY_SUBSCR                   
+                174     LOAD_CONST                      7: b' \t\r'
+                176     CONTAINS_OP                     0 (in)
+                178     POP_JUMP_IF_TRUE                72 (to 144)
+                180     JUMP_FORWARD                    2 (to 186)
+                182     LOAD_CONST                      4: 1
+                184     STORE_FAST                      9: partial
+                186     LOAD_FAST                       7: i
+                188     LOAD_FAST                       8: n
+                190     COMPARE_OP                      0 (<)
+                192     POP_JUMP_IF_FALSE               235 (to 470)
+                194     LOAD_FAST                       6: line
+                196     LOAD_FAST                       7: i
+                198     LOAD_FAST                       7: i
+                200     LOAD_CONST                      4: 1
+                202     BINARY_ADD                      
+                204     BUILD_SLICE                     2
+                206     BINARY_SUBSCR                   
+                208     STORE_FAST                      10: c
+                210     LOAD_FAST                       10: c
+                212     LOAD_CONST                      8: b'_'
+                214     COMPARE_OP                      2 (==)
+                216     POP_JUMP_IF_FALSE               120 (to 240)
+                218     LOAD_FAST                       2: header
+                220     POP_JUMP_IF_FALSE               120 (to 240)
+                222     LOAD_FAST                       5: new
+                224     LOAD_CONST                      9: b' '
+                226     BINARY_ADD                      
+                228     STORE_FAST                      5: new
+                230     LOAD_FAST                       7: i
+                232     LOAD_CONST                      4: 1
+                234     BINARY_ADD                      
+                236     STORE_FAST                      7: i
+                238     JUMP_FORWARD                    111 (to 462)
+                240     LOAD_FAST                       10: c
+                242     LOAD_GLOBAL                     5: ESCAPE
+                244     COMPARE_OP                      3 (!=)
+                246     POP_JUMP_IF_FALSE               133 (to 266)
+                248     LOAD_FAST                       5: new
+                250     LOAD_FAST                       10: c
+                252     BINARY_ADD                      
+                254     STORE_FAST                      5: new
+                256     LOAD_FAST                       7: i
+                258     LOAD_CONST                      4: 1
+                260     BINARY_ADD                      
+                262     STORE_FAST                      7: i
+                264     JUMP_FORWARD                    98 (to 462)
+                266     LOAD_FAST                       7: i
+                268     LOAD_CONST                      4: 1
+                270     BINARY_ADD                      
+                272     LOAD_FAST                       8: n
+                274     COMPARE_OP                      2 (==)
+                276     POP_JUMP_IF_FALSE               144 (to 288)
+                278     LOAD_FAST                       9: partial
+                280     POP_JUMP_IF_TRUE                144 (to 288)
+                282     LOAD_CONST                      4: 1
+                284     STORE_FAST                      9: partial
+                286     JUMP_FORWARD                    91 (to 470)
+                288     LOAD_FAST                       7: i
+                290     LOAD_CONST                      4: 1
+                292     BINARY_ADD                      
+                294     LOAD_FAST                       8: n
+                296     COMPARE_OP                      0 (<)
+                298     POP_JUMP_IF_FALSE               171 (to 342)
+                300     LOAD_FAST                       6: line
+                302     LOAD_FAST                       7: i
+                304     LOAD_CONST                      4: 1
+                306     BINARY_ADD                      
+                308     LOAD_FAST                       7: i
+                310     LOAD_CONST                      10: 2
+                312     BINARY_ADD                      
+                314     BUILD_SLICE                     2
+                316     BINARY_SUBSCR                   
+                318     LOAD_GLOBAL                     5: ESCAPE
+                320     COMPARE_OP                      2 (==)
+                322     POP_JUMP_IF_FALSE               171 (to 342)
+                324     LOAD_FAST                       5: new
+                326     LOAD_GLOBAL                     5: ESCAPE
+                328     BINARY_ADD                      
+                330     STORE_FAST                      5: new
+                332     LOAD_FAST                       7: i
+                334     LOAD_CONST                      10: 2
+                336     BINARY_ADD                      
+                338     STORE_FAST                      7: i
+                340     JUMP_FORWARD                    60 (to 462)
+                342     LOAD_FAST                       7: i
+                344     LOAD_CONST                      10: 2
+                346     BINARY_ADD                      
+                348     LOAD_FAST                       8: n
+                350     COMPARE_OP                      0 (<)
+                352     POP_JUMP_IF_FALSE               223 (to 446)
+                354     LOAD_GLOBAL                     6: ishex
+                356     LOAD_FAST                       6: line
+                358     LOAD_FAST                       7: i
+                360     LOAD_CONST                      4: 1
+                362     BINARY_ADD                      
+                364     LOAD_FAST                       7: i
+                366     LOAD_CONST                      10: 2
+                368     BINARY_ADD                      
+                370     BUILD_SLICE                     2
+                372     BINARY_SUBSCR                   
+                374     CALL_FUNCTION                   1
+                376     POP_JUMP_IF_FALSE               223 (to 446)
+                378     LOAD_GLOBAL                     6: ishex
+                380     LOAD_FAST                       6: line
+                382     LOAD_FAST                       7: i
+                384     LOAD_CONST                      10: 2
+                386     BINARY_ADD                      
+                388     LOAD_FAST                       7: i
+                390     LOAD_CONST                      11: 3
+                392     BINARY_ADD                      
+                394     BUILD_SLICE                     2
+                396     BINARY_SUBSCR                   
+                398     CALL_FUNCTION                   1
+                400     POP_JUMP_IF_FALSE               223 (to 446)
+                402     LOAD_FAST                       5: new
+                404     LOAD_GLOBAL                     7: bytes
+                406     LOAD_GLOBAL                     8: unhex
+                408     LOAD_FAST                       6: line
+                410     LOAD_FAST                       7: i
+                412     LOAD_CONST                      4: 1
+                414     BINARY_ADD                      
+                416     LOAD_FAST                       7: i
+                418     LOAD_CONST                      11: 3
+                420     BINARY_ADD                      
+                422     BUILD_SLICE                     2
+                424     BINARY_SUBSCR                   
+                426     CALL_FUNCTION                   1
+                428     BUILD_TUPLE                     1
+                430     CALL_FUNCTION                   1
+                432     BINARY_ADD                      
+                434     STORE_FAST                      5: new
+                436     LOAD_FAST                       7: i
+                438     LOAD_CONST                      11: 3
+                440     BINARY_ADD                      
+                442     STORE_FAST                      7: i
+                444     JUMP_FORWARD                    8 (to 462)
+                446     LOAD_FAST                       5: new
+                448     LOAD_FAST                       10: c
+                450     BINARY_ADD                      
+                452     STORE_FAST                      5: new
+                454     LOAD_FAST                       7: i
+                456     LOAD_CONST                      4: 1
+                458     BINARY_ADD                      
+                460     STORE_FAST                      7: i
+                462     LOAD_FAST                       7: i
+                464     LOAD_FAST                       8: n
+                466     COMPARE_OP                      0 (<)
+                468     POP_JUMP_IF_TRUE                97 (to 194)
+                470     LOAD_FAST                       9: partial
+                472     POP_JUMP_IF_TRUE                246 (to 492)
+                474     LOAD_FAST                       1: output
+                476     LOAD_METHOD                     2: write
+                478     LOAD_FAST                       5: new
+                480     LOAD_CONST                      6: b'\n'
+                482     BINARY_ADD                      
+                484     CALL_METHOD                     1
+                486     POP_TOP                         
+                488     LOAD_CONST                      3: b''
+                490     STORE_FAST                      5: new
+                492     JUMP_ABSOLUTE                   24 (to 48)
+                494     LOAD_FAST                       5: new
+                496     POP_JUMP_IF_FALSE               257 (to 514)
+                500     LOAD_FAST                       1: output
+                502     LOAD_METHOD                     2: write
+                504     LOAD_FAST                       5: new
+                506     CALL_METHOD                     1
+                508     POP_TOP                         
+                510     LOAD_CONST                      1: None
+                512     RETURN_VALUE                    
+                514     LOAD_CONST                      1: None
+                516     RETURN_VALUE                    
+        'decode'
+        [Code]
+            File Name: quopri.py
+            Object Name: decodestring
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'a2b_qp'
+                'io'
+                'BytesIO'
+                'decode'
+                'getvalue'
+            [Var Names]
+                's'
+                'header'
+                'BytesIO'
+                'infp'
+                'outfp'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                (
+                    'header'
+                )
+                0
+                (
+                    'BytesIO'
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: a2b_qp
+                2       LOAD_CONST                      0: None
+                4       IS_OP                           1 (is not)
+                6       POP_JUMP_IF_FALSE               10 (to 20)
+                8       LOAD_GLOBAL                     0: a2b_qp
+                10      LOAD_FAST                       0: s
+                12      LOAD_FAST                       1: header
+                14      LOAD_CONST                      1: ('header',)
+                16      CALL_FUNCTION_KW                2
+                18      RETURN_VALUE                    
+                20      LOAD_CONST                      2: 0
+                22      LOAD_CONST                      3: ('BytesIO',)
+                24      IMPORT_NAME                     1: io
+                26      IMPORT_FROM                     2: BytesIO
+                28      STORE_FAST                      2: BytesIO
+                30      POP_TOP                         
+                32      LOAD_FAST                       2: BytesIO
+                34      LOAD_FAST                       0: s
+                36      CALL_FUNCTION                   1
+                38      STORE_FAST                      3: infp
+                40      LOAD_FAST                       2: BytesIO
+                42      CALL_FUNCTION                   0
+                44      STORE_FAST                      4: outfp
+                46      LOAD_GLOBAL                     3: decode
+                48      LOAD_FAST                       3: infp
+                50      LOAD_FAST                       4: outfp
+                52      LOAD_FAST                       1: header
+                54      LOAD_CONST                      1: ('header',)
+                56      CALL_FUNCTION_KW                3
+                58      POP_TOP                         
+                60      LOAD_FAST                       4: outfp
+                62      LOAD_METHOD                     4: getvalue
+                64      CALL_METHOD                     0
+                66      RETURN_VALUE                    
+        'decodestring'
+        [Code]
+            File Name: quopri.py
+            Object Name: ishex
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'bytes'
+            [Var Names]
+                'c'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Return true if the byte ordinal 'c' is a hexadecimal digit in ASCII."
+                b'0'
+                b'9'
+                b'a'
+                b'f'
+                b'A'
+                b'F'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: isinstance
+                2       LOAD_FAST                       0: c
+                4       LOAD_GLOBAL                     1: bytes
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_TRUE                7 (to 14)
+                10      LOAD_ASSERTION_ERROR            
+                12      RAISE_VARARGS                   1
+                14      LOAD_CONST                      1: b'0'
+                16      LOAD_FAST                       0: c
+                18      DUP_TOP                         
+                20      ROT_THREE                       
+                22      COMPARE_OP                      1 (<=)
+                24      JUMP_IF_FALSE_OR_POP            16 (to 32)
+                26      LOAD_CONST                      2: b'9'
+                28      COMPARE_OP                      1 (<=)
+                30      JUMP_FORWARD                    2 (to 36)
+                32      ROT_TWO                         
+                34      POP_TOP                         
+                36      JUMP_IF_TRUE_OR_POP             42 (to 84)
+                38      LOAD_CONST                      3: b'a'
+                40      LOAD_FAST                       0: c
+                42      DUP_TOP                         
+                44      ROT_THREE                       
+                46      COMPARE_OP                      1 (<=)
+                48      JUMP_IF_FALSE_OR_POP            28 (to 56)
+                50      LOAD_CONST                      4: b'f'
+                52      COMPARE_OP                      1 (<=)
+                54      JUMP_FORWARD                    2 (to 60)
+                56      ROT_TWO                         
+                58      POP_TOP                         
+                60      JUMP_IF_TRUE_OR_POP             42 (to 84)
+                62      LOAD_CONST                      5: b'A'
+                64      LOAD_FAST                       0: c
+                66      DUP_TOP                         
+                68      ROT_THREE                       
+                70      COMPARE_OP                      1 (<=)
+                72      JUMP_IF_FALSE_OR_POP            40 (to 80)
+                74      LOAD_CONST                      6: b'F'
+                76      COMPARE_OP                      1 (<=)
+                78      RETURN_VALUE                    
+                80      ROT_TWO                         
+                82      POP_TOP                         
+                84      RETURN_VALUE                    
+        'ishex'
+        [Code]
+            File Name: quopri.py
+            Object Name: unhex
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'bytes'
+                'ord'
+                'repr'
+            [Var Names]
+                's'
+                'bits'
+                'c'
+                'i'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Get the integer value of a hexadecimal number.'
+                0
+                b'0'
+                b'9'
+                '0'
+                b'a'
+                b'f'
+                'a'
+                10
+                b'A'
+                b'F'
+                False
+                'non-hex digit '
+                16
+            [Disassembly]
+                0       LOAD_CONST                      1: 0
+                2       STORE_FAST                      1: bits
+                4       LOAD_FAST                       0: s
+                6       GET_ITER                        
+                8       FOR_ITER                        80 (to 170)
+                10      STORE_FAST                      2: c
+                12      LOAD_GLOBAL                     0: bytes
+                14      LOAD_FAST                       2: c
+                16      BUILD_TUPLE                     1
+                18      CALL_FUNCTION                   1
+                20      STORE_FAST                      2: c
+                22      LOAD_CONST                      2: b'0'
+                24      LOAD_FAST                       2: c
+                26      DUP_TOP                         
+                28      ROT_THREE                       
+                30      COMPARE_OP                      1 (<=)
+                32      POP_JUMP_IF_FALSE               21 (to 42)
+                34      LOAD_CONST                      3: b'9'
+                36      COMPARE_OP                      1 (<=)
+                38      POP_JUMP_IF_FALSE               28 (to 56)
+                40      JUMP_FORWARD                    2 (to 46)
+                42      POP_TOP                         
+                44      JUMP_FORWARD                    5 (to 56)
+                46      LOAD_GLOBAL                     1: ord
+                48      LOAD_CONST                      4: '0'
+                50      CALL_FUNCTION                   1
+                52      STORE_FAST                      3: i
+                54      JUMP_FORWARD                    46 (to 148)
+                56      LOAD_CONST                      5: b'a'
+                58      LOAD_FAST                       2: c
+                60      DUP_TOP                         
+                62      ROT_THREE                       
+                64      COMPARE_OP                      1 (<=)
+                66      POP_JUMP_IF_FALSE               38 (to 76)
+                68      LOAD_CONST                      6: b'f'
+                70      COMPARE_OP                      1 (<=)
+                72      POP_JUMP_IF_FALSE               47 (to 94)
+                74      JUMP_FORWARD                    2 (to 80)
+                76      POP_TOP                         
+                78      JUMP_FORWARD                    7 (to 94)
+                80      LOAD_GLOBAL                     1: ord
+                82      LOAD_CONST                      7: 'a'
+                84      CALL_FUNCTION                   1
+                86      LOAD_CONST                      8: 10
+                88      BINARY_SUBTRACT                 
+                90      STORE_FAST                      3: i
+                92      JUMP_FORWARD                    27 (to 148)
+                94      LOAD_CONST                      9: b'A'
+                96      LOAD_FAST                       2: c
+                98      DUP_TOP                         
+                100     ROT_THREE                       
+                102     COMPARE_OP                      1 (<=)
+                104     POP_JUMP_IF_FALSE               57 (to 114)
+                106     LOAD_CONST                      10: b'F'
+                108     COMPARE_OP                      1 (<=)
+                110     POP_JUMP_IF_FALSE               66 (to 132)
+                112     JUMP_FORWARD                    2 (to 118)
+                114     POP_TOP                         
+                116     JUMP_FORWARD                    7 (to 132)
+                118     LOAD_GLOBAL                     1: ord
+                120     LOAD_CONST                      9: b'A'
+                122     CALL_FUNCTION                   1
+                124     LOAD_CONST                      8: 10
+                126     BINARY_SUBTRACT                 
+                128     STORE_FAST                      3: i
+                130     JUMP_FORWARD                    8 (to 148)
+                132     LOAD_ASSERTION_ERROR            
+                134     LOAD_CONST                      12: 'non-hex digit '
+                136     LOAD_GLOBAL                     2: repr
+                138     LOAD_FAST                       2: c
+                140     CALL_FUNCTION                   1
+                142     BINARY_ADD                      
+                144     CALL_FUNCTION                   1
+                146     RAISE_VARARGS                   1
+                148     LOAD_FAST                       1: bits
+                150     LOAD_CONST                      13: 16
+                152     BINARY_MULTIPLY                 
+                154     LOAD_GLOBAL                     1: ord
+                156     LOAD_FAST                       2: c
+                158     CALL_FUNCTION                   1
+                160     LOAD_FAST                       3: i
+                162     BINARY_SUBTRACT                 
+                164     BINARY_ADD                      
+                166     STORE_FAST                      1: bits
+                168     JUMP_ABSOLUTE                   4 (to 8)
+                170     LOAD_FAST                       1: bits
+                172     RETURN_VALUE                    
+        'unhex'
+        [Code]
+            File Name: quopri.py
+            Object Name: main
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 12
+            Stack Size: 11
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'sys'
+                'getopt'
+                'argv'
+                'error'
+                'stderr'
+                'stdout'
+                'print'
+                'exit'
+                'stdin'
+                'buffer'
+                'open'
+                'OSError'
+                'write'
+                'decode'
+                'encode'
+                'close'
+            [Var Names]
+                'sys'
+                'getopt'
+                'opts'
+                'args'
+                'msg'
+                'deco'
+                'tabs'
+                'o'
+                'a'
+                'sts'
+                'file'
+                'fp'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                0
+                1
+                'td'
+                'usage: quopri [-t | -d] [file] ...'
+                '-t: quote tabs'
+                '-d: decode; default encode'
+                2
+                False
+                '-t'
+                True
+                '-d'
+                '-t and -d are mutually exclusive'
+                '-'
+                'rb'
+                "%s: can't open (%s)\n"
+            [Disassembly]
+                0       LOAD_CONST                      1: 0
+                2       LOAD_CONST                      0: None
+                4       IMPORT_NAME                     0: sys
+                6       STORE_FAST                      0: sys
+                8       LOAD_CONST                      1: 0
+                10      LOAD_CONST                      0: None
+                12      IMPORT_NAME                     1: getopt
+                14      STORE_FAST                      1: getopt
+                16      SETUP_FINALLY                   15 (to 48)
+                18      LOAD_FAST                       1: getopt
+                20      LOAD_METHOD                     1: getopt
+                22      LOAD_FAST                       0: sys
+                24      LOAD_ATTR                       2: argv
+                26      LOAD_CONST                      2: 1
+                28      LOAD_CONST                      0: None
+                30      BUILD_SLICE                     2
+                32      BINARY_SUBSCR                   
+                34      LOAD_CONST                      3: 'td'
+                36      CALL_METHOD                     2
+                38      UNPACK_SEQUENCE                 2
+                40      STORE_FAST                      2: opts
+                42      STORE_FAST                      3: args
+                44      POP_BLOCK                       
+                46      JUMP_FORWARD                    44 (to 136)
+                48      DUP_TOP                         
+                50      LOAD_FAST                       1: getopt
+                52      LOAD_ATTR                       3: error
+                54      JUMP_IF_NOT_EXC_MATCH           67 (to 134)
+                56      POP_TOP                         
+                58      STORE_FAST                      4: msg
+                60      POP_TOP                         
+                62      SETUP_FINALLY                   31 (to 126)
+                64      LOAD_FAST                       0: sys
+                66      LOAD_ATTR                       4: stderr
+                68      LOAD_FAST                       0: sys
+                70      STORE_ATTR                      5: stdout
+                72      LOAD_GLOBAL                     6: print
+                74      LOAD_FAST                       4: msg
+                76      CALL_FUNCTION                   1
+                78      POP_TOP                         
+                80      LOAD_GLOBAL                     6: print
+                82      LOAD_CONST                      4: 'usage: quopri [-t | -d] [file] ...'
+                84      CALL_FUNCTION                   1
+                86      POP_TOP                         
+                88      LOAD_GLOBAL                     6: print
+                90      LOAD_CONST                      5: '-t: quote tabs'
+                92      CALL_FUNCTION                   1
+                94      POP_TOP                         
+                96      LOAD_GLOBAL                     6: print
+                98      LOAD_CONST                      6: '-d: decode; default encode'
+                100     CALL_FUNCTION                   1
+                102     POP_TOP                         
+                104     LOAD_FAST                       0: sys
+                106     LOAD_METHOD                     7: exit
+                108     LOAD_CONST                      7: 2
+                110     CALL_METHOD                     1
+                112     POP_TOP                         
+                114     POP_BLOCK                       
+                116     POP_EXCEPT                      
+                118     LOAD_CONST                      0: None
+                120     STORE_FAST                      4: msg
+                122     DELETE_FAST                     4: msg
+                124     JUMP_FORWARD                    5 (to 136)
+                126     LOAD_CONST                      0: None
+                128     STORE_FAST                      4: msg
+                130     DELETE_FAST                     4: msg
+                132     RERAISE                         1
+                134     RERAISE                         0
+                136     LOAD_CONST                      8: False
+                138     STORE_FAST                      5: deco
+                140     LOAD_CONST                      8: False
+                142     STORE_FAST                      6: tabs
+                144     LOAD_FAST                       2: opts
+                146     GET_ITER                        
+                148     FOR_ITER                        16 (to 182)
+                150     UNPACK_SEQUENCE                 2
+                152     STORE_FAST                      7: o
+                154     STORE_FAST                      8: a
+                156     LOAD_FAST                       7: o
+                158     LOAD_CONST                      9: '-t'
+                160     COMPARE_OP                      2 (==)
+                162     POP_JUMP_IF_FALSE               84 (to 168)
+                164     LOAD_CONST                      10: True
+                166     STORE_FAST                      6: tabs
+                168     LOAD_FAST                       7: o
+                170     LOAD_CONST                      11: '-d'
+                172     COMPARE_OP                      2 (==)
+                174     POP_JUMP_IF_FALSE               90 (to 180)
+                176     LOAD_CONST                      10: True
+                178     STORE_FAST                      5: deco
+                180     JUMP_ABSOLUTE                   74 (to 148)
+                182     LOAD_FAST                       6: tabs
+                184     POP_JUMP_IF_FALSE               108 (to 216)
+                186     LOAD_FAST                       5: deco
+                188     POP_JUMP_IF_FALSE               108 (to 216)
+                190     LOAD_FAST                       0: sys
+                192     LOAD_ATTR                       4: stderr
+                194     LOAD_FAST                       0: sys
+                196     STORE_ATTR                      5: stdout
+                198     LOAD_GLOBAL                     6: print
+                200     LOAD_CONST                      12: '-t and -d are mutually exclusive'
+                202     CALL_FUNCTION                   1
+                204     POP_TOP                         
+                206     LOAD_FAST                       0: sys
+                208     LOAD_METHOD                     7: exit
+                210     LOAD_CONST                      7: 2
+                212     CALL_METHOD                     1
+                214     POP_TOP                         
+                216     LOAD_FAST                       3: args
+                218     POP_JUMP_IF_TRUE                113 (to 226)
+                220     LOAD_CONST                      13: '-'
+                222     BUILD_LIST                      1
+                224     STORE_FAST                      3: args
+                226     LOAD_CONST                      1: 0
+                228     STORE_FAST                      9: sts
+                230     LOAD_FAST                       3: args
+                232     GET_ITER                        
+                234     FOR_ITER                        87 (to 410)
+                236     STORE_FAST                      10: file
+                238     LOAD_FAST                       10: file
+                240     LOAD_CONST                      13: '-'
+                242     COMPARE_OP                      2 (==)
+                244     POP_JUMP_IF_FALSE               128 (to 256)
+                246     LOAD_FAST                       0: sys
+                248     LOAD_ATTR                       8: stdin
+                250     LOAD_ATTR                       9: buffer
+                252     STORE_FAST                      11: fp
+                254     JUMP_FORWARD                    38 (to 332)
+                256     SETUP_FINALLY                   7 (to 272)
+                258     LOAD_GLOBAL                     10: open
+                260     LOAD_FAST                       10: file
+                262     LOAD_CONST                      14: 'rb'
+                264     CALL_FUNCTION                   2
+                266     STORE_FAST                      11: fp
+                268     POP_BLOCK                       
+                270     JUMP_FORWARD                    30 (to 332)
+                272     DUP_TOP                         
+                274     LOAD_GLOBAL                     11: OSError
+                276     JUMP_IF_NOT_EXC_MATCH           165 (to 330)
+                278     POP_TOP                         
+                280     STORE_FAST                      4: msg
+                282     POP_TOP                         
+                284     SETUP_FINALLY                   18 (to 322)
+                286     LOAD_FAST                       0: sys
+                288     LOAD_ATTR                       4: stderr
+                290     LOAD_METHOD                     12: write
+                292     LOAD_CONST                      15: "%s: can't open (%s)\n"
+                294     LOAD_FAST                       10: file
+                296     LOAD_FAST                       4: msg
+                298     BUILD_TUPLE                     2
+                300     BINARY_MODULO                   
+                302     CALL_METHOD                     1
+                304     POP_TOP                         
+                306     LOAD_CONST                      2: 1
+                308     STORE_FAST                      9: sts
+                310     POP_BLOCK                       
+                312     POP_EXCEPT                      
+                314     LOAD_CONST                      0: None
+                316     STORE_FAST                      4: msg
+                318     DELETE_FAST                     4: msg
+                320     JUMP_ABSOLUTE                   117 (to 234)
+                322     LOAD_CONST                      0: None
+                324     STORE_FAST                      4: msg
+                326     DELETE_FAST                     4: msg
+                328     RERAISE                         1
+                330     RERAISE                         0
+                332     SETUP_FINALLY                   28 (to 390)
+                334     LOAD_FAST                       5: deco
+                336     POP_JUMP_IF_FALSE               177 (to 354)
+                338     LOAD_GLOBAL                     13: decode
+                340     LOAD_FAST                       11: fp
+                342     LOAD_FAST                       0: sys
+                344     LOAD_ATTR                       5: stdout
+                346     LOAD_ATTR                       9: buffer
+                348     CALL_FUNCTION                   2
+                350     POP_TOP                         
+                352     JUMP_FORWARD                    8 (to 370)
+                354     LOAD_GLOBAL                     14: encode
+                356     LOAD_FAST                       11: fp
+                358     LOAD_FAST                       0: sys
+                360     LOAD_ATTR                       5: stdout
+                362     LOAD_ATTR                       9: buffer
+                364     LOAD_FAST                       6: tabs
+                366     CALL_FUNCTION                   3
+                368     POP_TOP                         
+                370     POP_BLOCK                       
+                372     LOAD_FAST                       10: file
+                374     LOAD_CONST                      13: '-'
+                376     COMPARE_OP                      3 (!=)
+                378     POP_JUMP_IF_FALSE               194 (to 388)
+                380     LOAD_FAST                       11: fp
+                382     LOAD_METHOD                     15: close
+                384     CALL_METHOD                     0
+                386     POP_TOP                         
+                388     JUMP_ABSOLUTE                   117 (to 234)
+                390     LOAD_FAST                       10: file
+                392     LOAD_CONST                      13: '-'
+                394     COMPARE_OP                      3 (!=)
+                396     POP_JUMP_IF_FALSE               204 (to 408)
+                398     LOAD_FAST                       11: fp
+                400     LOAD_METHOD                     15: close
+                402     CALL_METHOD                     0
+                404     POP_TOP                         
+                406     RERAISE                         0
+                408     RERAISE                         0
+                410     LOAD_FAST                       9: sts
+                412     POP_JUMP_IF_FALSE               214 (to 428)
+                414     LOAD_FAST                       0: sys
+                416     LOAD_METHOD                     7: exit
+                418     LOAD_FAST                       9: sts
+                420     CALL_METHOD                     1
+                422     POP_TOP                         
+                424     LOAD_CONST                      0: None
+                426     RETURN_VALUE                    
+                428     LOAD_CONST                      0: None
+                430     RETURN_VALUE                    
+        'main'
+        '__main__'
+        (
+            False
+        )
+        (
+            False
+            False
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Conversions to/from quoted-printable transport encoding as per RFC 1521.'
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('encode', 'decode', 'encodestring', 'decodestring')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: b'='
+        14      STORE_NAME                      2: ESCAPE
+        16      LOAD_CONST                      3: 76
+        18      STORE_NAME                      3: MAXLINESIZE
+        20      LOAD_CONST                      4: b'0123456789ABCDEF'
+        22      STORE_NAME                      4: HEX
+        24      LOAD_CONST                      5: b''
+        26      STORE_NAME                      5: EMPTYSTRING
+        28      SETUP_FINALLY                   10 (to 50)
+        30      LOAD_CONST                      6: 0
+        32      LOAD_CONST                      7: ('a2b_qp', 'b2a_qp')
+        34      IMPORT_NAME                     6: binascii
+        36      IMPORT_FROM                     7: a2b_qp
+        38      STORE_NAME                      7: a2b_qp
+        40      IMPORT_FROM                     8: b2a_qp
+        42      STORE_NAME                      8: b2a_qp
+        44      POP_TOP                         
+        46      POP_BLOCK                       
+        48      JUMP_FORWARD                    13 (to 76)
+        50      DUP_TOP                         
+        52      LOAD_NAME                       9: ImportError
+        54      JUMP_IF_NOT_EXC_MATCH           37 (to 74)
+        56      POP_TOP                         
+        58      POP_TOP                         
+        60      POP_TOP                         
+        62      LOAD_CONST                      8: None
+        64      STORE_NAME                      7: a2b_qp
+        66      LOAD_CONST                      8: None
+        68      STORE_NAME                      8: b2a_qp
+        70      POP_EXCEPT                      
+        72      JUMP_FORWARD                    1 (to 76)
+        74      RERAISE                         0
+        76      LOAD_CONST                      9: <CODE> needsquoting
+        78      LOAD_CONST                      10: 'needsquoting'
+        80      MAKE_FUNCTION                   0
+        82      STORE_NAME                      10: needsquoting
+        84      LOAD_CONST                      11: <CODE> quote
+        86      LOAD_CONST                      12: 'quote'
+        88      MAKE_FUNCTION                   0
+        90      STORE_NAME                      11: quote
+        92      LOAD_CONST                      29: (False,)
+        94      LOAD_CONST                      14: <CODE> encode
+        96      LOAD_CONST                      15: 'encode'
+        98      MAKE_FUNCTION                   1
+        100     STORE_NAME                      12: encode
+        102     LOAD_CONST                      30: (False, False)
+        104     LOAD_CONST                      16: <CODE> encodestring
+        106     LOAD_CONST                      17: 'encodestring'
+        108     MAKE_FUNCTION                   1
+        110     STORE_NAME                      13: encodestring
+        112     LOAD_CONST                      29: (False,)
+        114     LOAD_CONST                      18: <CODE> decode
+        116     LOAD_CONST                      19: 'decode'
+        118     MAKE_FUNCTION                   1
+        120     STORE_NAME                      14: decode
+        122     LOAD_CONST                      29: (False,)
+        124     LOAD_CONST                      20: <CODE> decodestring
+        126     LOAD_CONST                      21: 'decodestring'
+        128     MAKE_FUNCTION                   1
+        130     STORE_NAME                      15: decodestring
+        132     LOAD_CONST                      22: <CODE> ishex
+        134     LOAD_CONST                      23: 'ishex'
+        136     MAKE_FUNCTION                   0
+        138     STORE_NAME                      16: ishex
+        140     LOAD_CONST                      24: <CODE> unhex
+        142     LOAD_CONST                      25: 'unhex'
+        144     MAKE_FUNCTION                   0
+        146     STORE_NAME                      17: unhex
+        148     LOAD_CONST                      26: <CODE> main
+        150     LOAD_CONST                      27: 'main'
+        152     MAKE_FUNCTION                   0
+        154     STORE_NAME                      18: main
+        156     LOAD_NAME                       19: __name__
+        158     LOAD_CONST                      28: '__main__'
+        160     COMPARE_OP                      2 (==)
+        162     POP_JUMP_IF_FALSE               87 (to 174)
+        164     LOAD_NAME                       18: main
+        166     CALL_FUNCTION                   0
+        168     POP_TOP                         
+        170     LOAD_CONST                      8: None
+        172     RETURN_VALUE                    
+        174     LOAD_CONST                      8: None
+        176     RETURN_VALUE                    

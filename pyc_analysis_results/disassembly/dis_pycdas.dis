@@ -1,0 +1,3079 @@
+dis.pyc (Python 3.10)
+[Code]
+    File Name: dis.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 11
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'sys'
+        'types'
+        'collections'
+        'io'
+        'opcode'
+        '__all__'
+        '_opcodes_all'
+        'MethodType'
+        'FunctionType'
+        'CodeType'
+        'classmethod'
+        'staticmethod'
+        'type'
+        '_have_code'
+        'opmap'
+        'FORMAT_VALUE'
+        'str'
+        'repr'
+        'ascii'
+        'FORMAT_VALUE_CONVERTERS'
+        'MAKE_FUNCTION'
+        'MAKE_FUNCTION_FLAGS'
+        '_try_compile'
+        'dis'
+        'distb'
+        'COMPILER_FLAG_NAMES'
+        'pretty_flags'
+        '_get_code_object'
+        'code_info'
+        '_format_code_info'
+        'show_code'
+        'namedtuple'
+        '_Instruction'
+        'opname'
+        'arg'
+        'argval'
+        'argrepr'
+        'offset'
+        'starts_line'
+        'is_jump_target'
+        '_OPNAME_WIDTH'
+        '_OPARG_WIDTH'
+        'Instruction'
+        'get_instructions'
+        '_get_const_info'
+        '_get_name_info'
+        '_get_instructions_bytes'
+        'disassemble'
+        '_disassemble_recursive'
+        '_disassemble_bytes'
+        '_disassemble_str'
+        'disco'
+        '_unpack_opargs'
+        'findlabels'
+        'findlinestarts'
+        'Bytecode'
+        '_test'
+        '__name__'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Disassembler of Python byte code into mnemonics.'
+        0
+        None
+        (
+            '*'
+        )
+        (
+            '__all__'
+        )
+        (
+            'code_info'
+            'dis'
+            'disassemble'
+            'distb'
+            'disco'
+            'findlinestarts'
+            'findlabels'
+            'show_code'
+            'get_instructions'
+            'Instruction'
+            'Bytecode'
+        )
+        'FORMAT_VALUE'
+        (
+            None
+            ''
+        )
+        'str'
+        'repr'
+        'ascii'
+        'MAKE_FUNCTION'
+        (
+            'defaults'
+            'kwdefaults'
+            'annotations'
+            'closure'
+        )
+        [Code]
+            File Name: dis.py
+            Object Name: _try_compile
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'compile'
+                'SyntaxError'
+            [Var Names]
+                'source'
+                'name'
+                'c'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Attempts to compile the given source, first as an expression and\n       then as a statement if the first approach fails.\n\n       Utility function to accept strings in functions that otherwise\n       expect code objects\n    '
+                'eval'
+                'exec'
+            [Disassembly]
+                0       SETUP_FINALLY                   9 (to 20)
+                2       LOAD_GLOBAL                     0: compile
+                4       LOAD_FAST                       0: source
+                6       LOAD_FAST                       1: name
+                8       LOAD_CONST                      1: 'eval'
+                10      CALL_FUNCTION                   3
+                12      STORE_FAST                      2: c
+                14      POP_BLOCK                       
+                16      LOAD_FAST                       2: c
+                18      RETURN_VALUE                    
+                20      DUP_TOP                         
+                22      LOAD_GLOBAL                     1: SyntaxError
+                24      JUMP_IF_NOT_EXC_MATCH           25 (to 50)
+                26      POP_TOP                         
+                28      POP_TOP                         
+                30      POP_TOP                         
+                32      LOAD_GLOBAL                     0: compile
+                34      LOAD_FAST                       0: source
+                36      LOAD_FAST                       1: name
+                38      LOAD_CONST                      2: 'exec'
+                40      CALL_FUNCTION                   3
+                42      STORE_FAST                      2: c
+                44      POP_EXCEPT                      
+                46      LOAD_FAST                       2: c
+                48      RETURN_VALUE                    
+                50      RERAISE                         0
+        '_try_compile'
+        (
+            'file'
+            'depth'
+        )
+        [Code]
+            File Name: dis.py
+            Object Name: dis
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 2
+            Locals: 7
+            Stack Size: 11
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'distb'
+                'hasattr'
+                '__func__'
+                '__code__'
+                'gi_code'
+                'ag_code'
+                'cr_code'
+                'sorted'
+                '__dict__'
+                'items'
+                'isinstance'
+                '_have_code'
+                'print'
+                'dis'
+                'TypeError'
+                '_disassemble_recursive'
+                'bytes'
+                'bytearray'
+                '_disassemble_bytes'
+                'str'
+                '_disassemble_str'
+                'type'
+                '__name__'
+            [Var Names]
+                'x'
+                'file'
+                'depth'
+                'items'
+                'name'
+                'x1'
+                'msg'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Disassemble classes, methods, functions, and other compiled objects.\n\n    With no argument, disassemble the last traceback.\n\n    Compiled objects currently include generator objects, async generator\n    objects, and coroutine objects, all of which store their code object\n    in a special attribute.\n    '
+                None
+                (
+                    'file'
+                )
+                '__func__'
+                '__code__'
+                'gi_code'
+                'ag_code'
+                'cr_code'
+                '__dict__'
+                'Disassembly of %s:'
+                (
+                    'file'
+                    'depth'
+                )
+                'Sorry:'
+                'co_code'
+                "don't know how to disassemble %s objects"
+            [Disassembly]
+                0       LOAD_FAST                       0: x
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               11 (to 22)
+                8       LOAD_GLOBAL                     0: distb
+                10      LOAD_FAST                       1: file
+                12      LOAD_CONST                      2: ('file',)
+                14      CALL_FUNCTION_KW                1
+                16      POP_TOP                         
+                18      LOAD_CONST                      1: None
+                20      RETURN_VALUE                    
+                22      LOAD_GLOBAL                     1: hasattr
+                24      LOAD_FAST                       0: x
+                26      LOAD_CONST                      3: '__func__'
+                28      CALL_FUNCTION                   2
+                30      POP_JUMP_IF_FALSE               19 (to 38)
+                32      LOAD_FAST                       0: x
+                34      LOAD_ATTR                       2: __func__
+                36      STORE_FAST                      0: x
+                38      LOAD_GLOBAL                     1: hasattr
+                40      LOAD_FAST                       0: x
+                42      LOAD_CONST                      4: '__code__'
+                44      CALL_FUNCTION                   2
+                46      POP_JUMP_IF_FALSE               28 (to 56)
+                48      LOAD_FAST                       0: x
+                50      LOAD_ATTR                       3: __code__
+                52      STORE_FAST                      0: x
+                54      JUMP_FORWARD                    26 (to 108)
+                56      LOAD_GLOBAL                     1: hasattr
+                58      LOAD_FAST                       0: x
+                60      LOAD_CONST                      5: 'gi_code'
+                62      CALL_FUNCTION                   2
+                64      POP_JUMP_IF_FALSE               37 (to 74)
+                66      LOAD_FAST                       0: x
+                68      LOAD_ATTR                       4: gi_code
+                70      STORE_FAST                      0: x
+                72      JUMP_FORWARD                    17 (to 108)
+                74      LOAD_GLOBAL                     1: hasattr
+                76      LOAD_FAST                       0: x
+                78      LOAD_CONST                      6: 'ag_code'
+                80      CALL_FUNCTION                   2
+                82      POP_JUMP_IF_FALSE               46 (to 92)
+                84      LOAD_FAST                       0: x
+                86      LOAD_ATTR                       5: ag_code
+                88      STORE_FAST                      0: x
+                90      JUMP_FORWARD                    8 (to 108)
+                92      LOAD_GLOBAL                     1: hasattr
+                94      LOAD_FAST                       0: x
+                96      LOAD_CONST                      7: 'cr_code'
+                98      CALL_FUNCTION                   2
+                100     POP_JUMP_IF_FALSE               54 (to 108)
+                102     LOAD_FAST                       0: x
+                104     LOAD_ATTR                       6: cr_code
+                106     STORE_FAST                      0: x
+                108     LOAD_GLOBAL                     1: hasattr
+                110     LOAD_FAST                       0: x
+                112     LOAD_CONST                      8: '__dict__'
+                114     CALL_FUNCTION                   2
+                116     POP_JUMP_IF_FALSE               128 (to 256)
+                118     LOAD_GLOBAL                     7: sorted
+                120     LOAD_FAST                       0: x
+                122     LOAD_ATTR                       8: __dict__
+                124     LOAD_METHOD                     9: items
+                126     CALL_METHOD                     0
+                128     CALL_FUNCTION                   1
+                130     STORE_FAST                      3: items
+                132     LOAD_FAST                       3: items
+                134     GET_ITER                        
+                136     FOR_ITER                        57 (to 252)
+                138     UNPACK_SEQUENCE                 2
+                140     STORE_FAST                      4: name
+                142     STORE_FAST                      5: x1
+                144     LOAD_GLOBAL                     10: isinstance
+                146     LOAD_FAST                       5: x1
+                148     LOAD_GLOBAL                     11: _have_code
+                150     CALL_FUNCTION                   2
+                152     POP_JUMP_IF_FALSE               125 (to 250)
+                154     LOAD_GLOBAL                     12: print
+                156     LOAD_CONST                      9: 'Disassembly of %s:'
+                158     LOAD_FAST                       4: name
+                160     BINARY_MODULO                   
+                162     LOAD_FAST                       1: file
+                164     LOAD_CONST                      2: ('file',)
+                166     CALL_FUNCTION_KW                2
+                168     POP_TOP                         
+                170     SETUP_FINALLY                   9 (to 190)
+                172     LOAD_GLOBAL                     13: dis
+                174     LOAD_FAST                       5: x1
+                176     LOAD_FAST                       1: file
+                178     LOAD_FAST                       2: depth
+                180     LOAD_CONST                      10: ('file', 'depth')
+                182     CALL_FUNCTION_KW                3
+                184     POP_TOP                         
+                186     POP_BLOCK                       
+                188     JUMP_FORWARD                    25 (to 240)
+                190     DUP_TOP                         
+                192     LOAD_GLOBAL                     14: TypeError
+                194     JUMP_IF_NOT_EXC_MATCH           119 (to 238)
+                196     POP_TOP                         
+                198     STORE_FAST                      6: msg
+                200     POP_TOP                         
+                202     SETUP_FINALLY                   13 (to 230)
+                204     LOAD_GLOBAL                     12: print
+                206     LOAD_CONST                      11: 'Sorry:'
+                208     LOAD_FAST                       6: msg
+                210     LOAD_FAST                       1: file
+                212     LOAD_CONST                      2: ('file',)
+                214     CALL_FUNCTION_KW                3
+                216     POP_TOP                         
+                218     POP_BLOCK                       
+                220     POP_EXCEPT                      
+                222     LOAD_CONST                      1: None
+                224     STORE_FAST                      6: msg
+                226     DELETE_FAST                     6: msg
+                228     JUMP_FORWARD                    5 (to 240)
+                230     LOAD_CONST                      1: None
+                232     STORE_FAST                      6: msg
+                234     DELETE_FAST                     6: msg
+                236     RERAISE                         1
+                238     RERAISE                         0
+                240     LOAD_GLOBAL                     12: print
+                242     LOAD_FAST                       1: file
+                244     LOAD_CONST                      2: ('file',)
+                246     CALL_FUNCTION_KW                1
+                248     POP_TOP                         
+                250     JUMP_ABSOLUTE                   68 (to 136)
+                252     LOAD_CONST                      1: None
+                254     RETURN_VALUE                    
+                256     LOAD_GLOBAL                     1: hasattr
+                258     LOAD_FAST                       0: x
+                260     LOAD_CONST                      12: 'co_code'
+                262     CALL_FUNCTION                   2
+                264     POP_JUMP_IF_FALSE               142 (to 284)
+                266     LOAD_GLOBAL                     15: _disassemble_recursive
+                268     LOAD_FAST                       0: x
+                270     LOAD_FAST                       1: file
+                272     LOAD_FAST                       2: depth
+                274     LOAD_CONST                      10: ('file', 'depth')
+                276     CALL_FUNCTION_KW                3
+                278     POP_TOP                         
+                280     LOAD_CONST                      1: None
+                282     RETURN_VALUE                    
+                284     LOAD_GLOBAL                     10: isinstance
+                286     LOAD_FAST                       0: x
+                288     LOAD_GLOBAL                     16: bytes
+                290     LOAD_GLOBAL                     17: bytearray
+                292     BUILD_TUPLE                     2
+                294     CALL_FUNCTION                   2
+                296     POP_JUMP_IF_FALSE               157 (to 314)
+                298     LOAD_GLOBAL                     18: _disassemble_bytes
+                300     LOAD_FAST                       0: x
+                302     LOAD_FAST                       1: file
+                304     LOAD_CONST                      2: ('file',)
+                306     CALL_FUNCTION_KW                2
+                308     POP_TOP                         
+                310     LOAD_CONST                      1: None
+                312     RETURN_VALUE                    
+                314     LOAD_GLOBAL                     10: isinstance
+                316     LOAD_FAST                       0: x
+                318     LOAD_GLOBAL                     19: str
+                320     CALL_FUNCTION                   2
+                322     POP_JUMP_IF_FALSE               171 (to 342)
+                324     LOAD_GLOBAL                     20: _disassemble_str
+                326     LOAD_FAST                       0: x
+                328     LOAD_FAST                       1: file
+                330     LOAD_FAST                       2: depth
+                332     LOAD_CONST                      10: ('file', 'depth')
+                334     CALL_FUNCTION_KW                3
+                336     POP_TOP                         
+                338     LOAD_CONST                      1: None
+                340     RETURN_VALUE                    
+                342     LOAD_GLOBAL                     14: TypeError
+                344     LOAD_CONST                      13: "don't know how to disassemble %s objects"
+                346     LOAD_GLOBAL                     21: type
+                348     LOAD_FAST                       0: x
+                350     CALL_FUNCTION                   1
+                352     LOAD_ATTR                       22: __name__
+                354     BINARY_MODULO                   
+                356     CALL_FUNCTION                   1
+                358     RAISE_VARARGS                   1
+        'dis'
+        (
+            'file'
+        )
+        [Code]
+            File Name: dis.py
+            Object Name: distb
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 1
+            Locals: 2
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'sys'
+                'last_traceback'
+                'AttributeError'
+                'RuntimeError'
+                'tb_next'
+                'disassemble'
+                'tb_frame'
+                'f_code'
+                'tb_lasti'
+            [Var Names]
+                'tb'
+                'file'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Disassemble a traceback (default: last traceback).'
+                None
+                'no last traceback to disassemble'
+                (
+                    'file'
+                )
+            [Disassembly]
+                0       LOAD_FAST                       0: tb
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               31 (to 62)
+                8       SETUP_FINALLY                   5 (to 20)
+                10      LOAD_GLOBAL                     0: sys
+                12      LOAD_ATTR                       1: last_traceback
+                14      STORE_FAST                      0: tb
+                16      POP_BLOCK                       
+                18      JUMP_FORWARD                    12 (to 44)
+                20      DUP_TOP                         
+                22      LOAD_GLOBAL                     2: AttributeError
+                24      JUMP_IF_NOT_EXC_MATCH           21 (to 42)
+                26      POP_TOP                         
+                28      POP_TOP                         
+                30      POP_TOP                         
+                32      LOAD_GLOBAL                     3: RuntimeError
+                34      LOAD_CONST                      2: 'no last traceback to disassemble'
+                36      CALL_FUNCTION                   1
+                38      LOAD_CONST                      1: None
+                40      RAISE_VARARGS                   2
+                42      RERAISE                         0
+                44      LOAD_FAST                       0: tb
+                46      LOAD_ATTR                       4: tb_next
+                48      POP_JUMP_IF_FALSE               31 (to 62)
+                50      LOAD_FAST                       0: tb
+                52      LOAD_ATTR                       4: tb_next
+                54      STORE_FAST                      0: tb
+                56      LOAD_FAST                       0: tb
+                58      LOAD_ATTR                       4: tb_next
+                60      POP_JUMP_IF_TRUE                25 (to 50)
+                62      LOAD_GLOBAL                     5: disassemble
+                64      LOAD_FAST                       0: tb
+                66      LOAD_ATTR                       6: tb_frame
+                68      LOAD_ATTR                       7: f_code
+                70      LOAD_FAST                       0: tb
+                72      LOAD_ATTR                       8: tb_lasti
+                74      LOAD_FAST                       1: file
+                76      LOAD_CONST                      3: ('file',)
+                78      CALL_FUNCTION_KW                3
+                80      POP_TOP                         
+                82      LOAD_CONST                      1: None
+                84      RETURN_VALUE                    
+        'distb'
+        'OPTIMIZED'
+        'NEWLOCALS'
+        'VARARGS'
+        'VARKEYWORDS'
+        'NESTED'
+        'GENERATOR'
+        'NOFREE'
+        'COROUTINE'
+        'ITERABLE_COROUTINE'
+        'ASYNC_GENERATOR'
+        (
+            1
+            2
+            4
+            8
+            16
+            32
+            64
+            128
+            256
+            512
+        )
+        [Code]
+            File Name: dis.py
+            Object Name: pretty_flags
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'range'
+                'append'
+                'COMPILER_FLAG_NAMES'
+                'get'
+                'hex'
+                'join'
+            [Var Names]
+                'flags'
+                'names'
+                'i'
+                'flag'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return pretty representation of code flags.'
+                32
+                1
+                ', '
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       STORE_FAST                      1: names
+                4       LOAD_GLOBAL                     0: range
+                6       LOAD_CONST                      1: 32
+                8       CALL_FUNCTION                   1
+                10      GET_ITER                        
+                12      FOR_ITER                        29 (to 72)
+                14      STORE_FAST                      2: i
+                16      LOAD_CONST                      2: 1
+                18      LOAD_FAST                       2: i
+                20      BINARY_LSHIFT                   
+                22      STORE_FAST                      3: flag
+                24      LOAD_FAST                       0: flags
+                26      LOAD_FAST                       3: flag
+                28      BINARY_AND                      
+                30      POP_JUMP_IF_FALSE               35 (to 70)
+                32      LOAD_FAST                       1: names
+                34      LOAD_METHOD                     1: append
+                36      LOAD_GLOBAL                     2: COMPILER_FLAG_NAMES
+                38      LOAD_METHOD                     3: get
+                40      LOAD_FAST                       3: flag
+                42      LOAD_GLOBAL                     4: hex
+                44      LOAD_FAST                       3: flag
+                46      CALL_FUNCTION                   1
+                48      CALL_METHOD                     2
+                50      CALL_METHOD                     1
+                52      POP_TOP                         
+                54      LOAD_FAST                       0: flags
+                56      LOAD_FAST                       3: flag
+                58      INPLACE_XOR                     
+                60      STORE_FAST                      0: flags
+                62      LOAD_FAST                       0: flags
+                64      POP_JUMP_IF_TRUE                35 (to 70)
+                66      POP_TOP                         
+                68      JUMP_FORWARD                    8 (to 86)
+                70      JUMP_ABSOLUTE                   6 (to 12)
+                72      LOAD_FAST                       1: names
+                74      LOAD_METHOD                     1: append
+                76      LOAD_GLOBAL                     4: hex
+                78      LOAD_FAST                       0: flags
+                80      CALL_FUNCTION                   1
+                82      CALL_METHOD                     1
+                84      POP_TOP                         
+                86      LOAD_CONST                      3: ', '
+                88      LOAD_METHOD                     5: join
+                90      LOAD_FAST                       1: names
+                92      CALL_METHOD                     1
+                94      RETURN_VALUE                    
+        'pretty_flags'
+        [Code]
+            File Name: dis.py
+            Object Name: _get_code_object
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'hasattr'
+                '__func__'
+                '__code__'
+                'gi_code'
+                'ag_code'
+                'cr_code'
+                'isinstance'
+                'str'
+                '_try_compile'
+                'TypeError'
+                'type'
+                '__name__'
+            [Var Names]
+                'x'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Helper to handle methods, compiled or raw code objects, and strings.'
+                '__func__'
+                '__code__'
+                'gi_code'
+                'ag_code'
+                'cr_code'
+                '<disassembly>'
+                'co_code'
+                "don't know how to disassemble %s objects"
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: hasattr
+                2       LOAD_FAST                       0: x
+                4       LOAD_CONST                      1: '__func__'
+                6       CALL_FUNCTION                   2
+                8       POP_JUMP_IF_FALSE               8 (to 16)
+                10      LOAD_FAST                       0: x
+                12      LOAD_ATTR                       1: __func__
+                14      STORE_FAST                      0: x
+                16      LOAD_GLOBAL                     0: hasattr
+                18      LOAD_FAST                       0: x
+                20      LOAD_CONST                      2: '__code__'
+                22      CALL_FUNCTION                   2
+                24      POP_JUMP_IF_FALSE               17 (to 34)
+                26      LOAD_FAST                       0: x
+                28      LOAD_ATTR                       2: __code__
+                30      STORE_FAST                      0: x
+                32      JUMP_FORWARD                    26 (to 86)
+                34      LOAD_GLOBAL                     0: hasattr
+                36      LOAD_FAST                       0: x
+                38      LOAD_CONST                      3: 'gi_code'
+                40      CALL_FUNCTION                   2
+                42      POP_JUMP_IF_FALSE               26 (to 52)
+                44      LOAD_FAST                       0: x
+                46      LOAD_ATTR                       3: gi_code
+                48      STORE_FAST                      0: x
+                50      JUMP_FORWARD                    17 (to 86)
+                52      LOAD_GLOBAL                     0: hasattr
+                54      LOAD_FAST                       0: x
+                56      LOAD_CONST                      4: 'ag_code'
+                58      CALL_FUNCTION                   2
+                60      POP_JUMP_IF_FALSE               35 (to 70)
+                62      LOAD_FAST                       0: x
+                64      LOAD_ATTR                       4: ag_code
+                66      STORE_FAST                      0: x
+                68      JUMP_FORWARD                    8 (to 86)
+                70      LOAD_GLOBAL                     0: hasattr
+                72      LOAD_FAST                       0: x
+                74      LOAD_CONST                      5: 'cr_code'
+                76      CALL_FUNCTION                   2
+                78      POP_JUMP_IF_FALSE               43 (to 86)
+                80      LOAD_FAST                       0: x
+                82      LOAD_ATTR                       5: cr_code
+                84      STORE_FAST                      0: x
+                86      LOAD_GLOBAL                     6: isinstance
+                88      LOAD_FAST                       0: x
+                90      LOAD_GLOBAL                     7: str
+                92      CALL_FUNCTION                   2
+                94      POP_JUMP_IF_FALSE               53 (to 106)
+                96      LOAD_GLOBAL                     8: _try_compile
+                98      LOAD_FAST                       0: x
+                100     LOAD_CONST                      6: '<disassembly>'
+                102     CALL_FUNCTION                   2
+                104     STORE_FAST                      0: x
+                106     LOAD_GLOBAL                     0: hasattr
+                108     LOAD_FAST                       0: x
+                110     LOAD_CONST                      7: 'co_code'
+                112     CALL_FUNCTION                   2
+                114     POP_JUMP_IF_FALSE               60 (to 120)
+                116     LOAD_FAST                       0: x
+                118     RETURN_VALUE                    
+                120     LOAD_GLOBAL                     9: TypeError
+                122     LOAD_CONST                      8: "don't know how to disassemble %s objects"
+                124     LOAD_GLOBAL                     10: type
+                126     LOAD_FAST                       0: x
+                128     CALL_FUNCTION                   1
+                130     LOAD_ATTR                       11: __name__
+                132     BINARY_MODULO                   
+                134     CALL_FUNCTION                   1
+                136     RAISE_VARARGS                   1
+        '_get_code_object'
+        [Code]
+            File Name: dis.py
+            Object Name: code_info
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_format_code_info'
+                '_get_code_object'
+            [Var Names]
+                'x'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Formatted details of methods, functions, or code.'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _format_code_info
+                2       LOAD_GLOBAL                     1: _get_code_object
+                4       LOAD_FAST                       0: x
+                6       CALL_FUNCTION                   1
+                8       CALL_FUNCTION                   1
+                10      RETURN_VALUE                    
+        'code_info'
+        [Code]
+            File Name: dis.py
+            Object Name: _format_code_info
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'append'
+                'co_name'
+                'co_filename'
+                'co_argcount'
+                'co_posonlyargcount'
+                'co_kwonlyargcount'
+                'co_nlocals'
+                'co_stacksize'
+                'pretty_flags'
+                'co_flags'
+                'co_consts'
+                'enumerate'
+                'co_names'
+                'co_varnames'
+                'co_freevars'
+                'co_cellvars'
+                'join'
+            [Var Names]
+                'co'
+                'lines'
+                'i_c'
+                'i_n'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'Name:              %s'
+                'Filename:          %s'
+                'Argument count:    %s'
+                'Positional-only arguments: %s'
+                'Kw-only arguments: %s'
+                'Number of locals:  %s'
+                'Stack size:        %s'
+                'Flags:             %s'
+                'Constants:'
+                '%4d: %r'
+                'Names:'
+                '%4d: %s'
+                'Variable names:'
+                'Free variables:'
+                'Cell variables:'
+                '\n'
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       STORE_FAST                      1: lines
+                4       LOAD_FAST                       1: lines
+                6       LOAD_METHOD                     0: append
+                8       LOAD_CONST                      1: 'Name:              %s'
+                10      LOAD_FAST                       0: co
+                12      LOAD_ATTR                       1: co_name
+                14      BINARY_MODULO                   
+                16      CALL_METHOD                     1
+                18      POP_TOP                         
+                20      LOAD_FAST                       1: lines
+                22      LOAD_METHOD                     0: append
+                24      LOAD_CONST                      2: 'Filename:          %s'
+                26      LOAD_FAST                       0: co
+                28      LOAD_ATTR                       2: co_filename
+                30      BINARY_MODULO                   
+                32      CALL_METHOD                     1
+                34      POP_TOP                         
+                36      LOAD_FAST                       1: lines
+                38      LOAD_METHOD                     0: append
+                40      LOAD_CONST                      3: 'Argument count:    %s'
+                42      LOAD_FAST                       0: co
+                44      LOAD_ATTR                       3: co_argcount
+                46      BINARY_MODULO                   
+                48      CALL_METHOD                     1
+                50      POP_TOP                         
+                52      LOAD_FAST                       1: lines
+                54      LOAD_METHOD                     0: append
+                56      LOAD_CONST                      4: 'Positional-only arguments: %s'
+                58      LOAD_FAST                       0: co
+                60      LOAD_ATTR                       4: co_posonlyargcount
+                62      BINARY_MODULO                   
+                64      CALL_METHOD                     1
+                66      POP_TOP                         
+                68      LOAD_FAST                       1: lines
+                70      LOAD_METHOD                     0: append
+                72      LOAD_CONST                      5: 'Kw-only arguments: %s'
+                74      LOAD_FAST                       0: co
+                76      LOAD_ATTR                       5: co_kwonlyargcount
+                78      BINARY_MODULO                   
+                80      CALL_METHOD                     1
+                82      POP_TOP                         
+                84      LOAD_FAST                       1: lines
+                86      LOAD_METHOD                     0: append
+                88      LOAD_CONST                      6: 'Number of locals:  %s'
+                90      LOAD_FAST                       0: co
+                92      LOAD_ATTR                       6: co_nlocals
+                94      BINARY_MODULO                   
+                96      CALL_METHOD                     1
+                98      POP_TOP                         
+                100     LOAD_FAST                       1: lines
+                102     LOAD_METHOD                     0: append
+                104     LOAD_CONST                      7: 'Stack size:        %s'
+                106     LOAD_FAST                       0: co
+                108     LOAD_ATTR                       7: co_stacksize
+                110     BINARY_MODULO                   
+                112     CALL_METHOD                     1
+                114     POP_TOP                         
+                116     LOAD_FAST                       1: lines
+                118     LOAD_METHOD                     0: append
+                120     LOAD_CONST                      8: 'Flags:             %s'
+                122     LOAD_GLOBAL                     8: pretty_flags
+                124     LOAD_FAST                       0: co
+                126     LOAD_ATTR                       9: co_flags
+                128     CALL_FUNCTION                   1
+                130     BINARY_MODULO                   
+                132     CALL_METHOD                     1
+                134     POP_TOP                         
+                136     LOAD_FAST                       0: co
+                138     LOAD_ATTR                       10: co_consts
+                140     POP_JUMP_IF_FALSE               91 (to 182)
+                142     LOAD_FAST                       1: lines
+                144     LOAD_METHOD                     0: append
+                146     LOAD_CONST                      9: 'Constants:'
+                148     CALL_METHOD                     1
+                150     POP_TOP                         
+                152     LOAD_GLOBAL                     11: enumerate
+                154     LOAD_FAST                       0: co
+                156     LOAD_ATTR                       10: co_consts
+                158     CALL_FUNCTION                   1
+                160     GET_ITER                        
+                162     FOR_ITER                        9 (to 182)
+                164     STORE_FAST                      2: i_c
+                166     LOAD_FAST                       1: lines
+                168     LOAD_METHOD                     0: append
+                170     LOAD_CONST                      10: '%4d: %r'
+                172     LOAD_FAST                       2: i_c
+                174     BINARY_MODULO                   
+                176     CALL_METHOD                     1
+                178     POP_TOP                         
+                180     JUMP_ABSOLUTE                   81 (to 162)
+                182     LOAD_FAST                       0: co
+                184     LOAD_ATTR                       12: co_names
+                186     POP_JUMP_IF_FALSE               114 (to 228)
+                188     LOAD_FAST                       1: lines
+                190     LOAD_METHOD                     0: append
+                192     LOAD_CONST                      11: 'Names:'
+                194     CALL_METHOD                     1
+                196     POP_TOP                         
+                198     LOAD_GLOBAL                     11: enumerate
+                200     LOAD_FAST                       0: co
+                202     LOAD_ATTR                       12: co_names
+                204     CALL_FUNCTION                   1
+                206     GET_ITER                        
+                208     FOR_ITER                        9 (to 228)
+                210     STORE_FAST                      3: i_n
+                212     LOAD_FAST                       1: lines
+                214     LOAD_METHOD                     0: append
+                216     LOAD_CONST                      12: '%4d: %s'
+                218     LOAD_FAST                       3: i_n
+                220     BINARY_MODULO                   
+                222     CALL_METHOD                     1
+                224     POP_TOP                         
+                226     JUMP_ABSOLUTE                   104 (to 208)
+                228     LOAD_FAST                       0: co
+                230     LOAD_ATTR                       13: co_varnames
+                232     POP_JUMP_IF_FALSE               137 (to 274)
+                234     LOAD_FAST                       1: lines
+                236     LOAD_METHOD                     0: append
+                238     LOAD_CONST                      13: 'Variable names:'
+                240     CALL_METHOD                     1
+                242     POP_TOP                         
+                244     LOAD_GLOBAL                     11: enumerate
+                246     LOAD_FAST                       0: co
+                248     LOAD_ATTR                       13: co_varnames
+                250     CALL_FUNCTION                   1
+                252     GET_ITER                        
+                254     FOR_ITER                        9 (to 274)
+                256     STORE_FAST                      3: i_n
+                258     LOAD_FAST                       1: lines
+                260     LOAD_METHOD                     0: append
+                262     LOAD_CONST                      12: '%4d: %s'
+                264     LOAD_FAST                       3: i_n
+                266     BINARY_MODULO                   
+                268     CALL_METHOD                     1
+                270     POP_TOP                         
+                272     JUMP_ABSOLUTE                   127 (to 254)
+                274     LOAD_FAST                       0: co
+                276     LOAD_ATTR                       14: co_freevars
+                278     POP_JUMP_IF_FALSE               160 (to 320)
+                280     LOAD_FAST                       1: lines
+                282     LOAD_METHOD                     0: append
+                284     LOAD_CONST                      14: 'Free variables:'
+                286     CALL_METHOD                     1
+                288     POP_TOP                         
+                290     LOAD_GLOBAL                     11: enumerate
+                292     LOAD_FAST                       0: co
+                294     LOAD_ATTR                       14: co_freevars
+                296     CALL_FUNCTION                   1
+                298     GET_ITER                        
+                300     FOR_ITER                        9 (to 320)
+                302     STORE_FAST                      3: i_n
+                304     LOAD_FAST                       1: lines
+                306     LOAD_METHOD                     0: append
+                308     LOAD_CONST                      12: '%4d: %s'
+                310     LOAD_FAST                       3: i_n
+                312     BINARY_MODULO                   
+                314     CALL_METHOD                     1
+                316     POP_TOP                         
+                318     JUMP_ABSOLUTE                   150 (to 300)
+                320     LOAD_FAST                       0: co
+                322     LOAD_ATTR                       15: co_cellvars
+                324     POP_JUMP_IF_FALSE               183 (to 366)
+                326     LOAD_FAST                       1: lines
+                328     LOAD_METHOD                     0: append
+                330     LOAD_CONST                      15: 'Cell variables:'
+                332     CALL_METHOD                     1
+                334     POP_TOP                         
+                336     LOAD_GLOBAL                     11: enumerate
+                338     LOAD_FAST                       0: co
+                340     LOAD_ATTR                       15: co_cellvars
+                342     CALL_FUNCTION                   1
+                344     GET_ITER                        
+                346     FOR_ITER                        9 (to 366)
+                348     STORE_FAST                      3: i_n
+                350     LOAD_FAST                       1: lines
+                352     LOAD_METHOD                     0: append
+                354     LOAD_CONST                      12: '%4d: %s'
+                356     LOAD_FAST                       3: i_n
+                358     BINARY_MODULO                   
+                360     CALL_METHOD                     1
+                362     POP_TOP                         
+                364     JUMP_ABSOLUTE                   173 (to 346)
+                366     LOAD_CONST                      16: '\n'
+                368     LOAD_METHOD                     16: join
+                370     LOAD_FAST                       1: lines
+                372     CALL_METHOD                     1
+                374     RETURN_VALUE                    
+        '_format_code_info'
+        [Code]
+            File Name: dis.py
+            Object Name: show_code
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 1
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'print'
+                'code_info'
+            [Var Names]
+                'co'
+                'file'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Print details of methods, functions, or code to *file*.\n\n    If *file* is not provided, the output is printed on stdout.\n    '
+                (
+                    'file'
+                )
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: print
+                2       LOAD_GLOBAL                     1: code_info
+                4       LOAD_FAST                       0: co
+                6       CALL_FUNCTION                   1
+                8       LOAD_FAST                       1: file
+                10      LOAD_CONST                      1: ('file',)
+                12      CALL_FUNCTION_KW                2
+                14      POP_TOP                         
+                16      LOAD_CONST                      2: None
+                18      RETURN_VALUE                    
+        'show_code'
+        '_Instruction'
+        'opname opcode arg argval argrepr offset starts_line is_jump_target'
+        'Human readable name for operation'
+        'Numeric code for operation'
+        'Numeric argument to operation (if any), otherwise None'
+        'Resolved arg value (if known), otherwise same as arg'
+        'Human readable description of operation argument'
+        'Start index of operation within bytecode sequence'
+        'Line started by this opcode (if any), otherwise None'
+        'True if other code jumps to here, otherwise False'
+        20
+        5
+        [Code]
+            File Name: dis.py
+            Object Name: Instruction
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '_disassemble'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Instruction'
+                'Details for a bytecode operation\n\n       Defined fields:\n         opname - human readable name for operation\n         opcode - numeric code for operation\n         arg - numeric argument to operation (if any), otherwise None\n         argval - resolved arg value (if known), otherwise same as arg\n         argrepr - human readable description of operation argument\n         offset - start index of operation within bytecode sequence\n         starts_line - line started by this opcode (if any), otherwise None\n         is_jump_target - True if other code jumps to here, otherwise False\n    '
+                3
+                False
+                4
+                [Code]
+                    File Name: dis.py
+                    Object Name: _disassemble
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'starts_line'
+                        'append'
+                        'is_jump_target'
+                        'repr'
+                        'offset'
+                        'rjust'
+                        'opname'
+                        'ljust'
+                        '_OPNAME_WIDTH'
+                        'arg'
+                        '_OPARG_WIDTH'
+                        'argrepr'
+                        'join'
+                        'rstrip'
+                    [Var Names]
+                        'self'
+                        'lineno_width'
+                        'mark_as_current'
+                        'offset_width'
+                        'fields'
+                        'lineno_fmt'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        "Format instruction details for inclusion in disassembly output\n\n        *lineno_width* sets the width of the line number field (0 omits it)\n        *mark_as_current* inserts a '-->' marker arrow as part of the line\n        *offset_width* sets the width of the instruction offset field\n        "
+                        None
+                        '%%%dd'
+                        ' '
+                        '-->'
+                        '   '
+                        '>>'
+                        '  '
+                        '('
+                        ')'
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       STORE_FAST                      4: fields
+                        4       LOAD_FAST                       1: lineno_width
+                        6       POP_JUMP_IF_FALSE               29 (to 58)
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_ATTR                       0: starts_line
+                        12      LOAD_CONST                      1: None
+                        14      IS_OP                           1 (is not)
+                        16      POP_JUMP_IF_FALSE               22 (to 44)
+                        18      LOAD_CONST                      2: '%%%dd'
+                        20      LOAD_FAST                       1: lineno_width
+                        22      BINARY_MODULO                   
+                        24      STORE_FAST                      5: lineno_fmt
+                        26      LOAD_FAST                       4: fields
+                        28      LOAD_METHOD                     1: append
+                        30      LOAD_FAST                       5: lineno_fmt
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       0: starts_line
+                        36      BINARY_MODULO                   
+                        38      CALL_METHOD                     1
+                        40      POP_TOP                         
+                        42      JUMP_FORWARD                    7 (to 58)
+                        44      LOAD_FAST                       4: fields
+                        46      LOAD_METHOD                     1: append
+                        48      LOAD_CONST                      3: ' '
+                        50      LOAD_FAST                       1: lineno_width
+                        52      BINARY_MULTIPLY                 
+                        54      CALL_METHOD                     1
+                        56      POP_TOP                         
+                        58      LOAD_FAST                       2: mark_as_current
+                        60      POP_JUMP_IF_FALSE               37 (to 74)
+                        62      LOAD_FAST                       4: fields
+                        64      LOAD_METHOD                     1: append
+                        66      LOAD_CONST                      4: '-->'
+                        68      CALL_METHOD                     1
+                        70      POP_TOP                         
+                        72      JUMP_FORWARD                    5 (to 84)
+                        74      LOAD_FAST                       4: fields
+                        76      LOAD_METHOD                     1: append
+                        78      LOAD_CONST                      5: '   '
+                        80      CALL_METHOD                     1
+                        82      POP_TOP                         
+                        84      LOAD_FAST                       0: self
+                        86      LOAD_ATTR                       2: is_jump_target
+                        88      POP_JUMP_IF_FALSE               51 (to 102)
+                        90      LOAD_FAST                       4: fields
+                        92      LOAD_METHOD                     1: append
+                        94      LOAD_CONST                      6: '>>'
+                        96      CALL_METHOD                     1
+                        98      POP_TOP                         
+                        100     JUMP_FORWARD                    5 (to 112)
+                        102     LOAD_FAST                       4: fields
+                        104     LOAD_METHOD                     1: append
+                        106     LOAD_CONST                      7: '  '
+                        108     CALL_METHOD                     1
+                        110     POP_TOP                         
+                        112     LOAD_FAST                       4: fields
+                        114     LOAD_METHOD                     1: append
+                        116     LOAD_GLOBAL                     3: repr
+                        118     LOAD_FAST                       0: self
+                        120     LOAD_ATTR                       4: offset
+                        122     CALL_FUNCTION                   1
+                        124     LOAD_METHOD                     5: rjust
+                        126     LOAD_FAST                       3: offset_width
+                        128     CALL_METHOD                     1
+                        130     CALL_METHOD                     1
+                        132     POP_TOP                         
+                        134     LOAD_FAST                       4: fields
+                        136     LOAD_METHOD                     1: append
+                        138     LOAD_FAST                       0: self
+                        140     LOAD_ATTR                       6: opname
+                        142     LOAD_METHOD                     7: ljust
+                        144     LOAD_GLOBAL                     8: _OPNAME_WIDTH
+                        146     CALL_METHOD                     1
+                        148     CALL_METHOD                     1
+                        150     POP_TOP                         
+                        152     LOAD_FAST                       0: self
+                        154     LOAD_ATTR                       9: arg
+                        156     LOAD_CONST                      1: None
+                        158     IS_OP                           1 (is not)
+                        160     POP_JUMP_IF_FALSE               105 (to 210)
+                        162     LOAD_FAST                       4: fields
+                        164     LOAD_METHOD                     1: append
+                        166     LOAD_GLOBAL                     3: repr
+                        168     LOAD_FAST                       0: self
+                        170     LOAD_ATTR                       9: arg
+                        172     CALL_FUNCTION                   1
+                        174     LOAD_METHOD                     5: rjust
+                        176     LOAD_GLOBAL                     10: _OPARG_WIDTH
+                        178     CALL_METHOD                     1
+                        180     CALL_METHOD                     1
+                        182     POP_TOP                         
+                        184     LOAD_FAST                       0: self
+                        186     LOAD_ATTR                       11: argrepr
+                        188     POP_JUMP_IF_FALSE               105 (to 210)
+                        190     LOAD_FAST                       4: fields
+                        192     LOAD_METHOD                     1: append
+                        194     LOAD_CONST                      8: '('
+                        196     LOAD_FAST                       0: self
+                        198     LOAD_ATTR                       11: argrepr
+                        200     BINARY_ADD                      
+                        202     LOAD_CONST                      9: ')'
+                        204     BINARY_ADD                      
+                        206     CALL_METHOD                     1
+                        208     POP_TOP                         
+                        210     LOAD_CONST                      3: ' '
+                        212     LOAD_METHOD                     12: join
+                        214     LOAD_FAST                       4: fields
+                        216     CALL_METHOD                     1
+                        218     LOAD_METHOD                     13: rstrip
+                        220     CALL_METHOD                     0
+                        222     RETURN_VALUE                    
+                'Instruction._disassemble'
+                None
+                (
+                    3
+                    False
+                    4
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Instruction'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Details for a bytecode operation\n\n       Defined fields:\n         opname - human readable name for operation\n         opcode - numeric code for operation\n         arg - numeric argument to operation (if any), otherwise None\n         argval - resolved arg value (if known), otherwise same as arg\n         argrepr - human readable description of operation argument\n         offset - start index of operation within bytecode sequence\n         starts_line - line started by this opcode (if any), otherwise None\n         is_jump_target - True if other code jumps to here, otherwise False\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      8: (3, False, 4)
+                14      LOAD_CONST                      5: <CODE> _disassemble
+                16      LOAD_CONST                      6: 'Instruction._disassemble'
+                18      MAKE_FUNCTION                   1
+                20      STORE_NAME                      4: _disassemble
+                22      LOAD_CONST                      7: None
+                24      RETURN_VALUE                    
+        'Instruction'
+        (
+            'first_line'
+        )
+        [Code]
+            File Name: dis.py
+            Object Name: get_instructions
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 1
+            Locals: 6
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_get_code_object'
+                'co_cellvars'
+                'co_freevars'
+                'dict'
+                'findlinestarts'
+                'co_firstlineno'
+                '_get_instructions_bytes'
+                'co_code'
+                'co_varnames'
+                'co_names'
+                'co_consts'
+            [Var Names]
+                'x'
+                'first_line'
+                'co'
+                'cell_names'
+                'linestarts'
+                'line_offset'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Iterator for the opcodes in methods, functions or code\n\n    Generates a series of Instruction named tuples giving the details of\n    each operations in the supplied code.\n\n    If *first_line* is not None, it indicates the line number that should\n    be reported for the first source line in the disassembled code.\n    Otherwise, the source line information (if any) is taken directly from\n    the disassembled code object.\n    '
+                None
+                0
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _get_code_object
+                2       LOAD_FAST                       0: x
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      2: co
+                8       LOAD_FAST                       2: co
+                10      LOAD_ATTR                       1: co_cellvars
+                12      LOAD_FAST                       2: co
+                14      LOAD_ATTR                       2: co_freevars
+                16      BINARY_ADD                      
+                18      STORE_FAST                      3: cell_names
+                20      LOAD_GLOBAL                     3: dict
+                22      LOAD_GLOBAL                     4: findlinestarts
+                24      LOAD_FAST                       2: co
+                26      CALL_FUNCTION                   1
+                28      CALL_FUNCTION                   1
+                30      STORE_FAST                      4: linestarts
+                32      LOAD_FAST                       1: first_line
+                34      LOAD_CONST                      1: None
+                36      IS_OP                           1 (is not)
+                38      POP_JUMP_IF_FALSE               26 (to 52)
+                40      LOAD_FAST                       1: first_line
+                42      LOAD_FAST                       2: co
+                44      LOAD_ATTR                       5: co_firstlineno
+                46      BINARY_SUBTRACT                 
+                48      STORE_FAST                      5: line_offset
+                50      JUMP_FORWARD                    2 (to 56)
+                52      LOAD_CONST                      2: 0
+                54      STORE_FAST                      5: line_offset
+                56      LOAD_GLOBAL                     6: _get_instructions_bytes
+                58      LOAD_FAST                       2: co
+                60      LOAD_ATTR                       7: co_code
+                62      LOAD_FAST                       2: co
+                64      LOAD_ATTR                       8: co_varnames
+                66      LOAD_FAST                       2: co
+                68      LOAD_ATTR                       9: co_names
+                70      LOAD_FAST                       2: co
+                72      LOAD_ATTR                       10: co_consts
+                74      LOAD_FAST                       3: cell_names
+                76      LOAD_FAST                       4: linestarts
+                78      LOAD_FAST                       5: line_offset
+                80      CALL_FUNCTION                   7
+                82      RETURN_VALUE                    
+        'get_instructions'
+        [Code]
+            File Name: dis.py
+            Object Name: _get_const_info
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'repr'
+            [Var Names]
+                'const_index'
+                'const_list'
+                'argval'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Helper to get optional details about const references\n\n       Returns the dereferenced constant and its repr if the constant\n       list is defined.\n       Otherwise returns the constant index and its repr().\n    '
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: const_index
+                2       STORE_FAST                      2: argval
+                4       LOAD_FAST                       1: const_list
+                6       LOAD_CONST                      1: None
+                8       IS_OP                           1 (is not)
+                10      POP_JUMP_IF_FALSE               10 (to 20)
+                12      LOAD_FAST                       1: const_list
+                14      LOAD_FAST                       0: const_index
+                16      BINARY_SUBSCR                   
+                18      STORE_FAST                      2: argval
+                20      LOAD_FAST                       2: argval
+                22      LOAD_GLOBAL                     0: repr
+                24      LOAD_FAST                       2: argval
+                26      CALL_FUNCTION                   1
+                28      BUILD_TUPLE                     2
+                30      RETURN_VALUE                    
+        '_get_const_info'
+        [Code]
+            File Name: dis.py
+            Object Name: _get_name_info
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 2
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'repr'
+            [Var Names]
+                'name_index'
+                'name_list'
+                'argval'
+                'argrepr'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Helper to get optional details about named references\n\n       Returns the dereferenced name as both value and repr if the name\n       list is defined.\n       Otherwise returns the name index and its repr().\n    '
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: name_index
+                2       STORE_FAST                      2: argval
+                4       LOAD_FAST                       1: name_list
+                6       LOAD_CONST                      1: None
+                8       IS_OP                           1 (is not)
+                10      POP_JUMP_IF_FALSE               16 (to 32)
+                12      LOAD_FAST                       1: name_list
+                14      LOAD_FAST                       0: name_index
+                16      BINARY_SUBSCR                   
+                18      STORE_FAST                      2: argval
+                20      LOAD_FAST                       2: argval
+                22      STORE_FAST                      3: argrepr
+                24      LOAD_FAST                       2: argval
+                26      LOAD_FAST                       3: argrepr
+                28      BUILD_TUPLE                     2
+                30      RETURN_VALUE                    
+                32      LOAD_GLOBAL                     0: repr
+                34      LOAD_FAST                       2: argval
+                36      CALL_FUNCTION                   1
+                38      STORE_FAST                      3: argrepr
+                40      LOAD_FAST                       2: argval
+                42      LOAD_FAST                       3: argrepr
+                44      BUILD_TUPLE                     2
+                46      RETURN_VALUE                    
+        '_get_name_info'
+        [Code]
+            File Name: dis.py
+            Object Name: _get_instructions_bytes
+            Arg Count: 7
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 14
+            Stack Size: 10
+            Flags: 0x00000023 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR)
+            [Names]
+                'findlabels'
+                '_unpack_opargs'
+                'get'
+                'hasconst'
+                '_get_const_info'
+                'hasname'
+                '_get_name_info'
+                'hasjabs'
+                'repr'
+                'hasjrel'
+                'haslocal'
+                'hascompare'
+                'cmp_op'
+                'hasfree'
+                'FORMAT_VALUE'
+                'FORMAT_VALUE_CONVERTERS'
+                'bool'
+                'MAKE_FUNCTION'
+                'join'
+                'enumerate'
+                'MAKE_FUNCTION_FLAGS'
+                'Instruction'
+                'opname'
+            [Var Names]
+                'code'
+                'varnames'
+                'names'
+                'constants'
+                'cells'
+                'linestarts'
+                'line_offset'
+                'labels'
+                'starts_line'
+                'offset'
+                'op'
+                'is_jump_target'
+                'argval'
+                'argrepr'
+            [Free Vars]
+            [Cell Vars]
+                'arg'
+            [Constants]
+                "Iterate over the instructions in a bytecode string.\n\n    Generates a sequence of Instruction namedtuples giving the details of each\n    opcode.  Additional information about the code's runtime environment\n    (e.g. variable names, constants) can be specified using optional\n    arguments.\n\n    "
+                None
+                ''
+                2
+                'to '
+                3
+                4
+                1
+                ', '
+                'with format'
+                [Code]
+                    File Name: dis.py
+                    Object Name: <genexpr>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                    [Names]
+                    [Var Names]
+                        '.0'
+                        'i'
+                        's'
+                    [Free Vars]
+                        'arg'
+                    [Cell Vars]
+                    [Constants]
+                        1
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        13 (to 32)
+                        6       UNPACK_SEQUENCE                 2
+                        8       STORE_FAST                      1: i
+                        10      STORE_FAST                      2: s
+                        12      LOAD_DEREF                      0: arg
+                        14      LOAD_CONST                      0: 1
+                        16      LOAD_FAST                       1: i
+                        18      BINARY_LSHIFT                   
+                        20      BINARY_AND                      
+                        22      POP_JUMP_IF_FALSE               2 (to 4)
+                        24      LOAD_FAST                       2: s
+                        26      YIELD_VALUE                     
+                        28      POP_TOP                         
+                        30      JUMP_ABSOLUTE                   2 (to 4)
+                        32      LOAD_CONST                      1: None
+                        34      RETURN_VALUE                    
+                '_get_instructions_bytes.<locals>.<genexpr>'
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_GLOBAL                     0: findlabels
+                4       LOAD_FAST                       0: code
+                6       CALL_FUNCTION                   1
+                8       STORE_FAST                      7: labels
+                10      LOAD_CONST                      1: None
+                12      STORE_FAST                      8: starts_line
+                14      LOAD_GLOBAL                     1: _unpack_opargs
+                16      LOAD_FAST                       0: code
+                18      CALL_FUNCTION                   1
+                20      GET_ITER                        
+                22      FOR_ITER                        197 (to 418)
+                24      UNPACK_SEQUENCE                 3
+                26      STORE_FAST                      9: offset
+                28      STORE_FAST                      10: op
+                30      STORE_DEREF                     0: arg
+                32      LOAD_FAST                       5: linestarts
+                34      LOAD_CONST                      1: None
+                36      IS_OP                           1 (is not)
+                38      POP_JUMP_IF_FALSE               34 (to 68)
+                40      LOAD_FAST                       5: linestarts
+                42      LOAD_METHOD                     2: get
+                44      LOAD_FAST                       9: offset
+                46      LOAD_CONST                      1: None
+                48      CALL_METHOD                     2
+                50      STORE_FAST                      8: starts_line
+                52      LOAD_FAST                       8: starts_line
+                54      LOAD_CONST                      1: None
+                56      IS_OP                           1 (is not)
+                58      POP_JUMP_IF_FALSE               34 (to 68)
+                60      LOAD_FAST                       8: starts_line
+                62      LOAD_FAST                       6: line_offset
+                64      INPLACE_ADD                     
+                66      STORE_FAST                      8: starts_line
+                68      LOAD_FAST                       9: offset
+                70      LOAD_FAST                       7: labels
+                72      CONTAINS_OP                     0 (in)
+                74      STORE_FAST                      11: is_jump_target
+                76      LOAD_CONST                      1: None
+                78      STORE_FAST                      12: argval
+                80      LOAD_CONST                      2: ''
+                82      STORE_FAST                      13: argrepr
+                84      LOAD_DEREF                      0: arg
+                86      LOAD_CONST                      1: None
+                88      IS_OP                           1 (is not)
+                90      POP_JUMP_IF_FALSE               194 (to 388)
+                92      LOAD_DEREF                      0: arg
+                94      STORE_FAST                      12: argval
+                96      LOAD_FAST                       10: op
+                98      LOAD_GLOBAL                     3: hasconst
+                100     CONTAINS_OP                     0 (in)
+                102     POP_JUMP_IF_FALSE               60 (to 120)
+                104     LOAD_GLOBAL                     4: _get_const_info
+                106     LOAD_DEREF                      0: arg
+                108     LOAD_FAST                       3: constants
+                110     CALL_FUNCTION                   2
+                112     UNPACK_SEQUENCE                 2
+                114     STORE_FAST                      12: argval
+                116     STORE_FAST                      13: argrepr
+                118     JUMP_FORWARD                    134 (to 388)
+                120     LOAD_FAST                       10: op
+                122     LOAD_GLOBAL                     5: hasname
+                124     CONTAINS_OP                     0 (in)
+                126     POP_JUMP_IF_FALSE               72 (to 144)
+                128     LOAD_GLOBAL                     6: _get_name_info
+                130     LOAD_DEREF                      0: arg
+                132     LOAD_FAST                       2: names
+                134     CALL_FUNCTION                   2
+                136     UNPACK_SEQUENCE                 2
+                138     STORE_FAST                      12: argval
+                140     STORE_FAST                      13: argrepr
+                142     JUMP_FORWARD                    122 (to 388)
+                144     LOAD_FAST                       10: op
+                146     LOAD_GLOBAL                     7: hasjabs
+                148     CONTAINS_OP                     0 (in)
+                150     POP_JUMP_IF_FALSE               87 (to 174)
+                152     LOAD_DEREF                      0: arg
+                154     LOAD_CONST                      3: 2
+                156     BINARY_MULTIPLY                 
+                158     STORE_FAST                      12: argval
+                160     LOAD_CONST                      4: 'to '
+                162     LOAD_GLOBAL                     8: repr
+                164     LOAD_FAST                       12: argval
+                166     CALL_FUNCTION                   1
+                168     BINARY_ADD                      
+                170     STORE_FAST                      13: argrepr
+                172     JUMP_FORWARD                    107 (to 388)
+                174     LOAD_FAST                       10: op
+                176     LOAD_GLOBAL                     9: hasjrel
+                178     CONTAINS_OP                     0 (in)
+                180     POP_JUMP_IF_FALSE               106 (to 212)
+                182     LOAD_FAST                       9: offset
+                184     LOAD_CONST                      3: 2
+                186     BINARY_ADD                      
+                188     LOAD_DEREF                      0: arg
+                190     LOAD_CONST                      3: 2
+                192     BINARY_MULTIPLY                 
+                194     BINARY_ADD                      
+                196     STORE_FAST                      12: argval
+                198     LOAD_CONST                      4: 'to '
+                200     LOAD_GLOBAL                     8: repr
+                202     LOAD_FAST                       12: argval
+                204     CALL_FUNCTION                   1
+                206     BINARY_ADD                      
+                208     STORE_FAST                      13: argrepr
+                210     JUMP_FORWARD                    88 (to 388)
+                212     LOAD_FAST                       10: op
+                214     LOAD_GLOBAL                     10: haslocal
+                216     CONTAINS_OP                     0 (in)
+                218     POP_JUMP_IF_FALSE               118 (to 236)
+                220     LOAD_GLOBAL                     6: _get_name_info
+                222     LOAD_DEREF                      0: arg
+                224     LOAD_FAST                       1: varnames
+                226     CALL_FUNCTION                   2
+                228     UNPACK_SEQUENCE                 2
+                230     STORE_FAST                      12: argval
+                232     STORE_FAST                      13: argrepr
+                234     JUMP_FORWARD                    76 (to 388)
+                236     LOAD_FAST                       10: op
+                238     LOAD_GLOBAL                     11: hascompare
+                240     CONTAINS_OP                     0 (in)
+                242     POP_JUMP_IF_FALSE               129 (to 258)
+                244     LOAD_GLOBAL                     12: cmp_op
+                246     LOAD_DEREF                      0: arg
+                248     BINARY_SUBSCR                   
+                250     STORE_FAST                      12: argval
+                252     LOAD_FAST                       12: argval
+                254     STORE_FAST                      13: argrepr
+                256     JUMP_FORWARD                    65 (to 388)
+                258     LOAD_FAST                       10: op
+                260     LOAD_GLOBAL                     13: hasfree
+                262     CONTAINS_OP                     0 (in)
+                264     POP_JUMP_IF_FALSE               141 (to 282)
+                266     LOAD_GLOBAL                     6: _get_name_info
+                268     LOAD_DEREF                      0: arg
+                270     LOAD_FAST                       4: cells
+                272     CALL_FUNCTION                   2
+                274     UNPACK_SEQUENCE                 2
+                276     STORE_FAST                      12: argval
+                278     STORE_FAST                      13: argrepr
+                280     JUMP_FORWARD                    53 (to 388)
+                282     LOAD_FAST                       10: op
+                284     LOAD_GLOBAL                     14: FORMAT_VALUE
+                286     COMPARE_OP                      2 (==)
+                288     POP_JUMP_IF_FALSE               176 (to 352)
+                290     LOAD_GLOBAL                     15: FORMAT_VALUE_CONVERTERS
+                292     LOAD_DEREF                      0: arg
+                294     LOAD_CONST                      5: 3
+                296     BINARY_AND                      
+                298     BINARY_SUBSCR                   
+                300     UNPACK_SEQUENCE                 2
+                302     STORE_FAST                      12: argval
+                304     STORE_FAST                      13: argrepr
+                306     LOAD_FAST                       12: argval
+                308     LOAD_GLOBAL                     16: bool
+                310     LOAD_DEREF                      0: arg
+                312     LOAD_CONST                      6: 4
+                314     BINARY_AND                      
+                316     CALL_FUNCTION                   1
+                318     BUILD_TUPLE                     2
+                320     STORE_FAST                      12: argval
+                322     LOAD_FAST                       12: argval
+                324     LOAD_CONST                      7: 1
+                326     BINARY_SUBSCR                   
+                328     POP_JUMP_IF_FALSE               175 (to 350)
+                330     LOAD_FAST                       13: argrepr
+                332     POP_JUMP_IF_FALSE               171 (to 342)
+                334     LOAD_FAST                       13: argrepr
+                336     LOAD_CONST                      8: ', '
+                338     INPLACE_ADD                     
+                340     STORE_FAST                      13: argrepr
+                342     LOAD_FAST                       13: argrepr
+                344     LOAD_CONST                      9: 'with format'
+                346     INPLACE_ADD                     
+                348     STORE_FAST                      13: argrepr
+                350     JUMP_FORWARD                    18 (to 388)
+                352     LOAD_FAST                       10: op
+                354     LOAD_GLOBAL                     17: MAKE_FUNCTION
+                356     COMPARE_OP                      2 (==)
+                358     POP_JUMP_IF_FALSE               194 (to 388)
+                360     LOAD_CONST                      8: ', '
+                362     LOAD_METHOD                     18: join
+                364     LOAD_CLOSURE                    0: arg
+                366     BUILD_TUPLE                     1
+                368     LOAD_CONST                      10: <CODE> <genexpr>
+                370     LOAD_CONST                      11: '_get_instructions_bytes.<locals>.<genexpr>'
+                372     MAKE_FUNCTION                   8
+                374     LOAD_GLOBAL                     19: enumerate
+                376     LOAD_GLOBAL                     20: MAKE_FUNCTION_FLAGS
+                378     CALL_FUNCTION                   1
+                380     GET_ITER                        
+                382     CALL_FUNCTION                   1
+                384     CALL_METHOD                     1
+                386     STORE_FAST                      13: argrepr
+                388     LOAD_GLOBAL                     21: Instruction
+                390     LOAD_GLOBAL                     22: opname
+                392     LOAD_FAST                       10: op
+                394     BINARY_SUBSCR                   
+                396     LOAD_FAST                       10: op
+                398     LOAD_DEREF                      0: arg
+                400     LOAD_FAST                       12: argval
+                402     LOAD_FAST                       13: argrepr
+                404     LOAD_FAST                       9: offset
+                406     LOAD_FAST                       8: starts_line
+                408     LOAD_FAST                       11: is_jump_target
+                410     CALL_FUNCTION                   8
+                412     YIELD_VALUE                     
+                414     POP_TOP                         
+                416     JUMP_ABSOLUTE                   11 (to 22)
+                418     LOAD_CONST                      1: None
+                420     RETURN_VALUE                    
+        '_get_instructions_bytes'
+        -1
+        [Code]
+            File Name: dis.py
+            Object Name: disassemble
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 1
+            Locals: 5
+            Stack Size: 10
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'co_cellvars'
+                'co_freevars'
+                'dict'
+                'findlinestarts'
+                '_disassemble_bytes'
+                'co_code'
+                'co_varnames'
+                'co_names'
+                'co_consts'
+            [Var Names]
+                'co'
+                'lasti'
+                'file'
+                'cell_names'
+                'linestarts'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Disassemble a code object.'
+                (
+                    'file'
+                )
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: co
+                2       LOAD_ATTR                       0: co_cellvars
+                4       LOAD_FAST                       0: co
+                6       LOAD_ATTR                       1: co_freevars
+                8       BINARY_ADD                      
+                10      STORE_FAST                      3: cell_names
+                12      LOAD_GLOBAL                     2: dict
+                14      LOAD_GLOBAL                     3: findlinestarts
+                16      LOAD_FAST                       0: co
+                18      CALL_FUNCTION                   1
+                20      CALL_FUNCTION                   1
+                22      STORE_FAST                      4: linestarts
+                24      LOAD_GLOBAL                     4: _disassemble_bytes
+                26      LOAD_FAST                       0: co
+                28      LOAD_ATTR                       5: co_code
+                30      LOAD_FAST                       1: lasti
+                32      LOAD_FAST                       0: co
+                34      LOAD_ATTR                       6: co_varnames
+                36      LOAD_FAST                       0: co
+                38      LOAD_ATTR                       7: co_names
+                40      LOAD_FAST                       0: co
+                42      LOAD_ATTR                       8: co_consts
+                44      LOAD_FAST                       3: cell_names
+                46      LOAD_FAST                       4: linestarts
+                48      LOAD_FAST                       2: file
+                50      LOAD_CONST                      1: ('file',)
+                52      CALL_FUNCTION_KW                8
+                54      POP_TOP                         
+                56      LOAD_CONST                      2: None
+                58      RETURN_VALUE                    
+        'disassemble'
+        [Code]
+            File Name: dis.py
+            Object Name: _disassemble_recursive
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 2
+            Locals: 4
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'disassemble'
+                'co_consts'
+                'hasattr'
+                'print'
+                '_disassemble_recursive'
+            [Var Names]
+                'co'
+                'file'
+                'depth'
+                'x'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                (
+                    'file'
+                )
+                0
+                1
+                'co_code'
+                'Disassembly of %r:'
+                (
+                    'file'
+                    'depth'
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: disassemble
+                2       LOAD_FAST                       0: co
+                4       LOAD_FAST                       1: file
+                6       LOAD_CONST                      1: ('file',)
+                8       CALL_FUNCTION_KW                2
+                10      POP_TOP                         
+                12      LOAD_FAST                       2: depth
+                14      LOAD_CONST                      0: None
+                16      IS_OP                           0 (is)
+                18      POP_JUMP_IF_TRUE                14 (to 28)
+                20      LOAD_FAST                       2: depth
+                22      LOAD_CONST                      2: 0
+                24      COMPARE_OP                      4 (>)
+                26      POP_JUMP_IF_FALSE               54 (to 108)
+                28      LOAD_FAST                       2: depth
+                30      LOAD_CONST                      0: None
+                32      IS_OP                           1 (is not)
+                34      POP_JUMP_IF_FALSE               22 (to 44)
+                36      LOAD_FAST                       2: depth
+                38      LOAD_CONST                      3: 1
+                40      BINARY_SUBTRACT                 
+                42      STORE_FAST                      2: depth
+                44      LOAD_FAST                       0: co
+                46      LOAD_ATTR                       1: co_consts
+                48      GET_ITER                        
+                50      FOR_ITER                        30 (to 112)
+                52      STORE_FAST                      3: x
+                54      LOAD_GLOBAL                     2: hasattr
+                56      LOAD_FAST                       3: x
+                58      LOAD_CONST                      4: 'co_code'
+                60      CALL_FUNCTION                   2
+                62      POP_JUMP_IF_FALSE               53 (to 106)
+                64      LOAD_GLOBAL                     3: print
+                66      LOAD_FAST                       1: file
+                68      LOAD_CONST                      1: ('file',)
+                70      CALL_FUNCTION_KW                1
+                72      POP_TOP                         
+                74      LOAD_GLOBAL                     3: print
+                76      LOAD_CONST                      5: 'Disassembly of %r:'
+                78      LOAD_FAST                       3: x
+                80      BUILD_TUPLE                     1
+                82      BINARY_MODULO                   
+                84      LOAD_FAST                       1: file
+                86      LOAD_CONST                      1: ('file',)
+                88      CALL_FUNCTION_KW                2
+                90      POP_TOP                         
+                92      LOAD_GLOBAL                     4: _disassemble_recursive
+                94      LOAD_FAST                       3: x
+                96      LOAD_FAST                       1: file
+                98      LOAD_FAST                       2: depth
+                100     LOAD_CONST                      6: ('file', 'depth')
+                102     CALL_FUNCTION_KW                3
+                104     POP_TOP                         
+                106     JUMP_ABSOLUTE                   25 (to 50)
+                108     LOAD_CONST                      0: None
+                110     RETURN_VALUE                    
+                112     LOAD_CONST                      0: None
+                114     RETURN_VALUE                    
+        '_disassemble_recursive'
+        (
+            'file'
+            'line_offset'
+        )
+        [Code]
+            File Name: dis.py
+            Object Name: _disassemble_bytes
+            Arg Count: 7
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 2
+            Locals: 17
+            Stack Size: 9
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'bool'
+                'max'
+                'values'
+                'len'
+                'str'
+                '_get_instructions_bytes'
+                'starts_line'
+                'offset'
+                'print'
+                '_disassemble'
+            [Var Names]
+                'code'
+                'lasti'
+                'varnames'
+                'names'
+                'constants'
+                'cells'
+                'linestarts'
+                'file'
+                'line_offset'
+                'show_lineno'
+                'maxlineno'
+                'lineno_width'
+                'maxoffset'
+                'offset_width'
+                'instr'
+                'new_source_line'
+                'is_current_instr'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                1000
+                3
+                0
+                2
+                10000
+                4
+                (
+                    'line_offset'
+                )
+                (
+                    'file'
+                )
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: bool
+                2       LOAD_FAST                       6: linestarts
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      9: show_lineno
+                8       LOAD_FAST                       9: show_lineno
+                10      POP_JUMP_IF_FALSE               28 (to 56)
+                12      LOAD_GLOBAL                     1: max
+                14      LOAD_FAST                       6: linestarts
+                16      LOAD_METHOD                     2: values
+                18      CALL_METHOD                     0
+                20      CALL_FUNCTION                   1
+                22      LOAD_FAST                       8: line_offset
+                24      BINARY_ADD                      
+                26      STORE_FAST                      10: maxlineno
+                28      LOAD_FAST                       10: maxlineno
+                30      LOAD_CONST                      1: 1000
+                32      COMPARE_OP                      5 (>=)
+                34      POP_JUMP_IF_FALSE               25 (to 50)
+                36      LOAD_GLOBAL                     3: len
+                38      LOAD_GLOBAL                     4: str
+                40      LOAD_FAST                       10: maxlineno
+                42      CALL_FUNCTION                   1
+                44      CALL_FUNCTION                   1
+                46      STORE_FAST                      11: lineno_width
+                48      JUMP_FORWARD                    5 (to 60)
+                50      LOAD_CONST                      2: 3
+                52      STORE_FAST                      11: lineno_width
+                54      JUMP_FORWARD                    2 (to 60)
+                56      LOAD_CONST                      3: 0
+                58      STORE_FAST                      11: lineno_width
+                60      LOAD_GLOBAL                     3: len
+                62      LOAD_FAST                       0: code
+                64      CALL_FUNCTION                   1
+                66      LOAD_CONST                      4: 2
+                68      BINARY_SUBTRACT                 
+                70      STORE_FAST                      12: maxoffset
+                72      LOAD_FAST                       12: maxoffset
+                74      LOAD_CONST                      5: 10000
+                76      COMPARE_OP                      5 (>=)
+                78      POP_JUMP_IF_FALSE               47 (to 94)
+                80      LOAD_GLOBAL                     3: len
+                82      LOAD_GLOBAL                     4: str
+                84      LOAD_FAST                       12: maxoffset
+                86      CALL_FUNCTION                   1
+                88      CALL_FUNCTION                   1
+                90      STORE_FAST                      13: offset_width
+                92      JUMP_FORWARD                    2 (to 98)
+                94      LOAD_CONST                      6: 4
+                96      STORE_FAST                      13: offset_width
+                98      LOAD_GLOBAL                     5: _get_instructions_bytes
+                100     LOAD_FAST                       0: code
+                102     LOAD_FAST                       2: varnames
+                104     LOAD_FAST                       3: names
+                106     LOAD_FAST                       4: constants
+                108     LOAD_FAST                       5: cells
+                110     LOAD_FAST                       6: linestarts
+                112     LOAD_FAST                       8: line_offset
+                114     LOAD_CONST                      7: ('line_offset',)
+                116     CALL_FUNCTION_KW                7
+                118     GET_ITER                        
+                120     FOR_ITER                        37 (to 196)
+                122     STORE_FAST                      14: instr
+                124     LOAD_FAST                       9: show_lineno
+                126     JUMP_IF_FALSE_OR_POP            73 (to 146)
+                128     LOAD_FAST                       14: instr
+                130     LOAD_ATTR                       6: starts_line
+                132     LOAD_CONST                      0: None
+                134     IS_OP                           1 (is not)
+                136     JUMP_IF_FALSE_OR_POP            73 (to 146)
+                138     LOAD_FAST                       14: instr
+                140     LOAD_ATTR                       7: offset
+                142     LOAD_CONST                      3: 0
+                144     COMPARE_OP                      4 (>)
+                146     STORE_FAST                      15: new_source_line
+                148     LOAD_FAST                       15: new_source_line
+                150     POP_JUMP_IF_FALSE               81 (to 162)
+                152     LOAD_GLOBAL                     8: print
+                154     LOAD_FAST                       7: file
+                156     LOAD_CONST                      8: ('file',)
+                158     CALL_FUNCTION_KW                1
+                160     POP_TOP                         
+                162     LOAD_FAST                       14: instr
+                164     LOAD_ATTR                       7: offset
+                166     LOAD_FAST                       1: lasti
+                168     COMPARE_OP                      2 (==)
+                170     STORE_FAST                      16: is_current_instr
+                172     LOAD_GLOBAL                     8: print
+                174     LOAD_FAST                       14: instr
+                176     LOAD_METHOD                     9: _disassemble
+                178     LOAD_FAST                       11: lineno_width
+                180     LOAD_FAST                       16: is_current_instr
+                182     LOAD_FAST                       13: offset_width
+                184     CALL_METHOD                     3
+                186     LOAD_FAST                       7: file
+                188     LOAD_CONST                      8: ('file',)
+                190     CALL_FUNCTION_KW                2
+                192     POP_TOP                         
+                194     JUMP_ABSOLUTE                   60 (to 120)
+                196     LOAD_CONST                      0: None
+                198     RETURN_VALUE                    
+        '_disassemble_bytes'
+        [Code]
+            File Name: dis.py
+            Object Name: _disassemble_str
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 4
+            Flags: 0x0000004B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS | CO_NOFREE)
+            [Names]
+                '_disassemble_recursive'
+                '_try_compile'
+            [Var Names]
+                'source'
+                'kwargs'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Compile the source string, then disassemble the code object.'
+                '<dis>'
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: _disassemble_recursive
+                2       LOAD_GLOBAL                     1: _try_compile
+                4       LOAD_FAST                       0: source
+                6       LOAD_CONST                      1: '<dis>'
+                8       CALL_FUNCTION                   2
+                10      BUILD_TUPLE                     1
+                12      BUILD_MAP                       0
+                14      LOAD_FAST                       1: kwargs
+                16      DICT_MERGE                      1
+                18      CALL_FUNCTION_EX                1
+                20      POP_TOP                         
+                22      LOAD_CONST                      2: None
+                24      RETURN_VALUE                    
+        '_disassemble_str'
+        [Code]
+            File Name: dis.py
+            Object Name: _unpack_opargs
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 4
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                'range'
+                'len'
+                'HAVE_ARGUMENT'
+                'EXTENDED_ARG'
+            [Var Names]
+                'code'
+                'extended_arg'
+                'i'
+                'op'
+                'arg'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                0
+                2
+                1
+                8
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_CONST                      1: 0
+                4       STORE_FAST                      1: extended_arg
+                6       LOAD_GLOBAL                     0: range
+                8       LOAD_CONST                      1: 0
+                10      LOAD_GLOBAL                     1: len
+                12      LOAD_FAST                       0: code
+                14      CALL_FUNCTION                   1
+                16      LOAD_CONST                      2: 2
+                18      CALL_FUNCTION                   3
+                20      GET_ITER                        
+                22      FOR_ITER                        39 (to 102)
+                24      STORE_FAST                      2: i
+                26      LOAD_FAST                       0: code
+                28      LOAD_FAST                       2: i
+                30      BINARY_SUBSCR                   
+                32      STORE_FAST                      3: op
+                34      LOAD_FAST                       3: op
+                36      LOAD_GLOBAL                     2: HAVE_ARGUMENT
+                38      COMPARE_OP                      5 (>=)
+                40      POP_JUMP_IF_FALSE               40 (to 80)
+                42      LOAD_FAST                       0: code
+                44      LOAD_FAST                       2: i
+                46      LOAD_CONST                      3: 1
+                48      BINARY_ADD                      
+                50      BINARY_SUBSCR                   
+                52      LOAD_FAST                       1: extended_arg
+                54      BINARY_OR                       
+                56      STORE_FAST                      4: arg
+                58      LOAD_FAST                       3: op
+                60      LOAD_GLOBAL                     3: EXTENDED_ARG
+                62      COMPARE_OP                      2 (==)
+                64      POP_JUMP_IF_FALSE               37 (to 74)
+                66      LOAD_FAST                       4: arg
+                68      LOAD_CONST                      4: 8
+                70      BINARY_LSHIFT                   
+                72      JUMP_FORWARD                    1 (to 76)
+                74      LOAD_CONST                      1: 0
+                76      STORE_FAST                      1: extended_arg
+                78      JUMP_FORWARD                    4 (to 88)
+                80      LOAD_CONST                      0: None
+                82      STORE_FAST                      4: arg
+                84      LOAD_CONST                      1: 0
+                86      STORE_FAST                      1: extended_arg
+                88      LOAD_FAST                       2: i
+                90      LOAD_FAST                       3: op
+                92      LOAD_FAST                       4: arg
+                94      BUILD_TUPLE                     3
+                96      YIELD_VALUE                     
+                98      POP_TOP                         
+                100     JUMP_ABSOLUTE                   11 (to 22)
+                102     LOAD_CONST                      0: None
+                104     RETURN_VALUE                    
+        '_unpack_opargs'
+        [Code]
+            File Name: dis.py
+            Object Name: findlabels
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                '_unpack_opargs'
+                'hasjrel'
+                'hasjabs'
+                'append'
+            [Var Names]
+                'code'
+                'labels'
+                'offset'
+                'op'
+                'arg'
+                'label'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Detect all offsets in a byte code which are jump targets.\n\n    Return the list of offsets.\n\n    '
+                None
+                2
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       STORE_FAST                      1: labels
+                4       LOAD_GLOBAL                     0: _unpack_opargs
+                6       LOAD_FAST                       0: code
+                8       CALL_FUNCTION                   1
+                10      GET_ITER                        
+                12      FOR_ITER                        41 (to 96)
+                14      UNPACK_SEQUENCE                 3
+                16      STORE_FAST                      2: offset
+                18      STORE_FAST                      3: op
+                20      STORE_FAST                      4: arg
+                22      LOAD_FAST                       4: arg
+                24      LOAD_CONST                      1: None
+                26      IS_OP                           1 (is not)
+                28      POP_JUMP_IF_FALSE               47 (to 94)
+                30      LOAD_FAST                       3: op
+                32      LOAD_GLOBAL                     1: hasjrel
+                34      CONTAINS_OP                     0 (in)
+                36      POP_JUMP_IF_FALSE               28 (to 56)
+                38      LOAD_FAST                       2: offset
+                40      LOAD_CONST                      2: 2
+                42      BINARY_ADD                      
+                44      LOAD_FAST                       4: arg
+                46      LOAD_CONST                      2: 2
+                48      BINARY_MULTIPLY                 
+                50      BINARY_ADD                      
+                52      STORE_FAST                      5: label
+                54      JUMP_FORWARD                    10 (to 76)
+                56      LOAD_FAST                       3: op
+                58      LOAD_GLOBAL                     2: hasjabs
+                60      CONTAINS_OP                     0 (in)
+                62      POP_JUMP_IF_FALSE               37 (to 74)
+                64      LOAD_FAST                       4: arg
+                66      LOAD_CONST                      2: 2
+                68      BINARY_MULTIPLY                 
+                70      STORE_FAST                      5: label
+                72      JUMP_FORWARD                    1 (to 76)
+                74      JUMP_ABSOLUTE                   6 (to 12)
+                76      LOAD_FAST                       5: label
+                78      LOAD_FAST                       1: labels
+                80      CONTAINS_OP                     1 (not in)
+                82      POP_JUMP_IF_FALSE               47 (to 94)
+                84      LOAD_FAST                       1: labels
+                86      LOAD_METHOD                     3: append
+                88      LOAD_FAST                       5: label
+                90      CALL_METHOD                     1
+                92      POP_TOP                         
+                94      JUMP_ABSOLUTE                   6 (to 12)
+                96      LOAD_FAST                       1: labels
+                98      RETURN_VALUE                    
+        'findlabels'
+        [Code]
+            File Name: dis.py
+            Object Name: findlinestarts
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 4
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                'co_lines'
+            [Var Names]
+                'code'
+                'lastline'
+                'start'
+                'end'
+                'line'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Find the offsets in a byte code which are start of lines in the source.\n\n    Generate pairs (offset, lineno)\n    '
+                None
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_CONST                      1: None
+                4       STORE_FAST                      1: lastline
+                6       LOAD_FAST                       0: code
+                8       LOAD_METHOD                     0: co_lines
+                10      CALL_METHOD                     0
+                12      GET_ITER                        
+                14      FOR_ITER                        20 (to 56)
+                16      UNPACK_SEQUENCE                 3
+                18      STORE_FAST                      2: start
+                20      STORE_FAST                      3: end
+                22      STORE_FAST                      4: line
+                24      LOAD_FAST                       4: line
+                26      LOAD_CONST                      1: None
+                28      IS_OP                           1 (is not)
+                30      POP_JUMP_IF_FALSE               27 (to 54)
+                32      LOAD_FAST                       4: line
+                34      LOAD_FAST                       1: lastline
+                36      COMPARE_OP                      3 (!=)
+                38      POP_JUMP_IF_FALSE               27 (to 54)
+                40      LOAD_FAST                       4: line
+                42      STORE_FAST                      1: lastline
+                44      LOAD_FAST                       2: start
+                46      LOAD_FAST                       4: line
+                48      BUILD_TUPLE                     2
+                50      YIELD_VALUE                     
+                52      POP_TOP                         
+                54      JUMP_ABSOLUTE                   7 (to 14)
+                56      LOAD_CONST                      1: None
+                58      RETURN_VALUE                    
+        'findlinestarts'
+        [Code]
+            File Name: dis.py
+            Object Name: Bytecode
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__init__'
+                '__iter__'
+                '__repr__'
+                'classmethod'
+                'from_traceback'
+                'info'
+                'dis'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Bytecode'
+                'The bytecode operations of a piece of code\n\n    Instantiate this with a function, method, other compiled object, string of\n    code, or a code object (as returned by compile()).\n\n    Iterating over this yields the bytecode operations as Instruction instances.\n    '
+                None
+                (
+                    'first_line'
+                    'current_offset'
+                )
+                [Code]
+                    File Name: dis.py
+                    Object Name: __init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 2
+                    Locals: 5
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_get_code_object'
+                        'codeobj'
+                        'co_firstlineno'
+                        'first_line'
+                        '_line_offset'
+                        'co_cellvars'
+                        'co_freevars'
+                        '_cell_names'
+                        'dict'
+                        'findlinestarts'
+                        '_linestarts'
+                        '_original_object'
+                        'current_offset'
+                    [Var Names]
+                        'self'
+                        'x'
+                        'first_line'
+                        'current_offset'
+                        'co'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: _get_code_object
+                        2       LOAD_FAST                       1: x
+                        4       CALL_FUNCTION                   1
+                        6       DUP_TOP                         
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: codeobj
+                        12      STORE_FAST                      4: co
+                        14      LOAD_FAST                       2: first_line
+                        16      LOAD_CONST                      0: None
+                        18      IS_OP                           0 (is)
+                        20      POP_JUMP_IF_FALSE               19 (to 38)
+                        22      LOAD_FAST                       4: co
+                        24      LOAD_ATTR                       2: co_firstlineno
+                        26      LOAD_FAST                       0: self
+                        28      STORE_ATTR                      3: first_line
+                        30      LOAD_CONST                      1: 0
+                        32      LOAD_FAST                       0: self
+                        34      STORE_ATTR                      4: _line_offset
+                        36      JUMP_FORWARD                    9 (to 56)
+                        38      LOAD_FAST                       2: first_line
+                        40      LOAD_FAST                       0: self
+                        42      STORE_ATTR                      3: first_line
+                        44      LOAD_FAST                       2: first_line
+                        46      LOAD_FAST                       4: co
+                        48      LOAD_ATTR                       2: co_firstlineno
+                        50      BINARY_SUBTRACT                 
+                        52      LOAD_FAST                       0: self
+                        54      STORE_ATTR                      4: _line_offset
+                        56      LOAD_FAST                       4: co
+                        58      LOAD_ATTR                       5: co_cellvars
+                        60      LOAD_FAST                       4: co
+                        62      LOAD_ATTR                       6: co_freevars
+                        64      BINARY_ADD                      
+                        66      LOAD_FAST                       0: self
+                        68      STORE_ATTR                      7: _cell_names
+                        70      LOAD_GLOBAL                     8: dict
+                        72      LOAD_GLOBAL                     9: findlinestarts
+                        74      LOAD_FAST                       4: co
+                        76      CALL_FUNCTION                   1
+                        78      CALL_FUNCTION                   1
+                        80      LOAD_FAST                       0: self
+                        82      STORE_ATTR                      10: _linestarts
+                        84      LOAD_FAST                       1: x
+                        86      LOAD_FAST                       0: self
+                        88      STORE_ATTR                      11: _original_object
+                        90      LOAD_FAST                       3: current_offset
+                        92      LOAD_FAST                       0: self
+                        94      STORE_ATTR                      12: current_offset
+                        96      LOAD_CONST                      0: None
+                        98      RETURN_VALUE                    
+                'Bytecode.__init__'
+                [Code]
+                    File Name: dis.py
+                    Object Name: __iter__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 9
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'codeobj'
+                        '_get_instructions_bytes'
+                        'co_code'
+                        'co_varnames'
+                        'co_names'
+                        'co_consts'
+                        '_cell_names'
+                        '_linestarts'
+                        '_line_offset'
+                    [Var Names]
+                        'self'
+                        'co'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        (
+                            'line_offset'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: codeobj
+                        4       STORE_FAST                      1: co
+                        6       LOAD_GLOBAL                     1: _get_instructions_bytes
+                        8       LOAD_FAST                       1: co
+                        10      LOAD_ATTR                       2: co_code
+                        12      LOAD_FAST                       1: co
+                        14      LOAD_ATTR                       3: co_varnames
+                        16      LOAD_FAST                       1: co
+                        18      LOAD_ATTR                       4: co_names
+                        20      LOAD_FAST                       1: co
+                        22      LOAD_ATTR                       5: co_consts
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       6: _cell_names
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       7: _linestarts
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       8: _line_offset
+                        36      LOAD_CONST                      1: ('line_offset',)
+                        38      CALL_FUNCTION_KW                7
+                        40      RETURN_VALUE                    
+                'Bytecode.__iter__'
+                [Code]
+                    File Name: dis.py
+                    Object Name: __repr__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'format'
+                        '__class__'
+                        '__name__'
+                        '_original_object'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '{}({!r})'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: '{}({!r})'
+                        2       LOAD_METHOD                     0: format
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_ATTR                       1: __class__
+                        8       LOAD_ATTR                       2: __name__
+                        10      LOAD_FAST                       0: self
+                        12      LOAD_ATTR                       3: _original_object
+                        14      CALL_METHOD                     2
+                        16      RETURN_VALUE                    
+                'Bytecode.__repr__'
+                [Code]
+                    File Name: dis.py
+                    Object Name: from_traceback
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'tb_next'
+                        'tb_frame'
+                        'f_code'
+                        'tb_lasti'
+                    [Var Names]
+                        'cls'
+                        'tb'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        ' Construct a Bytecode from the given traceback '
+                        (
+                            'current_offset'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       1: tb
+                        2       LOAD_ATTR                       0: tb_next
+                        4       POP_JUMP_IF_FALSE               9 (to 18)
+                        6       LOAD_FAST                       1: tb
+                        8       LOAD_ATTR                       0: tb_next
+                        10      STORE_FAST                      1: tb
+                        12      LOAD_FAST                       1: tb
+                        14      LOAD_ATTR                       0: tb_next
+                        16      POP_JUMP_IF_TRUE                3 (to 6)
+                        18      LOAD_FAST                       0: cls
+                        20      LOAD_FAST                       1: tb
+                        22      LOAD_ATTR                       1: tb_frame
+                        24      LOAD_ATTR                       2: f_code
+                        26      LOAD_FAST                       1: tb
+                        28      LOAD_ATTR                       3: tb_lasti
+                        30      LOAD_CONST                      1: ('current_offset',)
+                        32      CALL_FUNCTION_KW                2
+                        34      RETURN_VALUE                    
+                'Bytecode.from_traceback'
+                [Code]
+                    File Name: dis.py
+                    Object Name: info
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_format_code_info'
+                        'codeobj'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return formatted information about the code object.'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: _format_code_info
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       1: codeobj
+                        6       CALL_FUNCTION                   1
+                        8       RETURN_VALUE                    
+                'Bytecode.info'
+                [Code]
+                    File Name: dis.py
+                    Object Name: dis
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 12
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'codeobj'
+                        'current_offset'
+                        'io'
+                        'StringIO'
+                        '_disassemble_bytes'
+                        'co_code'
+                        'co_varnames'
+                        'co_names'
+                        'co_consts'
+                        '_cell_names'
+                        '_linestarts'
+                        '_line_offset'
+                        'getvalue'
+                    [Var Names]
+                        'self'
+                        'co'
+                        'offset'
+                        'output'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return a formatted view of the bytecode operations.'
+                        None
+                        -1
+                        (
+                            'varnames'
+                            'names'
+                            'constants'
+                            'cells'
+                            'linestarts'
+                            'line_offset'
+                            'file'
+                            'lasti'
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: codeobj
+                        4       STORE_FAST                      1: co
+                        6       LOAD_FAST                       0: self
+                        8       LOAD_ATTR                       1: current_offset
+                        10      LOAD_CONST                      1: None
+                        12      IS_OP                           1 (is not)
+                        14      POP_JUMP_IF_FALSE               12 (to 24)
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_ATTR                       1: current_offset
+                        20      STORE_FAST                      2: offset
+                        22      JUMP_FORWARD                    2 (to 28)
+                        24      LOAD_CONST                      2: -1
+                        26      STORE_FAST                      2: offset
+                        28      LOAD_GLOBAL                     2: io
+                        30      LOAD_METHOD                     3: StringIO
+                        32      CALL_METHOD                     0
+                        34      SETUP_WITH                      32 (to 100)
+                        36      STORE_FAST                      3: output
+                        38      LOAD_GLOBAL                     4: _disassemble_bytes
+                        40      LOAD_FAST                       1: co
+                        42      LOAD_ATTR                       5: co_code
+                        44      LOAD_FAST                       1: co
+                        46      LOAD_ATTR                       6: co_varnames
+                        48      LOAD_FAST                       1: co
+                        50      LOAD_ATTR                       7: co_names
+                        52      LOAD_FAST                       1: co
+                        54      LOAD_ATTR                       8: co_consts
+                        56      LOAD_FAST                       0: self
+                        58      LOAD_ATTR                       9: _cell_names
+                        60      LOAD_FAST                       0: self
+                        62      LOAD_ATTR                       10: _linestarts
+                        64      LOAD_FAST                       0: self
+                        66      LOAD_ATTR                       11: _line_offset
+                        68      LOAD_FAST                       3: output
+                        70      LOAD_FAST                       2: offset
+                        72      LOAD_CONST                      3: ('varnames', 'names', 'constants', 'cells', 'linestarts', 'line_offset', 'file', 'lasti')
+                        74      CALL_FUNCTION_KW                9
+                        76      POP_TOP                         
+                        78      LOAD_FAST                       3: output
+                        80      LOAD_METHOD                     12: getvalue
+                        82      CALL_METHOD                     0
+                        84      POP_BLOCK                       
+                        86      ROT_TWO                         
+                        88      LOAD_CONST                      1: None
+                        90      DUP_TOP                         
+                        92      DUP_TOP                         
+                        94      CALL_FUNCTION                   3
+                        96      POP_TOP                         
+                        98      RETURN_VALUE                    
+                        100     WITH_EXCEPT_START               
+                        102     POP_JUMP_IF_TRUE                53 (to 106)
+                        104     RERAISE                         1
+                        106     POP_TOP                         
+                        108     POP_TOP                         
+                        110     POP_TOP                         
+                        112     POP_EXCEPT                      
+                        114     POP_TOP                         
+                        116     LOAD_CONST                      1: None
+                        118     RETURN_VALUE                    
+                'Bytecode.dis'
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Bytecode'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'The bytecode operations of a piece of code\n\n    Instantiate this with a function, method, other compiled object, string of\n    code, or a code object (as returned by compile()).\n\n    Iterating over this yields the bytecode operations as Instruction instances.\n    '
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: None
+                14      LOAD_CONST                      2: None
+                16      LOAD_CONST                      3: ('first_line', 'current_offset')
+                18      BUILD_CONST_KEY_MAP             2
+                20      LOAD_CONST                      4: <CODE> __init__
+                22      LOAD_CONST                      5: 'Bytecode.__init__'
+                24      MAKE_FUNCTION                   2
+                26      STORE_NAME                      4: __init__
+                28      LOAD_CONST                      6: <CODE> __iter__
+                30      LOAD_CONST                      7: 'Bytecode.__iter__'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      5: __iter__
+                36      LOAD_CONST                      8: <CODE> __repr__
+                38      LOAD_CONST                      9: 'Bytecode.__repr__'
+                40      MAKE_FUNCTION                   0
+                42      STORE_NAME                      6: __repr__
+                44      LOAD_NAME                       7: classmethod
+                46      LOAD_CONST                      10: <CODE> from_traceback
+                48      LOAD_CONST                      11: 'Bytecode.from_traceback'
+                50      MAKE_FUNCTION                   0
+                52      CALL_FUNCTION                   1
+                54      STORE_NAME                      8: from_traceback
+                56      LOAD_CONST                      12: <CODE> info
+                58      LOAD_CONST                      13: 'Bytecode.info'
+                60      MAKE_FUNCTION                   0
+                62      STORE_NAME                      9: info
+                64      LOAD_CONST                      14: <CODE> dis
+                66      LOAD_CONST                      15: 'Bytecode.dis'
+                68      MAKE_FUNCTION                   0
+                70      STORE_NAME                      10: dis
+                72      LOAD_CONST                      2: None
+                74      RETURN_VALUE                    
+        'Bytecode'
+        [Code]
+            File Name: dis.py
+            Object Name: _test
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'argparse'
+                'ArgumentParser'
+                'add_argument'
+                'FileType'
+                'parse_args'
+                'infile'
+                'read'
+                'compile'
+                'name'
+                'dis'
+            [Var Names]
+                'argparse'
+                'parser'
+                'args'
+                'infile'
+                'source'
+                'code'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Simple test program to disassemble a file.'
+                0
+                None
+                'infile'
+                'rb'
+                '?'
+                '-'
+                (
+                    'type'
+                    'nargs'
+                    'default'
+                )
+                'exec'
+            [Disassembly]
+                0       LOAD_CONST                      1: 0
+                2       LOAD_CONST                      2: None
+                4       IMPORT_NAME                     0: argparse
+                6       STORE_FAST                      0: argparse
+                8       LOAD_FAST                       0: argparse
+                10      LOAD_METHOD                     1: ArgumentParser
+                12      CALL_METHOD                     0
+                14      STORE_FAST                      1: parser
+                16      LOAD_FAST                       1: parser
+                18      LOAD_ATTR                       2: add_argument
+                20      LOAD_CONST                      3: 'infile'
+                22      LOAD_FAST                       0: argparse
+                24      LOAD_METHOD                     3: FileType
+                26      LOAD_CONST                      4: 'rb'
+                28      CALL_METHOD                     1
+                30      LOAD_CONST                      5: '?'
+                32      LOAD_CONST                      6: '-'
+                34      LOAD_CONST                      7: ('type', 'nargs', 'default')
+                36      CALL_FUNCTION_KW                4
+                38      POP_TOP                         
+                40      LOAD_FAST                       1: parser
+                42      LOAD_METHOD                     4: parse_args
+                44      CALL_METHOD                     0
+                46      STORE_FAST                      2: args
+                48      LOAD_FAST                       2: args
+                50      LOAD_ATTR                       5: infile
+                52      SETUP_WITH                      12 (to 78)
+                54      STORE_FAST                      3: infile
+                56      LOAD_FAST                       3: infile
+                58      LOAD_METHOD                     6: read
+                60      CALL_METHOD                     0
+                62      STORE_FAST                      4: source
+                64      POP_BLOCK                       
+                66      LOAD_CONST                      2: None
+                68      DUP_TOP                         
+                70      DUP_TOP                         
+                72      CALL_FUNCTION                   3
+                74      POP_TOP                         
+                76      JUMP_FORWARD                    8 (to 94)
+                78      WITH_EXCEPT_START               
+                80      POP_JUMP_IF_TRUE                42 (to 84)
+                82      RERAISE                         1
+                84      POP_TOP                         
+                86      POP_TOP                         
+                88      POP_TOP                         
+                90      POP_EXCEPT                      
+                92      POP_TOP                         
+                94      LOAD_GLOBAL                     7: compile
+                96      LOAD_FAST                       4: source
+                98      LOAD_FAST                       2: args
+                100     LOAD_ATTR                       5: infile
+                102     LOAD_ATTR                       8: name
+                104     LOAD_CONST                      8: 'exec'
+                106     CALL_FUNCTION                   3
+                108     STORE_FAST                      5: code
+                110     LOAD_GLOBAL                     9: dis
+                112     LOAD_FAST                       5: code
+                114     CALL_FUNCTION                   1
+                116     POP_TOP                         
+                118     LOAD_CONST                      2: None
+                120     RETURN_VALUE                    
+        '_test'
+        '__main__'
+        (
+            None
+        )
+        (
+            None
+            None
+            None
+            None
+            None
+            0
+        )
+        (
+            -1
+        )
+        (
+            -1
+            None
+            None
+            None
+            None
+            None
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Disassembler of Python byte code into mnemonics.'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: sys
+        10      STORE_NAME                      1: sys
+        12      LOAD_CONST                      1: 0
+        14      LOAD_CONST                      2: None
+        16      IMPORT_NAME                     2: types
+        18      STORE_NAME                      2: types
+        20      LOAD_CONST                      1: 0
+        22      LOAD_CONST                      2: None
+        24      IMPORT_NAME                     3: collections
+        26      STORE_NAME                      3: collections
+        28      LOAD_CONST                      1: 0
+        30      LOAD_CONST                      2: None
+        32      IMPORT_NAME                     4: io
+        34      STORE_NAME                      4: io
+        36      LOAD_CONST                      1: 0
+        38      LOAD_CONST                      3: ('*',)
+        40      IMPORT_NAME                     5: opcode
+        42      IMPORT_STAR                     
+        44      LOAD_CONST                      1: 0
+        46      LOAD_CONST                      4: ('__all__',)
+        48      IMPORT_NAME                     5: opcode
+        50      IMPORT_FROM                     6: __all__
+        52      STORE_NAME                      7: _opcodes_all
+        54      POP_TOP                         
+        56      BUILD_LIST                      0
+        58      LOAD_CONST                      5: ('code_info', 'dis', 'disassemble', 'distb', 'disco', 'findlinestarts', 'findlabels', 'show_code', 'get_instructions', 'Instruction', 'Bytecode')
+        60      LIST_EXTEND                     1
+        62      LOAD_NAME                       7: _opcodes_all
+        64      BINARY_ADD                      
+        66      STORE_NAME                      6: __all__
+        68      DELETE_NAME                     7: _opcodes_all
+        70      LOAD_NAME                       2: types
+        72      LOAD_ATTR                       8: MethodType
+        74      LOAD_NAME                       2: types
+        76      LOAD_ATTR                       9: FunctionType
+        78      LOAD_NAME                       2: types
+        80      LOAD_ATTR                       10: CodeType
+        82      LOAD_NAME                       11: classmethod
+        84      LOAD_NAME                       12: staticmethod
+        86      LOAD_NAME                       13: type
+        88      BUILD_TUPLE                     6
+        90      STORE_NAME                      14: _have_code
+        92      LOAD_NAME                       15: opmap
+        94      LOAD_CONST                      6: 'FORMAT_VALUE'
+        96      BINARY_SUBSCR                   
+        98      STORE_NAME                      16: FORMAT_VALUE
+        100     LOAD_CONST                      7: (None, '')
+        102     LOAD_NAME                       17: str
+        104     LOAD_CONST                      8: 'str'
+        106     BUILD_TUPLE                     2
+        108     LOAD_NAME                       18: repr
+        110     LOAD_CONST                      9: 'repr'
+        112     BUILD_TUPLE                     2
+        114     LOAD_NAME                       19: ascii
+        116     LOAD_CONST                      10: 'ascii'
+        118     BUILD_TUPLE                     2
+        120     BUILD_TUPLE                     4
+        122     STORE_NAME                      20: FORMAT_VALUE_CONVERTERS
+        124     LOAD_NAME                       15: opmap
+        126     LOAD_CONST                      11: 'MAKE_FUNCTION'
+        128     BINARY_SUBSCR                   
+        130     STORE_NAME                      21: MAKE_FUNCTION
+        132     LOAD_CONST                      12: ('defaults', 'kwdefaults', 'annotations', 'closure')
+        134     STORE_NAME                      22: MAKE_FUNCTION_FLAGS
+        136     LOAD_CONST                      13: <CODE> _try_compile
+        138     LOAD_CONST                      14: '_try_compile'
+        140     MAKE_FUNCTION                   0
+        142     STORE_NAME                      23: _try_compile
+        144     LOAD_CONST                      86: (None,)
+        146     LOAD_CONST                      2: None
+        148     LOAD_CONST                      2: None
+        150     LOAD_CONST                      15: ('file', 'depth')
+        152     BUILD_CONST_KEY_MAP             2
+        154     LOAD_CONST                      16: <CODE> dis
+        156     LOAD_CONST                      17: 'dis'
+        158     MAKE_FUNCTION                   3
+        160     STORE_NAME                      24: dis
+        162     LOAD_CONST                      86: (None,)
+        164     LOAD_CONST                      2: None
+        166     LOAD_CONST                      18: ('file',)
+        168     BUILD_CONST_KEY_MAP             1
+        170     LOAD_CONST                      19: <CODE> distb
+        172     LOAD_CONST                      20: 'distb'
+        174     MAKE_FUNCTION                   3
+        176     STORE_NAME                      25: distb
+        178     LOAD_CONST                      21: 'OPTIMIZED'
+        180     LOAD_CONST                      22: 'NEWLOCALS'
+        182     LOAD_CONST                      23: 'VARARGS'
+        184     LOAD_CONST                      24: 'VARKEYWORDS'
+        186     LOAD_CONST                      25: 'NESTED'
+        188     LOAD_CONST                      26: 'GENERATOR'
+        190     LOAD_CONST                      27: 'NOFREE'
+        192     LOAD_CONST                      28: 'COROUTINE'
+        194     LOAD_CONST                      29: 'ITERABLE_COROUTINE'
+        196     LOAD_CONST                      30: 'ASYNC_GENERATOR'
+        198     LOAD_CONST                      31: (1, 2, 4, 8, 16, 32, 64, 128, 256, 512)
+        200     BUILD_CONST_KEY_MAP             10
+        202     STORE_NAME                      26: COMPILER_FLAG_NAMES
+        204     LOAD_CONST                      32: <CODE> pretty_flags
+        206     LOAD_CONST                      33: 'pretty_flags'
+        208     MAKE_FUNCTION                   0
+        210     STORE_NAME                      27: pretty_flags
+        212     LOAD_CONST                      34: <CODE> _get_code_object
+        214     LOAD_CONST                      35: '_get_code_object'
+        216     MAKE_FUNCTION                   0
+        218     STORE_NAME                      28: _get_code_object
+        220     LOAD_CONST                      36: <CODE> code_info
+        222     LOAD_CONST                      37: 'code_info'
+        224     MAKE_FUNCTION                   0
+        226     STORE_NAME                      29: code_info
+        228     LOAD_CONST                      38: <CODE> _format_code_info
+        230     LOAD_CONST                      39: '_format_code_info'
+        232     MAKE_FUNCTION                   0
+        234     STORE_NAME                      30: _format_code_info
+        236     LOAD_CONST                      2: None
+        238     LOAD_CONST                      18: ('file',)
+        240     BUILD_CONST_KEY_MAP             1
+        242     LOAD_CONST                      40: <CODE> show_code
+        244     LOAD_CONST                      41: 'show_code'
+        246     MAKE_FUNCTION                   2
+        248     STORE_NAME                      31: show_code
+        250     LOAD_NAME                       3: collections
+        252     LOAD_METHOD                     32: namedtuple
+        254     LOAD_CONST                      42: '_Instruction'
+        256     LOAD_CONST                      43: 'opname opcode arg argval argrepr offset starts_line is_jump_target'
+        258     CALL_METHOD                     2
+        260     STORE_NAME                      33: _Instruction
+        262     LOAD_CONST                      44: 'Human readable name for operation'
+        264     LOAD_NAME                       33: _Instruction
+        266     LOAD_ATTR                       34: opname
+        268     STORE_ATTR                      0: __doc__
+        270     LOAD_CONST                      45: 'Numeric code for operation'
+        272     LOAD_NAME                       33: _Instruction
+        274     LOAD_ATTR                       5: opcode
+        276     STORE_ATTR                      0: __doc__
+        278     LOAD_CONST                      46: 'Numeric argument to operation (if any), otherwise None'
+        280     LOAD_NAME                       33: _Instruction
+        282     LOAD_ATTR                       35: arg
+        284     STORE_ATTR                      0: __doc__
+        286     LOAD_CONST                      47: 'Resolved arg value (if known), otherwise same as arg'
+        288     LOAD_NAME                       33: _Instruction
+        290     LOAD_ATTR                       36: argval
+        292     STORE_ATTR                      0: __doc__
+        294     LOAD_CONST                      48: 'Human readable description of operation argument'
+        296     LOAD_NAME                       33: _Instruction
+        298     LOAD_ATTR                       37: argrepr
+        300     STORE_ATTR                      0: __doc__
+        302     LOAD_CONST                      49: 'Start index of operation within bytecode sequence'
+        304     LOAD_NAME                       33: _Instruction
+        306     LOAD_ATTR                       38: offset
+        308     STORE_ATTR                      0: __doc__
+        310     LOAD_CONST                      50: 'Line started by this opcode (if any), otherwise None'
+        312     LOAD_NAME                       33: _Instruction
+        314     LOAD_ATTR                       39: starts_line
+        316     STORE_ATTR                      0: __doc__
+        318     LOAD_CONST                      51: 'True if other code jumps to here, otherwise False'
+        320     LOAD_NAME                       33: _Instruction
+        322     LOAD_ATTR                       40: is_jump_target
+        324     STORE_ATTR                      0: __doc__
+        326     LOAD_CONST                      52: 20
+        328     STORE_NAME                      41: _OPNAME_WIDTH
+        330     LOAD_CONST                      53: 5
+        332     STORE_NAME                      42: _OPARG_WIDTH
+        334     LOAD_BUILD_CLASS                
+        336     LOAD_CONST                      54: <CODE> Instruction
+        338     LOAD_CONST                      55: 'Instruction'
+        340     MAKE_FUNCTION                   0
+        342     LOAD_CONST                      55: 'Instruction'
+        344     LOAD_NAME                       33: _Instruction
+        346     CALL_FUNCTION                   3
+        348     STORE_NAME                      43: Instruction
+        350     LOAD_CONST                      2: None
+        352     LOAD_CONST                      56: ('first_line',)
+        354     BUILD_CONST_KEY_MAP             1
+        356     LOAD_CONST                      57: <CODE> get_instructions
+        358     LOAD_CONST                      58: 'get_instructions'
+        360     MAKE_FUNCTION                   2
+        362     STORE_NAME                      44: get_instructions
+        364     LOAD_CONST                      59: <CODE> _get_const_info
+        366     LOAD_CONST                      60: '_get_const_info'
+        368     MAKE_FUNCTION                   0
+        370     STORE_NAME                      45: _get_const_info
+        372     LOAD_CONST                      61: <CODE> _get_name_info
+        374     LOAD_CONST                      62: '_get_name_info'
+        376     MAKE_FUNCTION                   0
+        378     STORE_NAME                      46: _get_name_info
+        380     NOP                             
+        382     NOP                             
+        384     LOAD_CONST                      87: (None, None, None, None, None, 0)
+        386     LOAD_CONST                      63: <CODE> _get_instructions_bytes
+        388     LOAD_CONST                      64: '_get_instructions_bytes'
+        390     MAKE_FUNCTION                   1
+        392     STORE_NAME                      47: _get_instructions_bytes
+        394     LOAD_CONST                      88: (-1,)
+        396     LOAD_CONST                      2: None
+        398     LOAD_CONST                      18: ('file',)
+        400     BUILD_CONST_KEY_MAP             1
+        402     LOAD_CONST                      66: <CODE> disassemble
+        404     LOAD_CONST                      67: 'disassemble'
+        406     MAKE_FUNCTION                   3
+        408     STORE_NAME                      48: disassemble
+        410     LOAD_CONST                      2: None
+        412     LOAD_CONST                      2: None
+        414     LOAD_CONST                      15: ('file', 'depth')
+        416     BUILD_CONST_KEY_MAP             2
+        418     LOAD_CONST                      68: <CODE> _disassemble_recursive
+        420     LOAD_CONST                      69: '_disassemble_recursive'
+        422     MAKE_FUNCTION                   2
+        424     STORE_NAME                      49: _disassemble_recursive
+        426     NOP                             
+        428     NOP                             
+        430     LOAD_CONST                      89: (-1, None, None, None, None, None)
+        432     LOAD_CONST                      2: None
+        434     LOAD_CONST                      1: 0
+        436     LOAD_CONST                      70: ('file', 'line_offset')
+        438     BUILD_CONST_KEY_MAP             2
+        440     LOAD_CONST                      71: <CODE> _disassemble_bytes
+        442     LOAD_CONST                      72: '_disassemble_bytes'
+        444     MAKE_FUNCTION                   3
+        446     STORE_NAME                      50: _disassemble_bytes
+        448     LOAD_CONST                      73: <CODE> _disassemble_str
+        450     LOAD_CONST                      74: '_disassemble_str'
+        452     MAKE_FUNCTION                   0
+        454     STORE_NAME                      51: _disassemble_str
+        456     LOAD_NAME                       48: disassemble
+        458     STORE_NAME                      52: disco
+        460     LOAD_CONST                      75: <CODE> _unpack_opargs
+        462     LOAD_CONST                      76: '_unpack_opargs'
+        464     MAKE_FUNCTION                   0
+        466     STORE_NAME                      53: _unpack_opargs
+        468     LOAD_CONST                      77: <CODE> findlabels
+        470     LOAD_CONST                      78: 'findlabels'
+        472     MAKE_FUNCTION                   0
+        474     STORE_NAME                      54: findlabels
+        476     LOAD_CONST                      79: <CODE> findlinestarts
+        478     LOAD_CONST                      80: 'findlinestarts'
+        480     MAKE_FUNCTION                   0
+        482     STORE_NAME                      55: findlinestarts
+        484     LOAD_BUILD_CLASS                
+        486     LOAD_CONST                      81: <CODE> Bytecode
+        488     LOAD_CONST                      82: 'Bytecode'
+        490     MAKE_FUNCTION                   0
+        492     LOAD_CONST                      82: 'Bytecode'
+        494     CALL_FUNCTION                   2
+        496     STORE_NAME                      56: Bytecode
+        498     LOAD_CONST                      83: <CODE> _test
+        500     LOAD_CONST                      84: '_test'
+        502     MAKE_FUNCTION                   0
+        504     STORE_NAME                      57: _test
+        506     LOAD_NAME                       58: __name__
+        508     LOAD_CONST                      85: '__main__'
+        510     COMPARE_OP                      2 (==)
+        512     POP_JUMP_IF_FALSE               263 (to 526)
+        516     LOAD_NAME                       57: _test
+        518     CALL_FUNCTION                   0
+        520     POP_TOP                         
+        522     LOAD_CONST                      2: None
+        524     RETURN_VALUE                    
+        526     LOAD_CONST                      2: None
+        528     RETURN_VALUE                    

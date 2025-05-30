@@ -1,0 +1,1025 @@
+_compression.pyc (Python 3.10)
+[Code]
+    File Name: _compression.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'io'
+        'sys'
+        'DEFAULT_BUFFER_SIZE'
+        'BUFFER_SIZE'
+        'BufferedIOBase'
+        'BaseStream'
+        'RawIOBase'
+        'DecompressReader'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Internal classes used by the gzip, lzma and bz2 modules'
+        0
+        None
+        [Code]
+            File Name: _compression.py
+            Object Name: BaseStream
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 2
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '_check_not_closed'
+                '_check_can_read'
+                '_check_can_write'
+                '_check_can_seek'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'BaseStream'
+                'Mode-checking helper functions.'
+                [Code]
+                    File Name: _compression.py
+                    Object Name: _check_not_closed
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'closed'
+                        'ValueError'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'I/O operation on closed file'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: closed
+                        4       POP_JUMP_IF_FALSE               7 (to 14)
+                        6       LOAD_GLOBAL                     1: ValueError
+                        8       LOAD_CONST                      1: 'I/O operation on closed file'
+                        10      CALL_FUNCTION                   1
+                        12      RAISE_VARARGS                   1
+                        14      LOAD_CONST                      0: None
+                        16      RETURN_VALUE                    
+                'BaseStream._check_not_closed'
+                [Code]
+                    File Name: _compression.py
+                    Object Name: _check_can_read
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'readable'
+                        'io'
+                        'UnsupportedOperation'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'File not open for reading'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: readable
+                        4       CALL_METHOD                     0
+                        6       POP_JUMP_IF_TRUE                9 (to 18)
+                        8       LOAD_GLOBAL                     1: io
+                        10      LOAD_METHOD                     2: UnsupportedOperation
+                        12      LOAD_CONST                      1: 'File not open for reading'
+                        14      CALL_METHOD                     1
+                        16      RAISE_VARARGS                   1
+                        18      LOAD_CONST                      0: None
+                        20      RETURN_VALUE                    
+                'BaseStream._check_can_read'
+                [Code]
+                    File Name: _compression.py
+                    Object Name: _check_can_write
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'writable'
+                        'io'
+                        'UnsupportedOperation'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'File not open for writing'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: writable
+                        4       CALL_METHOD                     0
+                        6       POP_JUMP_IF_TRUE                9 (to 18)
+                        8       LOAD_GLOBAL                     1: io
+                        10      LOAD_METHOD                     2: UnsupportedOperation
+                        12      LOAD_CONST                      1: 'File not open for writing'
+                        14      CALL_METHOD                     1
+                        16      RAISE_VARARGS                   1
+                        18      LOAD_CONST                      0: None
+                        20      RETURN_VALUE                    
+                'BaseStream._check_can_write'
+                [Code]
+                    File Name: _compression.py
+                    Object Name: _check_can_seek
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'readable'
+                        'io'
+                        'UnsupportedOperation'
+                        'seekable'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'Seeking is only supported on files open for reading'
+                        'The underlying file object does not support seeking'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: readable
+                        4       CALL_METHOD                     0
+                        6       POP_JUMP_IF_TRUE                9 (to 18)
+                        8       LOAD_GLOBAL                     1: io
+                        10      LOAD_METHOD                     2: UnsupportedOperation
+                        12      LOAD_CONST                      1: 'Seeking is only supported on files open for reading'
+                        14      CALL_METHOD                     1
+                        16      RAISE_VARARGS                   1
+                        18      LOAD_FAST                       0: self
+                        20      LOAD_METHOD                     3: seekable
+                        22      CALL_METHOD                     0
+                        24      POP_JUMP_IF_TRUE                18 (to 36)
+                        26      LOAD_GLOBAL                     1: io
+                        28      LOAD_METHOD                     2: UnsupportedOperation
+                        30      LOAD_CONST                      2: 'The underlying file object does not support seeking'
+                        32      CALL_METHOD                     1
+                        34      RAISE_VARARGS                   1
+                        36      LOAD_CONST                      0: None
+                        38      RETURN_VALUE                    
+                'BaseStream._check_can_seek'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'BaseStream'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Mode-checking helper functions.'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> _check_not_closed
+                14      LOAD_CONST                      3: 'BaseStream._check_not_closed'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: _check_not_closed
+                20      LOAD_CONST                      4: <CODE> _check_can_read
+                22      LOAD_CONST                      5: 'BaseStream._check_can_read'
+                24      MAKE_FUNCTION                   0
+                26      STORE_NAME                      5: _check_can_read
+                28      LOAD_CONST                      6: <CODE> _check_can_write
+                30      LOAD_CONST                      7: 'BaseStream._check_can_write'
+                32      MAKE_FUNCTION                   0
+                34      STORE_NAME                      6: _check_can_write
+                36      LOAD_CONST                      8: <CODE> _check_can_seek
+                38      LOAD_CONST                      9: 'BaseStream._check_can_seek'
+                40      MAKE_FUNCTION                   0
+                42      STORE_NAME                      7: _check_can_seek
+                44      LOAD_CONST                      10: None
+                46      RETURN_VALUE                    
+        'BaseStream'
+        [Code]
+            File Name: _compression.py
+            Object Name: DecompressReader
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                'readable'
+                '__init__'
+                'close'
+                'seekable'
+                'readinto'
+                'read'
+                'readall'
+                '_rewind'
+                'io'
+                'SEEK_SET'
+                'seek'
+                'tell'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'DecompressReader'
+                'Adapts the decompressor API to a RawIOBase reader API'
+                [Code]
+                    File Name: _compression.py
+                    Object Name: readable
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        True
+                    [Disassembly]
+                        0       LOAD_CONST                      1: True
+                        2       RETURN_VALUE                    
+                'DecompressReader.readable'
+                (
+                )
+                [Code]
+                    File Name: _compression.py
+                    Object Name: __init__
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 4
+                    Flags: 0x0000004B (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARKEYWORDS | CO_NOFREE)
+                    [Names]
+                        '_fp'
+                        '_eof'
+                        '_pos'
+                        '_size'
+                        '_decomp_factory'
+                        '_decomp_args'
+                        '_decompressor'
+                        '_trailing_error'
+                    [Var Names]
+                        'self'
+                        'fp'
+                        'decomp_factory'
+                        'trailing_error'
+                        'decomp_args'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        False
+                        0
+                        -1
+                        (
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       1: fp
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: _fp
+                        6       LOAD_CONST                      1: False
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: _eof
+                        12      LOAD_CONST                      2: 0
+                        14      LOAD_FAST                       0: self
+                        16      STORE_ATTR                      2: _pos
+                        18      LOAD_CONST                      3: -1
+                        20      LOAD_FAST                       0: self
+                        22      STORE_ATTR                      3: _size
+                        24      LOAD_FAST                       2: decomp_factory
+                        26      LOAD_FAST                       0: self
+                        28      STORE_ATTR                      4: _decomp_factory
+                        30      LOAD_FAST                       4: decomp_args
+                        32      LOAD_FAST                       0: self
+                        34      STORE_ATTR                      5: _decomp_args
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_ATTR                       4: _decomp_factory
+                        40      LOAD_CONST                      4: ()
+                        42      BUILD_MAP                       0
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_ATTR                       5: _decomp_args
+                        48      DICT_MERGE                      1
+                        50      CALL_FUNCTION_EX                1
+                        52      LOAD_FAST                       0: self
+                        54      STORE_ATTR                      6: _decompressor
+                        56      LOAD_FAST                       3: trailing_error
+                        58      LOAD_FAST                       0: self
+                        60      STORE_ATTR                      7: _trailing_error
+                        62      LOAD_CONST                      0: None
+                        64      RETURN_VALUE                    
+                'DecompressReader.__init__'
+                [Code]
+                    File Name: _compression.py
+                    Object Name: close
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        '_decompressor'
+                        'super'
+                        'close'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_CONST                      0: None
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: _decompressor
+                        6       LOAD_GLOBAL                     1: super
+                        8       CALL_FUNCTION                   0
+                        10      LOAD_METHOD                     2: close
+                        12      CALL_METHOD                     0
+                        14      RETURN_VALUE                    
+                'DecompressReader.close'
+                [Code]
+                    File Name: _compression.py
+                    Object Name: seekable
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fp'
+                        'seekable'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _fp
+                        4       LOAD_METHOD                     1: seekable
+                        6       CALL_METHOD                     0
+                        8       RETURN_VALUE                    
+                'DecompressReader.seekable'
+                [Code]
+                    File Name: _compression.py
+                    Object Name: readinto
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 5
+                    Stack Size: 9
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'memoryview'
+                        'cast'
+                        'read'
+                        'len'
+                    [Var Names]
+                        'self'
+                        'b'
+                        'view'
+                        'byte_view'
+                        'data'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        'B'
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: memoryview
+                        2       LOAD_FAST                       1: b
+                        4       CALL_FUNCTION                   1
+                        6       SETUP_WITH                      57 (to 122)
+                        8       STORE_FAST                      2: view
+                        10      LOAD_FAST                       2: view
+                        12      LOAD_METHOD                     1: cast
+                        14      LOAD_CONST                      1: 'B'
+                        16      CALL_METHOD                     1
+                        18      SETUP_WITH                      23 (to 66)
+                        20      STORE_FAST                      3: byte_view
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_METHOD                     2: read
+                        26      LOAD_GLOBAL                     3: len
+                        28      LOAD_FAST                       3: byte_view
+                        30      CALL_FUNCTION                   1
+                        32      CALL_METHOD                     1
+                        34      STORE_FAST                      4: data
+                        36      LOAD_FAST                       4: data
+                        38      LOAD_FAST                       3: byte_view
+                        40      LOAD_CONST                      0: None
+                        42      LOAD_GLOBAL                     3: len
+                        44      LOAD_FAST                       4: data
+                        46      CALL_FUNCTION                   1
+                        48      BUILD_SLICE                     2
+                        50      STORE_SUBSCR                    
+                        52      POP_BLOCK                       
+                        54      LOAD_CONST                      0: None
+                        56      DUP_TOP                         
+                        58      DUP_TOP                         
+                        60      CALL_FUNCTION                   3
+                        62      POP_TOP                         
+                        64      JUMP_FORWARD                    18 (to 102)
+                        66      WITH_EXCEPT_START               
+                        68      POP_JUMP_IF_TRUE                36 (to 72)
+                        70      RERAISE                         1
+                        72      POP_TOP                         
+                        74      POP_TOP                         
+                        76      POP_TOP                         
+                        78      POP_EXCEPT                      
+                        80      POP_TOP                         
+                        82      POP_BLOCK                       
+                        84      LOAD_CONST                      0: None
+                        86      DUP_TOP                         
+                        88      DUP_TOP                         
+                        90      CALL_FUNCTION                   3
+                        92      POP_TOP                         
+                        94      LOAD_GLOBAL                     3: len
+                        96      LOAD_FAST                       4: data
+                        98      CALL_FUNCTION                   1
+                        100     RETURN_VALUE                    
+                        102     POP_BLOCK                       
+                        104     LOAD_CONST                      0: None
+                        106     DUP_TOP                         
+                        108     DUP_TOP                         
+                        110     CALL_FUNCTION                   3
+                        112     POP_TOP                         
+                        114     LOAD_GLOBAL                     3: len
+                        116     LOAD_FAST                       4: data
+                        118     CALL_FUNCTION                   1
+                        120     RETURN_VALUE                    
+                        122     WITH_EXCEPT_START               
+                        124     POP_JUMP_IF_TRUE                64 (to 128)
+                        126     RERAISE                         1
+                        128     POP_TOP                         
+                        130     POP_TOP                         
+                        132     POP_TOP                         
+                        134     POP_EXCEPT                      
+                        136     POP_TOP                         
+                        138     LOAD_GLOBAL                     3: len
+                        140     LOAD_FAST                       4: data
+                        142     CALL_FUNCTION                   1
+                        144     RETURN_VALUE                    
+                'DecompressReader.readinto'
+                -1
+                [Code]
+                    File Name: _compression.py
+                    Object Name: read
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'readall'
+                        '_eof'
+                        '_decompressor'
+                        'eof'
+                        'unused_data'
+                        '_fp'
+                        'read'
+                        'BUFFER_SIZE'
+                        '_decomp_factory'
+                        '_decomp_args'
+                        'decompress'
+                        '_trailing_error'
+                        'needs_input'
+                        'EOFError'
+                        '_pos'
+                        '_size'
+                        'len'
+                    [Var Names]
+                        'self'
+                        'size'
+                        'data'
+                        'rawblock'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                        b''
+                        True
+                        'Compressed file ended before the end-of-stream marker was reached'
+                        (
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       1: size
+                        2       LOAD_CONST                      1: 0
+                        4       COMPARE_OP                      0 (<)
+                        6       POP_JUMP_IF_FALSE               8 (to 16)
+                        8       LOAD_FAST                       0: self
+                        10      LOAD_METHOD                     0: readall
+                        12      CALL_METHOD                     0
+                        14      RETURN_VALUE                    
+                        16      LOAD_FAST                       1: size
+                        18      POP_JUMP_IF_FALSE               13 (to 26)
+                        20      LOAD_FAST                       0: self
+                        22      LOAD_ATTR                       1: _eof
+                        24      POP_JUMP_IF_FALSE               15 (to 30)
+                        26      LOAD_CONST                      2: b''
+                        28      RETURN_VALUE                    
+                        30      LOAD_CONST                      0: None
+                        32      STORE_FAST                      2: data
+                        34      NOP                             
+                        36      LOAD_FAST                       0: self
+                        38      LOAD_ATTR                       2: _decompressor
+                        40      LOAD_ATTR                       3: eof
+                        42      POP_JUMP_IF_FALSE               65 (to 130)
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_ATTR                       2: _decompressor
+                        48      LOAD_ATTR                       4: unused_data
+                        50      JUMP_IF_TRUE_OR_POP             31 (to 62)
+                        52      LOAD_FAST                       0: self
+                        54      LOAD_ATTR                       5: _fp
+                        56      LOAD_METHOD                     6: read
+                        58      LOAD_GLOBAL                     7: BUFFER_SIZE
+                        60      CALL_METHOD                     1
+                        62      STORE_FAST                      3: rawblock
+                        64      LOAD_FAST                       3: rawblock
+                        66      POP_JUMP_IF_TRUE                35 (to 70)
+                        68      JUMP_FORWARD                    60 (to 190)
+                        70      LOAD_FAST                       0: self
+                        72      LOAD_ATTR                       8: _decomp_factory
+                        74      LOAD_CONST                      5: ()
+                        76      BUILD_MAP                       0
+                        78      LOAD_FAST                       0: self
+                        80      LOAD_ATTR                       9: _decomp_args
+                        82      DICT_MERGE                      1
+                        84      CALL_FUNCTION_EX                1
+                        86      LOAD_FAST                       0: self
+                        88      STORE_ATTR                      2: _decompressor
+                        90      SETUP_FINALLY                   9 (to 110)
+                        92      LOAD_FAST                       0: self
+                        94      LOAD_ATTR                       2: _decompressor
+                        96      LOAD_METHOD                     10: decompress
+                        98      LOAD_FAST                       3: rawblock
+                        100     LOAD_FAST                       1: size
+                        102     CALL_METHOD                     2
+                        104     STORE_FAST                      2: data
+                        106     POP_BLOCK                       
+                        108     JUMP_FORWARD                    36 (to 182)
+                        110     DUP_TOP                         
+                        112     LOAD_FAST                       0: self
+                        114     LOAD_ATTR                       11: _trailing_error
+                        116     JUMP_IF_NOT_EXC_MATCH           64 (to 128)
+                        118     POP_TOP                         
+                        120     POP_TOP                         
+                        122     POP_TOP                         
+                        124     POP_EXCEPT                      
+                        126     JUMP_FORWARD                    31 (to 190)
+                        128     RERAISE                         0
+                        130     LOAD_FAST                       0: self
+                        132     LOAD_ATTR                       2: _decompressor
+                        134     LOAD_ATTR                       12: needs_input
+                        136     POP_JUMP_IF_FALSE               82 (to 164)
+                        138     LOAD_FAST                       0: self
+                        140     LOAD_ATTR                       5: _fp
+                        142     LOAD_METHOD                     6: read
+                        144     LOAD_GLOBAL                     7: BUFFER_SIZE
+                        146     CALL_METHOD                     1
+                        148     STORE_FAST                      3: rawblock
+                        150     LOAD_FAST                       3: rawblock
+                        152     POP_JUMP_IF_TRUE                81 (to 162)
+                        154     LOAD_GLOBAL                     13: EOFError
+                        156     LOAD_CONST                      4: 'Compressed file ended before the end-of-stream marker was reached'
+                        158     CALL_FUNCTION                   1
+                        160     RAISE_VARARGS                   1
+                        162     JUMP_FORWARD                    2 (to 168)
+                        164     LOAD_CONST                      2: b''
+                        166     STORE_FAST                      3: rawblock
+                        168     LOAD_FAST                       0: self
+                        170     LOAD_ATTR                       2: _decompressor
+                        172     LOAD_METHOD                     10: decompress
+                        174     LOAD_FAST                       3: rawblock
+                        176     LOAD_FAST                       1: size
+                        178     CALL_METHOD                     2
+                        180     STORE_FAST                      2: data
+                        182     LOAD_FAST                       2: data
+                        184     POP_JUMP_IF_FALSE               94 (to 188)
+                        186     JUMP_FORWARD                    1 (to 190)
+                        188     JUMP_ABSOLUTE                   18 (to 36)
+                        190     LOAD_FAST                       2: data
+                        192     POP_JUMP_IF_TRUE                106 (to 212)
+                        194     LOAD_CONST                      3: True
+                        196     LOAD_FAST                       0: self
+                        198     STORE_ATTR                      1: _eof
+                        200     LOAD_FAST                       0: self
+                        202     LOAD_ATTR                       14: _pos
+                        204     LOAD_FAST                       0: self
+                        206     STORE_ATTR                      15: _size
+                        208     LOAD_CONST                      2: b''
+                        210     RETURN_VALUE                    
+                        212     LOAD_FAST                       0: self
+                        214     DUP_TOP                         
+                        216     LOAD_ATTR                       14: _pos
+                        218     LOAD_GLOBAL                     16: len
+                        220     LOAD_FAST                       2: data
+                        222     CALL_FUNCTION                   1
+                        224     INPLACE_ADD                     
+                        226     ROT_TWO                         
+                        228     STORE_ATTR                      14: _pos
+                        230     LOAD_FAST                       2: data
+                        232     RETURN_VALUE                    
+                'DecompressReader.read'
+                [Code]
+                    File Name: _compression.py
+                    Object Name: readall
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'read'
+                        'sys'
+                        'maxsize'
+                        'append'
+                        'join'
+                    [Var Names]
+                        'self'
+                        'chunks'
+                        'data'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        b''
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       STORE_FAST                      1: chunks
+                        4       LOAD_FAST                       0: self
+                        6       LOAD_METHOD                     0: read
+                        8       LOAD_GLOBAL                     1: sys
+                        10      LOAD_ATTR                       2: maxsize
+                        12      CALL_METHOD                     1
+                        14      DUP_TOP                         
+                        16      STORE_FAST                      2: data
+                        18      POP_JUMP_IF_FALSE               23 (to 46)
+                        20      LOAD_FAST                       1: chunks
+                        22      LOAD_METHOD                     3: append
+                        24      LOAD_FAST                       2: data
+                        26      CALL_METHOD                     1
+                        28      POP_TOP                         
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_METHOD                     0: read
+                        34      LOAD_GLOBAL                     1: sys
+                        36      LOAD_ATTR                       2: maxsize
+                        38      CALL_METHOD                     1
+                        40      DUP_TOP                         
+                        42      STORE_FAST                      2: data
+                        44      POP_JUMP_IF_TRUE                10 (to 20)
+                        46      LOAD_CONST                      1: b''
+                        48      LOAD_METHOD                     4: join
+                        50      LOAD_FAST                       1: chunks
+                        52      CALL_METHOD                     1
+                        54      RETURN_VALUE                    
+                'DecompressReader.readall'
+                [Code]
+                    File Name: _compression.py
+                    Object Name: _rewind
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 4
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_fp'
+                        'seek'
+                        '_eof'
+                        '_pos'
+                        '_decomp_factory'
+                        '_decomp_args'
+                        '_decompressor'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                        False
+                        (
+                        )
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _fp
+                        4       LOAD_METHOD                     1: seek
+                        6       LOAD_CONST                      1: 0
+                        8       CALL_METHOD                     1
+                        10      POP_TOP                         
+                        12      LOAD_CONST                      2: False
+                        14      LOAD_FAST                       0: self
+                        16      STORE_ATTR                      2: _eof
+                        18      LOAD_CONST                      1: 0
+                        20      LOAD_FAST                       0: self
+                        22      STORE_ATTR                      3: _pos
+                        24      LOAD_FAST                       0: self
+                        26      LOAD_ATTR                       4: _decomp_factory
+                        28      LOAD_CONST                      3: ()
+                        30      BUILD_MAP                       0
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       5: _decomp_args
+                        36      DICT_MERGE                      1
+                        38      CALL_FUNCTION_EX                1
+                        40      LOAD_FAST                       0: self
+                        42      STORE_ATTR                      6: _decompressor
+                        44      LOAD_CONST                      0: None
+                        46      RETURN_VALUE                    
+                'DecompressReader._rewind'
+                [Code]
+                    File Name: _compression.py
+                    Object Name: seek
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 4
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'io'
+                        'SEEK_SET'
+                        'SEEK_CUR'
+                        '_pos'
+                        'SEEK_END'
+                        '_size'
+                        'read'
+                        'DEFAULT_BUFFER_SIZE'
+                        'ValueError'
+                        'format'
+                        '_rewind'
+                        'min'
+                        'len'
+                    [Var Names]
+                        'self'
+                        'offset'
+                        'whence'
+                        'data'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                        'Invalid value for whence: {}'
+                    [Disassembly]
+                        0       LOAD_FAST                       2: whence
+                        2       LOAD_GLOBAL                     0: io
+                        4       LOAD_ATTR                       1: SEEK_SET
+                        6       COMPARE_OP                      2 (==)
+                        8       POP_JUMP_IF_FALSE               6 (to 12)
+                        10      JUMP_FORWARD                    47 (to 106)
+                        12      LOAD_FAST                       2: whence
+                        14      LOAD_GLOBAL                     0: io
+                        16      LOAD_ATTR                       2: SEEK_CUR
+                        18      COMPARE_OP                      2 (==)
+                        20      POP_JUMP_IF_FALSE               17 (to 34)
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_ATTR                       3: _pos
+                        26      LOAD_FAST                       1: offset
+                        28      BINARY_ADD                      
+                        30      STORE_FAST                      1: offset
+                        32      JUMP_FORWARD                    36 (to 106)
+                        34      LOAD_FAST                       2: whence
+                        36      LOAD_GLOBAL                     0: io
+                        38      LOAD_ATTR                       4: SEEK_END
+                        40      COMPARE_OP                      2 (==)
+                        42      POP_JUMP_IF_FALSE               46 (to 92)
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_ATTR                       5: _size
+                        48      LOAD_CONST                      1: 0
+                        50      COMPARE_OP                      0 (<)
+                        52      POP_JUMP_IF_FALSE               40 (to 80)
+                        54      LOAD_FAST                       0: self
+                        56      LOAD_METHOD                     6: read
+                        58      LOAD_GLOBAL                     0: io
+                        60      LOAD_ATTR                       7: DEFAULT_BUFFER_SIZE
+                        62      CALL_METHOD                     1
+                        64      POP_JUMP_IF_FALSE               40 (to 80)
+                        66      NOP                             
+                        68      LOAD_FAST                       0: self
+                        70      LOAD_METHOD                     6: read
+                        72      LOAD_GLOBAL                     0: io
+                        74      LOAD_ATTR                       7: DEFAULT_BUFFER_SIZE
+                        76      CALL_METHOD                     1
+                        78      POP_JUMP_IF_TRUE                33 (to 66)
+                        80      LOAD_FAST                       0: self
+                        82      LOAD_ATTR                       5: _size
+                        84      LOAD_FAST                       1: offset
+                        86      BINARY_ADD                      
+                        88      STORE_FAST                      1: offset
+                        90      JUMP_FORWARD                    7 (to 106)
+                        92      LOAD_GLOBAL                     8: ValueError
+                        94      LOAD_CONST                      2: 'Invalid value for whence: {}'
+                        96      LOAD_METHOD                     9: format
+                        98      LOAD_FAST                       2: whence
+                        100     CALL_METHOD                     1
+                        102     CALL_FUNCTION                   1
+                        104     RAISE_VARARGS                   1
+                        106     LOAD_FAST                       1: offset
+                        108     LOAD_FAST                       0: self
+                        110     LOAD_ATTR                       3: _pos
+                        112     COMPARE_OP                      0 (<)
+                        114     POP_JUMP_IF_FALSE               63 (to 126)
+                        116     LOAD_FAST                       0: self
+                        118     LOAD_METHOD                     10: _rewind
+                        120     CALL_METHOD                     0
+                        122     POP_TOP                         
+                        124     JUMP_FORWARD                    5 (to 136)
+                        126     LOAD_FAST                       1: offset
+                        128     LOAD_FAST                       0: self
+                        130     LOAD_ATTR                       3: _pos
+                        132     INPLACE_SUBTRACT                
+                        134     STORE_FAST                      1: offset
+                        136     LOAD_FAST                       1: offset
+                        138     LOAD_CONST                      1: 0
+                        140     COMPARE_OP                      4 (>)
+                        142     POP_JUMP_IF_FALSE               97 (to 194)
+                        144     LOAD_FAST                       0: self
+                        146     LOAD_METHOD                     6: read
+                        148     LOAD_GLOBAL                     11: min
+                        150     LOAD_GLOBAL                     0: io
+                        152     LOAD_ATTR                       7: DEFAULT_BUFFER_SIZE
+                        154     LOAD_FAST                       1: offset
+                        156     CALL_FUNCTION                   2
+                        158     CALL_METHOD                     1
+                        160     STORE_FAST                      3: data
+                        162     LOAD_FAST                       3: data
+                        164     POP_JUMP_IF_TRUE                87 (to 174)
+                        166     NOP                             
+                        168     LOAD_FAST                       0: self
+                        170     LOAD_ATTR                       3: _pos
+                        172     RETURN_VALUE                    
+                        174     LOAD_FAST                       1: offset
+                        176     LOAD_GLOBAL                     12: len
+                        178     LOAD_FAST                       3: data
+                        180     CALL_FUNCTION                   1
+                        182     INPLACE_SUBTRACT                
+                        184     STORE_FAST                      1: offset
+                        186     LOAD_FAST                       1: offset
+                        188     LOAD_CONST                      1: 0
+                        190     COMPARE_OP                      4 (>)
+                        192     POP_JUMP_IF_TRUE                72 (to 144)
+                        194     LOAD_FAST                       0: self
+                        196     LOAD_ATTR                       3: _pos
+                        198     RETURN_VALUE                    
+                'DecompressReader.seek'
+                [Code]
+                    File Name: _compression.py
+                    Object Name: tell
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        '_pos'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        'Return the current file position.'
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: _pos
+                        4       RETURN_VALUE                    
+                'DecompressReader.tell'
+                (
+                    (
+                    )
+                )
+                (
+                    -1
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'DecompressReader'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: 'Adapts the decompressor API to a RawIOBase reader API'
+                10      STORE_NAME                      3: __doc__
+                12      LOAD_CONST                      2: <CODE> readable
+                14      LOAD_CONST                      3: 'DecompressReader.readable'
+                16      MAKE_FUNCTION                   0
+                18      STORE_NAME                      4: readable
+                20      LOAD_CONST                      24: ((),)
+                22      LOAD_CONST                      5: <CODE> __init__
+                24      LOAD_CONST                      6: 'DecompressReader.__init__'
+                26      MAKE_FUNCTION                   1
+                28      STORE_NAME                      5: __init__
+                30      LOAD_CLOSURE                    0: __class__
+                32      BUILD_TUPLE                     1
+                34      LOAD_CONST                      7: <CODE> close
+                36      LOAD_CONST                      8: 'DecompressReader.close'
+                38      MAKE_FUNCTION                   8
+                40      STORE_NAME                      6: close
+                42      LOAD_CONST                      9: <CODE> seekable
+                44      LOAD_CONST                      10: 'DecompressReader.seekable'
+                46      MAKE_FUNCTION                   0
+                48      STORE_NAME                      7: seekable
+                50      LOAD_CONST                      11: <CODE> readinto
+                52      LOAD_CONST                      12: 'DecompressReader.readinto'
+                54      MAKE_FUNCTION                   0
+                56      STORE_NAME                      8: readinto
+                58      LOAD_CONST                      25: (-1,)
+                60      LOAD_CONST                      14: <CODE> read
+                62      LOAD_CONST                      15: 'DecompressReader.read'
+                64      MAKE_FUNCTION                   1
+                66      STORE_NAME                      9: read
+                68      LOAD_CONST                      16: <CODE> readall
+                70      LOAD_CONST                      17: 'DecompressReader.readall'
+                72      MAKE_FUNCTION                   0
+                74      STORE_NAME                      10: readall
+                76      LOAD_CONST                      18: <CODE> _rewind
+                78      LOAD_CONST                      19: 'DecompressReader._rewind'
+                80      MAKE_FUNCTION                   0
+                82      STORE_NAME                      11: _rewind
+                84      LOAD_NAME                       12: io
+                86      LOAD_ATTR                       13: SEEK_SET
+                88      BUILD_TUPLE                     1
+                90      LOAD_CONST                      20: <CODE> seek
+                92      LOAD_CONST                      21: 'DecompressReader.seek'
+                94      MAKE_FUNCTION                   1
+                96      STORE_NAME                      14: seek
+                98      LOAD_CONST                      22: <CODE> tell
+                100     LOAD_CONST                      23: 'DecompressReader.tell'
+                102     MAKE_FUNCTION                   0
+                104     STORE_NAME                      15: tell
+                106     LOAD_CLOSURE                    0: __class__
+                108     DUP_TOP                         
+                110     STORE_NAME                      16: __classcell__
+                112     RETURN_VALUE                    
+        'DecompressReader'
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Internal classes used by the gzip, lzma and bz2 modules'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: io
+        10      STORE_NAME                      1: io
+        12      LOAD_CONST                      1: 0
+        14      LOAD_CONST                      2: None
+        16      IMPORT_NAME                     2: sys
+        18      STORE_NAME                      2: sys
+        20      LOAD_NAME                       1: io
+        22      LOAD_ATTR                       3: DEFAULT_BUFFER_SIZE
+        24      STORE_NAME                      4: BUFFER_SIZE
+        26      LOAD_BUILD_CLASS                
+        28      LOAD_CONST                      3: <CODE> BaseStream
+        30      LOAD_CONST                      4: 'BaseStream'
+        32      MAKE_FUNCTION                   0
+        34      LOAD_CONST                      4: 'BaseStream'
+        36      LOAD_NAME                       1: io
+        38      LOAD_ATTR                       5: BufferedIOBase
+        40      CALL_FUNCTION                   3
+        42      STORE_NAME                      6: BaseStream
+        44      LOAD_BUILD_CLASS                
+        46      LOAD_CONST                      5: <CODE> DecompressReader
+        48      LOAD_CONST                      6: 'DecompressReader'
+        50      MAKE_FUNCTION                   0
+        52      LOAD_CONST                      6: 'DecompressReader'
+        54      LOAD_NAME                       1: io
+        56      LOAD_ATTR                       7: RawIOBase
+        58      CALL_FUNCTION                   3
+        60      STORE_NAME                      8: DecompressReader
+        62      LOAD_CONST                      2: None
+        64      RETURN_VALUE                    

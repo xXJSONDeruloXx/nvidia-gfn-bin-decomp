@@ -1,0 +1,363 @@
+base64mime.pyc (Python 3.10)
+[Code]
+    File Name: email/base64mime.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 3
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        'base64'
+        'b64encode'
+        'binascii'
+        'b2a_base64'
+        'a2b_base64'
+        'CRLF'
+        'NL'
+        'EMPTYSTRING'
+        'MISC_LEN'
+        'header_length'
+        'header_encode'
+        'body_encode'
+        'decode'
+        'body_decode'
+        'decodestring'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        "Base64 content transfer encoding per RFCs 2045-2047.\n\nThis module handles the content transfer encoding method defined in RFC 2045\nto encode arbitrary 8-bit data using the three 8-bit bytes in four 7-bit\ncharacters encoding known as Base64.\n\nIt is used in the MIME standards for email to attach images, audio, and text\nusing some 8-bit character sets to messages.\n\nThis module provides an interface to encode and decode both headers and bodies\nwith Base64 encoding.\n\nRFC 2045 defines a method for including character set information in an\n`encoded-word' in a header.  This method is commonly used for 8-bit real names\nin To:, From:, Cc:, etc. fields, as well as Subject: lines.\n\nThis module does not do the line wrapping or end-of-line character conversion\nnecessary for proper internationalized headers; it only does dumb encoding and\ndecoding.  To deal with the various line wrapping issues, use the email.header\nmodule.\n"
+        (
+            'body_decode'
+            'body_encode'
+            'decode'
+            'decodestring'
+            'header_encode'
+            'header_length'
+        )
+        0
+        (
+            'b64encode'
+        )
+        (
+            'b2a_base64'
+            'a2b_base64'
+        )
+        '\r\n'
+        '\n'
+        ''
+        7
+        [Code]
+            File Name: email/base64mime.py
+            Object Name: header_length
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'divmod'
+                'len'
+            [Var Names]
+                'bytearray'
+                'groups_of_3'
+                'leftover'
+                'n'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Return the length of s when it is encoded with base64.'
+                3
+                4
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: divmod
+                2       LOAD_GLOBAL                     1: len
+                4       LOAD_FAST                       0: bytearray
+                6       CALL_FUNCTION                   1
+                8       LOAD_CONST                      1: 3
+                10      CALL_FUNCTION                   2
+                12      UNPACK_SEQUENCE                 2
+                14      STORE_FAST                      1: groups_of_3
+                16      STORE_FAST                      2: leftover
+                18      LOAD_FAST                       1: groups_of_3
+                20      LOAD_CONST                      2: 4
+                22      BINARY_MULTIPLY                 
+                24      STORE_FAST                      3: n
+                26      LOAD_FAST                       2: leftover
+                28      POP_JUMP_IF_FALSE               19 (to 38)
+                30      LOAD_FAST                       3: n
+                32      LOAD_CONST                      2: 4
+                34      INPLACE_ADD                     
+                36      STORE_FAST                      3: n
+                38      LOAD_FAST                       3: n
+                40      RETURN_VALUE                    
+        'header_length'
+        'iso-8859-1'
+        [Code]
+            File Name: email/base64mime.py
+            Object Name: header_encode
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'str'
+                'encode'
+                'b64encode'
+                'decode'
+            [Var Names]
+                'header_bytes'
+                'charset'
+                'encoded'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Encode a single header line with Base64 encoding in a given charset.\n\n    charset names the character set to use to encode the header.  It defaults\n    to iso-8859-1.  Base64 encoding is defined in RFC 2045.\n    '
+                ''
+                'ascii'
+                '=?%s?b?%s?='
+            [Disassembly]
+                0       LOAD_FAST                       0: header_bytes
+                2       POP_JUMP_IF_TRUE                4 (to 8)
+                4       LOAD_CONST                      1: ''
+                6       RETURN_VALUE                    
+                8       LOAD_GLOBAL                     0: isinstance
+                10      LOAD_FAST                       0: header_bytes
+                12      LOAD_GLOBAL                     1: str
+                14      CALL_FUNCTION                   2
+                16      POP_JUMP_IF_FALSE               14 (to 28)
+                18      LOAD_FAST                       0: header_bytes
+                20      LOAD_METHOD                     2: encode
+                22      LOAD_FAST                       1: charset
+                24      CALL_METHOD                     1
+                26      STORE_FAST                      0: header_bytes
+                28      LOAD_GLOBAL                     3: b64encode
+                30      LOAD_FAST                       0: header_bytes
+                32      CALL_FUNCTION                   1
+                34      LOAD_METHOD                     4: decode
+                36      LOAD_CONST                      2: 'ascii'
+                38      CALL_METHOD                     1
+                40      STORE_FAST                      2: encoded
+                42      LOAD_CONST                      3: '=?%s?b?%s?='
+                44      LOAD_FAST                       1: charset
+                46      LOAD_FAST                       2: encoded
+                48      BUILD_TUPLE                     2
+                50      BINARY_MODULO                   
+                52      RETURN_VALUE                    
+        'header_encode'
+        76
+        [Code]
+            File Name: email/base64mime.py
+            Object Name: body_encode
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 7
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'range'
+                'len'
+                'b2a_base64'
+                'decode'
+                'endswith'
+                'NL'
+                'append'
+                'EMPTYSTRING'
+                'join'
+            [Var Names]
+                's'
+                'maxlinelen'
+                'eol'
+                'encvec'
+                'max_unencoded'
+                'i'
+                'enc'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Encode a string with base64.\n\n    Each line will be wrapped at, at most, maxlinelen characters (defaults to\n    76 characters).\n\n    Each line of encoded text will end with eol, which defaults to "\\n".  Set\n    this to "\\r\\n" if you will be using the result of this function directly\n    in an email.\n    '
+                ''
+                3
+                4
+                0
+                'ascii'
+                None
+                -1
+            [Disassembly]
+                0       LOAD_FAST                       0: s
+                2       POP_JUMP_IF_TRUE                4 (to 8)
+                4       LOAD_CONST                      1: ''
+                6       RETURN_VALUE                    
+                8       BUILD_LIST                      0
+                10      STORE_FAST                      3: encvec
+                12      LOAD_FAST                       1: maxlinelen
+                14      LOAD_CONST                      2: 3
+                16      BINARY_MULTIPLY                 
+                18      LOAD_CONST                      3: 4
+                20      BINARY_FLOOR_DIVIDE             
+                22      STORE_FAST                      4: max_unencoded
+                24      LOAD_GLOBAL                     0: range
+                26      LOAD_CONST                      4: 0
+                28      LOAD_GLOBAL                     1: len
+                30      LOAD_FAST                       0: s
+                32      CALL_FUNCTION                   1
+                34      LOAD_FAST                       4: max_unencoded
+                36      CALL_FUNCTION                   3
+                38      GET_ITER                        
+                40      FOR_ITER                        37 (to 116)
+                42      STORE_FAST                      5: i
+                44      LOAD_GLOBAL                     2: b2a_base64
+                46      LOAD_FAST                       0: s
+                48      LOAD_FAST                       5: i
+                50      LOAD_FAST                       5: i
+                52      LOAD_FAST                       4: max_unencoded
+                54      BINARY_ADD                      
+                56      BUILD_SLICE                     2
+                58      BINARY_SUBSCR                   
+                60      CALL_FUNCTION                   1
+                62      LOAD_METHOD                     3: decode
+                64      LOAD_CONST                      5: 'ascii'
+                66      CALL_METHOD                     1
+                68      STORE_FAST                      6: enc
+                70      LOAD_FAST                       6: enc
+                72      LOAD_METHOD                     4: endswith
+                74      LOAD_GLOBAL                     5: NL
+                76      CALL_METHOD                     1
+                78      POP_JUMP_IF_FALSE               52 (to 104)
+                80      LOAD_FAST                       2: eol
+                82      LOAD_GLOBAL                     5: NL
+                84      COMPARE_OP                      3 (!=)
+                86      POP_JUMP_IF_FALSE               52 (to 104)
+                88      LOAD_FAST                       6: enc
+                90      LOAD_CONST                      6: None
+                92      LOAD_CONST                      7: -1
+                94      BUILD_SLICE                     2
+                96      BINARY_SUBSCR                   
+                98      LOAD_FAST                       2: eol
+                100     BINARY_ADD                      
+                102     STORE_FAST                      6: enc
+                104     LOAD_FAST                       3: encvec
+                106     LOAD_METHOD                     6: append
+                108     LOAD_FAST                       6: enc
+                110     CALL_METHOD                     1
+                112     POP_TOP                         
+                114     JUMP_ABSOLUTE                   20 (to 40)
+                116     LOAD_GLOBAL                     7: EMPTYSTRING
+                118     LOAD_METHOD                     8: join
+                120     LOAD_FAST                       3: encvec
+                122     CALL_METHOD                     1
+                124     RETURN_VALUE                    
+        'body_encode'
+        [Code]
+            File Name: email/base64mime.py
+            Object Name: decode
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'bytes'
+                'isinstance'
+                'str'
+                'a2b_base64'
+                'encode'
+            [Var Names]
+                'string'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Decode a raw base64 string, returning a bytes object.\n\n    This function does not parse a full MIME header value encoded with\n    base64 (like =?iso-8859-1?b?bmloISBuaWgh?=) -- please use the high\n    level email.header class for that functionality.\n    '
+                'raw-unicode-escape'
+            [Disassembly]
+                0       LOAD_FAST                       0: string
+                2       POP_JUMP_IF_TRUE                5 (to 10)
+                4       LOAD_GLOBAL                     0: bytes
+                6       CALL_FUNCTION                   0
+                8       RETURN_VALUE                    
+                10      LOAD_GLOBAL                     1: isinstance
+                12      LOAD_FAST                       0: string
+                14      LOAD_GLOBAL                     2: str
+                16      CALL_FUNCTION                   2
+                18      POP_JUMP_IF_FALSE               17 (to 34)
+                20      LOAD_GLOBAL                     3: a2b_base64
+                22      LOAD_FAST                       0: string
+                24      LOAD_METHOD                     4: encode
+                26      LOAD_CONST                      1: 'raw-unicode-escape'
+                28      CALL_METHOD                     1
+                30      CALL_FUNCTION                   1
+                32      RETURN_VALUE                    
+                34      LOAD_GLOBAL                     3: a2b_base64
+                36      LOAD_FAST                       0: string
+                38      CALL_FUNCTION                   1
+                40      RETURN_VALUE                    
+        'decode'
+        None
+        (
+            'iso-8859-1'
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: "Base64 content transfer encoding per RFCs 2045-2047.\n\nThis module handles the content transfer encoding method defined in RFC 2045\nto encode arbitrary 8-bit data using the three 8-bit bytes in four 7-bit\ncharacters encoding known as Base64.\n\nIt is used in the MIME standards for email to attach images, audio, and text\nusing some 8-bit character sets to messages.\n\nThis module provides an interface to encode and decode both headers and bodies\nwith Base64 encoding.\n\nRFC 2045 defines a method for including character set information in an\n`encoded-word' in a header.  This method is commonly used for 8-bit real names\nin To:, From:, Cc:, etc. fields, as well as Subject: lines.\n\nThis module does not do the line wrapping or end-of-line character conversion\nnecessary for proper internationalized headers; it only does dumb encoding and\ndecoding.  To deal with the various line wrapping issues, use the email.header\nmodule.\n"
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('body_decode', 'body_encode', 'decode', 'decodestring', 'header_encode', 'header_length')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: 0
+        14      LOAD_CONST                      3: ('b64encode',)
+        16      IMPORT_NAME                     2: base64
+        18      IMPORT_FROM                     3: b64encode
+        20      STORE_NAME                      3: b64encode
+        22      POP_TOP                         
+        24      LOAD_CONST                      2: 0
+        26      LOAD_CONST                      4: ('b2a_base64', 'a2b_base64')
+        28      IMPORT_NAME                     4: binascii
+        30      IMPORT_FROM                     5: b2a_base64
+        32      STORE_NAME                      5: b2a_base64
+        34      IMPORT_FROM                     6: a2b_base64
+        36      STORE_NAME                      6: a2b_base64
+        38      POP_TOP                         
+        40      LOAD_CONST                      5: '\r\n'
+        42      STORE_NAME                      7: CRLF
+        44      LOAD_CONST                      6: '\n'
+        46      STORE_NAME                      8: NL
+        48      LOAD_CONST                      7: ''
+        50      STORE_NAME                      9: EMPTYSTRING
+        52      LOAD_CONST                      8: 7
+        54      STORE_NAME                      10: MISC_LEN
+        56      LOAD_CONST                      9: <CODE> header_length
+        58      LOAD_CONST                      10: 'header_length'
+        60      MAKE_FUNCTION                   0
+        62      STORE_NAME                      11: header_length
+        64      LOAD_CONST                      20: ('iso-8859-1',)
+        66      LOAD_CONST                      12: <CODE> header_encode
+        68      LOAD_CONST                      13: 'header_encode'
+        70      MAKE_FUNCTION                   1
+        72      STORE_NAME                      12: header_encode
+        74      LOAD_CONST                      14: 76
+        76      LOAD_NAME                       8: NL
+        78      BUILD_TUPLE                     2
+        80      LOAD_CONST                      15: <CODE> body_encode
+        82      LOAD_CONST                      16: 'body_encode'
+        84      MAKE_FUNCTION                   1
+        86      STORE_NAME                      13: body_encode
+        88      LOAD_CONST                      17: <CODE> decode
+        90      LOAD_CONST                      18: 'decode'
+        92      MAKE_FUNCTION                   0
+        94      STORE_NAME                      14: decode
+        96      LOAD_NAME                       14: decode
+        98      STORE_NAME                      15: body_decode
+        100     LOAD_NAME                       14: decode
+        102     STORE_NAME                      16: decodestring
+        104     LOAD_CONST                      19: None
+        106     RETURN_VALUE                    

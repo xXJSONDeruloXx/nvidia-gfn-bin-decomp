@@ -1,0 +1,1086 @@
+getopt.pyc (Python 3.10)
+[Code]
+    File Name: getopt.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 8
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        '__all__'
+        'os'
+        'gettext'
+        '_'
+        'ImportError'
+        'Exception'
+        'GetoptError'
+        'error'
+        'getopt'
+        'gnu_getopt'
+        'do_longs'
+        'long_has_args'
+        'do_shorts'
+        'short_has_arg'
+        '__name__'
+        'sys'
+        'print'
+        'argv'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        "Parser for command line options.\n\nThis module helps scripts to parse the command line arguments in\nsys.argv.  It supports the same conventions as the Unix getopt()\nfunction (including the special meanings of arguments of the form `-'\nand `--').  Long options similar to those supported by GNU software\nmay be used as well via an optional third argument.  This module\nprovides two functions and an exception:\n\ngetopt() -- Parse command line options\ngnu_getopt() -- Like getopt(), but allow option and non-option arguments\nto be intermixed.\nGetoptError -- exception (class) raised with 'opt' attribute, which is the\noption involved with the exception.\n"
+        (
+            'GetoptError'
+            'error'
+            'getopt'
+            'gnu_getopt'
+        )
+        0
+        None
+        (
+            'gettext'
+        )
+        [Code]
+            File Name: getopt.py
+            Object Name: _
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 1
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+            [Var Names]
+                's'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: s
+                2       RETURN_VALUE                    
+        '_'
+        [Code]
+            File Name: getopt.py
+            Object Name: GetoptError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                'opt'
+                'msg'
+                '__init__'
+                '__str__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'GetoptError'
+                ''
+                [Code]
+                    File Name: getopt.py
+                    Object Name: __init__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 5
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'msg'
+                        'opt'
+                        'Exception'
+                        '__init__'
+                    [Var Names]
+                        'self'
+                        'msg'
+                        'opt'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       1: msg
+                        2       LOAD_FAST                       0: self
+                        4       STORE_ATTR                      0: msg
+                        6       LOAD_FAST                       2: opt
+                        8       LOAD_FAST                       0: self
+                        10      STORE_ATTR                      1: opt
+                        12      LOAD_GLOBAL                     2: Exception
+                        14      LOAD_METHOD                     3: __init__
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_FAST                       1: msg
+                        20      LOAD_FAST                       2: opt
+                        22      CALL_METHOD                     3
+                        24      POP_TOP                         
+                        26      LOAD_CONST                      0: None
+                        28      RETURN_VALUE                    
+                'GetoptError.__init__'
+                [Code]
+                    File Name: getopt.py
+                    Object Name: __str__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'msg'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: msg
+                        4       RETURN_VALUE                    
+                'GetoptError.__str__'
+                None
+                (
+                    ''
+                )
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'GetoptError'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: ''
+                10      STORE_NAME                      3: opt
+                12      LOAD_CONST                      1: ''
+                14      STORE_NAME                      4: msg
+                16      LOAD_CONST                      7: ('',)
+                18      LOAD_CONST                      2: <CODE> __init__
+                20      LOAD_CONST                      3: 'GetoptError.__init__'
+                22      MAKE_FUNCTION                   1
+                24      STORE_NAME                      5: __init__
+                26      LOAD_CONST                      4: <CODE> __str__
+                28      LOAD_CONST                      5: 'GetoptError.__str__'
+                30      MAKE_FUNCTION                   0
+                32      STORE_NAME                      6: __str__
+                34      LOAD_CONST                      6: None
+                36      RETURN_VALUE                    
+        'GetoptError'
+        [Code]
+            File Name: getopt.py
+            Object Name: getopt
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 4
+            Stack Size: 7
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'type'
+                'list'
+                'startswith'
+                'do_longs'
+                'do_shorts'
+            [Var Names]
+                'args'
+                'shortopts'
+                'longopts'
+                'opts'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'getopt(args, options[, long_options]) -> opts, args\n\n    Parses command line options and parameter list.  args is the\n    argument list to be parsed, without the leading reference to the\n    running program.  Typically, this means "sys.argv[1:]".  shortopts\n    is the string of option letters that the script wants to\n    recognize, with options that require an argument followed by a\n    colon (i.e., the same format that Unix getopt() uses).  If\n    specified, longopts is a list of strings with the names of the\n    long options which should be supported.  The leading \'--\'\n    characters should not be included in the option name.  Options\n    which require an argument should be followed by an equal sign\n    (\'=\').\n\n    The return value consists of two elements: the first is a list of\n    (option, value) pairs; the second is the list of program arguments\n    left after the option list was stripped (this is a trailing slice\n    of the first argument).  Each option-and-value pair returned has\n    the option as its first element, prefixed with a hyphen (e.g.,\n    \'-x\'), and the option argument as its second element, or an empty\n    string if the option has no argument.  The options occur in the\n    list in the same order in which they were found, thus allowing\n    multiple occurrences.  Long and short options may be mixed.\n\n    '
+                ''
+                0
+                '-'
+                '--'
+                1
+                None
+                2
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       STORE_FAST                      3: opts
+                4       LOAD_GLOBAL                     0: type
+                6       LOAD_FAST                       2: longopts
+                8       CALL_FUNCTION                   1
+                10      LOAD_GLOBAL                     0: type
+                12      LOAD_CONST                      1: ''
+                14      CALL_FUNCTION                   1
+                16      COMPARE_OP                      2 (==)
+                18      POP_JUMP_IF_FALSE               14 (to 28)
+                20      LOAD_FAST                       2: longopts
+                22      BUILD_LIST                      1
+                24      STORE_FAST                      2: longopts
+                26      JUMP_FORWARD                    4 (to 36)
+                28      LOAD_GLOBAL                     1: list
+                30      LOAD_FAST                       2: longopts
+                32      CALL_FUNCTION                   1
+                34      STORE_FAST                      2: longopts
+                36      LOAD_FAST                       0: args
+                38      POP_JUMP_IF_FALSE               111 (to 222)
+                40      LOAD_FAST                       0: args
+                42      LOAD_CONST                      2: 0
+                44      BINARY_SUBSCR                   
+                46      LOAD_METHOD                     2: startswith
+                48      LOAD_CONST                      3: '-'
+                50      CALL_METHOD                     1
+                52      POP_JUMP_IF_FALSE               111 (to 222)
+                54      LOAD_FAST                       0: args
+                56      LOAD_CONST                      2: 0
+                58      BINARY_SUBSCR                   
+                60      LOAD_CONST                      3: '-'
+                62      COMPARE_OP                      3 (!=)
+                64      POP_JUMP_IF_FALSE               111 (to 222)
+                66      LOAD_FAST                       0: args
+                68      LOAD_CONST                      2: 0
+                70      BINARY_SUBSCR                   
+                72      LOAD_CONST                      4: '--'
+                74      COMPARE_OP                      2 (==)
+                76      POP_JUMP_IF_FALSE               50 (to 100)
+                78      LOAD_FAST                       0: args
+                80      LOAD_CONST                      5: 1
+                82      LOAD_CONST                      6: None
+                84      BUILD_SLICE                     2
+                86      BINARY_SUBSCR                   
+                88      STORE_FAST                      0: args
+                90      NOP                             
+                92      LOAD_FAST                       3: opts
+                94      LOAD_FAST                       0: args
+                96      BUILD_TUPLE                     2
+                98      RETURN_VALUE                    
+                100     LOAD_FAST                       0: args
+                102     LOAD_CONST                      2: 0
+                104     BINARY_SUBSCR                   
+                106     LOAD_METHOD                     2: startswith
+                108     LOAD_CONST                      4: '--'
+                110     CALL_METHOD                     1
+                112     POP_JUMP_IF_FALSE               77 (to 154)
+                114     LOAD_GLOBAL                     3: do_longs
+                116     LOAD_FAST                       3: opts
+                118     LOAD_FAST                       0: args
+                120     LOAD_CONST                      2: 0
+                122     BINARY_SUBSCR                   
+                124     LOAD_CONST                      7: 2
+                126     LOAD_CONST                      6: None
+                128     BUILD_SLICE                     2
+                130     BINARY_SUBSCR                   
+                132     LOAD_FAST                       2: longopts
+                134     LOAD_FAST                       0: args
+                136     LOAD_CONST                      5: 1
+                138     LOAD_CONST                      6: None
+                140     BUILD_SLICE                     2
+                142     BINARY_SUBSCR                   
+                144     CALL_FUNCTION                   4
+                146     UNPACK_SEQUENCE                 2
+                148     STORE_FAST                      3: opts
+                150     STORE_FAST                      0: args
+                152     JUMP_FORWARD                    19 (to 192)
+                154     LOAD_GLOBAL                     4: do_shorts
+                156     LOAD_FAST                       3: opts
+                158     LOAD_FAST                       0: args
+                160     LOAD_CONST                      2: 0
+                162     BINARY_SUBSCR                   
+                164     LOAD_CONST                      5: 1
+                166     LOAD_CONST                      6: None
+                168     BUILD_SLICE                     2
+                170     BINARY_SUBSCR                   
+                172     LOAD_FAST                       1: shortopts
+                174     LOAD_FAST                       0: args
+                176     LOAD_CONST                      5: 1
+                178     LOAD_CONST                      6: None
+                180     BUILD_SLICE                     2
+                182     BINARY_SUBSCR                   
+                184     CALL_FUNCTION                   4
+                186     UNPACK_SEQUENCE                 2
+                188     STORE_FAST                      3: opts
+                190     STORE_FAST                      0: args
+                192     LOAD_FAST                       0: args
+                194     POP_JUMP_IF_FALSE               111 (to 222)
+                196     LOAD_FAST                       0: args
+                198     LOAD_CONST                      2: 0
+                200     BINARY_SUBSCR                   
+                202     LOAD_METHOD                     2: startswith
+                204     LOAD_CONST                      3: '-'
+                206     CALL_METHOD                     1
+                208     POP_JUMP_IF_FALSE               111 (to 222)
+                210     LOAD_FAST                       0: args
+                212     LOAD_CONST                      2: 0
+                214     BINARY_SUBSCR                   
+                216     LOAD_CONST                      3: '-'
+                218     COMPARE_OP                      3 (!=)
+                220     POP_JUMP_IF_TRUE                33 (to 66)
+                222     LOAD_FAST                       3: opts
+                224     LOAD_FAST                       0: args
+                226     BUILD_TUPLE                     2
+                228     RETURN_VALUE                    
+        'getopt'
+        [Code]
+            File Name: getopt.py
+            Object Name: gnu_getopt
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 7
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'isinstance'
+                'str'
+                'list'
+                'startswith'
+                'os'
+                'environ'
+                'get'
+                'do_longs'
+                'do_shorts'
+                'append'
+            [Var Names]
+                'args'
+                'shortopts'
+                'longopts'
+                'opts'
+                'prog_args'
+                'all_options_first'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "getopt(args, options[, long_options]) -> opts, args\n\n    This function works like getopt(), except that GNU style scanning\n    mode is used by default. This means that option and non-option\n    arguments may be intermixed. The getopt() function stops\n    processing options as soon as a non-option argument is\n    encountered.\n\n    If the first character of the option string is `+', or if the\n    environment variable POSIXLY_CORRECT is set, then option\n    processing stops as soon as a non-option argument is encountered.\n\n    "
+                '+'
+                1
+                None
+                True
+                'POSIXLY_CORRECT'
+                False
+                0
+                '--'
+                2
+                '-'
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       STORE_FAST                      3: opts
+                4       BUILD_LIST                      0
+                6       STORE_FAST                      4: prog_args
+                8       LOAD_GLOBAL                     0: isinstance
+                10      LOAD_FAST                       2: longopts
+                12      LOAD_GLOBAL                     1: str
+                14      CALL_FUNCTION                   2
+                16      POP_JUMP_IF_FALSE               13 (to 26)
+                18      LOAD_FAST                       2: longopts
+                20      BUILD_LIST                      1
+                22      STORE_FAST                      2: longopts
+                24      JUMP_FORWARD                    4 (to 34)
+                26      LOAD_GLOBAL                     2: list
+                28      LOAD_FAST                       2: longopts
+                30      CALL_FUNCTION                   1
+                32      STORE_FAST                      2: longopts
+                34      LOAD_FAST                       1: shortopts
+                36      LOAD_METHOD                     3: startswith
+                38      LOAD_CONST                      1: '+'
+                40      CALL_METHOD                     1
+                42      POP_JUMP_IF_FALSE               31 (to 62)
+                44      LOAD_FAST                       1: shortopts
+                46      LOAD_CONST                      2: 1
+                48      LOAD_CONST                      3: None
+                50      BUILD_SLICE                     2
+                52      BINARY_SUBSCR                   
+                54      STORE_FAST                      1: shortopts
+                56      LOAD_CONST                      4: True
+                58      STORE_FAST                      5: all_options_first
+                60      JUMP_FORWARD                    11 (to 84)
+                62      LOAD_GLOBAL                     4: os
+                64      LOAD_ATTR                       5: environ
+                66      LOAD_METHOD                     6: get
+                68      LOAD_CONST                      5: 'POSIXLY_CORRECT'
+                70      CALL_METHOD                     1
+                72      POP_JUMP_IF_FALSE               40 (to 80)
+                74      LOAD_CONST                      4: True
+                76      STORE_FAST                      5: all_options_first
+                78      JUMP_FORWARD                    2 (to 84)
+                80      LOAD_CONST                      6: False
+                82      STORE_FAST                      5: all_options_first
+                84      LOAD_FAST                       0: args
+                86      POP_JUMP_IF_FALSE               155 (to 310)
+                88      LOAD_FAST                       0: args
+                90      LOAD_CONST                      7: 0
+                92      BINARY_SUBSCR                   
+                94      LOAD_CONST                      8: '--'
+                96      COMPARE_OP                      2 (==)
+                98      POP_JUMP_IF_FALSE               63 (to 126)
+                100     LOAD_FAST                       4: prog_args
+                102     LOAD_FAST                       0: args
+                104     LOAD_CONST                      2: 1
+                106     LOAD_CONST                      3: None
+                108     BUILD_SLICE                     2
+                110     BINARY_SUBSCR                   
+                112     INPLACE_ADD                     
+                114     STORE_FAST                      4: prog_args
+                116     NOP                             
+                118     LOAD_FAST                       3: opts
+                120     LOAD_FAST                       4: prog_args
+                122     BUILD_TUPLE                     2
+                124     RETURN_VALUE                    
+                126     LOAD_FAST                       0: args
+                128     LOAD_CONST                      7: 0
+                130     BINARY_SUBSCR                   
+                132     LOAD_CONST                      3: None
+                134     LOAD_CONST                      9: 2
+                136     BUILD_SLICE                     2
+                138     BINARY_SUBSCR                   
+                140     LOAD_CONST                      8: '--'
+                142     COMPARE_OP                      2 (==)
+                144     POP_JUMP_IF_FALSE               93 (to 186)
+                146     LOAD_GLOBAL                     7: do_longs
+                148     LOAD_FAST                       3: opts
+                150     LOAD_FAST                       0: args
+                152     LOAD_CONST                      7: 0
+                154     BINARY_SUBSCR                   
+                156     LOAD_CONST                      9: 2
+                158     LOAD_CONST                      3: None
+                160     BUILD_SLICE                     2
+                162     BINARY_SUBSCR                   
+                164     LOAD_FAST                       2: longopts
+                166     LOAD_FAST                       0: args
+                168     LOAD_CONST                      2: 1
+                170     LOAD_CONST                      3: None
+                172     BUILD_SLICE                     2
+                174     BINARY_SUBSCR                   
+                176     CALL_FUNCTION                   4
+                178     UNPACK_SEQUENCE                 2
+                180     STORE_FAST                      3: opts
+                182     STORE_FAST                      0: args
+                184     JUMP_FORWARD                    60 (to 306)
+                186     LOAD_FAST                       0: args
+                188     LOAD_CONST                      7: 0
+                190     BINARY_SUBSCR                   
+                192     LOAD_CONST                      3: None
+                194     LOAD_CONST                      2: 1
+                196     BUILD_SLICE                     2
+                198     BINARY_SUBSCR                   
+                200     LOAD_CONST                      10: '-'
+                202     COMPARE_OP                      2 (==)
+                204     POP_JUMP_IF_FALSE               129 (to 258)
+                206     LOAD_FAST                       0: args
+                208     LOAD_CONST                      7: 0
+                210     BINARY_SUBSCR                   
+                212     LOAD_CONST                      10: '-'
+                214     COMPARE_OP                      3 (!=)
+                216     POP_JUMP_IF_FALSE               129 (to 258)
+                218     LOAD_GLOBAL                     8: do_shorts
+                220     LOAD_FAST                       3: opts
+                222     LOAD_FAST                       0: args
+                224     LOAD_CONST                      7: 0
+                226     BINARY_SUBSCR                   
+                228     LOAD_CONST                      2: 1
+                230     LOAD_CONST                      3: None
+                232     BUILD_SLICE                     2
+                234     BINARY_SUBSCR                   
+                236     LOAD_FAST                       1: shortopts
+                238     LOAD_FAST                       0: args
+                240     LOAD_CONST                      2: 1
+                242     LOAD_CONST                      3: None
+                244     BUILD_SLICE                     2
+                246     BINARY_SUBSCR                   
+                248     CALL_FUNCTION                   4
+                250     UNPACK_SEQUENCE                 2
+                252     STORE_FAST                      3: opts
+                254     STORE_FAST                      0: args
+                256     JUMP_FORWARD                    24 (to 306)
+                258     LOAD_FAST                       5: all_options_first
+                260     POP_JUMP_IF_FALSE               140 (to 280)
+                262     LOAD_FAST                       4: prog_args
+                264     LOAD_FAST                       0: args
+                266     INPLACE_ADD                     
+                268     STORE_FAST                      4: prog_args
+                270     NOP                             
+                272     LOAD_FAST                       3: opts
+                274     LOAD_FAST                       4: prog_args
+                276     BUILD_TUPLE                     2
+                278     RETURN_VALUE                    
+                280     LOAD_FAST                       4: prog_args
+                282     LOAD_METHOD                     9: append
+                284     LOAD_FAST                       0: args
+                286     LOAD_CONST                      7: 0
+                288     BINARY_SUBSCR                   
+                290     CALL_METHOD                     1
+                292     POP_TOP                         
+                294     LOAD_FAST                       0: args
+                296     LOAD_CONST                      2: 1
+                298     LOAD_CONST                      3: None
+                300     BUILD_SLICE                     2
+                302     BINARY_SUBSCR                   
+                304     STORE_FAST                      0: args
+                306     LOAD_FAST                       0: args
+                308     POP_JUMP_IF_TRUE                44 (to 88)
+                310     LOAD_FAST                       3: opts
+                312     LOAD_FAST                       4: prog_args
+                314     BUILD_TUPLE                     2
+                316     RETURN_VALUE                    
+        'gnu_getopt'
+        [Code]
+            File Name: getopt.py
+            Object Name: do_longs
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 7
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'index'
+                'ValueError'
+                'long_has_args'
+                'GetoptError'
+                '_'
+                'append'
+            [Var Names]
+                'opts'
+                'opt'
+                'longopts'
+                'args'
+                'i'
+                'optarg'
+                'has_arg'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                '='
+                1
+                'option --%s requires argument'
+                0
+                'option --%s must not have an argument'
+                '--'
+                ''
+            [Disassembly]
+                0       SETUP_FINALLY                   7 (to 16)
+                2       LOAD_FAST                       1: opt
+                4       LOAD_METHOD                     0: index
+                6       LOAD_CONST                      1: '='
+                8       CALL_METHOD                     1
+                10      STORE_FAST                      4: i
+                12      POP_BLOCK                       
+                14      JUMP_FORWARD                    11 (to 38)
+                16      DUP_TOP                         
+                18      LOAD_GLOBAL                     1: ValueError
+                20      JUMP_IF_NOT_EXC_MATCH           18 (to 36)
+                22      POP_TOP                         
+                24      POP_TOP                         
+                26      POP_TOP                         
+                28      LOAD_CONST                      0: None
+                30      STORE_FAST                      5: optarg
+                32      POP_EXCEPT                      
+                34      JUMP_FORWARD                    16 (to 68)
+                36      RERAISE                         0
+                38      LOAD_FAST                       1: opt
+                40      LOAD_CONST                      0: None
+                42      LOAD_FAST                       4: i
+                44      BUILD_SLICE                     2
+                46      BINARY_SUBSCR                   
+                48      LOAD_FAST                       1: opt
+                50      LOAD_FAST                       4: i
+                52      LOAD_CONST                      2: 1
+                54      BINARY_ADD                      
+                56      LOAD_CONST                      0: None
+                58      BUILD_SLICE                     2
+                60      BINARY_SUBSCR                   
+                62      ROT_TWO                         
+                64      STORE_FAST                      1: opt
+                66      STORE_FAST                      5: optarg
+                68      LOAD_GLOBAL                     2: long_has_args
+                70      LOAD_FAST                       1: opt
+                72      LOAD_FAST                       2: longopts
+                74      CALL_FUNCTION                   2
+                76      UNPACK_SEQUENCE                 2
+                78      STORE_FAST                      6: has_arg
+                80      STORE_FAST                      1: opt
+                82      LOAD_FAST                       6: has_arg
+                84      POP_JUMP_IF_FALSE               70 (to 140)
+                86      LOAD_FAST                       5: optarg
+                88      LOAD_CONST                      0: None
+                90      IS_OP                           0 (is)
+                92      POP_JUMP_IF_FALSE               69 (to 138)
+                94      LOAD_FAST                       3: args
+                96      POP_JUMP_IF_TRUE                58 (to 116)
+                98      LOAD_GLOBAL                     3: GetoptError
+                100     LOAD_GLOBAL                     4: _
+                102     LOAD_CONST                      3: 'option --%s requires argument'
+                104     CALL_FUNCTION                   1
+                106     LOAD_FAST                       1: opt
+                108     BINARY_MODULO                   
+                110     LOAD_FAST                       1: opt
+                112     CALL_FUNCTION                   2
+                114     RAISE_VARARGS                   1
+                116     LOAD_FAST                       3: args
+                118     LOAD_CONST                      4: 0
+                120     BINARY_SUBSCR                   
+                122     LOAD_FAST                       3: args
+                124     LOAD_CONST                      2: 1
+                126     LOAD_CONST                      0: None
+                128     BUILD_SLICE                     2
+                130     BINARY_SUBSCR                   
+                132     ROT_TWO                         
+                134     STORE_FAST                      5: optarg
+                136     STORE_FAST                      3: args
+                138     JUMP_FORWARD                    13 (to 166)
+                140     LOAD_FAST                       5: optarg
+                142     LOAD_CONST                      0: None
+                144     IS_OP                           1 (is not)
+                146     POP_JUMP_IF_FALSE               83 (to 166)
+                148     LOAD_GLOBAL                     3: GetoptError
+                150     LOAD_GLOBAL                     4: _
+                152     LOAD_CONST                      5: 'option --%s must not have an argument'
+                154     CALL_FUNCTION                   1
+                156     LOAD_FAST                       1: opt
+                158     BINARY_MODULO                   
+                160     LOAD_FAST                       1: opt
+                162     CALL_FUNCTION                   2
+                164     RAISE_VARARGS                   1
+                166     LOAD_FAST                       0: opts
+                168     LOAD_METHOD                     5: append
+                170     LOAD_CONST                      6: '--'
+                172     LOAD_FAST                       1: opt
+                174     BINARY_ADD                      
+                176     LOAD_FAST                       5: optarg
+                178     JUMP_IF_TRUE_OR_POP             91 (to 182)
+                180     LOAD_CONST                      7: ''
+                182     BUILD_TUPLE                     2
+                184     CALL_METHOD                     1
+                186     POP_TOP                         
+                188     LOAD_FAST                       0: opts
+                190     LOAD_FAST                       3: args
+                192     BUILD_TUPLE                     2
+                194     RETURN_VALUE                    
+        'do_longs'
+        [Code]
+            File Name: getopt.py
+            Object Name: long_has_args
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 3
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'GetoptError'
+                '_'
+                'len'
+                'endswith'
+            [Var Names]
+                'opt'
+                'longopts'
+                'possibilities'
+                'unique_match'
+                'has_arg'
+            [Free Vars]
+            [Cell Vars]
+                'opt'
+            [Constants]
+                None
+                [Code]
+                    File Name: getopt.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                        'startswith'
+                    [Var Names]
+                        '.0'
+                        'o'
+                    [Free Vars]
+                        'opt'
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        9 (to 24)
+                        6       STORE_FAST                      1: o
+                        8       LOAD_FAST                       1: o
+                        10      LOAD_METHOD                     0: startswith
+                        12      LOAD_DEREF                      0: opt
+                        14      CALL_METHOD                     1
+                        16      POP_JUMP_IF_FALSE               2 (to 4)
+                        18      LOAD_FAST                       1: o
+                        20      LIST_APPEND                     2
+                        22      JUMP_ABSOLUTE                   2 (to 4)
+                        24      RETURN_VALUE                    
+                'long_has_args.<locals>.<listcomp>'
+                'option --%s not recognized'
+                False
+                '='
+                True
+                1
+                'option --%s not a unique prefix'
+                0
+                -1
+            [Disassembly]
+                0       LOAD_CLOSURE                    0: opt
+                2       BUILD_TUPLE                     1
+                4       LOAD_CONST                      1: <CODE> <listcomp>
+                6       LOAD_CONST                      2: 'long_has_args.<locals>.<listcomp>'
+                8       MAKE_FUNCTION                   8
+                10      LOAD_FAST                       1: longopts
+                12      GET_ITER                        
+                14      CALL_FUNCTION                   1
+                16      STORE_FAST                      2: possibilities
+                18      LOAD_FAST                       2: possibilities
+                20      POP_JUMP_IF_TRUE                20 (to 40)
+                22      LOAD_GLOBAL                     0: GetoptError
+                24      LOAD_GLOBAL                     1: _
+                26      LOAD_CONST                      3: 'option --%s not recognized'
+                28      CALL_FUNCTION                   1
+                30      LOAD_DEREF                      0: opt
+                32      BINARY_MODULO                   
+                34      LOAD_DEREF                      0: opt
+                36      CALL_FUNCTION                   2
+                38      RAISE_VARARGS                   1
+                40      LOAD_DEREF                      0: opt
+                42      LOAD_FAST                       2: possibilities
+                44      CONTAINS_OP                     0 (in)
+                46      POP_JUMP_IF_FALSE               28 (to 56)
+                48      LOAD_CONST                      4: False
+                50      LOAD_DEREF                      0: opt
+                52      BUILD_TUPLE                     2
+                54      RETURN_VALUE                    
+                56      LOAD_DEREF                      0: opt
+                58      LOAD_CONST                      5: '='
+                60      BINARY_ADD                      
+                62      LOAD_FAST                       2: possibilities
+                64      CONTAINS_OP                     0 (in)
+                66      POP_JUMP_IF_FALSE               38 (to 76)
+                68      LOAD_CONST                      6: True
+                70      LOAD_DEREF                      0: opt
+                72      BUILD_TUPLE                     2
+                74      RETURN_VALUE                    
+                76      LOAD_GLOBAL                     2: len
+                78      LOAD_FAST                       2: possibilities
+                80      CALL_FUNCTION                   1
+                82      LOAD_CONST                      7: 1
+                84      COMPARE_OP                      4 (>)
+                86      POP_JUMP_IF_FALSE               53 (to 106)
+                88      LOAD_GLOBAL                     0: GetoptError
+                90      LOAD_GLOBAL                     1: _
+                92      LOAD_CONST                      8: 'option --%s not a unique prefix'
+                94      CALL_FUNCTION                   1
+                96      LOAD_DEREF                      0: opt
+                98      BINARY_MODULO                   
+                100     LOAD_DEREF                      0: opt
+                102     CALL_FUNCTION                   2
+                104     RAISE_VARARGS                   1
+                106     LOAD_GLOBAL                     2: len
+                108     LOAD_FAST                       2: possibilities
+                110     CALL_FUNCTION                   1
+                112     LOAD_CONST                      7: 1
+                114     COMPARE_OP                      2 (==)
+                116     POP_JUMP_IF_TRUE                61 (to 122)
+                118     LOAD_ASSERTION_ERROR            
+                120     RAISE_VARARGS                   1
+                122     LOAD_FAST                       2: possibilities
+                124     LOAD_CONST                      9: 0
+                126     BINARY_SUBSCR                   
+                128     STORE_FAST                      3: unique_match
+                130     LOAD_FAST                       3: unique_match
+                132     LOAD_METHOD                     3: endswith
+                134     LOAD_CONST                      5: '='
+                136     CALL_METHOD                     1
+                138     STORE_FAST                      4: has_arg
+                140     LOAD_FAST                       4: has_arg
+                142     POP_JUMP_IF_FALSE               78 (to 156)
+                144     LOAD_FAST                       3: unique_match
+                146     LOAD_CONST                      0: None
+                148     LOAD_CONST                      10: -1
+                150     BUILD_SLICE                     2
+                152     BINARY_SUBSCR                   
+                154     STORE_FAST                      3: unique_match
+                156     LOAD_FAST                       4: has_arg
+                158     LOAD_FAST                       3: unique_match
+                160     BUILD_TUPLE                     2
+                162     RETURN_VALUE                    
+        'long_has_args'
+        [Code]
+            File Name: getopt.py
+            Object Name: do_shorts
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'short_has_arg'
+                'GetoptError'
+                '_'
+                'append'
+            [Var Names]
+                'opts'
+                'optstring'
+                'shortopts'
+                'args'
+                'opt'
+                'optarg'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                ''
+                0
+                1
+                'option -%s requires argument'
+                '-'
+            [Disassembly]
+                0       LOAD_FAST                       1: optstring
+                2       LOAD_CONST                      1: ''
+                4       COMPARE_OP                      3 (!=)
+                6       POP_JUMP_IF_FALSE               67 (to 134)
+                8       LOAD_FAST                       1: optstring
+                10      LOAD_CONST                      2: 0
+                12      BINARY_SUBSCR                   
+                14      LOAD_FAST                       1: optstring
+                16      LOAD_CONST                      3: 1
+                18      LOAD_CONST                      0: None
+                20      BUILD_SLICE                     2
+                22      BINARY_SUBSCR                   
+                24      ROT_TWO                         
+                26      STORE_FAST                      4: opt
+                28      STORE_FAST                      1: optstring
+                30      LOAD_GLOBAL                     0: short_has_arg
+                32      LOAD_FAST                       4: opt
+                34      LOAD_FAST                       2: shortopts
+                36      CALL_FUNCTION                   2
+                38      POP_JUMP_IF_FALSE               52 (to 104)
+                40      LOAD_FAST                       1: optstring
+                42      LOAD_CONST                      1: ''
+                44      COMPARE_OP                      2 (==)
+                46      POP_JUMP_IF_FALSE               46 (to 92)
+                48      LOAD_FAST                       3: args
+                50      POP_JUMP_IF_TRUE                35 (to 70)
+                52      LOAD_GLOBAL                     1: GetoptError
+                54      LOAD_GLOBAL                     2: _
+                56      LOAD_CONST                      4: 'option -%s requires argument'
+                58      CALL_FUNCTION                   1
+                60      LOAD_FAST                       4: opt
+                62      BINARY_MODULO                   
+                64      LOAD_FAST                       4: opt
+                66      CALL_FUNCTION                   2
+                68      RAISE_VARARGS                   1
+                70      LOAD_FAST                       3: args
+                72      LOAD_CONST                      2: 0
+                74      BINARY_SUBSCR                   
+                76      LOAD_FAST                       3: args
+                78      LOAD_CONST                      3: 1
+                80      LOAD_CONST                      0: None
+                82      BUILD_SLICE                     2
+                84      BINARY_SUBSCR                   
+                86      ROT_TWO                         
+                88      STORE_FAST                      1: optstring
+                90      STORE_FAST                      3: args
+                92      LOAD_FAST                       1: optstring
+                94      LOAD_CONST                      1: ''
+                96      ROT_TWO                         
+                98      STORE_FAST                      5: optarg
+                100     STORE_FAST                      1: optstring
+                102     JUMP_FORWARD                    2 (to 108)
+                104     LOAD_CONST                      1: ''
+                106     STORE_FAST                      5: optarg
+                108     LOAD_FAST                       0: opts
+                110     LOAD_METHOD                     3: append
+                112     LOAD_CONST                      5: '-'
+                114     LOAD_FAST                       4: opt
+                116     BINARY_ADD                      
+                118     LOAD_FAST                       5: optarg
+                120     BUILD_TUPLE                     2
+                122     CALL_METHOD                     1
+                124     POP_TOP                         
+                126     LOAD_FAST                       1: optstring
+                128     LOAD_CONST                      1: ''
+                130     COMPARE_OP                      3 (!=)
+                132     POP_JUMP_IF_TRUE                4 (to 8)
+                134     LOAD_FAST                       0: opts
+                136     LOAD_FAST                       3: args
+                138     BUILD_TUPLE                     2
+                140     RETURN_VALUE                    
+        'do_shorts'
+        [Code]
+            File Name: getopt.py
+            Object Name: short_has_arg
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'range'
+                'len'
+                'startswith'
+                'GetoptError'
+                '_'
+            [Var Names]
+                'opt'
+                'shortopts'
+                'i'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                ':'
+                1
+                'option -%s not recognized'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: range
+                2       LOAD_GLOBAL                     1: len
+                4       LOAD_FAST                       1: shortopts
+                6       CALL_FUNCTION                   1
+                8       CALL_FUNCTION                   1
+                10      GET_ITER                        
+                12      FOR_ITER                        26 (to 66)
+                14      STORE_FAST                      2: i
+                16      LOAD_FAST                       0: opt
+                18      LOAD_FAST                       1: shortopts
+                20      LOAD_FAST                       2: i
+                22      BINARY_SUBSCR                   
+                24      DUP_TOP                         
+                26      ROT_THREE                       
+                28      COMPARE_OP                      2 (==)
+                30      POP_JUMP_IF_FALSE               20 (to 40)
+                32      LOAD_CONST                      1: ':'
+                34      COMPARE_OP                      3 (!=)
+                36      POP_JUMP_IF_FALSE               32 (to 64)
+                38      JUMP_FORWARD                    2 (to 44)
+                40      POP_TOP                         
+                42      JUMP_ABSOLUTE                   6 (to 12)
+                44      LOAD_FAST                       1: shortopts
+                46      LOAD_METHOD                     2: startswith
+                48      LOAD_CONST                      1: ':'
+                50      LOAD_FAST                       2: i
+                52      LOAD_CONST                      2: 1
+                54      BINARY_ADD                      
+                56      CALL_METHOD                     2
+                58      ROT_TWO                         
+                60      POP_TOP                         
+                62      RETURN_VALUE                    
+                64      JUMP_ABSOLUTE                   6 (to 12)
+                66      LOAD_GLOBAL                     3: GetoptError
+                68      LOAD_GLOBAL                     4: _
+                70      LOAD_CONST                      3: 'option -%s not recognized'
+                72      CALL_FUNCTION                   1
+                74      LOAD_FAST                       0: opt
+                76      BINARY_MODULO                   
+                78      LOAD_FAST                       0: opt
+                80      CALL_FUNCTION                   2
+                82      RAISE_VARARGS                   1
+        'short_has_arg'
+        '__main__'
+        1
+        'a:b'
+        'alpha='
+        'beta'
+    [Disassembly]
+        0       LOAD_CONST                      0: "Parser for command line options.\n\nThis module helps scripts to parse the command line arguments in\nsys.argv.  It supports the same conventions as the Unix getopt()\nfunction (including the special meanings of arguments of the form `-'\nand `--').  Long options similar to those supported by GNU software\nmay be used as well via an optional third argument.  This module\nprovides two functions and an exception:\n\ngetopt() -- Parse command line options\ngnu_getopt() -- Like getopt(), but allow option and non-option arguments\nto be intermixed.\nGetoptError -- exception (class) raised with 'opt' attribute, which is the\noption involved with the exception.\n"
+        2       STORE_NAME                      0: __doc__
+        4       BUILD_LIST                      0
+        6       LOAD_CONST                      1: ('GetoptError', 'error', 'getopt', 'gnu_getopt')
+        8       LIST_EXTEND                     1
+        10      STORE_NAME                      1: __all__
+        12      LOAD_CONST                      2: 0
+        14      LOAD_CONST                      3: None
+        16      IMPORT_NAME                     2: os
+        18      STORE_NAME                      2: os
+        20      SETUP_FINALLY                   8 (to 38)
+        22      LOAD_CONST                      2: 0
+        24      LOAD_CONST                      4: ('gettext',)
+        26      IMPORT_NAME                     3: gettext
+        28      IMPORT_FROM                     3: gettext
+        30      STORE_NAME                      4: _
+        32      POP_TOP                         
+        34      POP_BLOCK                       
+        36      JUMP_FORWARD                    13 (to 64)
+        38      DUP_TOP                         
+        40      LOAD_NAME                       5: ImportError
+        42      JUMP_IF_NOT_EXC_MATCH           31 (to 62)
+        44      POP_TOP                         
+        46      POP_TOP                         
+        48      POP_TOP                         
+        50      LOAD_CONST                      5: <CODE> _
+        52      LOAD_CONST                      6: '_'
+        54      MAKE_FUNCTION                   0
+        56      STORE_NAME                      4: _
+        58      POP_EXCEPT                      
+        60      JUMP_FORWARD                    1 (to 64)
+        62      RERAISE                         0
+        64      LOAD_BUILD_CLASS                
+        66      LOAD_CONST                      7: <CODE> GetoptError
+        68      LOAD_CONST                      8: 'GetoptError'
+        70      MAKE_FUNCTION                   0
+        72      LOAD_CONST                      8: 'GetoptError'
+        74      LOAD_NAME                       6: Exception
+        76      CALL_FUNCTION                   3
+        78      STORE_NAME                      7: GetoptError
+        80      LOAD_NAME                       7: GetoptError
+        82      STORE_NAME                      8: error
+        84      BUILD_LIST                      0
+        86      BUILD_TUPLE                     1
+        88      LOAD_CONST                      9: <CODE> getopt
+        90      LOAD_CONST                      10: 'getopt'
+        92      MAKE_FUNCTION                   1
+        94      STORE_NAME                      9: getopt
+        96      BUILD_LIST                      0
+        98      BUILD_TUPLE                     1
+        100     LOAD_CONST                      11: <CODE> gnu_getopt
+        102     LOAD_CONST                      12: 'gnu_getopt'
+        104     MAKE_FUNCTION                   1
+        106     STORE_NAME                      10: gnu_getopt
+        108     LOAD_CONST                      13: <CODE> do_longs
+        110     LOAD_CONST                      14: 'do_longs'
+        112     MAKE_FUNCTION                   0
+        114     STORE_NAME                      11: do_longs
+        116     LOAD_CONST                      15: <CODE> long_has_args
+        118     LOAD_CONST                      16: 'long_has_args'
+        120     MAKE_FUNCTION                   0
+        122     STORE_NAME                      12: long_has_args
+        124     LOAD_CONST                      17: <CODE> do_shorts
+        126     LOAD_CONST                      18: 'do_shorts'
+        128     MAKE_FUNCTION                   0
+        130     STORE_NAME                      13: do_shorts
+        132     LOAD_CONST                      19: <CODE> short_has_arg
+        134     LOAD_CONST                      20: 'short_has_arg'
+        136     MAKE_FUNCTION                   0
+        138     STORE_NAME                      14: short_has_arg
+        140     LOAD_NAME                       15: __name__
+        142     LOAD_CONST                      21: '__main__'
+        144     COMPARE_OP                      2 (==)
+        146     POP_JUMP_IF_FALSE               95 (to 190)
+        148     LOAD_CONST                      2: 0
+        150     LOAD_CONST                      3: None
+        152     IMPORT_NAME                     16: sys
+        154     STORE_NAME                      16: sys
+        156     LOAD_NAME                       17: print
+        158     LOAD_NAME                       9: getopt
+        160     LOAD_NAME                       16: sys
+        162     LOAD_ATTR                       18: argv
+        164     LOAD_CONST                      22: 1
+        166     LOAD_CONST                      3: None
+        168     BUILD_SLICE                     2
+        170     BINARY_SUBSCR                   
+        172     LOAD_CONST                      23: 'a:b'
+        174     LOAD_CONST                      24: 'alpha='
+        176     LOAD_CONST                      25: 'beta'
+        178     BUILD_LIST                      2
+        180     CALL_FUNCTION                   3
+        182     CALL_FUNCTION                   1
+        184     POP_TOP                         
+        186     LOAD_CONST                      3: None
+        188     RETURN_VALUE                    
+        190     LOAD_CONST                      3: None
+        192     RETURN_VALUE                    

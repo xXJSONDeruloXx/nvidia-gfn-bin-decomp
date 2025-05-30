@@ -1,0 +1,1341 @@
+copy.pyc (Python 3.10)
+[Code]
+    File Name: copy.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 18
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        'types'
+        'weakref'
+        'copyreg'
+        'dispatch_table'
+        'Exception'
+        'Error'
+        'error'
+        'org.python.core'
+        'PyStringMap'
+        'ImportError'
+        '__all__'
+        'copy'
+        '_copy_dispatch'
+        'd'
+        '_copy_immutable'
+        'type'
+        'int'
+        'float'
+        'bool'
+        'complex'
+        'str'
+        'tuple'
+        'bytes'
+        'frozenset'
+        'range'
+        'slice'
+        'property'
+        'BuiltinFunctionType'
+        'Ellipsis'
+        'NotImplemented'
+        'FunctionType'
+        'ref'
+        't'
+        'getattr'
+        'list'
+        'dict'
+        'set'
+        'bytearray'
+        'deepcopy'
+        '_deepcopy_dispatch'
+        '_deepcopy_atomic'
+        'CodeType'
+        '_deepcopy_list'
+        '_deepcopy_tuple'
+        '_deepcopy_dict'
+        '_deepcopy_method'
+        'MethodType'
+        '_keep_alive'
+        '_reconstruct'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        'Generic (shallow and deep) copying operations.\n\nInterface summary:\n\n        import copy\n\n        x = copy.copy(y)        # make a shallow copy of y\n        x = copy.deepcopy(y)    # make a deep copy of y\n\nFor module specific errors, copy.Error is raised.\n\nThe difference between shallow and deep copying is only relevant for\ncompound objects (objects that contain other objects, like lists or\nclass instances).\n\n- A shallow copy constructs a new compound object and then (to the\n  extent possible) inserts *the same objects* into it that the\n  original contains.\n\n- A deep copy constructs a new compound object and then, recursively,\n  inserts *copies* into it of the objects found in the original.\n\nTwo problems often exist with deep copy operations that don\'t exist\nwith shallow copy operations:\n\n a) recursive objects (compound objects that, directly or indirectly,\n    contain a reference to themselves) may cause a recursive loop\n\n b) because deep copy copies *everything* it may copy too much, e.g.\n    administrative data structures that should be shared even between\n    copies\n\nPython\'s deep copy operation avoids these problems by:\n\n a) keeping a table of objects already copied during the current\n    copying pass\n\n b) letting user-defined classes override the copying operation or the\n    set of components copied\n\nThis version does not copy types like module, class, function, method,\nnor stack trace, stack frame, nor file, socket, window, nor any\nsimilar types.\n\nClasses can use the same interfaces to control copying that they use\nto control pickling: they can define methods called __getinitargs__(),\n__getstate__() and __setstate__().  See the documentation for module\n"pickle" for information on these methods.\n'
+        0
+        None
+        (
+            'dispatch_table'
+        )
+        [Code]
+            File Name: copy.py
+            Object Name: Error
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 1
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Error'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Error'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: None
+                10      RETURN_VALUE                    
+        'Error'
+        (
+            'PyStringMap'
+        )
+        (
+            'Error'
+            'copy'
+            'deepcopy'
+        )
+        [Code]
+            File Name: copy.py
+            Object Name: copy
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 5
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'type'
+                '_copy_dispatch'
+                'get'
+                'issubclass'
+                '_copy_immutable'
+                'getattr'
+                'dispatch_table'
+                'Error'
+                'isinstance'
+                'str'
+                '_reconstruct'
+            [Var Names]
+                'x'
+                'cls'
+                'copier'
+                'reductor'
+                'rv'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Shallow copy operation on arbitrary Python objects.\n\n    See the module's __doc__ string for more info.\n    "
+                '__copy__'
+                None
+                '__reduce_ex__'
+                4
+                '__reduce__'
+                'un(shallow)copyable object of type %s'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: type
+                2       LOAD_FAST                       0: x
+                4       CALL_FUNCTION                   1
+                6       STORE_FAST                      1: cls
+                8       LOAD_GLOBAL                     1: _copy_dispatch
+                10      LOAD_METHOD                     2: get
+                12      LOAD_FAST                       1: cls
+                14      CALL_METHOD                     1
+                16      STORE_FAST                      2: copier
+                18      LOAD_FAST                       2: copier
+                20      POP_JUMP_IF_FALSE               15 (to 30)
+                22      LOAD_FAST                       2: copier
+                24      LOAD_FAST                       0: x
+                26      CALL_FUNCTION                   1
+                28      RETURN_VALUE                    
+                30      LOAD_GLOBAL                     3: issubclass
+                32      LOAD_FAST                       1: cls
+                34      LOAD_GLOBAL                     0: type
+                36      CALL_FUNCTION                   2
+                38      POP_JUMP_IF_FALSE               24 (to 48)
+                40      LOAD_GLOBAL                     4: _copy_immutable
+                42      LOAD_FAST                       0: x
+                44      CALL_FUNCTION                   1
+                46      RETURN_VALUE                    
+                48      LOAD_GLOBAL                     5: getattr
+                50      LOAD_FAST                       1: cls
+                52      LOAD_CONST                      1: '__copy__'
+                54      LOAD_CONST                      2: None
+                56      CALL_FUNCTION                   3
+                58      STORE_FAST                      2: copier
+                60      LOAD_FAST                       2: copier
+                62      LOAD_CONST                      2: None
+                64      IS_OP                           1 (is not)
+                66      POP_JUMP_IF_FALSE               38 (to 76)
+                68      LOAD_FAST                       2: copier
+                70      LOAD_FAST                       0: x
+                72      CALL_FUNCTION                   1
+                74      RETURN_VALUE                    
+                76      LOAD_GLOBAL                     6: dispatch_table
+                78      LOAD_METHOD                     2: get
+                80      LOAD_FAST                       1: cls
+                82      CALL_METHOD                     1
+                84      STORE_FAST                      3: reductor
+                86      LOAD_FAST                       3: reductor
+                88      LOAD_CONST                      2: None
+                90      IS_OP                           1 (is not)
+                92      POP_JUMP_IF_FALSE               52 (to 104)
+                94      LOAD_FAST                       3: reductor
+                96      LOAD_FAST                       0: x
+                98      CALL_FUNCTION                   1
+                100     STORE_FAST                      4: rv
+                102     JUMP_FORWARD                    33 (to 170)
+                104     LOAD_GLOBAL                     5: getattr
+                106     LOAD_FAST                       0: x
+                108     LOAD_CONST                      3: '__reduce_ex__'
+                110     LOAD_CONST                      2: None
+                112     CALL_FUNCTION                   3
+                114     STORE_FAST                      3: reductor
+                116     LOAD_FAST                       3: reductor
+                118     LOAD_CONST                      2: None
+                120     IS_OP                           1 (is not)
+                122     POP_JUMP_IF_FALSE               67 (to 134)
+                124     LOAD_FAST                       3: reductor
+                126     LOAD_CONST                      4: 4
+                128     CALL_FUNCTION                   1
+                130     STORE_FAST                      4: rv
+                132     JUMP_FORWARD                    18 (to 170)
+                134     LOAD_GLOBAL                     5: getattr
+                136     LOAD_FAST                       0: x
+                138     LOAD_CONST                      5: '__reduce__'
+                140     LOAD_CONST                      2: None
+                142     CALL_FUNCTION                   3
+                144     STORE_FAST                      3: reductor
+                146     LOAD_FAST                       3: reductor
+                148     POP_JUMP_IF_FALSE               79 (to 158)
+                150     LOAD_FAST                       3: reductor
+                152     CALL_FUNCTION                   0
+                154     STORE_FAST                      4: rv
+                156     JUMP_FORWARD                    6 (to 170)
+                158     LOAD_GLOBAL                     7: Error
+                160     LOAD_CONST                      6: 'un(shallow)copyable object of type %s'
+                162     LOAD_FAST                       1: cls
+                164     BINARY_MODULO                   
+                166     CALL_FUNCTION                   1
+                168     RAISE_VARARGS                   1
+                170     LOAD_GLOBAL                     8: isinstance
+                172     LOAD_FAST                       4: rv
+                174     LOAD_GLOBAL                     9: str
+                176     CALL_FUNCTION                   2
+                178     POP_JUMP_IF_FALSE               92 (to 184)
+                180     LOAD_FAST                       0: x
+                182     RETURN_VALUE                    
+                184     LOAD_GLOBAL                     10: _reconstruct
+                186     LOAD_FAST                       0: x
+                188     LOAD_CONST                      2: None
+                190     BUILD_LIST                      2
+                192     LOAD_FAST                       4: rv
+                194     LIST_EXTEND                     1
+                196     LIST_TO_TUPLE                   
+                198     CALL_FUNCTION_EX                0
+                200     RETURN_VALUE                    
+        'copy'
+        [Code]
+            File Name: copy.py
+            Object Name: _copy_immutable
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 1
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+            [Var Names]
+                'x'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: x
+                2       RETURN_VALUE                    
+        '_copy_immutable'
+        'CodeType'
+        [Code]
+            File Name: copy.py
+            Object Name: deepcopy
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 9
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'id'
+                'get'
+                'type'
+                '_deepcopy_dispatch'
+                'issubclass'
+                '_deepcopy_atomic'
+                'getattr'
+                'dispatch_table'
+                'Error'
+                'isinstance'
+                'str'
+                '_reconstruct'
+                '_keep_alive'
+            [Var Names]
+                'x'
+                'memo'
+                '_nil'
+                'd'
+                'y'
+                'cls'
+                'copier'
+                'reductor'
+                'rv'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Deep copy operation on arbitrary Python objects.\n\n    See the module's __doc__ string for more info.\n    "
+                None
+                '__deepcopy__'
+                '__reduce_ex__'
+                4
+                '__reduce__'
+                'un(deep)copyable object of type %s'
+            [Disassembly]
+                0       LOAD_FAST                       1: memo
+                2       LOAD_CONST                      1: None
+                4       IS_OP                           0 (is)
+                6       POP_JUMP_IF_FALSE               6 (to 12)
+                8       BUILD_MAP                       0
+                10      STORE_FAST                      1: memo
+                12      LOAD_GLOBAL                     0: id
+                14      LOAD_FAST                       0: x
+                16      CALL_FUNCTION                   1
+                18      STORE_FAST                      3: d
+                20      LOAD_FAST                       1: memo
+                22      LOAD_METHOD                     1: get
+                24      LOAD_FAST                       3: d
+                26      LOAD_FAST                       2: _nil
+                28      CALL_METHOD                     2
+                30      STORE_FAST                      4: y
+                32      LOAD_FAST                       4: y
+                34      LOAD_FAST                       2: _nil
+                36      IS_OP                           1 (is not)
+                38      POP_JUMP_IF_FALSE               22 (to 44)
+                40      LOAD_FAST                       4: y
+                42      RETURN_VALUE                    
+                44      LOAD_GLOBAL                     2: type
+                46      LOAD_FAST                       0: x
+                48      CALL_FUNCTION                   1
+                50      STORE_FAST                      5: cls
+                52      LOAD_GLOBAL                     3: _deepcopy_dispatch
+                54      LOAD_METHOD                     1: get
+                56      LOAD_FAST                       5: cls
+                58      CALL_METHOD                     1
+                60      STORE_FAST                      6: copier
+                62      LOAD_FAST                       6: copier
+                64      LOAD_CONST                      1: None
+                66      IS_OP                           1 (is not)
+                68      POP_JUMP_IF_FALSE               41 (to 82)
+                70      LOAD_FAST                       6: copier
+                72      LOAD_FAST                       0: x
+                74      LOAD_FAST                       1: memo
+                76      CALL_FUNCTION                   2
+                78      STORE_FAST                      4: y
+                80      JUMP_FORWARD                    88 (to 258)
+                82      LOAD_GLOBAL                     4: issubclass
+                84      LOAD_FAST                       5: cls
+                86      LOAD_GLOBAL                     2: type
+                88      CALL_FUNCTION                   2
+                90      POP_JUMP_IF_FALSE               52 (to 104)
+                92      LOAD_GLOBAL                     5: _deepcopy_atomic
+                94      LOAD_FAST                       0: x
+                96      LOAD_FAST                       1: memo
+                98      CALL_FUNCTION                   2
+                100     STORE_FAST                      4: y
+                102     JUMP_FORWARD                    77 (to 258)
+                104     LOAD_GLOBAL                     6: getattr
+                106     LOAD_FAST                       0: x
+                108     LOAD_CONST                      2: '__deepcopy__'
+                110     LOAD_CONST                      1: None
+                112     CALL_FUNCTION                   3
+                114     STORE_FAST                      6: copier
+                116     LOAD_FAST                       6: copier
+                118     LOAD_CONST                      1: None
+                120     IS_OP                           1 (is not)
+                122     POP_JUMP_IF_FALSE               67 (to 134)
+                124     LOAD_FAST                       6: copier
+                126     LOAD_FAST                       1: memo
+                128     CALL_FUNCTION                   1
+                130     STORE_FAST                      4: y
+                132     JUMP_FORWARD                    62 (to 258)
+                134     LOAD_GLOBAL                     7: dispatch_table
+                136     LOAD_METHOD                     1: get
+                138     LOAD_FAST                       5: cls
+                140     CALL_METHOD                     1
+                142     STORE_FAST                      7: reductor
+                144     LOAD_FAST                       7: reductor
+                146     POP_JUMP_IF_FALSE               79 (to 158)
+                148     LOAD_FAST                       7: reductor
+                150     LOAD_FAST                       0: x
+                152     CALL_FUNCTION                   1
+                154     STORE_FAST                      8: rv
+                156     JUMP_FORWARD                    33 (to 224)
+                158     LOAD_GLOBAL                     6: getattr
+                160     LOAD_FAST                       0: x
+                162     LOAD_CONST                      3: '__reduce_ex__'
+                164     LOAD_CONST                      1: None
+                166     CALL_FUNCTION                   3
+                168     STORE_FAST                      7: reductor
+                170     LOAD_FAST                       7: reductor
+                172     LOAD_CONST                      1: None
+                174     IS_OP                           1 (is not)
+                176     POP_JUMP_IF_FALSE               94 (to 188)
+                178     LOAD_FAST                       7: reductor
+                180     LOAD_CONST                      4: 4
+                182     CALL_FUNCTION                   1
+                184     STORE_FAST                      8: rv
+                186     JUMP_FORWARD                    18 (to 224)
+                188     LOAD_GLOBAL                     6: getattr
+                190     LOAD_FAST                       0: x
+                192     LOAD_CONST                      5: '__reduce__'
+                194     LOAD_CONST                      1: None
+                196     CALL_FUNCTION                   3
+                198     STORE_FAST                      7: reductor
+                200     LOAD_FAST                       7: reductor
+                202     POP_JUMP_IF_FALSE               106 (to 212)
+                204     LOAD_FAST                       7: reductor
+                206     CALL_FUNCTION                   0
+                208     STORE_FAST                      8: rv
+                210     JUMP_FORWARD                    6 (to 224)
+                212     LOAD_GLOBAL                     8: Error
+                214     LOAD_CONST                      6: 'un(deep)copyable object of type %s'
+                216     LOAD_FAST                       5: cls
+                218     BINARY_MODULO                   
+                220     CALL_FUNCTION                   1
+                222     RAISE_VARARGS                   1
+                224     LOAD_GLOBAL                     9: isinstance
+                226     LOAD_FAST                       8: rv
+                228     LOAD_GLOBAL                     10: str
+                230     CALL_FUNCTION                   2
+                232     POP_JUMP_IF_FALSE               120 (to 240)
+                234     LOAD_FAST                       0: x
+                236     STORE_FAST                      4: y
+                238     JUMP_FORWARD                    9 (to 258)
+                240     LOAD_GLOBAL                     11: _reconstruct
+                242     LOAD_FAST                       0: x
+                244     LOAD_FAST                       1: memo
+                246     BUILD_LIST                      2
+                248     LOAD_FAST                       8: rv
+                250     LIST_EXTEND                     1
+                252     LIST_TO_TUPLE                   
+                254     CALL_FUNCTION_EX                0
+                256     STORE_FAST                      4: y
+                258     LOAD_FAST                       4: y
+                260     LOAD_FAST                       0: x
+                262     IS_OP                           1 (is not)
+                264     POP_JUMP_IF_FALSE               142 (to 284)
+                266     LOAD_FAST                       4: y
+                268     LOAD_FAST                       1: memo
+                270     LOAD_FAST                       3: d
+                272     STORE_SUBSCR                    
+                274     LOAD_GLOBAL                     12: _keep_alive
+                276     LOAD_FAST                       0: x
+                278     LOAD_FAST                       1: memo
+                280     CALL_FUNCTION                   2
+                282     POP_TOP                         
+                284     LOAD_FAST                       4: y
+                286     RETURN_VALUE                    
+        'deepcopy'
+        [Code]
+            File Name: copy.py
+            Object Name: _deepcopy_atomic
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 1
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+            [Var Names]
+                'x'
+                'memo'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_FAST                       0: x
+                2       RETURN_VALUE                    
+        '_deepcopy_atomic'
+        [Code]
+            File Name: copy.py
+            Object Name: _deepcopy_list
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'id'
+                'append'
+            [Var Names]
+                'x'
+                'memo'
+                'deepcopy'
+                'y'
+                'append'
+                'a'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       BUILD_LIST                      0
+                2       STORE_FAST                      3: y
+                4       LOAD_FAST                       3: y
+                6       LOAD_FAST                       1: memo
+                8       LOAD_GLOBAL                     0: id
+                10      LOAD_FAST                       0: x
+                12      CALL_FUNCTION                   1
+                14      STORE_SUBSCR                    
+                16      LOAD_FAST                       3: y
+                18      LOAD_ATTR                       1: append
+                20      STORE_FAST                      4: append
+                22      LOAD_FAST                       0: x
+                24      GET_ITER                        
+                26      FOR_ITER                        9 (to 46)
+                28      STORE_FAST                      5: a
+                30      LOAD_FAST                       4: append
+                32      LOAD_FAST                       2: deepcopy
+                34      LOAD_FAST                       5: a
+                36      LOAD_FAST                       1: memo
+                38      CALL_FUNCTION                   2
+                40      CALL_FUNCTION                   1
+                42      POP_TOP                         
+                44      JUMP_ABSOLUTE                   13 (to 26)
+                46      LOAD_FAST                       3: y
+                48      RETURN_VALUE                    
+        '_deepcopy_list'
+        [Code]
+            File Name: copy.py
+            Object Name: _deepcopy_tuple
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 8
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'id'
+                'KeyError'
+                'zip'
+                'tuple'
+            [Var Names]
+                'x'
+                'memo'
+                'deepcopy'
+                'y'
+                'k'
+                'j'
+            [Free Vars]
+            [Cell Vars]
+                'deepcopy'
+                'memo'
+            [Constants]
+                None
+                [Code]
+                    File Name: copy.py
+                    Object Name: <listcomp>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                    [Var Names]
+                        '.0'
+                        'a'
+                    [Free Vars]
+                        'deepcopy'
+                        'memo'
+                    [Cell Vars]
+                    [Constants]
+                    [Disassembly]
+                        0       BUILD_LIST                      0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        7 (to 20)
+                        6       STORE_FAST                      1: a
+                        8       LOAD_DEREF                      0: deepcopy
+                        10      LOAD_FAST                       1: a
+                        12      LOAD_DEREF                      1: memo
+                        14      CALL_FUNCTION                   2
+                        16      LIST_APPEND                     2
+                        18      JUMP_ABSOLUTE                   2 (to 4)
+                        20      RETURN_VALUE                    
+                '_deepcopy_tuple.<locals>.<listcomp>'
+            [Disassembly]
+                0       LOAD_CLOSURE                    0: deepcopy
+                2       LOAD_CLOSURE                    1: memo
+                4       BUILD_TUPLE                     2
+                6       LOAD_CONST                      1: <CODE> <listcomp>
+                8       LOAD_CONST                      2: '_deepcopy_tuple.<locals>.<listcomp>'
+                10      MAKE_FUNCTION                   8
+                12      LOAD_FAST                       0: x
+                14      GET_ITER                        
+                16      CALL_FUNCTION                   1
+                18      STORE_FAST                      3: y
+                20      SETUP_FINALLY                   7 (to 36)
+                22      LOAD_DEREF                      1: memo
+                24      LOAD_GLOBAL                     0: id
+                26      LOAD_FAST                       0: x
+                28      CALL_FUNCTION                   1
+                30      BINARY_SUBSCR                   
+                32      POP_BLOCK                       
+                34      RETURN_VALUE                    
+                36      DUP_TOP                         
+                38      LOAD_GLOBAL                     1: KeyError
+                40      JUMP_IF_NOT_EXC_MATCH           26 (to 52)
+                42      POP_TOP                         
+                44      POP_TOP                         
+                46      POP_TOP                         
+                48      POP_EXCEPT                      
+                50      JUMP_FORWARD                    1 (to 54)
+                52      RERAISE                         0
+                54      LOAD_GLOBAL                     2: zip
+                56      LOAD_FAST                       0: x
+                58      LOAD_FAST                       3: y
+                60      CALL_FUNCTION                   2
+                62      GET_ITER                        
+                64      FOR_ITER                        15 (to 96)
+                66      UNPACK_SEQUENCE                 2
+                68      STORE_FAST                      4: k
+                70      STORE_FAST                      5: j
+                72      LOAD_FAST                       4: k
+                74      LOAD_FAST                       5: j
+                76      IS_OP                           1 (is not)
+                78      POP_JUMP_IF_FALSE               47 (to 94)
+                80      LOAD_GLOBAL                     3: tuple
+                82      LOAD_FAST                       3: y
+                84      CALL_FUNCTION                   1
+                86      STORE_FAST                      3: y
+                88      POP_TOP                         
+                90      LOAD_FAST                       3: y
+                92      RETURN_VALUE                    
+                94      JUMP_ABSOLUTE                   32 (to 64)
+                96      LOAD_FAST                       0: x
+                98      STORE_FAST                      3: y
+                100     LOAD_FAST                       3: y
+                102     RETURN_VALUE                    
+        '_deepcopy_tuple'
+        [Code]
+            File Name: copy.py
+            Object Name: _deepcopy_dict
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'id'
+                'items'
+            [Var Names]
+                'x'
+                'memo'
+                'deepcopy'
+                'y'
+                'key'
+                'value'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       BUILD_MAP                       0
+                2       STORE_FAST                      3: y
+                4       LOAD_FAST                       3: y
+                6       LOAD_FAST                       1: memo
+                8       LOAD_GLOBAL                     0: id
+                10      LOAD_FAST                       0: x
+                12      CALL_FUNCTION                   1
+                14      STORE_SUBSCR                    
+                16      LOAD_FAST                       0: x
+                18      LOAD_METHOD                     1: items
+                20      CALL_METHOD                     0
+                22      GET_ITER                        
+                24      FOR_ITER                        14 (to 54)
+                26      UNPACK_SEQUENCE                 2
+                28      STORE_FAST                      4: key
+                30      STORE_FAST                      5: value
+                32      LOAD_FAST                       2: deepcopy
+                34      LOAD_FAST                       5: value
+                36      LOAD_FAST                       1: memo
+                38      CALL_FUNCTION                   2
+                40      LOAD_FAST                       3: y
+                42      LOAD_FAST                       2: deepcopy
+                44      LOAD_FAST                       4: key
+                46      LOAD_FAST                       1: memo
+                48      CALL_FUNCTION                   2
+                50      STORE_SUBSCR                    
+                52      JUMP_ABSOLUTE                   12 (to 24)
+                54      LOAD_FAST                       3: y
+                56      RETURN_VALUE                    
+        '_deepcopy_dict'
+        [Code]
+            File Name: copy.py
+            Object Name: _deepcopy_method
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'type'
+                '__func__'
+                'deepcopy'
+                '__self__'
+            [Var Names]
+                'x'
+                'memo'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: type
+                2       LOAD_FAST                       0: x
+                4       CALL_FUNCTION                   1
+                6       LOAD_FAST                       0: x
+                8       LOAD_ATTR                       1: __func__
+                10      LOAD_GLOBAL                     2: deepcopy
+                12      LOAD_FAST                       0: x
+                14      LOAD_ATTR                       3: __self__
+                16      LOAD_FAST                       1: memo
+                18      CALL_FUNCTION                   2
+                20      CALL_FUNCTION                   2
+                22      RETURN_VALUE                    
+        '_deepcopy_method'
+        [Code]
+            File Name: copy.py
+            Object Name: _keep_alive
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 2
+            Stack Size: 8
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'id'
+                'append'
+                'KeyError'
+            [Var Names]
+                'x'
+                'memo'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Keeps a reference to the object x in the memo.\n\n    Because we remember objects by their id, we have\n    to assure that possibly temporary objects are kept\n    alive by referencing them.\n    We store a reference at the id of the memo, which should\n    normally not be used unless someone tries to deepcopy\n    the memo itself...\n    '
+                None
+            [Disassembly]
+                0       SETUP_FINALLY                   12 (to 26)
+                2       LOAD_FAST                       1: memo
+                4       LOAD_GLOBAL                     0: id
+                6       LOAD_FAST                       1: memo
+                8       CALL_FUNCTION                   1
+                10      BINARY_SUBSCR                   
+                12      LOAD_METHOD                     1: append
+                14      LOAD_FAST                       0: x
+                16      CALL_METHOD                     1
+                18      POP_TOP                         
+                20      POP_BLOCK                       
+                22      LOAD_CONST                      1: None
+                24      RETURN_VALUE                    
+                26      DUP_TOP                         
+                28      LOAD_GLOBAL                     2: KeyError
+                30      JUMP_IF_NOT_EXC_MATCH           29 (to 58)
+                32      POP_TOP                         
+                34      POP_TOP                         
+                36      POP_TOP                         
+                38      LOAD_FAST                       0: x
+                40      BUILD_LIST                      1
+                42      LOAD_FAST                       1: memo
+                44      LOAD_GLOBAL                     0: id
+                46      LOAD_FAST                       1: memo
+                48      CALL_FUNCTION                   1
+                50      STORE_SUBSCR                    
+                52      POP_EXCEPT                      
+                54      LOAD_CONST                      1: None
+                56      RETURN_VALUE                    
+                58      RERAISE                         0
+        '_keep_alive'
+        (
+            'deepcopy'
+        )
+        [Code]
+            File Name: copy.py
+            Object Name: _reconstruct
+            Arg Count: 7
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 1
+            Locals: 14
+            Stack Size: 5
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'id'
+                'hasattr'
+                '__setstate__'
+                'isinstance'
+                'tuple'
+                'len'
+                '__dict__'
+                'update'
+                'items'
+                'setattr'
+                'append'
+            [Var Names]
+                'x'
+                'memo'
+                'func'
+                'args'
+                'state'
+                'listiter'
+                'dictiter'
+                'deepcopy'
+                'deep'
+                'y'
+                'slotstate'
+                'key'
+                'value'
+                'item'
+            [Free Vars]
+            [Cell Vars]
+                'deepcopy'
+                'memo'
+            [Constants]
+                None
+                [Code]
+                    File Name: copy.py
+                    Object Name: <genexpr>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                    [Names]
+                    [Var Names]
+                        '.0'
+                        'arg'
+                    [Free Vars]
+                        'deepcopy'
+                        'memo'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        8 (to 22)
+                        6       STORE_FAST                      1: arg
+                        8       LOAD_DEREF                      0: deepcopy
+                        10      LOAD_FAST                       1: arg
+                        12      LOAD_DEREF                      1: memo
+                        14      CALL_FUNCTION                   2
+                        16      YIELD_VALUE                     
+                        18      POP_TOP                         
+                        20      JUMP_ABSOLUTE                   2 (to 4)
+                        22      LOAD_CONST                      0: None
+                        24      RETURN_VALUE                    
+                '_reconstruct.<locals>.<genexpr>'
+                '__setstate__'
+                2
+            [Disassembly]
+                0       LOAD_DEREF                      1: memo
+                2       LOAD_CONST                      0: None
+                4       IS_OP                           1 (is not)
+                6       STORE_FAST                      8: deep
+                8       LOAD_FAST                       8: deep
+                10      POP_JUMP_IF_FALSE               18 (to 36)
+                12      LOAD_FAST                       3: args
+                14      POP_JUMP_IF_FALSE               18 (to 36)
+                16      LOAD_CLOSURE                    0: deepcopy
+                18      LOAD_CLOSURE                    1: memo
+                20      BUILD_TUPLE                     2
+                22      LOAD_CONST                      1: <CODE> <genexpr>
+                24      LOAD_CONST                      2: '_reconstruct.<locals>.<genexpr>'
+                26      MAKE_FUNCTION                   8
+                28      LOAD_FAST                       3: args
+                30      GET_ITER                        
+                32      CALL_FUNCTION                   1
+                34      STORE_FAST                      3: args
+                36      LOAD_FAST                       2: func
+                38      LOAD_FAST                       3: args
+                40      CALL_FUNCTION_EX                0
+                42      STORE_FAST                      9: y
+                44      LOAD_FAST                       8: deep
+                46      POP_JUMP_IF_FALSE               30 (to 60)
+                48      LOAD_FAST                       9: y
+                50      LOAD_DEREF                      1: memo
+                52      LOAD_GLOBAL                     0: id
+                54      LOAD_FAST                       0: x
+                56      CALL_FUNCTION                   1
+                58      STORE_SUBSCR                    
+                60      LOAD_FAST                       4: state
+                62      LOAD_CONST                      0: None
+                64      IS_OP                           1 (is not)
+                66      POP_JUMP_IF_FALSE               99 (to 198)
+                68      LOAD_FAST                       8: deep
+                70      POP_JUMP_IF_FALSE               41 (to 82)
+                72      LOAD_DEREF                      0: deepcopy
+                74      LOAD_FAST                       4: state
+                76      LOAD_DEREF                      1: memo
+                78      CALL_FUNCTION                   2
+                80      STORE_FAST                      4: state
+                82      LOAD_GLOBAL                     1: hasattr
+                84      LOAD_FAST                       9: y
+                86      LOAD_CONST                      3: '__setstate__'
+                88      CALL_FUNCTION                   2
+                90      POP_JUMP_IF_FALSE               52 (to 104)
+                92      LOAD_FAST                       9: y
+                94      LOAD_METHOD                     2: __setstate__
+                96      LOAD_FAST                       4: state
+                98      CALL_METHOD                     1
+                100     POP_TOP                         
+                102     JUMP_FORWARD                    47 (to 198)
+                104     LOAD_GLOBAL                     3: isinstance
+                106     LOAD_FAST                       4: state
+                108     LOAD_GLOBAL                     4: tuple
+                110     CALL_FUNCTION                   2
+                112     POP_JUMP_IF_FALSE               68 (to 136)
+                114     LOAD_GLOBAL                     5: len
+                116     LOAD_FAST                       4: state
+                118     CALL_FUNCTION                   1
+                120     LOAD_CONST                      4: 2
+                122     COMPARE_OP                      2 (==)
+                124     POP_JUMP_IF_FALSE               68 (to 136)
+                126     LOAD_FAST                       4: state
+                128     UNPACK_SEQUENCE                 2
+                130     STORE_FAST                      4: state
+                132     STORE_FAST                      10: slotstate
+                134     JUMP_FORWARD                    2 (to 140)
+                136     LOAD_CONST                      0: None
+                138     STORE_FAST                      10: slotstate
+                140     LOAD_FAST                       4: state
+                142     LOAD_CONST                      0: None
+                144     IS_OP                           1 (is not)
+                146     POP_JUMP_IF_FALSE               80 (to 160)
+                148     LOAD_FAST                       9: y
+                150     LOAD_ATTR                       6: __dict__
+                152     LOAD_METHOD                     7: update
+                154     LOAD_FAST                       4: state
+                156     CALL_METHOD                     1
+                158     POP_TOP                         
+                160     LOAD_FAST                       10: slotstate
+                162     LOAD_CONST                      0: None
+                164     IS_OP                           1 (is not)
+                166     POP_JUMP_IF_FALSE               99 (to 198)
+                168     LOAD_FAST                       10: slotstate
+                170     LOAD_METHOD                     8: items
+                172     CALL_METHOD                     0
+                174     GET_ITER                        
+                176     FOR_ITER                        10 (to 198)
+                178     UNPACK_SEQUENCE                 2
+                180     STORE_FAST                      11: key
+                182     STORE_FAST                      12: value
+                184     LOAD_GLOBAL                     9: setattr
+                186     LOAD_FAST                       9: y
+                188     LOAD_FAST                       11: key
+                190     LOAD_FAST                       12: value
+                192     CALL_FUNCTION                   3
+                194     POP_TOP                         
+                196     JUMP_ABSOLUTE                   88 (to 176)
+                198     LOAD_FAST                       5: listiter
+                200     LOAD_CONST                      0: None
+                202     IS_OP                           1 (is not)
+                204     POP_JUMP_IF_FALSE               131 (to 262)
+                206     LOAD_FAST                       8: deep
+                208     POP_JUMP_IF_FALSE               121 (to 242)
+                210     LOAD_FAST                       5: listiter
+                212     GET_ITER                        
+                214     FOR_ITER                        12 (to 240)
+                216     STORE_FAST                      13: item
+                218     LOAD_DEREF                      0: deepcopy
+                220     LOAD_FAST                       13: item
+                222     LOAD_DEREF                      1: memo
+                224     CALL_FUNCTION                   2
+                226     STORE_FAST                      13: item
+                228     LOAD_FAST                       9: y
+                230     LOAD_METHOD                     10: append
+                232     LOAD_FAST                       13: item
+                234     CALL_METHOD                     1
+                236     POP_TOP                         
+                238     JUMP_ABSOLUTE                   107 (to 214)
+                240     JUMP_FORWARD                    10 (to 262)
+                242     LOAD_FAST                       5: listiter
+                244     GET_ITER                        
+                246     FOR_ITER                        7 (to 262)
+                248     STORE_FAST                      13: item
+                250     LOAD_FAST                       9: y
+                252     LOAD_METHOD                     10: append
+                254     LOAD_FAST                       13: item
+                256     CALL_METHOD                     1
+                258     POP_TOP                         
+                260     JUMP_ABSOLUTE                   123 (to 246)
+                262     LOAD_FAST                       6: dictiter
+                264     LOAD_CONST                      0: None
+                266     IS_OP                           1 (is not)
+                268     POP_JUMP_IF_FALSE               171 (to 342)
+                270     LOAD_FAST                       8: deep
+                272     POP_JUMP_IF_FALSE               160 (to 320)
+                274     LOAD_FAST                       6: dictiter
+                276     GET_ITER                        
+                278     FOR_ITER                        18 (to 316)
+                280     UNPACK_SEQUENCE                 2
+                282     STORE_FAST                      11: key
+                284     STORE_FAST                      12: value
+                286     LOAD_DEREF                      0: deepcopy
+                288     LOAD_FAST                       11: key
+                290     LOAD_DEREF                      1: memo
+                292     CALL_FUNCTION                   2
+                294     STORE_FAST                      11: key
+                296     LOAD_DEREF                      0: deepcopy
+                298     LOAD_FAST                       12: value
+                300     LOAD_DEREF                      1: memo
+                302     CALL_FUNCTION                   2
+                304     STORE_FAST                      12: value
+                306     LOAD_FAST                       12: value
+                308     LOAD_FAST                       9: y
+                310     LOAD_FAST                       11: key
+                312     STORE_SUBSCR                    
+                314     JUMP_ABSOLUTE                   139 (to 278)
+                316     LOAD_FAST                       9: y
+                318     RETURN_VALUE                    
+                320     LOAD_FAST                       6: dictiter
+                322     GET_ITER                        
+                324     FOR_ITER                        8 (to 342)
+                326     UNPACK_SEQUENCE                 2
+                328     STORE_FAST                      11: key
+                330     STORE_FAST                      12: value
+                332     LOAD_FAST                       12: value
+                334     LOAD_FAST                       9: y
+                336     LOAD_FAST                       11: key
+                338     STORE_SUBSCR                    
+                340     JUMP_ABSOLUTE                   162 (to 324)
+                342     LOAD_FAST                       9: y
+                344     RETURN_VALUE                    
+        '_reconstruct'
+        (
+            None
+            None
+            None
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 'Generic (shallow and deep) copying operations.\n\nInterface summary:\n\n        import copy\n\n        x = copy.copy(y)        # make a shallow copy of y\n        x = copy.deepcopy(y)    # make a deep copy of y\n\nFor module specific errors, copy.Error is raised.\n\nThe difference between shallow and deep copying is only relevant for\ncompound objects (objects that contain other objects, like lists or\nclass instances).\n\n- A shallow copy constructs a new compound object and then (to the\n  extent possible) inserts *the same objects* into it that the\n  original contains.\n\n- A deep copy constructs a new compound object and then, recursively,\n  inserts *copies* into it of the objects found in the original.\n\nTwo problems often exist with deep copy operations that don\'t exist\nwith shallow copy operations:\n\n a) recursive objects (compound objects that, directly or indirectly,\n    contain a reference to themselves) may cause a recursive loop\n\n b) because deep copy copies *everything* it may copy too much, e.g.\n    administrative data structures that should be shared even between\n    copies\n\nPython\'s deep copy operation avoids these problems by:\n\n a) keeping a table of objects already copied during the current\n    copying pass\n\n b) letting user-defined classes override the copying operation or the\n    set of components copied\n\nThis version does not copy types like module, class, function, method,\nnor stack trace, stack frame, nor file, socket, window, nor any\nsimilar types.\n\nClasses can use the same interfaces to control copying that they use\nto control pickling: they can define methods called __getinitargs__(),\n__getstate__() and __setstate__().  See the documentation for module\n"pickle" for information on these methods.\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: types
+        10      STORE_NAME                      1: types
+        12      LOAD_CONST                      1: 0
+        14      LOAD_CONST                      2: None
+        16      IMPORT_NAME                     2: weakref
+        18      STORE_NAME                      2: weakref
+        20      LOAD_CONST                      1: 0
+        22      LOAD_CONST                      3: ('dispatch_table',)
+        24      IMPORT_NAME                     3: copyreg
+        26      IMPORT_FROM                     4: dispatch_table
+        28      STORE_NAME                      4: dispatch_table
+        30      POP_TOP                         
+        32      LOAD_BUILD_CLASS                
+        34      LOAD_CONST                      4: <CODE> Error
+        36      LOAD_CONST                      5: 'Error'
+        38      MAKE_FUNCTION                   0
+        40      LOAD_CONST                      5: 'Error'
+        42      LOAD_NAME                       5: Exception
+        44      CALL_FUNCTION                   3
+        46      STORE_NAME                      6: Error
+        48      LOAD_NAME                       6: Error
+        50      STORE_NAME                      7: error
+        52      SETUP_FINALLY                   8 (to 70)
+        54      LOAD_CONST                      1: 0
+        56      LOAD_CONST                      6: ('PyStringMap',)
+        58      IMPORT_NAME                     8: org.python.core
+        60      IMPORT_FROM                     9: PyStringMap
+        62      STORE_NAME                      9: PyStringMap
+        64      POP_TOP                         
+        66      POP_BLOCK                       
+        68      JUMP_FORWARD                    11 (to 92)
+        70      DUP_TOP                         
+        72      LOAD_NAME                       10: ImportError
+        74      JUMP_IF_NOT_EXC_MATCH           45 (to 90)
+        76      POP_TOP                         
+        78      POP_TOP                         
+        80      POP_TOP                         
+        82      LOAD_CONST                      2: None
+        84      STORE_NAME                      9: PyStringMap
+        86      POP_EXCEPT                      
+        88      JUMP_FORWARD                    1 (to 92)
+        90      RERAISE                         0
+        92      BUILD_LIST                      0
+        94      LOAD_CONST                      7: ('Error', 'copy', 'deepcopy')
+        96      LIST_EXTEND                     1
+        98      STORE_NAME                      11: __all__
+        100     LOAD_CONST                      8: <CODE> copy
+        102     LOAD_CONST                      9: 'copy'
+        104     MAKE_FUNCTION                   0
+        106     STORE_NAME                      12: copy
+        108     BUILD_MAP                       0
+        110     DUP_TOP                         
+        112     STORE_NAME                      13: _copy_dispatch
+        114     STORE_NAME                      14: d
+        116     LOAD_CONST                      10: <CODE> _copy_immutable
+        118     LOAD_CONST                      11: '_copy_immutable'
+        120     MAKE_FUNCTION                   0
+        122     STORE_NAME                      15: _copy_immutable
+        124     LOAD_NAME                       16: type
+        126     LOAD_CONST                      2: None
+        128     CALL_FUNCTION                   1
+        130     LOAD_NAME                       17: int
+        132     LOAD_NAME                       18: float
+        134     LOAD_NAME                       19: bool
+        136     LOAD_NAME                       20: complex
+        138     LOAD_NAME                       21: str
+        140     LOAD_NAME                       22: tuple
+        142     LOAD_NAME                       23: bytes
+        144     LOAD_NAME                       24: frozenset
+        146     LOAD_NAME                       16: type
+        148     LOAD_NAME                       25: range
+        150     LOAD_NAME                       26: slice
+        152     LOAD_NAME                       27: property
+        154     LOAD_NAME                       1: types
+        156     LOAD_ATTR                       28: BuiltinFunctionType
+        158     LOAD_NAME                       16: type
+        160     LOAD_NAME                       29: Ellipsis
+        162     CALL_FUNCTION                   1
+        164     LOAD_NAME                       16: type
+        166     LOAD_NAME                       30: NotImplemented
+        168     CALL_FUNCTION                   1
+        170     LOAD_NAME                       1: types
+        172     LOAD_ATTR                       31: FunctionType
+        174     LOAD_NAME                       2: weakref
+        176     LOAD_ATTR                       32: ref
+        178     BUILD_TUPLE                     18
+        180     GET_ITER                        
+        182     FOR_ITER                        6 (to 196)
+        184     STORE_NAME                      33: t
+        186     LOAD_NAME                       15: _copy_immutable
+        188     LOAD_NAME                       14: d
+        190     LOAD_NAME                       33: t
+        192     STORE_SUBSCR                    
+        194     JUMP_ABSOLUTE                   91 (to 182)
+        196     LOAD_NAME                       34: getattr
+        198     LOAD_NAME                       1: types
+        200     LOAD_CONST                      12: 'CodeType'
+        202     LOAD_CONST                      2: None
+        204     CALL_FUNCTION                   3
+        206     STORE_NAME                      33: t
+        208     LOAD_NAME                       33: t
+        210     LOAD_CONST                      2: None
+        212     IS_OP                           1 (is not)
+        214     POP_JUMP_IF_FALSE               112 (to 224)
+        216     LOAD_NAME                       15: _copy_immutable
+        218     LOAD_NAME                       14: d
+        220     LOAD_NAME                       33: t
+        222     STORE_SUBSCR                    
+        224     LOAD_NAME                       35: list
+        226     LOAD_ATTR                       12: copy
+        228     LOAD_NAME                       14: d
+        230     LOAD_NAME                       35: list
+        232     STORE_SUBSCR                    
+        234     LOAD_NAME                       36: dict
+        236     LOAD_ATTR                       12: copy
+        238     LOAD_NAME                       14: d
+        240     LOAD_NAME                       36: dict
+        242     STORE_SUBSCR                    
+        244     LOAD_NAME                       37: set
+        246     LOAD_ATTR                       12: copy
+        248     LOAD_NAME                       14: d
+        250     LOAD_NAME                       37: set
+        252     STORE_SUBSCR                    
+        254     LOAD_NAME                       38: bytearray
+        256     LOAD_ATTR                       12: copy
+        258     LOAD_NAME                       14: d
+        260     LOAD_NAME                       38: bytearray
+        262     STORE_SUBSCR                    
+        264     LOAD_NAME                       9: PyStringMap
+        266     LOAD_CONST                      2: None
+        268     IS_OP                           1 (is not)
+        270     POP_JUMP_IF_FALSE               141 (to 282)
+        272     LOAD_NAME                       9: PyStringMap
+        274     LOAD_ATTR                       12: copy
+        276     LOAD_NAME                       14: d
+        278     LOAD_NAME                       9: PyStringMap
+        280     STORE_SUBSCR                    
+        282     DELETE_NAME                     14: d
+        284     DELETE_NAME                     33: t
+        286     LOAD_CONST                      2: None
+        288     BUILD_LIST                      0
+        290     BUILD_TUPLE                     2
+        292     LOAD_CONST                      13: <CODE> deepcopy
+        294     LOAD_CONST                      14: 'deepcopy'
+        296     MAKE_FUNCTION                   1
+        298     STORE_NAME                      39: deepcopy
+        300     BUILD_MAP                       0
+        302     DUP_TOP                         
+        304     STORE_NAME                      40: _deepcopy_dispatch
+        306     STORE_NAME                      14: d
+        308     LOAD_CONST                      15: <CODE> _deepcopy_atomic
+        310     LOAD_CONST                      16: '_deepcopy_atomic'
+        312     MAKE_FUNCTION                   0
+        314     STORE_NAME                      41: _deepcopy_atomic
+        316     LOAD_NAME                       41: _deepcopy_atomic
+        318     LOAD_NAME                       14: d
+        320     LOAD_NAME                       16: type
+        322     LOAD_CONST                      2: None
+        324     CALL_FUNCTION                   1
+        326     STORE_SUBSCR                    
+        328     LOAD_NAME                       41: _deepcopy_atomic
+        330     LOAD_NAME                       14: d
+        332     LOAD_NAME                       16: type
+        334     LOAD_NAME                       29: Ellipsis
+        336     CALL_FUNCTION                   1
+        338     STORE_SUBSCR                    
+        340     LOAD_NAME                       41: _deepcopy_atomic
+        342     LOAD_NAME                       14: d
+        344     LOAD_NAME                       16: type
+        346     LOAD_NAME                       30: NotImplemented
+        348     CALL_FUNCTION                   1
+        350     STORE_SUBSCR                    
+        352     LOAD_NAME                       41: _deepcopy_atomic
+        354     LOAD_NAME                       14: d
+        356     LOAD_NAME                       17: int
+        358     STORE_SUBSCR                    
+        360     LOAD_NAME                       41: _deepcopy_atomic
+        362     LOAD_NAME                       14: d
+        364     LOAD_NAME                       18: float
+        366     STORE_SUBSCR                    
+        368     LOAD_NAME                       41: _deepcopy_atomic
+        370     LOAD_NAME                       14: d
+        372     LOAD_NAME                       19: bool
+        374     STORE_SUBSCR                    
+        376     LOAD_NAME                       41: _deepcopy_atomic
+        378     LOAD_NAME                       14: d
+        380     LOAD_NAME                       20: complex
+        382     STORE_SUBSCR                    
+        384     LOAD_NAME                       41: _deepcopy_atomic
+        386     LOAD_NAME                       14: d
+        388     LOAD_NAME                       23: bytes
+        390     STORE_SUBSCR                    
+        392     LOAD_NAME                       41: _deepcopy_atomic
+        394     LOAD_NAME                       14: d
+        396     LOAD_NAME                       21: str
+        398     STORE_SUBSCR                    
+        400     LOAD_NAME                       41: _deepcopy_atomic
+        402     LOAD_NAME                       14: d
+        404     LOAD_NAME                       1: types
+        406     LOAD_ATTR                       42: CodeType
+        408     STORE_SUBSCR                    
+        410     LOAD_NAME                       41: _deepcopy_atomic
+        412     LOAD_NAME                       14: d
+        414     LOAD_NAME                       16: type
+        416     STORE_SUBSCR                    
+        418     LOAD_NAME                       41: _deepcopy_atomic
+        420     LOAD_NAME                       14: d
+        422     LOAD_NAME                       25: range
+        424     STORE_SUBSCR                    
+        426     LOAD_NAME                       41: _deepcopy_atomic
+        428     LOAD_NAME                       14: d
+        430     LOAD_NAME                       1: types
+        432     LOAD_ATTR                       28: BuiltinFunctionType
+        434     STORE_SUBSCR                    
+        436     LOAD_NAME                       41: _deepcopy_atomic
+        438     LOAD_NAME                       14: d
+        440     LOAD_NAME                       1: types
+        442     LOAD_ATTR                       31: FunctionType
+        444     STORE_SUBSCR                    
+        446     LOAD_NAME                       41: _deepcopy_atomic
+        448     LOAD_NAME                       14: d
+        450     LOAD_NAME                       2: weakref
+        452     LOAD_ATTR                       32: ref
+        454     STORE_SUBSCR                    
+        456     LOAD_NAME                       41: _deepcopy_atomic
+        458     LOAD_NAME                       14: d
+        460     LOAD_NAME                       27: property
+        462     STORE_SUBSCR                    
+        464     LOAD_NAME                       39: deepcopy
+        466     BUILD_TUPLE                     1
+        468     LOAD_CONST                      17: <CODE> _deepcopy_list
+        470     LOAD_CONST                      18: '_deepcopy_list'
+        472     MAKE_FUNCTION                   1
+        474     STORE_NAME                      43: _deepcopy_list
+        476     LOAD_NAME                       43: _deepcopy_list
+        478     LOAD_NAME                       14: d
+        480     LOAD_NAME                       35: list
+        482     STORE_SUBSCR                    
+        484     LOAD_NAME                       39: deepcopy
+        486     BUILD_TUPLE                     1
+        488     LOAD_CONST                      19: <CODE> _deepcopy_tuple
+        490     LOAD_CONST                      20: '_deepcopy_tuple'
+        492     MAKE_FUNCTION                   1
+        494     STORE_NAME                      44: _deepcopy_tuple
+        496     LOAD_NAME                       44: _deepcopy_tuple
+        498     LOAD_NAME                       14: d
+        500     LOAD_NAME                       22: tuple
+        502     STORE_SUBSCR                    
+        504     LOAD_NAME                       39: deepcopy
+        506     BUILD_TUPLE                     1
+        508     LOAD_CONST                      21: <CODE> _deepcopy_dict
+        510     LOAD_CONST                      22: '_deepcopy_dict'
+        512     MAKE_FUNCTION                   1
+        514     STORE_NAME                      45: _deepcopy_dict
+        516     LOAD_NAME                       45: _deepcopy_dict
+        518     LOAD_NAME                       14: d
+        520     LOAD_NAME                       36: dict
+        522     STORE_SUBSCR                    
+        524     LOAD_NAME                       9: PyStringMap
+        526     LOAD_CONST                      2: None
+        528     IS_OP                           1 (is not)
+        530     POP_JUMP_IF_FALSE               271 (to 542)
+        534     LOAD_NAME                       45: _deepcopy_dict
+        536     LOAD_NAME                       14: d
+        538     LOAD_NAME                       9: PyStringMap
+        540     STORE_SUBSCR                    
+        542     LOAD_CONST                      23: <CODE> _deepcopy_method
+        544     LOAD_CONST                      24: '_deepcopy_method'
+        546     MAKE_FUNCTION                   0
+        548     STORE_NAME                      46: _deepcopy_method
+        550     LOAD_NAME                       46: _deepcopy_method
+        552     LOAD_NAME                       14: d
+        554     LOAD_NAME                       1: types
+        556     LOAD_ATTR                       47: MethodType
+        558     STORE_SUBSCR                    
+        560     DELETE_NAME                     14: d
+        562     LOAD_CONST                      25: <CODE> _keep_alive
+        564     LOAD_CONST                      26: '_keep_alive'
+        566     MAKE_FUNCTION                   0
+        568     STORE_NAME                      48: _keep_alive
+        570     NOP                             
+        572     LOAD_CONST                      30: (None, None, None)
+        574     LOAD_NAME                       39: deepcopy
+        576     LOAD_CONST                      27: ('deepcopy',)
+        578     BUILD_CONST_KEY_MAP             1
+        580     LOAD_CONST                      28: <CODE> _reconstruct
+        582     LOAD_CONST                      29: '_reconstruct'
+        584     MAKE_FUNCTION                   3
+        586     STORE_NAME                      49: _reconstruct
+        588     DELETE_NAME                     1: types
+        590     DELETE_NAME                     2: weakref
+        592     DELETE_NAME                     9: PyStringMap
+        594     LOAD_CONST                      2: None
+        596     RETURN_VALUE                    

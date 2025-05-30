@@ -1,0 +1,323 @@
+constants.pyc (Python 3.10)
+[Code]
+    File Name: tkinter/constants.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 2
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        'NO'
+        'FALSE'
+        'OFF'
+        'YES'
+        'TRUE'
+        'ON'
+        'N'
+        'S'
+        'W'
+        'E'
+        'NW'
+        'SW'
+        'NE'
+        'SE'
+        'NS'
+        'EW'
+        'NSEW'
+        'CENTER'
+        'NONE'
+        'X'
+        'Y'
+        'BOTH'
+        'LEFT'
+        'TOP'
+        'RIGHT'
+        'BOTTOM'
+        'RAISED'
+        'SUNKEN'
+        'FLAT'
+        'RIDGE'
+        'GROOVE'
+        'SOLID'
+        'HORIZONTAL'
+        'VERTICAL'
+        'NUMERIC'
+        'CHAR'
+        'WORD'
+        'BASELINE'
+        'INSIDE'
+        'OUTSIDE'
+        'SEL'
+        'SEL_FIRST'
+        'SEL_LAST'
+        'END'
+        'INSERT'
+        'CURRENT'
+        'ANCHOR'
+        'ALL'
+        'NORMAL'
+        'DISABLED'
+        'ACTIVE'
+        'HIDDEN'
+        'CASCADE'
+        'CHECKBUTTON'
+        'COMMAND'
+        'RADIOBUTTON'
+        'SEPARATOR'
+        'SINGLE'
+        'BROWSE'
+        'MULTIPLE'
+        'EXTENDED'
+        'DOTBOX'
+        'UNDERLINE'
+        'PIESLICE'
+        'CHORD'
+        'ARC'
+        'FIRST'
+        'LAST'
+        'BUTT'
+        'PROJECTING'
+        'ROUND'
+        'BEVEL'
+        'MITER'
+        'MOVETO'
+        'SCROLL'
+        'UNITS'
+        'PAGES'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        1
+        'n'
+        's'
+        'w'
+        'e'
+        'nw'
+        'sw'
+        'ne'
+        'se'
+        'ns'
+        'ew'
+        'nsew'
+        'center'
+        'none'
+        'x'
+        'y'
+        'both'
+        'left'
+        'top'
+        'right'
+        'bottom'
+        'raised'
+        'sunken'
+        'flat'
+        'ridge'
+        'groove'
+        'solid'
+        'horizontal'
+        'vertical'
+        'numeric'
+        'char'
+        'word'
+        'baseline'
+        'inside'
+        'outside'
+        'sel'
+        'sel.first'
+        'sel.last'
+        'end'
+        'insert'
+        'current'
+        'anchor'
+        'all'
+        'normal'
+        'disabled'
+        'active'
+        'hidden'
+        'cascade'
+        'checkbutton'
+        'command'
+        'radiobutton'
+        'separator'
+        'single'
+        'browse'
+        'multiple'
+        'extended'
+        'dotbox'
+        'underline'
+        'pieslice'
+        'chord'
+        'arc'
+        'first'
+        'last'
+        'butt'
+        'projecting'
+        'round'
+        'bevel'
+        'miter'
+        'moveto'
+        'scroll'
+        'units'
+        'pages'
+        None
+    [Disassembly]
+        0       LOAD_CONST                      0: 0
+        2       DUP_TOP                         
+        4       STORE_NAME                      0: NO
+        6       DUP_TOP                         
+        8       STORE_NAME                      1: FALSE
+        10      STORE_NAME                      2: OFF
+        12      LOAD_CONST                      1: 1
+        14      DUP_TOP                         
+        16      STORE_NAME                      3: YES
+        18      DUP_TOP                         
+        20      STORE_NAME                      4: TRUE
+        22      STORE_NAME                      5: ON
+        24      LOAD_CONST                      2: 'n'
+        26      STORE_NAME                      6: N
+        28      LOAD_CONST                      3: 's'
+        30      STORE_NAME                      7: S
+        32      LOAD_CONST                      4: 'w'
+        34      STORE_NAME                      8: W
+        36      LOAD_CONST                      5: 'e'
+        38      STORE_NAME                      9: E
+        40      LOAD_CONST                      6: 'nw'
+        42      STORE_NAME                      10: NW
+        44      LOAD_CONST                      7: 'sw'
+        46      STORE_NAME                      11: SW
+        48      LOAD_CONST                      8: 'ne'
+        50      STORE_NAME                      12: NE
+        52      LOAD_CONST                      9: 'se'
+        54      STORE_NAME                      13: SE
+        56      LOAD_CONST                      10: 'ns'
+        58      STORE_NAME                      14: NS
+        60      LOAD_CONST                      11: 'ew'
+        62      STORE_NAME                      15: EW
+        64      LOAD_CONST                      12: 'nsew'
+        66      STORE_NAME                      16: NSEW
+        68      LOAD_CONST                      13: 'center'
+        70      STORE_NAME                      17: CENTER
+        72      LOAD_CONST                      14: 'none'
+        74      STORE_NAME                      18: NONE
+        76      LOAD_CONST                      15: 'x'
+        78      STORE_NAME                      19: X
+        80      LOAD_CONST                      16: 'y'
+        82      STORE_NAME                      20: Y
+        84      LOAD_CONST                      17: 'both'
+        86      STORE_NAME                      21: BOTH
+        88      LOAD_CONST                      18: 'left'
+        90      STORE_NAME                      22: LEFT
+        92      LOAD_CONST                      19: 'top'
+        94      STORE_NAME                      23: TOP
+        96      LOAD_CONST                      20: 'right'
+        98      STORE_NAME                      24: RIGHT
+        100     LOAD_CONST                      21: 'bottom'
+        102     STORE_NAME                      25: BOTTOM
+        104     LOAD_CONST                      22: 'raised'
+        106     STORE_NAME                      26: RAISED
+        108     LOAD_CONST                      23: 'sunken'
+        110     STORE_NAME                      27: SUNKEN
+        112     LOAD_CONST                      24: 'flat'
+        114     STORE_NAME                      28: FLAT
+        116     LOAD_CONST                      25: 'ridge'
+        118     STORE_NAME                      29: RIDGE
+        120     LOAD_CONST                      26: 'groove'
+        122     STORE_NAME                      30: GROOVE
+        124     LOAD_CONST                      27: 'solid'
+        126     STORE_NAME                      31: SOLID
+        128     LOAD_CONST                      28: 'horizontal'
+        130     STORE_NAME                      32: HORIZONTAL
+        132     LOAD_CONST                      29: 'vertical'
+        134     STORE_NAME                      33: VERTICAL
+        136     LOAD_CONST                      30: 'numeric'
+        138     STORE_NAME                      34: NUMERIC
+        140     LOAD_CONST                      31: 'char'
+        142     STORE_NAME                      35: CHAR
+        144     LOAD_CONST                      32: 'word'
+        146     STORE_NAME                      36: WORD
+        148     LOAD_CONST                      33: 'baseline'
+        150     STORE_NAME                      37: BASELINE
+        152     LOAD_CONST                      34: 'inside'
+        154     STORE_NAME                      38: INSIDE
+        156     LOAD_CONST                      35: 'outside'
+        158     STORE_NAME                      39: OUTSIDE
+        160     LOAD_CONST                      36: 'sel'
+        162     STORE_NAME                      40: SEL
+        164     LOAD_CONST                      37: 'sel.first'
+        166     STORE_NAME                      41: SEL_FIRST
+        168     LOAD_CONST                      38: 'sel.last'
+        170     STORE_NAME                      42: SEL_LAST
+        172     LOAD_CONST                      39: 'end'
+        174     STORE_NAME                      43: END
+        176     LOAD_CONST                      40: 'insert'
+        178     STORE_NAME                      44: INSERT
+        180     LOAD_CONST                      41: 'current'
+        182     STORE_NAME                      45: CURRENT
+        184     LOAD_CONST                      42: 'anchor'
+        186     STORE_NAME                      46: ANCHOR
+        188     LOAD_CONST                      43: 'all'
+        190     STORE_NAME                      47: ALL
+        192     LOAD_CONST                      44: 'normal'
+        194     STORE_NAME                      48: NORMAL
+        196     LOAD_CONST                      45: 'disabled'
+        198     STORE_NAME                      49: DISABLED
+        200     LOAD_CONST                      46: 'active'
+        202     STORE_NAME                      50: ACTIVE
+        204     LOAD_CONST                      47: 'hidden'
+        206     STORE_NAME                      51: HIDDEN
+        208     LOAD_CONST                      48: 'cascade'
+        210     STORE_NAME                      52: CASCADE
+        212     LOAD_CONST                      49: 'checkbutton'
+        214     STORE_NAME                      53: CHECKBUTTON
+        216     LOAD_CONST                      50: 'command'
+        218     STORE_NAME                      54: COMMAND
+        220     LOAD_CONST                      51: 'radiobutton'
+        222     STORE_NAME                      55: RADIOBUTTON
+        224     LOAD_CONST                      52: 'separator'
+        226     STORE_NAME                      56: SEPARATOR
+        228     LOAD_CONST                      53: 'single'
+        230     STORE_NAME                      57: SINGLE
+        232     LOAD_CONST                      54: 'browse'
+        234     STORE_NAME                      58: BROWSE
+        236     LOAD_CONST                      55: 'multiple'
+        238     STORE_NAME                      59: MULTIPLE
+        240     LOAD_CONST                      56: 'extended'
+        242     STORE_NAME                      60: EXTENDED
+        244     LOAD_CONST                      57: 'dotbox'
+        246     STORE_NAME                      61: DOTBOX
+        248     LOAD_CONST                      58: 'underline'
+        250     STORE_NAME                      62: UNDERLINE
+        252     LOAD_CONST                      59: 'pieslice'
+        254     STORE_NAME                      63: PIESLICE
+        256     LOAD_CONST                      60: 'chord'
+        258     STORE_NAME                      64: CHORD
+        260     LOAD_CONST                      61: 'arc'
+        262     STORE_NAME                      65: ARC
+        264     LOAD_CONST                      62: 'first'
+        266     STORE_NAME                      66: FIRST
+        268     LOAD_CONST                      63: 'last'
+        270     STORE_NAME                      67: LAST
+        272     LOAD_CONST                      64: 'butt'
+        274     STORE_NAME                      68: BUTT
+        276     LOAD_CONST                      65: 'projecting'
+        278     STORE_NAME                      69: PROJECTING
+        280     LOAD_CONST                      66: 'round'
+        282     STORE_NAME                      70: ROUND
+        284     LOAD_CONST                      67: 'bevel'
+        286     STORE_NAME                      71: BEVEL
+        288     LOAD_CONST                      68: 'miter'
+        290     STORE_NAME                      72: MITER
+        292     LOAD_CONST                      69: 'moveto'
+        294     STORE_NAME                      73: MOVETO
+        296     LOAD_CONST                      70: 'scroll'
+        298     STORE_NAME                      74: SCROLL
+        300     LOAD_CONST                      71: 'units'
+        302     STORE_NAME                      75: UNITS
+        304     LOAD_CONST                      72: 'pages'
+        306     STORE_NAME                      76: PAGES
+        308     LOAD_CONST                      73: None
+        310     RETURN_VALUE                    

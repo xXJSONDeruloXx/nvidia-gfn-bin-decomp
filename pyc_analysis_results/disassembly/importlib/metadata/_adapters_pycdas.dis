@@ -1,0 +1,488 @@
+_adapters.pyc (Python 3.10)
+[Code]
+    File Name: importlib/metadata/_adapters.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 4
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        're'
+        'textwrap'
+        'email.message'
+        'email'
+        '_text'
+        'FoldedCase'
+        'message'
+        'Message'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        None
+        1
+        (
+            'FoldedCase'
+        )
+        [Code]
+            File Name: importlib/metadata/_adapters.py
+            Object Name: Message
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 5
+            Flags: 0x00000000
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                'set'
+                'map'
+                'FoldedCase'
+                'multiple_use_keys'
+                'email'
+                'message'
+                'Message'
+                '__new__'
+                '__init__'
+                '__iter__'
+                '_repair_headers'
+                'property'
+                'json'
+                '__classcell__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+                '__class__'
+            [Constants]
+                'Message'
+                (
+                    'Classifier'
+                    'Obsoletes-Dist'
+                    'Platform'
+                    'Project-URL'
+                    'Provides-Dist'
+                    'Provides-Extra'
+                    'Requires-Dist'
+                    'Requires-External'
+                    'Supported-Platform'
+                    'Dynamic'
+                )
+                'orig'
+                [Code]
+                    File Name: importlib/metadata/_adapters.py
+                    Object Name: __new__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 4
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        '__new__'
+                        'vars'
+                        'update'
+                    [Var Names]
+                        'cls'
+                        'orig'
+                        'res'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_METHOD                     1: __new__
+                        6       LOAD_FAST                       0: cls
+                        8       CALL_METHOD                     1
+                        10      STORE_FAST                      2: res
+                        12      LOAD_GLOBAL                     2: vars
+                        14      LOAD_FAST                       2: res
+                        16      CALL_FUNCTION                   1
+                        18      LOAD_METHOD                     3: update
+                        20      LOAD_GLOBAL                     2: vars
+                        22      LOAD_FAST                       1: orig
+                        24      CALL_FUNCTION                   1
+                        26      CALL_METHOD                     1
+                        28      POP_TOP                         
+                        30      LOAD_FAST                       2: res
+                        32      RETURN_VALUE                    
+                'Message.__new__'
+                [Code]
+                    File Name: importlib/metadata/_adapters.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 3
+                    Stack Size: 2
+                    Flags: 0x0000004F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NOFREE)
+                    [Names]
+                        '_repair_headers'
+                        '_headers'
+                    [Var Names]
+                        'self'
+                        'args'
+                        'kwargs'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_METHOD                     0: _repair_headers
+                        4       CALL_METHOD                     0
+                        6       LOAD_FAST                       0: self
+                        8       STORE_ATTR                      1: _headers
+                        10      LOAD_CONST                      0: None
+                        12      RETURN_VALUE                    
+                'Message.__init__'
+                [Code]
+                    File Name: importlib/metadata/_adapters.py
+                    Object Name: __iter__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 2
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'super'
+                        '__iter__'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                        '__class__'
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_GLOBAL                     0: super
+                        2       CALL_FUNCTION                   0
+                        4       LOAD_METHOD                     1: __iter__
+                        6       CALL_METHOD                     0
+                        8       RETURN_VALUE                    
+                'Message.__iter__'
+                [Code]
+                    File Name: importlib/metadata/_adapters.py
+                    Object Name: _repair_headers
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 5
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'vars'
+                        '_payload'
+                        'append'
+                        'get_payload'
+                    [Var Names]
+                        'self'
+                        'headers'
+                    [Free Vars]
+                    [Cell Vars]
+                        'redent'
+                    [Constants]
+                        None
+                        [Code]
+                            File Name: importlib/metadata/_adapters.py
+                            Object Name: redent
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 1
+                            Stack Size: 4
+                            Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                            [Names]
+                                'textwrap'
+                                'dedent'
+                            [Var Names]
+                                'value'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                'Correct for RFC822 indentation'
+                                '\n'
+                                '        '
+                            [Disassembly]
+                                0       LOAD_FAST                       0: value
+                                2       POP_JUMP_IF_FALSE               6 (to 12)
+                                4       LOAD_CONST                      1: '\n'
+                                6       LOAD_FAST                       0: value
+                                8       CONTAINS_OP                     1 (not in)
+                                10      POP_JUMP_IF_FALSE               8 (to 16)
+                                12      LOAD_FAST                       0: value
+                                14      RETURN_VALUE                    
+                                16      LOAD_GLOBAL                     0: textwrap
+                                18      LOAD_METHOD                     1: dedent
+                                20      LOAD_CONST                      2: '        '
+                                22      LOAD_FAST                       0: value
+                                24      BINARY_ADD                      
+                                26      CALL_METHOD                     1
+                                28      RETURN_VALUE                    
+                        'Message._repair_headers.<locals>.redent'
+                        [Code]
+                            File Name: importlib/metadata/_adapters.py
+                            Object Name: <listcomp>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 3
+                            Stack Size: 5
+                            Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                            [Names]
+                            [Var Names]
+                                '.0'
+                                'key'
+                                'value'
+                            [Free Vars]
+                                'redent'
+                            [Cell Vars]
+                            [Constants]
+                            [Disassembly]
+                                0       BUILD_LIST                      0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        10 (to 26)
+                                6       UNPACK_SEQUENCE                 2
+                                8       STORE_FAST                      1: key
+                                10      STORE_FAST                      2: value
+                                12      LOAD_FAST                       1: key
+                                14      LOAD_DEREF                      0: redent
+                                16      LOAD_FAST                       2: value
+                                18      CALL_FUNCTION                   1
+                                20      BUILD_TUPLE                     2
+                                22      LIST_APPEND                     2
+                                24      JUMP_ABSOLUTE                   2 (to 4)
+                                26      RETURN_VALUE                    
+                        'Message._repair_headers.<locals>.<listcomp>'
+                        '_headers'
+                        'Description'
+                    [Disassembly]
+                        0       LOAD_CONST                      1: <CODE> redent
+                        2       LOAD_CONST                      2: 'Message._repair_headers.<locals>.redent'
+                        4       MAKE_FUNCTION                   0
+                        6       STORE_DEREF                     0: redent
+                        8       LOAD_CLOSURE                    0: redent
+                        10      BUILD_TUPLE                     1
+                        12      LOAD_CONST                      3: <CODE> <listcomp>
+                        14      LOAD_CONST                      4: 'Message._repair_headers.<locals>.<listcomp>'
+                        16      MAKE_FUNCTION                   8
+                        18      LOAD_GLOBAL                     0: vars
+                        20      LOAD_FAST                       0: self
+                        22      CALL_FUNCTION                   1
+                        24      LOAD_CONST                      5: '_headers'
+                        26      BINARY_SUBSCR                   
+                        28      GET_ITER                        
+                        30      CALL_FUNCTION                   1
+                        32      STORE_FAST                      1: headers
+                        34      LOAD_FAST                       0: self
+                        36      LOAD_ATTR                       1: _payload
+                        38      POP_JUMP_IF_FALSE               29 (to 58)
+                        40      LOAD_FAST                       1: headers
+                        42      LOAD_METHOD                     2: append
+                        44      LOAD_CONST                      6: 'Description'
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_METHOD                     3: get_payload
+                        50      CALL_METHOD                     0
+                        52      BUILD_TUPLE                     2
+                        54      CALL_METHOD                     1
+                        56      POP_TOP                         
+                        58      LOAD_FAST                       1: headers
+                        60      RETURN_VALUE                    
+                'Message._repair_headers'
+                [Code]
+                    File Name: importlib/metadata/_adapters.py
+                    Object Name: json
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 6
+                    Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+                    [Names]
+                        'dict'
+                        'map'
+                        'FoldedCase'
+                    [Var Names]
+                        'self'
+                        'transform'
+                    [Free Vars]
+                    [Cell Vars]
+                        'self'
+                    [Constants]
+                        '\n        Convert PackageMetadata to a JSON-compatible format\n        per PEP 0566.\n        '
+                        [Code]
+                            File Name: importlib/metadata/_adapters.py
+                            Object Name: transform
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 3
+                            Stack Size: 4
+                            Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                            [Names]
+                                'multiple_use_keys'
+                                'get_all'
+                                're'
+                                'split'
+                                'lower'
+                                'replace'
+                            [Var Names]
+                                'key'
+                                'value'
+                                'tk'
+                            [Free Vars]
+                                'self'
+                            [Cell Vars]
+                            [Constants]
+                                None
+                                'Keywords'
+                                '\\s+'
+                                '-'
+                                '_'
+                            [Disassembly]
+                                0       LOAD_FAST                       0: key
+                                2       LOAD_DEREF                      0: self
+                                4       LOAD_ATTR                       0: multiple_use_keys
+                                6       CONTAINS_OP                     0 (in)
+                                8       POP_JUMP_IF_FALSE               10 (to 20)
+                                10      LOAD_DEREF                      0: self
+                                12      LOAD_METHOD                     1: get_all
+                                14      LOAD_FAST                       0: key
+                                16      CALL_METHOD                     1
+                                18      JUMP_FORWARD                    3 (to 26)
+                                20      LOAD_DEREF                      0: self
+                                22      LOAD_FAST                       0: key
+                                24      BINARY_SUBSCR                   
+                                26      STORE_FAST                      1: value
+                                28      LOAD_FAST                       0: key
+                                30      LOAD_CONST                      1: 'Keywords'
+                                32      COMPARE_OP                      2 (==)
+                                34      POP_JUMP_IF_FALSE               24 (to 48)
+                                36      LOAD_GLOBAL                     2: re
+                                38      LOAD_METHOD                     3: split
+                                40      LOAD_CONST                      2: '\\s+'
+                                42      LOAD_FAST                       1: value
+                                44      CALL_METHOD                     2
+                                46      STORE_FAST                      1: value
+                                48      LOAD_FAST                       0: key
+                                50      LOAD_METHOD                     4: lower
+                                52      CALL_METHOD                     0
+                                54      LOAD_METHOD                     5: replace
+                                56      LOAD_CONST                      3: '-'
+                                58      LOAD_CONST                      4: '_'
+                                60      CALL_METHOD                     2
+                                62      STORE_FAST                      2: tk
+                                64      LOAD_FAST                       2: tk
+                                66      LOAD_FAST                       1: value
+                                68      BUILD_TUPLE                     2
+                                70      RETURN_VALUE                    
+                        'Message.json.<locals>.transform'
+                    [Disassembly]
+                        0       LOAD_CLOSURE                    0: self
+                        2       BUILD_TUPLE                     1
+                        4       LOAD_CONST                      1: <CODE> transform
+                        6       LOAD_CONST                      2: 'Message.json.<locals>.transform'
+                        8       MAKE_FUNCTION                   8
+                        10      STORE_FAST                      1: transform
+                        12      LOAD_GLOBAL                     0: dict
+                        14      LOAD_GLOBAL                     1: map
+                        16      LOAD_FAST                       1: transform
+                        18      LOAD_GLOBAL                     1: map
+                        20      LOAD_GLOBAL                     2: FoldedCase
+                        22      LOAD_DEREF                      0: self
+                        24      CALL_FUNCTION                   2
+                        26      CALL_FUNCTION                   2
+                        28      CALL_FUNCTION                   1
+                        30      RETURN_VALUE                    
+                'Message.json'
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Message'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_NAME                       3: set
+                10      LOAD_NAME                       4: map
+                12      LOAD_NAME                       5: FoldedCase
+                14      BUILD_LIST                      0
+                16      LOAD_CONST                      1: ('Classifier', 'Obsoletes-Dist', 'Platform', 'Project-URL', 'Provides-Dist', 'Provides-Extra', 'Requires-Dist', 'Requires-External', 'Supported-Platform', 'Dynamic')
+                18      LIST_EXTEND                     1
+                20      CALL_FUNCTION                   2
+                22      CALL_FUNCTION                   1
+                24      STORE_NAME                      6: multiple_use_keys
+                26      NOP                             
+                28      LOAD_CONST                      2: 'orig'
+                30      LOAD_NAME                       7: email
+                32      LOAD_ATTR                       8: message
+                34      LOAD_ATTR                       9: Message
+                36      BUILD_TUPLE                     2
+                38      LOAD_CLOSURE                    0: __class__
+                40      BUILD_TUPLE                     1
+                42      LOAD_CONST                      3: <CODE> __new__
+                44      LOAD_CONST                      4: 'Message.__new__'
+                46      MAKE_FUNCTION                   12
+                48      STORE_NAME                      10: __new__
+                50      LOAD_CONST                      5: <CODE> __init__
+                52      LOAD_CONST                      6: 'Message.__init__'
+                54      MAKE_FUNCTION                   0
+                56      STORE_NAME                      11: __init__
+                58      LOAD_CLOSURE                    0: __class__
+                60      BUILD_TUPLE                     1
+                62      LOAD_CONST                      7: <CODE> __iter__
+                64      LOAD_CONST                      8: 'Message.__iter__'
+                66      MAKE_FUNCTION                   8
+                68      STORE_NAME                      12: __iter__
+                70      LOAD_CONST                      9: <CODE> _repair_headers
+                72      LOAD_CONST                      10: 'Message._repair_headers'
+                74      MAKE_FUNCTION                   0
+                76      STORE_NAME                      13: _repair_headers
+                78      LOAD_NAME                       14: property
+                80      LOAD_CONST                      11: <CODE> json
+                82      LOAD_CONST                      12: 'Message.json'
+                84      MAKE_FUNCTION                   0
+                86      CALL_FUNCTION                   1
+                88      STORE_NAME                      15: json
+                90      LOAD_CLOSURE                    0: __class__
+                92      DUP_TOP                         
+                94      STORE_NAME                      16: __classcell__
+                96      RETURN_VALUE                    
+        'Message'
+    [Disassembly]
+        0       LOAD_CONST                      0: 0
+        2       LOAD_CONST                      1: None
+        4       IMPORT_NAME                     0: re
+        6       STORE_NAME                      0: re
+        8       LOAD_CONST                      0: 0
+        10      LOAD_CONST                      1: None
+        12      IMPORT_NAME                     1: textwrap
+        14      STORE_NAME                      1: textwrap
+        16      LOAD_CONST                      0: 0
+        18      LOAD_CONST                      1: None
+        20      IMPORT_NAME                     2: email.message
+        22      STORE_NAME                      3: email
+        24      LOAD_CONST                      2: 1
+        26      LOAD_CONST                      3: ('FoldedCase',)
+        28      IMPORT_NAME                     4: _text
+        30      IMPORT_FROM                     5: FoldedCase
+        32      STORE_NAME                      5: FoldedCase
+        34      POP_TOP                         
+        36      LOAD_BUILD_CLASS                
+        38      LOAD_CONST                      4: <CODE> Message
+        40      LOAD_CONST                      5: 'Message'
+        42      MAKE_FUNCTION                   0
+        44      LOAD_CONST                      5: 'Message'
+        46      LOAD_NAME                       3: email
+        48      LOAD_ATTR                       6: message
+        50      LOAD_ATTR                       7: Message
+        52      CALL_FUNCTION                   3
+        54      STORE_NAME                      7: Message
+        56      LOAD_CONST                      1: None
+        58      RETURN_VALUE                    

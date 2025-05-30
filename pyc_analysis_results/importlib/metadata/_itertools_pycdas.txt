@@ -1,0 +1,119 @@
+_itertools.pyc (Python 3.10)
+[Code]
+    File Name: importlib/metadata/_itertools.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 3
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        'itertools'
+        'filterfalse'
+        'unique_everseen'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        (
+            'filterfalse'
+        )
+        None
+        [Code]
+            File Name: importlib/metadata/_itertools.py
+            Object Name: unique_everseen
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 6
+            Stack Size: 3
+            Flags: 0x00000063 (CO_OPTIMIZED | CO_NEWLOCALS | CO_GENERATOR | CO_NOFREE)
+            [Names]
+                'set'
+                'add'
+                'filterfalse'
+                '__contains__'
+            [Var Names]
+                'iterable'
+                'key'
+                'seen'
+                'seen_add'
+                'element'
+                'k'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'List unique elements, preserving order. Remember all elements ever seen.'
+                None
+            [Disassembly]
+                0       GEN_START                       0
+                2       LOAD_GLOBAL                     0: set
+                4       CALL_FUNCTION                   0
+                6       STORE_FAST                      2: seen
+                8       LOAD_FAST                       2: seen
+                10      LOAD_ATTR                       1: add
+                12      STORE_FAST                      3: seen_add
+                14      LOAD_FAST                       1: key
+                16      LOAD_CONST                      1: None
+                18      IS_OP                           0 (is)
+                20      POP_JUMP_IF_FALSE               29 (to 58)
+                22      LOAD_GLOBAL                     2: filterfalse
+                24      LOAD_FAST                       2: seen
+                26      LOAD_ATTR                       3: __contains__
+                28      LOAD_FAST                       0: iterable
+                30      CALL_FUNCTION                   2
+                32      GET_ITER                        
+                34      FOR_ITER                        9 (to 54)
+                36      STORE_FAST                      4: element
+                38      LOAD_FAST                       3: seen_add
+                40      LOAD_FAST                       4: element
+                42      CALL_FUNCTION                   1
+                44      POP_TOP                         
+                46      LOAD_FAST                       4: element
+                48      YIELD_VALUE                     
+                50      POP_TOP                         
+                52      JUMP_ABSOLUTE                   17 (to 34)
+                54      LOAD_CONST                      1: None
+                56      RETURN_VALUE                    
+                58      LOAD_FAST                       0: iterable
+                60      GET_ITER                        
+                62      FOR_ITER                        17 (to 98)
+                64      STORE_FAST                      4: element
+                66      LOAD_FAST                       1: key
+                68      LOAD_FAST                       4: element
+                70      CALL_FUNCTION                   1
+                72      STORE_FAST                      5: k
+                74      LOAD_FAST                       5: k
+                76      LOAD_FAST                       2: seen
+                78      CONTAINS_OP                     1 (not in)
+                80      POP_JUMP_IF_FALSE               48 (to 96)
+                82      LOAD_FAST                       3: seen_add
+                84      LOAD_FAST                       5: k
+                86      CALL_FUNCTION                   1
+                88      POP_TOP                         
+                90      LOAD_FAST                       4: element
+                92      YIELD_VALUE                     
+                94      POP_TOP                         
+                96      JUMP_ABSOLUTE                   31 (to 62)
+                98      LOAD_CONST                      1: None
+                100     RETURN_VALUE                    
+        'unique_everseen'
+        (
+            None
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: 0
+        2       LOAD_CONST                      1: ('filterfalse',)
+        4       IMPORT_NAME                     0: itertools
+        6       IMPORT_FROM                     1: filterfalse
+        8       STORE_NAME                      1: filterfalse
+        10      POP_TOP                         
+        12      LOAD_CONST                      5: (None,)
+        14      LOAD_CONST                      3: <CODE> unique_everseen
+        16      LOAD_CONST                      4: 'unique_everseen'
+        18      MAKE_FUNCTION                   1
+        20      STORE_NAME                      2: unique_everseen
+        22      LOAD_CONST                      2: None
+        24      RETURN_VALUE                    

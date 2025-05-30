@@ -1,0 +1,15 @@
+PYC Decompilation Report
+==================================================
+
+Total files processed: 0
+
+Success Rates:
+  uncompyle6: 0/0 (0.00%)
+  decompyle3: 0/0 (0.00%)
+  pycdc: 0/0 (0.00%)
+  pycdas: 0/0 (0.00%)
+  dis: 0/0 (0.00%)
+  metadata: 0/0 (0.00%)
+
+Decompilation worked best with:
+  uncompyle6: 0/0 files

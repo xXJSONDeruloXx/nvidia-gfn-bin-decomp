@@ -1,0 +1,511 @@
+translate.pyc (Python 3.10)
+[Code]
+    File Name: translate.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 8
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        'os'
+        'sys'
+        'json'
+        'locale'
+        'logging'
+        'NV_DEFAULT_LOCALE'
+        'Translate'
+        '__name__'
+        'print'
+        'text'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        0
+        None
+        'en_US'
+        [Code]
+            File Name: translate.py
+            Object Name: Translate
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 3
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__init__'
+                'get_lang'
+                'text'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                'Translate'
+                [Code]
+                    File Name: translate.py
+                    Object Name: __init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 10
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'locale'
+                        'getlocale'
+                        'NV_DEFAULT_LOCALE'
+                        'Exception'
+                        'logging'
+                        'error'
+                        'locale_dict'
+                        'getattr'
+                        'sys'
+                        'os'
+                        'path'
+                        'join'
+                        '_MEIPASS'
+                        'dirname'
+                        'abspath'
+                        '__file__'
+                        'exists'
+                        'open'
+                        'json'
+                        'load'
+                    [Var Names]
+                        'self'
+                        'e'
+                        'i18n_path'
+                        'script_dir'
+                        'localePath'
+                        'file'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        0
+                        'Locale not found: '
+                        'frozen'
+                        False
+                        'assets'
+                        'i18n'
+                        '.json'
+                        'r'
+                        'utf-8'
+                        (
+                            'encoding'
+                        )
+                        'Translate failed: '
+                    [Disassembly]
+                        0       SETUP_FINALLY                   11 (to 24)
+                        2       LOAD_GLOBAL                     0: locale
+                        4       LOAD_METHOD                     1: getlocale
+                        6       CALL_METHOD                     0
+                        8       LOAD_CONST                      1: 0
+                        10      BINARY_SUBSCR                   
+                        12      JUMP_IF_TRUE_OR_POP             8 (to 16)
+                        14      LOAD_GLOBAL                     2: NV_DEFAULT_LOCALE
+                        16      LOAD_FAST                       0: self
+                        18      STORE_ATTR                      0: locale
+                        20      POP_BLOCK                       
+                        22      JUMP_FORWARD                    29 (to 82)
+                        24      DUP_TOP                         
+                        26      LOAD_GLOBAL                     3: Exception
+                        28      JUMP_IF_NOT_EXC_MATCH           40 (to 80)
+                        30      POP_TOP                         
+                        32      STORE_FAST                      1: e
+                        34      POP_TOP                         
+                        36      SETUP_FINALLY                   17 (to 72)
+                        38      LOAD_GLOBAL                     4: logging
+                        40      LOAD_METHOD                     5: error
+                        42      LOAD_CONST                      2: 'Locale not found: '
+                        44      LOAD_FAST                       1: e
+                        46      FORMAT_VALUE                    0 (FVC_NONE)
+                        48      BUILD_STRING                    2
+                        50      CALL_METHOD                     1
+                        52      POP_TOP                         
+                        54      LOAD_GLOBAL                     2: NV_DEFAULT_LOCALE
+                        56      LOAD_FAST                       0: self
+                        58      STORE_ATTR                      0: locale
+                        60      POP_BLOCK                       
+                        62      POP_EXCEPT                      
+                        64      LOAD_CONST                      0: None
+                        66      STORE_FAST                      1: e
+                        68      DELETE_FAST                     1: e
+                        70      JUMP_FORWARD                    5 (to 82)
+                        72      LOAD_CONST                      0: None
+                        74      STORE_FAST                      1: e
+                        76      DELETE_FAST                     1: e
+                        78      RERAISE                         1
+                        80      RERAISE                         0
+                        82      BUILD_MAP                       0
+                        84      LOAD_FAST                       0: self
+                        86      STORE_ATTR                      6: locale_dict
+                        88      SETUP_FINALLY                   98 (to 286)
+                        90      LOAD_GLOBAL                     7: getattr
+                        92      LOAD_GLOBAL                     8: sys
+                        94      LOAD_CONST                      3: 'frozen'
+                        96      LOAD_CONST                      4: False
+                        98      CALL_FUNCTION                   3
+                        100     POP_JUMP_IF_FALSE               61 (to 122)
+                        102     LOAD_GLOBAL                     9: os
+                        104     LOAD_ATTR                       10: path
+                        106     LOAD_METHOD                     11: join
+                        108     LOAD_GLOBAL                     8: sys
+                        110     LOAD_ATTR                       12: _MEIPASS
+                        112     LOAD_CONST                      5: 'assets'
+                        114     LOAD_CONST                      6: 'i18n'
+                        116     CALL_METHOD                     3
+                        118     STORE_FAST                      2: i18n_path
+                        120     JUMP_FORWARD                    18 (to 158)
+                        122     LOAD_GLOBAL                     9: os
+                        124     LOAD_ATTR                       10: path
+                        126     LOAD_METHOD                     13: dirname
+                        128     LOAD_GLOBAL                     9: os
+                        130     LOAD_ATTR                       10: path
+                        132     LOAD_METHOD                     14: abspath
+                        134     LOAD_GLOBAL                     15: __file__
+                        136     CALL_METHOD                     1
+                        138     CALL_METHOD                     1
+                        140     STORE_FAST                      3: script_dir
+                        142     LOAD_GLOBAL                     9: os
+                        144     LOAD_ATTR                       10: path
+                        146     LOAD_METHOD                     11: join
+                        148     LOAD_FAST                       3: script_dir
+                        150     LOAD_CONST                      5: 'assets'
+                        152     LOAD_CONST                      6: 'i18n'
+                        154     CALL_METHOD                     3
+                        156     STORE_FAST                      2: i18n_path
+                        158     LOAD_GLOBAL                     9: os
+                        160     LOAD_ATTR                       10: path
+                        162     LOAD_METHOD                     11: join
+                        164     LOAD_FAST                       2: i18n_path
+                        166     LOAD_FAST                       0: self
+                        168     LOAD_ATTR                       0: locale
+                        170     FORMAT_VALUE                    0 (FVC_NONE)
+                        172     LOAD_CONST                      7: '.json'
+                        174     BUILD_STRING                    2
+                        176     CALL_METHOD                     2
+                        178     STORE_FAST                      4: localePath
+                        180     LOAD_GLOBAL                     9: os
+                        182     LOAD_ATTR                       10: path
+                        184     LOAD_METHOD                     16: exists
+                        186     LOAD_FAST                       4: localePath
+                        188     CALL_METHOD                     1
+                        190     POP_JUMP_IF_TRUE                109 (to 218)
+                        192     LOAD_GLOBAL                     2: NV_DEFAULT_LOCALE
+                        194     LOAD_FAST                       0: self
+                        196     STORE_ATTR                      0: locale
+                        198     LOAD_GLOBAL                     9: os
+                        200     LOAD_ATTR                       10: path
+                        202     LOAD_METHOD                     11: join
+                        204     LOAD_FAST                       2: i18n_path
+                        206     LOAD_GLOBAL                     2: NV_DEFAULT_LOCALE
+                        208     FORMAT_VALUE                    0 (FVC_NONE)
+                        210     LOAD_CONST                      7: '.json'
+                        212     BUILD_STRING                    2
+                        214     CALL_METHOD                     2
+                        216     STORE_FAST                      4: localePath
+                        218     LOAD_GLOBAL                     17: open
+                        220     LOAD_FAST                       4: localePath
+                        222     LOAD_CONST                      8: 'r'
+                        224     LOAD_CONST                      9: 'utf-8'
+                        226     LOAD_CONST                      10: ('encoding',)
+                        228     CALL_FUNCTION_KW                3
+                        230     SETUP_WITH                      16 (to 264)
+                        232     STORE_FAST                      5: file
+                        234     LOAD_GLOBAL                     18: json
+                        236     LOAD_METHOD                     19: load
+                        238     LOAD_FAST                       5: file
+                        240     CALL_METHOD                     1
+                        242     LOAD_FAST                       0: self
+                        244     STORE_ATTR                      6: locale_dict
+                        246     POP_BLOCK                       
+                        248     LOAD_CONST                      0: None
+                        250     DUP_TOP                         
+                        252     DUP_TOP                         
+                        254     CALL_FUNCTION                   3
+                        256     POP_TOP                         
+                        258     POP_BLOCK                       
+                        260     LOAD_CONST                      0: None
+                        262     RETURN_VALUE                    
+                        264     WITH_EXCEPT_START               
+                        266     POP_JUMP_IF_TRUE                135 (to 270)
+                        268     RERAISE                         1
+                        270     POP_TOP                         
+                        272     POP_TOP                         
+                        274     POP_TOP                         
+                        276     POP_EXCEPT                      
+                        278     POP_TOP                         
+                        280     POP_BLOCK                       
+                        282     LOAD_CONST                      0: None
+                        284     RETURN_VALUE                    
+                        286     DUP_TOP                         
+                        288     LOAD_GLOBAL                     3: Exception
+                        290     JUMP_IF_NOT_EXC_MATCH           169 (to 338)
+                        292     POP_TOP                         
+                        294     STORE_FAST                      1: e
+                        296     POP_TOP                         
+                        298     SETUP_FINALLY                   15 (to 330)
+                        300     LOAD_GLOBAL                     4: logging
+                        302     LOAD_METHOD                     5: error
+                        304     LOAD_CONST                      11: 'Translate failed: '
+                        306     LOAD_FAST                       1: e
+                        308     FORMAT_VALUE                    0 (FVC_NONE)
+                        310     BUILD_STRING                    2
+                        312     CALL_METHOD                     1
+                        314     POP_TOP                         
+                        316     POP_BLOCK                       
+                        318     POP_EXCEPT                      
+                        320     LOAD_CONST                      0: None
+                        322     STORE_FAST                      1: e
+                        324     DELETE_FAST                     1: e
+                        326     LOAD_CONST                      0: None
+                        328     RETURN_VALUE                    
+                        330     LOAD_CONST                      0: None
+                        332     STORE_FAST                      1: e
+                        334     DELETE_FAST                     1: e
+                        336     RERAISE                         1
+                        338     RERAISE                         0
+                'Translate.__init__'
+                [Code]
+                    File Name: translate.py
+                    Object Name: get_lang
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 1
+                    Stack Size: 1
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'locale'
+                    [Var Names]
+                        'self'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: locale
+                        4       RETURN_VALUE                    
+                'Translate.get_lang'
+                [Code]
+                    File Name: translate.py
+                    Object Name: text
+                    Arg Count: 5
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 6
+                    Stack Size: 8
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'locale_dict'
+                        'get'
+                        'isinstance'
+                        'list'
+                        'join'
+                        'replace'
+                        'logging'
+                        'error'
+                    [Var Names]
+                        'self'
+                        'category'
+                        'sub_category'
+                        'key'
+                        'keys_to_be_replaced'
+                        'msg'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        ''
+                        '\n'
+                        [Code]
+                            File Name: translate.py
+                            Object Name: <listcomp>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Locals: 2
+                            Stack Size: 4
+                            Flags: 0x00000053 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_NOFREE)
+                            [Names]
+                            [Var Names]
+                                '.0'
+                                'line'
+                            [Free Vars]
+                            [Cell Vars]
+                            [Constants]
+                                '∙  '
+                            [Disassembly]
+                                0       BUILD_LIST                      0
+                                2       LOAD_FAST                       0: .0
+                                4       FOR_ITER                        6 (to 18)
+                                6       STORE_FAST                      1: line
+                                8       LOAD_CONST                      0: '∙  '
+                                10      LOAD_FAST                       1: line
+                                12      BINARY_ADD                      
+                                14      LIST_APPEND                     2
+                                16      JUMP_ABSOLUTE                   2 (to 4)
+                                18      RETURN_VALUE                    
+                        'Translate.text.<locals>.<listcomp>'
+                        '{{'
+                        '}}'
+                        'Key expansion failed: '
+                    [Disassembly]
+                        0       LOAD_FAST                       0: self
+                        2       LOAD_ATTR                       0: locale_dict
+                        4       LOAD_METHOD                     1: get
+                        6       LOAD_FAST                       1: category
+                        8       BUILD_MAP                       0
+                        10      CALL_METHOD                     2
+                        12      LOAD_METHOD                     1: get
+                        14      LOAD_FAST                       2: sub_category
+                        16      BUILD_MAP                       0
+                        18      CALL_METHOD                     2
+                        20      LOAD_METHOD                     1: get
+                        22      LOAD_FAST                       3: key
+                        24      LOAD_CONST                      1: ''
+                        26      CALL_METHOD                     2
+                        28      STORE_FAST                      5: msg
+                        30      LOAD_GLOBAL                     2: isinstance
+                        32      LOAD_FAST                       5: msg
+                        34      LOAD_GLOBAL                     3: list
+                        36      CALL_FUNCTION                   2
+                        38      POP_JUMP_IF_FALSE               30 (to 60)
+                        40      LOAD_CONST                      2: '\n'
+                        42      LOAD_METHOD                     4: join
+                        44      LOAD_CONST                      3: <CODE> <listcomp>
+                        46      LOAD_CONST                      4: 'Translate.text.<locals>.<listcomp>'
+                        48      MAKE_FUNCTION                   0
+                        50      LOAD_FAST                       5: msg
+                        52      GET_ITER                        
+                        54      CALL_FUNCTION                   1
+                        56      CALL_METHOD                     1
+                        58      STORE_FAST                      5: msg
+                        60      LOAD_FAST                       4: keys_to_be_replaced
+                        62      POP_JUMP_IF_FALSE               51 (to 102)
+                        64      LOAD_FAST                       4: keys_to_be_replaced
+                        66      GET_ITER                        
+                        68      FOR_ITER                        16 (to 102)
+                        70      STORE_FAST                      3: key
+                        72      LOAD_FAST                       5: msg
+                        74      LOAD_METHOD                     5: replace
+                        76      LOAD_CONST                      5: '{{'
+                        78      LOAD_FAST                       3: key
+                        80      BINARY_ADD                      
+                        82      LOAD_CONST                      6: '}}'
+                        84      BINARY_ADD                      
+                        86      LOAD_FAST                       4: keys_to_be_replaced
+                        88      LOAD_METHOD                     1: get
+                        90      LOAD_FAST                       3: key
+                        92      LOAD_CONST                      1: ''
+                        94      CALL_METHOD                     2
+                        96      CALL_METHOD                     2
+                        98      STORE_FAST                      5: msg
+                        100     JUMP_ABSOLUTE                   34 (to 68)
+                        102     LOAD_CONST                      5: '{{'
+                        104     LOAD_FAST                       5: msg
+                        106     CONTAINS_OP                     0 (in)
+                        108     POP_JUMP_IF_TRUE                59 (to 118)
+                        110     LOAD_CONST                      6: '}}'
+                        112     LOAD_FAST                       5: msg
+                        114     CONTAINS_OP                     0 (in)
+                        116     POP_JUMP_IF_FALSE               67 (to 134)
+                        118     LOAD_GLOBAL                     6: logging
+                        120     LOAD_METHOD                     7: error
+                        122     LOAD_CONST                      7: 'Key expansion failed: '
+                        124     LOAD_FAST                       5: msg
+                        126     FORMAT_VALUE                    0 (FVC_NONE)
+                        128     BUILD_STRING                    2
+                        130     CALL_METHOD                     1
+                        132     POP_TOP                         
+                        134     LOAD_FAST                       5: msg
+                        136     RETURN_VALUE                    
+                'Translate.text'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: 'Translate'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: <CODE> __init__
+                10      LOAD_CONST                      2: 'Translate.__init__'
+                12      MAKE_FUNCTION                   0
+                14      STORE_NAME                      3: __init__
+                16      LOAD_CONST                      3: <CODE> get_lang
+                18      LOAD_CONST                      4: 'Translate.get_lang'
+                20      MAKE_FUNCTION                   0
+                22      STORE_NAME                      4: get_lang
+                24      BUILD_LIST                      0
+                26      BUILD_TUPLE                     1
+                28      LOAD_CONST                      5: <CODE> text
+                30      LOAD_CONST                      6: 'Translate.text'
+                32      MAKE_FUNCTION                   1
+                34      STORE_NAME                      5: text
+                36      LOAD_CONST                      7: None
+                38      RETURN_VALUE                    
+        'Translate'
+        '__main__'
+        'install'
+        'success'
+        'title'
+        'APP_NAME'
+        'GeForce NOW'
+    [Disassembly]
+        0       LOAD_CONST                      0: 0
+        2       LOAD_CONST                      1: None
+        4       IMPORT_NAME                     0: os
+        6       STORE_NAME                      0: os
+        8       LOAD_CONST                      0: 0
+        10      LOAD_CONST                      1: None
+        12      IMPORT_NAME                     1: sys
+        14      STORE_NAME                      1: sys
+        16      LOAD_CONST                      0: 0
+        18      LOAD_CONST                      1: None
+        20      IMPORT_NAME                     2: json
+        22      STORE_NAME                      2: json
+        24      LOAD_CONST                      0: 0
+        26      LOAD_CONST                      1: None
+        28      IMPORT_NAME                     3: locale
+        30      STORE_NAME                      3: locale
+        32      LOAD_CONST                      0: 0
+        34      LOAD_CONST                      1: None
+        36      IMPORT_NAME                     4: logging
+        38      STORE_NAME                      4: logging
+        40      LOAD_CONST                      2: 'en_US'
+        42      STORE_NAME                      5: NV_DEFAULT_LOCALE
+        44      LOAD_BUILD_CLASS                
+        46      LOAD_CONST                      3: <CODE> Translate
+        48      LOAD_CONST                      4: 'Translate'
+        50      MAKE_FUNCTION                   0
+        52      LOAD_CONST                      4: 'Translate'
+        54      CALL_FUNCTION                   2
+        56      STORE_NAME                      6: Translate
+        58      LOAD_NAME                       7: __name__
+        60      LOAD_CONST                      5: '__main__'
+        62      COMPARE_OP                      2 (==)
+        64      POP_JUMP_IF_FALSE               48 (to 96)
+        66      LOAD_NAME                       8: print
+        68      LOAD_NAME                       6: Translate
+        70      CALL_FUNCTION                   0
+        72      LOAD_METHOD                     9: text
+        74      LOAD_CONST                      6: 'install'
+        76      LOAD_CONST                      7: 'success'
+        78      LOAD_CONST                      8: 'title'
+        80      LOAD_CONST                      9: 'APP_NAME'
+        82      LOAD_CONST                      10: 'GeForce NOW'
+        84      BUILD_MAP                       1
+        86      CALL_METHOD                     4
+        88      CALL_FUNCTION                   1
+        90      POP_TOP                         
+        92      LOAD_CONST                      1: None
+        94      RETURN_VALUE                    
+        96      LOAD_CONST                      1: None
+        98      RETURN_VALUE                    

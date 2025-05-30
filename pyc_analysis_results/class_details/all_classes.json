@@ -1,0 +1,2248 @@
+{
+  "zipfile": [],
+  "shutil": [],
+  "tempfile": [],
+  "translate": [
+    {
+      "name": "Translate",
+      "parents": "",
+      "methods": []
+    }
+  ],
+  "dis": [
+    {
+      "name": "Instruction",
+      "parents": "_Instruction",
+      "methods": []
+    },
+    {
+      "name": "Bytecode",
+      "parents": "",
+      "methods": []
+    }
+  ],
+  "token": [],
+  "signal": [],
+  "opcode": [],
+  "fnmatch": [],
+  ".py": [
+    {
+      "name": "AddrlistClass",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "AddressList",
+      "parents": "AddrlistClass",
+      "methods": []
+    }
+  ],
+  "decimal": [],
+  "contextvars": [],
+  "random": [],
+  "threading": [],
+  "platform": [],
+  "glob": [],
+  "quopri": [],
+  "install": [
+    {
+      "name": "Style",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "UI",
+      "parents": "",
+      "methods": []
+    }
+  ],
+  "tarfile": [],
+  "stringprep": [],
+  "socket": [],
+  "datetime": [],
+  "tokenize": [],
+  "constants": [],
+  "decoder": [],
+  "scanner": [],
+  "encoder": [],
+  "machinery": [],
+  "abc": [],
+  "policy": [],
+  "parser": [
+    {
+      "name": "Parser",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "HeaderParser",
+      "parents": "Parser",
+      "methods": []
+    },
+    {
+      "name": "BytesParser",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "BytesHeaderParser",
+      "parents": "BytesParser",
+      "methods": []
+    }
+  ],
+  "utils": [],
+  "charset": [],
+  "iterators": [],
+  "feedparser": [
+    {
+      "name": "BufferedSubFile",
+      "parents": "object",
+      "methods": []
+    },
+    {
+      "name": "FeedParser",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "BytesFeedParser",
+      "parents": "FeedParser",
+      "methods": []
+    }
+  ],
+  "base64mime": [],
+  "hashlib": [],
+  "lzma": [
+    {
+      "name": "LZMAFile",
+      "parents": "_compression.BaseStream",
+      "methods": []
+    }
+  ],
+  "csv": [
+    {
+      "name": "Dialect",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "excel",
+      "parents": "Dialect",
+      "methods": []
+    },
+    {
+      "name": "excel_tab",
+      "parents": "excel",
+      "methods": []
+    },
+    {
+      "name": "unix_dialect",
+      "parents": "Dialect",
+      "methods": []
+    },
+    {
+      "name": "DictReader",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "DictWriter",
+      "parents": "",
+      "methods": []
+    }
+  ],
+  "numbers": [
+    {
+      "name": "Complex",
+      "parents": "Number",
+      "methods": []
+    },
+    {
+      "name": "Real",
+      "parents": "Complex",
+      "methods": []
+    },
+    {
+      "name": "Rational",
+      "parents": "Real",
+      "methods": []
+    },
+    {
+      "name": "Integral",
+      "parents": "Rational",
+      "methods": []
+    }
+  ],
+  "argparse": [],
+  "_compression": [
+    {
+      "name": "BaseStream",
+      "parents": "io.BufferedIOBase",
+      "methods": []
+    },
+    {
+      "name": "DecompressReader",
+      "parents": "io.RawIOBase",
+      "methods": []
+    }
+  ],
+  "copy": [
+    {
+      "name": "Error",
+      "parents": "Exception",
+      "methods": []
+    }
+  ],
+  "fractions": [
+    {
+      "name": "Fraction",
+      "parents": "numbers.Rational",
+      "methods": [
+        {
+          "name": "__add__",
+          "args": "self, other"
+        },
+        {
+          "name": "__radd__",
+          "args": "self, other"
+        },
+        {
+          "name": "forward",
+          "args": "a = None, b = None"
+        },
+        {
+          "name": "reverse",
+          "args": "b = None, a = None"
+        }
+      ]
+    }
+  ],
+  "inspect": [],
+  "typing": [
+    {
+      "name": "_Final",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "_Immutable",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "Starship",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "Connection",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "FastConnector",
+      "parents": "Connection",
+      "methods": []
+    }
+  ],
+  "webbrowser": [
+    {
+      "name": "Error",
+      "parents": "Exception",
+      "methods": [
+        {
+          "name": "__init__",
+          "args": "self, name"
+        },
+        {
+          "name": "__init__",
+          "args": "self, name"
+        }
+      ]
+    },
+    {
+      "name": "BaseBrowser",
+      "parents": "object",
+      "methods": [
+        {
+          "name": "__init__",
+          "args": "self, name"
+        },
+        {
+          "name": "__init__",
+          "args": "self, name"
+        }
+      ]
+    },
+    {
+      "name": "GenericBrowser",
+      "parents": "BaseBrowser",
+      "methods": [
+        {
+          "name": "__init__",
+          "args": "self, name"
+        },
+        {
+          "name": "__init__",
+          "args": "self, name"
+        }
+      ]
+    },
+    {
+      "name": "BackgroundBrowser",
+      "parents": "GenericBrowser",
+      "methods": [
+        {
+          "name": "__init__",
+          "args": "self, name"
+        },
+        {
+          "name": "__init__",
+          "args": "self, name"
+        }
+      ]
+    },
+    {
+      "name": "UnixBrowser",
+      "parents": "BaseBrowser",
+      "methods": [
+        {
+          "name": "__init__",
+          "args": "self, name"
+        },
+        {
+          "name": "__init__",
+          "args": "self, name"
+        }
+      ]
+    },
+    {
+      "name": "Mozilla",
+      "parents": "UnixBrowser",
+      "methods": [
+        {
+          "name": "__init__",
+          "args": "self, name"
+        },
+        {
+          "name": "__init__",
+          "args": "self, name"
+        }
+      ]
+    },
+    {
+      "name": "Netscape",
+      "parents": "UnixBrowser",
+      "methods": [
+        {
+          "name": "__init__",
+          "args": "self, name"
+        },
+        {
+          "name": "__init__",
+          "args": "self, name"
+        }
+      ]
+    },
+    {
+      "name": "Galeon",
+      "parents": "UnixBrowser",
+      "methods": [
+        {
+          "name": "__init__",
+          "args": "self, name"
+        },
+        {
+          "name": "__init__",
+          "args": "self, name"
+        }
+      ]
+    },
+    {
+      "name": "Chrome",
+      "parents": "UnixBrowser",
+      "methods": [
+        {
+          "name": "__init__",
+          "args": "self, name"
+        },
+        {
+          "name": "__init__",
+          "args": "self, name"
+        }
+      ]
+    },
+    {
+      "name": "Opera",
+      "parents": "UnixBrowser",
+      "methods": [
+        {
+          "name": "__init__",
+          "args": "self, name"
+        },
+        {
+          "name": "__init__",
+          "args": "self, name"
+        }
+      ]
+    },
+    {
+      "name": "Elinks",
+      "parents": "UnixBrowser",
+      "methods": [
+        {
+          "name": "__init__",
+          "args": "self, name"
+        },
+        {
+          "name": "__init__",
+          "args": "self, name"
+        }
+      ]
+    },
+    {
+      "name": "Konqueror",
+      "parents": "BaseBrowser",
+      "methods": [
+        {
+          "name": "__init__",
+          "args": "self, name"
+        },
+        {
+          "name": "__init__",
+          "args": "self, name"
+        }
+      ]
+    },
+    {
+      "name": "Grail",
+      "parents": "BaseBrowser",
+      "methods": [
+        {
+          "name": "__init__",
+          "args": "self, name"
+        },
+        {
+          "name": "__init__",
+          "args": "self, name"
+        }
+      ]
+    },
+    {
+      "name": "WindowsDefault",
+      "parents": "BaseBrowser",
+      "methods": []
+    },
+    {
+      "name": "MacOSX",
+      "parents": "BaseBrowser",
+      "methods": []
+    },
+    {
+      "name": "MacOSXOSAScript",
+      "parents": "BaseBrowser",
+      "methods": []
+    }
+  ],
+  "_compat_pickle": [],
+  "textwrap": [
+    {
+      "name": "TextWrapper",
+      "parents": "",
+      "methods": [
+        {
+          "name": "predicate",
+          "args": "line"
+        }
+      ]
+    }
+  ],
+  "pprint": [
+    {
+      "name": "_safe_key",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "PrettyPrinter",
+      "parents": "",
+      "methods": []
+    }
+  ],
+  "ipaddress": [
+    {
+      "name": "AddressValueError",
+      "parents": "ValueError",
+      "methods": []
+    },
+    {
+      "name": "NetmaskValueError",
+      "parents": "ValueError",
+      "methods": []
+    },
+    {
+      "name": "_IPAddressBase",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "_BaseV4",
+      "parents": "",
+      "methods": []
+    }
+  ],
+  "base64": [],
+  "bisect": [],
+  "statistics": [
+    {
+      "name": "StatisticsError",
+      "parents": "ValueError",
+      "methods": []
+    }
+  ],
+  "getopt": [],
+  "_strptime": [
+    {
+      "name": "LocaleTime",
+      "parents": "object",
+      "methods": []
+    },
+    {
+      "name": "TimeRE",
+      "parents": "dict",
+      "methods": []
+    }
+  ],
+  "calendar": [
+    {
+      "name": "IllegalMonthError",
+      "parents": "ValueError",
+      "methods": []
+    },
+    {
+      "name": "IllegalWeekdayError",
+      "parents": "ValueError",
+      "methods": []
+    },
+    {
+      "name": "_localized_month",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "_localized_day",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "Calendar",
+      "parents": "object",
+      "methods": []
+    },
+    {
+      "name": "TextCalendar",
+      "parents": "Calendar",
+      "methods": []
+    },
+    {
+      "name": "HTMLCalendar",
+      "parents": "Calendar",
+      "methods": []
+    },
+    {
+      "name": "different_locale",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "LocaleTextCalendar",
+      "parents": "TextCalendar",
+      "methods": []
+    },
+    {
+      "name": "LocaleHTMLCalendar",
+      "parents": "HTMLCalendar",
+      "methods": []
+    }
+  ],
+  "subprocess": [],
+  "shlex": [
+    {
+      "name": "shlex",
+      "parents": "",
+      "methods": []
+    }
+  ],
+  "pickle": [],
+  "gzip": [
+    {
+      "name": "_PaddedFile",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "BadGzipFile",
+      "parents": "OSError",
+      "methods": []
+    },
+    {
+      "name": "GzipFile",
+      "parents": "_compression.BaseStream",
+      "methods": []
+    },
+    {
+      "name": "_GzipReader",
+      "parents": "_compression.DecompressReader",
+      "methods": []
+    }
+  ],
+  "_threading_local": [
+    {
+      "name": "_localimpl",
+      "parents": "",
+      "methods": [
+        {
+          "name": "local_deleted",
+          "args": "_ = None, key = None"
+        },
+        {
+          "name": "thread_deleted",
+          "args": "_ = None, idt = None"
+        }
+      ]
+    },
+    {
+      "name": "local",
+      "parents": "",
+      "methods": []
+    }
+  ],
+  "pathlib": [
+    {
+      "name": "_Flavour",
+      "parents": "object",
+      "methods": [
+        {
+          "name": "link",
+          "args": "self, src, dst"
+        },
+        {
+          "name": "readlink",
+          "args": "self, path"
+        },
+        {
+          "name": "check_eloop",
+          "args": "e"
+        }
+      ]
+    },
+    {
+      "name": "_WindowsFlavour",
+      "parents": "_Flavour",
+      "methods": [
+        {
+          "name": "link",
+          "args": "self, src, dst"
+        },
+        {
+          "name": "readlink",
+          "args": "self, path"
+        },
+        {
+          "name": "check_eloop",
+          "args": "e"
+        }
+      ]
+    },
+    {
+      "name": "_PosixFlavour",
+      "parents": "_Flavour",
+      "methods": [
+        {
+          "name": "link",
+          "args": "self, src, dst"
+        },
+        {
+          "name": "readlink",
+          "args": "self, path"
+        },
+        {
+          "name": "check_eloop",
+          "args": "e"
+        }
+      ]
+    },
+    {
+      "name": "_Accessor",
+      "parents": "",
+      "methods": [
+        {
+          "name": "link",
+          "args": "self, src, dst"
+        },
+        {
+          "name": "readlink",
+          "args": "self, path"
+        },
+        {
+          "name": "check_eloop",
+          "args": "e"
+        }
+      ]
+    },
+    {
+      "name": "_NormalAccessor",
+      "parents": "_Accessor",
+      "methods": [
+        {
+          "name": "link",
+          "args": "self, src, dst"
+        },
+        {
+          "name": "readlink",
+          "args": "self, path"
+        },
+        {
+          "name": "check_eloop",
+          "args": "e"
+        }
+      ]
+    },
+    {
+      "name": "_Selector",
+      "parents": "",
+      "methods": [
+        {
+          "name": "check_eloop",
+          "args": "e"
+        }
+      ]
+    },
+    {
+      "name": "_TerminatingSelector",
+      "parents": "",
+      "methods": [
+        {
+          "name": "check_eloop",
+          "args": "e"
+        }
+      ]
+    },
+    {
+      "name": "_PreciseSelector",
+      "parents": "_Selector",
+      "methods": [
+        {
+          "name": "check_eloop",
+          "args": "e"
+        }
+      ]
+    },
+    {
+      "name": "_WildcardSelector",
+      "parents": "_Selector",
+      "methods": [
+        {
+          "name": "check_eloop",
+          "args": "e"
+        }
+      ]
+    },
+    {
+      "name": "_RecursiveWildcardSelector",
+      "parents": "_Selector",
+      "methods": [
+        {
+          "name": "check_eloop",
+          "args": "e"
+        }
+      ]
+    },
+    {
+      "name": "_PathParents",
+      "parents": "Sequence",
+      "methods": [
+        {
+          "name": "check_eloop",
+          "args": "e"
+        }
+      ]
+    },
+    {
+      "name": "PurePath",
+      "parents": "object",
+      "methods": [
+        {
+          "name": "check_eloop",
+          "args": "e"
+        }
+      ]
+    },
+    {
+      "name": "PurePosixPath",
+      "parents": "PurePath",
+      "methods": [
+        {
+          "name": "check_eloop",
+          "args": "e"
+        }
+      ]
+    },
+    {
+      "name": "PureWindowsPath",
+      "parents": "PurePath",
+      "methods": [
+        {
+          "name": "check_eloop",
+          "args": "e"
+        }
+      ]
+    },
+    {
+      "name": "Path",
+      "parents": "PurePath",
+      "methods": [
+        {
+          "name": "check_eloop",
+          "args": "e"
+        }
+      ]
+    }
+  ],
+  "_py_abc": [
+    {
+      "name": "ABCMeta",
+      "parents": "type",
+      "methods": []
+    }
+  ],
+  "contextlib": [
+    {
+      "name": "AbstractContextManager",
+      "parents": "abc.ABC",
+      "methods": [
+        {
+          "name": "inner",
+          "args": "*args, **kwds"
+        },
+        {
+          "name": "some_generator",
+          "args": "<arguments>"
+        },
+        {
+          "name": "_exit_wrapper",
+          "args": "exc_type = None, exc = None, tb = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "AbstractAsyncContextManager",
+      "parents": "abc.ABC",
+      "methods": [
+        {
+          "name": "inner",
+          "args": "*args, **kwds"
+        },
+        {
+          "name": "some_generator",
+          "args": "<arguments>"
+        },
+        {
+          "name": "_exit_wrapper",
+          "args": "exc_type = None, exc = None, tb = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "ContextDecorator",
+      "parents": "object",
+      "methods": [
+        {
+          "name": "inner",
+          "args": "*args, **kwds"
+        },
+        {
+          "name": "some_generator",
+          "args": "<arguments>"
+        },
+        {
+          "name": "_exit_wrapper",
+          "args": "exc_type = None, exc = None, tb = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "AsyncContextDecorator",
+      "parents": "object",
+      "methods": [
+        {
+          "name": "some_generator",
+          "args": "<arguments>"
+        },
+        {
+          "name": "_exit_wrapper",
+          "args": "exc_type = None, exc = None, tb = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "_GeneratorContextManagerBase",
+      "parents": "",
+      "methods": [
+        {
+          "name": "some_generator",
+          "args": "<arguments>"
+        },
+        {
+          "name": "_exit_wrapper",
+          "args": "exc_type = None, exc = None, tb = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "_GeneratorContextManager",
+      "parents": "ContextDecorator, AbstractContextManager, _GeneratorContextManagerBase",
+      "methods": [
+        {
+          "name": "some_generator",
+          "args": "<arguments>"
+        },
+        {
+          "name": "_exit_wrapper",
+          "args": "exc_type = None, exc = None, tb = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "_AsyncGeneratorContextManager",
+      "parents": "AsyncContextDecorator, AbstractAsyncContextManager, _GeneratorContextManagerBase",
+      "methods": [
+        {
+          "name": "some_generator",
+          "args": "<arguments>"
+        },
+        {
+          "name": "_exit_wrapper",
+          "args": "exc_type = None, exc = None, tb = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "closing",
+      "parents": "AbstractContextManager",
+      "methods": [
+        {
+          "name": "_exit_wrapper",
+          "args": "exc_type = None, exc = None, tb = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "aclosing",
+      "parents": "AbstractAsyncContextManager",
+      "methods": [
+        {
+          "name": "_exit_wrapper",
+          "args": "exc_type = None, exc = None, tb = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "_RedirectStream",
+      "parents": "AbstractContextManager",
+      "methods": [
+        {
+          "name": "_exit_wrapper",
+          "args": "exc_type = None, exc = None, tb = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "redirect_stdout",
+      "parents": "_RedirectStream",
+      "methods": [
+        {
+          "name": "_exit_wrapper",
+          "args": "exc_type = None, exc = None, tb = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "redirect_stderr",
+      "parents": "_RedirectStream",
+      "methods": [
+        {
+          "name": "_exit_wrapper",
+          "args": "exc_type = None, exc = None, tb = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "suppress",
+      "parents": "AbstractContextManager",
+      "methods": [
+        {
+          "name": "_exit_wrapper",
+          "args": "exc_type = None, exc = None, tb = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "_BaseExitStack",
+      "parents": "",
+      "methods": [
+        {
+          "name": "_exit_wrapper",
+          "args": "exc_type = None, exc = None, tb = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "ExitStack",
+      "parents": "AbstractContextManager, _BaseExitStack",
+      "methods": [
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        },
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "AsyncExitStack",
+      "parents": "AbstractAsyncContextManager, _BaseExitStack",
+      "methods": [
+        {
+          "name": "_fix_exception_context",
+          "args": "new_exc = None, old_exc = None"
+        }
+      ]
+    },
+    {
+      "name": "nullcontext",
+      "parents": "AbstractAsyncContextManager, AbstractContextManager",
+      "methods": []
+    }
+  ],
+  "uu": [
+    {
+      "name": "Error",
+      "parents": "Exception",
+      "methods": []
+    }
+  ],
+  "py_compile": [
+    {
+      "name": "PyCompileError",
+      "parents": "Exception",
+      "methods": []
+    },
+    {
+      "name": "PycInvalidationMode",
+      "parents": "enum.Enum",
+      "methods": []
+    }
+  ],
+  "string": [
+    {
+      "name": "Template",
+      "parents": "",
+      "methods": [
+        {
+          "name": "convert",
+          "args": "mo = None"
+        },
+        {
+          "name": "convert",
+          "args": "mo = None"
+        }
+      ]
+    },
+    {
+      "name": "Formatter",
+      "parents": "",
+      "methods": []
+    }
+  ],
+  "dataclasses": [
+    {
+      "name": "FrozenInstanceError",
+      "parents": "AttributeError",
+      "methods": []
+    },
+    {
+      "name": "_HAS_DEFAULT_FACTORY_CLASS",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "_MISSING_TYPE",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "_KW_ONLY_TYPE",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "_FIELD_BASE",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "InitVar",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "Field",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "_DataclassParams",
+      "parents": "",
+      "methods": []
+    }
+  ],
+  "gettext": [],
+  "optparse": [],
+  "ast": [],
+  "bz2": [
+    {
+      "name": "BZ2File",
+      "parents": "_compression.BaseStream",
+      "methods": []
+    }
+  ],
+  "_pydecimal": [],
+  "tracemalloc": [
+    {
+      "name": "Statistic",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "StatisticDiff",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "Trace",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "_Traces",
+      "parents": "Sequence",
+      "methods": []
+    },
+    {
+      "name": "BaseFilter",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "Filter",
+      "parents": "BaseFilter",
+      "methods": []
+    },
+    {
+      "name": "DomainFilter",
+      "parents": "BaseFilter",
+      "methods": []
+    },
+    {
+      "name": "Snapshot",
+      "parents": "",
+      "methods": []
+    }
+  ],
+  "selectors": [
+    {
+      "name": "_SelectorMapping",
+      "parents": "Mapping",
+      "methods": []
+    }
+  ],
+  "parse": [
+    {
+      "name": "_ResultMixinStr",
+      "parents": "object",
+      "methods": []
+    },
+    {
+      "name": "_ResultMixinBytes",
+      "parents": "object",
+      "methods": []
+    },
+    {
+      "name": "_NetlocResultMixinBase",
+      "parents": "object",
+      "methods": []
+    },
+    {
+      "name": "_NetlocResultMixinStr",
+      "parents": "_ResultMixinStr, _NetlocResultMixinBase",
+      "methods": []
+    },
+    {
+      "name": "_NetlocResultMixinBytes",
+      "parents": "_ResultMixinBytes, _NetlocResultMixinBase",
+      "methods": []
+    },
+    {
+      "name": "DefragResult",
+      "parents": "_ResultMixinStr, _DefragResultBase",
+      "methods": []
+    },
+    {
+      "name": "SplitResult",
+      "parents": "_NetlocResultMixinStr, _SplitResultBase",
+      "methods": []
+    },
+    {
+      "name": "ParseResult",
+      "parents": "_NetlocResultMixinStr, _ParseResultBase",
+      "methods": []
+    },
+    {
+      "name": "DefragResultBytes",
+      "parents": "_ResultMixinBytes, _DefragResultBase",
+      "methods": []
+    },
+    {
+      "name": "SplitResultBytes",
+      "parents": "_NetlocResultMixinBytes, _SplitResultBase",
+      "methods": []
+    },
+    {
+      "name": "ParseResultBytes",
+      "parents": "_NetlocResultMixinBytes, _ParseResultBase",
+      "methods": []
+    },
+    {
+      "name": "Quoter",
+      "parents": "collections.defaultdict",
+      "methods": []
+    }
+  ],
+  "__init__": [],
+  "ttk": [
+    {
+      "name": "Style",
+      "parents": "object",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Widget",
+      "parents": "tkinter.Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Button",
+      "parents": "Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Checkbutton",
+      "parents": "Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Entry",
+      "parents": "tkinter.Entry, Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Combobox",
+      "parents": "Entry",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Frame",
+      "parents": "Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Label",
+      "parents": "Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Labelframe",
+      "parents": "Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Menubutton",
+      "parents": "Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Notebook",
+      "parents": "Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Panedwindow",
+      "parents": "tkinter.PanedWindow, Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Progressbar",
+      "parents": "Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Radiobutton",
+      "parents": "Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Scale",
+      "parents": "tkinter.Scale, Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Scrollbar",
+      "parents": "tkinter.Scrollbar, Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Separator",
+      "parents": "Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Sizegrip",
+      "parents": "Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Spinbox",
+      "parents": "Entry",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "Treeview",
+      "parents": "tkinter.YView, tkinter.XView, Widget",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "LabeledScale",
+      "parents": "Frame",
+      "methods": [
+        {
+          "name": "adjust_label",
+          "args": ""
+        }
+      ]
+    },
+    {
+      "name": "OptionMenu",
+      "parents": "Menubutton",
+      "methods": []
+    }
+  ],
+  "readers": [
+    {
+      "name": "FileReader",
+      "parents": "abc.TraversableResources",
+      "methods": []
+    },
+    {
+      "name": "ZipReader",
+      "parents": "abc.TraversableResources",
+      "methods": []
+    },
+    {
+      "name": "MultiplexedPath",
+      "parents": "abc.Traversable",
+      "methods": []
+    },
+    {
+      "name": "NamespaceReader",
+      "parents": "abc.TraversableResources",
+      "methods": []
+    }
+  ],
+  "util": [],
+  "_bootstrap_external": [],
+  "_abc": [],
+  "_bootstrap": [
+    {
+      "name": "_DeadlockError",
+      "parents": "RuntimeError",
+      "methods": []
+    },
+    {
+      "name": "_ModuleLock",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "_DummyModuleLock",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "_ModuleLockManager",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "ModuleSpec",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "BuiltinImporter",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "FrozenImporter",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "_ImportLockContext",
+      "parents": "",
+      "methods": []
+    }
+  ],
+  "_text": [
+    {
+      "name": "FoldedCase",
+      "parents": "str",
+      "methods": []
+    }
+  ],
+  "_meta": [
+    {
+      "name": "PackageMetadata",
+      "parents": "Protocol",
+      "methods": []
+    },
+    {
+      "name": "SimplePath",
+      "parents": "Protocol",
+      "methods": []
+    }
+  ],
+  "_collections": [
+    {
+      "name": "FreezableDefaultDict",
+      "parents": "collections.defaultdict",
+      "methods": []
+    }
+  ],
+  "_adapters": [
+    {
+      "name": "Message",
+      "parents": "email.message.Message",
+      "methods": [
+        {
+          "name": "redent",
+          "args": "value"
+        },
+        {
+          "name": "transform",
+          "args": "key = None"
+        }
+      ]
+    }
+  ],
+  "_itertools": [],
+  "_functools": [],
+  "contentmanager": [
+    {
+      "name": "ContentManager",
+      "parents": "",
+      "methods": []
+    }
+  ],
+  "_header_value_parser": [
+    {
+      "name": "TokenList",
+      "parents": "list",
+      "methods": []
+    },
+    {
+      "name": "WhiteSpaceTokenList",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "UnstructuredTokenList",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "Phrase",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "Word",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "CFWSList",
+      "parents": "WhiteSpaceTokenList",
+      "methods": []
+    },
+    {
+      "name": "Atom",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "Token",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "EncodedWord",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "QuotedString",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "BareQuotedString",
+      "parents": "QuotedString",
+      "methods": []
+    },
+    {
+      "name": "Comment",
+      "parents": "WhiteSpaceTokenList",
+      "methods": []
+    },
+    {
+      "name": "AddressList",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "Address",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "MailboxList",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "GroupList",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "Group",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "NameAddr",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "AngleAddr",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "ObsRoute",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "Mailbox",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "InvalidMailbox",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "Domain",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "DotAtom",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "DotAtomText",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "NoFoldLiteral",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "AddrSpec",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "ObsLocalPart",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "DisplayName",
+      "parents": "Phrase",
+      "methods": []
+    },
+    {
+      "name": "LocalPart",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "DomainLiteral",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "MIMEVersion",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "Parameter",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "InvalidParameter",
+      "parents": "Parameter",
+      "methods": []
+    },
+    {
+      "name": "Attribute",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "Section",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "Value",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "MimeParameters",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "ParameterizedHeaderValue",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "ContentType",
+      "parents": "ParameterizedHeaderValue",
+      "methods": []
+    },
+    {
+      "name": "ContentDisposition",
+      "parents": "ParameterizedHeaderValue",
+      "methods": []
+    },
+    {
+      "name": "ContentTransferEncoding",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "HeaderLabel",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "MsgID",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "MessageID",
+      "parents": "MsgID",
+      "methods": []
+    },
+    {
+      "name": "InvalidMessageID",
+      "parents": "MessageID",
+      "methods": []
+    },
+    {
+      "name": "Header",
+      "parents": "TokenList",
+      "methods": []
+    },
+    {
+      "name": "Terminal",
+      "parents": "str",
+      "methods": []
+    },
+    {
+      "name": "WhiteSpaceTerminal",
+      "parents": "Terminal",
+      "methods": []
+    },
+    {
+      "name": "ValueTerminal",
+      "parents": "Terminal",
+      "methods": []
+    },
+    {
+      "name": "EWWhiteSpaceTerminal",
+      "parents": "WhiteSpaceTerminal",
+      "methods": []
+    },
+    {
+      "name": "_InvalidEwError",
+      "parents": "errors.HeaderParseError",
+      "methods": []
+    }
+  ],
+  "headerregistry": [
+    {
+      "name": "Address",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "Group",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "BaseHeader",
+      "parents": "str",
+      "methods": []
+    },
+    {
+      "name": "UnstructuredHeader",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "UniqueUnstructuredHeader",
+      "parents": "UnstructuredHeader",
+      "methods": []
+    },
+    {
+      "name": "DateHeader",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "UniqueDateHeader",
+      "parents": "DateHeader",
+      "methods": []
+    },
+    {
+      "name": "AddressHeader",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "UniqueAddressHeader",
+      "parents": "AddressHeader",
+      "methods": []
+    },
+    {
+      "name": "SingleAddressHeader",
+      "parents": "AddressHeader",
+      "methods": []
+    },
+    {
+      "name": "UniqueSingleAddressHeader",
+      "parents": "SingleAddressHeader",
+      "methods": []
+    },
+    {
+      "name": "MIMEVersionHeader",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "ParameterizedMIMEHeader",
+      "parents": "",
+      "methods": []
+    }
+  ],
+  "header": [
+    {
+      "name": "Header",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "_ValueFormatter",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "_Accumulator",
+      "parents": "list",
+      "methods": []
+    }
+  ],
+  "_policybase": [
+    {
+      "name": "_PolicyBase",
+      "parents": "",
+      "methods": []
+    }
+  ],
+  "encoders": [],
+  "message": [],
+  "_parseaddr": [
+    {
+      "name": "AddrlistClass",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "AddressList",
+      "parents": "AddrlistClass",
+      "methods": []
+    }
+  ],
+  "generator": [
+    {
+      "name": "Generator",
+      "parents": "",
+      "methods": []
+    },
+    {
+      "name": "BytesGenerator",
+      "parents": "Generator",
+      "methods": []
+    },
+    {
+      "name": "DecodedGenerator",
+      "parents": "Generator",
+      "methods": []
+    }
+  ],
+  "errors": [
+    {
+      "name": "MessageError",
+      "parents": "Exception",
+      "methods": []
+    },
+    {
+      "name": "MessageParseError",
+      "parents": "MessageError",
+      "methods": []
+    },
+    {
+      "name": "HeaderParseError",
+      "parents": "MessageParseError",
+      "methods": []
+    },
+    {
+      "name": "BoundaryError",
+      "parents": "MessageParseError",
+      "methods": []
+    },
+    {
+      "name": "MultipartConversionError",
+      "parents": "TypeError, MessageError",
+      "methods": []
+    },
+    {
+      "name": "CharsetError",
+      "parents": "MessageError",
+      "methods": []
+    },
+    {
+      "name": "HeaderWriteError",
+      "parents": "MessageError",
+      "methods": []
+    },
+    {
+      "name": "MessageDefect",
+      "parents": "ValueError",
+      "methods": []
+    },
+    {
+      "name": "NoBoundaryInMultipartDefect",
+      "parents": "MessageDefect",
+      "methods": []
+    },
+    {
+      "name": "StartBoundaryNotFoundDefect",
+      "parents": "MessageDefect",
+      "methods": []
+    },
+    {
+      "name": "CloseBoundaryNotFoundDefect",
+      "parents": "MessageDefect",
+      "methods": []
+    },
+    {
+      "name": "FirstHeaderLineIsContinuationDefect",
+      "parents": "MessageDefect",
+      "methods": []
+    },
+    {
+      "name": "MisplacedEnvelopeHeaderDefect",
+      "parents": "MessageDefect",
+      "methods": []
+    },
+    {
+      "name": "MissingHeaderBodySeparatorDefect",
+      "parents": "MessageDefect",
+      "methods": []
+    },
+    {
+      "name": "MultipartInvariantViolationDefect",
+      "parents": "MessageDefect",
+      "methods": []
+    },
+    {
+      "name": "InvalidMultipartContentTransferEncodingDefect",
+      "parents": "MessageDefect",
+      "methods": []
+    },
+    {
+      "name": "UndecodableBytesDefect",
+      "parents": "MessageDefect",
+      "methods": []
+    },
+    {
+      "name": "InvalidBase64PaddingDefect",
+      "parents": "MessageDefect",
+      "methods": []
+    },
+    {
+      "name": "InvalidBase64CharactersDefect",
+      "parents": "MessageDefect",
+      "methods": []
+    },
+    {
+      "name": "InvalidBase64LengthDefect",
+      "parents": "MessageDefect",
+      "methods": []
+    },
+    {
+      "name": "HeaderDefect",
+      "parents": "MessageDefect",
+      "methods": []
+    },
+    {
+      "name": "InvalidHeaderDefect",
+      "parents": "HeaderDefect",
+      "methods": []
+    },
+    {
+      "name": "HeaderMissingRequiredValue",
+      "parents": "HeaderDefect",
+      "methods": []
+    },
+    {
+      "name": "NonPrintableDefect",
+      "parents": "HeaderDefect",
+      "methods": []
+    },
+    {
+      "name": "ObsoleteHeaderDefect",
+      "parents": "HeaderDefect",
+      "methods": []
+    },
+    {
+      "name": "NonASCIILocalPartDefect",
+      "parents": "HeaderDefect",
+      "methods": []
+    },
+    {
+      "name": "InvalidDateDefect",
+      "parents": "HeaderDefect",
+      "methods": []
+    }
+  ],
+  "_encoded_words": [
+    {
+      "name": "_QByteMap",
+      "parents": "dict",
+      "methods": []
+    }
+  ],
+  "quoprimime": [],
+  "vdict": [
+    {
+      "name": "_kView",
+      "parents": "_c.KeysView",
+      "methods": [
+        {
+          "name": "dict_recurse",
+          "args": "obj = None"
+        }
+      ]
+    },
+    {
+      "name": "_vView",
+      "parents": "_c.ValuesView",
+      "methods": [
+        {
+          "name": "dict_recurse",
+          "args": "obj = None"
+        }
+      ]
+    },
+    {
+      "name": "_iView",
+      "parents": "_c.ItemsView",
+      "methods": [
+        {
+          "name": "dict_recurse",
+          "args": "obj = None"
+        }
+      ]
+    },
+    {
+      "name": "VDFDict",
+      "parents": "dict",
+      "methods": []
+    }
+  ]
+}

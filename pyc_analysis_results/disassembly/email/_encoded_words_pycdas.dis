@@ -1,0 +1,974 @@
+_encoded_words.pyc (Python 3.10)
+[Code]
+    File Name: email/_encoded_words.py
+    Object Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Locals: 0
+    Stack Size: 5
+    Flags: 0x00000040 (CO_NOFREE)
+    [Names]
+        '__doc__'
+        're'
+        'base64'
+        'binascii'
+        'functools'
+        'string'
+        'ascii_letters'
+        'digits'
+        'email'
+        'errors'
+        '__all__'
+        'partial'
+        'compile'
+        'sub'
+        '_q_byte_subber'
+        'decode_q'
+        'dict'
+        '_QByteMap'
+        '_q_byte_map'
+        'ord'
+        'encode_q'
+        'len_q'
+        'decode_b'
+        'encode_b'
+        'len_b'
+        '_cte_decoders'
+        'decode'
+        '_cte_encoders'
+        '_cte_encode_length'
+        'encode'
+    [Var Names]
+    [Free Vars]
+    [Cell Vars]
+    [Constants]
+        ' Routines for manipulating RFC2047 encoded words.\n\nThis is currently a package-private API, but will be considered for promotion\nto a public API if there is demand.\n\n'
+        0
+        None
+        (
+            'ascii_letters'
+            'digits'
+        )
+        (
+            'errors'
+        )
+        (
+            'decode_q'
+            'encode_q'
+            'decode_b'
+            'encode_b'
+            'len_q'
+            'len_b'
+            'decode'
+            'encode'
+        )
+        b'=([a-fA-F0-9]{2})'
+        [Code]
+            File Name: email/_encoded_words.py
+            Object Name: <lambda>
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 5
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'bytes'
+                'fromhex'
+                'group'
+                'decode'
+            [Var Names]
+                'm'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                1
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: bytes
+                2       LOAD_METHOD                     1: fromhex
+                4       LOAD_FAST                       0: m
+                6       LOAD_METHOD                     2: group
+                8       LOAD_CONST                      1: 1
+                10      CALL_METHOD                     1
+                12      LOAD_METHOD                     3: decode
+                14      CALL_METHOD                     0
+                16      CALL_METHOD                     1
+                18      RETURN_VALUE                    
+        '<lambda>'
+        [Code]
+            File Name: email/_encoded_words.py
+            Object Name: decode_q
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'replace'
+                '_q_byte_subber'
+            [Var Names]
+                'encoded'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                b'_'
+                b' '
+            [Disassembly]
+                0       LOAD_FAST                       0: encoded
+                2       LOAD_METHOD                     0: replace
+                4       LOAD_CONST                      1: b'_'
+                6       LOAD_CONST                      2: b' '
+                8       CALL_METHOD                     2
+                10      STORE_FAST                      0: encoded
+                12      LOAD_GLOBAL                     1: _q_byte_subber
+                14      LOAD_FAST                       0: encoded
+                16      CALL_FUNCTION                   1
+                18      BUILD_LIST                      0
+                20      BUILD_TUPLE                     2
+                22      RETURN_VALUE                    
+        'decode_q'
+        [Code]
+            File Name: email/_encoded_words.py
+            Object Name: _QByteMap
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 0
+            Stack Size: 4
+            Flags: 0x00000040 (CO_NOFREE)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                'ascii_letters'
+                'encode'
+                'digits'
+                'safe'
+                '__missing__'
+            [Var Names]
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                '_QByteMap'
+                b'-!*+/'
+                'ascii'
+                [Code]
+                    File Name: email/_encoded_words.py
+                    Object Name: __missing__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+                    [Names]
+                        'safe'
+                        'chr'
+                        'format'
+                    [Var Names]
+                        'self'
+                        'key'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                        '={:02X}'
+                    [Disassembly]
+                        0       LOAD_FAST                       1: key
+                        2       LOAD_FAST                       0: self
+                        4       LOAD_ATTR                       0: safe
+                        6       CONTAINS_OP                     0 (in)
+                        8       POP_JUMP_IF_FALSE               15 (to 30)
+                        10      LOAD_GLOBAL                     1: chr
+                        12      LOAD_FAST                       1: key
+                        14      CALL_FUNCTION                   1
+                        16      LOAD_FAST                       0: self
+                        18      LOAD_FAST                       1: key
+                        20      STORE_SUBSCR                    
+                        22      LOAD_FAST                       0: self
+                        24      LOAD_FAST                       1: key
+                        26      BINARY_SUBSCR                   
+                        28      RETURN_VALUE                    
+                        30      LOAD_CONST                      1: '={:02X}'
+                        32      LOAD_METHOD                     2: format
+                        34      LOAD_FAST                       1: key
+                        36      CALL_METHOD                     1
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_FAST                       1: key
+                        42      STORE_SUBSCR                    
+                        44      LOAD_FAST                       0: self
+                        46      LOAD_FAST                       1: key
+                        48      BINARY_SUBSCR                   
+                        50      RETURN_VALUE                    
+                '_QByteMap.__missing__'
+                None
+            [Disassembly]
+                0       LOAD_NAME                       0: __name__
+                2       STORE_NAME                      1: __module__
+                4       LOAD_CONST                      0: '_QByteMap'
+                6       STORE_NAME                      2: __qualname__
+                8       LOAD_CONST                      1: b'-!*+/'
+                10      LOAD_NAME                       3: ascii_letters
+                12      LOAD_METHOD                     4: encode
+                14      LOAD_CONST                      2: 'ascii'
+                16      CALL_METHOD                     1
+                18      BINARY_ADD                      
+                20      LOAD_NAME                       5: digits
+                22      LOAD_METHOD                     4: encode
+                24      LOAD_CONST                      2: 'ascii'
+                26      CALL_METHOD                     1
+                28      BINARY_ADD                      
+                30      STORE_NAME                      6: safe
+                32      LOAD_CONST                      3: <CODE> __missing__
+                34      LOAD_CONST                      4: '_QByteMap.__missing__'
+                36      MAKE_FUNCTION                   0
+                38      STORE_NAME                      7: __missing__
+                40      LOAD_CONST                      5: None
+                42      RETURN_VALUE                    
+        '_QByteMap'
+        '_'
+        ' '
+        [Code]
+            File Name: email/_encoded_words.py
+            Object Name: encode_q
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 4
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'join'
+            [Var Names]
+                'bstring'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                ''
+                [Code]
+                    File Name: email/_encoded_words.py
+                    Object Name: <genexpr>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 3
+                    Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                    [Names]
+                        '_q_byte_map'
+                    [Var Names]
+                        '.0'
+                        'x'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        7 (to 20)
+                        6       STORE_FAST                      1: x
+                        8       LOAD_GLOBAL                     0: _q_byte_map
+                        10      LOAD_FAST                       1: x
+                        12      BINARY_SUBSCR                   
+                        14      YIELD_VALUE                     
+                        16      POP_TOP                         
+                        18      JUMP_ABSOLUTE                   2 (to 4)
+                        20      LOAD_CONST                      0: None
+                        22      RETURN_VALUE                    
+                'encode_q.<locals>.<genexpr>'
+            [Disassembly]
+                0       LOAD_CONST                      1: ''
+                2       LOAD_METHOD                     0: join
+                4       LOAD_CONST                      2: <CODE> <genexpr>
+                6       LOAD_CONST                      3: 'encode_q.<locals>.<genexpr>'
+                8       MAKE_FUNCTION                   0
+                10      LOAD_FAST                       0: bstring
+                12      GET_ITER                        
+                14      CALL_FUNCTION                   1
+                16      CALL_METHOD                     1
+                18      RETURN_VALUE                    
+        'encode_q'
+        [Code]
+            File Name: email/_encoded_words.py
+            Object Name: len_q
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'sum'
+            [Var Names]
+                'bstring'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                [Code]
+                    File Name: email/_encoded_words.py
+                    Object Name: <genexpr>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Locals: 2
+                    Stack Size: 4
+                    Flags: 0x00000073 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR | CO_NOFREE)
+                    [Names]
+                        'len'
+                        '_q_byte_map'
+                    [Var Names]
+                        '.0'
+                        'x'
+                    [Free Vars]
+                    [Cell Vars]
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       GEN_START                       0
+                        2       LOAD_FAST                       0: .0
+                        4       FOR_ITER                        9 (to 24)
+                        6       STORE_FAST                      1: x
+                        8       LOAD_GLOBAL                     0: len
+                        10      LOAD_GLOBAL                     1: _q_byte_map
+                        12      LOAD_FAST                       1: x
+                        14      BINARY_SUBSCR                   
+                        16      CALL_FUNCTION                   1
+                        18      YIELD_VALUE                     
+                        20      POP_TOP                         
+                        22      JUMP_ABSOLUTE                   2 (to 4)
+                        24      LOAD_CONST                      0: None
+                        26      RETURN_VALUE                    
+                'len_q.<locals>.<genexpr>'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: sum
+                2       LOAD_CONST                      1: <CODE> <genexpr>
+                4       LOAD_CONST                      2: 'len_q.<locals>.<genexpr>'
+                6       MAKE_FUNCTION                   0
+                8       LOAD_FAST                       0: bstring
+                10      GET_ITER                        
+                12      CALL_FUNCTION                   1
+                14      CALL_FUNCTION                   1
+                16      RETURN_VALUE                    
+        'len_q'
+        [Code]
+            File Name: email/_encoded_words.py
+            Object Name: decode_b
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 14
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'len'
+                'base64'
+                'b64decode'
+                'errors'
+                'InvalidBase64PaddingDefect'
+                'binascii'
+                'Error'
+                'InvalidBase64CharactersDefect'
+                'InvalidBase64LengthDefect'
+            [Var Names]
+                'encoded'
+                'pad_err'
+                'missing_padding'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                4
+                b'==='
+                b''
+                True
+                (
+                    'validate'
+                )
+                False
+                b'=='
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: len
+                2       LOAD_FAST                       0: encoded
+                4       CALL_FUNCTION                   1
+                6       LOAD_CONST                      1: 4
+                8       BINARY_MODULO                   
+                10      STORE_FAST                      1: pad_err
+                12      LOAD_FAST                       1: pad_err
+                14      POP_JUMP_IF_FALSE               16 (to 32)
+                16      LOAD_CONST                      2: b'==='
+                18      LOAD_CONST                      0: None
+                20      LOAD_CONST                      1: 4
+                22      LOAD_FAST                       1: pad_err
+                24      BINARY_SUBTRACT                 
+                26      BUILD_SLICE                     2
+                28      BINARY_SUBSCR                   
+                30      JUMP_FORWARD                    1 (to 34)
+                32      LOAD_CONST                      3: b''
+                34      STORE_FAST                      2: missing_padding
+                36      SETUP_FINALLY                   21 (to 80)
+                38      LOAD_GLOBAL                     1: base64
+                40      LOAD_ATTR                       2: b64decode
+                42      LOAD_FAST                       0: encoded
+                44      LOAD_FAST                       2: missing_padding
+                46      BINARY_ADD                      
+                48      LOAD_CONST                      4: True
+                50      LOAD_CONST                      5: ('validate',)
+                52      CALL_FUNCTION_KW                2
+                54      LOAD_FAST                       1: pad_err
+                56      POP_JUMP_IF_FALSE               36 (to 72)
+                58      LOAD_GLOBAL                     3: errors
+                60      LOAD_METHOD                     4: InvalidBase64PaddingDefect
+                62      CALL_METHOD                     0
+                64      BUILD_LIST                      1
+                66      BUILD_TUPLE                     2
+                68      POP_BLOCK                       
+                70      RETURN_VALUE                    
+                72      BUILD_LIST                      0
+                74      BUILD_TUPLE                     2
+                76      POP_BLOCK                       
+                78      RETURN_VALUE                    
+                80      DUP_TOP                         
+                82      LOAD_GLOBAL                     5: binascii
+                84      LOAD_ATTR                       6: Error
+                86      JUMP_IF_NOT_EXC_MATCH           115 (to 230)
+                88      POP_TOP                         
+                90      POP_TOP                         
+                92      POP_TOP                         
+                94      SETUP_FINALLY                   15 (to 126)
+                96      LOAD_GLOBAL                     1: base64
+                98      LOAD_ATTR                       2: b64decode
+                100     LOAD_FAST                       0: encoded
+                102     LOAD_CONST                      6: False
+                104     LOAD_CONST                      5: ('validate',)
+                106     CALL_FUNCTION_KW                2
+                108     LOAD_GLOBAL                     3: errors
+                110     LOAD_METHOD                     7: InvalidBase64CharactersDefect
+                112     CALL_METHOD                     0
+                114     BUILD_LIST                      1
+                116     BUILD_TUPLE                     2
+                118     POP_BLOCK                       
+                120     ROT_FOUR                        
+                122     POP_EXCEPT                      
+                124     RETURN_VALUE                    
+                126     DUP_TOP                         
+                128     LOAD_GLOBAL                     5: binascii
+                130     LOAD_ATTR                       6: Error
+                132     JUMP_IF_NOT_EXC_MATCH           114 (to 228)
+                134     POP_TOP                         
+                136     POP_TOP                         
+                138     POP_TOP                         
+                140     SETUP_FINALLY                   22 (to 186)
+                142     LOAD_GLOBAL                     1: base64
+                144     LOAD_ATTR                       2: b64decode
+                146     LOAD_FAST                       0: encoded
+                148     LOAD_CONST                      7: b'=='
+                150     BINARY_ADD                      
+                152     LOAD_CONST                      6: False
+                154     LOAD_CONST                      5: ('validate',)
+                156     CALL_FUNCTION_KW                2
+                158     LOAD_GLOBAL                     3: errors
+                160     LOAD_METHOD                     7: InvalidBase64CharactersDefect
+                162     CALL_METHOD                     0
+                164     LOAD_GLOBAL                     3: errors
+                166     LOAD_METHOD                     4: InvalidBase64PaddingDefect
+                168     CALL_METHOD                     0
+                170     BUILD_LIST                      2
+                172     BUILD_TUPLE                     2
+                174     POP_BLOCK                       
+                176     ROT_FOUR                        
+                178     POP_EXCEPT                      
+                180     ROT_FOUR                        
+                182     POP_EXCEPT                      
+                184     RETURN_VALUE                    
+                186     DUP_TOP                         
+                188     LOAD_GLOBAL                     5: binascii
+                190     LOAD_ATTR                       6: Error
+                192     JUMP_IF_NOT_EXC_MATCH           113 (to 226)
+                194     POP_TOP                         
+                196     POP_TOP                         
+                198     POP_TOP                         
+                200     LOAD_FAST                       0: encoded
+                202     LOAD_GLOBAL                     3: errors
+                204     LOAD_METHOD                     8: InvalidBase64LengthDefect
+                206     CALL_METHOD                     0
+                208     BUILD_LIST                      1
+                210     BUILD_TUPLE                     2
+                212     ROT_FOUR                        
+                214     POP_EXCEPT                      
+                216     ROT_FOUR                        
+                218     POP_EXCEPT                      
+                220     ROT_FOUR                        
+                222     POP_EXCEPT                      
+                224     RETURN_VALUE                    
+                226     RERAISE                         0
+                228     RERAISE                         0
+                230     RERAISE                         0
+        'decode_b'
+        [Code]
+            File Name: email/_encoded_words.py
+            Object Name: encode_b
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 1
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'base64'
+                'b64encode'
+                'decode'
+            [Var Names]
+                'bstring'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                'ascii'
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: base64
+                2       LOAD_METHOD                     1: b64encode
+                4       LOAD_FAST                       0: bstring
+                6       CALL_METHOD                     1
+                8       LOAD_METHOD                     2: decode
+                10      LOAD_CONST                      1: 'ascii'
+                12      CALL_METHOD                     1
+                14      RETURN_VALUE                    
+        'encode_b'
+        [Code]
+            File Name: email/_encoded_words.py
+            Object Name: len_b
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 3
+            Stack Size: 3
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'divmod'
+                'len'
+            [Var Names]
+                'bstring'
+                'groups_of_3'
+                'leftover'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                None
+                3
+                4
+                0
+            [Disassembly]
+                0       LOAD_GLOBAL                     0: divmod
+                2       LOAD_GLOBAL                     1: len
+                4       LOAD_FAST                       0: bstring
+                6       CALL_FUNCTION                   1
+                8       LOAD_CONST                      1: 3
+                10      CALL_FUNCTION                   2
+                12      UNPACK_SEQUENCE                 2
+                14      STORE_FAST                      1: groups_of_3
+                16      STORE_FAST                      2: leftover
+                18      LOAD_FAST                       1: groups_of_3
+                20      LOAD_CONST                      2: 4
+                22      BINARY_MULTIPLY                 
+                24      LOAD_FAST                       2: leftover
+                26      POP_JUMP_IF_FALSE               17 (to 34)
+                28      LOAD_CONST                      2: 4
+                30      BINARY_ADD                      
+                32      RETURN_VALUE                    
+                34      LOAD_CONST                      3: 0
+                36      BINARY_ADD                      
+                38      RETURN_VALUE                    
+        'len_b'
+        (
+            'q'
+            'b'
+        )
+        [Code]
+            File Name: email/_encoded_words.py
+            Object Name: decode
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 9
+            Stack Size: 10
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'split'
+                'partition'
+                'lower'
+                'encode'
+                '_cte_decoders'
+                'decode'
+                'UnicodeDecodeError'
+                'append'
+                'errors'
+                'UndecodableBytesDefect'
+                'LookupError'
+                'UnicodeEncodeError'
+                'CharsetError'
+            [Var Names]
+                'ew'
+                '_'
+                'charset'
+                'cte'
+                'cte_string'
+                'lang'
+                'bstring'
+                'defects'
+                'string'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Decode encoded word and return (string, charset, lang, defects) tuple.\n\n    An RFC 2047/2243 encoded word has the form:\n\n        =?charset*lang?cte?encoded_string?=\n\n    where '*lang' may be omitted but the other parts may not be.\n\n    This function expects exactly such a string (that is, it does not check the\n    syntax and may raise errors if the string is not well formed), and returns\n    the encoded_string decoded first from its Content Transfer Encoding and\n    then from the resulting bytes into unicode using the specified charset.  If\n    the cte-decoded string does not successfully decode using the specified\n    character set, a defect is added to the defects list and the unknown octets\n    are replaced by the unicode 'unknown' character \\uFDFF.\n\n    The specified charset and language are returned.  The default for language,\n    which is rarely if ever encountered, is the empty string.\n\n    "
+                '?'
+                '*'
+                'ascii'
+                'surrogateescape'
+                'Encoded word contains bytes not decodable using '
+                ' charset'
+                'unknown-8bit'
+                'Unknown charset '
+                ' in encoded word; decoded as unknown bytes'
+            [Disassembly]
+                0       LOAD_FAST                       0: ew
+                2       LOAD_METHOD                     0: split
+                4       LOAD_CONST                      1: '?'
+                6       CALL_METHOD                     1
+                8       UNPACK_SEQUENCE                 5
+                10      STORE_FAST                      1: _
+                12      STORE_FAST                      2: charset
+                14      STORE_FAST                      3: cte
+                16      STORE_FAST                      4: cte_string
+                18      STORE_FAST                      1: _
+                20      LOAD_FAST                       2: charset
+                22      LOAD_METHOD                     1: partition
+                24      LOAD_CONST                      2: '*'
+                26      CALL_METHOD                     1
+                28      UNPACK_SEQUENCE                 3
+                30      STORE_FAST                      2: charset
+                32      STORE_FAST                      1: _
+                34      STORE_FAST                      5: lang
+                36      LOAD_FAST                       3: cte
+                38      LOAD_METHOD                     2: lower
+                40      CALL_METHOD                     0
+                42      STORE_FAST                      3: cte
+                44      LOAD_FAST                       4: cte_string
+                46      LOAD_METHOD                     3: encode
+                48      LOAD_CONST                      3: 'ascii'
+                50      LOAD_CONST                      4: 'surrogateescape'
+                52      CALL_METHOD                     2
+                54      STORE_FAST                      6: bstring
+                56      LOAD_GLOBAL                     4: _cte_decoders
+                58      LOAD_FAST                       3: cte
+                60      BINARY_SUBSCR                   
+                62      LOAD_FAST                       6: bstring
+                64      CALL_FUNCTION                   1
+                66      UNPACK_SEQUENCE                 2
+                68      STORE_FAST                      6: bstring
+                70      STORE_FAST                      7: defects
+                72      SETUP_FINALLY                   7 (to 88)
+                74      LOAD_FAST                       6: bstring
+                76      LOAD_METHOD                     5: decode
+                78      LOAD_FAST                       2: charset
+                80      CALL_METHOD                     1
+                82      STORE_FAST                      8: string
+                84      POP_BLOCK                       
+                86      JUMP_FORWARD                    61 (to 210)
+                88      DUP_TOP                         
+                90      LOAD_GLOBAL                     6: UnicodeDecodeError
+                92      JUMP_IF_NOT_EXC_MATCH           70 (to 140)
+                94      POP_TOP                         
+                96      POP_TOP                         
+                98      POP_TOP                         
+                100     LOAD_FAST                       7: defects
+                102     LOAD_METHOD                     7: append
+                104     LOAD_GLOBAL                     8: errors
+                106     LOAD_METHOD                     9: UndecodableBytesDefect
+                108     LOAD_CONST                      5: 'Encoded word contains bytes not decodable using '
+                110     LOAD_FAST                       2: charset
+                112     FORMAT_VALUE                    2 (FVC_REPR)
+                114     LOAD_CONST                      6: ' charset'
+                116     BUILD_STRING                    3
+                118     CALL_METHOD                     1
+                120     CALL_METHOD                     1
+                122     POP_TOP                         
+                124     LOAD_FAST                       6: bstring
+                126     LOAD_METHOD                     5: decode
+                128     LOAD_FAST                       2: charset
+                130     LOAD_CONST                      4: 'surrogateescape'
+                132     CALL_METHOD                     2
+                134     STORE_FAST                      8: string
+                136     POP_EXCEPT                      
+                138     JUMP_FORWARD                    35 (to 210)
+                140     DUP_TOP                         
+                142     LOAD_GLOBAL                     10: LookupError
+                144     LOAD_GLOBAL                     11: UnicodeEncodeError
+                146     BUILD_TUPLE                     2
+                148     JUMP_IF_NOT_EXC_MATCH           104 (to 208)
+                150     POP_TOP                         
+                152     POP_TOP                         
+                154     POP_TOP                         
+                156     LOAD_FAST                       6: bstring
+                158     LOAD_METHOD                     5: decode
+                160     LOAD_CONST                      3: 'ascii'
+                162     LOAD_CONST                      4: 'surrogateescape'
+                164     CALL_METHOD                     2
+                166     STORE_FAST                      8: string
+                168     LOAD_FAST                       2: charset
+                170     LOAD_METHOD                     2: lower
+                172     CALL_METHOD                     0
+                174     LOAD_CONST                      7: 'unknown-8bit'
+                176     COMPARE_OP                      3 (!=)
+                178     POP_JUMP_IF_FALSE               102 (to 204)
+                180     LOAD_FAST                       7: defects
+                182     LOAD_METHOD                     7: append
+                184     LOAD_GLOBAL                     8: errors
+                186     LOAD_METHOD                     12: CharsetError
+                188     LOAD_CONST                      8: 'Unknown charset '
+                190     LOAD_FAST                       2: charset
+                192     FORMAT_VALUE                    2 (FVC_REPR)
+                194     LOAD_CONST                      9: ' in encoded word; decoded as unknown bytes'
+                196     BUILD_STRING                    3
+                198     CALL_METHOD                     1
+                200     CALL_METHOD                     1
+                202     POP_TOP                         
+                204     POP_EXCEPT                      
+                206     JUMP_FORWARD                    1 (to 210)
+                208     RERAISE                         0
+                210     LOAD_FAST                       8: string
+                212     LOAD_FAST                       2: charset
+                214     LOAD_FAST                       5: lang
+                216     LOAD_FAST                       7: defects
+                218     BUILD_TUPLE                     4
+                220     RETURN_VALUE                    
+        'decode'
+        'utf-8'
+        ''
+        [Code]
+            File Name: email/_encoded_words.py
+            Object Name: encode
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Locals: 8
+            Stack Size: 6
+            Flags: 0x00000043 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)
+            [Names]
+                'encode'
+                '_cte_encode_length'
+                '_cte_encoders'
+                'format'
+            [Var Names]
+                'string'
+                'charset'
+                'encoding'
+                'lang'
+                'bstring'
+                'qlen'
+                'blen'
+                'encoded'
+            [Free Vars]
+            [Cell Vars]
+            [Constants]
+                "Encode string using the CTE encoding that produces the shorter result.\n\n    Produces an RFC 2047/2243 encoded word of the form:\n\n        =?charset*lang?cte?encoded_string?=\n\n    where '*lang' is omitted unless the 'lang' parameter is given a value.\n    Optional argument charset (defaults to utf-8) specifies the charset to use\n    to encode the string to binary before CTE encoding it.  Optional argument\n    'encoding' is the cte specifier for the encoding that should be used ('q'\n    or 'b'); if it is None (the default) the encoding which produces the\n    shortest encoded sequence is used, except that 'q' is preferred if it is up\n    to five characters longer.  Optional argument 'lang' (default '') gives the\n    RFC 2243 language string to specify in the encoded word.\n\n    "
+                'unknown-8bit'
+                'ascii'
+                'surrogateescape'
+                None
+                'q'
+                'b'
+                5
+                '*'
+                '=?{}{}?{}?{}?='
+            [Disassembly]
+                0       LOAD_FAST                       1: charset
+                2       LOAD_CONST                      1: 'unknown-8bit'
+                4       COMPARE_OP                      2 (==)
+                6       POP_JUMP_IF_FALSE               11 (to 22)
+                8       LOAD_FAST                       0: string
+                10      LOAD_METHOD                     0: encode
+                12      LOAD_CONST                      2: 'ascii'
+                14      LOAD_CONST                      3: 'surrogateescape'
+                16      CALL_METHOD                     2
+                18      STORE_FAST                      4: bstring
+                20      JUMP_FORWARD                    5 (to 32)
+                22      LOAD_FAST                       0: string
+                24      LOAD_METHOD                     0: encode
+                26      LOAD_FAST                       1: charset
+                28      CALL_METHOD                     1
+                30      STORE_FAST                      4: bstring
+                32      LOAD_FAST                       2: encoding
+                34      LOAD_CONST                      4: None
+                36      IS_OP                           0 (is)
+                38      POP_JUMP_IF_FALSE               42 (to 84)
+                40      LOAD_GLOBAL                     1: _cte_encode_length
+                42      LOAD_CONST                      5: 'q'
+                44      BINARY_SUBSCR                   
+                46      LOAD_FAST                       4: bstring
+                48      CALL_FUNCTION                   1
+                50      STORE_FAST                      5: qlen
+                52      LOAD_GLOBAL                     1: _cte_encode_length
+                54      LOAD_CONST                      6: 'b'
+                56      BINARY_SUBSCR                   
+                58      LOAD_FAST                       4: bstring
+                60      CALL_FUNCTION                   1
+                62      STORE_FAST                      6: blen
+                64      LOAD_FAST                       5: qlen
+                66      LOAD_FAST                       6: blen
+                68      BINARY_SUBTRACT                 
+                70      LOAD_CONST                      7: 5
+                72      COMPARE_OP                      0 (<)
+                74      POP_JUMP_IF_FALSE               40 (to 80)
+                76      LOAD_CONST                      5: 'q'
+                78      JUMP_FORWARD                    1 (to 82)
+                80      LOAD_CONST                      6: 'b'
+                82      STORE_FAST                      2: encoding
+                84      LOAD_GLOBAL                     2: _cte_encoders
+                86      LOAD_FAST                       2: encoding
+                88      BINARY_SUBSCR                   
+                90      LOAD_FAST                       4: bstring
+                92      CALL_FUNCTION                   1
+                94      STORE_FAST                      7: encoded
+                96      LOAD_FAST                       3: lang
+                98      POP_JUMP_IF_FALSE               54 (to 108)
+                100     LOAD_CONST                      8: '*'
+                102     LOAD_FAST                       3: lang
+                104     BINARY_ADD                      
+                106     STORE_FAST                      3: lang
+                108     LOAD_CONST                      9: '=?{}{}?{}?{}?='
+                110     LOAD_METHOD                     3: format
+                112     LOAD_FAST                       1: charset
+                114     LOAD_FAST                       3: lang
+                116     LOAD_FAST                       2: encoding
+                118     LOAD_FAST                       7: encoded
+                120     CALL_METHOD                     4
+                122     RETURN_VALUE                    
+        'encode'
+        (
+            'utf-8'
+            None
+            ''
+        )
+    [Disassembly]
+        0       LOAD_CONST                      0: ' Routines for manipulating RFC2047 encoded words.\n\nThis is currently a package-private API, but will be considered for promotion\nto a public API if there is demand.\n\n'
+        2       STORE_NAME                      0: __doc__
+        4       LOAD_CONST                      1: 0
+        6       LOAD_CONST                      2: None
+        8       IMPORT_NAME                     1: re
+        10      STORE_NAME                      1: re
+        12      LOAD_CONST                      1: 0
+        14      LOAD_CONST                      2: None
+        16      IMPORT_NAME                     2: base64
+        18      STORE_NAME                      2: base64
+        20      LOAD_CONST                      1: 0
+        22      LOAD_CONST                      2: None
+        24      IMPORT_NAME                     3: binascii
+        26      STORE_NAME                      3: binascii
+        28      LOAD_CONST                      1: 0
+        30      LOAD_CONST                      2: None
+        32      IMPORT_NAME                     4: functools
+        34      STORE_NAME                      4: functools
+        36      LOAD_CONST                      1: 0
+        38      LOAD_CONST                      3: ('ascii_letters', 'digits')
+        40      IMPORT_NAME                     5: string
+        42      IMPORT_FROM                     6: ascii_letters
+        44      STORE_NAME                      6: ascii_letters
+        46      IMPORT_FROM                     7: digits
+        48      STORE_NAME                      7: digits
+        50      POP_TOP                         
+        52      LOAD_CONST                      1: 0
+        54      LOAD_CONST                      4: ('errors',)
+        56      IMPORT_NAME                     8: email
+        58      IMPORT_FROM                     9: errors
+        60      STORE_NAME                      9: errors
+        62      POP_TOP                         
+        64      BUILD_LIST                      0
+        66      LOAD_CONST                      5: ('decode_q', 'encode_q', 'decode_b', 'encode_b', 'len_q', 'len_b', 'decode', 'encode')
+        68      LIST_EXTEND                     1
+        70      STORE_NAME                      10: __all__
+        72      LOAD_NAME                       4: functools
+        74      LOAD_METHOD                     11: partial
+        76      LOAD_NAME                       1: re
+        78      LOAD_METHOD                     12: compile
+        80      LOAD_CONST                      6: b'=([a-fA-F0-9]{2})'
+        82      CALL_METHOD                     1
+        84      LOAD_ATTR                       13: sub
+        86      LOAD_CONST                      7: <CODE> <lambda>
+        88      LOAD_CONST                      8: '<lambda>'
+        90      MAKE_FUNCTION                   0
+        92      CALL_METHOD                     2
+        94      STORE_NAME                      14: _q_byte_subber
+        96      LOAD_CONST                      9: <CODE> decode_q
+        98      LOAD_CONST                      10: 'decode_q'
+        100     MAKE_FUNCTION                   0
+        102     STORE_NAME                      15: decode_q
+        104     LOAD_BUILD_CLASS                
+        106     LOAD_CONST                      11: <CODE> _QByteMap
+        108     LOAD_CONST                      12: '_QByteMap'
+        110     MAKE_FUNCTION                   0
+        112     LOAD_CONST                      12: '_QByteMap'
+        114     LOAD_NAME                       16: dict
+        116     CALL_FUNCTION                   3
+        118     STORE_NAME                      17: _QByteMap
+        120     LOAD_NAME                       17: _QByteMap
+        122     CALL_FUNCTION                   0
+        124     STORE_NAME                      18: _q_byte_map
+        126     LOAD_CONST                      13: '_'
+        128     LOAD_NAME                       18: _q_byte_map
+        130     LOAD_NAME                       19: ord
+        132     LOAD_CONST                      14: ' '
+        134     CALL_FUNCTION                   1
+        136     STORE_SUBSCR                    
+        138     LOAD_CONST                      15: <CODE> encode_q
+        140     LOAD_CONST                      16: 'encode_q'
+        142     MAKE_FUNCTION                   0
+        144     STORE_NAME                      20: encode_q
+        146     LOAD_CONST                      17: <CODE> len_q
+        148     LOAD_CONST                      18: 'len_q'
+        150     MAKE_FUNCTION                   0
+        152     STORE_NAME                      21: len_q
+        154     LOAD_CONST                      19: <CODE> decode_b
+        156     LOAD_CONST                      20: 'decode_b'
+        158     MAKE_FUNCTION                   0
+        160     STORE_NAME                      22: decode_b
+        162     LOAD_CONST                      21: <CODE> encode_b
+        164     LOAD_CONST                      22: 'encode_b'
+        166     MAKE_FUNCTION                   0
+        168     STORE_NAME                      23: encode_b
+        170     LOAD_CONST                      23: <CODE> len_b
+        172     LOAD_CONST                      24: 'len_b'
+        174     MAKE_FUNCTION                   0
+        176     STORE_NAME                      24: len_b
+        178     LOAD_NAME                       15: decode_q
+        180     LOAD_NAME                       22: decode_b
+        182     LOAD_CONST                      25: ('q', 'b')
+        184     BUILD_CONST_KEY_MAP             2
+        186     STORE_NAME                      25: _cte_decoders
+        188     LOAD_CONST                      26: <CODE> decode
+        190     LOAD_CONST                      27: 'decode'
+        192     MAKE_FUNCTION                   0
+        194     STORE_NAME                      26: decode
+        196     LOAD_NAME                       20: encode_q
+        198     LOAD_NAME                       23: encode_b
+        200     LOAD_CONST                      25: ('q', 'b')
+        202     BUILD_CONST_KEY_MAP             2
+        204     STORE_NAME                      27: _cte_encoders
+        206     LOAD_NAME                       21: len_q
+        208     LOAD_NAME                       24: len_b
+        210     LOAD_CONST                      25: ('q', 'b')
+        212     BUILD_CONST_KEY_MAP             2
+        214     STORE_NAME                      28: _cte_encode_length
+        216     LOAD_CONST                      32: ('utf-8', None, '')
+        218     LOAD_CONST                      30: <CODE> encode
+        220     LOAD_CONST                      31: 'encode'
+        222     MAKE_FUNCTION                   1
+        224     STORE_NAME                      29: encode
+        226     LOAD_CONST                      2: None
+        228     RETURN_VALUE                    
